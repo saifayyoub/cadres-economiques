@@ -1,0 +1,3553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>بنك الأسئلة التفاعلي — القانون رقم 07.00 القاضي بإحداث الأكاديميات الجهوية للتربية والتكوين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@100..900&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --secondary-container: #e3ede9;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --error-container: #f8e6e6;
+      --on-error: #f7f4ec;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Semantic */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Fonts (Arabic first + Charter Latin pairing) */
+      --font-headline: 'Amiri', 'Libre Caslon Text', serif;
+      --font-body: 'Noto Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'Inter', sans-serif;
+
+      /* Shape (Charter squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-band-border: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+      --band-kicker: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+      --band-lede: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      --band-border-subtle: color-mix(in srgb, var(--on-primary) 24%, var(--primary));
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.35rem + 1.2vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.02rem);
+      --label-size: 0.78rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Title Band (Charter Treatment 1 & 2) */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
+      border-bottom: var(--brass-band-border);
+    }
+
+    .title-band-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-lg);
+      align-items: end;
+    }
+
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--band-kicker);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.2;
+      margin: 0 0 var(--space-sm);
+      color: var(--on-primary);
+    }
+
+    .title-band .lede {
+      color: var(--band-lede);
+      margin: 0;
+      max-width: 65ch;
+      font-size: var(--body-size);
+    }
+
+    .mode-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: flex-start;
+    }
+
+    .mode-btn {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 1px solid var(--band-border-subtle);
+      background-color: transparent;
+      color: var(--on-primary);
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .mode-btn:hover {
+      background-color: color-mix(in srgb, var(--on-primary) 12%, var(--primary));
+    }
+
+    .mode-btn.active {
+      background-color: var(--surface-container-low);
+      color: var(--primary);
+      border-color: var(--outline);
+      font-weight: 700;
+    }
+
+    .mode-btn:focus-visible {
+      outline-color: var(--on-primary);
+    }
+
+    /* Main Page Grid */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1220px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .page-grid * { min-width: 0; }
+
+    /* KPI Figure Cards (Charter Treatment 3 & 4) */
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.65rem, 1.35rem + 0.8vw, 2.15rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+
+    .figure-delta {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    .figure-delta.positive { color: var(--positive); }
+    .figure-delta.negative { color: var(--error); }
+
+    /* Section Head (Charter Treatment 5) */
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .section-subtitle {
+      margin: var(--space-xs) 0 0;
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+    }
+
+    /* Filter Toolbar */
+    .filter-panel {
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: var(--brass-rule);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .filter-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .field-group label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .control-input,
+    .control-select {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      transition: border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .control-select {
+      padding-left: var(--space-xl);
+    }
+
+    .control-input:focus,
+    .control-select:focus {
+      border-color: var(--primary);
+      outline: 2px solid var(--focus);
+      outline-offset: 1px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-content: space-between;
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Charter Buttons */
+    .btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: var(--label-size);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--primary) 85%, var(--on-surface));
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+
+    .btn-subtle {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+    }
+
+    .btn-subtle:hover:not(:disabled) {
+      background-color: var(--surface-container-high);
+    }
+
+    .btn-danger {
+      background-color: transparent;
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    .btn-danger.armed {
+      background-color: var(--error);
+      color: var(--on-error);
+    }
+
+    /* Topic Tabs Strip */
+    .topic-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .topic-tab {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: var(--label-size);
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .topic-tab:hover {
+      background-color: var(--surface-container);
+    }
+
+    .topic-tab.active {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: inset 0 -2px 0 var(--outline);
+      font-weight: 700;
+    }
+
+    .topic-count {
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+    }
+
+    /* Asymmetric Two-Column Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .main-stage {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Question Card */
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-right: var(--hairline);
+      border-left: var(--hairline);
+      border-bottom: var(--hairline);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      animation: fadeSlide var(--dur-short) var(--ease-out);
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      color: var(--tertiary);
+      font-size: var(--label-size);
+      font-weight: 700;
+      background-color: transparent;
+    }
+
+    .stamp-tag.navy {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--primary-container);
+    }
+
+    .stamp-tag.green {
+      border-color: var(--positive);
+      color: var(--positive);
+      background-color: var(--secondary-container);
+    }
+
+    .stamp-tag.red {
+      border-color: var(--error);
+      color: var(--error);
+      background-color: var(--error-container);
+    }
+
+    .question-num {
+      font-variant-numeric: tabular-nums;
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+
+    .question-stem {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.38rem);
+      line-height: 1.55;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .option-btn {
+      width: 100%;
+      min-height: 48px;
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--background);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      text-align: start;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: center;
+      line-height: 1.5;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      box-shadow: inset 3px 0 0 var(--outline);
+    }
+
+    .option-letter {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--hairline);
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected {
+      background-color: var(--primary-container);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+
+    .option-btn.selected .option-letter {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .option-btn.correct {
+      background-color: var(--secondary-container);
+      box-shadow: inset 4px 0 0 var(--positive);
+    }
+
+    .option-btn.correct .option-letter {
+      background-color: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+
+    .option-btn.wrong {
+      background-color: var(--error-container);
+      box-shadow: inset 4px 0 0 var(--error);
+    }
+
+    .option-btn.wrong .option-letter {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    .option-status {
+      font-size: var(--label-size);
+      font-weight: 700;
+    }
+
+    /* Legal Explanation Box */
+    .rationale-box {
+      margin-top: var(--space-xs);
+      padding: var(--space-md);
+      background-color: var(--surface-container);
+      border-right: 4px solid var(--outline);
+      border-radius: var(--rounded);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .rationale-box.is-correct {
+      border-right-color: var(--positive);
+    }
+
+    .rationale-box.is-wrong {
+      border-right-color: var(--error);
+    }
+
+    .rationale-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--primary);
+    }
+
+    .rationale-text {
+      margin: 0;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.65;
+    }
+
+    /* Question Navigation Bar */
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+
+    /* Side Rail */
+    .side-rail {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .rail-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-right: var(--hairline);
+      border-left: var(--hairline);
+      border-bottom: var(--hairline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      container-type: inline-size;
+    }
+
+    .rail-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0;
+      color: var(--on-surface);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-xs);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .q-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: var(--space-xs);
+      max-height: 290px;
+      overflow-y: auto;
+      padding: var(--space-xs);
+    }
+
+    .q-cell {
+      min-height: 36px;
+      border: var(--hairline);
+      background-color: var(--background);
+      color: var(--on-surface);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .q-cell:hover {
+      background-color: var(--surface-container);
+    }
+
+    .q-cell.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+      font-weight: 700;
+    }
+
+    .q-cell.answered-ok {
+      background-color: var(--secondary-container);
+      color: var(--positive);
+      border-color: var(--positive);
+    }
+
+    .q-cell.answered-err {
+      background-color: var(--error-container);
+      color: var(--error);
+      border-color: var(--error);
+    }
+
+    .q-cell.answered-exam {
+      background-color: var(--primary-container);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Topic Progress Bars */
+    .mastery-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .mastery-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .mastery-row {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+
+    .mastery-bar-track {
+      height: 8px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+
+    .mastery-bar-fill {
+      height: 100%;
+      background-color: var(--data-1);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Exam Mode Panel */
+    .exam-banner {
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: var(--brass-rule);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .exam-controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .exam-status-strip {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--brass-rule);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .timer-readout {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      color: var(--band-kicker);
+    }
+
+    /* Legal Reference Explorer (Articles 1-15) */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .article-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-right: var(--hairline);
+      border-left: var(--hairline);
+      border-bottom: var(--hairline);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .article-card h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: var(--space-xs) 0;
+      color: var(--primary);
+    }
+
+    .article-card p, .article-card ul {
+      margin: 0;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+
+    .article-card ul {
+      padding-right: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    /* Empty State */
+    .empty-state {
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: var(--brass-rule);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    /* Summary Table (Charter Table) */
+    .summary-table-wrap {
+      overflow-x: auto;
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-top: var(--brass-rule);
+    }
+
+    table.charter-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: start;
+    }
+
+    table.charter-table th {
+      background-color: var(--surface-container-high);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+      border-bottom: var(--brass-rule);
+    }
+
+    table.charter-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      font-variant-numeric: tabular-nums;
+    }
+
+    table.charter-table tr:last-child td {
+      border-top: var(--brass-rule);
+      font-weight: 700;
+    }
+
+    /* Footer source attribution */
+    .source-footer {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .hidden { display: none !important; }
+
+    .inline-status {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--positive);
+    }
+
+    @container (max-width: 340px) {
+      .q-matrix {
+        grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .title-band-inner {
+        grid-template-columns: 1fr;
+      }
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-md);
+      }
+      .option-btn {
+        gap: var(--space-sm);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div>
+        <p class="kicker">الظهير الشريف رقم <bdi dir="ltr">1.00.203</bdi> (<bdi dir="ltr">19</bdi> ماي <bdi dir="ltr">2000</bdi>) · النصوص التشريعية للتربية والتكوين</p>
+        <h1>بنك الأسئلة التفاعلي للقانون رقم <bdi dir="ltr">07.00</bdi></h1>
+        <p class="lede">منصة تدريب واختبار شاملة تضم <bdi dir="ltr">108</bdi> أسئلة اختيار من متعدد تغطي كافة المبادئ والأبواب الأربعة والمواد الـ <bdi dir="ltr">15</bdi> لقانون إحداث الأكاديميات الجهوية للتربية والتكوين، مع تقييم فوري وتعليل قانوني مسند برقم المادة.</p>
+      </div>
+      <nav class="mode-switcher" aria-label="أوضاع التطبيق">
+        <button type="button" class="mode-btn active" id="btn-mode-practice" onclick="switchAppMode('practice')">
+          <i data-lucide="book-open-check" aria-hidden="true"></i>
+          <span>التدريب التفاعلي</span>
+        </button>
+        <button type="button" class="mode-btn" id="btn-mode-exam" onclick="switchAppMode('exam')">
+          <i data-lucide="timer" aria-hidden="true"></i>
+          <span>اختبار تجريبي موقت</span>
+        </button>
+        <button type="button" class="mode-btn" id="btn-mode-reference" onclick="switchAppMode('reference')">
+          <i data-lucide="scale" aria-hidden="true"></i>
+          <span>مرجع المواد الـ 15</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- KPI Strip -->
+    <section class="figure-grid" aria-label="ملخص الأداء">
+      <article class="figure-card">
+        <span class="figure-label">الأسئلة المطابقة للتصفية</span>
+        <span class="figure-value" id="kpi-filtered">108</span>
+        <span class="figure-delta" id="kpi-filtered-note">من أصل 108 أسئلة تغطي 15 مادة</span>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">نسبة الإنجاز الشاملة</span>
+        <span class="figure-value" id="kpi-progress">0 / 108</span>
+        <span class="figure-delta" id="kpi-progress-pct">0% منجز</span>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">معدل الدقة في الإجابات</span>
+        <span class="figure-value" id="kpi-accuracy">—</span>
+        <span class="figure-delta positive" id="kpi-correct-count">0 إجابة صحيحة</span>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">الإجابات المستوجبة للمراجعة</span>
+        <span class="figure-value" id="kpi-wrong-count">0</span>
+        <span class="figure-delta" id="kpi-save-status">جاهز للحفظ التلقائي</span>
+      </article>
+    </section>
+
+    <!-- PRACTICE MODE VIEW -->
+    <section id="view-practice" class="main-stage">
+      <div class="section-head">
+        <div>
+          <h2>التدريب المصنف حسب الأبواب والمواد</h2>
+          <p class="section-subtitle">اختر باباً أو مادة محددة للتمرن، وتُعرض النتيجة والتعليل القانوني مباشرة بعد اختيار الجواب.</p>
+        </div>
+        <span class="inline-status" id="practice-feedback-banner" aria-live="polite"></span>
+      </div>
+
+      <!-- Topic Tabs -->
+      <div class="topic-pills" id="topic-pills" role="tablist" aria-label="محاور القانون 07.00"></div>
+
+      <!-- Filters & Controls -->
+      <div class="filter-panel">
+        <div class="filter-row">
+          <div class="field-group">
+            <label for="filter-article">تصفية حسب رقم المادة (1 إلى 15)</label>
+            <select id="filter-article" class="control-select" onchange="onArticleFilterChange(this.value)">
+              <option value="all">جميع المواد (المواد 1 إلى 15)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="filter-status">تصفية حسب حالة الإجابة</label>
+            <select id="filter-status" class="control-select" onchange="onStatusFilterChange(this.value)">
+              <option value="all">جميع الأسئلة</option>
+              <option value="unanswered">الأسئلة غير المجاب عنها فقط</option>
+              <option value="wrong">الإجابات الخاطئة (للمراجعة)</option>
+              <option value="correct">الإجابات الصحيحة</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="filter-search">بحث في نص السؤال أو التعليل القانوني</label>
+            <input type="search" id="filter-search" class="control-input" placeholder="مثال: ظهير شريف، النصاب، المدارس العسكرية..." oninput="onSearchChange(this.value)">
+          </div>
+        </div>
+
+        <div class="toolbar-actions">
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" id="btn-view-mode" onclick="toggleQuestionLayout()">
+              <i data-lucide="list" aria-hidden="true"></i>
+              <span>عرض القائمة الكاملة</span>
+            </button>
+            <button type="button" class="btn btn-subtle" onclick="shuffleVisibleQuestions()">
+              <i data-lucide="shuffle" aria-hidden="true"></i>
+              <span>خلط ترتيب الأسئلة</span>
+            </button>
+            <button type="button" class="btn btn-subtle" onclick="jumpToNextUnanswered()">
+              <i data-lucide="fast-forward" aria-hidden="true"></i>
+              <span>السؤال التالي غير المجاب</span>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-subtle" onclick="exportProgressCsv()">
+              <i data-lucide="download" aria-hidden="true"></i>
+              <span>تصدير النتائج (CSV)</span>
+            </button>
+            <button type="button" class="btn btn-danger" id="btn-reset-all" onclick="handleResetClick(this)">
+              <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+              <span>إعادة تعيين التقدم</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workspace Grid -->
+      <div class="workspace-grid">
+        <div id="practice-questions-container" class="main-stage"></div>
+
+        <aside class="side-rail" aria-label="لوحة التنقل والإتقان">
+          <div class="rail-card">
+            <h3 class="rail-title">
+              <span>مصفوفة الأسئلة</span>
+              <span class="question-num" id="matrix-count-label">108</span>
+            </h3>
+            <div class="q-matrix" id="question-matrix"></div>
+          </div>
+
+          <div class="rail-card">
+            <h3 class="rail-title">
+              <span>تقدم الإتقان حسب المحاور</span>
+            </h3>
+            <div class="mastery-list" id="topic-mastery-list"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- EXAM SIMULATION MODE VIEW -->
+    <section id="view-exam" class="main-stage hidden">
+      <div class="section-head">
+        <div>
+          <h2>محاكاة اختبار تجريبي موقت</h2>
+          <p class="section-subtitle">اختبر جاهزيتك في ظروف مشابهة للمباريات المهنية: لا يظهر التصحيح والتعليل إلا بعد تسليم ورقة الاختبار.</p>
+        </div>
+      </div>
+
+      <div id="exam-setup-panel" class="exam-banner">
+        <div class="exam-controls-grid">
+          <div class="field-group">
+            <label for="exam-count-select">عدد أسئلة الاختبار</label>
+            <select id="exam-count-select" class="control-select">
+              <option value="20">20 سؤالاً (اختبار سريع — 15 دقيقة)</option>
+              <option value="40" selected>40 سؤالاً (اختبار قياسي — 30 دقيقة)</option>
+              <option value="60">60 سؤالاً (اختبار شامل — 45 دقيقة)</option>
+              <option value="108">108 أسئلة (البنك الكامل — 75 دقيقة)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="exam-topic-select">نطاق المحاور</label>
+            <select id="exam-topic-select" class="control-select">
+              <option value="all">جميع محاور القانون 07.00 (شامل)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <button type="button" class="btn btn-primary" onclick="startExamSession()">
+              <i data-lucide="play" aria-hidden="true"></i>
+              <span>بدء الاختبار التجريبي الآن</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exam-active-panel" class="main-stage hidden">
+        <div class="exam-status-strip">
+          <div>
+            <strong id="exam-progress-label">السؤال 1 من 40</strong>
+            <span id="exam-answered-label"> — مجاب عنها: 0</span>
+          </div>
+          <div class="timer-readout" id="exam-timer-display">30:00</div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" style="background-color: var(--surface-container-low);" onclick="submitExamSession()">
+              <i data-lucide="check-square" aria-hidden="true"></i>
+              <span>إنهاء الاختبار وتصحيحه</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="workspace-grid">
+          <div id="exam-question-stage" class="main-stage"></div>
+          <aside class="side-rail">
+            <div class="rail-card">
+              <h3 class="rail-title"><span>ورقة الإجابات</span></h3>
+              <div class="q-matrix" id="exam-matrix"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div id="exam-results-panel" class="main-stage hidden"></div>
+    </section>
+
+    <!-- REFERENCE MODE VIEW -->
+    <section id="view-reference" class="main-stage hidden">
+      <div class="section-head">
+        <div>
+          <h2>المرجع التشريعي المفصل: الأبواب الأربعة والمواد الـ 15</h2>
+          <p class="section-subtitle">ملخص هيكلي دقيق لأحكام القانون رقم 07.00 القاضي بإحداث الأكاديميات الجهوية للتربية والتكوين، مع ربط مباشر بأسئلة كل مادة.</p>
+        </div>
+      </div>
+      <div id="reference-articles-grid" class="articles-grid"></div>
+    </section>
+
+    <footer class="source-footer">
+      <span>المصدر التشريعي: القانون رقم <bdi dir="ltr">07.00</bdi> القاضي بإحداث الأكاديميات الجهوية للتربية والتكوين، الصادر بتنفيذه الظهير الشريف رقم <bdi dir="ltr">1.00.203</bdi> بتاريخ <bdi dir="ltr">15</bdi> من صفر <bdi dir="ltr">1421</bdi> (<bdi dir="ltr">19</bdi> ماي <bdi dir="ltr">2000</bdi>).</span>
+      <span>جميع الأسئلة والتعليلات مسندة مباشرة إلى مواد القانون <bdi dir="ltr">07.00</bdi> (المواد <bdi dir="ltr">1</bdi> إلى <bdi dir="ltr">15</bdi>).</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const TOPICS = [
+      { id: `t1`, shortTitle: `الإحداث والمهام (م 1-2)`, fullTitle: `الباب الأول: الإحداث والمهام والاختصاصات الـ 17 (المادتان 1 و 2)` },
+      { id: `t2`, shortTitle: `الإدارة والمجلس الإداري (م 3-4)`, fullTitle: `الباب الثاني: الإدارة والتسيير وتأليف المجلس الإداري (المادتان 3 و 4)` },
+      { id: `t3`, shortTitle: `صلاحيات المجلس والدورات (م 5-6)`, fullTitle: `الباب الثاني: صلاحيات المجلس الإداري ونصاب المداولات والدورات (المادتان 5 و 6)` },
+      { id: `t4`, shortTitle: `المصالح الإقليمية والمدير والتفويض (م 7-8-12)`, fullTitle: `البابان الثاني والرابع: المصالح الإقليمية وتعيين المدير وتفويض السلط (المواد 7 و 8 و 12)` },
+      { id: `t5`, shortTitle: `المالية والعقارات والمدارس العسكرية (م 9-13-14)`, fullTitle: `البابان الثالث والرابع: التنظيم المالي والعقارات واستثناء المدارس العسكرية (المواد 9 و 13 و 14)` },
+      { id: `t6`, shortTitle: `المستخدمون والإلحاق والنفاذ (م 10-11-15)`, fullTitle: `البابان الثالث والرابع: النظام الأساسي للمستخدمين والموظفون الملحقون والنفاذ (المواد 10 و 11 و 15)` }
+    ];
+
+    const ARTICLES_INFO = [
+      {
+        num: 1,
+        chapter: `الباب الأول: الإحداث والمهام`,
+        title: `المادة 1: الإحداث والطبيعة القانونية والوصاية`,
+        points: [
+          `إحداث مؤسسة عمومية في كل جهة من جهات المملكة تدعى "الأكاديمية الجهوية للتربية والتكوين".`,
+          `تتمتع بالشخصية المعنوية والاستقلال المالي.`,
+          `تخضع لوصاية الدولة لضمان تقيد أجهزتها بأحكام هذا القانون وتطبيق النصوص التشريعية والتنظيمية للمؤسسات العمومية.`,
+          `تخضع للمراقبة المالية للدولة المطبقة على المؤسسات العمومية طبقاً للنصوص الجاري بها العمل.`
+        ]
+      },
+      {
+        num: 2,
+        chapter: `الباب الأول: الإحداث والمهام`,
+        title: `المادة 2: المهام والاختصاصات الـ 17 للأكاديمية`,
+        points: [
+          `تطبيق السياسة التربوية والتكوينية الوطنية في حدود نفوذها الترابي مع مراعاة الأولويات والأهداف الوطنية.`,
+          `إعداد المخطط التنموي للأكاديمية وإدماج الخصوصيات المعرفية والثقافية واللغوية الجهوية في البرامج التربوية.`,
+          `وضع الخريطة المدرسية الجهوية وتكوين شبكات المؤسسات، والسهر على إعداد الخريطة الإقليمية ومراجعتها دورياً.`,
+          `المشاركة في تحديد حاجيات الشباب في التكوين المهني ووضع التكوينات التقنية الأساسية والتكوين بالتمرس أو بالتناوب.`,
+          `وضع برامج وسياسات التكوين المستمر وتنفيذها، وتسليم رخص التعليم الأولي والخصوصي، والإشراف على الامتحانات والبحث التربوي والشراكات.`
+        ]
+      },
+      {
+        num: 3,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 3: هيكلة الإدارة والتسيير`,
+        points: [
+          `يدير الأكاديمية مجلس إداري.`,
+          `يسير الأكاديمية مدير.`
+        ]
+      },
+      {
+        num: 4,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 4: تأليف المجلس الإداري للأكاديمية`,
+        points: [
+          `يترأسه ممثل السلطة الحكومية الوصية.`,
+          `يضم ممثلي الإدارات المعنية، رئيس مجلس الجهة، والي الجهة وعمال عمالات وأقاليم الجهة، ورؤساء المجالس الإقليمية أو المجموعات الحضرية.`,
+          `يضم رؤساء الجامعات بالجهة، رئيس المجلس العلمي الجهوي، المندوب الجهوي للتكوين المهني، ممثل اللجنة الأولمبية الوطنية، ورؤساء الغرف المهنية (ممثل عن كل قطاع).`,
+          `يضم ممثلاً عن الأطر التربوية لكل سلك تعليمي، ممثلين اثنين عن الأطر الإدارية والتقنية، ثلاثة ممثلين عن جمعيات الآباء (ممثل لكل سلك)، وممثلاً عن التعليم الخصوصي، وممثلاً عن التعليم الأولي، مع إمكانية دعوة ذوي الخبرة بصفة استشارية.`
+        ]
+      },
+      {
+        num: 5,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 5: سلط وصلاحيات المجلس الإداري`,
+        points: [
+          `المصادقة على البرنامج التوقعي الجهوي وتقويمه الدوري (المخطط التنموي، تكوين الأطر، البناء والتجهيز، معايير التسيير، الشراكة).`,
+          `البت في برنامج العمل السنوي، وحصر الميزانية والحسابات السنوية، وتحديد كيفيات التمويل.`,
+          `تحديد النظام الأساسي لمستخدمي الأكاديمية، وتحديد تسعيرة الخدمات المقدمة.`,
+          `إحداث لجان متخصصة يحدد تأليفها وطريقة تسييرها، والمصادقة على التقرير السنوي، وحصر الهبات والوصايا وتدبير الممتلكات.`
+        ]
+      },
+      {
+        num: 6,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 6: الدورات والنصاب القانوني والتصويت`,
+        points: [
+          `يجتمع بدعوة من رئيسه على الأقل مرتين في السنة (لحصر الحسابات السنوية، ولدراسة وحصر الميزانية والبرنامج التوقعي).`,
+          `يمكن عقده في دورات استثنائية كلما دعت الضرورة أو بطلب من أغلبية أعضائه.`,
+          `يشترط لصحة المداولات حضور نصف الأعضاء على الأقل في الاجتماع الأول؛ وإذا لم يكتمل النصاب يُدعى لاجتماع ثانٍ داخل أجل لا يتعدى 15 يوماً ويتداول بصورة صحيحة مهما كان عدد الحاضرين.`,
+          `تتخذ القرارات بأغلبية أصوات الحاضرين، وعند التعادل يرجح جانب الرئيس.`
+        ]
+      },
+      {
+        num: 7,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 7: المصالح الإقليمية للأكاديمية`,
+        points: [
+          `تتوفر الأكاديمية على مصالح إقليمية تابعة لها.`,
+          `تحدد اختصاصات المصالح الإقليمية وكيفية تنظيمها وتسييرها بمقتضى نص تنظيمي.`,
+          `تضطلع بتنفيذ السياسة التربوية إقليمياً وإعداد وتنفيذ الخريطة المدرسية الإقليمية وتدبير الموارد المفوضة.`
+        ]
+      },
+      {
+        num: 8,
+        chapter: `الباب الثاني: الإدارة والتسيير`,
+        title: `المادة 8: تعيين مدير الأكاديمية وصلاحياته`,
+        points: [
+          `يعين مدير الأكاديمية بظهير شريف.`,
+          `يتمتع بجميع السلط والصلاحيات لتسيير شؤون الأكاديمية وتنفيذ قرارات المجلس الإداري.`,
+          `يعتبر الآمر بقبض مداخيل الميزانية وصرف نفقاتها، ويمثل الأكاديمية أمام القضاء وفي الحياة المدنية وإزاء الإدارات والأغيار.`,
+          `يحضر اجتماعات المجلس الإداري بصفة استشارية، ويجوز له تفويض جزء من سلطه وصلاحياته إلى الموظفين العاملين تحت إمرته.`
+        ]
+      },
+      {
+        num: 9,
+        chapter: `الباب الثالث: التنظيم المالي والمستخدمون`,
+        title: `المادة 9: مكونات ميزانية الأكاديمية (الموارد والنفقات)`,
+        points: [
+          `الموارد: إعانات الدولة والجماعات المحلية والهيئات العمومية أو الخاصة، وإعانات المنظمات الوطنية أو الدولية.`,
+          `الموارد: مداخيل الخدمات وبيع المنشورات والوثائق، الهبات والوصايا والمداخيل المتنوعة، القروض المأذون بها، والموارد المرصودة بنص تشريعي أو تنظيمي.`,
+          `النفقات: نفقات التسيير، ونفقات الاستثمار، وكل النفقات الأخرى المرتبطة بمهام الأكاديمية.`
+        ]
+      },
+      {
+        num: 10,
+        chapter: `الباب الثالث: التنظيم المالي والمستخدمون`,
+        title: `المادة 10: فئات مستخدمي الأكاديمية`,
+        points: [
+          `موظفون مرسمون ومستخدمون ملحقون بالأكاديمية من الإدارات العمومية طبقاً للنصوص الجاري بها العمل.`,
+          `مستخدمون توظفهم الأكاديمية مباشرة وفقاً لنظامها الأساسي.`,
+          `أعوان متعاقدون للقيام بمهام محددة ولمدة معينة.`
+        ]
+      },
+      {
+        num: 11,
+        chapter: `الباب الثالث: التنظيم المالي والمستخدمون`,
+        title: `المادة 11: وضعية الموظفين والأعوان الملحقين`,
+        points: [
+          `الموظفون والأعوان التابعون لوزارة التربية الوطنية المزاولون مهامهم بالمصالح الخارجية عند دخول القانون حيز التنفيذ يلحقون بالأكاديمية المعنية.`,
+          `يحتفظون بجميع حقوقهم المكتسبة في إدارتهم الأصلية (الأجرة، الترقية، الأقدمية، التقاعد).`,
+          `يمكن إدماجهم في النظام الأساسي لمستخدمي الأكاديمية وفق شروط تحدد بنص تنظيمي.`
+        ]
+      },
+      {
+        num: 12,
+        chapter: `الباب الرابع: أحكام مختلفة وانتقالية`,
+        title: `المادة 12: تفويض السلط والصلاحيات لمديري الأكاديميات`,
+        points: [
+          `يجوز للسلطة الحكومية الوصية أن تفوض بعض سلطها وصلاحياتها إلى مديري الأكاديميات الجهوية للتربية والتكوين.`,
+          `يمارس هذا التفويض في حدود دائرة النفوذ الترابي لكل أكاديمية، تعزيزاً للاتمركز الإداري والتربوي.`
+        ]
+      },
+      {
+        num: 13,
+        chapter: `الباب الرابع: أحكام مختلفة وانتقالية`,
+        title: `المادة 13: وضع العقارات والمنقولات رهن الإشارة ونقل الالتزامات`,
+        points: [
+          `توضع رهن إشارة الأكاديمية بصفة مجانية العقارات والمنقولات التابعة لملك الدولة اللازمة لممارسة مهامها.`,
+          `تحدد كيفيات هذا الوضع رهن الإشارة بمقتضى نص تنظيمي.`,
+          `تحول إلى الأكاديمية حقوق والتزامات الدولة المتعلقة بالصفقات والعقود والاتفاقيات الخاصة بالمصالح الخارجية بالجهة.`
+        ]
+      },
+      {
+        num: 14,
+        chapter: `الباب الرابع: أحكام مختلفة وانتقالية`,
+        title: `المادة 14: استثناء المدارس العسكرية`,
+        points: [
+          `لا تسري أحكام القانون رقم 07.00 على المدارس العسكرية.`,
+          `تظل مؤسسات التعليم والتكوين التابعة للقوات المسلحة الملكية خاضعة لتشريعاتها وتنظيماتها الخاصة.`
+        ]
+      },
+      {
+        num: 15,
+        chapter: `الباب الرابع: أحكام مختلفة وانتقالية`,
+        title: `المادة 15: تاريخ الدخول حيز التنفيذ ونسخ المقتضيات المخالفة`,
+        points: [
+          `يدخل القانون رقم 07.00 حيز التنفيذ ابتداءً من تاريخ نشر النصوص التنظيمية اللازمة لتطبيقه في الجريدة الرسمية.`,
+          `تنسخ جميع الأحكام التشريعية والتنظيمية المخالفة له ابتداءً من تاريخ نفاذه.`
+        ]
+      }
+    ];
+
+    const QUESTIONS = [
+      // ================= المحور 1: الإحداث والمهام والاختصاصات الـ 17 (المادتان 1 و 2) — 24 سؤالاً =================
+      {
+        id: 1, topic: `t1`, article: 1,
+        q: `ما التكييف القانوني للأكاديمية الجهوية للتربية والتكوين حسب المادة 1 من القانون رقم 07.00؟`,
+        opts: [
+          `مصلحة إدارية خارجية غير ممركزة تابعة مباشرة للولاية`,
+          `مؤسسة عمومية تتمتع بالشخصية المعنوية والاستقلال المالي`,
+          `شركة مساهمة ذات نفع عام تخضع للقانون التجاري`,
+          `جمعية جهوية ذات منفعة عامة تعمل تحت إشراف مجلس الجهة`
+        ],
+        ans: 1,
+        ref: `المادة 1: تنص صراحة على أنه «تحدث في كل جهة من جهات المملكة مؤسسة عمومية تتمتع بالشخصية المعنوية والاستقلال المالي تدعى الأكاديمية الجهوية للتربية والتكوين».`
+      },
+      {
+        id: 2, topic: `t1`, article: 1,
+        q: `على أي نطاق ترابي تحدث الأكاديميات الجهوية للتربية والتكوين وفق المادة 1؟`,
+        opts: [
+          `في كل عمالة أو إقليم من أقاليم المملكة`,
+          `في كل قطب جامعي جهوي`,
+          `في كل جهة من جهات المملكة`,
+          `في المدن الكبرى التي يتجاوز عدد سكانها مليون نسمة فقط`
+        ],
+        ans: 2,
+        ref: `المادة 1: تقضي بإحداث أكاديمية جهوية للتربية والتكوين في كل جهة من جهات المملكة.`
+      },
+      {
+        id: 3, topic: `t1`, article: 1,
+        q: `ما الغرض الأساسي من خضوع الأكاديمية لوصاية الدولة كما ورد في المادة 1؟`,
+        opts: [
+          `ضمان تقيد أجهزتها بأحكام هذا القانون والسهر على تطبيق النصوص التشريعية والتنظيمية المتعلقة بالمؤسسات العمومية`,
+          `إدارة الحسابات البنكية اليومية للمؤسسات التعليمية الابتدائية`,
+          `استبدال المجلس الإداري بسلطة الوالي عند اتخاذ القرارات التربوية`,
+          `تحديد المناهج الدراسية المحلية دون الرجوع للأهداف الوطنية`
+        ],
+        ans: 0,
+        ref: `المادة 1: تحدد أن الغرض من وصاية الدولة هو ضمان تقيد أجهزة الأكاديمية المختصة بأحكام هذا القانون، ولاسيما ما يتعلق بالمهام المسندة إليها، والسهر على تطبيق النصوص التشريعية والتنظيمية للمؤسسات العمومية.`
+      },
+      {
+        id: 4, topic: `t1`, article: 1,
+        q: `إلى جانب الوصاية الإدارية للدولة، لأي نوع آخر من الرقابة تخضع الأكاديمية بموجب المادة 1؟`,
+        opts: [
+          `الرقابة الحصرية للمجلس الأعلى للتربية والتكوين فقط`,
+          `المراقبة المالية للدولة المطبقة على المؤسسات العمومية طبقاً للنصوص التشريعية الجاري بها العمل`,
+          `مراقبة الغرف المهنية والجمعيات الثقافية بالجهة`,
+          `لا تخضع لأي مراقبة مالية خارجية نظراً لاستقلالها المالي`
+        ],
+        ans: 1,
+        ref: `المادة 1: تنص الفقرة الأخيرة على أن الأكاديمية «تخضع كذلك للمراقبة المالية للدولة المطبقة على المؤسسات العمومية طبقاً للنصوص التشريعية الجاري بها العمل».`
+      },
+      {
+        id: 5, topic: `t1`, article: 1,
+        q: `أي من المقومات التالية يترتب قانونياً عن منح الأكاديمية "الشخصية المعنوية" في المادة 1؟`,
+        opts: [
+          `عدم خضوعها لقانون الصفقات العمومية`,
+          `أهليتها لاكتساب الحقوق وتحمل الالتزامات والتقاضي وتدبير ذمتها المالية المستقلة`,
+          `استغناؤها عن ميزانية الدولة في التمويل`,
+          `إعفاؤها من قرارات السلطة الحكومية الوصية`
+        ],
+        ans: 1,
+        ref: `المادة 1 (مقرونة بالمادتين 8 و9): تخول الشخصية المعنوية والاستقلال المالي للأكاديمية أهلية التصرف القانوني والمدني والتقاضي وحيازة ميزانية مستقلة في إطار وصاية الدولة.`
+      },
+      {
+        id: 6, topic: `t1`, article: 1,
+        q: `هل يحق للأكاديمية الجهوية للتربية والتكوين العمل خارج دائرة نفوذها الترابي الجهوي؟`,
+        opts: [
+          `نعم، يمكنها الإشراف على أقاليم جهة مجاورة بقرار فردي من المدير`,
+          `لا، تناط بها المهام في حدود دائرة نفوذها الترابي مع إمكانية التبادل والشراكة`,
+          `نعم، في مجال تسليم رخص التعليم الخصوصي على الصعيد الوطني`,
+          `نعم، إذا وافق رؤساء المجالس الإقليمية`
+        ],
+        ans: 1,
+        ref: `المادتان 1 و 2: تحدث الأكاديمية في كل جهة وتناط بها مهامها «في حدود دائرة نفوذها الترابي»، مع تمكينها من أعمال التبادل والشراكة مع المؤسسات الوطنية والأجنبية.`
+      },
+      {
+        id: 7, topic: `t1`, article: 2,
+        q: `ما المهمة العامة الجامعة للأكاديمية كما استهلت بها المادة 2 من القانون 07.00؟`,
+        opts: [
+          `وضع سياسة تربوية جهوية مستقلة تماماً عن السياسة الوطنية`,
+          `تطبيق السياسة التربوية والتكوينية الوطنية في حدود نفوذها الترابي مع مراعاة الأولويات والأهداف الوطنية المحددة من السلطة الوصية`,
+          `تنظيم التعليم العالي والبحث العلمي الجامعي بالجهة`,
+          `الإشراف المباشر على تكوين الأطر العسكرية وشبه العسكرية`
+        ],
+        ans: 1,
+        ref: `المادة 2 (الفقرة التمهيدية): «تناط بالأكاديمية، في حدود دائرة نفوذها الترابي، مهمة تطبيق السياسة التربوية والتكوينية الوطنية مع مراعاة الأولويات والأهداف الوطنية المحددة من لدن السلطة الحكومية الوصية».`
+      },
+      {
+        id: 8, topic: `t1`, article: 2,
+        q: `في الاختصاص الأول من المادة 2، ما الذي يجب إدماجه في البرامج التربوية ضمن المخطط التنموي للأكاديمية؟`,
+        opts: [
+          `المناهج الجامعية للدكتوراه`,
+          `الخصوصيات المعرفية الجهوية، ولاسيما الثقافية واللغوية منها`,
+          `الأنظمة الضريبية للجماعات الترابية`,
+          `برامج التكوين القضائي والشرطي`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 1): ينص على إعداد مخطط تنموي للأكاديمية يشمل تدابير التمدرس «مع إدماج الخصوصيات المعرفية الجهوية في البرامج التربوية، ولاسيما الثقافية واللغوية منها».`
+      },
+      {
+        id: 9, topic: `t1`, article: 2,
+        q: `مع من تتشاور الأكاديمية وتنسق عند إعداد الخرائط التربوية التوقعية على مستوى الجهة (المادة 2)؟`,
+        opts: [
+          `مع القطاع البنكي والغرف السياحية فقط`,
+          `بتنسيق مع الجهات المعنية وبالتشاور مع الجماعات المحلية والمندوبيات الجهوية للتكوين المهني`,
+          `مع رؤساء المؤسسات الخصوصية وحدهم`,
+          `مع وزارة الداخلية دون إشراك أي هيئة تربوية`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 1): يقضي بإعداد الخرائط التربوية التوقعية على مستوى الجهة «بتنسيق مع الجهات المعنية وبالتشاور مع الجماعات المحلية والمندوبيات الجهوية للتكوين المهني».`
+      },
+      {
+        id: 10, topic: `t1`, article: 2,
+        q: `ما علاقة الأكاديمية بالمندوبية الجهوية للتكوين المهني عند وضع الخريطة المدرسية الجهوية وتكوين شبكات المؤسسات (البند 2 من المادة 2)؟`,
+        opts: [
+          `تستغني عن التنسيق معها كلياً`,
+          `تنسق معها في شأن التجهيزات التحتية المدرسية والتكوينية واقتراح إحداثها وتوزيعها`,
+          `تخضع الأكاديمية لقرارات المندوبية الجهوية للتكوين المهني`,
+          `تنوب عنها في توظيف مدربي مراكز التكوين المهني`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 2): ينص على وضع الخريطة المدرسية الجهوية وتكوين شبكات لمؤسسات التربية والتكوين «وذلك بتنسيق مع المندوبية الجهوية للتكوين المهني في شأن التجهيزات التحتية المدرسية والتكوينية، واقتراح إحداثها وتوزيعها».`
+      },
+      {
+        id: 11, topic: `t1`, article: 2,
+        q: `كيف تصف المادة 2 دور الأكاديمية بخصوص الخريطة المدرسية الإقليمية (البند 3)؟`,
+        opts: [
+          `الاقتصار على تلقيها دون مراجعتها`,
+          `السهر على إعداد الخريطة المدرسية الإقليمية ومراجعتها بصفة دورية`,
+          `ترك إعدادها بالكامل لجمعيات آباء وأولياء التلاميذ`,
+          `إعدادها مرة واحدة كل عشر سنوات فقط`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 3): يحدد من مهام الأكاديمية «السهر على إعداد الخريطة المدرسية الإقليمية ومراجعتها بصفة دورية».`
+      },
+      {
+        id: 12, topic: `t1`, article: 2,
+        q: `ما المعيار المعتمد حسب البند 4 من المادة 2 عند مشاركة الأكاديمية في تحديد حاجيات الشباب في التكوين المهني؟`,
+        opts: [
+          `مقترحات الأندية الرياضية الجهوية فقط`,
+          `أخذاً بعين الاعتبار الخصوصيات الاقتصادية الجهوية، واقتراحها على السلطة الحكومية الوصية`,
+          `توصيات المدارس العسكرية بالجهة`,
+          `نتائج امتحانات البكالوريا الدولية فقط`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 4): «المشاركة في تحديد حاجيات الشباب في مجال التكوين المهني بتنسيق مع المندوبية الجهوية للتكوين المهني، وذلك أخذاً بعين الاعتبار الخصوصيات الاقتصادية الجهوية واقتراحها على السلطة الحكومية الوصية».`
+      },
+      {
+        id: 13, topic: `t1`, article: 2,
+        q: `أي نوع من التكوينات تضعه الأكاديمية وتطوره في الإعداديات والثانويات وفق البند 5 من المادة 2؟`,
+        opts: [
+          `التكوينات الطبية والصيدلانية العليا`,
+          `التكوينات التقنية الأساسية ذات الأهداف المهنية الخاضعة للنظام المدرسي والتكوين المهني بالتمرس أو بالتناوب`,
+          `التكوين القضائي لكتاب الضبط`,
+          `تكوين الطيارين والبحارة التجاريين`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 5): ينص على «وضع وتطوير التكوينات التقنية الأساسية ذات الأهداف المهنية الخاضعة للنظام المدرسي وكذا التكوين المهني بالتمرس أو بالتناوب الذي تقوم به الإعداديات والثانويات».`
+      },
+      {
+        id: 14, topic: `t1`, article: 2,
+        q: `متى تشرع الأكاديمية في تنفيذ برامج التكوين المستمر لفائدة الأطر التربوية والإدارية حسب البند 6 من المادة 2؟`,
+        opts: [
+          `فور إعدادها دون أي إجراء إضافي`,
+          `بعد المصادقة عليها من لدن السلطة الحكومية الوصية`,
+          `بعد موافقة مجلس النواب`,
+          `بعد توقيع والي الجهة عليها فقط`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 6): «وضع برامج للتكوين المستمر لفائدة الأطر التربوية والإدارية والشروع في تنفيذها بعد المصادقة عليها من لدن السلطة الحكومية الوصية».`
+      },
+      {
+        id: 15, topic: `t1`, article: 2,
+        q: `ما الاختصاص المخول للأكاديمية تجاه مؤسسات التعليم الأولي والتعليم المدرسي الخصوصي في البند 7 من المادة 2؟`,
+        opts: [
+          `تأميم هذه المؤسسات وإلحاقها بالقطاع العمومي`,
+          `تسليم رخص فتح أو توسيع أو إدخال تغييرات عليها طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل`,
+          `تحديد الأجور الشهرية لمديريها الخصوصيين مباشرة`,
+          `منحها قروضاً بدون فائدة من ميزانية الجماعات المحلية`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 7): يسند للأكاديمية اختصاص «تسليم رخص فتح أو توسيع أو إدخال تغييرات على مؤسسات التعليم الأولي أو التعليم المدرسي الخصوصي طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل».`
+      },
+      {
+        id: 16, topic: `t1`, article: 2,
+        q: `كيف تتعامل الأكاديمية مع القضايا التربوية والتكوينية التي تتجاوز إطار الجهة حسب البند 8 من المادة 2؟`,
+        opts: [
+          `تتجاهلها لعدم اختصاصها الترابي`,
+          `تقدم كل توصية تتعلق بها إلى السلطات الحكومية المعنية بغية ملاءمة الآليات والبرامج مع حاجيات الجهة`,
+          `تصدر مراسيم وطنية ملزمة لباقي الأكاديميات`,
+          `تحيلها على المحاكم الإدارية للبت فيها`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 8): «تقديم كل توصية تتعلق بالقضايا التي تتجاوز إطار الجهة إلى السلطات الحكومية المعنية، بغية ملاءمة آليات وبرامج التربية والتكوين مع حاجيات الجهة».`
+      },
+      {
+        id: 17, topic: `t1`, article: 2,
+        q: `هل يخول البند 9 من المادة 2 للأكاديمية تقديم خدمات مقابل موارد في مجالات التربية والتكوين؟`,
+        opts: [
+          `لا، يمنع عليها القانون تقديم أي خدمات`,
+          `نعم، يخولها تقديم خدمات في كل مجالات التربية والتكوين`,
+          `يقتصر الأمر على خدمات النقل المدرسي فقط`,
+          `يقتصر على خدمات الإطعام الجامعي`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 9) والمادة 5 والمادة 9: تنص المادة 2 على «تقديم خدمات في كل مجالات التربية والتكوين»، ويحدد المجلس الإداري تسعيرة هذه الخدمات.`
+      },
+      {
+        id: 18, topic: `t1`, article: 2,
+        q: `ما دور الأكاديمية في مجال الدراسات والتوثيق والإحصاء التربوي وفق البند 10 من المادة 2؟`,
+        opts: [
+          `إعداد الدراسات المتعلقة بالتربية والتكوين والإشراف على التوثيق التربوي جهوياً والمساهمة في البحوث والإحصائيات الجهوية أو الوطنية`,
+          `الاحتفاظ بالسجلات الإدارية دون إجراء أي دراسات`,
+          `إحالة كل الإحصائيات التربوية على القطاع الخاص حصراً`,
+          `الاقتصار على الإحصائيات السكانية العامة`
+        ],
+        ans: 0,
+        ref: `المادة 2 (البند 10): «إعداد الدراسات المتعلقة بالتربية والتكوين والإشراف على التوثيق التربوي على مستوى الجهة، وكذا المساهمة في البحوث والإحصائيات التربوية الجهوية أو الوطنية».`
+      },
+      {
+        id: 19, topic: `t1`, article: 2,
+        q: `من يمارس اختصاص الشراكة والتبادل مع المؤسسات والهيئات الوطنية والأجنبية على الصعيد الجهوي وفق البند 12 من المادة 2؟`,
+        opts: [
+          `الأكاديمية الجهوية للتربية والتكوين، بما يكفل الرفع من مردودية التعليم بالجهة`,
+          `المندوبية السامية للتخطيط وحدها`,
+          `جمعيات الآباء نيابة عن الدولة`,
+          `يُمنع على الأكاديميات إبرام شراكات مع هيئات أجنبية`
+        ],
+        ans: 0,
+        ref: `المادة 2 (البند 12): «القيام بكل أعمال التبادل والشراكة مع المؤسسات والهيئات الوطنية والأجنبية الكفيلة بالرفع من مردودية التعليم بالجهة».`
+      },
+      {
+        id: 20, topic: `t1`, article: 2,
+        q: `أي من العناصر التالية تندرج في اختصاص الأكاديمية بخصوص الحاجيات اللوجستية والبشرية في البند 13 من المادة 2؟`,
+        opts: [
+          `تحديد رواتب الموظفين على المستوى الوطني`,
+          `المساهمة في تحديد الحاجيات من البنايات والتجهيزات التربوية والموارد البشرية`,
+          `بناء المقرات الإدارية للوزارات غير التربوية`,
+          `توزيع المنح الجامعية على الطلبة بالخارج`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 13): ينص صراحة على «المساهمة في تحديد الحاجيات من البنايات والتجهيزات التربوية والموارد البشرية».`
+      },
+      {
+        id: 21, topic: `t1`, article: 2,
+        q: `ما نطاق إشراف الأكاديمية في مجال الامتحانات وتقويم العمليات التعليمية حسب البند 14 من المادة 2؟`,
+        opts: [
+          `الإشراف على البحث التربوي الجهوي والإقليمي وعلى الامتحانات وتقويم العمليات التعليمية جهوياً ومراقبتها إقليمياً ومحلياً والعمل على تحسين جودة التعليم`,
+          `الاقتصار على تصحيح امتحانات السنة السادسة ابتدائي فقط`,
+          `نقل صلاحية الامتحانات كلياً إلى الجامعات`,
+          `مراقبة الامتحانات المهنية للقوات المسلحة`
+        ],
+        ans: 0,
+        ref: `المادة 2 (البند 14): «الإشراف على البحث التربوي على المستوى الجهوي والإقليمي وعلى الامتحانات وتقويم العمليات التعليمية على مستوى الجهة، ومراقبة هذه العمليات على المستوى الإقليمي والمحلي، والعمل على تحسين جودة التعليم».`
+      },
+      {
+        id: 22, topic: `t1`, article: 2,
+        q: `ما المجالات الثلاثة المذكورة على الخصوص في البند 15 من المادة 2 للرفع من مستوى التربية والتكوين بالجهة؟`,
+        opts: [
+          `الرياضة المدرسية والرحلات والأنشطة الفلاحية`,
+          `تقليص الفوارق الجهوية، البحث التربوي واللغوي، وتطوير تكنولوجيا الإعلام والتواصل`,
+          `الطب المدرسي، النقل العمومي، والسكن الوظيفي`,
+          `بناء السدود، التكوين البحري، والسياحة الجبلية`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 15): يذكر صراحة المبادرة بكل عمل يساهم في الرفع من مستوى التربية والتكوين «ولاسيما في مجال تقليص الفوارق الجهوية ومجال البحث التربوي واللغوي وتطوير تكنولوجيا الإعلام والتواصل».`
+      },
+      {
+        id: 23, topic: `t1`, article: 2,
+        q: `ما الالتزام الإخباري للأكاديمية تجاه السلطة الحكومية الوصية المنصوص عليه في البند 16 من المادة 2؟`,
+        opts: [
+          `إصدار نشرة إعلامية تجارية كل خمس سنوات`,
+          `تزويد السلطة الحكومية الوصية بكل المعلومات المتعلقة بسير مؤسسات التربية والتكوين وبوضعيتها على مستوى الجهة`,
+          `إخبار المجلس العلمي الأعلى بأسماء التلاميذ المتفوقين فقط`,
+          `رفع تقارير سرية للسلطة القضائية شهرياً`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 16): «تزويد السلطة الحكومية الوصية بكل المعلومات المتعلقة بسير مؤسسات التربية والتكوين وبوضعيتها على مستوى الجهة».`
+      },
+      {
+        id: 24, topic: `t1`, article: 2,
+        q: `ماذا يضيف البند 17 والأخير من المادة 2 إلى لائحة اختصاصات الأكاديمية؟`,
+        opts: [
+          `تنظيم الانتخابات التشريعية الجهوية`,
+          `ممارسة الاختصاصات المفوضة إليها من لدن السلطة الحكومية الوصية`,
+          `إحداث كليات للطب في كل إقليم`,
+          `مراقبة أسعار الكتب في الأسواق الوطنية`
+        ],
+        ans: 1,
+        ref: `المادة 2 (البند 17): يختم الاختصاصات بـ «ممارسة الاختصاصات المفوضة إليها من لدن السلطة الحكومية الوصية»، وهو ما يتكامل مع المادة 12.`
+      },
+
+      // ================= المحور 2: الإدارة والتسيير وتأليف المجلس الإداري (المادتان 3 و 4) — 18 سؤالاً =================
+      {
+        id: 25, topic: `t2`, article: 3,
+        q: `حسب المادة 3 من القانون رقم 07.00، ما الجهازان اللذان يتوليان إدارة الأكاديمية وتسييرها؟`,
+        opts: [
+          `مجلس جهوي ولجنة تقنية`,
+          `مجلس إداري يديرها ومدير يسيرها`,
+          `جمعية عمومية ومكتب تنفيذي منتخب`,
+          `والٍ للجهة ومندوب إقليمي`
+        ],
+        ans: 1,
+        ref: `المادة 3: تنص بعبارة واضحة وموجزة على أن «يدير الأكاديمية مجلس إداري، ويسيرها مدير».`
+      },
+      {
+        id: 26, topic: `t2`, article: 3,
+        q: `ما التمييز الوظيفي الدقيق الذي تضعه المادة 3 بين المجلس الإداري والمدير؟`,
+        opts: [
+          `كلاهما يتولى المهام التقريرية والتنفيذية بالتناوب`,
+          `المجلس الإداري يتولى الإدارة والتقرير والمصادقة، والمدير يتولى التسيير والتنفيذ`,
+          `المدير يدير المجلس الإداري والمجلس يسير المصالح`,
+          `المجلس الإداري هيئة استشارية لا قرارات لها`
+        ],
+        ans: 1,
+        ref: `المادتان 3 و 5 و 8: «يدير الأكاديمية مجلس إداري» (يتخذ القرارات ويحصر الميزانية والبرامج)، «ويسيرها مدير» (ينفذ قرارات المجلس ويسير المصالح).`
+      },
+      {
+        id: 27, topic: `t2`, article: 4,
+        q: `من يتولى رئاسة المجلس الإداري للأكاديمية الجهوية للتربية والتكوين طبقاً للمادة 4؟`,
+        opts: [
+          `رئيس مجلس الجهة`,
+          `والي الجهة`,
+          `السلطة الحكومية الوصية`,
+          `مدير الأكاديمية`
+        ],
+        ans: 2,
+        ref: `المادة 4: تفتتح بتحديد أن المجلس الإداري يتألف «برئاسة السلطة الحكومية الوصية».`
+      },
+      {
+        id: 28, topic: `t2`, article: 4,
+        q: `من هم ممثلو السلطة التنفيذية والإدارة الترابية الحاضرون في تأليف المجلس الإداري وفق المادة 4؟`,
+        opts: [
+          `والي الجهة وعمال عمالات وأقاليم الجهة وممثلو الإدارات المعنية`,
+          `القضاة والوكلاء العامون للملك فقط`,
+          `الباشوات والقواد على صعيد الجماعات القروية`,
+          `رئيس مجلس المستشارين ووزير العدل`
+        ],
+        ans: 0,
+        ref: `المادة 4: تنص على عضوية ممثلي الإدارات المعنية، ووالي الجهة، وعمال عمالات وأقاليم الجهة.`
+      },
+      {
+        id: 29, topic: `t2`, article: 4,
+        q: `أي من المنتخبين الترابيين يُعد عضواً في المجلس الإداري للأكاديمية بموجب المادة 4؟`,
+        opts: [
+          `جميع أعضاء مجالس الجماعات القروية والحضرية`,
+          `رئيس مجلس الجهة ورؤساء المجالس الإقليمية أو المجموعات الحضرية المعنية عند الاقتضاء`,
+          `نواب البرلمان عن الدوائر الإقليمية بالجهة`,
+          `مستشارو الغرف النقابية فقط`
+        ],
+        ans: 1,
+        ref: `المادة 4: تضم في عضوية المجلس الإداري رئيس مجلس الجهة ورؤساء المجموعات الحضرية أو رؤساء المجالس الإقليمية المعنية.`
+      },
+      {
+        id: 30, topic: `t2`, article: 4,
+        q: `كيف يُمثل قطاع التعليم العالي والجامعي داخل المجلس الإداري للأكاديمية حسب المادة 4؟`,
+        opts: [
+          `عبر عمداء الكليات المتعددة التخصصات فقط`,
+          `عبر رؤساء الجامعات الموجودة بالجهة`,
+          `عبر ممثلين عن الطلبة الجامعيين`,
+          `لا يوجد أي تمثيل للجامعات في المجلس الإداري`
+        ],
+        ans: 1,
+        ref: `المادة 4: تنص صراحة على عضوية «رؤساء الجامعات الموجودة بالجهة» في المجلس الإداري للأكاديمية.`
+      },
+      {
+        id: 31, topic: `t2`, article: 4,
+        q: `من يمثل المؤسسة العلمية الدينية في المجلس الإداري للأكاديمية وفق المادة 4؟`,
+        opts: [
+          `خطباء المساجد الجامعة بالإقليم`,
+          `رئيس المجلس العلمي الجهوي (ممثل المجالس العلمية بالجهة)`,
+          `رئيس جامعة القرويين بالضرورة في كل الجهات`,
+          `مفتش الشؤون الدينية بالمندوبية`
+        ],
+        ans: 1,
+        ref: `المادة 4: تشمل قائمة أعضاء المجلس الإداري «رئيس المجلس العلمي الجهوي» (المجالس العلمية بالجهة).`
+      },
+      {
+        id: 32, topic: `t2`, article: 4,
+        q: `ما الجهة الرياضية الوطنية التي خصتها المادة 4 بتمثيلية داخل المجلس الإداري للأكاديمية؟`,
+        opts: [
+          `الجامعة الملكية المغربية لكرة القدم`,
+          `ممثل عن اللجنة الأولمبية الوطنية`,
+          `الجامعة الملكية للرياضة المدرسية فقط`,
+          `مديرو المركبات الرياضية الخاصة`
+        ],
+        ans: 1,
+        ref: `المادة 4: تذكر تحديداً «ممثل عن اللجنة الأولمبية الوطنية» ضمن تشكيلة المجلس الإداري.`
+      },
+      {
+        id: 33, topic: `t2`, article: 4,
+        q: `كيف تمثل الغرف المهنية بالجهة داخل المجلس الإداري للأكاديمية حسب المادة 4؟`,
+        opts: [
+          `ممثل واحد عن جميع الغرف مجتمعة`,
+          `رؤساء الغرف المهنية بالجهة بمعدل ممثل واحد عن كل قطاع`,
+          `أعضاء غرفة التجارة والصناعة فقط دون الفلاحة والصناعة التقليدية`,
+          `ثلاثة ممثلين عن كل غرفة مهنية`
+        ],
+        ans: 1,
+        ref: `المادة 4: تنص على عضوية «رؤساء الغرف المهنية بالجهة بمعدل ممثل واحد عن كل قطاع».`
+      },
+      {
+        id: 34, topic: `t2`, article: 4,
+        q: `ما عدد ومقياس تمثيل الأطر التربوية في المجلس الإداري للأكاديمية حسب المادة 4؟`,
+        opts: [
+          `ممثل واحد عن جميع الأسلاك التعليمية بالجهة`,
+          `ممثل واحد للأطر التربوية عن كل سلك تعليمي على صعيد الجهة`,
+          `خمسة ممثلين عن كل مديرية إقليمية`,
+          `ممثلان اثنان عن التعليم الابتدائي فقط`
+        ],
+        ans: 1,
+        ref: `المادة 4: تحدد التمثيلية بـ «ممثل واحد للأطر التربوية عن كل سلك تعليمي على صعيد الجهة».`
+      },
+      {
+        id: 35, topic: `t2`, article: 4,
+        q: `كم عدد ممثلي الأطر الإدارية والتقنية في المجلس الإداري للأكاديمية طبقاً للمادة 4؟`,
+        opts: [
+          `ممثل واحد فقط`,
+          `ممثلين اثنين عن الأطر الإدارية والتقنية`,
+          `ثلاثة ممثلين عن كل إقليم`,
+          `أربعة ممثلين عن الأطر التقنية وحدهم`
+        ],
+        ans: 1,
+        ref: `المادة 4: تنص صراحة على عضوية «ممثلين اثنين عن الأطر الإدارية والتقنية».`
+      },
+      {
+        id: 36, topic: `t2`, article: 4,
+        q: `كم يبلغ عدد ممثلي جمعيات آباء وأولياء التلاميذ في المجلس الإداري وكيف يوزعون حسب المادة 4؟`,
+        opts: [
+          `ممثل واحد عن كل جمعية بالجهة`,
+          `ثلاثة ممثلين بمعدل ممثل واحد عن كل سلك تعليمي`,
+          `ممثلان اثنان عن السلك الثانوي التأهيلي فقط`,
+          `خمسة ممثلين تعينهم العمالة`
+        ],
+        ans: 1,
+        ref: `المادة 4: تحدد تمثيلية أسر التلاميذ في «ثلاثة ممثلين عن جمعيات آباء وأولياء التلاميذ بمعدل ممثل واحد عن كل سلك تعليمي».`
+      },
+      {
+        id: 37, topic: `t2`, article: 4,
+        q: `هل يضم المجلس الإداري للأكاديمية تمثيلية للتعليم المدرسي الخصوصي والتعليم الأولي وفق المادة 4؟`,
+        opts: [
+          `لا، يقتصر المجلس على التعليم العمومي فقط`,
+          `نعم، ممثل واحد عن جمعيات التعليم المدرسي الخصوصي بالجهة وممثل واحد عن مؤسسات التعليم الأولي بالجهة`,
+          `يمثل التعليم الخصوصي فقط دون التعليم الأولي`,
+          `يحضرون كمستمعين دون صفة العضوية`
+        ],
+        ans: 1,
+        ref: `المادة 4: تدرج ضمن الأعضاء «ممثل واحد عن جمعيات التعليم المدرسي الخصوصي بالجهة» و«ممثل واحد عن مؤسسات التعليم الأولي بالجهة».`
+      },
+      {
+        id: 38, topic: `t2`, article: 4,
+        q: `من يمثل قطاع التكوين المهني في المجلس الإداري للأكاديمية وفق المادة 4؟`,
+        opts: [
+          `مديرو المعاهد الخاصة للتكوين المهني`,
+          `المندوب الجهوي للتكوين المهني`,
+          `ممثل عن متدربي مراكز التكوين`,
+          `وزير الشغل شخصياً في كل اجتماع`
+        ],
+        ans: 1,
+        ref: `المادة 4: تنص على عضوية «المندوب الجهوي للتكوين المهني» في المجلس الإداري، انسجاماً مع التنسيق المنصوص عليه في المادة 2.`
+      },
+      {
+        id: 39, topic: `t2`, article: 4,
+        q: `ما الصفة التي يجوز بها لرئيس المجلس الإداري دعوة أشخاص من خارج المجلس لحضور اجتماعاته حسب المادة 4؟`,
+        opts: [
+          `بصفة تصويتية كاملة مع حق الفيتو`,
+          `بصفة استشارية، إذا رأى فائدة في حضورهم`,
+          `بصفة أعضاء دائمين لمدى الحياة`,
+          `لا يجوز له دعوة أي شخص من خارج الأعضاء المعينين`
+        ],
+        ans: 1,
+        ref: `المادة 4 (الفقرة الأخيرة): «ويجوز لرئيس المجلس أن يدعو لحضور اجتماعات المجلس، بصفة استشارية، كل شخص يرى فائدة في حضوره».`
+      },
+      {
+        id: 40, topic: `t2`, article: 4,
+        q: `بأي صفة يحضر مدير الأكاديمية اجتماعات المجلس الإداري وفق قراءة متكاملة للمادتين 4 و 8؟`,
+        opts: [
+          `بصفته رئيساً للمجلس الإداري`,
+          `بصفة استشارية (ويقوم بمهام مقرر المجلس)`,
+          `بصفته عضواً مصوتاً له صوتان`,
+          `يُمنع من حضور اجتماعات المجلس الإداري`
+        ],
+        ans: 1,
+        ref: `المادتان 4 و 8: المدير ليس من الأعضاء التصويتيين في المادة 4 بل يحضر اجتماعات المجلس الإداري بصفة استشارية طبقاً للمادة 8.`
+      },
+      {
+        id: 41, topic: `t2`, article: 4,
+        q: `ما الحكمة التشريعية من التركيبة الموسعة للمجلس الإداري في المادة 4 (إدارات، منتخبون، جامعات، مجالس علمية، غرف مهنية، أطر، آباء، خصوصي)؟`,
+        opts: [
+          `تطبيق مبدأ الشراكة التربوية والجهوية الموسعة والحكامة التشاركية في تدبير الشأن التربوي`,
+          `تعقيد مسطرة اتخاذ القرار وإطالة آجال المصادقة`,
+          `تحويل الأكاديمية إلى برلمان جهوي للتشريع`,
+          `تغليب القطاع التجاري على المهام التربوية`
+        ],
+        ans: 0,
+        ref: `المادة 4 (مقرونة بالمادتين 2 و5): تهدف هذه التشكيلة التمثيلية المتنوعة إلى إشراك السلطات الترابية والفاعلين الاقتصاديين والعلميين والأطر التربوية والأسر والقطاع الخصوصي في توجيه وتقييم المشروع التربوي الجهوي.`
+      },
+      {
+        id: 42, topic: `t2`, article: 4,
+        q: `أي من الفئات التالية غير مذكورة ضمن أعضاء المجلس الإداري للأكاديمية في المادة 4؟`,
+        opts: [
+          `ممثل عن اللجنة الأولمبية الوطنية`,
+          `رؤساء المجالس العلمية أو رئيس المجلس العلمي الجهوي`,
+          `ممثلو التلاميذ المتمدرسين بالتعليم الثانوي`,
+          `ممثلو جمعيات آباء وأولياء التلاميذ`
+        ],
+        ans: 2,
+        ref: `المادة 4: تنص على تمثيل جمعيات آباء وأولياء التلاميذ (3 ممثلين)، ولا تتضمن تمثيلية مباشرة للتلاميذ المتمدرسين كأعضاء في المجلس الإداري.`
+      },
+
+      // ================= المحور 3: صلاحيات المجلس الإداري ونصاب المداولات والدورات (المادتان 5 و 6) — 18 سؤالاً =================
+      {
+        id: 43, topic: `t3`, article: 5,
+        q: `ما النطاق العام للصلاحيات التي خولتها المادة 5 للمجلس الإداري للأكاديمية؟`,
+        opts: [
+          `صلاحيات استشارية فقط ترفع للبرلمان`,
+          `جميع السلط والصلاحيات اللازمة لإدارة الأكاديمية`,
+          `صلاحيات تدبير الصفقات الصغيرة دون الميزانية`,
+          `صلاحيات تأديب التلاميذ داخل المؤسسات`
+        ],
+        ans: 1,
+        ref: `المادة 5: تستهل بالنص على أن «يتمتع المجلس الإداري للأكاديمية بجميع السلط والصلاحيات اللازمة لإدارة الأكاديمية».`
+      },
+      {
+        id: 44, topic: `t3`, article: 5,
+        q: `أي وثيقة استراتيجية جهوية يصادق عليها المجلس الإداري ويقومها دورياً طبقاً للمادة 5؟`,
+        opts: [
+          `البرنامج التوقعي الجهوي`,
+          `مشروع القانون المالي السنوي للدولة`,
+          `التصميم المديري للتهيئة الحضرية`,
+          `النظام الداخلي لمجلس الجهة`
+        ],
+        ans: 0,
+        ref: `المادة 5: يمارس المجلس الإداري المصادقة على البرنامج التوقعي الجهوي وتقويمه الدوري.`
+      },
+      {
+        id: 45, topic: `t3`, article: 5,
+        q: `أي من المكونات التالية يُدرج وجوباً ضمن البرنامج التوقعي الجهوي الذي يصادق عليه المجلس الإداري في المادة 5؟`,
+        opts: [
+          `المخطط التنموي للأكاديمية ومشاريع تكوين الأطر وبرنامج البناء والتجهيز ومعايير تسيير المؤسسات وبرنامج التبادل والشراكة`,
+          `جدول العطل الوطنية للموظفين فقط`,
+          `تعيين رؤساء المصالح المركزية بالوزارة`,
+          `تحديد أسعار الكتب الجامعية`
+        ],
+        ans: 0,
+        ref: `المادة 5: تفصل أن البرنامج التوقعي الجهوي يتضمن على الخصوص المخطط التنموي للأكاديمية، ومشاريع تكوين الأطر التعليمية والإدارية والتقنية، وبرنامج البناء والتجهيز وتوزيعها الجهوي والإقليمي، ومعايير تسيير المؤسسات، وبرنامج التبادل والشراكة.`
+      },
+      {
+        id: 46, topic: `t3`, article: 5,
+        q: `ما الاختصاص المالي والمحاسبي الجوهري للمجلس الإداري المنصوص عليه في المادة 5؟`,
+        opts: [
+          `إعفاء المقاولين من الضرائب الوطنية`,
+          `حصر ميزانية الأكاديمية وحساباتها السنوية وتحديد كيفيات تمويل برامج أنشطتها`,
+          `صرف الرواتب يدوياً للمدرسين`,
+          `فرض ضريبة جهوية على الأسر`
+        ],
+        ans: 1,
+        ref: `المادة 5: تنيط بالمجلس الإداري حصر ميزانية الأكاديمية وحساباتها السنوية وتحديد كيفيات تمويل برامج أنشطتها.`
+      },
+      {
+        id: 47, topic: `t3`, article: 5,
+        q: `ما الجهة التي تتولى تحديد النظام الأساسي لمستخدمي الأكاديمية طبقاً للمادة 5؟`,
+        opts: [
+          `مدير الأكاديمية بمفرده`,
+          `المجلس الإداري للأكاديمية`,
+          `جمعيات آباء وأولياء التلاميذ`,
+          `اللجنة الأولمبية الوطنية`
+        ],
+        ans: 1,
+        ref: `المادة 5: تدرج ضمن صلاحيات المجلس الإداري «تحديد النظام الأساسي لمستخدمي الأكاديمية».`
+      },
+      {
+        id: 48, topic: `t3`, article: 5,
+        q: `ماذا يخول القانون للمجلس الإداري بخصوص اللجان المتخصصة وفق المادة 5؟`,
+        opts: [
+          `لا يحق له إحداث أي لجان داخلية`,
+          `إحداث لجان متخصصة يحدد تأليفها وطريقة تسييرها`,
+          `إحداث لجنة مالية واحدة فقط لمدة شهر`,
+          `تفويض إحداث اللجان لوالي الجهة فقط`
+        ],
+        ans: 1,
+        ref: `المادة 5: تنص صراحة على صلاحية المجلس الإداري في «إحداث لجان متخصصة يحدد تأليفها وطريقة تسييرها».`
+      },
+      {
+        id: 49, topic: `t3`, article: 5,
+        q: `من يبت في برنامج عمل الأكاديمية السنوي ويصادق على التقرير السنوي لأنشطتها حسب المادة 5؟`,
+        opts: [
+          `رئيس مجلس الجهة`,
+          `المجلس الإداري للأكاديمية`,
+          `المندوب الجهوي للتكوين المهني`,
+          `القاضي الإداري`
+        ],
+        ans: 1,
+        ref: `المادة 5: تخول المجلس الإداري البت في برنامج عمل الأكاديمية السنوي والمصادقة على التقرير السنوي لأنشطتها.`
+      },
+      {
+        id: 50, topic: `t3`, article: 5,
+        q: `من يحدد تسعيرة الخدمات التي تقدمها الأكاديمية طبقاً للمادة 5؟`,
+        opts: [
+          `المدير بقرار فردي غير معروض على المجلس`,
+          `المجلس الإداري للأكاديمية`,
+          `المصالح الإقليمية للتكوين المهني`,
+          `المحاكم التجارية`
+        ],
+        ans: 1,
+        ref: `المادة 5: تقضي بأن المجلس الإداري يتولى «تحديد تسعيرة الخدمات التي تقدمها الأكاديمية» (في انسجام مع المادتين 2 و9).`
+      },
+      {
+        id: 51, topic: `t3`, article: 5,
+        q: `كيف يتصرف المجلس الإداري في الهبات والوصايا والممتلكات العقارية والمنقولة للأكاديمية وفق المادة 5؟`,
+        opts: [
+          `يرفضها بقوة القانون`,
+          `يحصر الهبات والوصايا ويتولى تدبير الممتلكات العقارية والمنقولة`,
+          `يحولها تلقائياً للقطاع الخاص`,
+          `يوزعها على الأعضاء في نهاية الدورة`
+        ],
+        ans: 1,
+        ref: `المادة 5: يدخل في اختصاصات المجلس الإداري حصر الهبات والوصايا وتدبير الممتلكات العقارية والمنقولة للأكاديمية.`
+      },
+      {
+        id: 52, topic: `t3`, article: 5,
+        q: `ما الدور الرقابي الداخلي الذي يمارسه المجلس الإداري تجاه منجزات الأكاديمية وقراراته في المادة 5؟`,
+        opts: [
+          `تقييم حصيلة منجزات الأكاديمية ومراقبة تنفيذ قرارات المجلس الإداري`,
+          `رفع الحصانة عن الموظفين`,
+          `إصدار أحكام مالية نهائية بدلاً من المجلس الأعلى للحسابات`,
+          `لا يمارس أي مراقبة بعد المصادقة على الميزانية`
+        ],
+        ans: 0,
+        ref: `المادة 5: تنيط بالمجلس الإداري مهمة تقييم حصيلة منجزات الأكاديمية ومراقبة تنفيذ قرارات المجلس الإداري.`
+      },
+      {
+        id: 53, topic: `t3`, article: 6,
+        q: `كم مرة يجتمع المجلس الإداري للأكاديمية في السنة كحد أدنى في دورات عادية طبقاً للمادة 6؟`,
+        opts: [
+          `مرة واحدة في السنة`,
+          `مرتين في السنة على الأقل`,
+          `أربع مرات في السنة وجوباً`,
+          `مرة كل سنتين`
+        ],
+        ans: 1,
+        ref: `المادة 6: «يجتمع المجلس الإداري بدعوة من رئيسه، كلما دعت الضرورة إلى ذلك، وعلى الأقل مرتين في السنة».`
+      },
+      {
+        id: 54, topic: `t3`, article: 6,
+        q: `ما الغرض الأساسي من الدورتين العاديتين السنويتين للمجلس الإداري حسب المادة 6؟`,
+        opts: [
+          `إحداهما لانتخاب مدير الأكاديمية والأخرى لتوزيع الجوائز`,
+          `الأولى لحصر الحسابات/القوائم التركيبية للسنة المالية المختتمة، والثانية لدراسة وحصر الميزانية والبرنامج التوقعي للسنة المالية الموالية`,
+          `تعديل الظهير الشريف المحدث للأكاديميات`,
+          `إجراء امتحانات الترقية الداخلية`
+        ],
+        ans: 1,
+        ref: `المادة 6: تحدد موضوع الدورتين العاديتين في حصر القوائم التركيبية/الحسابات للسنة المالية المختتمة، ودراسة وحصر الميزانية والبرنامج التوقعي للسنة المالية الموالية.`
+      },
+      {
+        id: 55, topic: `t3`, article: 6,
+        q: `متى يمكن دعوة المجلس الإداري للانعقاد في دورة استثنائية حسب المادة 6؟`,
+        opts: [
+          `بطلب من عضو واحد فقط`,
+          `كلما دعت الضرورة إلى ذلك بدعوة من رئيسه أو بطلب من أغلبية أعضائه`,
+          `بقرار من مدير الأكاديمية دون علم الرئيس`,
+          `يُمنع عقد دورات استثنائية نهائياً`
+        ],
+        ans: 1,
+        ref: `المادة 6: يجوز عقد دورات استثنائية بدعوة من رئيس المجلس كلما دعت الضرورة إلى ذلك، أو بطلب من أغلبية أعضائه.`
+      },
+      {
+        id: 56, topic: `t3`, article: 6,
+        q: `ما النصاب القانوني المشترط لصحة مداولات المجلس الإداري في اجتماعه الأول طبقاً للمادة 6؟`,
+        opts: [
+          `حضور ربع الأعضاء فقط`,
+          `حضور ما لا يقل عن نصف أعضائه`,
+          `حضور جميع الأعضاء دون استثناء (100%)`,
+          `حضور ثلثي الأعضاء دائماً`
+        ],
+        ans: 1,
+        ref: `المادة 6: تنص على أنه «يشترط لصحة مداولات المجلس الإداري حضور ما لا يقل عن نصف أعضائه» في الاجتماع الأول.`
+      },
+      {
+        id: 57, topic: `t3`, article: 6,
+        q: `إذا لم يكتمل النصاب القانوني في الاجتماع الأول للمجلس الإداري، ما الأجل الأقصى لعقد الاجتماع الثاني حسب المادة 6؟`,
+        opts: [
+          `أجل لا يتعدى ثلاثة أيام`,
+          `أجل لا يتعدى خمسة عشر (15) يوماً`,
+          `أجل لا يتعدى ستة أشهر`,
+          `أجل مفتوح لمدة سنة كاملة`
+        ],
+        ans: 1,
+        ref: `المادة 6: إذا لم يتوفر النصاب في الاجتماع الأول، توجه دعوة جديدة لاجتماع ثانٍ يعقد «داخل أجل لا يتعدى خمسة عشر (15) يوماً».`
+      },
+      {
+        id: 58, topic: `t3`, article: 6,
+        q: `ما حكم صحة مداولات المجلس الإداري في الاجتماع الثاني المنعقد بعد عدم اكتمال النصاب الأول (المادة 6)؟`,
+        opts: [
+          `يشترط حضور ثلاثة أرباع الأعضاء`,
+          `يتداول المجلس بصورة صحيحة مهما كان عدد الأعضاء الحاضرين`,
+          `يتداول دون أن يتخذ أي قرار مالي`,
+          `تُحال المداولات على المحكمة الإدارية لإجازتها`
+        ],
+        ans: 1,
+        ref: `المادة 6: في الاجتماع الثاني المنعقد داخل أجل 15 يوماً، «يتداول المجلس بصورة صحيحة مهما كان عدد الأعضاء الحاضرين».`
+      },
+      {
+        id: 59, topic: `t3`, article: 6,
+        q: `بأي أغلبية تتخذ قرارات المجلس الإداري للأكاديمية وفق المادة 6؟`,
+        opts: [
+          `بإجماع الأعضاء الحاضرين والغائبين`,
+          `بأغلبية أصوات الأعضاء الحاضرين`,
+          `بأغلبية ثلثي مجموع الأعضاء القانونيين`,
+          `بقرار منفرد للرئيس بعد الاستشارة`
+        ],
+        ans: 1,
+        ref: `المادة 6: «تتخذ القرارات بأغلبية أصوات الأعضاء الحاضرين».`
+      },
+      {
+        id: 60, topic: `t3`, article: 6,
+        q: `ما القاعدة المعتمدة في المادة 6 عند تعادل الأصوات أثناء التصويت داخل المجلس الإداري؟`,
+        opts: [
+          `يلغى القرار ويعاد طرحه في السنة الموالية`,
+          `يرجح الجانب الذي يكون فيه الرئيس`,
+          `يفصل مدير الأكاديمية بصفته حَكَماً`,
+          `يُحسم الموضوع بالقرعة`
+        ],
+        ans: 1,
+        ref: `المادة 6: تنص صراحة على أنه «في حالة تعادل الأصوات يرجح الجانب الذي يكون فيه الرئيس».`
+      },
+
+      // ================= المحور 4: المصالح الإقليمية وتعيين المدير وتفويض السلط (المواد 7 و 8 و 12) — 18 سؤالاً =================
+      {
+        id: 61, topic: `t4`, article: 7,
+        q: `على أي امتداد ترابي محلي/إقليمي تتوفر الأكاديمية على مصالح تابعة لها حسب المادة 7؟`,
+        opts: [
+          `مصالح إقليمية (على صعيد العمالات والأقاليم)`,
+          `مصالح دولية في السفارات`,
+          `مصالح قروية في كل دوار`,
+          `لا تتوفر على أي مصالح إقليمية`
+        ],
+        ans: 0,
+        ref: `المادة 7: تنص على أن «تتوفر الأكاديمية على مصالح إقليمية».`
+      },
+      {
+        id: 62, topic: `t4`, article: 7,
+        q: `بأي أداة قانونية تحدد اختصاصات المصالح الإقليمية وكيفية تنظيمها وتسييرها وفق المادة 7؟`,
+        opts: [
+          `بظهير شريف خاص لكل مصلحة`,
+          `بمقتضى نص تنظيمي`,
+          `بمبادرة من جمعيات الآباء`,
+          `بمداولة من المجلس الجماعي`
+        ],
+        ans: 1,
+        ref: `المادة 7: تحيل في تحديد اختصاصات المصالح الإقليمية وكيفية تنظيمها وتسييرها على «مقتضى نص تنظيمي».`
+      },
+      {
+        id: 63, topic: `t4`, article: 7,
+        q: `ما الدور الميداني الأساسي للمصالح الإقليمية التابعة للأكاديمية في المنظومة الجهوية (المادة 7 مقترنة بالمادة 2)؟`,
+        opts: [
+          `تعديل القوانين الوطنية في البرلمان`,
+          `تنفيذ السياسة التربوية على الصعيد الإقليمي وإعداد وتنفيذ الخريطة المدرسية الإقليمية وتدبير الموارد المفوضة`,
+          `مراقبة ميزانية الجماعات المحلية`,
+          `تسليم رخص البناء العقاري بالمدينة`
+        ],
+        ans: 1,
+        ref: `المادة 7 (في ترابطها مع المادة 2): تتولى المصالح الإقليمية تنزيل السياسة التربوية والخريطة المدرسية الإقليمية وتدبير الشأن التربوي والموارد إقليمياً تحت سلطة الأكاديمية.`
+      },
+      {
+        id: 64, topic: `t4`, article: 7,
+        q: `ما العلاقة التسلسلية للمصالح الإقليمية بالأكاديمية الجهوية وفق القانون رقم 07.00 (المادة 7)؟`,
+        opts: [
+          `مصالح مستقلة تماماً عن الأكاديمية وذات شخصية معنوية منفصلة`,
+          `مصالح تابعة للأكاديمية الجهوية على الصعيد الإقليمي وتعمل في إطار اختصاصاتها وتفويضاتها`,
+          `مصالح تابعة إدارياً ومالياً لوزارة الداخلية`,
+          `جمعيات مهنية شريكة لا تخضع لسلطة المدير`
+        ],
+        ans: 1,
+        ref: `المادة 7: تتوفر الأكاديمية على مصالح إقليمية تابعة لها تندرج ضمن هيكلتها الترابية دون شخصية معنوية مستقلة عن الأكاديمية.`
+      },
+      {
+        id: 65, topic: `t4`, article: 7,
+        q: `كيف تضمن المادة 7 ملاءمة التقطيع الإداري للتربية والتكوين مع التنظيم الترابي للمملكة؟`,
+        opts: [
+          `بإحداث مصالح إقليمية تواكب العمالات والأقاليم التابعة للنفوذ الترابي للجهة`,
+          `بحذف العمالات والأقاليم من الخريطة المدرسية`,
+          `بإلحاق المدارس الابتدائية بوزارة الفلاحة`,
+          `باقتصار الأكاديمية على مقرها الجهوي دون امتداد إقليمي`
+        ],
+        ans: 0,
+        ref: `المادة 7 (مقترنة بالمادتين 1 و4): توفر الأكاديمية على مصالح إقليمية يؤمن القرب الإداري والتربوي على مستوى عمالات وأقاليم الجهة.`
+      },
+      {
+        id: 66, topic: `t4`, article: 8,
+        q: `بأي سند قانوني رفيع يُعين مدير الأكاديمية الجهوية للتربية والتكوين طبقاً للمادة 8؟`,
+        opts: [
+          `بقرار لوزير التربية الوطنية`,
+          `بظهير شريف`,
+          `بمقرر للمجلس الإداري للأكاديمية`,
+          `بقرار لوالي الجهة`
+        ],
+        ans: 1,
+        ref: `المادة 8: تنص صراحة في مستهلها على أنه «يعين مدير الأكاديمية بظهير شريف».`
+      },
+      {
+        id: 67, topic: `t4`, article: 8,
+        q: `ما الوصف القانوني الدقيق لنطاق سلط مدير الأكاديمية في المادة 8؟`,
+        opts: [
+          `يقتصر دوره على تحرير محاضر الاجتماعات`,
+          `يتمتع بجميع السلط والصلاحيات اللازمة لتسيير شؤون الأكاديمية`,
+          `يمارس مهامه فقط خلال فترات انعقاد المجلس الإداري`,
+          `ينحصر اختصاصه في التفتيش البيداغوجي`
+        ],
+        ans: 1,
+        ref: `المادة 8: تنص على أن مدير الأكاديمية «يتمتع بجميع السلط والصلاحيات اللازمة لتسيير شؤون الأكاديمية».`
+      },
+      {
+        id: 68, topic: `t4`, article: 8,
+        q: `ما علاقة مدير الأكاديمية بقرارات المجلس الإداري حسب المادة 8؟`,
+        opts: [
+          `يحق له نقضها وإلغاؤها منفرداً`,
+          `يقوم بتنفيذ قرارات المجلس الإداري`,
+          `يعرضها على البرلمان للموافقة قبل التنفيذ`,
+          `يمتنع عن حضور مداولات المجلس`
+        ],
+        ans: 1,
+        ref: `المادة 8: تنيط بمدير الأكاديمية مهمة «تنفيذ قرارات المجلس الإداري».`
+      },
+      {
+        id: 69, topic: `t4`, article: 8,
+        q: `من يمثل الأكاديمية أمام القضاء وفي جميع أعمال الحياة المدنية وإزاء الإدارات والأغيار وفق المادة 8؟`,
+        opts: [
+          `رئيس مجلس الجهة`,
+          `مدير الأكاديمية`,
+          `عامل العمالة أو الإقليم`,
+          `ممثل الأطر الإدارية والتقنية`
+        ],
+        ans: 1,
+        ref: `المادة 8: تخول مدير الأكاديمية تمثيل الأكاديمية أمام القضاء وفي جميع أعمال الحياة المدنية وإزاء الإدارات والأغيار.`
+      },
+      {
+        id: 70, topic: `t4`, article: 8,
+        q: `ما الصفة المالية التي يمارسها مدير الأكاديمية في تنفيذ الميزانية طبقاً للمادة 8؟`,
+        opts: [
+          `مراقب مالي منتدب من وزارة المالية`,
+          `الآمر بقبض مداخيل الميزانية وصرف نفقاتها (الآمر بالصرف)`,
+          `محاسب عمومي يمسك الصندوق النقدي`,
+          `مفوض قضائي مكلف بالحجز`
+        ],
+        ans: 1,
+        ref: `المادة 8: يباشر مدير الأكاديمية إعداد وتنفيذ الميزانية بصفته الآمر بقبض مداخيلها وصرف نفقاتها.`
+      },
+      {
+        id: 71, topic: `t4`, article: 8,
+        q: `ما وضع مدير الأكاديمية عند حضوره اجتماعات المجلس الإداري حسب المادة 8؟`,
+        opts: [
+          `يحضر بصفة استشارية`,
+          `يحضر بصفته عضواً مصوتاً برتبة نائب الرئيس`,
+          `لا يحضر اجتماعات المجلس الإداري إطلاقاً`,
+          `يصوت في المسائل المالية فقط دون التربوية`
+        ],
+        ans: 0,
+        ref: `المادة 8: تنص على أن مدير الأكاديمية «يحضر اجتماعات المجلس الإداري بصفة استشارية».`
+      },
+      {
+        id: 72, topic: `t4`, article: 8,
+        q: `هل يجوز لمدير الأكاديمية تفويض جزء من سلطه وصلاحياته، ولمن يفوضها حسب المادة 8؟`,
+        opts: [
+          `لا، يمنع عليه التفويض منعاً كلياً`,
+          `نعم، يجوز له أن يفوض جزءاً من سلطه وصلاحياته إلى الموظفين العاملين تحت إمرته`,
+          `يفوضها فقط إلى رؤساء الغرف المهنية`,
+          `يفوضها فقط إلى ممثلي جمعيات الآباء`
+        ],
+        ans: 1,
+        ref: `المادة 8 (الفقرة الأخيرة): «يجوز لمدير الأكاديمية أن يفوض جزءاً من سلطه وصلاحياته إلى الموظفين العاملين تحت إمرته».`
+      },
+      {
+        id: 73, topic: `t4`, article: 8,
+        q: `من يتولى تسيير المصالح التابعة للأكاديمية وتنسيق أنشطتها وتدبير مواردها البشرية وفق المادة 8؟`,
+        opts: [
+          `مدير الأكاديمية، وفق النظام الأساسي والقوانين الجاري بها العمل`,
+          `اللجنة الأولمبية الوطنية`,
+          `رئيس المجلس العلمي الجهوي`,
+          `أمين المال الجهوي`
+        ],
+        ans: 0,
+        ref: `المادة 8: تضع تحت سلطة مدير الأكاديمية تسيير مصالح الأكاديمية وتنسيق أنشطتها وتدبير مستخدميها وفق النظام الأساسي.`
+      },
+      {
+        id: 74, topic: `t4`, article: 8,
+        q: `من يهيئ مشاريع البرامج التوقعية والميزانية السنوية لعرضها على المجلس الإداري حسب المادتين 5 و 8؟`,
+        opts: [
+          `مدير الأكاديمية هو الذي يعدها ويعرضها على المجلس الإداري للبث والمصادقة`,
+          `جمعيات التعليم الخصوصي`,
+          `رؤساء الجامعات بالجهة`,
+          `اللجنة المالية للبرلمان`
+        ],
+        ans: 0,
+        ref: `المادة 8 (مقترنة بالمادة 5): يعد مدير الأكاديمية مشاريع البرامج التوقعية والميزانية السنوية، ويعرضها على المجلس الإداري الذي يبت فيها ويحصرها.`
+      },
+      {
+        id: 75, topic: `t4`, article: 12,
+        q: `ماذا تتيح المادة 12 من القانون رقم 07.00 للسلطة الحكومية الوصية بخصوص علاقتها بمديري الأكاديميات؟`,
+        opts: [
+          `إعفاءهم من حضور المجلس الإداري`,
+          `أن تفوض بعض سلطها وصلاحياتها إلى مديري الأكاديميات الجهوية للتربية والتكوين`,
+          `نقل مقرات الأكاديميات إلى العاصمة الرباط`,
+          `إلغاء النصوص التنظيمية للمادة 7`
+        ],
+        ans: 1,
+        ref: `المادة 12: تنص صراحة على أنه «يجوز للسلطة الحكومية الوصية أن تفوض بعض سلطها وصلاحياتها إلى مديري الأكاديميات الجهوية للتربية والتكوين».`
+      },
+      {
+        id: 76, topic: `t4`, article: 12,
+        q: `ما الحدود الترابية التي يمارس داخلها مدير الأكاديمية السلط والصلاحيات المفوضة إليه من السلطة الحكومية الوصية (المادة 12)؟`,
+        opts: [
+          `على الصعيد الوطني كافة`,
+          `في حدود دائرة نفوذه الترابي (الجهة)`,
+          `في المؤسسات الخصوصية فقط دون العمومية`,
+          `في المقاطعات الحضرية الكبرى فقط`
+        ],
+        ans: 1,
+        ref: `المادتان 2 و 12: ممارسة الاختصاصات المفوضة من لدن السلطة الحكومية الوصية تكون دائماً في حدود دائرة النفوذ الترابي للأكاديمية.`
+      },
+      {
+        id: 77, topic: `t4`, article: 12,
+        q: `ما المبدأ الإداري الذي تجسده المادتان 8 و 12 معاً في القانون رقم 07.00؟`,
+        opts: [
+          `المركزية المطلقة في اتخاذ القرارات التربوية والمالية`,
+          `اللاتمركز الإداري وتقريب سلطة القرار عبر التفويض من الوزارة إلى المدير، ومن المدير إلى موظفيه`,
+          `خوصصة التعليم العمومي بالكامل`,
+          `إلغاء الوصاية الحكومية على المؤسسات العمومية`
+        ],
+        ans: 1,
+        ref: `المادتان 8 و 12: تجسدان سلسلة التفويض واللاتمركز الإداري من السلطة الحكومية الوصية إلى مدير الأكاديمية (م 12)، ومن مدير الأكاديمية إلى الموظفين العاملين تحت إمرته (م 8).`
+      },
+      {
+        id: 78, topic: `t4`, article: 12,
+        q: `هل التفويض المنصوص عليه في المادة 12 إجباري أم جوازي للسلطة الحكومية الوصية؟`,
+        opts: [
+          `إجباري في جميع الاختصاصات دون استثناء`,
+          `جوازي («يجوز للسلطة الحكومية الوصية أن تفوض بعض سلطها وصلاحياتها»)`,
+          `ممنوع خلال السنوات الخمس الأولى`,
+          `مشروط بموافقة الغرف المهنية`
+        ],
+        ans: 1,
+        ref: `المادة 12: تستخدم صيغة الجواز القانوني «يجوز للسلطة الحكومية الوصية أن تفوض بعض سلطها وصلاحياتها...».`
+      },
+
+      // ================= المحور 5: التنظيم المالي والعقارات واستثناء المدارس العسكرية (المواد 9 و 13 و 14) — 16 سؤالاً =================
+      {
+        id: 79, topic: `t5`, article: 9,
+        q: `إلى كم باب رئيسي تنقسم ميزانية الأكاديمية الجهوية للتربية والتكوين حسب المادة 9؟`,
+        opts: [
+          `باب واحد للمداخيل فقط`,
+          `بابين: باب الموارد (المداخيل) وباب النفقات`,
+          `ثلاثة أبواب تشمل الموازنة الضريبية المستقلة`,
+          `أربعة أبواب تضم صندوق الأبحاث العسكرية`
+        ],
+        ans: 1,
+        ref: `المادة 9: تحدد هيكلة ميزانية الأكاديمية في شقين واضحين: «في باب الموارد» و«في باب النفقات».`
+      },
+      {
+        id: 80, topic: `t5`, article: 9,
+        q: `من أي جهات عمومية أو خاصة يمكن أن تتأتى الإعانات والمساهمات في باب موارد ميزانية الأكاديمية (المادة 9)؟`,
+        opts: [
+          `من الدولة والجماعات المحلية وكل هيئة عمومية أو خاصة`,
+          `من الدولة وحدها دون الجماعات المحلية`,
+          `من المؤسسات الخصوصية الأجنبية فقط`,
+          `من الرسوم المفروضة على تلاميذ التعليم الابتدائي العمومي`
+        ],
+        ans: 0,
+        ref: `المادة 9 (باب الموارد): تشمل «الإعانات المالية والمساهمات التي تمنحها الدولة والجماعات المحلية وكل هيئة عمومية أو خاصة».`
+      },
+      {
+        id: 81, topic: `t5`, article: 9,
+        q: `هل يجوز أن تتضمن موارد الأكاديمية إعانات من منظمات دولية أو أجنبية طبقاً للمادة 9؟`,
+        opts: [
+          `لا، يحظر القانون قبول أي إعانات دولية`,
+          `نعم، الإعانات التي قد تقدمها المنظمات الدولية أو الأجنبية أو الوطنية في إطار التعاون والشراكة`,
+          `نعم، شريطة أن تكون قروضاً بفوائد تجارية فقط`,
+          `فقط إذا مرت عبر جمعيات الآباء`
+        ],
+        ans: 1,
+        ref: `المادة 9: تدرج ضمن الموارد الإعانات التي قد تقدمها المنظمات الدولية أو الأجنبية أو الوطنية في إطار التعاون والشراكة.`
+      },
+      {
+        id: 82, topic: `t5`, article: 9,
+        q: `أي من العناصر التالية يمثل مورداً ذاتياً للأكاديمية منصوصاً عليه في المادة 9؟`,
+        opts: [
+          `الضريبة على القيمة المضافة المحصلة بالجهة`,
+          `المداخيل المتأتية من الخدمات المقدمة ومن بيع المنشورات التربوية والوثائق وغيرها`,
+          `غرامات مخالفات السير بالجهة`,
+          `مداخيل استغلال الموانئ الجهوية`
+        ],
+        ans: 1,
+        ref: `المادة 9: تنص على «المداخيل المتأتية من الخدمات المقدمة ومن بيع المنشورات التربوية والوثائق وغيرها من المنتجات المرتبطة بمهامها».`
+      },
+      {
+        id: 83, topic: `t5`, article: 9,
+        q: `ما الشرط القانوني للجوء الأكاديمية إلى القروض كمورد في ميزانيتها حسب المادة 9؟`,
+        opts: [
+          `لا يشترط أي إذن مسبق`,
+          `أن تكون قروضاً مأذوناً بها طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل`,
+          `أن تقترض من تلاميذ الثانوي وأوليائهم`,
+          `يُمنع الاقتراض مطلقاً حتى مع وجود إذن`
+        ],
+        ans: 1,
+        ref: `المادة 9: تذكر ضمن باب الموارد «القروض المأذون بها طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل».`
+      },
+      {
+        id: 84, topic: `t5`, article: 9,
+        q: `هل تدخل الهبات والوصايا ضمن موارد الأكاديمية وفق المادة 9؟`,
+        opts: [
+          `نعم، تندرج «الهبات والوصايا والمداخيل المتنوعة» في باب الموارد ويحصرها المجلس الإداري`,
+          `لا، تحول جميع الهبات لوزارة الأوقاف`,
+          `تُقبل الهبات العينية فقط دون النقدية`,
+          `تقبل فقط بموافقة البرلمان على كل هبة`
+        ],
+        ans: 0,
+        ref: `المادتان 5 و 9: تندرج «الهبات والوصايا والمداخيل المتنوعة» ضمن موارد ميزانية الأكاديمية في المادة 9، ويحصرها المجلس الإداري في المادة 5.`
+      },
+      {
+        id: 85, topic: `t5`, article: 9,
+        q: `ما الفئتان الأساسيتان لباب النفقات في ميزانية الأكاديمية حسب المادة 9؟`,
+        opts: [
+          `نفقات التسيير ونفقات الاستثمار (إضافة إلى كل النفقات الأخرى المرتبطة بمهامها)`,
+          `نفقات الدعاية ونفقات الدعم الرياضي فقط`,
+          `نفقات البحث الجامعي ونفقات التسلح`,
+          `نفقات التسيير فقط دون أي نفقات استثمار`
+        ],
+        ans: 0,
+        ref: `المادة 9 (باب النفقات): يتكون من «نفقات التسيير»، و«نفقات الاستثمار»، و«كل النفقات الأخرى المرتبطة بمهام الأكاديمية».`
+      },
+      {
+        id: 86, topic: `t5`, article: 9,
+        q: `أي من المصاريف التالية يصنف ضمن "نفقات الاستثمار" في ميزانية الأكاديمية (المادة 9)؟`,
+        opts: [
+          `فواتير الماء والكهرباء والهاتف للمقر`,
+          `بناء وتجهيز المؤسسات التربوية والتكوينية واقتناء التجهيزات الكبرى`,
+          `الأجور الشهرية للأطر الإدارية والتقنية`,
+          `مصاريف التنقل اليومي للمفتشين`
+        ],
+        ans: 1,
+        ref: `المادة 9 (مقترنة بالمادة 5): تشمل نفقات الاستثمار مشاريع البناء والتجهيز وتوسيع المؤسسات التربوية والتكوينية.`
+      },
+      {
+        id: 87, topic: `t5`, article: 13,
+        q: `كيف تُوضع العقارات والمنقولات التابعة لملك الدولة رهن إشارة الأكاديمية لممارسة مهامها وفق المادة 13؟`,
+        opts: [
+          `عن طريق البيع بالمزاد العلني للأكاديمية`,
+          `بصفة مجانية (مجاناً)`,
+          `بعقد كراء سنوي بسعر السوق`,
+          `بمبادلة عقارية مع الغرف المهنية`
+        ],
+        ans: 1,
+        ref: `المادة 13: تنص صراحة على وضع العقارات والمنقولات التابعة لملك الدولة اللازمة لممارسة مهام الأكاديمية رهن إشارتها «بصفة مجانية».`
+      },
+      {
+        id: 88, topic: `t5`, article: 13,
+        q: `بماذا تحدد كيفيات وضع العقارات والمنقولات التابعة لملك الدولة رهن إشارة الأكاديمية في المادة 13؟`,
+        opts: [
+          `بمبادرة شفهية لمدير الأكاديمية`,
+          `طبقاً لكيفيات تحدد بنص تنظيمي`,
+          `بحكم قضائي نهائي`,
+          `باتفاق بين جمعيات الآباء والموثقين`
+        ],
+        ans: 1,
+        ref: `المادة 13: تنص على أن الوضع المجاني للعقارات والمنقولات رهن إشارة الأكاديمية يتم «طبقاً لكيفيات تحدد بنص تنظيمي».`
+      },
+      {
+        id: 89, topic: `t5`, article: 13,
+        q: `ما مصير الصفقات والعقود والاتفاقيات التي كانت مبرمة لحساب المصالح الخارجية لوزارة التربية الوطنية عند دخول القانون 07.00 حيز التنفيذ (المادة 13)؟`,
+        opts: [
+          `تفسخ جميعها تلقائياً دون تعويض`,
+          `تحول تلقائياً إلى الأكاديميات الجهوية حقوق والتزامات الدولة المتعلقة بها`,
+          `تبقى في عهدة وزارة الداخلية`,
+          `تحول إلى البلديات والمقاطعات الحضرية`
+        ],
+        ans: 1,
+        ref: `المادة 13: تقضي بنقل حقوق والتزامات الدولة المتعلقة بالصفقات والعقود والاتفاقيات المبرمة لحساب المصالح الخارجية بالجهة إلى الأكاديمية المعنية ضماناً لاستمرارية المرفق العمومي.`
+      },
+      {
+        id: 90, topic: `t5`, article: 13,
+        q: `هل يشمل الوضع المجاني في المادة 13 العقارات فقط أم العقارات والمنقولات معاً؟`,
+        opts: [
+          `يشمل العقارات المبنية فقط دون التجهيزات`,
+          `يشمل العقارات والمنقولات التابعة لملك الدولة اللازمة لممارسة مهام الأكاديمية`,
+          `يشمل المنقولات المكتبية فقط دون البنايات المدرسية`,
+          `يشمل الأراضي الفلاحية الخاصة فقط`
+        ],
+        ans: 1,
+        ref: `المادة 13: تذكر حرفياً «العقارات والمنقولات» التابعة لملك الدولة اللازمة لممارسة مهام الأكاديمية.`
+      },
+      {
+        id: 91, topic: `t5`, article: 13,
+        q: `ما الشرط الموضوعي لوضع أملاك الدولة رهن إشارة الأكاديمية بصفة مجانية حسب المادة 13؟`,
+        opts: [
+          `أن تكون عقارات مخصصة للأنشطة السياحية`,
+          `أن تكون لازمة لممارسة مهام الأكاديمية`,
+          `أن تكون واقعة خارج المدار الترابي للجهة`,
+          `أن يمر على تشييدها خمسون عاماً`
+        ],
+        ans: 1,
+        ref: `المادة 13: تحدد الغاية والشرط في أن تكون تلك العقارات والمنقولات «اللازمة لممارسة مهامها».`
+      },
+      {
+        id: 92, topic: `t5`, article: 14,
+        q: `ما المؤسسات التي استثنتها المادة 14 صراحة من سريان أحكام القانون رقم 07.00؟`,
+        opts: [
+          `مؤسسات التعليم المدرسي الخصوصي`,
+          `مؤسسات التعليم الأولي بالقرى`,
+          `المدارس العسكرية ومؤسسات التعليم والتكوين التابعة للقوات المسلحة الملكية`,
+          `الثانويات التقنية والفلاحية العمومية`
+        ],
+        ans: 2,
+        ref: `المادة 14: تنص بشكل حاسم على أنه «لا تسري أحكام هذا القانون على المدارس العسكرية ومؤسسات التعليم والتكوين التابعة للقوات المسلحة الملكية».`
+      },
+      {
+        id: 93, topic: `t5`, article: 14,
+        q: `هل تملك الأكاديمية الجهوية للتربية والتكوين صلاحية تسليم رخص الفتح أو التوسيع أو المراقبة تجاه المدارس العسكرية بموجب القانون 07.00؟`,
+        opts: [
+          `نعم، طبقاً للبند 7 من المادة 2`,
+          `لا، لأن المادة 14 استثنت المدارس العسكرية كلياً من سريان أحكام هذا القانون`,
+          `نعم، في الجانب المتعلق بالامتحانات فقط`,
+          `نعم، بموافقة المجلس العلمي الجهوي`
+        ],
+        ans: 1,
+        ref: `المادة 14: استثناء عام وصريح («لا تسري أحكام هذا القانون على المدارس العسكرية...»)، فلا تنطبق عليها أي مقتضيات من مواد القانون 07.00.`
+      },
+      {
+        id: 94, topic: `t5`, article: 14,
+        q: `ما السبب الدستوري والتنظيمي للاستثناء الوارد في المادة 14 بخصوص المدارس العسكرية؟`,
+        opts: [
+          `كونها مؤسسات تابعة للقطاع الخصوصي`,
+          `خضوع مؤسسات التعليم والتكوين التابعة للقوات المسلحة الملكية لأنظمتها العسكرية الخاصة وخصوصية مهامها الدفاعية`,
+          `تواجدها خارج التراب الوطني للمملكة`,
+          `عدم وجود تلاميذ بها`
+        ],
+        ans: 1,
+        ref: `المادة 14: تحفظ الخصوصية التنظيمية والقانونية لمؤسسات التعليم والتكوين التابعة للقوات المسلحة الملكية بإخراجها من نطاق تطبيق القانون 07.00.`
+      },
+
+      // ================= المحور 6: المستخدمون والموظفون الملحقون والنفاذ (المواد 10 و 11 و 15) — 14 سؤالاً =================
+      {
+        id: 95, topic: `t6`, article: 10,
+        q: `كم فئة من المستخدمين يتكون منها المورد البشري للأكاديمية طبقاً للمادة 10؟`,
+        opts: [
+          `فئة واحدة هي الموظفون المركزيون فقط`,
+          `ثلاث فئات: موظفون ومستخدمون ملحقون، مستخدمون توظفهم الأكاديمية مباشرة، وأعوان متعاقدون`,
+          `فئتان هما المتعاقدون والمتطوعون فقط`,
+          `أربع فئات تشمل العسكريين والمتدربين`
+        ],
+        ans: 1,
+        ref: `المادة 10: تحدد تركيبة مستخدمي الأكاديمية في ثلاث فئات: الملحقون من الإدارات العمومية، والموظفون مباشرة وفق النظام الأساسي، والأعوان المتعاقدون.`
+      },
+      {
+        id: 96, topic: `t6`, article: 10,
+        q: `وفق أي مرجع قانوني توظف الأكاديمية مستخدميها بشكل مباشر في الفئة الثانية من المادة 10؟`,
+        opts: [
+          `وفق قانون الشغل التجاري الخاص بالشركات`,
+          `وفقاً لنظامها الأساسي الخاص بمستخدمي الأكاديمية`,
+          `دون أي نظام أساسي أو قواعد قانونية`,
+          `وفق قرار شفهي من رئيس المجلس الإداري`
+        ],
+        ans: 1,
+        ref: `المادة 10 (مقترنة بالمادة 5): الفئة الثانية هم «مستخدمون توظفهم الأكاديمية مباشرة وفقاً لنظامها الأساسي» الذي يحدده المجلس الإداري.`
+      },
+      {
+        id: 97, topic: `t6`, article: 10,
+        q: `لأي غرض تستعين الأكاديمية بفئة "الأعوان المتعاقدين" حسب المادة 10؟`,
+        opts: [
+          `لتعويض مدير الأكاديمية المعين بظهير شريف`,
+          `للقيام بمهام محددة ولمدة معينة`,
+          `لترؤس المجلس الإداري في حالة غياب الوزير`,
+          `لتنفيذ مشاريع خارج قطاع التربية والتكوين`
+        ],
+        ans: 1,
+        ref: `المادة 10: تحدد طبيعة تشغيل الأعوان المتعاقدين بأنه يكون «للقيام بمهام محددة ولمدة معينة».`
+      },
+      {
+        id: 98, topic: `t6`, article: 10,
+        q: `من أين يأتي الموظفون المرسمون والمستخدمون الملحقون بالأكاديمية في الفئة الأولى من المادة 10؟`,
+        opts: [
+          `من الإدارات العمومية طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل`,
+          `من الشركات الخاصة فقط`,
+          `من الجمعيات الرياضية المحلية`,
+          `من المنظمات الأجنبية غير الحكومية`
+        ],
+        ans: 0,
+        ref: `المادة 10: الفئة الأولى هي «موظفون مرسمون ومستخدمون ملحقون بالأكاديمية من الإدارات العمومية طبقاً للنصوص التشريعية والتنظيمية الجاري بها العمل».`
+      },
+      {
+        id: 99, topic: `t6`, article: 10,
+        q: `أي من العبارات التالية صحيح بشأن العلاقة القانونية بين المادة 5 والمادة 10؟`,
+        opts: [
+          `تمنع المادة 5 توظيف أي مستخدم مباشر في الأكاديمية`,
+          `تنص المادة 10 على التوظيف وفق النظام الأساسي للأكاديمية، وتسند المادة 5 تحديد هذا النظام الأساسي للمجلس الإداري`,
+          `تنص المادة 10 على أن التعاقد يلغي الترسيم نهائياً`,
+          `لا توجد أي صلة بين المادتين`
+        ],
+        ans: 1,
+        ref: `المادتان 5 و 10: تكملان بعضهما حيث يحدد المجلس الإداري النظام الأساسي لمستخدمي الأكاديمية (م 5) الذي توظف الأكاديمية وفقه مستخدميها مباشرة (م 10).`
+      },
+      {
+        id: 100, topic: `t6`, article: 11,
+        q: `ما الوضعية الإدارية التي قررتها المادة 11 لموظفي وأعوان وزارة التربية الوطنية المزاولين مهامهم بالمصالح الخارجية عند دخول القانون حيز التنفيذ؟`,
+        opts: [
+          `إحالتهم على التقاعد النسبي الإجباري`,
+          `إلحاقهم بالأكاديمية المعنية (ملحقين بالأكاديمية)`,
+          `فصلهم عن الوظيفة العمومية وإعادة تشغيلهم بعقود مؤقتة`,
+          `نقلهم قسراً إلى وزارة المالية`
+        ],
+        ans: 1,
+        ref: `المادة 11: تقرر إلحاق الموظفين والأعوان التابعين لوزارة التربية الوطنية المزاولين مهامهم بالمصالح الخارجية في تاريخ دخول القانون حيز التنفيذ بالأكاديمية المعنية.`
+      },
+      {
+        id: 101, topic: `t6`, article: 11,
+        q: `ما الضمانة الحقوقية الأساسية التي كفلتها المادة 11 للموظفين والأعوان الملحقين بالأكاديميات؟`,
+        opts: [
+          `تقليص أجورهم بنسبة 10% لتخفيف العبء المالي`,
+          `الاحتفاظ بجميع حقوقهم المكتسبة في إدارتهم الأصلية (الأجرة، الترقية، الأقدمية، التقاعد)`,
+          `إسقاط أقدميتهم الإدارية السابقة`,
+          `حرمانهم من الترقية لمدة خمس سنوات`
+        ],
+        ans: 1,
+        ref: `المادة 11: تؤكد على احتفاظ الموظفين والأعوان الملحقين بجميع حقوقهم المكتسبة في إدارتهم الأصلية (لاسيما الأجرة والترقية والتقاعد).`
+      },
+      {
+        id: 102, topic: `t6`, article: 11,
+        q: `هل يمكن إدماج الموظفين الملحقين من وزارة التربية الوطنية في النظام الأساسي لمستخدمي الأكاديمية وفق المادة 11؟`,
+        opts: [
+          `نعم، يمكن إدماجهم عند الاقتضاء وفق شروط تحدد بنص تنظيمي`,
+          `لا، يمنع الإدماج منعاً باتاً في كل الأحوال`,
+          `يتم الإدماج تلقائياً دون أي نص تنظيمي أو شروط`,
+          `يدمجون فقط بقرار من رئيس جمعية الآباء`
+        ],
+        ans: 0,
+        ref: `المادة 11: تجيز إدماجهم في النظام الأساسي لمستخدمي الأكاديمية وفق شروط وكيفيات تحدد بمقتضى نص تنظيمي.`
+      },
+      {
+        id: 103, topic: `t6`, article: 11,
+        q: `على أي موظفين تنطبق المقتضيات الانتقالية للمادة 11 تحديداً؟`,
+        opts: [
+          `موظفو وزارة التربية الوطنية العاملون بالمصالح الخارجية للوزارة في تاريخ دخول القانون حيز التنفيذ`,
+          `موظفو المدارس العسكرية التابعة للقوات المسلحة الملكية`,
+          `أساتذة التعليم الخصوصي في المؤسسات الحرة`,
+          `موظفو الجماعات المحلية بالمدن الكبرى`
+        ],
+        ans: 0,
+        ref: `المادة 11: تخاطب تحديداً الموظفين والأعوان التابعين للسلطة الحكومية المكلفة بالتربية الوطنية المزاولين مهامهم بالمصالح الخارجية للوزارة في تاريخ دخول القانون 07.00 حيز التنفيذ.`
+      },
+      {
+        id: 104, topic: `t6`, article: 11,
+        q: `ما الغاية التنظيمية والاجتماعية من المادة 11 في القانون رقم 07.00؟`,
+        opts: [
+          `ضمان الاستقرار المهني والاجتماعي للموظفين وصون حقوقهم المكتسبة أثناء الانتقال من التدبير المركزي إلى نظام الأكاديميات`,
+          `تقليص عدد رجال التعليم في العالم القروي`,
+          `إنهاء نظام التقاعد العمومي للأطر التربوية`,
+          `إلغاء صفة الموظف العمومي عن جميع الأطر`
+        ],
+        ans: 0,
+        ref: `المادة 11: تجمع بين ضمان استمرارية المرفق التعليمي الجهوي وحماية المراكز القانونية والحقوق المكتسبة لموظفي الوزارة أثناء مرحلة الانتقال.`
+      },
+      {
+        id: 105, topic: `t6`, article: 15,
+        q: `ما التاريخ أو الواقعة القانونية التي يبدأ فيها سريان ودخول القانون رقم 07.00 حيز التنفيذ وفق المادة 15؟`,
+        opts: [
+          `بعد مرور عشر سنوات على توقيع الظهير الشريف`,
+          `ابتداءً من تاريخ نشر النصوص التنظيمية اللازمة لتطبيقه في الجريدة الرسمية`,
+          `بمجرد مصادقة مجلس الجهة على ميزانيته`,
+          `يوم الإعلان عنه في الإذاعة الوطنية دون نشر بالجريدة الرسمية`
+        ],
+        ans: 1,
+        ref: `المادة 15: تنص صراحة على أن هذا القانون يدخل حيز التنفيذ «ابتداءً من تاريخ نشر النصوص التنظيمية اللازمة لتطبيقه في الجريدة الرسمية».`
+      },
+      {
+        id: 106, topic: `t6`, article: 15,
+        q: `لماذا ربط المشرع في المادة 15 دخول القانون 07.00 حيز التنفيذ بنشر النصوص التنظيمية اللازمة لتطبيقه؟`,
+        opts: [
+          `لأن إحداث المؤسسة وتشغيلها يتطلب تحديد مقارها ودوائر نفوذها وتأليف مجالسها وتنظيم مصالحها الإقليمية بمراسيم تطبيقية`,
+          `لتأجيل إحداث الأكاديميات إلى أجل غير مسمى`,
+          `لترك الأمر لاجتهاد كل مدير أكاديمية بمفرده`,
+          `لأن القانون 07.00 لا يتضمن أي مقتضيات تنظيمية`
+        ],
+        ans: 0,
+        ref: `المادة 15 (مقرونة بالمواد 4 و7 و13): تتطلب هيكلة الأكاديميات الجديدة إصدار المراسيم التطبيقية المحددة لتأليف المجالس الإدارية والمصالح الإقليمية وكيفيات تحويل العقارات والمنقولات.`
+      },
+      {
+        id: 107, topic: `t6`, article: 15,
+        q: `ما الأثر القانوني لدخول القانون رقم 07.00 حيز التنفيذ على النصوص السابقة المخالفة له حسب المادة 15؟`,
+        opts: [
+          `تظل سارية المفعول إلى جانب القانون 07.00 بالتوازي`,
+          `تُنسخ جميع الأحكام المخالفة لأحكام هذا القانون`,
+          `تُعلق لمدة سنة واحدة فقط ثم تعود للنفاذ`,
+          `تطبق في الجهات الجنوبية دون الشمالية`
+        ],
+        ans: 1,
+        ref: `المادة 15: تقضي بنسخ جميع الأحكام التشريعية والتنظيمية المخالفة لمقتضيات القانون رقم 07.00 ابتداءً من تاريخ دخوله حيز التنفيذ.`
+      },
+      {
+        id: 108, topic: `t6`, article: 15,
+        q: `أي من المراجع التشريعية التالية يوثق صدور القانون رقم 07.00 وأمر تنفيذه في النظام القانوني المغربي؟`,
+        opts: [
+          `الظهير الشريف رقم 1.00.203 الصادر في 15 صفر 1421 (19 ماي 2000) والمنشور بالجريدة الرسمية`,
+          `المرسوم الملكي رقم 2.15.40 لسنة 2015`,
+          `قرار مشترك لمديري الثانويات لسنة 1987`,
+          `الدورية الوزارية رقم 100 لسنة 1995`
+        ],
+        ans: 0,
+        ref: `الديباجة والمادة 15: صدر القانون رقم 07.00 القاضي بإحداث الأكاديميات الجهوية للتربية والتكوين بموجب الظهير الشريف رقم 1.00.203 بتاريخ 15 صفر 1421 (19 ماي 2000)، ونشر بالجريدة الرسمية عدد 4798.`
+      }
+    ];
+
+    const ARABIC_LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    // Persistent + Runtime State
+    let appState = {
+      answers: {},       // { [qId]: selectedIndex }
+      mode: `practice`,  // 'practice' | 'exam' | 'reference'
+      activeTopic: `all`,
+      activeArticle: `all`,
+      activeStatus: `all`,
+      searchQuery: ``,
+      viewLayout: `focus`, // 'focus' | 'list'
+      currentFilteredIndex: 0,
+      customOrder: null
+    };
+
+    let filteredQuestions = [...QUESTIONS];
+    let examSession = {
+      active: false,
+      finished: false,
+      questions: [],
+      answers: {},
+      currentIndex: 0,
+      secondsRemaining: 1800,
+      timerId: null
+    };
+
+    // Persistence Helper (uses notebookAppApi exclusively)
+    async function saveAppState() {
+      const statusEl = document.getElementById(`kpi-save-status`);
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState({
+            answers: appState.answers,
+            mode: appState.mode,
+            activeTopic: appState.activeTopic,
+            activeArticle: appState.activeArticle,
+            activeStatus: appState.activeStatus,
+            viewLayout: appState.viewLayout,
+            currentFilteredIndex: appState.currentFilteredIndex
+          });
+          if (statusEl) {
+            statusEl.textContent = `تم الحفظ تلقائياً`;
+            statusEl.className = `figure-delta positive`;
+          }
+        }
+      } catch (err) {
+        if (statusEl) {
+          statusEl.textContent = `تعذر مزامنة الحفظ`;
+          statusEl.className = `figure-delta negative`;
+        }
+      }
+    }
+
+    async function loadInitialState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (saved.mode) appState.mode = saved.mode;
+            if (saved.activeTopic) appState.activeTopic = saved.activeTopic;
+            if (saved.activeArticle) appState.activeArticle = saved.activeArticle;
+            if (saved.activeStatus) appState.activeStatus = saved.activeStatus;
+            if (saved.viewLayout) appState.viewLayout = saved.viewLayout;
+            if (typeof saved.currentFilteredIndex === `number`) appState.currentFilteredIndex = saved.currentFilteredIndex;
+          }
+        }
+      } catch (err) {
+        // Fallback to default clean state if host has no saved object
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`)
+        .replace(/'/g, `&#39;`);
+    }
+
+    function getTopicById(id) {
+      return TOPICS.find(t => t.id === id) || TOPICS[0];
+    }
+
+    function populateFilterSelects() {
+      const articleSel = document.getElementById(`filter-article`);
+      if (articleSel) {
+        const counts = {};
+        QUESTIONS.forEach(q => { counts[q.article] = (counts[q.article] || 0) + 1; });
+        let html = `<option value="all">جميع المواد (المواد 1 إلى 15 — ${QUESTIONS.length} سؤالاً)</option>`;
+        ARTICLES_INFO.forEach(art => {
+          const c = counts[art.num] || 0;
+          html += `<option value="${art.num}">المادة ${art.num} (${c} أسئلة)</option>`;
+        });
+        articleSel.innerHTML = html;
+        articleSel.value = appState.activeArticle;
+      }
+
+      const examTopicSel = document.getElementById(`exam-topic-select`);
+      if (examTopicSel) {
+        let html = `<option value="all">جميع محاور القانون 07.00 (${QUESTIONS.length} سؤالاً)</option>`;
+        TOPICS.forEach(t => {
+          const c = QUESTIONS.filter(q => q.topic === t.id).length;
+          html += `<option value="${t.id}">${escapeHtml(t.shortTitle)} (${c} سؤالاً)</option>`;
+        });
+        examTopicSel.innerHTML = html;
+      }
+
+      const statusSel = document.getElementById(`filter-status`);
+      if (statusSel) statusSel.value = appState.activeStatus;
+    }
+
+    function renderTopicPills() {
+      const container = document.getElementById(`topic-pills`);
+      if (!container) return;
+
+      let html = `<button type="button" class="topic-tab ${appState.activeTopic === `all` ? `active` : ``}" onclick="onTopicSelect('all')">
+        <span>كافة الأبواب والمواد</span>
+        <span class="topic-count">(${QUESTIONS.length})</span>
+      </button>`;
+
+      TOPICS.forEach(t => {
+        const count = QUESTIONS.filter(q => q.topic === t.id).length;
+        const activeCls = appState.activeTopic === t.id ? `active` : ``;
+        html += `<button type="button" class="topic-tab ${activeCls}" onclick="onTopicSelect('${t.id}')">
+          <span>${escapeHtml(t.shortTitle)}</span>
+          <span class="topic-count">(${count})</span>
+        </button>`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function applyFilters() {
+      const baseList = appState.customOrder ? appState.customOrder : QUESTIONS;
+      const query = appState.searchQuery.trim();
+
+      filteredQuestions = baseList.filter(q => {
+        if (appState.activeTopic !== `all` && q.topic !== appState.activeTopic) return false;
+        if (appState.activeArticle !== `all` && String(q.article) !== String(appState.activeArticle)) return false;
+
+        const userAns = appState.answers[q.id];
+        const isAnswered = typeof userAns === `number`;
+        if (appState.activeStatus === `unanswered` && isAnswered) return false;
+        if (appState.activeStatus === `correct` && (!isAnswered || userAns !== q.ans)) return false;
+        if (appState.activeStatus === `wrong` && (!isAnswered || userAns === q.ans)) return false;
+
+        if (query) {
+          const haystack = `${q.q} ${q.ref} المادة ${q.article} ${q.opts.join(` `)}`;
+          if (!haystack.includes(query)) return false;
+        }
+        return true;
+      });
+
+      if (appState.currentFilteredIndex >= filteredQuestions.length) {
+        appState.currentFilteredIndex = Math.max(0, filteredQuestions.length - 1);
+      }
+    }
+
+    function renderKpis() {
+      const total = QUESTIONS.length;
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+
+      QUESTIONS.forEach(q => {
+        const ua = appState.answers[q.id];
+        if (typeof ua === `number`) {
+          answered += 1;
+          if (ua === q.ans) correct += 1;
+          else wrong += 1;
+        }
+      });
+
+      const elFiltered = document.getElementById(`kpi-filtered`);
+      const elFilteredNote = document.getElementById(`kpi-filtered-note`);
+      const elProgress = document.getElementById(`kpi-progress`);
+      const elProgressPct = document.getElementById(`kpi-progress-pct`);
+      const elAccuracy = document.getElementById(`kpi-accuracy`);
+      const elCorrect = document.getElementById(`kpi-correct-count`);
+      const elWrong = document.getElementById(`kpi-wrong-count`);
+
+      if (elFiltered) elFiltered.textContent = String(filteredQuestions.length);
+      if (elFilteredNote) {
+        elFilteredNote.textContent = filteredQuestions.length === total
+          ? `من أصل ${total} سؤالاً تغطي 15 مادة`
+          : `نتيجة التصفية الحالية من أصل ${total}`;
+      }
+
+      if (elProgress) elProgress.textContent = `${answered} / ${total}`;
+      if (elProgressPct) {
+        const pct = Math.round((answered / total) * 100);
+        elProgressPct.textContent = `${pct}% منجز`;
+      }
+
+      if (elAccuracy) {
+        elAccuracy.textContent = answered > 0 ? `${Math.round((correct / answered) * 100)}%` : `—`;
+      }
+      if (elCorrect) elCorrect.textContent = `${correct} إجابة صحيحة`;
+      if (elWrong) elWrong.textContent = String(wrong);
+    }
+
+    function buildQuestionCardHtml(q, displayIndex, totalInFilter) {
+      const topicObj = getTopicById(q.topic);
+      const userAns = appState.answers[q.id];
+      const isAnswered = typeof userAns === `number`;
+      const isCorrect = isAnswered && userAns === q.ans;
+
+      let statusStamp = ``;
+      if (isAnswered) {
+        statusStamp = isCorrect
+          ? `<span class="stamp-tag green">إجابة صحيحة</span>`
+          : `<span class="stamp-tag red">إجابة خاطئة</span>`;
+      }
+
+      let optionsHtml = ``;
+      q.opts.forEach((optText, idx) => {
+        let cls = `option-btn`;
+        let badge = ``;
+        if (isAnswered) {
+          if (idx === q.ans) {
+            cls += ` correct`;
+            badge = `<span class="option-status">الصواب</span>`;
+          } else if (idx === userAns && userAns !== q.ans) {
+            cls += ` wrong`;
+            badge = `<span class="option-status">اختيارك</span>`;
+          }
+        }
+        optionsHtml += `<button type="button" class="${cls}" onclick="selectPracticeAnswer(${q.id}, ${idx})">
+          <span class="option-letter">${ARABIC_LETTERS[idx]}</span>
+          <span>${escapeHtml(optText)}</span>
+          ${badge}
+        </button>`;
+      });
+
+      let rationaleHtml = ``;
+      if (isAnswered) {
+        rationaleHtml = `<div class="rationale-box ${isCorrect ? `is-correct` : `is-wrong`}">
+          <div class="rationale-head">
+            <span>التعليل القانوني المباشر — المادة ${q.article} من القانون رقم 07.00</span>
+            <button type="button" class="btn btn-subtle" style="min-height:36px;" onclick="openArticleInReference(${q.article})">
+              <span>عرض ملخص المادة ${q.article}</span>
+            </button>
+          </div>
+          <p class="rationale-text">${escapeHtml(q.ref)}</p>
+        </div>`;
+      }
+
+      let navHtml = ``;
+      if (appState.viewLayout === `focus`) {
+        const hasPrev = displayIndex > 0;
+        const hasNext = displayIndex < totalInFilter - 1;
+        navHtml = `<div class="nav-bar">
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" ${hasPrev ? `` : `disabled`} onclick="navigateFocusQuestion(${displayIndex - 1})">
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+              <span>السؤال السابق</span>
+            </button>
+            <button type="button" class="btn btn-primary" ${hasNext ? `` : `disabled`} onclick="navigateFocusQuestion(${displayIndex + 1})">
+              <span>السؤال التالي</span>
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+          </div>
+          <span class="question-num">الترتيب ضمن التصفية: ${displayIndex + 1} / ${totalInFilter}</span>
+        </div>`;
+      }
+
+      return `<article class="question-card" id="q-card-${q.id}">
+        <div class="question-meta">
+          <div class="meta-tags">
+            <span class="stamp-tag navy">المادة ${q.article}</span>
+            <span class="stamp-tag">${escapeHtml(topicObj.shortTitle)}</span>
+            ${statusStamp}
+          </div>
+          <span class="question-num">سؤال #${q.id}</span>
+        </div>
+        <h3 class="question-stem">${escapeHtml(q.q)}</h3>
+        <div class="options-list">${optionsHtml}</div>
+        ${rationaleHtml}
+        ${navHtml}
+      </article>`;
+    }
+
+    function renderPracticeQuestions() {
+      const container = document.getElementById(`practice-questions-container`);
+      if (!container) return;
+
+      if (filteredQuestions.length === 0) {
+        container.innerHTML = `<div class="empty-state">
+          <h3>لا توجد أسئلة مطابقة لمعايير التصفية الحالية</h3>
+          <p>لم يتم العثور على أسئلة تطابق المحور أو المادة أو كلمة البحث المحددة.</p>
+          <button type="button" class="btn btn-primary" onclick="clearAllFilters()">إعادة ضبط جميع المرشحات</button>
+        </div>`;
+        return;
+      }
+
+      if (appState.viewLayout === `focus`) {
+        const idx = Math.max(0, Math.min(appState.currentFilteredIndex, filteredQuestions.length - 1));
+        appState.currentFilteredIndex = idx;
+        container.innerHTML = buildQuestionCardHtml(filteredQuestions[idx], idx, filteredQuestions.length);
+      } else {
+        let html = ``;
+        filteredQuestions.forEach((q, idx) => {
+          html += buildQuestionCardHtml(q, idx, filteredQuestions.length);
+        });
+        container.innerHTML = html;
+      }
+    }
+
+    function renderSideMatrixAndMastery() {
+      const matrix = document.getElementById(`question-matrix`);
+      const matrixLabel = document.getElementById(`matrix-count-label`);
+      if (matrixLabel) matrixLabel.textContent = `${filteredQuestions.length} سؤالاً`;
+
+      if (matrix) {
+        let html = ``;
+        filteredQuestions.forEach((q, idx) => {
+          const ua = appState.answers[q.id];
+          let cls = `q-cell`;
+          if (appState.viewLayout === `focus` && idx === appState.currentFilteredIndex) cls += ` current`;
+          if (typeof ua === `number`) {
+            cls += ua === q.ans ? ` answered-ok` : ` answered-err`;
+          }
+          html += `<button type="button" class="${cls}" title="سؤال ${q.id} — المادة ${q.article}" onclick="jumpToFilteredIndex(${idx})">${q.id}</button>`;
+        });
+        matrix.innerHTML = html;
+      }
+
+      const masteryList = document.getElementById(`topic-mastery-list`);
+      if (masteryList) {
+        let html = ``;
+        TOPICS.forEach(t => {
+          const qs = QUESTIONS.filter(q => q.topic === t.id);
+          const ok = qs.filter(q => appState.answers[q.id] === q.ans).length;
+          const pct = Math.round((ok / qs.length) * 100);
+          html += `<div class="mastery-item">
+            <div class="mastery-row">
+              <span>${escapeHtml(t.shortTitle)}</span>
+              <strong>${ok}/${qs.length} (${pct}%)</strong>
+            </div>
+            <div class="mastery-bar-track">
+              <div class="mastery-bar-fill" style="width: ${pct}%;"></div>
+            </div>
+          </div>`;
+        });
+        masteryList.innerHTML = html;
+      }
+    }
+
+    function renderReferenceView() {
+      const grid = document.getElementById(`reference-articles-grid`);
+      if (!grid) return;
+
+      let html = ``;
+      ARTICLES_INFO.forEach(art => {
+        const qCount = QUESTIONS.filter(q => q.article === art.num).length;
+        const listItems = art.points.map(p => `<li>${escapeHtml(p)}</li>`).join(``);
+        html += `<article class="article-card" id="ref-article-${art.num}">
+          <div>
+            <span class="stamp-tag">${escapeHtml(art.chapter)}</span>
+            <h3>${escapeHtml(art.title)}</h3>
+            <ul>${listItems}</ul>
+          </div>
+          <div class="nav-bar">
+            <span class="question-num">${qCount} أسئلة مرتبطة بالمادة</span>
+            <button type="button" class="btn btn-primary" onclick="practiceSpecificArticle(${art.num})">
+              <span>تدرب على المادة ${art.num}</span>
+            </button>
+          </div>
+        </article>`;
+      });
+      grid.innerHTML = html;
+    }
+
+    function refreshAllPracticeViews() {
+      applyFilters();
+      renderTopicPills();
+      renderKpis();
+      renderPracticeQuestions();
+      renderSideMatrixAndMastery();
+      updateLayoutToggleButton();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function updateLayoutToggleButton() {
+      const btn = document.getElementById(`btn-view-mode`);
+      if (!btn) return;
+      btn.innerHTML = appState.viewLayout === `focus`
+        ? `<i data-lucide="list" aria-hidden="true"></i><span>عرض القائمة الكاملة (${filteredQuestions.length})</span>`
+        : `<i data-lucide="square" aria-hidden="true"></i><span>عرض سؤال واحد مركز</span>`;
+    }
+
+    // Event Handlers (hoisted function declarations)
+    function switchAppMode(mode) {
+      appState.mode = mode;
+      const views = {
+        practice: document.getElementById(`view-practice`),
+        exam: document.getElementById(`view-exam`),
+        reference: document.getElementById(`view-reference`)
+      };
+      const btns = {
+        practice: document.getElementById(`btn-mode-practice`),
+        exam: document.getElementById(`btn-mode-exam`),
+        reference: document.getElementById(`btn-mode-reference`)
+      };
+
+      Object.keys(views).forEach(k => {
+        if (views[k]) views[k].classList.toggle(`hidden`, k !== mode);
+        if (btns[k]) btns[k].classList.toggle(`active`, k === mode);
+      });
+
+      if (mode === `reference`) renderReferenceView();
+      if (window.lucide) window.lucide.createIcons();
+      saveAppState();
+    }
+
+    function onTopicSelect(topicId) {
+      appState.activeTopic = topicId;
+      appState.activeArticle = `all`;
+      const articleSel = document.getElementById(`filter-article`);
+      if (articleSel) articleSel.value = `all`;
+      appState.currentFilteredIndex = 0;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function onArticleFilterChange(val) {
+      appState.activeArticle = val;
+      appState.activeTopic = `all`;
+      appState.currentFilteredIndex = 0;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function onStatusFilterChange(val) {
+      appState.activeStatus = val;
+      appState.currentFilteredIndex = 0;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function onSearchChange(val) {
+      appState.searchQuery = val || ``;
+      appState.currentFilteredIndex = 0;
+      refreshAllPracticeViews();
+    }
+
+    function clearAllFilters() {
+      appState.activeTopic = `all`;
+      appState.activeArticle = `all`;
+      appState.activeStatus = `all`;
+      appState.searchQuery = ``;
+      appState.currentFilteredIndex = 0;
+      const artSel = document.getElementById(`filter-article`);
+      const stSel = document.getElementById(`filter-status`);
+      const srch = document.getElementById(`filter-search`);
+      if (artSel) artSel.value = `all`;
+      if (stSel) stSel.value = `all`;
+      if (srch) srch.value = ``;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function toggleQuestionLayout() {
+      appState.viewLayout = appState.viewLayout === `focus` ? `list` : `focus`;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function shuffleVisibleQuestions() {
+      const pool = [...QUESTIONS];
+      for (let i = pool.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+      }
+      appState.customOrder = pool;
+      appState.currentFilteredIndex = 0;
+      const banner = document.getElementById(`practice-feedback-banner`);
+      if (banner) banner.textContent = `تم خلط ترتيب الأسئلة عشوائياً.`;
+      refreshAllPracticeViews();
+    }
+
+    function jumpToNextUnanswered() {
+      const idx = filteredQuestions.findIndex(q => typeof appState.answers[q.id] !== `number`);
+      const banner = document.getElementById(`practice-feedback-banner`);
+      if (idx === -1) {
+        if (banner) banner.textContent = `تمت الإجابة على جميع الأسئلة في هذا النطاق.`;
+        return;
+      }
+      appState.viewLayout = `focus`;
+      appState.currentFilteredIndex = idx;
+      if (banner) banner.textContent = ``;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function navigateFocusQuestion(newIdx) {
+      if (newIdx < 0 || newIdx >= filteredQuestions.length) return;
+      appState.currentFilteredIndex = newIdx;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function jumpToFilteredIndex(idx) {
+      if (appState.viewLayout === `focus`) {
+        appState.currentFilteredIndex = idx;
+        refreshAllPracticeViews();
+        saveAppState();
+      } else {
+        const q = filteredQuestions[idx];
+        if (!q) return;
+        const card = document.getElementById(`q-card-${q.id}`);
+        if (card) card.scrollIntoView({ behavior: `smooth`, block: `start` });
+      }
+    }
+
+    function selectPracticeAnswer(qId, optIdx) {
+      appState.answers[qId] = optIdx;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function practiceSpecificArticle(artNum) {
+      appState.activeTopic = `all`;
+      appState.activeArticle = String(artNum);
+      appState.activeStatus = `all`;
+      appState.currentFilteredIndex = 0;
+      const artSel = document.getElementById(`filter-article`);
+      const stSel = document.getElementById(`filter-status`);
+      if (artSel) artSel.value = String(artNum);
+      if (stSel) stSel.value = `all`;
+      switchAppMode(`practice`);
+      refreshAllPracticeViews();
+    }
+
+    function openArticleInReference(artNum) {
+      switchAppMode(`reference`);
+      const el = document.getElementById(`ref-article-${artNum}`);
+      if (el) el.scrollIntoView({ behavior: `smooth`, block: `center` });
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.classList.add(`armed`);
+        btn.innerHTML = `<i data-lucide="alert-triangle" aria-hidden="true"></i><span>اضغط مجدداً لتأكيد المسح</span>`;
+        if (window.lucide) window.lucide.createIcons();
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.classList.remove(`armed`);
+            btn.innerHTML = `<i data-lucide="rotate-ccw" aria-hidden="true"></i><span>إعادة تعيين التقدم</span>`;
+            if (window.lucide) window.lucide.createIcons();
+          }
+        }, 4000);
+        return;
+      }
+
+      btn.dataset.armed = `false`;
+      btn.classList.remove(`armed`);
+      btn.innerHTML = `<i data-lucide="rotate-ccw" aria-hidden="true"></i><span>إعادة تعيين التقدم</span>`;
+      appState.answers = {};
+      appState.customOrder = null;
+      appState.currentFilteredIndex = 0;
+      const banner = document.getElementById(`practice-feedback-banner`);
+      if (banner) banner.textContent = `تم مسح الإجابات السابقة بنجاح.`;
+      refreshAllPracticeViews();
+      saveAppState();
+    }
+
+    function exportProgressCsv() {
+      const rows = [`رقم السؤال,المادة,المحور,السؤال,جوابك,الجواب الصحيح,الحالة`];
+      QUESTIONS.forEach(q => {
+        const ua = appState.answers[q.id];
+        const userText = typeof ua === `number` ? q.opts[ua].replace(/"/g, `""`) : `لم يُجب`;
+        const ansText = q.opts[q.ans].replace(/"/g, `""`);
+        const status = typeof ua !== `number` ? `غير مجاب` : (ua === q.ans ? `صحيح` : `خاطئ`);
+        const qClean = q.q.replace(/"/g, `""`);
+        rows.push(`${q.id},المادة ${q.article},"${getTopicById(q.topic).shortTitle}","${qClean}","${userText}","${ansText}",${status}`);
+      });
+      const csvContent = `\uFEFF` + rows.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `law-07-00-qcm-results.csv`
+        });
+      }
+    }
+
+    // ================= EXAM SIMULATION LOGIC =================
+    function startExamSession() {
+      const countSel = document.getElementById(`exam-count-select`);
+      const topicSel = document.getElementById(`exam-topic-select`);
+      const countVal = countSel ? parseInt(countSel.value, 10) : 40;
+      const topicVal = topicSel ? topicSel.value : `all`;
+
+      let pool = topicVal === `all` ? [...QUESTIONS] : QUESTIONS.filter(q => q.topic === topicVal);
+      for (let i = pool.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+      }
+
+      const selected = pool.slice(0, Math.min(countVal, pool.length));
+      const minutesMap = { 20: 15, 40: 30, 60: 45, 108: 75 };
+      const mins = minutesMap[countVal] || Math.ceil(selected.length * 0.75);
+
+      if (examSession.timerId) clearInterval(examSession.timerId);
+
+      examSession = {
+        active: true,
+        finished: false,
+        questions: selected,
+        answers: {},
+        currentIndex: 0,
+        secondsRemaining: mins * 60,
+        timerId: null
+      };
+
+      const setupPanel = document.getElementById(`exam-setup-panel`);
+      const activePanel = document.getElementById(`exam-active-panel`);
+      const resultsPanel = document.getElementById(`exam-results-panel`);
+      if (setupPanel) setupPanel.classList.add(`hidden`);
+      if (resultsPanel) resultsPanel.classList.add(`hidden`);
+      if (activePanel) activePanel.classList.remove(`hidden`);
+
+      renderExamQuestion();
+      renderExamMatrix();
+      updateExamTimerDisplay();
+
+      examSession.timerId = setInterval(() => {
+        if (!examSession.active) return;
+        examSession.secondsRemaining -= 1;
+        updateExamTimerDisplay();
+        if (examSession.secondsRemaining <= 0) {
+          submitExamSession();
+        }
+      }, 1000);
+    }
+
+    function updateExamTimerDisplay() {
+      const timerEl = document.getElementById(`exam-timer-display`);
+      if (!timerEl) return;
+      const m = Math.floor(Math.max(0, examSession.secondsRemaining) / 60);
+      const s = Math.max(0, examSession.secondsRemaining) % 60;
+      timerEl.textContent = `${String(m).padStart(2, `0`)}:${String(s).padStart(2, `0`)}`;
+    }
+
+    function renderExamQuestion() {
+      const stage = document.getElementById(`exam-question-stage`);
+      const progEl = document.getElementById(`exam-progress-label`);
+      const ansEl = document.getElementById(`exam-answered-label`);
+      if (!stage || examSession.questions.length === 0) return;
+
+      const q = examSession.questions[examSession.currentIndex];
+      const ua = examSession.answers[q.id];
+      const answeredCount = Object.keys(examSession.answers).length;
+
+      if (progEl) progEl.textContent = `السؤال ${examSession.currentIndex + 1} من ${examSession.questions.length}`;
+      if (ansEl) ansEl.textContent = ` — مجاب عنها: ${answeredCount}`;
+
+      let optsHtml = ``;
+      q.opts.forEach((txt, idx) => {
+        const selCls = ua === idx ? `selected` : ``;
+        optsHtml += `<button type="button" class="option-btn ${selCls}" onclick="selectExamAnswer(${q.id}, ${idx})">
+          <span class="option-letter">${ARABIC_LETTERS[idx]}</span>
+          <span>${escapeHtml(txt)}</span>
+          <span></span>
+        </button>`;
+      });
+
+      const hasPrev = examSession.currentIndex > 0;
+      const hasNext = examSession.currentIndex < examSession.questions.length - 1;
+
+      stage.innerHTML = `<article class="question-card">
+        <div class="question-meta">
+          <div class="meta-tags">
+            <span class="stamp-tag navy">المادة ${q.article}</span>
+            <span class="stamp-tag">${escapeHtml(getTopicById(q.topic).shortTitle)}</span>
+          </div>
+          <span class="question-num">اختبار تجريبي · ${examSession.currentIndex + 1} / ${examSession.questions.length}</span>
+        </div>
+        <h3 class="question-stem">${escapeHtml(q.q)}</h3>
+        <div class="options-list">${optsHtml}</div>
+        <div class="nav-bar">
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" ${hasPrev ? `` : `disabled`} onclick="navigateExamQuestion(${examSession.currentIndex - 1})">
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+              <span>السؤال السابق</span>
+            </button>
+            <button type="button" class="btn btn-primary" ${hasNext ? `` : `disabled`} onclick="navigateExamQuestion(${examSession.currentIndex + 1})">
+              <span>السؤال التالي</span>
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </article>`;
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function renderExamMatrix() {
+      const mat = document.getElementById(`exam-matrix`);
+      if (!mat) return;
+      let html = ``;
+      examSession.questions.forEach((q, idx) => {
+        let cls = `q-cell`;
+        if (idx === examSession.currentIndex) cls += ` current`;
+        if (typeof examSession.answers[q.id] === `number`) cls += ` answered-exam`;
+        html += `<button type="button" class="${cls}" onclick="navigateExamQuestion(${idx})">${idx + 1}</button>`;
+      });
+      mat.innerHTML = html;
+    }
+
+    function selectExamAnswer(qId, idx) {
+      examSession.answers[qId] = idx;
+      renderExamQuestion();
+      renderExamMatrix();
+    }
+
+    function navigateExamQuestion(idx) {
+      if (idx < 0 || idx >= examSession.questions.length) return;
+      examSession.currentIndex = idx;
+      renderExamQuestion();
+      renderExamMatrix();
+    }
+
+    function submitExamSession() {
+      if (examSession.timerId) {
+        clearInterval(examSession.timerId);
+        examSession.timerId = null;
+      }
+      examSession.active = false;
+      examSession.finished = true;
+
+      const activePanel = document.getElementById(`exam-active-panel`);
+      const resultsPanel = document.getElementById(`exam-results-panel`);
+      if (activePanel) activePanel.classList.add(`hidden`);
+      if (!resultsPanel) return;
+      resultsPanel.classList.remove(`hidden`);
+
+      let score = 0;
+      const topicBreakdown = {};
+      TOPICS.forEach(t => { topicBreakdown[t.id] = { total: 0, correct: 0 }; });
+
+      examSession.questions.forEach(q => {
+        topicBreakdown[q.topic].total += 1;
+        if (examSession.answers[q.id] === q.ans) {
+          score += 1;
+          topicBreakdown[q.topic].correct += 1;
+        }
+      });
+
+      const total = examSession.questions.length;
+      const pct = Math.round((score / total) * 100);
+
+      let tableRows = ``;
+      TOPICS.forEach(t => {
+        const b = topicBreakdown[t.id];
+        if (b.total > 0) {
+          const tPct = Math.round((b.correct / b.total) * 100);
+          tableRows += `<tr>
+            <td>${escapeHtml(t.fullTitle)}</td>
+            <td>${b.correct}</td>
+            <td>${b.total}</td>
+            <td>${tPct}%</td>
+          </tr>`;
+        }
+      });
+      tableRows += `<tr>
+        <td>المجموع الكلي للاختبار</td>
+        <td>${score}</td>
+        <td>${total}</td>
+        <td>${pct}%</td>
+      </tr>`;
+
+      let reviewCards = ``;
+      examSession.questions.forEach((q, idx) => {
+        const ua = examSession.answers[q.id];
+        const isOk = ua === q.ans;
+        const userLabel = typeof ua === `number` ? `${ARABIC_LETTERS[ua]} — ${q.opts[ua]}` : `لم يتم اختيار جواب`;
+        reviewCards += `<article class="question-card">
+          <div class="question-meta">
+            <div class="meta-tags">
+              <span class="stamp-tag navy">المادة ${q.article}</span>
+              <span class="stamp-tag ${isOk ? `green` : `red`}">${isOk ? `إجابة صحيحة` : `إجابة خاطئة / ناقصة`}</span>
+            </div>
+            <span class="question-num">سؤال ${idx + 1} من ${total}</span>
+          </div>
+          <h3 class="question-stem">${escapeHtml(q.q)}</h3>
+          <p class="rationale-text"><strong>جوابك:</strong> ${escapeHtml(userLabel)}</p>
+          <p class="rationale-text"><strong>الجواب الصحيح:</strong> ${ARABIC_LETTERS[q.ans]} — ${escapeHtml(q.opts[q.ans])}</p>
+          <div class="rationale-box ${isOk ? `is-correct` : `is-wrong`}">
+            <div class="rationale-head"><span>التعليل القانوني (المادة ${q.article})</span></div>
+            <p class="rationale-text">${escapeHtml(q.ref)}</p>
+          </div>
+        </article>`;
+      });
+
+      resultsPanel.innerHTML = `<div class="figure-grid">
+          <article class="figure-card">
+            <span class="figure-label">النتيجة النهائية</span>
+            <span class="figure-value">${score} / ${total}</span>
+            <span class="figure-delta ${pct >= 50 ? `positive` : `negative`}">معدل النجاح: ${pct}%</span>
+          </article>
+          <article class="figure-card">
+            <span class="figure-label">الإجراء التالي</span>
+            <div class="btn-group" style="margin-top: var(--space-xs);">
+              <button type="button" class="btn btn-primary" onclick="resetToExamSetup()">إجراء اختبار جديد</button>
+              <button type="button" class="btn btn-secondary" onclick="switchAppMode('practice')">العودة لبنك التدريب</button>
+            </div>
+          </article>
+        </div>
+        <div class="summary-table-wrap">
+          <table class="charter-table">
+            <thead>
+              <tr>
+                <th>المحور التشريعي</th>
+                <th>الإجابات الصحيحة</th>
+                <th>مجموع الأسئلة</th>
+                <th>النسبة المئوية</th>
+              </tr>
+            </thead>
+            <tbody>${tableRows}</tbody>
+          </table>
+        </div>
+        <div class="section-head"><h2>المراجعة المفصلة مع التعليل القانوني</h2></div>
+        ${reviewCards}`;
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function resetToExamSetup() {
+      const setupPanel = document.getElementById(`exam-setup-panel`);
+      const resultsPanel = document.getElementById(`exam-results-panel`);
+      const activePanel = document.getElementById(`exam-active-panel`);
+      if (setupPanel) setupPanel.classList.remove(`hidden`);
+      if (resultsPanel) resultsPanel.classList.add(`hidden`);
+      if (activePanel) activePanel.classList.add(`hidden`);
+    }
+
+    // Initialization
+    async function initApp() {
+      await loadInitialState();
+      populateFilterSelects();
+      refreshAllPracticeViews();
+      switchAppMode(appState.mode || `practice`);
+      if (window.lucide) window.lucide.createIcons();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 ﻿# Exam Hub - Vercel
 
-Static site exposing eight interactive Arabic exam tools.
+Static site exposing nine interactive Arabic exam tools.
 
 ## Structure
 
@@ -13,11 +13,12 @@ Static site exposing eight interactive Arabic exam tools.
 - /regime-cantine-scolaire/ - 112-question exam on the school canteen system guide (April 2022)
 - /guide-gestion-financiere-materielle/ - 110-question exam on the financial and material management guide
 - /loi-69-00-controle-financier/ - 100-question exam on law 69.00 on state financial control
+- /loi-07-00-academies-region/ - 108-question exam on law 07.00 on regional academies
 
-The root page also has an About section with the author photo and introduction from
+The root page also has an Arabic About section with the author photo and introduction from
 edumaroc.org, plus direct LinkedIn and Instagram contact links.
 
-All eight exam files are byte-identical copies of their original HTML files.
+All nine exam files are byte-identical copies of their original HTML files.
 The examen-global-120 page uses the same template/UI as the original exams and was
 generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
 examen_qcm_cadres_economiques_part2.pdf).
