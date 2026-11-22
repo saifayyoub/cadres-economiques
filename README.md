@@ -1,6 +1,6 @@
 ﻿# Exam Hub - Vercel
 
-Static site exposing ten interactive Arabic exam tools.
+Static site exposing eleven interactive Arabic exam tools.
 
 ## Structure
 
@@ -15,11 +15,12 @@ Static site exposing ten interactive Arabic exam tools.
 - /loi-69-00-controle-financier/ - 100-question exam on law 69.00 on state financial control
 - /loi-07-00-academies-region/ - 108-question exam on law 07.00 on regional academies
 - /archive-69-99/ - 110-question exam on law 69.99 on the archive
+- /concours-loi-organique-130-13/ - 105-question competitive exam on organic finance law 130.13
 
 The root page also has an Arabic About section with the author photo and introduction from
 edumaroc.org, plus direct LinkedIn and Instagram contact links.
 
-All ten exam files are byte-identical copies of their original HTML files.
+All eleven exam files are byte-identical copies of their original HTML files.
 The examen-global-120 page uses the same template/UI as the original exams and was
 generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
 examen_qcm_cadres_economiques_part2.pdf).

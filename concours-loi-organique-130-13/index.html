@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>المباراة التنافسية في القانون التنظيمي للمالية 130.13 — بنك أسئلة QCM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces — Charter */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --secondary-container: #e2ede8;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+      --error-container: #f8e5e5;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts (Arabic first per RTL rule) */
+      --font-headline: 'Noto Sans Arabic', 'Libre Caslon Text', serif;
+      --font-body: 'Noto Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'IBM Plex Mono', monospace;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Shared semantic & focus */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.65rem, 1.3rem + 1.1vw, 2.2rem);
+      --headline-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+      --subhead-size: clamp(1.05rem, 0.98rem + 0.25vw, 1.18rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.78rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+    header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Title Band */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
+      border-bottom: 3px solid var(--outline);
+    }
+    .title-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+      margin-bottom: var(--space-xs);
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--on-primary);
+      margin: 0 0 var(--space-sm) 0;
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline);
+    }
+    .title-band .lede {
+      font-size: var(--body-size);
+      color: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      margin: 0;
+      max-width: 68ch;
+    }
+
+    /* Page Grid */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Scoreboard Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .figure-value {
+      font-family: var(--font-mono);
+      font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.9rem);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--primary);
+      line-height: 1.15;
+    }
+    .figure-delta {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+    .figure-delta.positive { color: var(--positive); }
+
+    /* Control Strip */
+    .controls-panel {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-bottom: var(--hairline);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: end;
+      justify-content: space-between;
+    }
+    .mode-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    select, .search-input {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      padding: 0.55rem 0.75rem;
+      min-height: 44px;
+      font-size: var(--body-size);
+      transition: border-color var(--dur-micro) var(--ease-out);
+    }
+    select { padding-left: 2rem; }
+    select:focus, .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .btn:hover:not(:disabled) {
+      background: var(--primary-container);
+    }
+    .btn.active, .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn.active:hover:not(:disabled), .btn-primary:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--primary) 88%, var(--on-primary));
+    }
+    .btn-secondary {
+      background: var(--surface-container);
+      border-color: var(--outline-variant);
+      color: var(--on-surface);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+    .btn-danger {
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .btn-danger:hover:not(:disabled) {
+      background: var(--error-container);
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Main Asymmetric Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Quiz Card */
+    .quiz-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .quiz-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: var(--hairline);
+    }
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .stamp-tag {
+      display: inline-block;
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      padding: 0.2rem 0.55rem;
+      font-size: var(--label-size);
+      font-weight: 600;
+      border-radius: var(--rounded);
+    }
+    .stamp-tag.navy {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-container);
+    }
+    .timer-badge {
+      font-family: var(--font-mono);
+      font-size: var(--body-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container);
+      color: var(--primary);
+      border-radius: var(--rounded);
+    }
+    .timer-badge.urgent {
+      border-color: var(--error);
+      background: var(--error-container);
+      color: var(--error);
+    }
+    .timer-bar-track {
+      height: 4px;
+      background: var(--surface-container);
+      width: 100%;
+      overflow: hidden;
+    }
+    .timer-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      transition: width 250ms linear, background-color var(--dur-short) var(--ease-out);
+    }
+    .timer-bar-fill.urgent {
+      background: var(--error);
+    }
+
+    .question-text {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      width: 100%;
+      text-align: right;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      min-height: 52px;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      cursor: pointer;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background: var(--primary-container);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+    .option-letter {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-container);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: var(--label-size);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+    }
+    .option-btn.correct {
+      background: var(--secondary-container);
+      border-color: var(--secondary);
+      box-shadow: inset 4px 0 0 var(--secondary);
+    }
+    .option-btn.correct .option-letter {
+      background: var(--secondary);
+      color: var(--on-primary);
+      border-color: var(--secondary);
+    }
+    .option-btn.wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      box-shadow: inset 4px 0 0 var(--error);
+    }
+    .option-btn.wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    /* Legal Justification Box */
+    .rationale-panel {
+      background: var(--background);
+      border-right: 4px solid var(--outline);
+      border-top: var(--hairline);
+      border-bottom: var(--hairline);
+      border-left: var(--hairline);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .rationale-panel.is-correct { border-right-color: var(--secondary); }
+    .rationale-panel.is-wrong { border-right-color: var(--error); }
+    .rationale-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .verdict-title {
+      font-weight: 700;
+      font-size: var(--subhead-size);
+    }
+    .verdict-title.correct { color: var(--secondary); }
+    .verdict-title.wrong { color: var(--error); }
+    .article-ref {
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-container);
+      padding: 0.2rem 0.6rem;
+      font-size: var(--label-size);
+      border: 1px solid var(--outline-variant);
+    }
+    .rationale-text {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.65;
+    }
+
+    .quiz-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+    .nav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Sidebar: Mastery & Matrix */
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .panel-box {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded-lg);
+    }
+    .section-head {
+      margin: 0 0 var(--space-md) 0;
+      padding-bottom: var(--space-sm);
+      border-bottom: var(--hairline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .axis-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .axis-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      text-align: right;
+      cursor: pointer;
+      width: 100%;
+    }
+    .axis-row:hover {
+      background: var(--surface-container);
+      border-color: var(--outline-variant);
+    }
+    .axis-row.selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+    }
+    .axis-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .axis-count {
+      font-family: var(--font-mono);
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+    }
+    .progress-track {
+      height: 6px;
+      background: var(--surface-container);
+      width: 100%;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--secondary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Question Matrix */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+      gap: 5px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 2px;
+    }
+    .q-tile {
+      min-height: 34px;
+      border: 1px solid var(--outline-variant);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--rounded);
+    }
+    .q-tile:hover {
+      border-color: var(--primary);
+      background: var(--primary-container);
+    }
+    .q-tile.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+      font-weight: 700;
+    }
+    .q-tile.answered-correct {
+      background: var(--secondary);
+      color: var(--on-primary);
+      border-color: var(--secondary);
+    }
+    .q-tile.answered-wrong {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .q-tile.bookmarked {
+      box-shadow: inset 0 -3px 0 var(--outline);
+    }
+
+    /* Stats View Table */
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--body-size);
+    }
+    .stats-table th {
+      background: var(--surface-container-high);
+      text-align: right;
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: var(--brass-rule);
+    }
+    .stats-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+    }
+    .stats-table td.num {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      text-align: left;
+    }
+
+    .empty-state {
+      padding: var(--space-xl);
+      text-align: center;
+      background: var(--background);
+      border: 1px dashed var(--outline);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .footer-note {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 860px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .controls-panel, .quiz-card, .panel-box {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div class="kicker">القانون التنظيمي رقم <bdi dir="ltr">130.13</bdi> لقانون المالية — المملكة المغربية</div>
+      <h1>المباراة التنافسية في المالية العمومية (<bdi dir="ltr">QCM</bdi>)</h1>
+      <p class="lede">اختبار تفاعلي شامل يضم 105 أسئلة موزعة على سبعة محاور قانونية وميزانياتية، مع مؤقت تنافسي، تتبع الأداء، وتعليل قانوني مباشر موثق بأرقام المواد.</p>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- Executive Scoreboard -->
+    <section class="kpi-grid" aria-label="لوحة النتائج التنافسية">
+      <div class="figure-card">
+        <div class="figure-label">الرصيد التنافسي (النقاط)</div>
+        <div class="figure-value" id="kpi-points">0</div>
+        <div class="figure-delta" id="kpi-points-sub">+10 نقاط لكل إجابة صحيحة</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">نسبة الدقة والإتقان</div>
+        <div class="figure-value" id="kpi-accuracy">0%</div>
+        <div class="figure-delta positive" id="kpi-accuracy-sub">0 صحيحة من 0 مجاب عنها</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">سلسلة الإجابات المتتالية</div>
+        <div class="figure-value" id="kpi-streak">0</div>
+        <div class="figure-delta" id="kpi-best-streak">أفضل سلسلة: 0</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">تغطية بنك الأسئلة</div>
+        <div class="figure-value" id="kpi-coverage">0 / 105</div>
+        <div class="figure-delta" id="kpi-bookmarks">المحفوظة للمراجعة: 0</div>
+      </div>
+    </section>
+
+    <!-- Controls Bar -->
+    <section class="controls-panel" aria-label="أدوات التحكم والتصفية">
+      <div class="mode-group" role="group" aria-label="أنماط الاختبار">
+        <button type="button" class="btn active" id="mode-competitive" onclick="setMode('competitive')">وضع التحدي التنافسي</button>
+        <button type="button" class="btn" id="mode-practice" onclick="setMode('practice')">التدريب الحر</button>
+        <button type="button" class="btn" id="mode-review" onclick="setMode('review')">مراجعة الأخطاء والمحفوظة</button>
+        <button type="button" class="btn" id="mode-stats" onclick="setMode('stats')">جدول إتقان المحاور</button>
+      </div>
+
+      <div class="filter-group">
+        <div class="field-wrap">
+          <label class="field-label" for="axis-filter">تصفية حسب المحور</label>
+          <select id="axis-filter" onchange="onAxisChange(this.value)">
+            <option value="all">جميع المحاور (105 أسئلة)</option>
+          </select>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="search-input">بحث برقم المادة أو الكلمة</label>
+          <input type="search" id="search-input" class="search-input" placeholder="مثال: المادة 27 أو التوازن" oninput="onSearchChange(this.value)">
+        </div>
+        <button type="button" class="btn btn-danger" id="reset-btn" onclick="handleReset(this)">إعادة ضبط التقدم</button>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <section class="workspace-grid" id="quiz-workspace">
+      <!-- Active Question Card -->
+      <article class="quiz-card" aria-live="polite">
+        <div class="quiz-meta-row">
+          <div class="meta-tags">
+            <span class="stamp-tag navy" id="q-counter">السؤال 1 من 105</span>
+            <span class="stamp-tag" id="q-axis-badge">المحور</span>
+            <span class="stamp-tag hidden" id="q-article-badge">المادة</span>
+          </div>
+          <div class="timer-badge" id="timer-display">45 ث</div>
+        </div>
+
+        <div class="timer-bar-track" id="timer-track">
+          <div class="timer-bar-fill" id="timer-bar" style="width: 100%;"></div>
+        </div>
+
+        <h2 class="question-text" id="q-text">جارٍ تحميل السؤال...</h2>
+
+        <div class="options-list" id="options-container" role="radiogroup" aria-label="اختيارات الإجابة"></div>
+
+        <div class="rationale-panel hidden" id="rationale-box">
+          <div class="rationale-header">
+            <span class="verdict-title" id="verdict-text">النتيجة</span>
+            <span class="article-ref" id="rationale-article">المادة —</span>
+          </div>
+          <p class="rationale-text" id="rationale-body"></p>
+        </div>
+
+        <div class="empty-state hidden" id="empty-filter-state">
+          <p id="empty-state-msg">لا توجد أسئلة مطابقة لمعايير التصفية الحالية.</p>
+          <button type="button" class="btn btn-primary" onclick="clearFilters()">عرض جميع الأسئلة</button>
+        </div>
+
+        <div class="quiz-footer" id="quiz-footer">
+          <div class="nav-actions">
+            <button type="button" class="btn btn-secondary" id="prev-btn" onclick="prevQuestion()">السؤال السابق</button>
+            <button type="button" class="btn btn-secondary" id="bookmark-btn" onclick="toggleBookmark()">حفظ للمراجعة</button>
+          </div>
+          <div class="nav-actions">
+            <button type="button" class="btn btn-secondary" id="next-unanswered-btn" onclick="jumpNextUnanswered()">أول سؤال غير مجاب</button>
+            <button type="button" class="btn btn-primary" id="next-btn" onclick="nextQuestion()">السؤال التالي</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar: Axis Breakdown & Matrix -->
+      <aside class="side-column" aria-label="تتبع المحاور ومصفوفة الأسئلة">
+        <div class="panel-box">
+          <h3 class="section-head">تقدم الإتقان حسب المحور</h3>
+          <div class="axis-list" id="axis-sidebar-list"></div>
+        </div>
+
+        <div class="panel-box">
+          <h3 class="section-head">مصفوفة التنقل السريع</h3>
+          <div class="matrix-grid" id="question-matrix" role="navigation" aria-label="شبكة أرقام الأسئلة"></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Stats / Axis Summary Panel (shown in stats mode) -->
+    <section class="panel-box hidden" id="stats-view">
+      <h2 class="section-head">تحليل الأداء المفصل حسب محاور القانون التنظيمي 130.13</h2>
+      <div style="overflow-x: auto;">
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>المحور</th>
+              <th>المواد المرجعية</th>
+              <th>الأسئلة</th>
+              <th>المجاب عنها</th>
+              <th>الصحيحة</th>
+              <th>نسبة الإتقان</th>
+              <th>إجراء</th>
+            </tr>
+          </thead>
+          <tbody id="stats-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span>المرجع القانوني: الظهير الشريف رقم 1.15.62 الصادر في 14 من شعبان 1436 (2 يونيو 2015) بتنفيذ القانون التنظيمي رقم 130.13 لقانون المالية.</span>
+      <span>اختصارات لوحة المفاتيح: الأرقام 1–4 للاختيار، والأسهم للتنقل.</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+
+  <script>
+    const AXES = [
+      { id: `principles`, title: `المبادئ الكبرى لقوانين المالية`, articles: `المواد 1–10` },
+      { id: `programming`, title: `البرمجة متعددة السنوات والهندسة`, articles: `المواد 5، 36–39` },
+      { id: `components`, title: `مكونات الميزانية (العامة، SEGMA، CST)`, articles: `المواد 11–30` },
+      { id: `revenue_exp`, title: `هيكلة النفقات والمداخيل والاعتمادات`, articles: `المواد 11–20، 43–45، 63` },
+      { id: `performance`, title: `البرامج والمؤشرات ونجاعة الأداء`, articles: `المواد 38–42، 66` },
+      { id: `parliament`, title: `مساطر الإعداد والتصويت والمراقبة`, articles: `المواد 46–61` },
+      { id: `settlement`, title: `تنفيذ الميزانية وقانون التصفية`, articles: `المواد 31–35، 60–70` }
+    ];
+
+    const QUESTIONS = [
+      // 1. المبادئ الكبرى (1–18)
+      {
+        id: 1, axis: `principles`, article: `المادة 1`,
+        q: `ما هو العنصر الجديد الذي أوجبت المادة 1 من القانون التنظيمي 130.13 مراعاته عند إعداد قانون المالية إلى جانب الظرفية الاقتصادية والاجتماعية؟`,
+        opts: [
+          `أهداف ونتائج البرامج المحددة في هذا القانون`,
+          `توصيات المجلس الاقتصادي والاجتماعي فقط`,
+          `مقترحات المجالس الجهوية المنتخبة`,
+          `الاعتمادات المرحلة من السنوات الخمس السابقة`
+        ],
+        ans: 0,
+        rat: `تنص المادة 1 على أن قانون المالية يحدد طبيعة ومبلغ وتخصيص مجموع موارد وتكاليف الدولة والتوازن الناتج عنها، وتراعى في ذلك الظرفية الاقتصادية والاجتماعية وكذا أهداف ونتائج البرامج المحددة في القانون.`
+      },
+      {
+        id: 2, axis: `principles`, article: `المادة 2`,
+        q: `كم عدد أنواع قوانين المالية حسب المادة 2 من القانون التنظيمي رقم 130.13؟`,
+        opts: [
+          `قانونان: قانون المالية للسنة وقانون التصفية فقط`,
+          `ثلاثة: قانون المالية للسنة، قوانين المالية المعدلة، وقانون التصفية المتعلق بتنفيذ قانون المالية`,
+          `أربعة أنواع تشمل القوانين الملحقة`,
+          `خمسة أنواع حسب كل فصل ميزانياتي`
+        ],
+        ans: 1,
+        rat: `تحصر المادة 2 قوانين المالية في ثلاثة أصناف: قانون المالية للسنة، قوانين المالية المعدلة، وقانون التصفية المتعلق بتنفيذ قانون المالية.`
+      },
+      {
+        id: 3, axis: `principles`, article: `المادة 3`,
+        q: `متى تبتدئ السنة المالية وتنتهي طبقا لمبدأ السنوية في المادة 3 من القانون التنظيمي 130.13؟`,
+        opts: [
+          `من فاتح يوليو إلى 30 يونيو`,
+          `من فاتح أكتوبر إلى 30 سبتمبر`,
+          `من فاتح يناير إلى 31 ديسمبر من نفس السنة`,
+          `من فاتح أبريل إلى 31 مارس`
+        ],
+        ans: 2,
+        rat: `تؤكد المادة 3 أن السنة المالية تبتدئ في فاتح يناير وتنتهي في 31 ديسمبر من نفس السنة، وهو التطبيق المباشر لمبدأ السنوية.`
+      },
+      {
+        id: 4, axis: `principles`, article: `المادة 4`,
+        q: `ما المقصود بالمنع الوارد في المادة 4 بشأن "الفرسان الميزانياتية" (Cavaliers budgétaires)؟`,
+        opts: [
+          `منع إدراج نفقات الاستثمار في قانون المالية`,
+          `عدم جواز تضمين قوانين المالية أحكاما لا تتعلق بالموارد والتكاليف أو تحسين التحصيل ومراقبة الأموال العمومية`,
+          `منع البرلمان من مناقشة المداخيل الضريبية`,
+          `منع الحكومة من تقديم قوانين مالية معدلة`
+        ],
+        ans: 1,
+        rat: `تقضي المادة 4 بأنه لا يمكن أن تتضمن قوانين المالية إلا أحكاما تتعلق بالموارد والتكاليف أو تهدف إلى تحسين شروط تحصيل المداخيل ومراقبة استعمال الأموال العمومية.`
+      },
+      {
+        id: 5, axis: `principles`, article: `المادة 6`,
+        q: `بماذا تحدث الرسوم شبه الضريبية (Taxes parafiscales) المقبوضة لفائدة شخص اعتباري خاضع للقانون العام أو الخاص غير الدولة؟`,
+        opts: [
+          `بموجب قانون المالية حصرا`,
+          `بمرسوم يتخذ باقتراح من الوزير المكلف بالمالية والوزير المعني`,
+          `بقرار لوزير الداخلية`,
+          `بمقرر للخازن العام للمملكة`
+        ],
+        ans: 1,
+        rat: `تتيح المادة 6 إحداث الرسوم شبه الضريبية المقبوضة لفائدة هيئة معنوية غير الدولة أو الجماعات الترابية بمرسوم يتخذ باقتراح من الوزير المكلف بالمالية والوزير المعني.`
+      },
+      {
+        id: 6, axis: `principles`, article: `المادة 6`,
+        q: `ما هو المبدأ الذي يحكم إحداث أو إلغاء أي ضريبة أو تغيير وعائها أو سعرها أو طرق تحصيلها في المادة 6؟`,
+        opts: [
+          `يتم ذلك بمقتضى مرسوم حكومي`,
+          `يتم بقرار مشترك بين وزارتي المالية والداخلية`,
+          `لا يمكن ذلك إلا بمقتضى قانون`,
+          `يتم بتفويض من رئيس الحكومة للأمين العام للحكومة`
+        ],
+        ans: 2,
+        rat: `تكرس المادة 6 الشرعية الضريبية: لا يمكن إحداث أو إلغاء أو تغيير أي ضريبة أو رسم إلا بمقتضى قانون، مع بقاء الرسوم شبه الضريبية خاضعة لمرسوم وفق الشروط المحددة.`
+      },
+      {
+        id: 7, axis: `principles`, article: `المادة 7`,
+        q: `بمقتضى مبدأ الشمول (المادة 7)، كيف تدرج المداخيل والنفقات في الميزانية؟`,
+        opts: [
+          `بصافي الفرق بعد إجراء المقاصة بين المداخيل والنفقات`,
+          `بمبالغها الكاملة دون تقليص أو مقاصة بين المداخيل والنفقات`,
+          `بعد خصم مصاريف التحصيل مباشرة من الوعاء`,
+          `في حساب واحد مدمج بدون تمييز`
+        ],
+        ans: 1,
+        rat: `تنص المادة 7 على إدراج جميع المداخيل وجميع النفقات بمبالغها الكاملة في الميزانية العامة دون إجراء أي مقاصة بينها (قاعدة الناتج الإجمالي / عدم المقاصة).`
+      },
+      {
+        id: 8, axis: `principles`, article: `المادة 8`,
+        q: `ما هي الاستثناءات القانونية من قاعدة "عدم تخصيص مدخول لنفقة خاصة" داخل الميزانية العامة حسب المادة 8؟`,
+        opts: [
+          `نفقات التسيير ونفقات الموظفين`,
+          `الحسابات الخصوصية للخزينة، مرافق الدولة المسيرة بصورة مستقلة، والإجراءات المحاسبية الخاصة (أموال المساهمات واستعادة الاعتمادات)`,
+          `نفقات الاستثمار والهبات الدولية فقط`,
+          `لا توجد أي استثناءات على الإطلاق`
+        ],
+        ans: 1,
+        rat: `تنص المادة 8 على عدم جواز تخصيص مدخول لنفقة خاصة في الميزانية العامة باستثناء الميزانيات الملحقة؟ بل في 130.13: الحسابات الخصوصية للخزينة، SEGMA، والإجراءات المحاسبية الخاصة (المادة 34: أموال المساعدات والهبات واستعادة الاعتمادات).`
+      },
+      {
+        id: 9, axis: `principles`, article: `المادة 8`,
+        q: `كيف تترجم قاعدة "الوحدة" (Unité budgétaire) في القانون التنظيمي رقم 130.13؟`,
+        opts: [
+          `دمج ميزانية الدولة مع ميزانيات الجماعات الترابية في وثيقة واحدة`,
+          `جمع كافة موارد وتكاليف الدولة في وثيقة واحدة هي قانون المالية السنوي`,
+          `منع وجود حسابات خصوصية للخزينة`,
+          `توحيد سعر الضريبة على القيمة المضافة`
+        ],
+        ans: 1,
+        rat: `يقصد بمبدأ الوحدة تجميع مجموع موارد وتكاليف الدولة (الميزانية العامة وSEGMA والحسابات الخصوصية) في وثيقة موحدة تعرض على أنظار البرلمان للموافقة.`
+      },
+      {
+        id: 10, axis: `principles`, article: `المادة 10`,
+        q: `ماذا يقتضي مبدأ الصدقية الميزانياتية المنصوص عليه في المادة 10؟`,
+        opts: [
+          `تحقيق فائض ميزانياتي إلزامي كل سنة`,
+          `تقديم مجموع موارد وتكاليف الدولة بشكل صادق وتقييم صدقية التوقعات بناء على المعطيات المتوفرة وقت إعدادها`,
+          `منع أي تعديل على قانون المالية بعد المصادقة عليه`,
+          `تثبيت نسبة النمو الاقتصادي بقانون`
+        ],
+        ans: 1,
+        rat: `توجب المادة 10 أن تقدم قوانين المالية بشكل صادق مجموع موارد وتكاليف الدولة، ويتم تقييم صدقية هذه التوقعات استنادا إلى المعطيات المتوفرة وقت إعدادها والنتائج المرتقبة منها.`
+      },
+      {
+        id: 11, axis: `principles`, article: `المادة 10 و 31`,
+        q: `ما الفرق بين "الصدقية الميزانياتية" (المادة 10) و"صدقية الحسابات" (المادة 31)؟`,
+        opts: [
+          `لا فرق بينهما، كلاهما يتعلق بالتوقعات فقط`,
+          `الصدقية الميزانياتية تتعلق بمعقولية وواقعية التوقعات، بينما صدقية الحسابات تعني أن حسابات الدولة نظامية وصادقة وتعكس صورة حقيقية لذمتها ووضعيتها المالية`,
+          `الأولى تخص البرلمان والثانية تخص الجماعات الترابية`,
+          `الأولى تطبق على المداخيل فقط والثانية على النفقات فقط`
+        ],
+        ans: 1,
+        rat: `تميز المادتان 10 و31 بين صدقية التوقعات عند إعداد الميزانية (المادة 10) وصدقية المحاسبة والحسابات التي تعكس بانتظام الصورة الحقيقية لذمة الدولة ووضعيتها المالية (المادة 31).`
+      },
+      {
+        id: 12, axis: `principles`, article: `المادة 9`,
+        q: `من يضمن الحفاظ على توازن مالية الدولة المنصوص عليه في الفصل 77 من الدستور والمكرس في القانون 130.13؟`,
+        opts: [
+          `المجلس الأعلى للحسابات وحده`,
+          `البرلمان والحكومة على حد سواء`,
+          `بنك المغرب وحده`,
+          `رئيس مجلس النواب فقط`
+        ],
+        ans: 1,
+        rat: `يكرس الفصل 77 من الدستور والمقتضيات المنبثقة عنه في 130.13 المسؤولية المشتركة للبرلمان والحكومة في الحفاظ على توازن مالية الدولة.`
+      },
+      {
+        id: 13, axis: `principles`, article: `المادة 3`,
+        q: `هل يشمل قانون المالية للسنة أي أثر بأثر رجعي أو ترحيل تلقائي لجميع الاعتمادات؟`,
+        opts: [
+          `نعم، ترحل جميع اعتمادات التسيير والاستثمار تلقائيا`,
+          `لا، تقتصر المقتضيات على السنة المالية من 1 يناير إلى 31 ديسمبر مع استثناءات محددة حصرا كترحيل جزء من الاستثمار`,
+          `تستمر الاعتمادات لمدة 18 شهرا تلقائيا`,
+          `تمتد السنة المالية لسنتين في المشاريع الكبرى`
+        ],
+        ans: 1,
+        rat: `يرتبط مبدأ السنوية (المادة 3) بقاعدة عدم ترحيل اعتمادات التسيير وسقوطها بنهاية السنة، مع السماح استثناء بترحيل اعتمادات الأداء للاستثمار في حدود السقف القانوني (المادة 63).`
+      },
+      {
+        id: 14, axis: `principles`, article: `المادة 34`,
+        q: `كيف تعالج "أموال المساعدات والهبات والوصايا" (Fonds de concours) وفق الإجراءات المحاسبية الخاصة؟`,
+        opts: [
+          `تدمج في حسابات التسبيقات`,
+          `ترصد مباشرة لتغطية نفقات ذات مصلحة عامة طبقا لرغبة الجهة المانحة وتفتح اعتمادات موازية لها`,
+          `تحول إلى صندوق المقاصة تلقائيا`,
+          `تقتطع منها نسبة 30% لفائدة الميزانية العامة`
+        ],
+        ans: 1,
+        rat: `تمثل أموال المساعدات والهبات والوصايا استثناء من قاعدة عدم التخصيص (المادتان 8 و34)، حيث تدرج في المداخيل وتفتح بها اعتمادات إضافية بموجب مقرر/إجراء خاص لتنفيذ الغرض المتبرع من أجله.`
+      },
+      {
+        id: 15, axis: `principles`, article: `المادة 34`,
+        q: `ما المقصود بإجراء "استعادة الاعتمادات" (Rétablissement de crédits)؟`,
+        opts: [
+          `اقتراض أموال جديدة من السوق الداخلي`,
+          `إعادة فتح اعتمادات في ميزانية الوزارة المعنية بعد استرجاع مبالغ دفعت خطأ أو بصفة مؤقتة من ميزانيتها`,
+          `نقل اعتمادات من وزارة إلى أخرى`,
+          `إلغاء الاعتمادات غير المستعملة آخر السنة`
+        ],
+        ans: 1,
+        rat: `تتيح المادة 34 استعادة الاعتمادات في حالة استرجاع الخزينة لمبالغ مؤداة بصفة غير مستحقة أو مؤقتة من اعتمادات الميزانية العامة أو SEGMA أو CST.`
+      },
+      {
+        id: 16, axis: `principles`, article: `المادة 1`,
+        q: `ما هي الغاية الأساسية من القانون التنظيمي رقم 130.13 مقارنة بالقانون التنظيمي السابق 7.98؟`,
+        opts: [
+          `إلغاء دور البرلمان في مناقشة الميزانية`,
+          `الانتقال من ميزانية الوسائل إلى ميزانية النتائج ونجاعة الأداء وتقوية الشفافية والمراقبة البرلمانية`,
+          `تقليص عدد فصول الميزانية إلى فصلين فقط`,
+          `العودة إلى نظام التسيير الميزانياتي نصف السنوي`
+        ],
+        ans: 1,
+        rat: `أسس القانون التنظيمي 130.13 لنقلة نوعية نحو التدبير المرتكز على النتائج ونجاعة الأداء، وتعزيز البرمجة متعددة السنوات والشفافية المالية والرقابة البرلمانية.`
+      },
+      {
+        id: 17, axis: `principles`, article: `المادة 4`,
+        q: `إذا أدرج في مشروع قانون المالية حكم تشريعي ينظم مسطرة مدنية لا صلة لها بالموارد والتكاليف أو المراقبة المالية، فإنه يعتبر:`,
+        opts: [
+          `مقتضى مكملا واجب التنفيذ`,
+          `مخالفا للمادة 4 من القانون التنظيمي للمالية (فارس ميزانياتي)`,
+          `مقتضى تنظيميا يصدر بمرسوم`,
+          `تعديلا دستوريا غير مباشر`
+        ],
+        ans: 1,
+        rat: `يعتبر أي مقتضى أجنبي عن مجال قانون المالية المحدد في المادة 4 "فارسا ميزانياتيا" معرضاً لعدم الدستورية عند عرضه على المحكمة الدستورية.`
+      },
+      {
+        id: 18, axis: `principles`, article: `المادة 2`,
+        q: `ما هو الغرض من تقديم "قانون مالية معدل" (Loi de finances rectificative) خلال السنة المالية؟`,
+        opts: [
+          `إقفال حسابات السنة المنصرمة`,
+          `تعديل أحكام قانون المالية للسنة خلال سريانها نتيجة تغير المعطيات الاقتصادية أو المالية`,
+          `تحديد الميزانية العامة للسنة الموالية`,
+          `إحداث جماعات ترابية جديدة`
+        ],
+        ans: 1,
+        rat: `طبقا للمادتين 2 و51، يعدل قانون المالية المعدل تقديرات المداخيل وسقوف النفقات والأحكام الجبائية خلال السنة الجارية استجابة لتطورات الظرفية.`
+      },
+
+      // 2. البرمجة متعددة السنوات والهندسة (19–33)
+      {
+        id: 19, axis: `programming`, article: `المادة 5`,
+        q: `على كم سنة تمتد البرمجة الميزانياتية التي يستند إليها إعداد قانون المالية للسنة طبقا للمادة 5؟`,
+        opts: [
+          `سنتان قابلتان للتجديد`,
+          `ثلاث سنوات تحين كل سنة`,
+          `خمس سنوات ثابتة لا تحين`,
+          `عشر سنوات حسب المخطط الاستراتيجي`
+        ],
+        ans: 1,
+        rat: `تنص المادة 5 على أن قانون المالية للسنة يعد استنادا إلى برمجة ميزانياتية لثلاث سنوات (سنة الميزانية + سنتان مواليتان) تحين كل سنة.`
+      },
+      {
+        id: 20, axis: `programming`, article: `المادة 5`,
+        q: `ما هو الهدف من تحيين البرمجة الميزانياتية متعددة السنوات كل سنة؟`,
+        opts: [
+          `إلغاء مبدأ السنوية بشكل كامل`,
+          `تحديد تطور مجموع موارد وتكاليف الدولة وملاءمتها مع تطور الظرفية المالية والاقتصادية والاجتماعية للبلاد`,
+          `إعفاء البرلمان من التصويت السنوي على الميزانية`,
+          `تجميد نفقات الاستثمار لمدة ثلاث سنوات`
+        ],
+        ans: 1,
+        rat: `تحين البرمجة كل سنة لملاءمة المسار الميزانياتي مع الظرفية الاقتصادية والاجتماعية وضمان استدامة التوازنات المالية مع احترام سنوية الترخيص البرلماني.`
+      },
+      {
+        id: 21, axis: `programming`, article: `المادة 5`,
+        q: `هل تحل البرمجة الميزانياتية لثلاث سنوات محل الترخيص السنوي للبرلمان؟`,
+        opts: [
+          `نعم، يصوت البرلمان مرة واحدة كل ثلاث سنوات`,
+          `لا، تظل ذات طابع توقعي وتوجيهي ويظل الترخيص الميزانياتي سنويا`,
+          `تحل محله في نفقات الموظفين فقط`,
+          `تحل محله بالنسبة للحسابات الخصوصية فقط`
+        ],
+        ans: 1,
+        rat: `البرمجة متعددة السنوات توقعية وتؤطر إعداد الميزانية، بينما يظل الترخيص الميزانياتي (المادة 3) سنويا عبر التصويت على قانون المالية لكل سنة.`
+      },
+      {
+        id: 22, axis: `programming`, article: `المادة 36`,
+        q: `كم جزءا يضم قانون المالية للسنة حسب الهيكلة المنصوص عليها في المادة 36؟`,
+        opts: [
+          `جزء واحد شامل`,
+          `جزأين: الجزء الأول والجزء الثاني`,
+          `ثلاثة أجزاء متساوية`,
+          `أربعة أجزاء حسب السلطات`
+        ],
+        ans: 1,
+        rat: `تحدد المادة 36 بنية قانون المالية في جزأين: الجزء الأول (المعطيات العامة للتوازن المالي والموارد والأحكام) والجزء الثاني (وسائل المصالح وتوزيع الاعتمادات).`
+      },
+      {
+        id: 23, axis: `programming`, article: `المادة 36`,
+        q: `ماذا يتضمن الجزء الأول من قانون المالية للسنة طبقا للمادة 36؟`,
+        opts: [
+          `توزيع الاعتمادات حسب كل وزارة ومشروع`,
+          `المعطيات العامة للتوازن المالي، الإذن باستخلاص المداخيل وإصدار الاقتراضات، والأحكام المتعلقة بالموارد والتكاليف وتوازن الميزانية`,
+          `حسابات التصفية للسنة المنصرمة`,
+          `أسماء المسؤولين عن البرامج`
+        ],
+        ans: 1,
+        rat: `يحصر الجزء الأول الإذن بتحصيل الموارد، الأحكام الضريبية والجمركية، سقف التكاليف العامة، ومبلغ الاقتراضات المأذون بها، والمعطيات العامة للتوازن المالي.`
+      },
+      {
+        id: 24, axis: `programming`, article: `المادة 36`,
+        q: `ماذا يحصر الجزء الثاني من قانون المالية للسنة؟`,
+        opts: [
+          `السياسة النقدية لبنك المغرب`,
+          `مبلغ النفقات الإجمالية للميزانية العامة موزعة حسب الفصول والبرامج، ونفقات مرافق الدولة المسيرة بصورة مستقلة والحسابات الخصوصية للخزينة`,
+          `الإيرادات الجبائية فقط`,
+          `معدلات الضريبة على الدخل`
+        ],
+        ans: 1,
+        rat: `يفصل الجزء الثاني وسائل المصالح: اعتمادات الميزانية العامة حسب الفصول (والبرامج)، وميزانيات SEGMA، وعمليات الحسابات الخصوصية للخزينة حسب كل حساب.`
+      },
+      {
+        id: 25, axis: `programming`, article: `المادة 37`,
+        q: `تقدم موارد الدولة في قانون المالية حسب المادة 37 في شكل:`,
+        opts: [
+          `فصول وبرامج`,
+          `فصول (Chapitres) مقسمة عند الاقتضاء إلى مصالح وطبيعة المداخيل`,
+          `حسابات خصوصية فقط`,
+          `جهات وأقاليم`
+        ],
+        ans: 1,
+        rat: `تقدم الموارد في شكل فصول مقسمة حسب طبيعة المداخيل، بينما تتبع النفقات الهيكلة الجديدة القائمة على الفصول والبرامج.`
+      },
+      {
+        id: 26, axis: `programming`, article: `المادة 38`,
+        q: `كيف تبوب نفقات الميزانية العامة وفق الهندسة الجديدة في المادة 38؟`,
+        opts: [
+          `حسب الأبواب والبنود التقليدية فقط`,
+          `في فصول (Chapitres)، وتقسم الفصول إلى برامج، والبرامج إلى جهات ومشاريع أو عمليات، وهذه الأخيرة إلى سطور`,
+          `في حسابات جارية وحسابات رأسمالية`,
+          `حسب الولايات والعمالات مباشرة`
+        ],
+        ans: 1,
+        rat: `أرست المادة 38 هندسة ميزانياتية جديدة: الفصل (القطاع الوزاري أو المؤسسة) -> البرنامج -> الجهات والمشاريع/العمليات -> السطور الميزانياتية.`
+      },
+      {
+        id: 27, axis: `programming`, article: `المادة 38`,
+        q: `ما الذي يمثله "الفصل" (Chapitre) في التبويب الميزانياتي لنفقات الميزانية العامة؟`,
+        opts: [
+          `وزارة معينة أو مؤسسة دستورية أو فصل التكاليف المشتركة/النفقات الطارئة`,
+          `مشروعا استثماريا واحدا فقط`,
+          `مرفقا مسيرا بصورة مستقلة فقط`,
+          `حسابا خصوصيا للخزينة`
+        ],
+        ans: 0,
+        rat: `يخصص الفصل في الميزانية العامة لوزارة أو مؤسسة أو مخصصات السلطات العمومية أو التكاليف المشتركة أو النفقات الطارئة، ويضم برامج التسيير والاستثمار التابعة له.`
+      },
+      {
+        id: 28, axis: `programming`, article: `المادة 38`,
+        q: `ماذا أضاف التبويب الميزانياتي في المادة 38 تحت مستوى "البرنامج" لتعزيز البعد الترابي؟`,
+        opts: [
+          `الأحياء السكنية`,
+          `الجهات (Régions) والمشاريع أو العمليات`,
+          `النقابات المهنية`,
+          `الشركات المجهولة الاسم`
+        ],
+        ans: 1,
+        rat: `تضمنت المادة 38 التقسيم إلى "جهات ومشاريع أو عمليات" ضمن البرنامج لربط الميزانية بالبعد الجهوي والاستثمارات الترابية.`
+      },
+      {
+        id: 29, axis: `programming`, article: `المادة 38`,
+        q: `ما هو التصنيف الإضافي الذي تدرج وفقه النفقات داخل "السطر" (Ligne) لبيان طبيعتها الاقتصادية؟`,
+        opts: [
+          `حسب الطبيعة الاقتصادية (موظفون، معدات، استثمار...)`,
+          `حسب الأبجدية اللاتينية`,
+          `حسب أقدمية الموظفين`,
+          `لا يوجد تصنيف للسطر`
+        ],
+        ans: 0,
+        rat: `تمكن السطور الميزانياتية داخل المشاريع أو العمليات من تحديد الطبيعة الاقتصادية للنفقة (أجور، معدات، تحويلات، استثمار) لأغراض التتبع المحاسبي والإحصائي.`
+      },
+      {
+        id: 30, axis: `programming`, article: `المادة 47`,
+        q: `ما هو الأجل المحدد لتقديم الإطار العام للبرمجة الميزانياتية لثلاث سنوات أمام لجنتي المالية بالبرلمان قبل مشروع قانون المالية؟`,
+        opts: [
+          `قبل 15 ماي`,
+          `قبل 31 يوليو من كل سنة`,
+          `في 20 أكتوبر`,
+          `في 15 ديسمبر`
+        ],
+        ans: 1,
+        rat: `تنص المادة 47 على أن الوزير المكلف بالمالية يعرض على لجنتي المالية بالبرلمان قبل 31 يوليو الإطار العام لإعداد مشروع قانون المالية للسنة الموالية مرفقا بالبرمجة الميزانياتية لثلاث سنوات.`
+      },
+      {
+        id: 31, axis: `programming`, article: `المادة 5 و 47`,
+        q: `هل يختتم عرض البرمجة الميزانياتية لثلاث سنوات قبل 31 يوليو بمناقشة في اللجان البرلمانية؟`,
+        opts: [
+          `نعم، يعقبه نقاش دون تصويت`,
+          `نعم، يصوت عليه البرلمان في جلسة عامة`,
+          `لا يسمح بأي نقاش حوله`,
+          `يعرض على مجلس المستشارين دون مجلس النواب`
+        ],
+        ans: 0,
+        rat: `توضح المادة 47 أن عرض الوزير المكلف بالمالية للإطار العام والبرمجة ثلاثية السنوات قبل 31 يوليو يكون موضوع مناقشة داخل لجنتي المالية دون أن يترتب عنها تصويت.`
+      },
+      {
+        id: 32, axis: `programming`, article: `المادة 39`,
+        q: `ما الذي يجمع بين "تسيير" و"استثمار" القطاع الوزاري في الهيكلة الجديدة للبرامج؟`,
+        opts: [
+          `يفصلان في فصلين مستقلين تماما لا يلتقيان`,
+          `يدمج البرنامج الواحد اعتمادات التسيير (باستثناء بعض حالات الموظفين أو مع إدماجها ضمن البرامج) واعتمادات الاستثمار المحققة لنفس الهدف`,
+          `يوضع الاستثمار فقط في الحسابات الخصوصية`,
+          `يتم دمج جميع الوزارات في برنامج واحد`
+        ],
+        ans: 1,
+        rat: `تنص المادتان 38 و39 على أن الفصل يتضمن برامج، وكل برنامج يجمع الاعتمادات المخصصة للتسيير والاستثمار لتحقيق أهداف سياسة عمومية محددة.`
+      },
+      {
+        id: 33, axis: `programming`, article: `المادة 40`,
+        q: `كيف تدرج "النفقات المتعلقة بالموظفين" داخل البرنامج طبقا للتحول الذي أتى به القانون 130.13؟`,
+        opts: [
+          `تجمع في فصل وحيد مشترك لجميع الوزارات`,
+          `يحتوي كل فصل على نفقات الموظفين الموزعة على البرامج أو تخصص لها برامج خاصة حسب التبويب المعتمد، مع خضوعها لقواعد خاصة في النقل`,
+          `تحذف من الميزانية العامة وتنقل إلى SEGMA`,
+          `تصبح اعتمادات ترحل بنسبة 50%`
+        ],
+        ans: 1,
+        rat: `توزع اعتمادات الموظفين على البرامج داخل كل فصل وزاري لتحديد الكلفة الشاملة للبرنامج (المادة 39)، مع إخضاع اعتمادات الموظفين لقيود صارمة ضد الرفع من فصول أخرى (المادة 45).`
+      },
+
+      // 3. مكونات الميزانية: العامة، SEGMA، CST (34–53)
+      {
+        id: 34, axis: `components`, article: `المادة 11`,
+        q: `تتكون ميزانية الدولة في القانون التنظيمي رقم 130.13 من ثلاث مكونات رئيسية هي:`,
+        opts: [
+          `الميزانية العامة، الميزانيات الملحقة، وحسابات الخزينة`,
+          `الميزانية العامة، مرافق الدولة المسيرة بصورة مستقلة (SEGMA)، والحسابات الخصوصية للخزينة (CST)`,
+          `ميزانية الدولة، ميزانيات الجهات، وميزانيات المؤسسات العمومية`,
+          `ميزانية التسيير، ميزانية التجهيز، وميزانية الدين`
+        ],
+        ans: 1,
+        rat: `ألغى النظام المالي المغربي الميزانيات الملحقة منذ 2001/130.13، وأصبحت الميزانية تتكون من: الميزانية العامة، مرافق الدولة المسيرة بصورة مستقلة (SEGMA)، والحسابات الخصوصية للخزينة (CST).`
+      },
+      {
+        id: 35, axis: `components`, article: `المادة 21`,
+        q: `كيف تعرف المادة 21 "مرافق الدولة المسيرة بصورة مستقلة" (<bdi dir="ltr">SEGMA</bdi>)؟`,
+        opts: [
+          `مؤسسات عمومية تتمتع بالشخصية الاعتبارية والاستقلال المالي`,
+          `مصالح الدولة غير المتمتعة بالشخصية الاعتبارية التي تغطي بموارد ذاتية جزءا من نفقاتها غير المقتطعة من الميزانية العامة`,
+          `شركات مساهمة تابعة للدولة بنسبة 100%`,
+          `جمعيات ذات منفعة عامة`
+        ],
+        ans: 1,
+        rat: `تعرف المادة 21 مرافق SEGMA بأنها مصالح الدولة غير المتمتعة بالشخصية الاعتبارية، التي يهدف نشاطها أساسا إلى إنتاج سلع أو تقديم خدمات مقابل أداء أجر وتغطي بموارد ذاتية جزءا من نفقاتها.`
+      },
+      {
+        id: 36, axis: `components`, article: `المادة 21`,
+        q: `ما هي الأداة القانونية التي تحدث بها مرافق الدولة المسيرة بصورة مستقلة (<bdi dir="ltr">SEGMA</bdi>)؟`,
+        opts: [
+          `قرار للوزير المعني`,
+          `مرسوم رئيس الحكومة`,
+          `قانون المالية`,
+          `ظهير شريف خارج قانون المالية`
+        ],
+        ans: 2,
+        rat: `تنص المادة 21 صراحة على أن مرافق الدولة المسيرة بصورة مستقلة تحدث بموجب قانون المالية وتلغى بموجبه.`
+      },
+      {
+        id: 37, axis: `components`, article: `المادة 22`,
+        q: `ما هي النسبة الدنيا للموارد الذاتية التي يجب أن يمثلها مرفق <bdi dir="ltr">SEGMA</bdi> من مجموع موارده المأذون بها للاستمرار في الوجود؟`,
+        opts: [
+          `10% على الأقل`,
+          `20% على الأقل`,
+          `30% على الأقل ابتداء من السنة المالية الثالثة لإحداثه`,
+          `50% على الأقل منذ السنة الأولى`
+        ],
+        ans: 2,
+        rat: `توجب المادة 22 أن تمثل الموارد الذاتية لمرافق SEGMA نسبة 30% على الأقل من مجموع مواردها المأذون بها برسم السنة المالية الثالثة لإحداثها وما يليها.`
+      },
+      {
+        id: 38, axis: `components`, article: `المادة 22`,
+        q: `ماذا يقع لمرفق <bdi dir="ltr">SEGMA</bdi> إذا لم يستوف شرط نسبة 30% من الموارد الذاتية برسم السنة المالية الثالثة لإحداثه؟`,
+        opts: [
+          `يمنح مهلة إضافية لخمس سنوات تلقائيا`,
+          `يحول إلى مؤسسة عمومية بشخصية اعتبارية`,
+          `يلغى بموجب قانون المالية الموالي`,
+          `يقتطع العجز من أجور موظفيه`
+        ],
+        ans: 2,
+        rat: `تنص المادة 22 على أنه في حالة عدم استيفاء نسبة 30% في السنة الثالثة لإحداث المرفق أو في السنوات الموالية، يلغى هذا المرفق بمقتضى قانون المالية الموالي.`
+      },
+      {
+        id: 39, axis: `components`, article: `المادة 23`,
+        q: `كيف تدرج نفقات مرافق <bdi dir="ltr">SEGMA</bdi> وكيف يتم التصويت عليها؟`,
+        opts: [
+          `تشتمل على نفقات الاستغلال ونفقات الاستثمار، ويصوت عليها حسب كل فصل (مجموع نفقات الاستغلال والاستثمار)`,
+          `تشتمل على نفقات الموظفين فقط`,
+          `لا تعرض على تصويت البرلمان`,
+          `تدمج في حسابات التمويل`
+        ],
+        ans: 0,
+        rat: `تتكون ميزانية كل مرفق SEGMA من جزأين: الاستغلال والاستثمار (المادة 23)، مع إمكانية تلقي إعانة توازن من الميزانية العامة إذا كان غير كاف ذاتيا.`
+      },
+      {
+        id: 40, axis: `components`, article: `المادة 24`,
+        q: `ما مصير الفائض المالي المسجل في حسابات استغلال واستثمار مرفق <bdi dir="ltr">SEGMA</bdi> عند نهاية السنة المالية؟`,
+        opts: [
+          `يرحل تلقائيا إلى الميزانية للسنة الموالية في حسابه الخاص مع إمكانية دفع الفائض غير المستعمل إلى الميزانية العامة إذا فاق الحدود`,
+          `يسلم للموظفين كمكافآت`,
+          `يسقط ولا يرحل إطلاقا`,
+          `يحول إلى حسابات القروض`
+        ],
+        ans: 0,
+        rat: `طبقا للمادة 24، يرحل فائض المداخيل على الأداءات في ميزانية SEGMA من سنة إلى أخرى ما لم ينص قانون المالية على دفعه إلى الميزانية العامة.`
+      },
+      {
+        id: 41, axis: `components`, article: `المادة 24`,
+        q: `هل يجوز لمرفق <bdi dir="ltr">SEGMA</bdi> أن يلجأ مباشرة إلى الاقتراض لتغطية عجزه؟`,
+        opts: [
+          `نعم، في حدود 30% من ميزانيته`,
+          `لا، يمنع عليه اللجوء إلى الاقتراض المباشر`,
+          `نعم، بموافقة الوالي`,
+          `نعم، من البنوك التجارية`
+        ],
+        ans: 1,
+        rat: `تحظر المادة 24 على مرافق الدولة المسيرة بصورة مستقلة اللجوء إلى الاقتراض، لأنها لا تتمتع بالشخصية الاعتبارية وتغطي عجزها عند الاقتضاء بإعانة توازن من الميزانية العامة.`
+      },
+      {
+        id: 42, axis: `components`, article: `المادة 25`,
+        q: `ما هي الغاية من إحداث الحسابات الخصوصية للخزينة (<bdi dir="ltr">CST</bdi>) حسب المادة 25؟`,
+        opts: [
+          `إخفاء النفقات عن رقابة البرلمان`,
+          `بيان عمليات لا يمكن إدراجها ملائمة في الميزانية العامة لطابعها الخاص أو علاقتها بتطبيق نصوص أو عمليات مؤقتة أو استرجاعية`,
+          `صرف رواتب الوزراء والبرلمانيين`,
+          `تمويل الأحزاب السياسية فقط`
+        ],
+        ans: 1,
+        rat: `تحدث الحسابات الخصوصية للخزينة (المادة 25) لبيان عمليات لا تندرج بطريقة ملائمة في الميزانية العامة إما بسبب طابعها الخاص أو علاقة السببية بين المداخيل والنفقات أو طابعها المؤقت.`
+      },
+      {
+        id: 43, axis: `components`, article: `المادة 27`,
+        q: `كم عدد أصناف الحسابات الخصوصية للخزينة المنصوص عليها في المادة 27 من القانون التنظيمي 130.13؟`,
+        opts: [
+          `أربعة أصناف`,
+          `خمسة أصناف`,
+          `ستة أصناف`,
+          `سبعة أصناف`
+        ],
+        ans: 1,
+        rat: `قلص القانون التنظيمي 130.13 (المادة 27) أصناف CST إلى خمسة أصناف: الحسابات المرصدة لأمور خصوصية، حسابات الانخراط في الهيئات الدولية، حسابات التمويل، حسابات العمليات النقدية، وحسابات النفقات من المخصصات.`
+      },
+      {
+        id: 44, axis: `components`, article: `المادة 27`,
+        q: `ما هو الصنف الذي جمع بين "حسابات القروض" و"حسابات التسبيقات" في المادة 27 من القانون التنظيمي 130.13؟`,
+        opts: [
+          `حسابات العمليات النقدية`,
+          `حسابات التمويل (Comptes de financement)`,
+          `حسابات النفقات من المخصصات`,
+          `الحسابات التجارية`
+        ],
+        ans: 1,
+        rat: `أدمج القانون 130.13 حسابات القروض وحسابات التسبيقات السابقة في صنف واحد هو "حسابات التمويل" (المادتان 27 و29).`
+      },
+      {
+        id: 45, axis: `components`, article: `المادة 28`,
+        q: `ما هي النسبة الدنيا للموارد الذاتية الواجب توفرها في "الحسابات المرصدة لأمور خصوصية" (<bdi dir="ltr">CAS</bdi>) ابتداء من السنة المالية الثالثة لإحداثها؟`,
+        opts: [
+          `20% على الأقل`,
+          `30% على الأقل`,
+          `40% على الأقل من مجموع مواردها المأذون بها`,
+          `75% على الأقل`
+        ],
+        ans: 2,
+        rat: `ألزمت المادة 28 الحسابات المرصدة لأمور خصوصية بأن تمثل مواردها الذاتية 40% على الأقل من مجموع مواردها المأذون بها برسم السنة المالية الثالثة لإحداثها وما يليها (أي لا تتعدى دفوعات الميزانية العامة 60%).`
+      },
+      {
+        id: 46, axis: `components`, article: `المادة 28`,
+        q: `هل يمكن أن تدرج في الحسابات المرصدة لأمور خصوصية نفقات الموظفين وأعوان الدولة؟`,
+        opts: [
+          `نعم، دون أي قيد`,
+          `لا يمكن أن تتحمل الحسابات المرصدة لأمور خصوصية نفقات الموظفين والأعوان، ما عدا الحالات الاستثنائية المنصوص عليها في قانون المالية؟ بل تنص المادة 28 صراحة على عدم جواز تحمل نفقات الموظفين وأعوان الدولة`,
+          `نعم، لأجور المتعاقدين الأجانب فقط`,
+          `تحمل عليها أجور جميع أطر وزارة المالية`
+        ],
+        ans: 1,
+        rat: `تمنع المادة 28 تحمل الحسابات المرصدة لأمور خصوصية لأي نفقة تتعلق بنفقات الموظفين وأعوان الدولة أو المعدات المرتبطة بها (لتفادي تشتيت كتلة الأجور خارج الميزانية العامة).`
+      },
+      {
+        id: 47, axis: `components`, article: `المادة 28`,
+        q: `إذا ظل الحساب المرصد لأمور خصوصية بدون نفقات لثلاث سنوات متتالية، ما الإجراء الذي يتخذ بشأنه؟`,
+        opts: [
+          `يرحل رصيده تلقائيا لمدة عشر سنوات`,
+          `يلغى بقوة القانون ويدفع رصيده في المداخيل إلى الميزانية العامة في قانون المالية الموالي`,
+          `يحول إلى حساب تجاري`,
+          `يبقى مفتوحا بصفة دائمة`
+        ],
+        ans: 1,
+        rat: `تقضي المادة 28 بأنه إذا لم تسجل في حساب مرصد لأمور خصوصية أي نفقات طيلة ثلاث سنوات متتالية، يصفى ويلغى في ختام السنة الثالثة ويدرج رصيده في مداخيل الميزانية العامة.`
+      },
+      {
+        id: 48, axis: `components`, article: `المادة 29`,
+        q: `ما هي المدة الزمنية التي تفصل بين القروض والتسبيقات داخل "حسابات التمويل" وفق المادة 29؟`,
+        opts: [
+          `القروض لا تفوق سنة والتسبيقات تفوق خمس سنوات`,
+          `التسبيقات تمنح لمدة لا تتجاوز سنتين، بينما تمنح القروض لمدة تفوق سنتين`,
+          `كلاهما يمنح لمدة أقصاها 6 أشهر`,
+          `التسبيقات لا ترد إطلاقا`
+        ],
+        ans: 1,
+        rat: `تبين المادة 29 أن حسابات التمويل تبين المبالغ التي تدفعها الدولة في شكل قروض لمدة تفوق سنتين أو تسبيقات قابلة للتحصيل لمدة تقل عن سنتين أو تساويها.`
+      },
+      {
+        id: 49, axis: `components`, article: `المادة 29`,
+        q: `هل تخضع المبالغ الممنوحة في إطار حسابات التمويل لأداء فوائد؟`,
+        opts: [
+          `لا، تمنح مجانا دائما`,
+          `نعم، تكون منتجة لفوائد تحدد شروطها وسعرها بنص تنظيمي/قانوني`,
+          `تخضع لفوائد في التسبيقات دون القروض`,
+          `تخضع لفوائد فقط للمقاولات الأجنبية`
+        ],
+        ans: 1,
+        rat: `تنص المادة 29 على أن القروض والتسبيقات الممنوحة عبر حسابات التمويل تكون منتجة لفوائد (ما لم تنص مقتضيات خاصة على خلاف ذلك).`
+      },
+      {
+        id: 50, axis: `components`, article: `المادة 26`,
+        q: `في حالة الاستعجال والضرورة الملحة، هل يمكن إحداث حسابات خصوصية للخزينة خلال السنة المالية بمرسوم؟`,
+        opts: [
+          `لا، مطلقا`,
+          `نعم، يمكن إحداثها بمراسيم خلال السنة المالية مع إخبار لجنتي المالية بالبرلمان مسبقا، وعرضها على البرلمان في أقرب قانون مالية للمصادقة`,
+          `نعم، دون إخبار البرلمان`,
+          `يقتصر ذلك على حسابات التمويل فقط`
+        ],
+        ans: 1,
+        rat: `تجيز المادة 26 في حالة الاستعجال والضرورة الملحة إحداث حسابات خصوصية للخزينة بمراسيم خلال السنة المالية، بشرط إخبار لجنتي المالية بالبرلمان مسبقا وعرضها للمصادقة في أقرب قانون مالية.`
+      },
+      {
+        id: 51, axis: `components`, article: `المادة 30`,
+        q: `ماذا تسجل "حسابات النفقات من المخصصات" المنصوص عليها في المادة 30؟`,
+        opts: [
+          `مداخيل الجمارك والضرائب غير المباشرة`,
+          `العمليات المتعلقة بأصناف من النفقات تمولها مخصصات من الميزانية العامة ولا تخضع لتقييد الاعتمادات الزمني السنوي بالطريقة العادية، ويرحل رصيدها من سنة لأخرى`,
+          `أرباح البنك المركزي فقط`,
+          `نفقات الموظفين المرسمين`
+        ],
+        ans: 1,
+        rat: `ترصد حسابات النفقات من المخصصات (المادة 30) عمليات تمول من مخصصات الميزانية العامة (مثل بعض الحسابات الاستراتيجية)، ويرحل رصيدها تلقائيا من سنة إلى أخرى.`
+      },
+      {
+        id: 52, axis: `components`, article: `المادة 27 و 30`,
+        q: `بماذا تختلف "حسابات العمليات النقدية" عن "حسابات الانخراط في الهيئات الدولية"؟`,
+        opts: [
+          `حسابات العمليات النقدية تقيد حركات الأموال ذات الطابع النقدي (كأرباح وخسائر الصرف وضرب النقود)، وحسابات الانخراط تقيد المبالغ المدفوعة والمقبوضة برسم مساهمة المغرب في الهيئات الدولية`,
+          `كلاهما يقيد القروض الفلاحية`,
+          `حسابات الانخراط خاصة بالجماعات الترابية`,
+          `لا يوجد فرق محاسبي بينهما`
+        ],
+        ans: 0,
+        rat: `تمسك حسابات الانخراط لبيان المبالغ المدفوعة والمقبوضة كمساهمات أو حصص في الهيئات الدولية، بينما تبين حسابات العمليات النقدية الحركات ذات الصبغة النقدية وفوارق الصرف.`
+      },
+      {
+        id: 53, axis: `components`, article: `المادة 25`,
+        q: `ما مصير رصيد الحسابات الخصوصية للخزينة في نهاية كل سنة مالية؟`,
+        opts: [
+          `يلغى ويصفر في كل الأصناف`,
+          `يرحل من سنة إلى أخرى كقاعدة عامة، باستثناء المقتضيات الخاصة التي تقضي بخلاف ذلك في قانون المالية`,
+          `يحول إلى حسابات SEGMA`,
+          `يصرف في مكافآت نهاية السنة`
+        ],
+        ans: 1,
+        rat: `تقتضي المادة 25 أن يرحل رصيد كل حساب خصوصي للخزينة من سنة مالية إلى السنة الموالية ما لم ينص قانون المالية على خلاف ذلك.`
+      },
+
+      // 4. هيكلة النفقات والمداخيل والاعتمادات (54–68)
+      {
+        id: 54, axis: `revenue_exp`, article: `المادة 12`,
+        q: `إلى كم قسم تصنف نفقات الميزانية العامة في المادة 12 من القانون التنظيمي 130.13؟`,
+        opts: [
+          `قسمين: التسيير والدين`,
+          `ثلاثة أقسام: نفقات التسيير، نفقات الاستثمار، والنفقات المتعلقة بخدمة الدين العمومي`,
+          `أربعة أقسام: الأجور، المعدات، الاستثمار، والاحتياط`,
+          `خمسة أقسام حسب الجهات`
+        ],
+        ans: 1,
+        rat: `تصنف المادة 12 نفقات الميزانية العامة إلى: 1- نفقات التسيير، 2- نفقات الاستثمار، 3- النفقات المتعلقة بخدمة الدين العمومي.`
+      },
+      {
+        id: 55, axis: `revenue_exp`, article: `المادة 13`,
+        q: `أين تدرج "النفقات المتعلقة بتنفيذ القرارات والأحكام القضائية الصادرة ضد الدولة" حسب المادة 13؟`,
+        opts: [
+          `ضمن نفقات الاستثمار`,
+          `ضمن نفقات التسيير (مع آلية خاصة لتنفيذها)`,
+          `ضمن خدمة الدين العمومي`,
+          `ضمن حسابات التمويل`
+        ],
+        ans: 1,
+        rat: `نصت المادة 13 صراحة على إدراج النفقات المتعلقة بتنفيذ القرارات والأحكام القضائية الصادرة ضد الدولة ضمن نفقات التسيير لتسريع تصفيتها واحترام حجية الأحكام.`
+      },
+      {
+        id: 56, axis: `revenue_exp`, article: `المادة 13`,
+        q: `تشمل نفقات التسيير في المادة 13 كل ما يلي ما عدا:`,
+        opts: [
+          `مخصصات السلطات العمومية`,
+          `نفقات الموظفين والأعوان والمعدات`,
+          `سداد أصل الدين العمومي المتوسط والطويل الأمد`,
+          `النفقات الطارئة والمخصصات الاحتياطية`
+        ],
+        ans: 2,
+        rat: `يدرج سداد أصل الدين العمومي المتوسط والطويل الأمد وفوائده في القسم الثالث (النفقات المتعلقة بخدمة الدين العمومي - المادة 19)، وليس ضمن نفقات التسيير.`
+      },
+      {
+        id: 57, axis: `revenue_exp`, article: `المادة 19`,
+        q: `ماذا تشمل "النفقات المتعلقة بخدمة الدين العمومي" في المادة 19؟`,
+        opts: [
+          `نفقات التجهيز الكبرى فقط`,
+          `النفقات من فوائد وعمولات وكذا النفقات المتعلقة باستهلاك (سداد أصل) الدين المتوسط والطويل الأمد`,
+          `فوائد الديون قصيرة الأمد فقط دون أصلها`,
+          `أجور موظفي الخزينة العامة`
+        ],
+        ans: 1,
+        rat: `تشمل خدمة الدين العمومي طبقا للمادة 19 فوائد وعمولات الدين العمومي وكذا استهلاك (سداد أصل) الدين المتوسط والطويل الأمد.`
+      },
+      {
+        id: 58, axis: `revenue_exp`, article: `المادة 20`,
+        q: `ما هي "القاعدة الذهبية" للميزانية المنصوص عليها في المادة 20 من القانون التنظيمي رقم 130.13؟`,
+        opts: [
+          `ألا تتجاوز نفقات التسيير 50% من الناتج الداخلي الخام`,
+          `ألا تتجاوز حصيلة الاقتراضات مجموع نفقات الاستثمار وسداد أصول الدين برسم السنة المالية`,
+          `أن يغطي محصول الضرائب المباشرة 80% من الميزانية`,
+          `ألا تتجاوز نسبة التضخم 2%`
+        ],
+        ans: 1,
+        rat: `تنص المادة 20 على القاعدة الذهبية للتوازن: لا يمكن أن تتجاوز حصيلة الاقتراضات مجموع نفقات الاستثمار وسداد أصول الدين برسم السنة المالية (أي يمنع الاقتراض لتمويل نفقات التسيير الجارية).`
+      },
+      {
+        id: 59, axis: `revenue_exp`, article: `المادة 16 و 17`,
+        q: `ما نوعا الاعتمادات المفتوحة برسم نفقات الاستثمار في المادة 17؟`,
+        opts: [
+          `اعتمادات تقييمية واعتمادات احتياطية`,
+          `اعتمادات الأداء (Crédits de paiement) واعتمادات الالتزام (Crédits d'engagement)`,
+          `اعتمادات التسيير واعتمادات التسبيق`,
+          `اعتمادات شهرية وسداسية`
+        ],
+        ans: 1,
+        rat: `تشتمل اعتمادات نفقات الاستثمار (المادة 17) على اعتمادات الأداء (الحد الأعلى للنفقات الممكن الأمر بصرفها خلال السنة) واعتمادات الالتزام (الحد الأعلى للالتزامات المالية متعددة السنوات).`
+      },
+      {
+        id: 60, axis: `revenue_exp`, article: `المادة 18`,
+        q: `ما هي الوظيفة الدقيقة لـ "اعتمادات الالتزام" في مشاريع الاستثمار؟`,
+        opts: [
+          `أداء الأجور الشهرية للموظفين`,
+          `تحديد الحد الأقصى للنفقات التي يجوز للآمرين بالصرف الالتزام بها لإنجاز التجهيزات والصفقات متعددة السنوات`,
+          `تغطية العجز الفوري في الخزينة`,
+          `منح القروض للمؤسسات العمومية`
+        ],
+        ans: 1,
+        rat: `تمثل اعتمادات الالتزام (المادة 18) السقف الأعلى للالتزام بالصفقات والعقود الاستثمارية التي يمتد تنفيذها المالي والأداء بشأنها على عدة سنوات.`
+      },
+      {
+        id: 61, axis: `revenue_exp`, article: `المادة 63`,
+        q: `ما هو السقف الأقصى لترحيل اعتمادات الأداء المفتوحة برسم نفقات الاستثمار من سنة لأخرى حسب المادة 63؟`,
+        opts: [
+          `10% من اعتمادات الأداء`,
+          `30% من اعتمادات الأداء المفتوحة برسم ميزانية الاستثمار لكل قطاع وزاري أو مؤسسة، ما لم ينص قانون المالية على خلاف ذلك`,
+          `50% دون أي استثناء`,
+          `100% من جميع اعتمادات الميزانية`
+        ],
+        ans: 1,
+        rat: `حددت المادة 63 سقف ترحيل اعتمادات الأداء المفتوحة برسم نفقات الاستثمار في 30% من اعتمادات الأداء للسنة المالية المعنية لكل قطاع وزاري أو مؤسسة، تفاديا لتراكم الاعتمادات غير المستهلكة.`
+      },
+      {
+        id: 62, axis: `revenue_exp`, article: `المادة 63`,
+        q: `هل يجوز ترحيل اعتمادات التسيير غير المستعملة من سنة مالية إلى أخرى حسب المادة 63؟`,
+        opts: [
+          `نعم، في حدود 30%`,
+          `لا، اعتمادات التسيير المفتوحة برسم الميزانية العامة لا يمكن ترحيلها إلى السنة الموالية`,
+          `نعم، بالنسبة لنفقات المعدات فقط`,
+          `نعم، بقرار من الوزير المعني`
+        ],
+        ans: 1,
+        rat: `تؤكد المادة 63 أنه لا يجوز إطلاقا ترحيل الاعتمادات المفتوحة برسم نفقات التسيير في الميزانية العامة إلى السنة المالية الموالية.`
+      },
+      {
+        id: 63, axis: `revenue_exp`, article: `المادة 43`,
+        q: `ما هي القاعدة العامة في طبيعة الاعتمادات المفتوحة في قانون المالية، وما الاستثناء الوارد عليها في المادة 43؟`,
+        opts: [
+          `كل الاعتمادات تقييمية يمكن تجاوزها بحرية`,
+          `الاعتمادات حصرية (تحديدية)، باستثناء الاعتمادات التقييمية المتعلقة بالدين العمومي والدين العمري (أو الحالات المحددة كالدين العمومي)`,
+          `اعتمادات الاستثمار حصرية والتسيير تقييمية`,
+          `لا توجد اعتمادات حصرية في المغرب`
+        ],
+        ans: 1,
+        rat: `القاعدة في المادة 43 أن الاعتمادات حصرية (لا يجوز الالتزام أو الأداء فوقها)، لكن النفقات المتعلقة بالدين العمومي والدين العمري (والمشار إليها) لها طابع تقييمي يمكن أداؤه ولو تجاوز التقدير الأولي.`
+      },
+      {
+        id: 64, axis: `revenue_exp`, article: `المادة 45`,
+        q: `هل يمكن رفع اعتمادات نفقات الموظفين والأعوان انطلاقا من اعتمادات المعدات أو الاستثمار وفق المادة 45؟`,
+        opts: [
+          `نعم، بقرار من الآمر بالصرف`,
+          `لا، يمنع منعا كليا الزيادة في اعتمادات الموظفين والأعوان بواسطة تحويلات من فصول أو اعتمادات أخرى`,
+          `نعم، في حدود 15% من الفصل`,
+          `نعم، بعد مصادقة الخازن الوزاري`
+        ],
+        ans: 1,
+        rat: `تضع المادة 45 قيدا صارما للتحكم في كتلة الأجور: لا يمكن بأي حال من الأحوال تحويل اعتمادات نحو نفقات الموظفين والأعوان للزيادة فيها.`
+      },
+      {
+        id: 65, axis: `revenue_exp`, article: `المادة 45`,
+        q: `هل يمكن إجراء تحويل للاعتمادات بين البرامج داخل نفس الفصل أو داخل نفس البرنامج؟`,
+        opts: [
+          `ممنوع تماما`,
+          `نعم، وفق الشروط والكيفيات المحددة بنص تنظيمي (بقرار للوزير المعني وبتأشيرة وزير المالية أو بمرسوم حسب الحالة) ودون المساس بقاعدة حظر الرفع من نفقات الموظفين`,
+          `فقط بموجب قانون مالية معدل`,
+          `بأمر من المجلس الأعلى للحسابات`
+        ],
+        ans: 1,
+        rat: `تمنح المادة 45 مرونة تدبيرية للآمرين بالصرف عبر إمكانية تحويل الاعتمادات داخل البرنامج وبين البرامج داخل نفس الفصل وفق شروط تنظيمية، شرط احترام قيود نفقات الموظفين وسقوف التحويل.`
+      },
+      {
+        id: 66, axis: `revenue_exp`, article: `المادة 11`,
+        q: `أي من الموارد التالية لا تندرج ضمن موارد الميزانية العامة في المادة 11؟`,
+        opts: [
+          `الضرائب والرسوم`,
+          `حصيلة الغرامات والأجور عن الخدمات المقدمة والأتاوى`,
+          `الأقساط المسترجعة من حسابات القروض الخاصة بحسابات التمويل`,
+          `أموال المساعدات والهبات والوصايا ودخول أملاك الدولة`
+        ],
+        ans: 2,
+        rat: `تقيد الأقساط المسترجعة من القروض والتسبيقات في حسابات التمويل (CST - المادة 29)، بينما تعد الضرائب والغرامات والأتاوى والهبات ودخول الأملاك مداخيل للميزانية العامة (المادة 11).`
+      },
+      {
+        id: 67, axis: `revenue_exp`, article: `المادة 14`,
+        q: `كيف تعالج نفقات الموظفين في مشروع قانون المالية بالنسبة لمناصب الشغل المحدثة؟`,
+        opts: [
+          `تحصر المناصب المالية المحدثة أو المحولة داخل جدول يرفق بمشروع قانون المالية ويحدد أعدادها حسب القطاعات`,
+          `يتم التوظيف بدون ترخيص ميزانياتي مسبق`,
+          `تدرج في قانون التصفية فقط`,
+          `تحدد بمرسوم بعد نهاية السنة`
+        ],
+        ans: 0,
+        rat: `يحدد قانون المالية سنويا عدد المناصب المالية المحدثة وتوزيعها على القطاعات الوزارية والمؤسسات، مما يضبط النفقات الإلزامية للموظفين (المادة 14 و48).`
+      },
+      {
+        id: 68, axis: `revenue_exp`, article: `المادة 42`,
+        q: `ما المقصود بمبدأ "تقييد قابلية استبدال الاعتمادات" (Fongibilité asymétrique) في القانون 130.13؟`,
+        opts: [
+          `إمكانية تحويل اعتمادات الاستثمار إلى أجور بحرية`,
+          `مرونة تحويل اعتمادات التسيير (المعدات) والاستثمار داخل البرنامج لبلوغ الأهداف، مع منع تحويل أي اعتماد من غير الأجور لرفع اعتمادات الموظفين`,
+          `تحويل ميزانية وزارة إلى وزارة أخرى دون ترخيص`,
+          `تغيير العملة المحاسبية للميزانية`
+        ],
+        ans: 1,
+        rat: `تكرس المادة 45 مرونة عدم التماثل (Fongibilité asymétrique): يمكن لمدير البرنامج إعادة توزيع الاعتمادات لخدمة الأداء، لكن سقف اعتمادات الموظفين يظل سقفا مغلقا لا يرفع من باقي الاعتمادات.`
+      },
+
+      // 5. مقترحات البرامج والمؤشرات ونجاعة الأداء (69–80)
+      {
+        id: 69, axis: `performance`, article: `المادة 39`,
+        q: `بموجب المادة 39، كيف يعرف "البرنامج" (<bdi dir="ltr">Programme</bdi>)؟`,
+        opts: [
+          `قائمة من الصفقات العمومية غير المترابطة`,
+          `مجموعة متناسقة من المشاريع أو العمليات تابعة لنفس القطاع الوزاري أو المؤسسة، تقرن بها أهداف محددة وفق غايات ذات مصلحة عامة وكذا مؤشرات مرقمة لقياس النتائج`,
+          `حساب بنكي خاص بكل مدير مركزي`,
+          `وثيقة إدارية داخلية لا تقدم للبرلمان`
+        ],
+        ans: 1,
+        rat: `تعرف المادة 39 البرنامج بأنه مجموعة متناسقة من المشاريع أو العمليات التابعة لنفس القطاع أو المؤسسة، تقرن بأهداف ومؤشرات مرقمة لقياس النتائج.`
+      },
+      {
+        id: 70, axis: `performance`, article: `المادة 39`,
+        q: `من يضمن قيادة البرنامج وتنسيقه وتنفيذه وتتبع أهدافه وفق المادة 39؟`,
+        opts: [
+          `مسؤول يعين عن كل برنامج (Responsable de programme)`,
+          `رئيس لجنة المالية بمجلس النواب`,
+          `المحاسب العمومي وحده`,
+          `قاض بالمجلس الأعلى للحسابات`
+        ],
+        ans: 0,
+        rat: `تنص المادة 39 على تعيين مسؤول عن كل برنامج يتولى تحديد الأهداف والمؤشرات وتنفيذ الاعتمادات المخصصة وتقديم الحساب عن النتائج المحققة.`
+      },
+      {
+        id: 71, axis: `performance`, article: `المادة 48`,
+        q: `ما هي الوثيقة الجديدة التي تعدها كل وزارة وترفق بمشروع قانون المالية لتوضيح أهدافها ومؤشراتها المرقمة؟`,
+        opts: [
+          `المشروع السنوي لنجاعة الأداء (<bdi dir="ltr">Projet de Performance - PdP</bdi>)`,
+          `التقرير الختامي للميزانية`,
+          `مدونة الصفقات العمومية`,
+          `محضر التسليم الإداري`
+        ],
+        ans: 0,
+        rat: `يرفق مشروع قانون المالية بمشاريع نجاعة الأداء (PdP) لكل قطاع وزاري أو مؤسسة (المادتان 39 و48)، والتي تتضمن الاستراتيجية والبرامج والأهداف والمؤشرات لثلاث سنوات.`
+      },
+      {
+        id: 72, axis: `performance`, article: `المادة 39`,
+        q: `ما هي المعايير الثلاثة التي تصنف وفقها مؤشرات قياس الأداء في مقاربة النجاعة بالقانون 130.13؟`,
+        opts: [
+          `السرعة، السرية، والكمية`,
+          `الفعالية السوسيو-اقتصادية، جودة الخدمة، والكفاءة التدبيرية (النجاعة)`,
+          `الأقدمية، الشهادة، والدرجة`,
+          `الموارد، الضرائب، والقروض`
+        ],
+        ans: 1,
+        rat: `تعتمد هندسة النجاعة الميزانياتية على ثلاث فئات من المؤشرات: الفعالية السوسيو-اقتصادية (أثر السياسة على المواطن)، جودة الخدمة المقدمة للمرتفقين، والكفاءة التدبيرية (تحسين العلاقة بين الكلفة والنتائج).`
+      },
+      {
+        id: 73, axis: `performance`, article: `المادة 40`,
+        q: `ما هو المبدأ الجديد الذي يحكم العلاقة بين وزارة المالية والوزارات القطاعية في إطار التدبير المرتكز على النتائج؟`,
+        opts: [
+          `الوصاية المسبقة على كل نفقة جزئية دون مساءلة عن الأثر`,
+          `توسيع حرية التدبير والمسؤولية لمسؤولي البرامج مقابل المساءلة والمحاسبة على النتائج المحققة`,
+          `إلغاء دور وزارة المالية في الميزانية`,
+          `تجميد الاعتمادات لمدة سنتين`
+        ],
+        ans: 1,
+        rat: `يقوم القانون 130.13 على العقد الضمني للأداء: مزيد من المرونة والحرية التدبيرية (كالتحويلات داخل البرنامج والبرمجة ثلاثية السنوات) مقابل الالتزام بالنتائج وتقديم الحساب عبر تقارير نجاعة الأداء.`
+      },
+      {
+        id: 74, axis: `performance`, article: `المادة 66`,
+        q: `ما هي الوثيقة التي تقيم الفارق بين الأهداف المتوقعة في مشروع نجاعة الأداء (<bdi dir="ltr">PdP</bdi>) والنتائج الفعلية المحققة؟`,
+        opts: [
+          `التقرير السنوي لنجاعة الأداء (<bdi dir="ltr">Rapport Annuel de Performance - RAP</bdi>)`,
+          `الرسالة التأطيرية لرئيس الحكومة`,
+          `مذكرة التقديم الأولية`,
+          `الجريدة الرسمية`
+        ],
+        ans: 0,
+        rat: `يرفق مشروع قانون التصفية (المادة 66) بالتقرير السنوي حول نجاعة الأداء الذي يقارن الإنجازات الفعلية بالتوقعات والمؤشرات المسطرة في مشروع نجاعة الأداء.`
+      },
+      {
+        id: 75, axis: `performance`, article: `المادة 66`,
+        q: `من يتولى إعداد "تقرير افتحاص نجاعة الأداء" (Audit de performance) المرفق بمشروع قانون التصفية؟`,
+        opts: [
+          `البرلمان عبر لجنته الخاصة`,
+          `المفتشية العامة للمالية (<bdi dir="ltr">IGF</bdi>)`,
+          `بنك المغرب`,
+          `الأمانة العامة للحكومة`
+        ],
+        ans: 1,
+        rat: `تسند المادة 66 مهمة إعداد تقرير افتحاص نجاعة الأداء إلى المفتشية العامة للمالية (IGF) للتحقق من موثوقية نظام القياس والمؤشرات والنتائج المصرح بها.`
+      },
+      {
+        id: 76, axis: `performance`, article: `المادة 38`,
+        q: `هل يخصص "برنامج" خاص في الفصل الوزاري لوظيفة الدعم والتدبير الإداري العام (الكتابة العامة والموارد البشرية)؟`,
+        opts: [
+          `نعم، يمكن إحداث برنامج للدعم يجمع نفقات التسيير المشتركة والوظائف الأفقية للوزارة`,
+          `لا، يمنع إحداث برامج للدعم الإداري`,
+          `تدمج في ميزانية وزارة الداخلية`,
+          `تدرج في حسابات العمليات النقدية`
+        ],
+        ans: 0,
+        rat: `في الممارسة الميزانياتية للقانون 130.13، تضم الفصول الوزارية عادة برامج قطاعية/عملياتية وبرنامجا أفقيا للدعم (Pilotage et appui) لتغطية التسيير العام والمصالح المشتركة.`
+      },
+      {
+        id: 77, axis: `performance`, article: `المادة 41`,
+        q: `ماذا يتيح "حوار التدبير" (Dialogue de gestion) بين مسؤول البرنامج ومديري المشاريع على المستوى المركزي والجهوي؟`,
+        opts: [
+          `تحديد الميزانية بالقرعة`,
+          `توزيع الوسائل والاعتمادات على المشاريع والجهات بناء على التزامات كمية ومؤشرات تتبع واضحة`,
+          `التفاوض حول الأجور الفردية للموظفين`,
+          `إعفاء المقاولات من الضرائب`
+        ],
+        ans: 1,
+        rat: `يعزز تقسيم البرامج إلى جهات ومشاريع/عمليات (المادة 38 و39) حوار التدبير بين المستوى المركزي والمصالح اللاممركزة لتقاسم الأهداف والاعتمادات.`
+      },
+      {
+        id: 78, axis: `performance`, article: `المادة 48`,
+        q: `هل تصوت الغرفتان البرلمانيتان على مشاريع نجاعة الأداء (<bdi dir="ltr">PdP</bdi>) بشكل ملزم مثل الاعتمادات؟`,
+        opts: [
+          `نعم، يصوت البرلمان على كل مؤشر على حدة`,
+          `لا، ترفق بمشروع قانون المالية لإخبار البرلمان وإثراء المناقشة وتقييم الأداء دون أن تكون موضوع تصويت`,
+          `يصوت عليها مجلس المستشارين فقط`,
+          `تودع بعد التصويت على قانون المالية`
+        ],
+        ans: 1,
+        rat: `تندرج مشاريع نجاعة الأداء ضمن التقارير والوثائق المرفقة (المادة 48) التي تنير اختيار البرلمان وتؤسس للمراقبة عند مناقشة قانون التصفية، لكن التصويت ينصب على المداخيل والفصول الميزانياتية (المادة 53).`
+      },
+      {
+        id: 79, axis: `performance`, article: `المادة 42`,
+        q: `كيف تساهم "محاسبة تحليل الكلفة" (المادة 31) في مقاربة البرامج والنجاعة؟`,
+        opts: [
+          `باحتساب الكلفة الحقيقية والشاملة لكل برنامج أو مشروع أو خدمة عمومية`,
+          `بإلغاء المحاسبة الميزانياتية`,
+          `بتحصيل الضرائب المحلية`,
+          `بتحديد سعر صرف الدرهم`
+        ],
+        ans: 0,
+        rat: `تمكن محاسبة تحليل الكلفة (المادة 31) من ربط الموارد المالية والبشرية والمادية المستعملة بالنتائج المحققة داخل كل برنامج لقياس الكفاءة.`
+      },
+      {
+        id: 80, axis: `performance`, article: `المادة 39`,
+        q: `هل يمكن أن يمتد برنامج واحد عبر عدة وزارات مختلفة في القانون التنظيمي 130.13؟`,
+        opts: [
+          `نعم، يدمج البرنامج بين 5 وزارات دائما`,
+          `لا، طبقا للمادة 39 يكون البرنامج تابعا لنفس القطاع الوزاري أو المؤسسة، مع إمكانية التنسيق بين البرامج في السياسات الأفقية`,
+          `نعم، في برامج الاستثمار فقط`,
+          `يحدد ذلك بظهير سنوي`
+        ],
+        ans: 1,
+        rat: `تنص المادة 39 على أن البرنامج يتبع لنفس القطاع الوزاري أو المؤسسة لتحديد مسؤولية واضحة لمسؤول البرنامج، بينما تعالج السياسات المشتركة في الوثائق الأفقية.`
+      },
+
+      // 6. مساطر الإعداد والتصويت ومراقبة البرلمان (81–95)
+      {
+        id: 81, axis: `parliament`, article: `المادة 46`,
+        q: `من يتولى إعداد مشاريع قوانين المالية حسب المادة 46 من القانون التنظيمي رقم 130.13؟`,
+        opts: [
+          `رئيس مجلس النواب`,
+          `الوزير المكلف بالمالية تحت سلطة رئيس الحكومة`,
+          `الأمين العام للحكومة`,
+          `المجلس الأعلى للحسابات`
+        ],
+        ans: 1,
+        rat: `تنص المادة 46 صراحة على أن الوزير المكلف بالمالية يتولى، تحت سلطة رئيس الحكومة، إعداد مشاريع قوانين المالية طبقا للتوجهات العامة المتداول بشأنها في المجلس الوزاري.`
+      },
+      {
+        id: 82, axis: `parliament`, article: `المادة 48`,
+        q: `ما هو الأجل الأقصى لإيداع مشروع قانون المالية للسنة بالأسبقية بمكتب مجلس النواب؟`,
+        opts: [
+          `30 سبتمبر على أبعد تقدير`,
+          `20 أكتوبر على أبعد تقدير من السنة المالية الجارية`,
+          `15 نوفمبر على أبعد تقدير`,
+          `فاتح ديسمبر على أبعد تقدير`
+        ],
+        ans: 1,
+        rat: `تنص المادة 48 (والفصل 75 من الدستور) على إيداع مشروع قانون المالية للسنة بالأسبقية بمكتب مجلس النواب في 20 أكتوبر على أبعد تقدير.`
+      },
+      {
+        id: 83, axis: `parliament`, article: `المادة 49`,
+        q: `كم يوما يخصص لدراسة والتصويت على مشروع قانون المالية للسنة في القراءة الأولى بمجلس النواب؟`,
+        opts: [
+          `15 يوما`,
+          `22 يوما`,
+          `30 يوما من تاريخ إيداعه`,
+          `45 يوما`
+        ],
+        ans: 2,
+        rat: `تحدد المادة 49 أجل البت لمجلس النواب في 30 يوما ابتداء من تاريخ إيداع مشروع قانون المالية بمكتبه.`
+      },
+      {
+        id: 84, axis: `parliament`, article: `المادة 49`,
+        q: `ما هو الأجل الممنوح لمجلس المستشارين للبت في مشروع قانون المالية للسنة بعد إحالته عليه؟`,
+        opts: [
+          `10 أيام`,
+          `22 يوما من تاريخ إحالته عليه`,
+          `30 يوما`,
+          `6 أيام`
+        ],
+        ans: 1,
+        rat: `تنص المادة 49 على أن مجلس المستشارين يبت في المشروع داخل أجل 22 يوما الموالية لإحالته عليه من مجلس النواب.`
+      },
+      {
+        id: 85, axis: `parliament`, article: `المادة 49`,
+        q: `كم يوما يمتلك مجلس النواب في القراءة الثانية للبت بصفة نهائية في التعديلات المصوت عليها من طرف مجلس المستشارين؟`,
+        opts: [
+          `6 أيام على الأكثر`,
+          `15 يوما`,
+          `22 يوما`,
+          `يومين فقط`
+        ],
+        ans: 0,
+        rat: `في القراءة الثانية، يعود المشروع إلى مجلس النواب الذي يبت بصفة نهائية في التعديلات المصوت عليها من مجلس المستشارين داخل أجل لا يتجاوز 6 أيام (المجموع 30+22+6 = 58 يوما).`
+      },
+      {
+        id: 86, axis: `parliament`, article: `المادة 52`,
+        q: `هل يجوز للبرلمان مناقشة أو التصويت على الجزء الثاني من مشروع قانون المالية قبل التصويت على الجزء الأول؟`,
+        opts: [
+          `نعم، إذا اتفق مكتب المجلسين`,
+          `لا، يمنع عرض الجزء الثاني للتصويت قبل التصويت على الجزء الأول`,
+          `نعم، في مجلس المستشارين فقط`,
+          `نعم، بالنسبة لنفقات الاستثمار فقط`
+        ],
+        ans: 1,
+        rat: `تحظر المادة 52 في أي من مجلسي البرلمان عرض الجزء الثاني من مشروع قانون المالية للتصويت قبل التصويت على الجزء الأول.`
+      },
+      {
+        id: 87, axis: `parliament`, article: `المادة 52`,
+        q: `ما هي النتيجة القانونية المترتبة على رفض الجزء الأول من مشروع قانون المالية؟`,
+        opts: [
+          `مناقشة الجزء الثاني مباشرة وتعديله`,
+          `رفض مشروع قانون المالية برمته`,
+          `إعادة التصويت عليه تلقائيا بعد ساعتين`,
+          `إحالته مباشرة إلى الجريدة الرسمية`
+        ],
+        ans: 1,
+        rat: `تنص المادة 52 على أنه في حالة رفض الجزء الأول، يعتبر مشروع قانون المالية برمته مرفوضا لأن الجزء الثاني مبني على توازنات وموارد الجزء الأول.`
+      },
+      {
+        id: 88, axis: `parliament`, article: `المادة 53`,
+        q: `كيف يتم التصويت على مداخيل ونفقات الميزانية العامة في البرلمان حسب المادة 53؟`,
+        opts: [
+          `تصويت إجمالي على المداخيل وتصويت حسب كل فصل على النفقات`,
+          `تصويت إجمالي على النفقات وتصويت تفصيلي على كل ضريبة`,
+          `تصويت سري على كل سطر ميزانياتي`,
+          `تصويت وحيد شامل على الميزانية بدون تجزئة`
+        ],
+        ans: 0,
+        rat: `تقضي المادة 53 بإجراء تصويت إجمالي على المداخيل بالنسبة للميزانية العامة ومرافق SEGMA ولكل صنف من CST، أما النفقات فيصوت عليها حسب كل فصل في الميزانية العامة وSEGMA وحسب كل صنف في CST.`
+      },
+      {
+        id: 89, axis: `parliament`, article: `المادة 56`,
+        q: `متى يحق للحكومة رفض المقترحات والتعديلات التي يتقدم بها أعضاء البرلمان على مشروع قانون المالية؟`,
+        opts: [
+          `بدون أي تعليل وفي جميع الحالات`,
+          `بعد بيان الأسباب، إذا كان قبولها يؤدي إلى تخفيض الموارد العمومية أو إحداث تكليف عمومي أو الزيادة في تكليف موجود`,
+          `فقط إذا كان التعديل يتعلق بالسياسة الخارجية`,
+          `بعد أخذ رأي المحكمة الدستورية مسبقا`
+        ],
+        ans: 1,
+        rat: `بموجب الفصل 77 من الدستور والمادة 56، ترفض الحكومة بعد بيان الأسباب التعديلات البرلمانية التي تؤدي إلى تخفيض الموارد أو إحداث تكليف عمومي أو الزيادة في تكليف موجود.`
+      },
+      {
+        id: 90, axis: `parliament`, article: `المادة 56`,
+        q: `ما هو الشرط الشكلي والموضوعي لقبول الفصل الإضافي أو التعديل المقدم من البرلمان حسب المادة 56؟`,
+        opts: [
+          `أن يرفع من اعتمادات الأجور`,
+          `أن يكون معللا ومرفقا بالمبررات، وألا يكون إلا لحذف أو تخفيض نفقة أو إحداث أو زيادة مورد أو تحسين مراقبة الأموال العمومية`,
+          `أن يحظى بتوقيع 100 نائب على الأقل`,
+          `أن يقدم بعد التصويت النهائي`
+        ],
+        ans: 1,
+        rat: `توجب المادة 56 أن تكون التعديلات معللة ومرفقة بمبرراتها، وأن ينحصر أثر الفصول الإضافية أو التعديلات في حذف/تخفيض نفقة أو إحداث/زيادة مورد أو تحسين مراقبة صرف الأموال العمومية.`
+      },
+      {
+        id: 91, axis: `parliament`, article: `المادة 51`,
+        q: `ما هو الأجل الإجمالي الممنوح للبرلمان للبت في مشروع "قانون المالية المعدل" طبقا للمادة 51؟`,
+        opts: [
+          `58 يوما`,
+          `30 يوما`,
+          `15 يوما على الأكثر (8 للنواب، 4 للمستشارين، 3 للقراءة الثانية)`,
+          `7 أيام فقط`
+        ],
+        ans: 2,
+        rat: `يبت البرلمان في مشروع قانون المالية المعدل داخل أجل لا يتعدى 15 يوما بعد إيداعه (8 أيام لمجلس النواب، 4 أيام لمجلس المستشارين، و3 أيام للقراءة الثانية بمجلس النواب - المادة 51).`
+      },
+      {
+        id: 92, axis: `parliament`, article: `المادة 50`,
+        q: `ما الإجراء المعمول به إذا لم يتم التصويت على قانون المالية أو لم يصدر الأمر بتنفيذه قبل 31 ديسمبر؟`,
+        opts: [
+          `تتوقف الدولة عن صرف الأجور وتحصيل الضرائب`,
+          `تفتح الحكومة بمرسوم الاعتمادات اللازمة لسير المرافق العمومية على أساس ما هو مقترح في المشروع المعروض وتستمر في استخلاص المداخيل`,
+          `يمدد العمل بقانون المالية للسنة السابقة كما هو لمدة سنة كاملة`,
+          `يحل البرلمان تلقائيا`
+        ],
+        ans: 1,
+        rat: `تتيح المادة 50 (والفصل 75 من الدستور) للحكومة فتح الاعتمادات اللازمة لسير المرافق العمومية بمرسوم على أساس الميزانية المقترحة، مع الاستمرار في تحصيل المداخيل طبقا للنصوص الجارية باستثناء المقترح إلغاؤها.`
+      },
+      {
+        id: 93, axis: `parliament`, article: `المادة 50`,
+        q: `أثناء العمل بمرسوم الاعتمادات في حالة عدم المصادقة قبل 31 ديسمبر (المادة 50)، كيف يتم التعامل مع المداخيل المقترح "تخفيضها" في المشروع؟`,
+        opts: [
+          `تستخلص بالسعر القديم المرتفع`,
+          `تستخلص بالسعر الجديد المخفض المقترح في مشروع قانون المالية`,
+          `يلغى استخلاصها مؤقتا`,
+          `تؤجل إلى سنة قادمة`
+        ],
+        ans: 1,
+        rat: `تنص المادة 50 على استخلاص المداخيل طبقا للنصوص الجارية، باستثناء المداخيل المقترح إلغاؤها في المشروع؛ أما المداخيل المقترح تخفيض مقدارها فتستخلص بالسعر الجديد المقترح.`
+      },
+      {
+        id: 94, axis: `parliament`, article: `المادة 48`,
+        q: `كم عدد التقارير والوثائق المرفقة الإلزامية لمشروع قانون المالية عند إيداعه في 20 أكتوبر وفق المادة 48؟`,
+        opts: [
+          `تقريران فقط`,
+          `13 تقريرا ووثيقة تغطي الاقتصاد والمالية والمؤسسات والنجاعة والدين والنفقات الجبائية وغيرها`,
+          `50 تقريرا`,
+          `لا يرفق بأي تقرير`
+        ],
+        ans: 1,
+        rat: `نصت المادة 48 على لائحة موسعة تضم 13 تقريرا ومشروع نجاعة الأداء لإمداد البرلمان بكافة المعطيات حول الدين والمقاصة والنفقات الجبائية والجهوية والمؤسسات العمومية.`
+      },
+      {
+        id: 95, axis: `parliament`, article: `المادة 54`,
+        q: `كيف تصنف "الآليات المرفقة" بالتصويت على الفصل في قانون المالية وفق المادة 53 و54؟`,
+        opts: [
+          `يصوت على المادة الوحيدة للميزانية`,
+          `يتعلق التصويت بمجموع الاعتمادات بكل فصل، بينما تخضع "التحويلات" داخل الفصل لمراقبة البرلمان عبر إخبار لجنتي المالية عند التعديلات الكبرى`,
+          `يصوت البرلمان على كل صفقة عمومية`,
+          `لا يصوت البرلمان على نفقات التسيير`
+        ],
+        ans: 1,
+        rat: `يصوت البرلمان على النفقات حسب كل فصل (المادة 53)، ويضمن توازنه بعدم تجزئة الاعتماد البرلماني وتقييد التحويلات بين الفصول والمواد إلا وفق مساطر المادة 45 و60.`
+      },
+
+      // 7. تنفيذ الميزانية وقانون التصفية (96–105)
+      {
+        id: 96, axis: `settlement`, article: `المادة 60`,
+        q: `متى يجوز للحكومة فتح اعتمادات إضافية بموجب مرسوم خلال السنة المالية طبقا للمادة 60؟`,
+        opts: [
+          `في أي وقت دون شروط`,
+          `في حالة الضرورة الملحة وغير المتوقعة ذات المصلحة الوطنية، بعد إخبار اللجنتين المكلفتين بالمالية بالبرلمان مسبقا`,
+          `لزيادة أجور الموظفين كل ستة أشهر`,
+          `بعد مصادقة المجلس الأعلى للحسابات مسبقا`
+        ],
+        ans: 1,
+        rat: `تجيز المادة 60 فتح اعتمادات إضافية بمرسوم في حالة الضرورة الملحة وغير المتوقعة ذات المصلحة الوطنية بعد إخبار لجنتي المالية في مجلسي البرلمان، وعرضها في أقرب قانون مالية.`
+      },
+      {
+        id: 97, axis: `settlement`, article: `المادة 62`,
+        q: `ماذا تتيح المادة 62 للحكومة في حال تطلبت الظرفية الاقتصادية والمالية ذلك أثناء تنفيذ الميزانية؟`,
+        opts: [
+          `رفع سعر الضرائب بمرسوم`,
+          `وقف تنفيذ بعض نفقات الاستثمار بمرسوم بعد إخبار لجنتي المالية بالبرلمان مسبقا`,
+          `إلغاء جميع البرامج بصفة نهائية`,
+          `الامتناع عن سداد الدين العمومي`
+        ],
+        ans: 1,
+        rat: `تخول المادة 62 للحكومة أن توقف بمرسوم تنفيذ بعض نفقات الاستثمار إذا استوجبت الظرفية الاقتصادية والمالية ذلك، مع إخبار اللجنتين المكلفتين بالمالية مسبقا.`
+      },
+      {
+        id: 98, axis: `settlement`, article: `المادة 64`,
+        q: `ما هو الدور الأساسي لـ "قانون التصفية المتعلق بتنفيذ قانون المالية" (<bdi dir="ltr">Loi de règlement</bdi>) حسب المادة 64؟`,
+        opts: [
+          `وضع التوقعات المالية للسنوات الثلاث المقبلة`,
+          `إثبات وحصر المبلغ النهائي للمداخيل المقبوضة والنفقات المأمور بصرفها لسنة مالية منتهية وحصر حساب النتيجة للسنة`,
+          `المصادقة على التعيينات في المناصب العليا`,
+          `إحداث ضرائب جديدة بأثر فوري`
+        ],
+        ans: 1,
+        rat: `تنص المادة 64 على أن قانون التصفية يثبت ويحصر المبالغ النهائية للمداخيل المقبوضة والنفقات المأمور بصرفها المتعلقة بنفس السنة المالية، ويحصر حساب النتيجة السنوي ويصادق على التسويات.`
+      },
+      {
+        id: 99, axis: `settlement`, article: `المادة 65`,
+        q: `ما هو الأجل القانوني الأقصى لإيداع مشروع قانون التصفية بالأسبقية بمكتب مجلس النواب في المادة 65؟`,
+        opts: [
+          `نهاية السنة الموالية لسنة التنفيذ (n+1)`,
+          `نهاية الربع الأول من السنة الثانية التي تلي سنة تنفيذ قانون المالية المعني (31 مارس من سنة n+2)`,
+          `بعد خمس سنوات من انتهاء التنفيذ`,
+          `في 20 أكتوبر من نفس سنة التنفيذ`
+        ],
+        ans: 1,
+        rat: `قلصت المادة 65 أجل إيداع مشروع قانون التصفية إلى نهاية الربع الأول من السنة الثانية التي تلي سنة تنفيذ قانون المالية المعني (أي 31 مارس n+2 كحد أقصى).`
+      },
+      {
+        id: 100, axis: `settlement`, article: `المادة 66`,
+        q: `ما هي الوثيقة الصادرة عن المجلس الأعلى للحسابات التي ترفق وجوبا بمشروع قانون التصفية طبقا للمادة 66؟`,
+        opts: [
+          `التقرير حول تنفيذ قانون المالية والتصريح العام بمطابقة حسابات المحاسبين العموميين للحساب العام للمملكة`,
+          `مشروع ميزانية السنة المقبلة`,
+          `تقرير المندوبية السامية للتخطيط`,
+          `مدونة الجمارك`
+        ],
+        ans: 0,
+        rat: `توجب المادة 66 إرفاق مشروع قانون التصفية بتقرير المجلس الأعلى للحسابات حول تنفيذ قانون المالية والتصريح العام بالمطابقة بين الحسابات الفردية للمحاسبين والحساب العام للمملكة.`
+      },
+      {
+        id: 101, axis: `settlement`, article: `المادة 31`,
+        q: `ما هي أنواع المحاسبة الثلاثة التي تمسكها الدولة بموجب المادة 31 من القانون التنظيمي 130.13؟`,
+        opts: [
+          `المحاسبة الجبائية، المحاسبة الجمركية، والمحاسبة البنكية`,
+          `المحاسبة الميزانياتية، المحاسبة العامة، ومحاسبة تحليل الكلفة`,
+          `المحاسبة السنوية، المحاسبة الفورية، والمحاسبة السرية`,
+          `محاسبة التسيير، محاسبة الأجور، ومحاسبة الهبات`
+        ],
+        ans: 1,
+        rat: `ترتكز المنظومة المحاسبية الجديدة في المادة 31 على ثلاثة أركان: محاسبة ميزانياتية (للمداخيل والنفقات)، ومحاسبة عامة (على أساس إثبات الحقوق والالتزامات)، ومحاسبة لتحليل الكلفة.`
+      },
+      {
+        id: 102, axis: `settlement`, article: `المادة 31`,
+        q: `على أي أساس تمسك المحاسبة العامة للدولة حسب المادة 31 و33؟`,
+        opts: [
+          `أساس الصندوق (المقبوضات والأداءات النقدية فقط)`,
+          `مبدأ إثبات الحقوق والالتزامات (Droits constatés) لمجموع العمليات والممتلكات والحقوق والديون`,
+          `أساس التقدير الجزافي`,
+          `أساس القيمة الإسمية للعملة`
+        ],
+        ans: 1,
+        rat: `تمسك المحاسبة العامة وفق المادة 31 و33 على أساس مبدأ إثبات الحقوق والالتزامات (الاستحقاق المحاسبي)، مما يعطي صورة حقيقية عن الذمة المالية للدولة وممتلكاتها وديونها.`
+      },
+      {
+        id: 103, axis: `settlement`, article: `المادة 31`,
+        q: `ما هي الجهة التي تصادق على مطابقة حسابات الدولة للقانون وصدقيتها طبقا للمادة 31؟`,
+        opts: [
+          `المفتشية العامة للمالية`,
+          `المجلس الأعلى للحسابات`,
+          `المحكمة الدستورية`,
+          `لجنة المالية بمجلس المستشارين`
+        ],
+        ans: 1,
+        rat: `تسند المادة 31 للمجلس الأعلى للحسابات اختصاص المصادقة على مطابقة حسابات الدولة للقانون وصدقيتها (Certification des comptes de l'État).`
+      },
+      {
+        id: 104, axis: `settlement`, article: `المادة 68 و 69`,
+        q: `كيف تم تنزيل مقتضيات القانون التنظيمي رقم 130.13 زمنيا بموجب المقتضيات الانتقالية؟`,
+        opts: [
+          `دفعة واحدة في يوم واحد سنة 2015`,
+          `بشكل تدريجي من فاتح يناير 2016 إلى غاية فاتح يناير 2020 لضمان جاهزية الأنظمة المحاسبية والبرامج`,
+          `أرجئ تطبيقه إلى سنة 2030`,
+          `طبق على المداخيل فقط دون النفقات`
+        ],
+        ans: 1,
+        rat: `نصت المادتان 68 و69 على دخول مقتضيات القانون التنظيمي حيز التنفيذ تدريجيا ابتداء من فاتح يناير 2016 وحتى 2020 (مثل المحاسبة العامة في 2018، وترحيل الـ 30%، وهندسة البرامج).`
+      },
+      {
+        id: 105, axis: `settlement`, article: `المادة 61`,
+        q: `ما المقصود بالترخيص بالمداخيل والنفقات عند نهاية السنة المالية في إعداد حساب النتيجة بقانون التصفية؟`,
+        opts: [
+          `إلغاء جميع الديون العمومية للدولة`,
+          `نقل رصيد الميزانية العامة المحصل عليه (فائض أو عجز الميزانية) إلى حساب الخزينة المكشوف ومقارنته بالتقديرات المصوت عليها`,
+          `توزيع الفائض مباشرة على الجماعات الترابية`,
+          `إعادة التصويت على المداخيل المحصلة`
+        ],
+        ans: 1,
+        rat: `يحصر قانون التصفية (المادة 64) حساب النتيجة السنوي الذي يبرز الفائض أو العجز النهائي الناتج عن الفرق بين المداخيل المقبوضة والنفقات المأمور بصرفها ويرحل إلى حسابات الخزينة.`
+      }
+    ];
+
+    const LETTERS = [`أ`, `ب`, `ج`, `د`];
+    const QUESTION_TIME_SEC = 45;
+
+    let state = {
+      mode: `competitive`,
+      axisFilter: `all`,
+      searchQuery: ``,
+      currentIndex: 0,
+      answers: {},       // { [qId]: { selected: number, correct: boolean, points: number } }
+      bookmarks: [],     // [qId]
+      points: 0,
+      streak: 0,
+      bestStreak: 0
+    };
+
+    let filteredQuestions = [...QUESTIONS];
+    let timerInterval = null;
+    let timeRemaining = QUESTION_TIME_SEC;
+
+    function getFilteredList() {
+      const qTerm = (state.searchQuery || ``).trim().toLowerCase();
+      return QUESTIONS.filter((item) => {
+        if (state.axisFilter !== `all` && item.axis !== state.axisFilter) return false;
+        if (state.mode === `review`) {
+          const ans = state.answers[item.id];
+          const isWrong = ans && !ans.correct;
+          const isBookmarked = state.bookmarks.includes(item.id);
+          if (!isWrong && !isBookmarked) return false;
+        }
+        if (qTerm) {
+          const haystack = `${item.q} ${item.article} ${item.rat}`.toLowerCase();
+          if (!haystack.includes(qTerm)) return false;
+        }
+        return true;
+      });
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(state);
+        } catch (err) {
+          // Ignore transient host errors
+        }
+      }
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function startTimerForCurrent() {
+      stopTimer();
+      const timerBadge = document.getElementById(`timer-display`);
+      const timerTrack = document.getElementById(`timer-track`);
+      const timerBar = document.getElementById(`timer-bar`);
+
+      if (state.mode !== `competitive`) {
+        if (timerBadge) timerBadge.textContent = `تدريب حر`;
+        if (timerBadge) timerBadge.classList.remove(`urgent`);
+        if (timerTrack) timerTrack.classList.add(`hidden`);
+        return;
+      }
+
+      if (timerTrack) timerTrack.classList.remove(`hidden`);
+      const currentQ = filteredQuestions[state.currentIndex];
+      if (!currentQ || state.answers[currentQ.id]) {
+        if (timerBadge) {
+          timerBadge.textContent = `مكتمل`;
+          timerBadge.classList.remove(`urgent`);
+        }
+        if (timerBar) {
+          timerBar.style.width = `100%`;
+          timerBar.classList.remove(`urgent`);
+        }
+        return;
+      }
+
+      timeRemaining = QUESTION_TIME_SEC;
+      updateTimerUI();
+
+      timerInterval = setInterval(() => {
+        timeRemaining -= 1;
+        updateTimerUI();
+        if (timeRemaining <= 0) {
+          stopTimer();
+          handleTimeout(currentQ);
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      const timerBadge = document.getElementById(`timer-display`);
+      const timerBar = document.getElementById(`timer-bar`);
+      const pct = Math.max(0, (timeRemaining / QUESTION_TIME_SEC) * 100);
+      const isUrgent = timeRemaining <= 10;
+
+      if (timerBadge) {
+        timerBadge.textContent = `${timeRemaining} ث`;
+        timerBadge.classList.toggle(`urgent`, isUrgent);
+      }
+      if (timerBar) {
+        timerBar.style.width = `${pct}%`;
+        timerBar.classList.toggle(`urgent`, isUrgent);
+      }
+    }
+
+    function handleTimeout(q) {
+      if (state.answers[q.id]) return;
+      state.answers[q.id] = { selected: -1, correct: false, points: 0 };
+      state.streak = 0;
+      persistState();
+      renderAll();
+    }
+
+    function populateAxisSelect() {
+      const sel = document.getElementById(`axis-filter`);
+      if (!sel) return;
+      sel.innerHTML = `<option value="all">جميع المحاور (${QUESTIONS.length} سؤالا)</option>`;
+      AXES.forEach((ax) => {
+        const count = QUESTIONS.filter((q) => q.axis === ax.id).length;
+        const opt = document.createElement(`option`);
+        opt.value = ax.id;
+        opt.textContent = `${ax.title} (${count})`;
+        sel.appendChild(opt);
+      });
+      sel.value = state.axisFilter;
+    }
+
+    function updateModeButtons() {
+      const modes = [`competitive`, `practice`, `review`, `stats`];
+      modes.forEach((m) => {
+        const btn = document.getElementById(`mode-${m}`);
+        if (btn) btn.classList.toggle(`active`, state.mode === m);
+      });
+      const workspace = document.getElementById(`quiz-workspace`);
+      const statsView = document.getElementById(`stats-view`);
+      if (state.mode === `stats`) {
+        if (workspace) workspace.classList.add(`hidden`);
+        if (statsView) statsView.classList.remove(`hidden`);
+        stopTimer();
+      } else {
+        if (workspace) workspace.classList.remove(`hidden`);
+        if (statsView) statsView.classList.add(`hidden`);
+      }
+    }
+
+    function renderKPIs() {
+      const answeredIds = Object.keys(state.answers);
+      const totalAnswered = answeredIds.length;
+      const totalCorrect = answeredIds.filter((id) => state.answers[id].correct).length;
+      const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+
+      const elPts = document.getElementById(`kpi-points`);
+      const elAcc = document.getElementById(`kpi-accuracy`);
+      const elAccSub = document.getElementById(`kpi-accuracy-sub`);
+      const elStreak = document.getElementById(`kpi-streak`);
+      const elBest = document.getElementById(`kpi-best-streak`);
+      const elCov = document.getElementById(`kpi-coverage`);
+      const elBook = document.getElementById(`kpi-bookmarks`);
+
+      if (elPts) elPts.textContent = `${state.points}`;
+      if (elAcc) elAcc.textContent = `${accuracy}%`;
+      if (elAccSub) elAccSub.textContent = `${totalCorrect} صحيحة من ${totalAnswered} مجاب عنها`;
+      if (elStreak) elStreak.textContent = `${state.streak}`;
+      if (elBest) elBest.textContent = `أفضل سلسلة: ${state.bestStreak}`;
+      if (elCov) elCov.textContent = `${totalAnswered} / ${QUESTIONS.length}`;
+      if (elBook) elBook.textContent = `المحفوظة للمراجعة: ${state.bookmarks.length}`;
+    }
+
+    function renderQuestionCard() {
+      filteredQuestions = getFilteredList();
+      if (state.currentIndex >= filteredQuestions.length) {
+        state.currentIndex = Math.max(0, filteredQuestions.length - 1);
+      }
+
+      const emptyState = document.getElementById(`empty-filter-state`);
+      const emptyMsg = document.getElementById(`empty-state-msg`);
+      const qText = document.getElementById(`q-text`);
+      const optsContainer = document.getElementById(`options-container`);
+      const rationaleBox = document.getElementById(`rationale-box`);
+      const quizFooter = document.getElementById(`quiz-footer`);
+      const qCounter = document.getElementById(`q-counter`);
+      const qAxisBadge = document.getElementById(`q-axis-badge`);
+      const qArticleBadge = document.getElementById(`q-article-badge`);
+
+      if (filteredQuestions.length === 0) {
+        if (emptyState) emptyState.classList.remove(`hidden`);
+        if (emptyMsg) {
+          emptyMsg.textContent = state.mode === `review`
+            ? `لا توجد أخطاء أو أسئلة محفوظة حاليا ضمن هذا المحور.`
+            : `لا توجد أسئلة مطابقة لبحثك الحالي.`;
+        }
+        if (qText) qText.classList.add(`hidden`);
+        if (optsContainer) optsContainer.classList.add(`hidden`);
+        if (rationaleBox) rationaleBox.classList.add(`hidden`);
+        if (quizFooter) quizFooter.classList.add(`hidden`);
+        if (qCounter) qCounter.textContent = `0 من 0`;
+        stopTimer();
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add(`hidden`);
+      if (qText) qText.classList.remove(`hidden`);
+      if (optsContainer) optsContainer.classList.remove(`hidden`);
+      if (quizFooter) quizFooter.classList.remove(`hidden`);
+
+      const q = filteredQuestions[state.currentIndex];
+      const axisObj = AXES.find((a) => a.id === q.axis);
+      const ansRecord = state.answers[q.id];
+
+      if (qCounter) qCounter.textContent = `السؤال ${state.currentIndex + 1} من ${filteredQuestions.length} (س#${q.id})`;
+      if (qAxisBadge) qAxisBadge.textContent = axisObj ? axisObj.title : q.axis;
+      if (qArticleBadge) {
+        qArticleBadge.textContent = q.article;
+        qArticleBadge.classList.toggle(`hidden`, !ansRecord && state.mode === `competitive`);
+      }
+      if (qText) qText.innerHTML = q.q;
+
+      if (optsContainer) {
+        optsContainer.innerHTML = ``;
+        q.opts.forEach((optText, idx) => {
+          const btn = document.createElement(`button`);
+          btn.type = `button`;
+          btn.className = `option-btn`;
+          if (ansRecord) {
+            btn.disabled = true;
+            if (idx === q.ans) btn.classList.add(`correct`);
+            else if (idx === ansRecord.selected && !ansRecord.correct) btn.classList.add(`wrong`);
+          }
+          btn.onclick = () => selectAnswer(q.id, idx);
+
+          const letterSpan = document.createElement(`span`);
+          letterSpan.className = `option-letter`;
+          letterSpan.textContent = LETTERS[idx];
+
+          const textSpan = document.createElement(`span`);
+          textSpan.innerHTML = optText;
+
+          btn.appendChild(letterSpan);
+          btn.appendChild(textSpan);
+          optsContainer.appendChild(btn);
+        });
+      }
+
+      if (rationaleBox) {
+        if (ansRecord) {
+          rationaleBox.classList.remove(`hidden`, `is-correct`, `is-wrong`);
+          rationaleBox.classList.add(ansRecord.correct ? `is-correct` : `is-wrong`);
+          const verdictEl = document.getElementById(`verdict-text`);
+          const artEl = document.getElementById(`rationale-article`);
+          const bodyEl = document.getElementById(`rationale-body`);
+
+          if (verdictEl) {
+            verdictEl.className = `verdict-title ${ansRecord.correct ? `correct` : `wrong`}`;
+            if (ansRecord.selected === -1) {
+              verdictEl.textContent = `انتهى الوقت — الإجابة الصحيحة موضحة أعلاه`;
+            } else if (ansRecord.correct) {
+              verdictEl.textContent = ansRecord.points > 0 ? `إجابة صحيحة (+${ansRecord.points} نقطة)` : `إجابة صحيحة`;
+            } else {
+              verdictEl.textContent = `إجابة غير صحيحة`;
+            }
+          }
+          if (artEl) artEl.textContent = `المرجع: ${q.article} (ق.ت.م 130.13)`;
+          if (bodyEl) bodyEl.innerHTML = q.rat;
+        } else {
+          rationaleBox.classList.add(`hidden`);
+        }
+      }
+
+      const prevBtn = document.getElementById(`prev-btn`);
+      const nextBtn = document.getElementById(`next-btn`);
+      const bookmarkBtn = document.getElementById(`bookmark-btn`);
+      if (prevBtn) prevBtn.disabled = state.currentIndex <= 0;
+      if (nextBtn) nextBtn.disabled = state.currentIndex >= filteredQuestions.length - 1;
+      if (bookmarkBtn) {
+        const isSaved = state.bookmarks.includes(q.id);
+        bookmarkBtn.textContent = isSaved ? `محفوظ للمراجعة ✓` : `حفظ للمراجعة`;
+        bookmarkBtn.classList.toggle(`active`, isSaved);
+      }
+
+      startTimerForCurrent();
+    }
+
+    function renderSidebar() {
+      const axisList = document.getElementById(`axis-sidebar-list`);
+      if (axisList) {
+        axisList.innerHTML = ``;
+        AXES.forEach((ax) => {
+          const axQs = QUESTIONS.filter((q) => q.axis === ax.id);
+          const axCorrect = axQs.filter((q) => state.answers[q.id] && state.answers[q.id].correct).length;
+          const pct = axQs.length > 0 ? Math.round((axCorrect / axQs.length) * 100) : 0;
+
+          const btn = document.createElement(`button`);
+          btn.type = `button`;
+          btn.className = `axis-row${state.axisFilter === ax.id ? ` selected` : ``}`;
+          btn.onclick = () => {
+            onAxisChange(state.axisFilter === ax.id ? `all` : ax.id);
+          };
+
+          const top = document.createElement(`div`);
+          top.className = `axis-row-top`;
+          const nameSpan = document.createElement(`span`);
+          nameSpan.textContent = ax.title;
+          const cntSpan = document.createElement(`span`);
+          cntSpan.className = `axis-count`;
+          cntSpan.textContent = `${axCorrect}/${axQs.length}`;
+          top.appendChild(nameSpan);
+          top.appendChild(cntSpan);
+
+          const track = document.createElement(`div`);
+          track.className = `progress-track`;
+          const fill = document.createElement(`div`);
+          fill.className = `progress-fill`;
+          fill.style.width = `${pct}%`;
+          track.appendChild(fill);
+
+          btn.appendChild(top);
+          btn.appendChild(track);
+          axisList.appendChild(btn);
+        });
+      }
+
+      const matrix = document.getElementById(`question-matrix`);
+      if (matrix) {
+        matrix.innerHTML = ``;
+        filteredQuestions.forEach((q, idx) => {
+          const tile = document.createElement(`button`);
+          tile.type = `button`;
+          tile.className = `q-tile`;
+          tile.textContent = `${q.id}`;
+          tile.title = `السؤال ${q.id} — ${q.article}`;
+          if (idx === state.currentIndex) tile.classList.add(`current`);
+          const ans = state.answers[q.id];
+          if (ans) {
+            tile.classList.add(ans.correct ? `answered-correct` : `answered-wrong`);
+          }
+          if (state.bookmarks.includes(q.id)) tile.classList.add(`bookmarked`);
+          tile.onclick = () => {
+            state.currentIndex = idx;
+            persistState();
+            renderQuestionCard();
+            renderSidebar();
+          };
+          matrix.appendChild(tile);
+        });
+      }
+    }
+
+    function renderStatsTable() {
+      const tbody = document.getElementById(`stats-table-body`);
+      if (!tbody) return;
+      tbody.innerHTML = ``;
+      AXES.forEach((ax) => {
+        const axQs = QUESTIONS.filter((q) => q.axis === ax.id);
+        const answered = axQs.filter((q) => state.answers[q.id]).length;
+        const correct = axQs.filter((q) => state.answers[q.id] && state.answers[q.id].correct).length;
+        const pct = axQs.length > 0 ? Math.round((correct / axQs.length) * 100) : 0;
+
+        const tr = document.createElement(`tr`);
+        tr.innerHTML = `
+          <td><strong>${ax.title}</strong></td>
+          <td>${ax.articles}</td>
+          <td class="num">${axQs.length}</td>
+          <td class="num">${answered}</td>
+          <td class="num">${correct}</td>
+          <td class="num">${pct}%</td>
+          <td><button type="button" class="btn btn-secondary" onclick="practiceAxis('${ax.id}')">تدريب</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderAll() {
+      updateModeButtons();
+      renderKPIs();
+      if (state.mode === `stats`) {
+        renderStatsTable();
+      } else {
+        renderQuestionCard();
+        renderSidebar();
+      }
+    }
+
+    // Hoisted handler functions
+    function selectAnswer(qId, optionIdx) {
+      if (state.answers[qId]) return;
+      stopTimer();
+      const q = QUESTIONS.find((item) => item.id === qId);
+      if (!q) return;
+
+      const isCorrect = optionIdx === q.ans;
+      let earned = 0;
+      if (isCorrect) {
+        if (state.mode === `competitive`) {
+          const speedBonus = timeRemaining >= 30 ? 5 : (timeRemaining >= 15 ? 2 : 0);
+          earned = 10 + speedBonus;
+        } else {
+          earned = 10;
+        }
+        state.points += earned;
+        state.streak += 1;
+        if (state.streak > state.bestStreak) state.bestStreak = state.streak;
+      } else {
+        state.streak = 0;
+      }
+
+      state.answers[qId] = { selected: optionIdx, correct: isCorrect, points: earned };
+      persistState();
+      renderAll();
+    }
+
+    function setMode(newMode) {
+      state.mode = newMode;
+      state.currentIndex = 0;
+      persistState();
+      renderAll();
+    }
+
+    function practiceAxis(axisId) {
+      state.axisFilter = axisId;
+      state.mode = `practice`;
+      state.currentIndex = 0;
+      const sel = document.getElementById(`axis-filter`);
+      if (sel) sel.value = axisId;
+      persistState();
+      renderAll();
+    }
+
+    function onAxisChange(val) {
+      state.axisFilter = val;
+      state.currentIndex = 0;
+      const sel = document.getElementById(`axis-filter`);
+      if (sel) sel.value = val;
+      persistState();
+      renderAll();
+    }
+
+    function onSearchChange(val) {
+      state.searchQuery = val;
+      state.currentIndex = 0;
+      renderAll();
+    }
+
+    function clearFilters() {
+      state.axisFilter = `all`;
+      state.searchQuery = ``;
+      if (state.mode === `review`) state.mode = `practice`;
+      state.currentIndex = 0;
+      const sel = document.getElementById(`axis-filter`);
+      const inp = document.getElementById(`search-input`);
+      if (sel) sel.value = `all`;
+      if (inp) inp.value = ``;
+      persistState();
+      renderAll();
+    }
+
+    function nextQuestion() {
+      if (state.currentIndex < filteredQuestions.length - 1) {
+        state.currentIndex += 1;
+        persistState();
+        renderQuestionCard();
+        renderSidebar();
+      }
+    }
+
+    function prevQuestion() {
+      if (state.currentIndex > 0) {
+        state.currentIndex -= 1;
+        persistState();
+        renderQuestionCard();
+        renderSidebar();
+      }
+    }
+
+    function jumpNextUnanswered() {
+      const idx = filteredQuestions.findIndex((q) => !state.answers[q.id]);
+      if (idx !== -1) {
+        state.currentIndex = idx;
+        persistState();
+        renderQuestionCard();
+        renderSidebar();
+      }
+    }
+
+    function toggleBookmark() {
+      const q = filteredQuestions[state.currentIndex];
+      if (!q) return;
+      const pos = state.bookmarks.indexOf(q.id);
+      if (pos === -1) state.bookmarks.push(q.id);
+      else state.bookmarks.splice(pos, 1);
+      persistState();
+      renderKPIs();
+      renderQuestionCard();
+      renderSidebar();
+    }
+
+    function handleReset(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `تأكيد المسح النهائي؟`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `إعادة ضبط التقدم`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `إعادة ضبط التقدم`;
+      stopTimer();
+      state.answers = {};
+      state.bookmarks = [];
+      state.points = 0;
+      state.streak = 0;
+      state.bestStreak = 0;
+      state.currentIndex = 0;
+      persistState();
+      renderAll();
+    }
+
+    document.addEventListener(`keydown`, (e) => {
+      if (document.activeElement && [`INPUT`, `SELECT`, `TEXTAREA`].includes(document.activeElement.tagName)) return;
+      if (state.mode === `stats`) return;
+      const q = filteredQuestions[state.currentIndex];
+      if (!q) return;
+      if ([`1`, `2`, `3`, `4`].includes(e.key)) {
+        selectAnswer(q.id, Number(e.key) - 1);
+      } else if (e.key === `ArrowLeft`) {
+        nextQuestion();
+      } else if (e.key === `ArrowRight`) {
+        prevQuestion();
+      }
+    });
+
+    async function initApp() {
+      populateAxisSelect();
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            state = { ...state, ...saved };
+            const sel = document.getElementById(`axis-filter`);
+            if (sel) sel.value = state.axisFilter || `all`;
+          }
+        } catch (err) {
+          // Proceed with default empty state
+        }
+      }
+      renderAll();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
