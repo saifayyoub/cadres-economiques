@@ -1,0 +1,2856 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>بنك الأسئلة التفاعلي (100 QCM) — القانون رقم 69.00 للمراقبة المالية للدولة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Semantic */
+      --positive: #2d5a4a;
+      --positive-container: #eaf2ee;
+      --warning: #8a6a35;
+      --error-container: #f9ebeb;
+      --focus: #14213d;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts */
+      --font-headline: 'Amiri', 'Libre Caslon Text', serif;
+      --font-body: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+
+      /* Shape */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-band-border: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.78rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Title Band (Charter compact header strip for tool) */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-bottom: var(--brass-band-border);
+      padding: var(--space-lg) var(--space-lg) var(--space-lg);
+    }
+    .title-band-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: color-mix(in srgb, var(--outline) 78%, var(--on-primary));
+      margin-bottom: var(--space-xs);
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.2;
+      margin: 0 0 var(--space-xs) 0;
+      color: var(--on-primary);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid color-mix(in srgb, var(--outline) 65%, var(--primary));
+    }
+    .title-band .lede {
+      margin: 0;
+      color: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      font-size: var(--body-size);
+      max-width: 68ch;
+    }
+    .band-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Page container */
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Statement Figures Row */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.6rem, 1.3rem + 0.9vw, 2.1rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+    .figure-value.is-positive { color: var(--positive); }
+    .figure-value.is-error { color: var(--error); }
+    .figure-delta {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+
+    /* Progress bar */
+    .progress-strip {
+      background-color: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .progress-strip-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      display: flex;
+    }
+    .progress-fill-correct {
+      background-color: var(--positive);
+      height: 100%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .progress-fill-wrong {
+      background-color: var(--error);
+      height: 100%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Controls Toolbar */
+    .controls-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-group label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .charter-select, .charter-input {
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      width: 100%;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .charter-select {
+      padding-left: var(--space-xl);
+    }
+    .charter-select:hover, .charter-input:hover {
+      border-color: var(--outline);
+    }
+    .charter-select:focus-visible, .charter-input:focus-visible {
+      border-color: var(--primary);
+    }
+
+    /* Mode Segmented Switch */
+    .mode-switch {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-xs);
+    }
+    .mode-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--primary);
+      border-radius: var(--rounded);
+      background-color: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: var(--label-size);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .mode-btn:hover {
+      background-color: var(--primary-container);
+    }
+    .mode-btn.is-active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Buttons (Charter 2px corners, no shadows) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+      text-decoration: none;
+    }
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--primary) 86%, var(--on-surface));
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+    .btn-on-navy {
+      background-color: transparent;
+      color: var(--on-primary);
+      border-color: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+    }
+    .btn-on-navy:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--on-primary) 12%, var(--primary));
+    }
+    .btn-danger-outline {
+      background-color: transparent;
+      color: var(--error);
+      border-color: var(--error);
+    }
+    .btn-danger-outline:hover:not(:disabled) {
+      background-color: var(--error-container);
+    }
+
+    /* Main Asymmetric Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Section Head */
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--headline-size);
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    /* Question Card */
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .question-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: var(--hairline);
+    }
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    /* Squared Stamp Tag (Charter) */
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      color: var(--tertiary);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background-color: transparent;
+    }
+    .stamp-tag.is-navy {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .bookmark-btn {
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      background-color: transparent;
+      color: var(--on-surface-variant);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .bookmark-btn:hover {
+      border-color: var(--outline);
+      background-color: var(--surface-container);
+    }
+    .bookmark-btn.is-saved {
+      border-color: var(--tertiary);
+      color: var(--tertiary);
+      background-color: var(--surface-container);
+    }
+
+    .question-prompt {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.45rem);
+      line-height: 1.55;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      width: 100%;
+      min-height: 48px;
+      text-align: right;
+      background-color: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      cursor: pointer;
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-letter {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--tertiary);
+      background-color: var(--surface-container-low);
+      margin-top: 2px;
+    }
+    .option-text {
+      flex: 1;
+      line-height: 1.55;
+    }
+    .option-status-label {
+      flex-shrink: 0;
+      font-size: var(--label-size);
+      font-weight: 700;
+      align-self: center;
+    }
+
+    /* Option States */
+    .option-btn.is-selected {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      box-shadow: inset 0 0 0 1px var(--primary);
+    }
+    .option-btn.is-selected .option-letter {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .option-btn.is-correct {
+      background-color: var(--positive-container);
+      border-color: var(--positive);
+      box-shadow: inset 0 0 0 1px var(--positive);
+    }
+    .option-btn.is-correct .option-letter {
+      background-color: var(--positive);
+      border-color: var(--positive);
+      color: var(--on-primary);
+    }
+    .option-btn.is-correct .option-status-label {
+      color: var(--positive);
+    }
+
+    .option-btn.is-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      box-shadow: inset 0 0 0 1px var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background-color: var(--error);
+      border-color: var(--error);
+      color: var(--on-error);
+    }
+    .option-btn.is-wrong .option-status-label {
+      color: var(--error);
+    }
+
+    /* Legal Justification Panel */
+    .rationale-box {
+      border-right: 4px solid var(--primary);
+      background-color: var(--surface-container);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      animation: fadeSlide var(--dur-short) var(--ease-out);
+    }
+    .rationale-box.is-correct {
+      border-right-color: var(--positive);
+      background-color: var(--positive-container);
+    }
+    .rationale-box.is-wrong {
+      border-right-color: var(--error);
+      background-color: var(--error-container);
+    }
+    .rationale-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .rationale-verdict {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .rationale-verdict.is-correct { color: var(--positive); }
+    .rationale-verdict.is-wrong { color: var(--error); }
+    .rationale-article {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .rationale-text {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.65;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Navigation Row */
+    .question-nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+    .nav-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Exam Submission Banner */
+    .exam-banner {
+      background-color: var(--surface-container);
+      border-top: var(--brass-rule);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .exam-banner p {
+      margin: 0;
+      color: var(--on-surface);
+      font-weight: 500;
+    }
+
+    /* List View Cards */
+    .list-view-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Side Panel: Navigator & Axis Breakdown */
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .side-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .side-card h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0;
+      padding-bottom: var(--space-xs);
+      border-bottom: var(--hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 100-Number Grid */
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: 6px;
+    }
+    .q-tile {
+      position: relative;
+      min-height: 36px;
+      padding: 0;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .q-tile:hover {
+      border-color: var(--primary);
+      background-color: var(--primary-container);
+    }
+    .q-tile.is-current {
+      border-color: var(--primary);
+      box-shadow: inset 0 0 0 2px var(--primary);
+      font-weight: 700;
+    }
+    .q-tile.is-answered-pending {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .q-tile.is-correct {
+      background-color: var(--positive);
+      border-color: var(--positive);
+      color: var(--on-primary);
+    }
+    .q-tile.is-wrong {
+      background-color: var(--error);
+      border-color: var(--error);
+      color: var(--on-error);
+    }
+    .q-tile.is-bookmarked::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--outline);
+      border-radius: var(--rounded);
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      display: inline-block;
+    }
+    .legend-swatch.sw-correct { background-color: var(--positive); border-color: var(--positive); }
+    .legend-swatch.sw-wrong { background-color: var(--error); border-color: var(--error); }
+    .legend-swatch.sw-pending { background-color: var(--primary-container); border-color: var(--primary); }
+    .legend-swatch.sw-empty { background-color: var(--background); }
+
+    /* Axis Table (Charter style: no vertical lines, high header band, hairlines) */
+    .axis-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .axis-table th {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 600;
+      text-align: right;
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: var(--brass-rule);
+    }
+    .axis-table td {
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: var(--hairline);
+      vertical-align: middle;
+    }
+    .axis-table tr.is-active-axis {
+      background-color: var(--primary-container);
+    }
+    .axis-table td.num-col, .axis-table th.num-col {
+      text-align: left;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .axis-link-btn {
+      background: none;
+      border: none;
+      padding: 4px 0;
+      text-align: right;
+      color: var(--primary);
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-color: var(--outline);
+      text-underline-offset: 3px;
+    }
+    .axis-link-btn:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      padding: var(--space-xl);
+      text-align: right;
+      border-radius: var(--rounded);
+    }
+    .empty-state h3 {
+      font-family: var(--font-headline);
+      margin: 0 0 var(--space-xs) 0;
+    }
+    .empty-state p {
+      margin: 0 0 var(--space-md) 0;
+      color: var(--on-surface-variant);
+    }
+
+    /* Footer source note */
+    .source-footer {
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    /* Inline status message */
+    .status-toast {
+      font-size: var(--label-size);
+      color: var(--secondary);
+      font-weight: 600;
+      min-height: 1.2em;
+    }
+
+    @media (max-width: 920px) {
+      .workspace-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md) var(--space-sm);
+      }
+      .title-band {
+        padding: var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-md);
+      }
+      .controls-panel {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div>
+        <div class="title-kicker">بنك الأسئلة القانونية التفاعلي · <bdi dir="ltr">100 QCM</bdi></div>
+        <h1>المراقبة المالية للدولة على المنشآت العامة وهيئات أخرى (القانون رقم <bdi dir="ltr">69.00</bdi>)</h1>
+        <p class="lede">اختبار ومراجعة شاملة لكافة محاور القانون رقم <bdi dir="ltr">69.00</bdi> الصادر بتنفيذه الظهير الشريف رقم <bdi dir="ltr">1.03.195</bdi>، مع تصحيح تفاعلي وتعليل قانوني مباشر برقم المادة لكل سؤال.</p>
+      </div>
+      <div class="band-actions">
+        <button type="button" class="btn btn-on-navy" id="btn-export-csv" onclick="exportResultsCsv()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          تصدير النتائج (CSV)
+        </button>
+        <button type="button" class="btn btn-on-navy" id="btn-reset-all" onclick="handleResetClick(this)">
+          إعادة تعيين التقدم
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- KPI Statement Row -->
+    <section class="kpi-grid" aria-label="ملخص الأداء">
+      <div class="figure-card">
+        <div class="figure-label">التقدم العام</div>
+        <div class="figure-value" id="kpi-answered">0 / 100</div>
+        <div class="figure-delta" id="kpi-percent">نسبة الإنجاز: 0%</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">الإجابات الصحيحة</div>
+        <div class="figure-value is-positive" id="kpi-correct">0</div>
+        <div class="figure-delta" id="kpi-accuracy">دقة التصحيح: —</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">الإجابات الخاطئة</div>
+        <div class="figure-value is-error" id="kpi-wrong">0</div>
+        <div class="figure-delta" id="kpi-bookmarks">الأسئلة المعلّمة: 0</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">نطاق العرض النشط</div>
+        <div class="figure-value" id="kpi-filtered">100 سؤال</div>
+        <div class="figure-delta" id="kpi-mode-label">وضع التدريب المباشر</div>
+      </div>
+    </section>
+
+    <!-- Progress Strip -->
+    <section class="progress-strip" aria-label="شريط التقدم">
+      <div class="progress-strip-head">
+        <span>مؤشر الإتقان عبر بنك الـ 100 سؤال</span>
+        <span id="progress-summary-text">0 صحيحة · 0 خاطئة · 100 متبقية</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+        <div class="progress-fill-correct" id="bar-correct" style="width: 0%;"></div>
+        <div class="progress-fill-wrong" id="bar-wrong" style="width: 0%;"></div>
+      </div>
+    </section>
+
+    <!-- Controls Toolbar -->
+    <section class="controls-panel" aria-label="أدوات التصفية وأوضاع الاشتغال">
+      <div class="field-group">
+        <label for="select-axis">المحور القانوني</label>
+        <select id="select-axis" class="charter-select" onchange="setAxisFilter(this.value)">
+          <option value="all">جميع المحاور (100 سؤال)</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="select-status">حالة الأسئلة</label>
+        <select id="select-status" class="charter-select" onchange="setStatusFilter(this.value)">
+          <option value="all">كل الأسئلة</option>
+          <option value="unanswered">لم يُجب عنها بعد</option>
+          <option value="wrong">الإجابات الخاطئة (للمراجعة)</option>
+          <option value="correct">الإجابات الصحيحة</option>
+          <option value="bookmarked">الأسئلة المعلّمة بنجمة</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label for="input-search">بحث بكلمة مفتاحية أو رقم المادة</label>
+        <input id="input-search" type="search" class="charter-input" placeholder="مثال: التسخير أو المادة 14" oninput="setSearchQuery(this.value)">
+      </div>
+
+      <div class="field-group">
+        <label>نمط التصحيح</label>
+        <div class="mode-switch">
+          <button type="button" class="mode-btn is-active" id="mode-practice-btn" onclick="setMode('practice')">تدريب فوري</button>
+          <button type="button" class="mode-btn" id="mode-exam-btn" onclick="setMode('exam')">امتحان تقييمي</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>طريقة العرض</label>
+        <div class="mode-switch">
+          <button type="button" class="mode-btn is-active" id="view-single-btn" onclick="setViewMode('single')">سؤال بسؤال</button>
+          <button type="button" class="mode-btn" id="view-list-btn" onclick="setViewMode('list')">قائمة المحور</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Mode Banner (shown only in exam mode) -->
+    <section class="exam-banner" id="exam-banner" style="display: none;">
+      <p id="exam-banner-text">وضع الامتحان التقييمي نشط: تُحفظ اختياراتك دون إظهار التعليل القانوني إلى حين تسليم الاختبار.</p>
+      <div class="nav-group">
+        <button type="button" class="btn btn-primary" id="btn-submit-exam" onclick="submitExam()">تصحيح الاختبار وعرض التعليل</button>
+        <button type="button" class="btn btn-secondary" id="btn-unlock-exam" onclick="unlockExam()" style="display: none;">استئناف التعديل</button>
+      </div>
+    </section>
+
+    <!-- Two-Column Asymmetric Workspace -->
+    <section class="workspace-grid">
+      <!-- Primary Stage: Active Question or Filtered List -->
+      <div>
+        <div class="section-head">
+          <h2 id="stage-heading">السؤال التفاعلي والتعليل القانوني</h2>
+          <span class="status-toast" id="status-toast" aria-live="polite"></span>
+        </div>
+
+        <div id="question-stage"></div>
+      </div>
+
+      <!-- Secondary Column: 100-Q Navigator + Axis Breakdown -->
+      <aside class="side-column" aria-label="لوحة التنقل والمحاور">
+        <div class="side-card">
+          <h3>
+            <span>خريطة الأسئلة</span>
+            <span class="stamp-tag" id="nav-count-badge">100</span>
+          </h3>
+          <div class="number-grid" id="number-grid"></div>
+          <div class="legend-row">
+            <span class="legend-item"><span class="legend-swatch sw-correct"></span>صحيحة</span>
+            <span class="legend-item"><span class="legend-swatch sw-wrong"></span>خاطئة</span>
+            <span class="legend-item"><span class="legend-swatch sw-pending"></span>محددة</span>
+            <span class="legend-item"><span class="legend-swatch sw-empty"></span>غير مجاب</span>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <h3><span>الأداء حسب المحاور الثمانية</span></h3>
+          <table class="axis-table">
+            <thead>
+              <tr>
+                <th>المحور</th>
+                <th class="num-col">الصحيح</th>
+                <th class="num-col">المجموع</th>
+              </tr>
+            </thead>
+            <tbody id="axis-table-body"></tbody>
+          </table>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="source-footer">
+      <span>المرجع الأساسي: القانون رقم <bdi dir="ltr">69.00</bdi> المتعلق بالمراقبة المالية للدولة على المنشآت العامة وهيئات أخرى (ظهير شريف رقم <bdi dir="ltr">1.03.195</bdi> بتاريخ <bdi dir="ltr">11</bdi> نوفمبر <bdi dir="ltr">2003</bdi>)، والمرسوم المحدد لقائمة المؤسسات العمومية الخاضعة للمراقبة المواكبة (<bdi dir="ltr">22</bdi> فبراير <bdi dir="ltr">2014</bdi>).</span>
+      <span>حفظ التقدم تلقائياً عبر الجلسة</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const AXES = [
+      { id: 0, title: `المبادئ العامة والهيئات الخاضعة والاستثناءات`, articles: `المواد 1، 2، 3–6، 23، 24` },
+      { id: 1, title: `المراقبة القبلية والوثائق الخاضعة للموافقة`, articles: `المواد 3، 7، 8` },
+      { id: 2, title: `مهام ومسؤوليات مراقب الدولة ومندوب الحكومة`, articles: `المواد 9، 12، 16، 21` },
+      { id: 3, title: `الخازن المكلف بالأداء وإجراءات الأداء والتسخير`, articles: `المواد 8، 10، 22` },
+      { id: 4, title: `المراقبة المواكبة وشروط الانتقال وعقود البرامج`, articles: `المواد 3، 4، 11، 12، 13، 17، 18` },
+      { id: 5, title: `لجان التدقيق المستقلة والحكامة الداخلية`, articles: `المواد 12، 14، 15` },
+      { id: 6, title: `المراقبة التعاقدية / بمقتضى اتفاقية`, articles: `المواد 5، 6، 15، 16` },
+      { id: 7, title: `المصادقة على الحسابات والتقارير الدورية والمنافسة`, articles: `المواد 7، 11، 17، 19، 20` }
+    ];
+
+    const LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    const QUESTIONS = [
+      // === Axis 0: المبادئ العامة والهيئات الخاضعة والاستثناءات (1-14) ===
+      {
+        id: 1, axis: 0, article: `المادة 1`,
+        prompt: `ماذا يُراد بعبارة «الهيئات العامة» في مفهوم القانون رقم 69.00؟`,
+        options: [
+          `الدولة والجماعات المحلية والمؤسسات العامة`,
+          `الدولة والمؤسسات العامة وشركات الدولة فقط`,
+          `المؤسسات العامة والجمعيات ذات المنفعة العامة`,
+          `الجماعات المحلية والهيئات الدستورية المستقلة`
+        ],
+        correct: 0,
+        rationale: `تنص المادة 1 من القانون رقم 69.00 على أن المقصود بالهيئات العامة هو: الدولة والجماعات المحلية والمؤسسات العامة.`
+      },
+      {
+        id: 2, axis: 0, article: `المادة 1`,
+        prompt: `تُعرّف «شركات الدولة» وفق المادة الأولى من القانون رقم 69.00 بأنها الشركات التي:`,
+        options: [
+          `تملك فيها هيئات عامة أكثر من نصف رأسمالها`,
+          `تملك فيها هيئات عامة مجموع رأسمالها`,
+          `تملك فيها الدولة وحدها ما لا يقل عن 75% من رأسمالها`,
+          `تُسيّر مرفقا عاما بموجب عقد امتياز`
+        ],
+        correct: 1,
+        rationale: `عرّفت المادة 1 «شركات الدولة» بأنها الشركات التي تملك هيئات عامة مجموع رأسمالها (بنسبة 100% مباشرة أو غير مباشرة).`
+      },
+      {
+        id: 3, axis: 0, article: `المادة 1`,
+        prompt: `ما هي نسبة مساهمة الهيئات العامة في رأسمال «الشركات التابعة العامة»؟`,
+        options: [
+          `100% من رأس المال حصريا`,
+          `50% على الأكثر من رأس المال`,
+          `أكثر من نصف رأس المال (أكثر من 50% وأقل من 100%)`,
+          `ثُلث رأس المال على الأقل`
+        ],
+        correct: 2,
+        rationale: `وفق المادة 1، «الشركات التابعة العامة» هي الشركات التي تملك هيئات عامة أكثر من نصف رأسمالها.`
+      },
+      {
+        id: 4, axis: 0, article: `المادة 1`,
+        prompt: `ما هي «الشركات المختلطة» حسب التعريف الوارد في المادة الأولى من القانون 69.00؟`,
+        options: [
+          `الشركات التي تملك هيئات عامة أكثر من 50% من رأسمالها`,
+          `الشركات التي تملك هيئات عامة 50% من رأسمالها على الأكثر`,
+          `الشركات التي تساهم فيها الدولة والجماعات المحلية بالتساوي`,
+          `الشركات الأجنبية المتعاقدة مع المؤسسات العامة`
+        ],
+        correct: 1,
+        rationale: `حددت المادة 1 «الشركات المختلطة» في الشركات التي تملك هيئات عامة 50% من رأسمالها على الأكثر (أي 50% فأقل).`
+      },
+      {
+        id: 5, axis: 0, article: `المادة 1`,
+        prompt: `بمقتضى المادة الأولى، تُعد «مقاولة ذات امتياز» كل مقاولة:`,
+        options: [
+          `تستفيد من إعانة مالية عمومية تفوق 50% من ميزانيتها`,
+          `تملك الدولة فيها أغلبية الأسهم`,
+          `مُعهود إليها بتسيير مرفق عام بمقتضى عقد امتياز تكون فيه للدولة صفة السلطة المتعاقدة`,
+          `تُنجز صفقات أشغال لفائدة مؤسسة عامة`
+        ],
+        correct: 2,
+        rationale: `عرّفت المادة 1 المقاولات ذات الامتياز بأنها المقاولات المعهود إليها بتسيير مرفق عام بمقتضى عقد امتياز تكون فيه للدولة صفة السلطة المتعاقدة.`
+      },
+      {
+        id: 6, axis: 0, article: `المادة 1`,
+        prompt: `كيف يُحتسب «رأس المال المملوك» من طرف الهيئات العامة في مفهوم المادة الأولى؟`,
+        options: [
+          `بصفة مباشرة وحصرية فقط`,
+          `بصفة مباشرة أو غير مباشرة، وبصفة حصرية أو مشتركة`,
+          `بصفة مباشرة فقط إذا تجاوزت المساهمة 25%`,
+          `من خلال مساهمات الدولة المركزية دون الجماعات المحلية`
+        ],
+        correct: 1,
+        rationale: `تؤكد الفقرة الأخيرة من المادة 1 أنه يُراد برأس المال المملوك مساهمة الهيئات العامة بصفة مباشرة أو غير مباشرة أو بصفة حصرية أو مشتركة.`
+      },
+      {
+        id: 7, axis: 0, article: `المادة 2`,
+        prompt: `على أي أساس تُجرى المراقبة المالية للدولة بكيفية قبلية أو بعدية؟`,
+        options: [
+          `تبعا لحجم رقم معاملات الهيئة فقط`,
+          `تبعا للشكل القانوني للهيئة وطريقة تسييرها`,
+          `تبعا لقرار سنوي لرئيس الحكومة`,
+          `تبعا لمقرها الاجتماعي وعدد مستخدميها`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 2 على أن المراقبة المالية للدولة تُجرى بكيفية قبلية أو بعدية تبعا للشكل القانوني للهيئة وطريقة تسييرها.`
+      },
+      {
+        id: 8, axis: 0, article: `المادة 2`,
+        prompt: `أي مما يلي يدخل ضمن الأهداف الخمسة الصريحة للمراقبة المالية للدولة؟`,
+        options: [
+          `تعيين المديرين العامين للمؤسسات العامة`,
+          `جمع وتحليل المعلومات المتعلقة بمحفظة سندات الدولة وإنجازاتها الاقتصادية والمالية`,
+          `المصادقة على العقود التجارية اليومية للشركات المختلطة`,
+          `إعداد مشاريع القوانين المالية السنوية للبرلمان`
+        ],
+        correct: 1,
+        rationale: `حددت المادة 2 خمسة أهداف للمراقبة المالية، آخرها جمع وتحليل المعلومات المتعلقة بمحفظة سندات الدولة وإنجازاتها الاقتصادية والمالية، إلى جانب المتابعة المنتظمة وصحة العمليات وتقييم جودة التسيير وتحسين المنظومات الإعلامية والتدبيرية.`
+      },
+      {
+        id: 9, axis: 0, article: `المادة 2`,
+        prompt: `هل تسري أحكام القانون رقم 69.00 على الهيئات الخاضعة للمراقبة المالية للدولة بمقتضى قانون خاص؟`,
+        options: [
+          `لا تسري عليها مطلقا`,
+          `تسري عليها فقط فيما يخص تعيين لجنة التدقيق`,
+          `نعم، تُجرى عليها المراقبة وفق الشروط المنصوص عليها في القانون 69.00`,
+          `تخضع حصريا لمراقبة المجلس الأعلى للحسابات دون سواه`
+        ],
+        correct: 2,
+        rationale: `أخضعت المادة 2 للمراقبة المالية وفق شروط القانون 69.00 المؤسسات والشركات والمقاولات المشار إليها في المادة 1، وكذا الهيئات الخاضعة للمراقبة المالية للدولة بمقتضى قانون خاص.`
+      },
+      {
+        id: 10, axis: 0, article: `المادة 23`,
+        prompt: `أي من المؤسسات المالية العمومية التالية مستثناة صراحة من نطاق تطبيق القانون رقم 69.00 وتظل خاضعة لنصوصها الخاصة؟`,
+        options: [
+          `الصندوق المركزي للضمان ومجلس القيم المنقولة`,
+          `بنك المغرب وصندوق الإيداع والتدبير`,
+          `المكتب الوطني للكهرباء والماء الصالح للشرب`,
+          `شركات الدولة ذات المساهمة المباشرة`
+        ],
+        correct: 1,
+        rationale: `نصت المادة 23 على استثناء بنك المغرب وصندوق الإيداع والتدبير من نطاق تطبيق القانون 69.00، مع خضوعهما للمراقبة المقررة في النصوص الجارية عليهما.`
+      },
+      {
+        id: 11, axis: 0, article: `المادة 23`,
+        prompt: `ما حكم مقاولات التأمين وإعادة التأمين ومؤسسات الائتمان في نطاق تطبيق القانون 69.00؟`,
+        options: [
+          `تخضع جميعها للمراقبة القبلية بقوة القانون`,
+          `تخضع للمراقبة بمقتضى اتفاقية وجوبا`,
+          `لا تدخل في نطاق تطبيق القانون 69.00 وتظل خاضعة لمراقبة نصوصها الخاصة`,
+          `تخضع فقط لإشراف الخازن المكلف بالأداء`
+        ],
+        correct: 2,
+        rationale: `تستثني المادة 23 المؤسسات والشركات الخاضعة لظهير 6 يوليوز 1993 (مؤسسات الائتمان) والمقاولات الخاضعة لتشريع التأمين وإعادة التأمين، مع استثناء مقتضيات المادة 20.`
+      },
+      {
+        id: 12, axis: 0, article: `المادة 23`,
+        prompt: `ما هو الاستثناء الوارد على الإعفاء المقرر للهيئات المذكورة في المادة 23 (مثل بنك المغرب وصندوق الإيداع والتدبير)؟`,
+        options: [
+          `تخضع إلزاميا لأحكام المادة 20 المتعلقة بالالتزامات تجاه الوزير المكلف بالمالية`,
+          `تخضع لأحكام المادة 7 حول إيداع الأموال بالخزينة`,
+          `تخضع لأحكام المادة 14 حول لجنة التدقيق`,
+          `لا يوجد أي استثناء على إعفائها`
+        ],
+        correct: 0,
+        rationale: `ورد في صدر المادة 23 عبارة «باستثناء ما ورد في المادة 20 أعلاه»، مما يعني أن الهيئات المستثناة تظل ملتزمة بمقتضيات المادة 20 تجاه الوزير المكلف بالمالية.`
+      },
+      {
+        id: 13, axis: 0, article: `المادة 23`,
+        prompt: `ما وضع المؤسسات العامة التي لم تكن خاضعة لظهير 14 أبريل 1960 في تاريخ نشر القانون رقم 69.00؟`,
+        options: [
+          `تنتقل فورا إلى المراقبة المواكبة`,
+          `تظل مستثناة من نطاق تطبيق القانون 69.00 باستثناء مقتضيات المادة 20`,
+          `تُدمج في شركات الدولة`,
+          `تخضع لمراقبة مندوب الحكومة`
+        ],
+        correct: 1,
+        rationale: `البند الأخير من المادة 23 يستثني المؤسسات العامة التي لم تكن خاضعة في تاريخ نشر القانون 69.00 لأحكام الظهير الشريف رقم 1.59.271 الصادر في 14 أبريل 1960، باستثناء ما ورد في المادة 20.`
+      },
+      {
+        id: 14, axis: 0, article: `المادة 24`,
+        prompt: `ما مصير الأنظمة الأساسية للمستخدمين المطبقة في المؤسسات العامة وشركات الدولة عند دخول القانون 69.00 حيز التنفيذ؟`,
+        options: [
+          `تُنسخ فورا وبأثر رجعي عند نشر القانون`,
+          `يظل العمل جاريا بها إلى أن يتم تعويضها وفقا لأحكام القانون 69.00`,
+          `تُحول تلقائيا إلى النظام الأساسي للوظيفة العمومية`,
+          `تسقط صلاحيتها بعد مرور ستة أشهر`
+        ],
+        correct: 1,
+        rationale: `رغم نسخ الظهير الشريف رقم 1.62.113 بتاريخ 19 يوليو 1962 في المادة 24، نصت فقرتها الأخيرة على أن الأنظمة الأساسية والقواعد المطبقة على المستخدمين يظل العمل جاريا بها إلى أن يتم تعويضها وفقا لأحكام هذا القانون.`
+      },
+
+      // === Axis 1: المراقبة القبلية والوثائق الخاضعة للموافقة والتنظيم المالي (15-28) ===
+      {
+        id: 15, axis: 1, article: `المادة 3`,
+        prompt: `من هم المتدخلون الثلاثة الذين يتولون ممارسة المراقبة القبلية على المؤسسات العامة؟`,
+        options: [
+          `رئيس الحكومة، مراقب الدولة، ولجنة التدقيق`,
+          `الوزير المكلف بالمالية، مراقب الدولة، والخازن المكلف بالأداء`,
+          `الوزير الوصي، مندوب الحكومة، ومراقب الحسابات`,
+          `مجلس الإدارة، الخازن العام للمملكة، ومدير المؤسسة`
+        ],
+        correct: 1,
+        rationale: `تنص الفقرة الأولى من المادة 3 على أن المؤسسات العامة تخضع لمراقبة قبلية يقوم بها: الوزير المكلف بالمالية، ومراقب الدولة، وخازن مكلف بالأداء وفقا للمواد 7 و8 و9 و10.`
+      },
+      {
+        id: 16, axis: 1, article: `المادة 3`,
+        prompt: `بأي أداة قانونية تُحدد وتُراجع بصفة دورية قائمة المؤسسات العامة الخاضعة للمراقبة القبلية أو المواكبة؟`,
+        options: [
+          `بقرار فردي للوزير المكلف بالمالية`,
+          `بمنشور لرئيس الحكومة`,
+          `بمرسوم`,
+          `بقانون مالية معدل`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الثالثة من المادة 3 على أنه «تُحدد وتُراجع بصفة دورية بمرسوم قائمة المؤسسات العامة الخاضعة للمراقبة القبلية أو للمراقبة المواكبة».`
+      },
+      {
+        id: 17, axis: 1, article: `المادة 3`,
+        prompt: `ما هي المسطرة البرلمانية المرتبطة بقائمة المؤسسات العامة الخاضعة للمراقبة القبلية والمواكبة؟`,
+        options: [
+          `تُعرض في جلسة تصويت مستقلة كل ثلاث سنوات`,
+          `تُرفق القائمة بالوثائق الملحقة بمشروع القانون المالي عند عرضه على البرلمان`,
+          `تُنشر فقط في البوابة الإلكترونية للوزارة`,
+          `تُرسل إلى مجلس المستشارين دون مجلس النواب`
+        ],
+        correct: 1,
+        rationale: `أوجبت المادة 3 إرفاق قائمة المؤسسات العامة الخاضعة للمراقبة القبلية أو المواكبة بالوثائق الملحقة بمشروع القانون المالي عند عرضه على البرلمان.`
+      },
+      {
+        id: 18, axis: 1, article: `المادة 7`,
+        prompt: `ما هي الصلاحية المخولة للوزير المكلف بالمالية بخصوص مقررات مجلس الإدارة المتعلقة بالوثائق السبعة المذكورة في المادة 7؟`,
+        options: [
+          `ممارسة حق النقض بعد ستة أشهر من تنفيذها`,
+          `لا تصبح نهائية تلك المقررات إلا بعد موافقته`,
+          `إبداء رأي استشاري غير ملزم`,
+          `إحالتها على البرلمان للمصادقة`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 7 على أنه «لا تصبح نهائية مقررات مجلس الإدارة أو الجهاز التداولي المتعلقة بالوثائق التالية إلا بعد موافقة الوزير المكلف بالمالية».`
+      },
+      {
+        id: 19, axis: 1, article: `المادة 7`,
+        prompt: `أي من الوثائق التنظيمية التالية لا يصبح مقرّر مجلس الإدارة بشأنها نهائيا في المراقبة القبلية إلا بموافقة الوزير المكلف بالمالية؟`,
+        options: [
+          `النظام الأساسي للمستخدمين والمخطط التنظيمي المحددة فيه البنيات التنظيمية واختصاصاتها`,
+          `جدول العطل السنوية للمستخدمين`,
+          `محاضر الاجتماعات الداخلية للأقسام`,
+          `مدونة السلوك المهني للمتدربين`
+        ],
+        correct: 0,
+        rationale: `تشمل لائحة المادة 7 صراحة: النظام الأساسي للمستخدمين، والمخطط التنظيمي المحددة فيه البنيات التنظيمية واختصاصاتها.`
+      },
+      {
+        id: 20, axis: 1, article: `المادة 7`,
+        prompt: `ماذا تشترط المادة 7 بخصوص النظام المحدد لقواعد وطرق إبرام الصفقات في المؤسسة الخاضعة للمراقبة القبلية؟`,
+        options: [
+          `اعتماده من طرف مدير المؤسسة منفردا`,
+          `موافقة الوزير المكلف بالمالية مع مراعاة مقتضيات المادة 19`,
+          `موافقة لجنة التدقيق المستقلة`,
+          `موافقة الخازن المكلف بالأداء فقط`
+        ],
+        correct: 1,
+        rationale: `تُخضع المادة 7 النظام المحدد لقواعد وطرق إبرام الصفقات لموافقة الوزير المكلف بالمالية، وذلك مع مراعاة مقتضيات المادة 19 المتعلقة بالدعوة إلى المنافسة.`
+      },
+      {
+        id: 21, axis: 1, article: `المادة 7`,
+        prompt: `بخصوص العمليات البنكية والمالية في المادة 7، أي من القرارات التالية يحتاج إلى موافقة الوزير المكلف بالمالية ليصبح نهائيا؟`,
+        options: [
+          `شروط إصدار الاقتراضات والالتجاء إلى القروض البنكية الأخرى مثل التسبيقات أو المكشوفات، وكذا تخصيص النتائج`,
+          `فتح حسابات جارية خاصة بالمستخدمين`,
+          `شراء اللوازم المكتبية العادية دون عتبة محددة`,
+          `توزيع المنح التشجيعية الدورية وفق النظام الأساسي`
+        ],
+        correct: 0,
+        rationale: `تنص المادة 7 على خضوع «شروط إصدار الاقتراضات والالتجاء إلى أشكال القروض البنكية الأخرى مثل التسبيقات أو المكشوفات» وكذلك «تخصيص النتائج» لموافقة الوزير المكلف بالمالية.`
+      },
+      {
+        id: 22, axis: 1, article: `المادة 7`,
+        prompt: `أين يجب إيداع الأموال المتوفرة للمؤسسات العامة الخاضعة للمراقبة القبلية كقاعدة عامة؟`,
+        options: [
+          `في حسابات بنكية تجارية تنافسية`,
+          `لدى صندوق الإيداع والتدبير وجوبا`,
+          `لدى الخزينة، إلا في حالة ترخيص من طرف الوزير المكلف بالمالية`,
+          `في سندات الخزينة الأجنبية`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الأخيرة من المادة 7 على أن «تودع الأموال المتوفرة للمؤسسات العامة لدى الخزينة إلا في حالة ترخيص من طرف الوزير المكلف بالمالية».`
+      },
+      {
+        id: 23, axis: 1, article: `المادة 8`,
+        prompt: `من يحدد إجراءات تحضير الميزانيات والبيانات التوقعية متعددة السنوات وإقرارها والتأشير عليها بالنسبة لكل مؤسسة أو مجموعة مؤسسات عامة؟`,
+        options: [
+          `الوزير المكلف بالمالية`,
+          `مراقب الدولة`,
+          `رئيس مجلس الإدارة`,
+          `لجنة التدقيق`
+        ],
+        correct: 0,
+        rationale: `تنص المادة 8 على أن الوزير المكلف بالمالية يحدد كيفيات تطبيق القانون بالنسبة لكل مؤسسة أو مجموعة مؤسسات عامة، ويحدد لهذه الغاية إجراءات تحضير الميزانيات والبيانات التوقعية وإقرارها والتأشير عليها.`
+      },
+      {
+        id: 24, axis: 1, article: `المادة 8`,
+        prompt: `ما هي المكونات الأساسية التي تشملها «الميزانيات» المشار إليها في المادة 7 وفقا للمادة 8؟`,
+        options: [
+          `ميزانية الموارد البشرية فقط`,
+          `ميزانية الاستغلال أو التسيير، وميزانية الاستثمار أو التجهيز، ومخططا للتمويل`,
+          `الميزانية التوقعية لخمس سنوات دون التسيير السنوي`,
+          `كشف الحسابات الجارية البنكية فقط`
+        ],
+        correct: 1,
+        rationale: `توضح الفقرة الثانية من المادة 8 أن الميزانيات تشمل خاصة: ميزانية الاستغلال أو التسيير، وميزانية الاستثمار أو التجهيز، ومخططا للتمويل، وتُحدد تفاصيلها وفق مخطط حسابات الهيئة.`
+      },
+      {
+        id: 25, axis: 1, article: `المادة 8`,
+        prompt: `ما هو الإطار الزمني والموضوعي لوثائق «الميزانيات» في المؤسسات العامة؟`,
+        options: [
+          `حصر النفقات المنجزة برسم السنة المحاسبية المنصرمة`,
+          `توقع وتقييم وترخيص عمليات الاستغلال والتمويل والخزينة وعمليات الاستثمار برسم السنة المحاسبية الموالية`,
+          `تقدير الأصول العقارية كل خمس سنوات`,
+          `توزيع الأرباح على المساهمين الخواص`
+        ],
+        correct: 1,
+        rationale: `تعرف المادة 8 الميزانيات بأنها الوثائق التي يتم بمقتضاها توقع وتقييم وترخيص عمليات الاستغلال والتمويل والخزينة وعمليات الاستثمار برسم السنة المحاسبية الموالية.`
+      },
+      {
+        id: 26, axis: 1, article: `المادة 8`,
+        prompt: `من هو الآمر بصرف ميزانية المؤسسة العامة وفقا للمادة 8؟`,
+        options: [
+          `مراقب الدولة`,
+          `رئيس مجلس الإدارة وجوبا`,
+          `مدير المؤسسة العامة أو الشخص المؤهل`,
+          `الخازن المكلف بالأداء`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الأخيرة من المادة 8 صراحة على أنه «يكون مدير المؤسسة العامة أو الشخص المؤهل هو الآمر بصرف الميزانية».`
+      },
+      {
+        id: 27, axis: 1, article: `المادة 8`,
+        prompt: `ما هي العمليات المحاسبية والميزانياتية التي تناط بمدير المؤسسة بصفته آمرا بالصرف؟`,
+        options: [
+          `الالتزام بالعمليات المنصوص عليها في الميزانية وتصفيتها والأمر بصرفها`,
+          `تنفيذ الأداء الفعلي للشيكات دون الحاجة لتوقيع الخازن`,
+          `مراقبة شرعية النفقة كمحاسب عمومي`,
+          `إعداد تقرير مراقب الحسابات الخارجي`
+        ],
+        correct: 0,
+        rationale: `تُسند المادة 8 للآمر بالصرف مهمة الالتزام بالعمليات المنصوص عليها في الميزانية وتصفيتها والأمر بصرفها.`
+      },
+      {
+        id: 28, axis: 1, article: `المادة 8`,
+        prompt: `لأي نظام مسؤولية يخضع مدير المؤسسة العامة عند ممارسته مهام الآمر بالصرف؟`,
+        options: [
+          `لا يخضع لأي مسؤولية شخصية أمام القضاء المالي`,
+          `يخضع للتشريع المتعلق بمسؤولية الآمرين بالصرف`,
+          `يخضع حصريا لمسؤولية المحاسبين العموميين`,
+          `يخضع فقط للمساءلة التأديبية أمام مجلس الإدارة`
+        ],
+        correct: 1,
+        rationale: `تؤكد المادة 8 في ختامها أن مدير المؤسسة يخضع بهذه الصفة للتشريع المتعلق بمسؤولية الآمرين بالصرف.`
+      },
+
+      // === Axis 2: مهام ومسؤوليات مراقب الدولة ومندوب الحكومة (29-42) ===
+      {
+        id: 29, axis: 2, article: `المادة 9`,
+        prompt: `بأي صفة يحضر مراقب الدولة جلسات مجلس الإدارة أو الجهاز التداولي ومختلف اللجان المحدثة بالهيئة؟`,
+        options: [
+          `بصفة عضو مصوّت له صوت مرجّح`,
+          `بصفة رئيس اللجنة المالية`,
+          `بصفة استشارية`,
+          `لا يحق له حضور اجتماعات اللجان الفرعية`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الأولى من المادة 9 على أن مراقب الدولة يحضر «بصفة استشارية» جلسات مجلس الإدارة أو الجهاز التداولي وكذا اجتماعات مختلف اللجان المحدثة بالهيئة.`
+      },
+      {
+        id: 30, axis: 2, article: `المادة 9`,
+        prompt: `ما مدى شمولية حق الاطلاع الدائم المخول لمراقب الدولة؟`,
+        options: [
+          `يقتصر على الوثائق المحاسبية الختامية للسنة المالية`,
+          `يشمل جميع المعلومات والوثائق سواء لدى الهيئة أو الشركات التابعة لها ومساهماتها`,
+          `يقتصر على العقود التي تفوق قيمتها مليون درهم`,
+          `يتطلب ترخيصا قضائيا مسبقا في كل حالة`
+        ],
+        correct: 1,
+        rationale: `تمنح الفقرة الثانية من المادة 9 مراقب الدولة «حق الاطلاع الدائم على جميع المعلومات والوثائق سواء لدى الهيئة أو الشركات التابعة لها ومساهماتها».`
+      },
+      {
+        id: 31, axis: 2, article: `المادة 9`,
+        prompt: `هل يملك مراقب الدولة صلاحية التفتيش والمراقبة الميدانية؟`,
+        options: [
+          `نعم، يجوز له القيام في كل حين وبعين المكان بجميع أعمال التحقق والمراقبة التي يراها ملائمة اعتمادا على المستندات`,
+          `لا، تقتصر مراقبته على الوثائق المرسلة إلى مكتبه بالوزارة`,
+          `نعم، ولكن مرة واحدة في السنة فقط بعد اختتام الحسابات`,
+          `نعم، بشرط موافقة مدير المؤسسة قبل الزيارة بشهر`
+        ],
+        correct: 0,
+        rationale: `تخول المادة 9 مراقب الدولة القيام في كل حين وبعين المكان بجميع أعمال التحقق والمراقبة التي يراها ملائمة اعتمادا على المستندات، وطلب الاطلاع على العقود والدفاتر والسجلات والمحاضر.`
+      },
+      {
+        id: 32, axis: 2, article: `المادة 9`,
+        prompt: `وفق أي شرط يجوز لمراقب الدولة الحصول على المعلومات المفيدة لمزاولة مهمته لدى الأغيار الذين أنجزوا عمليات مع الهيئة؟`,
+        options: [
+          `بمبادرة شخصية ومباشرة دون أي إشراف`,
+          `تحت إشراف الوزير المكلف بالمالية`,
+          `بإذن من الخازن المكلف بالأداء`,
+          `لا يجوز له نهائيا طلب معلومات من الأغيار`
+        ],
+        correct: 1,
+        rationale: `تنص الفقرة الثانية من المادة 9 على أنه يجوز لمراقب الدولة الحصول «تحت إشراف الوزير المكلف بالمالية» على جميع المعلومات المفيدة لمزاولة مهمته لدى الأغيار الذين أنجزوا عمليات مع الهيئة.`
+      },
+      {
+        id: 33, axis: 2, article: `المادة 9`,
+        prompt: `ما هي العمليات التي يمارس عليها مراقب الدولة سلطة التأشير المسبق في نظام المراقبة القبلية (ضمن الحدود المعينة من الوزير)؟`,
+        options: [
+          `الاقتناءات العقارية، وعقود واتفاقيات الأشغال والتوريدات والخدمات، ومنح الإعانات المالية والهبات`,
+          `كافة أوامر الصرف المتعلقة بأجور الموظفين المرسمين`,
+          `إعداد القوائم التركيبية السنوية`,
+          `تعيين أعضاء مجلس الإدارة`
+        ],
+        correct: 0,
+        rationale: `تنص الفقرة الثالثة من المادة 9 على أن لمراقب الدولة سلطة تأشير مسبق، ضمن الحدود التي يعينها الوزير المكلف بالمالية، على الاقتناءات العقارية وجميع العقود أو الاتفاقيات المتعلقة بالأشغال والتوريدات والخدمات وكذا منح الإعانات المالية والهبات.`
+      },
+      {
+        id: 34, axis: 2, article: `المادة 9`,
+        prompt: `متى يمارس مراقب الدولة حق التأشير المسبق على قرارات تسيير المستخدمين بالمؤسسات العامة؟`,
+        options: [
+          `في جميع المؤسسات العامة دون استثناء`,
+          `في المؤسسات العامة التي لا تتوفر على نظام أساسي للمستخدمين مصادق عليه وفق المادة 7`,
+          `في المؤسسات الخاضعة للمراقبة المواكبة فقط`,
+          `عندما يتعلق الأمر بتعيين المدير العام فقط`
+        ],
+        correct: 1,
+        rationale: `تقضي المادة 9 بأن مراقب الدولة يمارس حق تأشير مسبق على قرارات تسيير المستخدمين بالمؤسسات العامة التي لا تتوفر على نظام أساسي للمستخدمين مصادق عليه وفق الشروط المنصوص عليها في المادة 7.`
+      },
+      {
+        id: 35, axis: 2, article: `المادة 9`,
+        prompt: `على أي أساس تُحدد عتبات وحدود ممارسة مراقب الدولة لسلطة التأشير المسبق؟`,
+        options: [
+          `على أساس عدد أعضاء مجلس الإدارة`,
+          `على أساس أهمية الهيئة وعدد العمليات المعنية ومبالغها`,
+          `على أساس الأقدمية المهنية لمراقب الدولة`,
+          `على أساس نسبة الأرباح الصافية السنوية فقط`
+        ],
+        correct: 1,
+        rationale: `توضح الفقرة الرابعة من المادة 9 أن الحدود المشار إليها في التأشير المسبق تُبين «على أساس أهمية الهيئة وعدد العمليات المعنية ومبالغها».`
+      },
+      {
+        id: 36, axis: 2, article: `المادة 9`,
+        prompt: `من يبت بصفة نهائية في حالة رفض مراقب الدولة منح التأشيرة المسبقة؟`,
+        options: [
+          `مدير المؤسسة العامة عن طريق التسخير`,
+          `رئيس مجلس الإدارة`,
+          `الوزير المكلف بالمالية`,
+          `لجنة التدقيق`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الخامسة من المادة 9 بصيغة حاسمة: «وفي حالة رفض التأشيرة، يبت الوزير المكلف بالمالية في الأمر بصفة نهائية».`
+      },
+      {
+        id: 37, axis: 2, article: `المادة 9`,
+        prompt: `كيف يمارس مراقب الدولة صلاحيته الاستشارية والتنبيهية بشأن عمليات التسيير أثناء مزاولة مهامه؟`,
+        options: [
+          `يصدر قرارا بإلغاء العملية الإدارية فورا`,
+          `يبدي رأيه ويبلغه كتابة إلى الوزير المكلف بالمالية أو رئيس مجلس الإدارة أو الجهاز التداولي أو إدارة الهيئة بحسب الحالة`,
+          `ينشر تحذيرا عموميا في الصحافة`,
+          `يتوقف عن حضور الجلسات إلى حين تصحيح العملية`
+        ],
+        correct: 1,
+        rationale: `تجيز الفقرة السادسة من المادة 9 لمراقب الدولة أن يبدي رأيه في كل عملية تتعلق بتسيير الهيئة أثناء مزاولة مهامه وأن يبلغه كتابة إلى الوزير المكلف بالمالية أو رئيس مجلس الإدارة أو الجهاز التداولي أو إدارة الهيئة بحسب الحالة.`
+      },
+      {
+        id: 38, axis: 2, article: `المادة 9`,
+        prompt: `ما هو مآل التقرير السنوي الذي يحرره مراقب الدولة في شأن مهمته؟`,
+        options: [
+          `يوجهه إلى الوزير المكلف بالمالية ويُعرض على مجلس الإدارة أو الجهاز التداولي`,
+          `يُحفظ في أرشيف المؤسسة بصفة سرية دون عرضه على مجلس الإدارة`,
+          `يوجهه فقط إلى مدير المؤسسة`,
+          `يوجهه إلى البرلمان مباشرة`
+        ],
+        correct: 0,
+        rationale: `تنص الفقرة الأخيرة من المادة 9 على أن مراقب الدولة يحرر في شأن مهمته تقريرا سنويا يوجهه إلى الوزير المكلف بالمالية ويُعرض على مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 39, axis: 2, article: `المادة 16`,
+        prompt: `ما هي الاختصاصات التي لا يمارسها مندوب الحكومة مقارنة بمراقب الدولة في المراقبة القبلية؟`,
+        options: [
+          `حضور جلسات مجلس الإدارة بصفة استشارية`,
+          `حق الاطلاع الدائم والتحقق بعين المكان`,
+          `سلطة التأشير المسبق المنصوص عليها في الفقرة 3 من المادة 9`,
+          `الحصول على المعلومات لدى الأغيار تحت إشراف الوزير المكلف بالمالية`
+        ],
+        correct: 2,
+        rationale: `تحيل المادة 16 في اختصاصات مندوب الحكومة على الفقرات 1 و2 و4 و5 (المقابلة للصلاحيات الإخبارية والاستشارية والتحقق دون الفقرة 3 الخاصة بالتأشير المسبق).`
+      },
+      {
+        id: 40, axis: 2, article: `المادة 16`,
+        prompt: `ما هو موضوع التقرير السنوي الذي يعده مندوب الحكومة بمقتضى المادة 16؟`,
+        options: [
+          `تقييم جودة الحسابات الختامية بديلا عن مراقب الحسابات`,
+          `تقرير سنوي عن حالة تنفيذ الاتفاقية المشار إليها في المادة 15 يوجه للوزير المكلف بالمالية ويعرض على مجلس الإدارة`,
+          `تقرير حول تأشير صفقات التجهيز`,
+          `تقرير حول تسخير الخازن المكلف بالأداء`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 16 على أن مندوب الحكومة يعد تقريرا سنويا عن حالة تنفيذ الاتفاقية المشار إليها في المادة 15 يوجهه إلى الوزير المكلف بالمالية ويعرض على مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 41, axis: 2, article: `المادة 21`,
+        prompt: `ما هي حالة التنافي المقررة في المادة 21 بالنسبة لمراقب الدولة ومندوب الحكومة؟`,
+        options: [
+          `لا يجوز لهما مزاولة أي نشاط في القطاع الخاص بعد التقاعد`,
+          `تتنافى مهامهما مع انتدابهما كمتصرف يمثل الدولة في مجالس الإدارة أو الأجهزة التداولية للهيئات الخاضعة`,
+          `تتنافى مهامهما مع الانتماء لأي هيئة مالية`,
+          `لا يوجد أي تنافٍ إذا كانت الهيئة شركة تابعة عامة`
+        ],
+        correct: 1,
+        rationale: `تنص الفقرة الأولى من المادة 21 على أن مهام مراقب الدولة أو مندوب الحكومة تتنافى مع انتدابه كمتصرف يمثل الدولة في مجالس الإدارة أو الأجهزة التداولية للمؤسسات العامة والشركات والمقاولات المشار إليها في المادة الأولى.`
+      },
+      {
+        id: 42, axis: 2, article: `المادة 21`,
+        prompt: `تجاه من لا يجوز لمراقب الدولة ومندوب الحكومة الاحتجاج بالسر المهني؟`,
+        options: [
+          `تجاه الأغيار المتعاقدين مع الهيئة`,
+          `تجاه الصحافة والرأي العام`,
+          `تجاه المساعدين القضائيين العاملين في إطار مهامهم`,
+          `تجاه المنافسين في الصفقات العمومية`
+        ],
+        correct: 2,
+        rationale: `تلزم المادة 21 مراقب الدولة ومندوب الحكومة بالسر المهني، لكنها تنص صراحة على أنه «لا يجوز الاحتجاج بالسر المهني تجاه المساعدين القضائيين العاملين في إطار مهامهم».`
+      },
+
+      // === Axis 3: الخازن المكلف بالأداء وإجراءات الأداء والتسخير (43-54) ===
+      {
+        id: 43, axis: 3, article: `المادة 10`,
+        prompt: `ما هي الصفة القانونية التي يتمتع بها الخازن المكلف بالأداء ومسؤوليته الأساسية؟`,
+        options: [
+          `يعتبر آمرا بالصرف مساعدا لمدير المؤسسة`,
+          `يعتبر كمحاسب عمومي مسؤولا عن صحة عمليات النفقات`,
+          `يعتبر مدققا داخليا تابعا للجنة التدقيق`,
+          `يعتبر مراقبا للحسابات خارجيا`
+        ],
+        correct: 1,
+        rationale: `تُقرر الفقرة الأولى من المادة 10 أن الخازن المكلف بالأداء «يعتبر كمحاسب عمومي مسؤولا عن صحة عمليات النفقات».`
+      },
+      {
+        id: 44, axis: 3, article: `المادة 10`,
+        prompt: `بالنظر إلى أي مراجع يتأكد الخازن المكلف بالأداء من صحة عمليات النفقات؟`,
+        options: [
+          `تقديرات الملاءمة الاقتصادية لمجلس الإدارة فقط`,
+          `أحكام النصوص القانونية والتنظيمية، وكذا أحكام الأنظمة الأساسية والمالية للهيئة`,
+          `أحكام القانون التجاري فقط`,
+          `تعليمات رئيس لجنة التدقيق`
+        ],
+        correct: 1,
+        rationale: `توجب المادة 10 على الخازن فحص صحة النفقات سواء بالنظر إلى أحكام النصوص القانونية والتنظيمية أو إلى أحكام الأنظمة الأساسية والمالية للهيئة.`
+      },
+      {
+        id: 45, axis: 3, article: `المادة 10`,
+        prompt: `ما هي العناصر الثلاثة التي يجب على الخازن المكلف بالأداء التحقق منها قبل التأشير على الأداء؟`,
+        options: [
+          `الأداء لفائدة الدائن الحقيقي، توفر الاعتمادات، ووثائق صحيحة تثبت حقيقة حقوق الدائن والخدمة المنجزة`,
+          `وجود كفالة بنكية، موافقة البرلمان، ومردودية المشروع`,
+          `توقيع مراقب الدولة، توقيع رئيس الحكومة، ومحضر اللجنة التقنية`,
+          `السجل التجاري للمورد، وتصريح الشرف فقط`
+        ],
+        correct: 0,
+        rationale: `تُلزم الفقرة الثانية من المادة 10 الخازن بالتأكد من أن الأداءات تتم لفائدة الدائن الحقيقي، ومن توفر الاعتمادات، وبناء على وثائق صحيحة تثبت حقيقة حقوق الدائن والخدمة المنجزة.`
+      },
+      {
+        id: 46, axis: 3, article: `المادة 10`,
+        prompt: `متى يصبح الخازن المكلف بالأداء غير مسؤول شخصيا وماليا عن عملية أداء رفضها سابقا؟`,
+        options: [
+          `عندما يُخبر مراقب الدولة شفويا بتحفظه`,
+          `عندما يوجه رفضا معللا إلى مدير الهيئة ويوجه إليه المدير بعد ذلك أمرا بالتسخير قصد التأشير على وثيقة الأداء`,
+          `بمجرد مرور 48 ساعة على إيداع الأمر بالأداء دون جواب`,
+          `عندما يصادق مجلس الإدارة على الحسابات السنوية`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 10 على أن الخازن المكلف بالأداء يصبح غير مسؤول عندما يوجه رفضا معللا إلى مدير الهيئة ويوجه إليه بعد ذلك المدير المذكور أمرا بالتسخير قصد التأشير على وثيقة الأداء.`
+      },
+      {
+        id: 47, axis: 3, article: `المادة 10`,
+        prompt: `ما هو الواجب المباشر على الخازن المكلف بالأداء بمجرد توصله بأمر التسخير من مدير الهيئة؟`,
+        options: [
+          `الامتناع عن التنفيذ إلى حين موافقة المحكمة الإدارية`,
+          `التقيد بهذا التسخير الذي يلحقه بالأمر بالأداء`,
+          `إحالة الملف إلى لجنة التدقيق للبت فيه`,
+          `رفع دعوى استعجالية ضد الآمر بالصرف`
+        ],
+        correct: 1,
+        rationale: `تقضي المادة 10 بأنه «يجب عليه التقيد بهذا التسخير الذي يلحقه بالأمر بالأداء» بعد أن وجه رفضا معللا وتلقى أمرا بالتسخير.`
+      },
+      {
+        id: 48, axis: 3, article: `المادة 10`,
+        prompt: `من هي الجهة التي يجب على الخازن المكلف بالأداء إخبارها فورا عند تنفيذ أمر التسخير؟`,
+        options: [
+          `رئيس مجلس النواب`,
+          `الوزير المكلف بالمالية`,
+          `مندوب الحكومة`,
+          `مراقب الحسابات الخارجي`
+        ],
+        correct: 1,
+        rationale: `توجب الفقرة الثالثة من المادة 10 على الخازن المكلف بالأداء عند تقيده بالتسخير أن «يخبر بذلك فورا الوزير المكلف بالمالية».`
+      },
+      {
+        id: 49, axis: 3, article: `المادة 10`,
+        prompt: `كيف يتم التوقيع على وسائل الأداء (الشيكات والتحويلات والأوراق التجارية) في المؤسسة الخاضعة للمراقبة القبلية؟`,
+        options: [
+          `بتوقيع منفرد من مدير المؤسسة العامة`,
+          `بتوقيع منفرد من الخازن المكلف بالأداء`,
+          `يوقع الخازن المكلف بالأداء مع مدير الهيئة أو الشخص المؤهل`,
+          `بتوقيع مراقب الدولة وخازن الهيئة`
+        ],
+        correct: 2,
+        rationale: `تنص الفقرة الرابعة من المادة 10 على أن «يوقع الخازن المكلف بالأداء مع مدير الهيئة أو الشخص المؤهل على وسائل الأداء مثل الشيكات والتحويلات والأوراق التجارية».`
+      },
+      {
+        id: 50, axis: 3, article: `المادة 10`,
+        prompt: `ما هو الإجراء الخاص بالمؤسسات العامة التي تسير أنظمة للتقاعد والاحتياط الاجتماعي فيما يخص الخازن المكلف بالأداء؟`,
+        options: [
+          `تُعفى كليا من وجود خازن مكلف بالأداء`,
+          `يصدر الوزير المكلف بالمالية قرارات يوضح فيها حدود اختصاصات الخازن المكلف بالأداء بالنسبة إلى كل هيئة`,
+          `يخضع الخازن فيها لسلطة صندوق الإيداع والتدبير`,
+          `يُستعاض عنه بمندوب الحكومة`
+        ],
+        correct: 1,
+        rationale: `فيما يخص المؤسسات العامة التي تسير أنظمة للتقاعد والاحتياط الاجتماعي، يصدر الوزير المكلف بالمالية وفق المادة 10 قرارات يوضح فيها حدود اختصاصات الخازن المكلف بالأداء بالنسبة إلى كل هيئة.`
+      },
+      {
+        id: 51, axis: 3, article: `المادة 10`,
+        prompt: `هل يمكن أن يمارس الخازن المكلف بالأداء مراقبة على المداخيل؟`,
+        options: [
+          `لا، تقتصر مهمته قانونا على النفقات فقط`,
+          `نعم، يمكن أن يؤهل لإجراء مراقبة على المداخيل بناء على قرار للوزير المكلف بالمالية`,
+          `نعم، تلقائيا بموجب القانون دون حاجة لقرار`,
+          `نعم، بتكليف من مدير المؤسسة العامة`
+        ],
+        correct: 1,
+        rationale: `تُجيز الفقرة الأخيرة من المادة 10 أن «يؤهل الخازن المكلف بالأداء لإجراء مراقبة على المداخيل بناء على قرار للوزير المكلف بالمالية».`
+      },
+      {
+        id: 52, axis: 3, article: `المادة 8`,
+        prompt: `من يحدد السجلات والحاملات المحاسبية الأخرى التي يتعين على الخازن المكلف بالأداء مسكها؟`,
+        options: [
+          `الوزير المكلف بالمالية`,
+          `مدير المؤسسة العامة`,
+          `مراقب الحسابات الخارجي`,
+          `رئيس لجنة التدقيق`
+        ],
+        correct: 0,
+        rationale: `تُكلف المادة 8 الوزير المكلف بالمالية بتحديد طريقة مسك محاسبة الآمر بالصرف وكذا السجلات والحاملات الأخرى المتعين مسكها من لدن الخازن المكلف بالأداء.`
+      },
+      {
+        id: 53, axis: 3, article: `المادة 22`,
+        prompt: `على من يطبق التزام التقيد بقواعد السر المهني المنصوص عليه في المادة 22؟`,
+        options: [
+          `على الخازن المكلف بالأداء فقط دون مساعديه`,
+          `على الخازن المكلف بالأداء ووكلائه المفوضين`,
+          `على موظفي الإدارة العامة للضرائب`,
+          `على المتعهدين في الصفقات العمومية`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 22 على أنه «يجب على الخازن المكلف بالأداء ووكلائه المفوضين التقيد بقواعد السر المهني فيما يتعلق بجميع المعلومات التي يطلعون عليها أثناء مزاولة مهامهم».`
+      },
+      {
+        id: 54, axis: 3, article: `المادة 22`,
+        prompt: `هل يحق للخازن المكلف بالأداء ووكلائه المفوضين التمسك بالسر المهني تجاه المساعدين القضائيين العاملين في إطار مهامهم؟`,
+        options: [
+          `نعم، في جميع الأحوال`,
+          `نعم، باستثناء القضايا الجنائية فقط`,
+          `لا يجوز الاحتجاج بالسر المهني تجاه المساعدين القضائيين العاملين في إطار مهامهم`,
+          `يتوقف ذلك على إذن مدير المؤسسة`
+        ],
+        correct: 2,
+        rationale: `تختتم المادة 22 بالقاعدة نفسها الواردة في المادة 21: «ولا يجوز الاحتجاج بالسر المهني تجاه المساعدين القضائيين العاملين في إطار مهامهم».`
+      },
+
+      // === Axis 4: المراقبة المواكبة وشروط الانتقال وعقود البرامج (55-68) ===
+      {
+        id: 55, axis: 4, article: `المادة 4`,
+        prompt: `ما هو نظام المراقبة الذي تخضع له شركات الدولة التي تملك فيها الدولة أو جماعة محلية مساهمة مباشرة؟`,
+        options: [
+          `المراقبة القبلية`,
+          `المراقبة المواكبة`,
+          `المراقبة بمقتضى اتفاقية حصريا`,
+          `الإعفاء الكامل من أي مراقبة مالية`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 4 على أن شركات الدولة التي تملك فيها الدولة أو جماعة محلية مساهمة مباشرة تخضع «لمراقبة مواكبة» وفقا لأحكام الباب الرابع.`
+      },
+      {
+        id: 56, axis: 4, article: `المادة 4`,
+        prompt: `من يمارس المراقبة المواكبة على شركات الدولة ذات المساهمة المباشرة وفق المادة 4؟`,
+        options: [
+          `الوزير المكلف بالمالية ومراقب الدولة والخازن المكلف بالأداء`,
+          `الوزير المكلف بالمالية ومراقب الدولة`,
+          `مندوب الحكومة والمقاولة الأم`,
+          `لجنة التدقيق وحدها`
+        ],
+        correct: 1,
+        rationale: `في نظام المراقبة المواكبة (المادة 4 والمواد 11–14) لا يوجد خازن مكلف بالأداء، بل يمارسها الوزير المكلف بالمالية ومراقب الدولة (إلى جانب لجنة التدقيق).`
+      },
+      {
+        id: 57, axis: 4, article: `المادة 11`,
+        prompt: `ما هي الوثائق الثلاث التي لا تصبح مقررات مجلس الإدارة بشأنها نهائية في نظام المراقبة المواكبة إلا بعد موافقة الوزير المكلف بالمالية؟`,
+        options: [
+          `الميزانيات، والبيانات التوقعية لمدة متعددة السنوات، وتخصيص النتائج`,
+          `النظام الأساسي للمستخدمين، والمخطط التنظيمي، ونظام الصفقات`,
+          `الصفقات المبرمة، والهبات، والاقتناءات العقارية`,
+          `تقارير لجنة التدقيق، ومحاضر الجلسات، وعقود الشغل`
+        ],
+        correct: 0,
+        rationale: `حصرَت المادة 11 الوثائق الخاضعة لموافقة الوزير المكلف بالمالية في المراقبة المواكبة في ثلاث وثائق: الميزانيات، والبيانات التوقعية لمدة متعددة السنوات، وتخصيص النتائج.`
+      },
+      {
+        id: 58, axis: 4, article: `المادة 11`,
+        prompt: `متى تصبح ميزانيات المؤسسات العامة الخاضعة للمراقبة المواكبة التي لا تتلقى إعانات مالية من الدولة نهائية دون انتظار موافقة الوزير المكلف بالمالية؟`,
+        options: [
+          `بمجرد المصادقة عليها بالأغلبية البسيطة لمجلس الإدارة`,
+          `بمجرد الموافقة عليها بإجماع أعضاء مجلس الإدارة أو الجهاز التداولي`,
+          `بعد توقيع مدير المؤسسة ومراقب الدولة عليها`,
+          `لا تصبح نهائية أبدا دون موافقة الوزير`
+        ],
+        correct: 1,
+        rationale: `تقضي الفقرة الأخيرة من المادة 11 بأن ميزانيات المؤسسات العامة التي لا تتلقى إعانات مالية من الدولة تصبح نهائية بمجرد الموافقة عليها «بإجماع» أعضاء مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 59, axis: 4, article: `المادة 12`,
+        prompt: `إلى جانب اختصاصاته الإعلامية والاستشارية في المادة 9، ما المهمة التقييمية الإضافية لمراقب الدولة في المراقبة المواكبة؟`,
+        options: [
+          `التأشير المسبق على جميع سندات الطلب`,
+          `تقييم مطابقة تسيير الهيئة للمهمة والأهداف المحددة لها وكذا إنجازاتها الاقتصادية والمالية`,
+          `تسيير المصلحة المحاسبية للمؤسسة`,
+          `التوقيع المشترك على الشيكات مع المدير`
+        ],
+        correct: 1,
+        rationale: `تُضيف الفقرة الثانية من المادة 12 لمراقب الدولة في المراقبة المواكبة مهمة تقييم مطابقة تسيير الهيئة للمهمة والأهداف المحددة لها وكذا إنجازاتها الاقتصادية والمالية.`
+      },
+      {
+        id: 60, axis: 4, article: `المادة 12`,
+        prompt: `ما الإجراء الاستثنائي المتاح للوزير المكلف بالمالية إذا عُوين قصور ملحوظ في تسيير هيئة خاضعة للمراقبة المواكبة؟`,
+        options: [
+          `حل مجلس الإدارة فورا وتعيين متصرف مؤقت`,
+          `تخويل مراقب الدولة بمقرر حق ممارسة تأشير مسبق على بعض القرارات المحددة ولمدة معينة قابلة للتجديد إلى أن يتم تقويم الوضعية`,
+          `إعادة الهيئة بقرار وزاري فردي إلى المراقبة القبلية بصفة دائمة`,
+          `تعيين خازن مكلف بالأداء بصفة تلقائية`
+        ],
+        correct: 1,
+        rationale: `في حالة معاينة قصور ملحوظ في التسيير من طرف مجلس الإدارة أو مراقب الدولة أو لجنة التدقيق أو أي جهاز مراقبة مختص، يجوز للوزير المكلف بالمالية وفق المادة 12 تخويل مراقب الدولة بمقرر حق ممارسة تأشير مسبق على بعض القرارات المحددة ولمدة معينة قابلة للتجديد مرة واحدة أو عدة مرات إلى أن يتم تقويم الوضعية.`
+      },
+      {
+        id: 61, axis: 4, article: `المادة 12`,
+        prompt: `ما الذي يتعين على مراقب الدولة فعله عند منحه حق التأشير المسبق الاستثنائي بمقتضى المادة 12؟`,
+        options: [
+          `توجيه استفسار كتابي لمندوب الحكومة`,
+          `رفع تقرير معلل لمجلس الإدارة أو الجهاز التداولي قصد اتخاذ التدابير اللازمة لتقويم الوضعية`,
+          `إبلاغ الخزينة العامة بتجميد أموال المؤسسة`,
+          `تعديل النظام الأساسي للمستخدمين`
+        ],
+        correct: 1,
+        rationale: `تنص الفقرة الأخيرة من المادة 12 على أن مراقب الدولة يرفع في هذا الشأن تقريرا معللا لمجلس الإدارة أو الجهاز التداولي قصد اتخاذ التدابير اللازمة لتقويم الوضعية.`
+      },
+      {
+        id: 62, axis: 4, article: `المادتان 13 و17`,
+        prompt: `ما الشرط الأساسي لانتقال مؤسسة عامة من المراقبة القبلية إلى المراقبة المواكبة بموجب المادة 17؟`,
+        options: [
+          `تحولها إلى شركة مساهمة أولا`,
+          `إثبات اعتمادها الفعلي لمنظومات الإعلام والتسيير والمراقبة الداخلية وتوفرها على وسائل التسيير السبعة المصادق عليها من مجلس الإدارة`,
+          `موافقة أغلبية مستخدمي المؤسسة عبر استفتاء داخلي`,
+          `تحقيق فائض مالي لمدة عشر سنوات متتالية`
+        ],
+        correct: 1,
+        rationale: `تخضع للمراقبة المواكبة بموجب المادة 17 والمادة 13 المؤسسات العامة التي تثبت اعتمادها الفعلي لمنظومات الإعلام والتسيير والمراقبة الداخلية والتي تشمل خاصة الوسائل السبعة المصادق عليها بصفة صحيحة من لدن مجلس الإدارة.`
+      },
+      {
+        id: 63, axis: 4, article: `المادة 17`,
+        prompt: `ماذا يجب أن يحدد المخطط التنظيمي المطلوب في المؤسسات العامة الخاضعة للمراقبة المواكبة؟`,
+        options: [
+          `مقرات الفروع الجهوية فقط`,
+          `البنيات التنظيمية للتسيير والتدقيق الداخلي بالهيئة ومهامها واختصاصاتها`,
+          `توزيع الأسهم بين الدولة والخواص`,
+          `أسماء المقاولين المعتمدين`
+        ],
+        correct: 1,
+        rationale: `يشترط البند الثاني من المادة 17 مخططا تنظيميا تحدد فيه البنيات التنظيمية للتسيير والتدقيق الداخلي بالمؤسسة ومهامها واختصاصاتها.`
+      },
+      {
+        id: 64, axis: 4, article: `المادة 17`,
+        prompt: `ما هي وثيقة الإجراءات التنظيمية الخاصة بالمراقبة الداخلية المشترطة في المادة 17؟`,
+        options: [
+          `دليل المساطر الإدارية المؤقت`,
+          `مرشد يبين المساطر المتعلقة بتسيير البنيات والمراقبة الداخلية بالمؤسسة`,
+          `ميثاق المساهمين`,
+          `لائحة الجرد السنوي`
+        ],
+        correct: 1,
+        rationale: `ينص البند الثالث من المادة 17 على ضرورة توفر «مرشد يبين المساطر المتعلقة بتسيير البنيات والمراقبة الداخلية بالمؤسسة».`
+      },
+      {
+        id: 65, axis: 4, article: `المادة 17`,
+        prompt: `ما هو الشرط المحاسبي الصارم الوارد في المادة 17 لخضوع المؤسسة العامة للمراقبة المواكبة؟`,
+        options: [
+          `مسك محاسبة عمومية تقليدية فقط`,
+          `محاسبة تمكن من إعداد قوائم تركيبية صحيحة وصادقة ومشهود بصحتها دون أي تحفظ مهم من لدن مدققين خارجيين مؤهلين`,
+          `الإشهاد على الحسابات من طرف الخازن المكلف بالأداء`,
+          `إعداد ميزانية نقدية مبسطة دون تدقيق خارجي`
+        ],
+        correct: 1,
+        rationale: `يشترط البند الخامس من المادة 17 محاسبة تمكن من إعداد قوائم تركيبية صحيحة وصادقة ومشهود بصحتها «دون أي تحفظ مهم» من لدن واحد أو أكثر من المدققين الخارجيين المؤهلين لمزاولة مهنة مراقب الحسابات.`
+      },
+      {
+        id: 66, axis: 4, article: `المادة 17`,
+        prompt: `ما هي المدة الدنيا للمخطط متعدد السنوات المطلوب بمقتضى المادة 17 ووتيرة تحيينه؟`,
+        options: [
+          `سنتان على الأقل، ويُحيّن كل سنتين`,
+          `فترة لا تقل عن ثلاث سنوات، ويتم تحيينه كل سنة`,
+          `خمس سنوات ثابتة غير قابلة للتحيين`,
+          `سنة واحدة قابلة للتمديد`
+        ],
+        correct: 1,
+        rationale: `ينص البند السادس من المادة 17 على «مخطط لمدة متعددة السنوات يشمل فترة لا تقل عن ثلاث سنوات يتم تحيينه كل سنة»، ويتضمن البرامج العملية والمشاريع الاقتصادية والمالية عن كل نشاط وبشكل مدمج.`
+      },
+      {
+        id: 67, axis: 4, article: `المادة 18`,
+        prompt: `ما الأثر القانوني لارتباط مؤسسة عامة مع الدولة بعقد برنامج وفق المادة 18؟`,
+        options: [
+          `تخضع للمراقبة المواكبة بدلا من المراقبة القبلية، وتُعفى مع شركات الدولة الخاضعة للمواكبة من الموافقة المسبقة في المادتين 7 و11`,
+          `تنتقل إلى المراقبة بمقتضى اتفاقية تحت إشراف مندوب الحكومة`,
+          `تظل خاضعة للمراقبة القبلية مع إضافة لجنة التدقيق`,
+          `تُعفى من تبليغ حساباتها للوزير المكلف بالمالية بمقتضى المادة 20`
+        ],
+        correct: 0,
+        rationale: `تُخضع المادة 18 المؤسسات العامة المرتبطة مع الدولة بعقود برامج للمراقبة المواكبة بدلا من القبلية، وتعفيها وشركات الدولة الخاضعة للمواكبة والمرتبطة بعقود برامج من الموافقة المسبقة على الوثائق المنصوص عليها في المادتين 7 و11.`
+      },
+      {
+        id: 68, axis: 4, article: `المادة 3 والمرسوم (22 فبراير 2014)`,
+        prompt: `أي من المؤسسات العمومية التالية وردت ضمن قائمة المؤسسات الخاضعة للمراقبة المواكبة في المرسوم الصادر في 22 فبراير 2014؟`,
+        options: [
+          `الصندوق المركزي للضمان، مجلس القيم المنقولة، المكتب الوطني للكهرباء والماء الصالح للشرب، والمكتب الوطني للسكك الحديدية`,
+          `بنك المغرب وصندوق الإيداع والتدبير فقط`,
+          `جميع الجماعات الترابية والمقاطعات`,
+          `كافة الشركات المختلطة التي تقل مساهمة الدولة فيها عن 50%`
+        ],
+        correct: 0,
+        rationale: `حددت المادة الأولى من المرسوم الصادر في 22 فبراير 2014 قائمة المؤسسات العمومية الخاضعة للمراقبة المواكبة في أربع مؤسسات هي: الصندوق المركزي للضمان، مجلس القيم المنقولة، المكتب الوطني للكهرباء والماء الصالح للشرب، والمكتب الوطني للسكك الحديدية.`
+      },
+
+      // === Axis 5: لجان التدقيق المستقلة والحكامة الداخلية (69-78) ===
+      {
+        id: 69, axis: 5, article: `المادة 14`,
+        prompt: `على أي فئة من الهيئات يجب إحداث «لجنة التدقيق» بمقتضى المادة 14؟`,
+        options: [
+          `المؤسسات العامة الخاضعة للمراقبة القبلية فقط`,
+          `الهيئات الخاضعة للمراقبة المواكبة`,
+          `المقاولات ذات الامتياز حصريا`,
+          `الشركات المختلطة التي تملك الدولة فيها أقل من 10%`
+        ],
+        correct: 1,
+        rationale: `تبدأ المادة 14 بقاعدة آمرة: «يجب على الهيئات الخاضعة للمراقبة المواكبة إحداث لجنة التدقيق».`
+      },
+      {
+        id: 70, axis: 5, article: `المادة 14`,
+        prompt: `ممّ تتألف لجنة التدقيق في الهيئات الخاضعة للمراقبة المواكبة؟`,
+        options: [
+          `من مراقب الدولة بالإضافة إلى عضوين إلى أربعة أعضاء يعينهم مجلس الإدارة أو الجهاز التداولي`,
+          `من الخازن المكلف بالأداء والمدير العام فقط`,
+          `من خمسة إلى سبعة أعضاء يعينهم البرلمان`,
+          `من مراقبي الحسابات الخارجيين ومدير المؤسسة`
+        ],
+        correct: 0,
+        rationale: `تنص الفقرة الثانية من المادة 14 على أن لجنة التدقيق تتألف، بالإضافة إلى مراقب الدولة، من عضوين إلى أربعة أعضاء يعينهم مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 71, axis: 5, article: `المادة 14`,
+        prompt: `ما هي الصفة القانونية للأعضاء الذين يعينهم مجلس الإدارة في لجنة التدقيق لضمان استقلاليتها؟`,
+        options: [
+          `المديرون التنفيذيون المسؤولون عن الصفقات والمالية`,
+          `الأعضاء غير المسيرين أو من ينوب عنهم شخصيا لهذا الغرض`,
+          `ممثلو النقابات الأكثر تمثيلا بالمؤسسة`,
+          `أعضاء من الهيئة القضائية`
+        ],
+        correct: 1,
+        rationale: `لضمان الاستقلالية، اشترطت المادة 14 تعيينهم «من بين الأعضاء غير المسيرين أو ممن ينوب عنهم شخصيا لهذا الغرض».`
+      },
+      {
+        id: 72, axis: 5, article: `المادة 14`,
+        prompt: `ما هي المجالات التي تؤهل لجنة التدقيق لتقييمها عبر عمليات التدقيق؟`,
+        options: [
+          `تقييم العمليات، وجودة التنظيم، ودقة وحسن تطبيق منظومة الإعلام، وإنجازات الهيئة`,
+          `تقييم الأداء السياسي للوزير الوصي`,
+          `تحديد أسعار الخدمات العمومية للمستهلكين`,
+          `إبرام الصفقات بالتراضي بدلا عن الآمر بالصرف`
+        ],
+        correct: 0,
+        rationale: `تؤهل لجنة التدقيق وفق المادة 14 من خلال عمليات التدقيق لتقييم العمليات وجودة التنظيم ودقة وحسن تطبيق منظومة الإعلام وإنجازات الهيئة.`
+      },
+      {
+        id: 73, axis: 5, article: `المادة 14`,
+        prompt: `من يتحمل التكلفة المالية لعمليات التدقيق الداخلي والخارجي وأعمال التقييم التي تأمر بها لجنة التدقيق؟`,
+        options: [
+          `ميزانية وزارة المالية مباشرة`,
+          `الأعضاء غير المسيرون شخصيا`,
+          `تُنجز على نفقة الهيئة المعنية`,
+          `مراقب الدولة من مخصصاته الخاصة`
+        ],
+        correct: 2,
+        rationale: `تنص المادة 14 على أنه تناط بلجنة التدقيق مهمة الأمر بعمليات التدقيق الداخلي والخارجي وأعمال التقييم التي تراها ضرورية وإنجازها «على نفقة الهيئة».`
+      },
+      {
+        id: 74, axis: 5, article: `المادة 14`,
+        prompt: `هل يحق للجنة التدقيق الاستعانة بخبراء من خارج الهيئة؟`,
+        options: [
+          `نعم، يجوز لها أن تشرك أي خبير مستقل في أشغالها`,
+          `لا، يقتصر عملها على موظفي التدقيق الداخلي`,
+          `نعم، لكن بعد ترخيص مسبق من الخازن المكلف بالأداء`,
+          `نعم، فقط عند حدوث عجز مالي`
+        ],
+        correct: 0,
+        rationale: `تسمح المادة 14 صراحة للجنة التدقيق بأن «تشرك أي خبير مستقل في أشغالها».`
+      },
+      {
+        id: 75, axis: 5, article: `المادة 14`,
+        prompt: `إلى من توجه لجنة التدقيق تقريرها مباشرة وفق الفقرة الأخيرة من المادة 14؟`,
+        options: [
+          `إلى مدير الهيئة، ثم يُعرض هذا التقرير على مجلس الإدارة أو الجهاز التداولي`,
+          `إلى الجريدة الرسمية للنشر الفوري`,
+          `إلى الخازن المكلف بالأداء فقط`,
+          `إلى المجلس الأعلى للحسابات حصرا`
+        ],
+        correct: 0,
+        rationale: `توجه لجنة التدقيق وفق المادة 14 «مباشرة إلى مدير الهيئة» تقريرا يتضمن نتائج تدخلاتها وتوصياتها، ثم يُعرض هذا التقرير على مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 76, axis: 5, article: `المادة 14`,
+        prompt: `ما هو الهدف المحوري من التوصيات الواردة في تقرير لجنة التدقيق؟`,
+        options: [
+          `توجيه عقوبات مالية للمقاولين`,
+          `تحسين التسيير والتحكم في المخاطر الاقتصادية والمالية للهيئة`,
+          `إعادة هيكلة الميزانية العامة للدولة`,
+          `الموافقة المسبقة على سندات الخزينة`
+        ],
+        correct: 1,
+        rationale: `حددت الفقرة الأخيرة من المادة 14 مضمون التقرير في نتائج تدخلات اللجنة والتوصيات التي تراها مفيدة «لتحسين التسيير والتحكم في المخاطر الاقتصادية والمالية للهيئة».`
+      },
+      {
+        id: 77, axis: 5, article: `المادة 12`,
+        prompt: `ما الدور الرقابي الإضافي الذي تملكه لجنة التدقيق في إطار آلية الإنذار المبكر في المادة 12؟`,
+        options: [
+          `إقالة مراقب الدولة عند التأخر في التأشير`,
+          `معاينة القصور الملحوظ في التسيير بما يتيح للوزير المكلف بالمالية تخويل مراقب الدولة تأشيرا مسبقا مؤقتا`,
+          `منح الإعانات المالية من ميزانية الدولة`,
+          `تحويل المؤسسة إلى مقاولة ذات امتياز`
+        ],
+        correct: 1,
+        rationale: `أدرجت المادة 12 «لجنة التدقيق» ضمن الجهات (مع مجلس الإدارة ومراقب الدولة وأي جهاز مراقبة مختص) التي تتيح معاينتها لقصور ملحوظ في التسيير تدخل الوزير لتخويل مراقب الدولة تأشيرا مسبقا مؤقتا.`
+      },
+      {
+        id: 78, axis: 5, article: `المادة 15`,
+        prompt: `كيف تعالج المراقبة التعاقدية (بمقتضى اتفاقية) مسألة اللجان ومساطر المراقبة الداخلية؟`,
+        options: [
+          `تُعفي الشركات التابعة تماما من إحداث أي لجان`,
+          `يجب أن تنص اتفاقية المراقبة على اللجان المتعين إحداثها لدى مجلس الإدارة ومساطر المراقبة الداخلية الواجب اعتمادها`,
+          `تفوض أمر اللجان للخازن المكلف بالأداء`,
+          `تقتصر على تعيين مدقق حسابات واحد دون لجان`
+        ],
+        correct: 1,
+        rationale: `تلزم الفقرة الأخيرة من المادة 15 بأن تنص اتفاقية المراقبة على اللجان المتعين إحداثها لدى مجلس إدارة الشركة المتعاقدة ومساطر المراقبة الداخلية الواجب اعتمادها.`
+      },
+
+      // === Axis 6: المراقبة التعاقدية / بمقتضى اتفاقية (79-88) ===
+      {
+        id: 79, axis: 6, article: `المادة 5`,
+        prompt: `ما هي الشركات التي يمكن إخضاعها للمراقبة بمقتضى اتفاقية حسب المادة 5؟`,
+        options: [
+          `المؤسسات العامة ذات الطابع الإداري`,
+          `شركات الدولة التي لا تملك فيها الدولة أو جماعة محلية مساهمة مباشرة، وكذا الشركات التابعة العامة`,
+          `شركات الدولة ذات المساهمة المباشرة للدولة`,
+          `الشركات المختلطة التي تقل مساهمة الدولة فيها عن 50%`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 5 على أنه يمكن أن تخضع شركات الدولة التي لا تملك فيها الدولة أو جماعة محلية مساهمة مباشرة وكذا الشركات التابعة العامة لمراقبة بمقتضى اتفاقية يقوم بها مندوب حكومة.`
+      },
+      {
+        id: 80, axis: 6, article: `المادة 6`,
+        prompt: `أين تُحدد قواعد المراقبة المالية للمقاولات ذات الامتياز، ومن يتولى القيام بها؟`,
+        options: [
+          `تُحدد في مرسوم التأسيس ويقوم بها الخازن المكلف بالأداء`,
+          `تُحدد في عقد الامتياز ويقوم بها مندوب حكومة يعين لدى المقاولة ذات الامتياز`,
+          `تُحدد في النظام الداخلي للمقاولة ويقوم بها مراقب الدولة`,
+          `لا تخضع المقاولات ذات الامتياز لأي ممثل عن الدولة`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 6 على أن المقاولات ذات الامتياز تخضع لمراقبة مالية تُحدد في «عقد الامتياز» ويقوم بها «مندوب حكومة» يعين لدى المقاولة ذات الامتياز.`
+      },
+      {
+        id: 81, axis: 6, article: `المادة 15`,
+        prompt: `مع من تُبرم اتفاقية المراقبة بالنسبة للشركات التابعة العامة التي تملك فيها الدولة أو جماعة محلية أغلبية رأس المال بصفة مباشرة؟`,
+        options: [
+          `مع المقاولة الأم فقط`,
+          `مع الدولة، ويعهد بمتابعتها إلى مندوب حكومة يعين لدى الشركة التابعة العامة`,
+          `مع الخازن العام للمملكة`,
+          `مع لجنة التدقيق`
+        ],
+        correct: 1,
+        rationale: `يميز البند الأول من المادة 15 هذه الفئة، حيث تُبرم اتفاقية المراقبة «مع الدولة» ويعهد بمتابعتها إلى مندوب حكومة يعين لدى الشركة التابعة العامة.`
+      },
+      {
+        id: 82, axis: 6, article: `المادة 15`,
+        prompt: `مع من تُبرم اتفاقية المراقبة بالنسبة لشركات الدولة ذات المساهمة غير المباشرة والشركات التابعة العامة التي لا تملك فيها الدولة مباشرة أغلبية رأس المال؟`,
+        options: [
+          `مع المقاولة الأم، ويعهد بمتابعتها إلى مندوب الحكومة المعين لدى الشركة التابعة العامة أو شركة الدولة`,
+          `مع الجماعة الترابية الأقرب جغرافيا`,
+          `مع البرلمان`,
+          `تخضع تلقائيا للمراقبة القبلية`
+        ],
+        correct: 0,
+        rationale: `يقضي البند الثاني من المادة 15 بأن تخضع هذه الشركات للمراقبة من خلال اتفاقية مراقبة مبرمة «مع المقاولة الأم» ومعهود بمتابعتها إلى مندوب الحكومة المعين لدى الشركة التابعة العامة أو شركة الدولة.`
+      },
+      {
+        id: 83, axis: 6, article: `المادة 15`,
+        prompt: `من يصادق على الاتفاقية التي تبرمها المقاولة الأم مع كل شركة تابعة أو شركة دولة في إطار المادة 15؟`,
+        options: [
+          `تصادق عليها مجالس إدارتها أو أجهزتها التداولية`,
+          `يصادق عليها الخازن المكلف بالأداء`,
+          `لا تحتاج إلى مصادقة أي جهاز تداولي`,
+          `تصادق عليها المحكمة التجارية`
+        ],
+        correct: 0,
+        rationale: `توجب الفقرة الثانية من المادة 15 على المقاولة الأم أن تبرم مع كل شركة تابعة وشركة دولة اتفاقية «تصادق عليها مجالس إدارتها أو أجهزتها التداولية» وتحدد فيها طريقة المراقبة.`
+      },
+      {
+        id: 84, axis: 6, article: `المادة 15`,
+        prompt: `كيف عرّفت المادة 15 «المقاولة الأم»؟`,
+        options: [
+          `المقاولة الأقدم تأسيسا في القطاع المعني`,
+          `المقاولة التي تملك أعلى نسبة مئوية في رأس المال العام في شركة الدولة أو الشركة التابعة العامة`,
+          `كل مؤسسة عامة تتولى الوصاية التقنية`,
+          `المقاولة ذات الامتياز الأعلى رقم معاملات`
+        ],
+        correct: 1,
+        rationale: `عرّفت الفقرة الثالثة من المادة 15 المقاولة الأم بأنها «المقاولة التي تملك أعلى نسبة مئوية في رأس المال العام في شركة الدولة أو الشركة التابعة العامة».`
+      },
+      {
+        id: 85, axis: 6, article: `المادة 15`,
+        prompt: `ما هي المقررات التي يجب أن تنص عليها اتفاقية المراقبة كالتزام على الشركة المتعاقدة؟`,
+        options: [
+          `المقررات الواجب الحصول في شأنها على الترخيص المسبق من مجلس إدارتها أو مجلس إدارة المقاولة الأم`,
+          `قرارات التوظيف اليومي المؤقت لكل عامل`,
+          `قواعد تحرير الشيكات من طرف الخازن المكلف بالأداء`,
+          `أسماء الموردين الخواص المسموح بالتعامل معهم`
+        ],
+        correct: 0,
+        rationale: `تشترط الفقرة الأخيرة من المادة 15 أن تنص الاتفاقية على التزامات الشركة المتعاقدة، وخاصة المقررات الواجب الحصول بشأنها على الترخيص المسبق من مجلس إدارتها أو مجلس إدارة المقاولة الأم، واللجان ومساطر المراقبة الداخلية والمعلومات المبلغة للمقاولة الأم.`
+      },
+      {
+        id: 86, axis: 6, article: `المادة 16`,
+        prompt: `هل يملك مندوب الحكومة حق إبداء الرأي والمطالبة بالوثائق المحاسبية والسجلات في الشركة الخاضعة للمراقبة الاتفاقية؟`,
+        options: [
+          `نعم، يمارس نفس صلاحيات الاطلاع والتحقق وحضور الجلسات بصفة استشارية المقررة في الفقرات 1 و2 و4 و5 من المادة 9`,
+          `لا، يقتصر دوره على تسلم التقرير السنوي في نهاية السنة`,
+          `يحق له الاطلاع فقط على جدول أعمال مجلس الإدارة دون العقود`,
+          `يملك فقط سلطة توقيع الشيكات`
+        ],
+        correct: 0,
+        rationale: `أعطت المادة 16 لمندوب الحكومة ممارسة الاختصاصات المنصوص عليها في الفقرات 1 و2 و4 و5 من المادة 9 (الحضور الاستشاري، حق الاطلاع الدائم والتحقق بعين المكان، والاطلاع لدى الأغيار تحت إشراف الوزير).`
+      },
+      {
+        id: 87, axis: 6, article: `المادة 16`,
+        prompt: `إلى من يوجه مندوب الحكومة تقريره السنوي عن حالة تنفيذ الاتفاقية؟`,
+        options: [
+          `إلى مدير الشركة فقط`,
+          `إلى الوزير المكلف بالمالية، ويُعرض على مجلس الإدارة أو الجهاز التداولي`,
+          `إلى المقاولة الأم حصريا دون عرض على مجلس الإدارة`,
+          `إلى وزارة العدل`
+        ],
+        correct: 1,
+        rationale: `تُلزم المادة 16 مندوب الحكومة بإعداد تقرير سنوي عن حالة تنفيذ الاتفاقية يوجهه إلى الوزير المكلف بالمالية ويُعرض على مجلس الإدارة أو الجهاز التداولي.`
+      },
+      {
+        id: 88, axis: 6, article: `المادتان 5 و15`,
+        prompt: `هل تخضع الشركات التابعة العامة أو شركات الدولة ذات المساهمة غير المباشرة للمراقبة القبلية؟`,
+        options: [
+          `نعم، تخضع وجوبا للمراقبة القبلية ولتأشير الخازن المكلف بالأداء`,
+          `لا، يمكن أن تخضع للمراقبة بمقتضى اتفاقية يقوم بها مندوب حكومة وفق الباب الخامس`,
+          `تخضع فقط إذا تجاوز رأسمالها مائة مليون درهم`,
+          `تخضع لقانون الوظيفة العمومية`
+        ],
+        correct: 1,
+        rationale: `المراقبة القبلية مقصورة على المؤسسات العامة (المادة 3)، بينما تخضع شركات الدولة ذات المساهمة غير المباشرة والشركات التابعة العامة للمراقبة بمقتضى اتفاقية وفق المادة 5 والمادة 15.`
+      },
+
+      // === Axis 7: المصادقة على الحسابات والتقارير الدورية والمنافسة (89-100) ===
+      {
+        id: 89, axis: 7, article: `المادة 20`,
+        prompt: `ما هو الأجل القانوني الأقصى لتبليغ الوثائق السنوية إلى الوزير المكلف بالمالية بعد اختتام السنة المحاسبية؟`,
+        options: [
+          `ثلاثة أشهر`,
+          `ستة أشهر الموالية لاختتام السنة المحاسبية`,
+          `سنة كاملة`,
+          `ثلاثون يوما`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 20 على وجوب تبليغ الوثائق السنوية إلى الوزير المكلف بالمالية «خلال الستة أشهر الموالية لاختتام السنة المحاسبية».`
+      },
+      {
+        id: 90, axis: 7, article: `المادة 20`,
+        prompt: `أي من الهيئات التالية مُلزمة بتبليغ الوثائق السنوية الخمس الكاملة في المادة 20؟`,
+        options: [
+          `الشركات المختلطة فقط`,
+          `المؤسسات العامة، شركات الدولة، الشركات التابعة العامة، والمقاولات ذات الامتياز`,
+          `المؤسسات العامة الخاضعة للمراقبة القبلية وحدها`,
+          `الشركات التجارية الخاصة غير المرتبطة بالدولة`
+        ],
+        correct: 1,
+        rationale: `تشمل الفقرة الأولى من المادة 20 المؤسسات العامة وشركات الدولة والشركات التابعة العامة والمقاولات ذات الامتياز (إلى جانب الهيئات المستثناة في المادة 23 وفق نطاق المادة 20).`
+      },
+      {
+        id: 91, axis: 7, article: `المادة 20`,
+        prompt: `أي من الوثائق التالية لا بد من تبليغها ضمن قائمة الفقرة الأولى من المادة 20 (عند الاقتضاء حسب نوع الهيئة)؟`,
+        options: [
+          `القوائم التركيبية السنوية أو الحسابات السنوية، التقرير السنوي عن التسيير، وتقرير مراقبي الحسابات أو المدققين الخارجيين`,
+          `سجلات الحضور اليومي للموظفين`,
+          `عقود الكراء الفردية للمستخدمين`,
+          `مسودات الميزانيات غير المصادق عليها`
+        ],
+        correct: 0,
+        rationale: `تُحدد المادة 20 خمس وثائق: القوائم التركيبية السنوية أو الحسابات السنوية، التقرير السنوي عن التسيير، بيان توزيع رأس مال الشركة (لشركات الدولة والتابعة)، تقرير مراقبي الحسابات أو المدققين الخارجيين (للمؤهلة للتدقيق)، والحسابات المجمعة وبيان الشركات التابعة والمساهمات إن اقتضى الحال.`
+      },
+      {
+        id: 92, axis: 7, article: `المادة 20`,
+        prompt: `ما هي الوثائق التي تلتزم «الشركات المختلطة» بتوجيهها إلى الوزير المكلف بالمالية خلال الستة أشهر الموالية لاختتام السنة المحاسبية؟`,
+        options: [
+          `الميزانية السنوية ومخطط الصفقات فقط`,
+          `القوائم التركيبية السنوية، وبيان الشركات التابعة والمساهمات، وبيان توزيع رأس مال الشركة`,
+          `تقارير الخازن المكلف بالأداء ومراقب الدولة`,
+          `الشركات المختلطة معفاة من إرسال أي وثائق`
+        ],
+        correct: 1,
+        rationale: `تُلزم الفقرة الثالثة من المادة 20 الشركات المختلطة بتوجيه ثلاث وثائق خلال الستة أشهر الموالية لاختتام السنة المحاسبية: القوائم التركيبية السنوية، بيان الشركات التابعة والمساهمات، وبيان توزيع رأس مال الشركة.`
+      },
+      {
+        id: 93, axis: 7, article: `المادة 20`,
+        prompt: `ما هو الأجل المحدد للاستجابة لطلبات المعلومات ذات الطابع التقني أو الاقتصادي أو المالي الصادرة عن الوزير المكلف بالمالية؟`,
+        options: [
+          `خلال أسبوع من تاريخ الطلب`,
+          `خلال الشهر التالي لاستلام الطلب`,
+          `عند نهاية السنة المحاسبية الموالية`,
+          `خلال ستة أشهر من الاستلام`
+        ],
+        correct: 1,
+        rationale: `تنص الفقرة الثانية من المادة 20 على الإلزام بالاستجابة لكل طلب معلومات ذات طابع تقني أو اقتصادي أو مالي صادر عن الوزير المكلف بالمالية، وذلك «خلال الشهر التالي لاستلام الطلب».`
+      },
+      {
+        id: 94, axis: 7, article: `المادة 20`,
+        prompt: `من يمارس الحقوق والسلط الراجعة للدولة بصفتها مساهما في الشركات الخاضعة للمراقبة المالية؟`,
+        options: [
+          `مندوب الحكومة لدى الشركة`,
+          `الوزير المكلف بالمالية`,
+          `الوزير المكلف بالداخلية`,
+          `الخازن المكلف بالأداء`
+        ],
+        correct: 1,
+        rationale: `تُقرر الفقرة الأخيرة من المادة 20 أن «يمارس الوزير المكلف بالمالية الحقوق والسلط الراجعة للدولة بصفتها مساهما في الشركات الخاضعة للمراقبة المالية».`
+      },
+      {
+        id: 95, axis: 7, article: `الباب السابع (التزامات أخرى)`,
+        prompt: `أين ووفق أي شكل تُنشر الحسابات السنوية للمؤسسات العامة عملا بمقتضيات «التزامات أخرى» في الباب السابع؟`,
+        options: [
+          `في جريدتين يوميتين فقط بقرار للمدير`,
+          `في الجريدة الرسمية وفق الأشكال التي تحدد بواسطة مرسوم`,
+          `في النشرة الداخلية للمؤسسة فقط`,
+          `لا تخضع حسابات المؤسسات العامة لأي نشر رسمي`
+        ],
+        correct: 1,
+        rationale: `ينص بند «التزامات أخرى» في ختام الباب السابع من القانون 69.00 على أن «تنشر الحسابات السنوية للمؤسسات العامة في الجريدة الرسمية وفق الأشكال التي تحدد بواسطة مرسوم».`
+      },
+      {
+        id: 96, axis: 7, article: `المادة 19`,
+        prompt: `ما هي القاعدة العامة لإنجاز النفقات وإبرام الصفقات في المؤسسات العامة وشركات الدولة، وما استثناؤها وأهدافها؟`,
+        options: [
+          `الدعوة إلى المنافسة (ما عدا في حالة استثناء مبرر)، لضمان الشفافية والمساواة وفعالية النفقات وتحسين مداخيل الهيئة`,
+          `التفاوض المباشر كأصل لتقليص الآجال`,
+          `الاعتماد على الطلبات الشفوية دون منافسة`,
+          `منح الأولوية للشركات التابعة دون منافسة`
+        ],
+        correct: 0,
+        rationale: `تلزم المادة 19 المؤسسات العامة وشركات الدولة، ما عدا في حالة استثناء مبرر، بالدعوة إلى المنافسة قصد ضمان الشفافية في اختيارات صاحب المشروع والمساواة في الوصول إلى طلبيات الهيئة وفعالية النفقات وتحسين مداخيل الهيئة.`
+      },
+      {
+        id: 97, axis: 7, article: `المادة 19`,
+        prompt: `ما الالتزام الإضافي المقرر في الفقرة الثانية من المادة 19 بالنسبة للمؤسسات العامة المحددة قائمتها بقرار للوزير المكلف بالمالية؟`,
+        options: [
+          `تطبيق النصوص الجارية على الصفقات العمومية لتنفيذ نفقاتها، مع أخذ خصوصيات المؤسسات المعنية بعين الاعتبار`,
+          `تطبيق قواعد التفاوض الحر دون أنظمة صفقات`,
+          `عرض كل صفقة على البرلمان`,
+          `الاكتفاء بموافقة الخازن المكلف بالأداء دون دعوة للمنافسة`
+        ],
+        correct: 0,
+        rationale: `أوجبت الفقرة الثانية من المادة 19 على المؤسسات العامة المحددة قائمتها بقرار للوزير المكلف بالمالية، قصد تنفيذ نفقاتها، تطبيق النصوص الجارية على الصفقات العمومية، على أن تؤخذ بعين الاعتبار خصوصيات المؤسسات المعنية.`
+      },
+      {
+        id: 98, axis: 7, article: `المادة 17`,
+        prompt: `ما نوع الإشهاد على القوائم التركيبية المطلوب من المدققين الخارجيين لإثبات جاهزية المؤسسة للمراقبة المواكبة؟`,
+        options: [
+          `رأي مؤهل مع تحفظات جوهرية`,
+          `قوائم تركيبية صحيحة وصادقة ومشهود بصحتها دون أي تحفظ مهم`,
+          `تقرير داخلي موقع من المحاسب فقط`,
+          `بيان استخلاص الضرائب`
+        ],
+        correct: 1,
+        rationale: `اشترطت المادة 17 إعداد قوائم تركيبية صحيحة وصادقة ومشهود بصحتها «دون أي تحفظ مهم» من لدن واحد أو أكثر من المدققين الخارجيين المؤهلين لمزاولة مهنة مراقب الحسابات.`
+      },
+      {
+        id: 99, axis: 7, article: `المادتان 7 و11`,
+        prompt: `ما وجه التشابه بين المراقبة القبلية والمراقبة المواكبة فيما يتعلق بمقررات مجلس الإدارة حول «تخصيص النتائج»؟`,
+        options: [
+          `تخضع في النظامين معا لموافقة الخازن المكلف بالأداء`,
+          `لا تصبح نهائية في النظامين معا إلا بعد موافقة الوزير المكلف بالمالية`,
+          `تصبح نهائية في النظامين معا بمجرد الإجماع دون موافقة الوزير`,
+          `تُحال في النظامين معا إلى لجنة التدقيق للمصادقة النهائية`
+        ],
+        correct: 1,
+        rationale: `تُدرج كل من المادة 7 (القبلية) والمادة 11 (المواكبة) «تخصيص النتائج» ضمن الوثائق التي لا تصبح مقررات مجلس الإدارة بشأنها نهائية إلا بعد موافقة الوزير المكلف بالمالية.`
+      },
+      {
+        id: 100, axis: 7, article: `المادة 18`,
+        prompt: `ماذا يجب أن تحدد عقود البرامج متعددة السنوات المبرمة بين الدولة والهيئات العمومية على الخصوص؟`,
+        options: [
+          `التزامات الدولة والهيئة المتعاقدة، والأهداف التقنية والاقتصادية والمالية، ووسائل بلوغها، وإجراءات متابعة تنفيذ عقود البرامج`,
+          `أسماء أعضاء لجان الصفقات فقط`,
+          `قيمة المكافآت السنوية للمسيرين`,
+          `جدول الحضور الأسبوعي لمراقب الدولة`
+        ],
+        correct: 0,
+        rationale: `حددت الفقرة الرابعة من المادة 18 المضمون الإلزامي لعقود البرامج متعددة السنوات في: التزامات الدولة والهيئة المتعاقدة، والأهداف التقنية والاقتصادية والمالية المحددة للهيئة، ووسائل بلوغ هذه الأهداف، وكذا الإجراءات المتعلقة بمتابعة تنفيذ عقود البرامج.`
+      }
+    ];
+
+    // Application state
+    const DEFAULT_STATE = {
+      answers: {},       // { [questionId]: optionIndex }
+      bookmarks: {},     // { [questionId]: true }
+      mode: `practice`,  // 'practice' | 'exam'
+      examSubmitted: false,
+      viewMode: `single`,// 'single' | 'list'
+      axisFilter: `all`, // 'all' | '0'..'7'
+      statusFilter: `all`,
+      searchQuery: ``,
+      currentQuestionId: 1
+    };
+
+    let appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+    let filteredQuestions = [];
+
+    function initAxisSelect() {
+      const select = document.getElementById(`select-axis`);
+      if (!select) return;
+      AXES.forEach(ax => {
+        const count = QUESTIONS.filter(q => q.axis === ax.id).length;
+        const opt = document.createElement(`option`);
+        opt.value = String(ax.id);
+        opt.textContent = `${ax.id + 1}. ${ax.title} (${count})`;
+        select.appendChild(opt);
+      });
+    }
+
+    function computeFilteredQuestions() {
+      const query = (appState.searchQuery || ``).trim().toLowerCase();
+      filteredQuestions = QUESTIONS.filter(q => {
+        if (appState.axisFilter !== `all` && String(q.axis) !== String(appState.axisFilter)) {
+          return false;
+        }
+        const chosen = appState.answers[q.id];
+        const hasAnswer = typeof chosen === `number`;
+        const isGraded = appState.mode === `practice` || appState.examSubmitted;
+
+        if (appState.statusFilter === `unanswered` && hasAnswer) return false;
+        if (appState.statusFilter === `bookmarked` && !appState.bookmarks[q.id]) return false;
+        if (appState.statusFilter === `wrong`) {
+          if (!hasAnswer || !isGraded || chosen === q.correct) return false;
+        }
+        if (appState.statusFilter === `correct`) {
+          if (!hasAnswer || !isGraded || chosen !== q.correct) return false;
+        }
+        if (query) {
+          const hay = `${q.prompt} ${q.article} ${q.rationale} ${q.options.join(` `)}`.toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+    }
+
+    function ensureCurrentInFiltered() {
+      if (filteredQuestions.length === 0) return;
+      const exists = filteredQuestions.some(q => q.id === appState.currentQuestionId);
+      if (!exists) {
+        appState.currentQuestionId = filteredQuestions[0].id;
+      }
+    }
+
+    function isQuestionGraded(qId) {
+      const hasAns = typeof appState.answers[qId] === `number`;
+      if (!hasAns) return false;
+      return appState.mode === `practice` || appState.examSubmitted;
+    }
+
+    function renderKPIs() {
+      const total = QUESTIONS.length;
+      let answeredCount = 0;
+      let correctCount = 0;
+      let wrongCount = 0;
+      let gradedCount = 0;
+      const bookmarkCount = Object.keys(appState.bookmarks).filter(k => appState.bookmarks[k]).length;
+
+      QUESTIONS.forEach(q => {
+        const chosen = appState.answers[q.id];
+        if (typeof chosen === `number`) {
+          answeredCount++;
+          if (appState.mode === `practice` || appState.examSubmitted) {
+            gradedCount++;
+            if (chosen === q.correct) correctCount++;
+            else wrongCount++;
+          }
+        }
+      });
+
+      const pctDone = Math.round((answeredCount / total) * 100);
+      const pctAcc = gradedCount > 0 ? Math.round((correctCount / gradedCount) * 100) : null;
+
+      const elAnswered = document.getElementById(`kpi-answered`);
+      const elPercent = document.getElementById(`kpi-percent`);
+      const elCorrect = document.getElementById(`kpi-correct`);
+      const elAccuracy = document.getElementById(`kpi-accuracy`);
+      const elWrong = document.getElementById(`kpi-wrong`);
+      const elBookmarks = document.getElementById(`kpi-bookmarks`);
+      const elFiltered = document.getElementById(`kpi-filtered`);
+      const elModeLabel = document.getElementById(`kpi-mode-label`);
+
+      if (elAnswered) elAnswered.textContent = `${answeredCount} / ${total}`;
+      if (elPercent) elPercent.textContent = `نسبة الإنجاز: ${pctDone}%`;
+      if (elCorrect) elCorrect.textContent = appState.mode === `exam` && !appState.examSubmitted ? `—` : String(correctCount);
+      if (elAccuracy) {
+        elAccuracy.textContent = appState.mode === `exam` && !appState.examSubmitted
+          ? `بانتظار التصحيح النهائي`
+          : (pctAcc === null ? `دقة التصحيح: —` : `دقة التصحيح: ${pctAcc}%`);
+      }
+      if (elWrong) elWrong.textContent = appState.mode === `exam` && !appState.examSubmitted ? `—` : String(wrongCount);
+      if (elBookmarks) elBookmarks.textContent = `الأسئلة المعلّمة: ${bookmarkCount}`;
+      if (elFiltered) elFiltered.textContent = `${filteredQuestions.length} سؤال`;
+      if (elModeLabel) {
+        elModeLabel.textContent = appState.mode === `practice`
+          ? `وضع التدريب المباشر`
+          : (appState.examSubmitted ? `امتحان تقييمي (مُصحّح)` : `امتحان تقييمي (قيد الإنجاز)`);
+      }
+
+      const barCorrect = document.getElementById(`bar-correct`);
+      const barWrong = document.getElementById(`bar-wrong`);
+      const barEl = document.getElementById(`progress-bar`);
+      const sumText = document.getElementById(`progress-summary-text`);
+
+      if (appState.mode === `exam` && !appState.examSubmitted) {
+        const pendingPct = (answeredCount / total) * 100;
+        if (barCorrect) barCorrect.style.width = `${pendingPct}%`;
+        if (barWrong) barWrong.style.width = `0%`;
+        if (sumText) sumText.textContent = `${answeredCount} مجاب عنها · ${total - answeredCount} متبقية (التصحيح عند التسليم)`;
+        if (barEl) barEl.setAttribute(`aria-valuenow`, String(pctDone));
+      } else {
+        const cPct = (correctCount / total) * 100;
+        const wPct = (wrongCount / total) * 100;
+        if (barCorrect) barCorrect.style.width = `${cPct}%`;
+        if (barWrong) barWrong.style.width = `${wPct}%`;
+        if (sumText) sumText.textContent = `${correctCount} صحيحة · ${wrongCount} خاطئة · ${total - answeredCount} متبقية`;
+        if (barEl) barEl.setAttribute(`aria-valuenow`, String(pctDone));
+      }
+    }
+
+    function renderToolbarStates() {
+      const selAxis = document.getElementById(`select-axis`);
+      const selStatus = document.getElementById(`select-status`);
+      const inpSearch = document.getElementById(`input-search`);
+      if (selAxis) selAxis.value = String(appState.axisFilter);
+      if (selStatus) selStatus.value = String(appState.statusFilter);
+      if (inpSearch && inpSearch.value !== appState.searchQuery) inpSearch.value = appState.searchQuery;
+
+      const pBtn = document.getElementById(`mode-practice-btn`);
+      const eBtn = document.getElementById(`mode-exam-btn`);
+      if (pBtn) pBtn.classList.toggle(`is-active`, appState.mode === `practice`);
+      if (eBtn) eBtn.classList.toggle(`is-active`, appState.mode === `exam`);
+
+      const sBtn = document.getElementById(`view-single-btn`);
+      const lBtn = document.getElementById(`view-list-btn`);
+      if (sBtn) sBtn.classList.toggle(`is-active`, appState.viewMode === `single`);
+      if (lBtn) lBtn.classList.toggle(`is-active`, appState.viewMode === `list`);
+
+      const examBanner = document.getElementById(`exam-banner`);
+      const submitBtn = document.getElementById(`btn-submit-exam`);
+      const unlockBtn = document.getElementById(`btn-unlock-exam`);
+      const bannerText = document.getElementById(`exam-banner-text`);
+      if (examBanner) {
+        examBanner.style.display = appState.mode === `exam` ? `flex` : `none`;
+      }
+      if (submitBtn) submitBtn.style.display = appState.examSubmitted ? `none` : `inline-flex`;
+      if (unlockBtn) unlockBtn.style.display = appState.examSubmitted ? `inline-flex` : `none`;
+      if (bannerText) {
+        bannerText.textContent = appState.examSubmitted
+          ? `تم تصحيح الامتحان! يمكنك الآن مراجعة كل سؤال والاطلاع على التعليل القانوني وبرقم المادة.`
+          : `وضع الامتحان التقييمي نشط: تُحفظ اختياراتك دون إظهار التعليل القانوني إلى حين تسليم الاختبار.`;
+      }
+    }
+
+    function buildQuestionCardHtml(q, posIndex, totalFiltered, showNavBar) {
+      const chosen = appState.answers[q.id];
+      const hasAnswer = typeof chosen === `number`;
+      const graded = isQuestionGraded(q.id);
+      const isCorrect = graded && chosen === q.correct;
+      const isBookmarked = Boolean(appState.bookmarks[q.id]);
+      const axisObj = AXES[q.axis];
+      const locked = appState.mode === `exam` && appState.examSubmitted;
+
+      let optionsHtml = ``;
+      q.options.forEach((optText, idx) => {
+        let cls = `option-btn`;
+        let statusText = ``;
+
+        if (graded) {
+          if (idx === q.correct) {
+            cls += ` is-correct`;
+            statusText = `الإجابة الصحيحة`;
+          } else if (idx === chosen && chosen !== q.correct) {
+            cls += ` is-wrong`;
+            statusText = `اختيارك`;
+          }
+        } else if (hasAnswer && idx === chosen) {
+          cls += ` is-selected`;
+          statusText = `محدد`;
+        }
+
+        optionsHtml += `
+          <button type="button" class="${cls}" onclick="selectOption(${q.id}, ${idx})" ${locked ? `disabled` : ``}>
+            <span class="option-letter">${LETTERS[idx]}</span>
+            <span class="option-text">${optText}</span>
+            ${statusText ? `<span class="option-status-label">${statusText}</span>` : ``}
+          </button>
+        `;
+      });
+
+      let rationaleHtml = ``;
+      if (graded) {
+        const verdictClass = isCorrect ? `is-correct` : `is-wrong`;
+        const verdictTitle = isCorrect
+          ? `إجابة صحيحة`
+          : `إجابة خاطئة — الصواب: (${LETTERS[q.correct]})`;
+        rationaleHtml = `
+          <div class="rationale-box ${verdictClass}">
+            <div class="rationale-head">
+              <span class="rationale-verdict ${verdictClass}">${verdictTitle}</span>
+              <span class="rationale-article">السند القانوني: ${q.article} — القانون رقم 69.00</span>
+            </div>
+            <p class="rationale-text">${q.rationale}</p>
+          </div>
+        `;
+      }
+
+      let navHtml = ``;
+      if (showNavBar) {
+        const hasPrev = posIndex > 0;
+        const hasNext = posIndex < totalFiltered - 1;
+        navHtml = `
+          <div class="question-nav-bar">
+            <div class="nav-group">
+              <button type="button" class="btn btn-secondary" onclick="stepQuestion(-1)" ${!hasPrev ? `disabled` : ``}>السؤال السابق</button>
+              <button type="button" class="btn btn-primary" onclick="stepQuestion(1)" ${!hasNext ? `disabled` : ``}>السؤال التالي</button>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="jumpNextUnanswered()">التالي غير المجاب</button>
+          </div>
+        `;
+      }
+
+      return `
+        <article class="question-card" aria-label="سؤال رقم ${q.id}">
+          <div class="question-meta-row">
+            <div class="meta-tags">
+              <span class="stamp-tag is-navy">السؤال ${q.id} من 100</span>
+              <span class="stamp-tag">${axisObj ? axisObj.title : ``}</span>
+            </div>
+            <button type="button" class="bookmark-btn ${isBookmarked ? `is-saved` : ``}" onclick="toggleBookmark(${q.id})" aria-pressed="${isBookmarked ? `true` : `false`}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? `currentColor` : `none`}" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>${isBookmarked ? `معلّم للمراجعة` : `تعليم بنجمة`}</span>
+            </button>
+          </div>
+          <h3 class="question-prompt">${q.prompt}</h3>
+          <div class="options-list" role="group" aria-label="خيارات الإجابة">
+            ${optionsHtml}
+          </div>
+          ${rationaleHtml}
+          ${navHtml}
+        </article>
+      `;
+    }
+
+    function renderQuestionStage() {
+      const stage = document.getElementById(`question-stage`);
+      const heading = document.getElementById(`stage-heading`);
+      if (!stage) return;
+
+      if (filteredQuestions.length === 0) {
+        if (heading) heading.textContent = `لا توجد أسئلة مطابقة للتصفية`;
+        stage.innerHTML = `
+          <div class="empty-state">
+            <h3>لم يتم العثور على أسئلة مطابقة</h3>
+            <p>لم تُطابق معايير البحث أو التصفية الحالية أي سؤال من بنك الأسئلة المكون من 100 سؤال.</p>
+            <button type="button" class="btn btn-primary" onclick="clearAllFilters()">إعادة ضبط جميع المرشحات</button>
+          </div>
+        `;
+        return;
+      }
+
+      if (appState.viewMode === `list`) {
+        if (heading) heading.textContent = `قائمة الأسئلة المصفّاة (${filteredQuestions.length} سؤال)`;
+        let listHtml = `<div class="list-view-stack">`;
+        filteredQuestions.forEach((q, idx) => {
+          listHtml += buildQuestionCardHtml(q, idx, filteredQuestions.length, false);
+        });
+        listHtml += `</div>`;
+        stage.innerHTML = listHtml;
+      } else {
+        const posIndex = filteredQuestions.findIndex(q => q.id === appState.currentQuestionId);
+        const safeIdx = posIndex >= 0 ? posIndex : 0;
+        const activeQ = filteredQuestions[safeIdx];
+        if (heading) heading.textContent = `السؤال ${safeIdx + 1} ضمن النطاق (${activeQ.id} / 100)`;
+        stage.innerHTML = buildQuestionCardHtml(activeQ, safeIdx, filteredQuestions.length, true);
+      }
+    }
+
+    function renderNumberGrid() {
+      const grid = document.getElementById(`number-grid`);
+      const badge = document.getElementById(`nav-count-badge`);
+      if (!grid) return;
+      if (badge) badge.textContent = `${filteredQuestions.length} / 100`;
+
+      const filteredIds = new Set(filteredQuestions.map(q => q.id));
+      let html = ``;
+      QUESTIONS.forEach(q => {
+        const inFilter = filteredIds.has(q.id);
+        if (!inFilter) return;
+        const chosen = appState.answers[q.id];
+        const hasAns = typeof chosen === `number`;
+        const graded = isQuestionGraded(q.id);
+
+        let cls = `q-tile`;
+        if (q.id === appState.currentQuestionId && appState.viewMode === `single`) cls += ` is-current`;
+        if (graded) {
+          cls += chosen === q.correct ? ` is-correct` : ` is-wrong`;
+        } else if (hasAns) {
+          cls += ` is-answered-pending`;
+        }
+        if (appState.bookmarks[q.id]) cls += ` is-bookmarked`;
+
+        html += `<button type="button" class="${cls}" onclick="jumpToQuestion(${q.id})" title="الانتقال إلى السؤال ${q.id}">${q.id}</button>`;
+      });
+      grid.innerHTML = html;
+    }
+
+    function renderAxisTable() {
+      const tbody = document.getElementById(`axis-table-body`);
+      if (!tbody) return;
+      let html = ``;
+      const isGradedMode = appState.mode === `practice` || appState.examSubmitted;
+
+      AXES.forEach(ax => {
+        const axQuestions = QUESTIONS.filter(q => q.axis === ax.id);
+        let correctCount = 0;
+        let answeredCount = 0;
+        axQuestions.forEach(q => {
+          const chosen = appState.answers[q.id];
+          if (typeof chosen === `number`) {
+            answeredCount++;
+            if (chosen === q.correct) correctCount++;
+          }
+        });
+        const isActive = String(appState.axisFilter) === String(ax.id);
+        const colValue = isGradedMode ? `${correctCount}` : `${answeredCount}*`;
+        html += `
+          <tr class="${isActive ? `is-active-axis` : ``}">
+            <td>
+              <button type="button" class="axis-link-btn" onclick="toggleAxisFromTable(${ax.id})">${ax.id + 1}. ${ax.title}</button>
+            </td>
+            <td class="num-col">${colValue}</td>
+            <td class="num-col">${axQuestions.length}</td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById(`status-toast`);
+      if (!el) return;
+      el.textContent = msg;
+      setTimeout(() => {
+        if (el.textContent === msg) el.textContent = ``;
+      }, 2400);
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Ignore transient persistence error
+        }
+      }
+    }
+
+    function renderAll() {
+      computeFilteredQuestions();
+      ensureCurrentInFiltered();
+      renderToolbarStates();
+      renderKPIs();
+      renderQuestionStage();
+      renderNumberGrid();
+      renderAxisTable();
+    }
+
+    // === Event Handlers (all hoisted function declarations) ===
+    function selectOption(qId, optIdx) {
+      if (appState.mode === `exam` && appState.examSubmitted) return;
+      appState.answers[qId] = optIdx;
+      renderAll();
+      persistState();
+    }
+
+    function toggleBookmark(qId) {
+      if (appState.bookmarks[qId]) {
+        delete appState.bookmarks[qId];
+      } else {
+        appState.bookmarks[qId] = true;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function jumpToQuestion(qId) {
+      appState.currentQuestionId = qId;
+      if (appState.viewMode === `list`) {
+        appState.viewMode = `single`;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function stepQuestion(delta) {
+      if (filteredQuestions.length === 0) return;
+      const idx = filteredQuestions.findIndex(q => q.id === appState.currentQuestionId);
+      const nextIdx = Math.max(0, Math.min(filteredQuestions.length - 1, idx + delta));
+      appState.currentQuestionId = filteredQuestions[nextIdx].id;
+      renderAll();
+      persistState();
+    }
+
+    function jumpNextUnanswered() {
+      if (filteredQuestions.length === 0) return;
+      const idx = filteredQuestions.findIndex(q => q.id === appState.currentQuestionId);
+      for (let offset = 1; offset <= filteredQuestions.length; offset++) {
+        const candidate = filteredQuestions[(idx + offset) % filteredQuestions.length];
+        if (typeof appState.answers[candidate.id] !== `number`) {
+          appState.currentQuestionId = candidate.id;
+          renderAll();
+          persistState();
+          return;
+        }
+      }
+      showToast(`تمت الإجابة على جميع الأسئلة في هذا النطاق.`);
+    }
+
+    function setAxisFilter(val) {
+      appState.axisFilter = val;
+      renderAll();
+      persistState();
+    }
+
+    function toggleAxisFromTable(axisId) {
+      appState.axisFilter = String(appState.axisFilter) === String(axisId) ? `all` : String(axisId);
+      renderAll();
+      persistState();
+    }
+
+    function setStatusFilter(val) {
+      appState.statusFilter = val;
+      renderAll();
+      persistState();
+    }
+
+    function setSearchQuery(val) {
+      appState.searchQuery = val;
+      renderAll();
+      persistState();
+    }
+
+    function clearAllFilters() {
+      appState.axisFilter = `all`;
+      appState.statusFilter = `all`;
+      appState.searchQuery = ``;
+      renderAll();
+      persistState();
+    }
+
+    function setMode(mode) {
+      appState.mode = mode;
+      renderAll();
+      persistState();
+    }
+
+    function setViewMode(vMode) {
+      appState.viewMode = vMode;
+      renderAll();
+      persistState();
+    }
+
+    function submitExam() {
+      appState.examSubmitted = true;
+      renderAll();
+      persistState();
+      showToast(`تم تصحيح الامتحان وعرض التعليل القانوني.`);
+    }
+
+    function unlockExam() {
+      appState.examSubmitted = false;
+      renderAll();
+      persistState();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `اضغط مجددا لتأكيد المسح`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `إعادة تعيين التقدم`;
+          }
+        }, 3500);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `إعادة تعيين التقدم`;
+      appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      renderAll();
+      persistState();
+      showToast(`تمت إعادة تعيين كافة الإجابات.`);
+    }
+
+    function exportResultsCsv() {
+      const rows = [
+        [`رقم السؤال`, `المحور`, `السند القانوني`, `السؤال`, `إجابتك`, `الإجابة الصحيحة`, `الحالة`, `التعليل القانوني`]
+      ];
+      QUESTIONS.forEach(q => {
+        const chosen = appState.answers[q.id];
+        const hasAns = typeof chosen === `number`;
+        const status = !hasAns ? `غير مجاب` : (chosen === q.correct ? `صحيحة` : `خاطئة`);
+        const chosenText = hasAns ? q.options[chosen] : ``;
+        const correctText = q.options[q.correct];
+        const axTitle = AXES[q.axis] ? AXES[q.axis].title : ``;
+        rows.push([
+          String(q.id),
+          axTitle,
+          q.article,
+          q.prompt,
+          chosenText,
+          correctText,
+          status,
+          q.rationale
+        ]);
+      });
+      const csvBody = rows
+        .map(r => r.map(cell => `"${String(cell).replace(/"/g, `""`)}"`).join(`,`))
+        .join(`\n`);
+      const contentWithBom = `\uFEFF` + csvBody;
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: contentWithBom,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `qcm_loi_69_00_results.csv`
+        });
+        showToast(`تم تصدير ملف النتائج بنجاح.`);
+      } else {
+        showToast(`ميزة التصدير غير متاحة خارج بيئة التطبيق.`);
+      }
+    }
+
+    async function initApp() {
+      initAxisSelect();
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign(JSON.parse(JSON.stringify(DEFAULT_STATE)), saved);
+            if (!appState.answers || typeof appState.answers !== `object`) appState.answers = {};
+            if (!appState.bookmarks || typeof appState.bookmarks !== `object`) appState.bookmarks = {};
+          }
+        } catch (err) {
+          // Fall back to default state
+        }
+      }
+      renderAll();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>

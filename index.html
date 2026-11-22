@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مركز الاختبارات القانونية — edumaroc.org</title>
-  <meta name="description" content="اختبارات تفاعلية في القانون الإطار 51.17 ومرسوم الصفقات والمحاسبة العمومية، والامتحان الشامل 120 سؤال، ومشروع المؤسسة المندمج، ونظام المطعمة، ودليل التدبير المالي والمادي.">
+  <meta name="description" content="اختبارات تفاعلية في القانون الإطار 51.17 والقانون 69.00 للمراقبة المالية ومرسوم الصفقات والمحاسبة العمومية، والامتحان الشامل 120 سؤال، ومشروع المؤسسة المندمج، ونظام المطعمة، ودليل التدبير المالي والمادي.">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -78,6 +78,76 @@
       flex-direction: column;
       gap: 12px;
     }
+    .about {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 24px;
+      align-items: center;
+      background: var(--surface);
+      border-top: 3px solid var(--brass);
+      border-bottom: 1px solid var(--brass-soft);
+      padding: 26px 24px;
+      margin: 0 0 30px;
+    }
+    .about-photo {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--brass);
+      box-shadow: 0 2px 8px rgba(20, 33, 61, 0.18);
+    }
+    .about h2 {
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.5;
+      margin: 0 0 4px;
+    }
+    .about-name {
+      color: var(--brass);
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    .about-text {
+      display: block;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      text-align: left;
+    }
+    .about-source {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 8px 0 0;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .contact-label {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 7px 16px;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #f7f4ec;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .contact-link:hover { background: var(--navy-dark); }
+    .contact-link:focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
     .card-num {
       color: var(--brass);
       font-size: 13px;
@@ -134,6 +204,10 @@
     @media (max-width: 640px) {
       .hero { padding: 32px 16px; }
       .wrap { padding: 26px 16px 36px; }
+      .about { grid-template-columns: 1fr; justify-items: center; gap: 16px; padding: 22px 18px; text-align: center; }
+      .about-photo { width: 110px; height: 110px; }
+      .about-text { text-align: left; }
+      .contact-row { justify-content: center; }
       .card { padding: 20px 18px; }
     }
   </style>
@@ -148,6 +222,21 @@
   </header>
 
   <main class="wrap">
+    <section class="about" aria-labelledby="about-title">
+      <img class="about-photo" src="/about-me.jpg" alt="Sif Elarab Ayyoub" width="132" height="132">
+      <div class="about-body">
+        <h2 id="about-title">نبذة عني</h2>
+        <p class="about-name"><bdi dir="ltr">Sif Elarab Ayyoub</bdi></p>
+        <bdi dir="ltr" class="about-text">Hello, I’m Sif El Arab, a Web Designer and SEO Specialist with expertise in Google optimization. I’m also a Moroccan finance student with a strong passion for writing. I enjoy creating impactful digital experiences, contributing to my community, and engaging in travel and associative activities.</bdi>
+        <p class="about-source">المصدر: <bdi dir="ltr">edumaroc.org</bdi></p>
+        <div class="contact-row">
+          <span class="contact-label">تواصل معي عبر:</span>
+          <a class="contact-link" href="https://www.linkedin.com/in/sif-elarab/" target="_blank" rel="noopener noreferrer"><bdi dir="ltr">LinkedIn</bdi></a>
+          <a class="contact-link" href="https://www.instagram.com/_s1noo/" target="_blank" rel="noopener noreferrer"><bdi dir="ltr">Instagram</bdi></a>
+        </div>
+      </div>
+    </section>
+
     <h2 class="section-title">الاختبارات المتاحة</h2>
     <div class="cards">
       <article class="card">
@@ -233,13 +322,25 @@
         </div>
         <a class="btn" href="guide-gestion-financiere-materielle/">ابدأ اختبار التدبير المالي والمادي</a>
       </article>
+
+      <article class="card">
+        <span class="card-num">08</span>
+        <h2>القانون رقم <bdi dir="ltr">69.00</bdi> للمراقبة المالية للدولة</h2>
+        <p>بنك أسئلة يغطي المبادئ العامة والهيئات الخاضعة، المراقبة القبلية، مهام مراقب الدولة ومندوب الحكومة، الخازن المكلف بالأداء، المراقبة المواكبة، لجان التدقيق، المراقبة التعاقدية، والمصادقة على الحسابات والتقارير.</p>
+        <div class="meta">
+          <span class="chip">100 سؤال</span>
+          <span class="chip">8 محاور</span>
+          <span class="chip">تصحيح فوري ووضع امتحان</span>
+        </div>
+        <a class="btn" href="loi-69-00-controle-financier/">ابدأ اختبار المراقبة المالية</a>
+      </article>
     </div>
 
     <div class="soon">اختبارات أخرى قيد التحضير وستضاف إلى هذا المركز قريبا إن شاء الله.</div>
   </main>
 
   <footer class="foot">
-    المرجع: القانون الإطار رقم <bdi dir="ltr">51.17</bdi> والمرسوم رقم <bdi dir="ltr">2.22.431</bdi> والمرسوم الملكي رقم <bdi dir="ltr">330.66</bdi> والمذكرة رقم <bdi dir="ltr">014x24</bdi> والدليل المسطري لنظام المطعمة <bdi dir="ltr">2022</bdi> ودليل التدبير المالي والمادي — المملكة المغربية.
+    المرجع: القانون الإطار رقم <bdi dir="ltr">51.17</bdi> والقانون رقم <bdi dir="ltr">69.00</bdi> والمرسوم رقم <bdi dir="ltr">2.22.431</bdi> والمرسوم الملكي رقم <bdi dir="ltr">330.66</bdi> والمذكرة رقم <bdi dir="ltr">014x24</bdi> والدليل المسطري لنظام المطعمة <bdi dir="ltr">2022</bdi> ودليل التدبير المالي والمادي — المملكة المغربية.
     <br>Sif Elarab Ayyoub — <bdi dir="ltr">www.edumaroc.org</bdi>
   </footer>
 </body>
