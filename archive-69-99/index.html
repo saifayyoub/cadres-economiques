@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>اختبار القانون رقم 69.99 المتعلق بالأرشيف — بنك الأسئلة التفاعلي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Charter palette */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      --primary: #14213d;
+      --primary-hover: #0d1629;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Derived semantic washes */
+      --positive: #2d5a4a;
+      --positive-container: #e3ede8;
+      --warning: #8a6a35;
+      --warning-container: #f4ecdc;
+      --error-container: #f7e4e4;
+      --title-lede: #dcd6c8;
+      --brass-on-navy: #d9c093;
+      --focus: #14213d;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Typography */
+      --font-headline: 'Amiri', serif;
+      --font-body: 'Noto Sans Arabic', sans-serif;
+      --font-label: 'Noto Sans Arabic', sans-serif;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.03rem);
+      --label-size: 0.78rem;
+
+      /* Shape */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Title band */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-xl) var(--space-lg);
+      border-bottom: 3px solid var(--outline);
+    }
+    .title-band-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--brass-on-navy);
+      margin: 0 0 var(--space-xs);
+      letter-spacing: 0;
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.2;
+      color: var(--on-primary);
+      margin: 0 0 var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline);
+    }
+    .title-band .lede {
+      color: var(--title-lede);
+      margin: 0;
+      max-width: 68ch;
+      font-size: var(--body-size);
+    }
+
+    /* Main Layout */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1220px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Scoreboard Figures */
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-xs);
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      letter-spacing: 0;
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+    .figure-delta {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+    .figure-delta.is-positive { color: var(--secondary); }
+    .figure-delta.is-error { color: var(--error); }
+
+    /* Section Head */
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    /* Controls Bar */
+    .controls-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-group label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .field-control {
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: 0.6rem var(--space-md);
+      min-height: 44px;
+      width: 100%;
+      cursor: pointer;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .field-control:hover {
+      background-color: var(--background);
+    }
+    .field-control:focus-visible {
+      border-color: var(--primary);
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: end;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: 0.55rem var(--space-md);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: var(--body-size);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+    .btn-danger {
+      background-color: var(--error-container);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+    .btn-danger:hover:not(:disabled) {
+      background-color: var(--error);
+      color: var(--on-error);
+    }
+
+    /* Two-column Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Question Card */
+    .question-stage {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+    .question-meta-start {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .q-number-badge {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    .axis-stamp {
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background-color: transparent;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .bookmark-btn {
+      min-height: 44px;
+      padding: 0.35rem 0.75rem;
+      background-color: transparent;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .bookmark-btn:hover {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .bookmark-btn.is-active {
+      background-color: var(--warning-container);
+      border-color: var(--outline);
+      color: var(--tertiary);
+    }
+
+    .question-prompt {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.38rem);
+      line-height: 1.5;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      width: 100%;
+      min-height: 50px;
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      text-align: right;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-letter {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+    .option-text {
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .option-btn.is-correct {
+      background-color: var(--positive-container);
+      border-color: var(--secondary);
+      box-shadow: inset 0 0 0 1px var(--secondary);
+    }
+    .option-btn.is-correct .option-letter {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: var(--on-primary);
+    }
+    .option-btn.is-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      box-shadow: inset 0 0 0 1px var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background-color: var(--error);
+      border-color: var(--error);
+      color: var(--on-error);
+    }
+
+    /* Immediate Feedback Box */
+    .feedback-panel {
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      border-right: 4px solid var(--outline);
+      background-color: var(--surface-container);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      animation: fadeSlide var(--dur-short) var(--ease-out);
+    }
+    .feedback-panel.is-correct {
+      background-color: var(--positive-container);
+      border-right-color: var(--secondary);
+    }
+    .feedback-panel.is-wrong {
+      background-color: var(--error-container);
+      border-right-color: var(--error);
+    }
+    .feedback-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .feedback-verdict {
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .feedback-panel.is-correct .feedback-verdict { color: var(--secondary); }
+    .feedback-panel.is-wrong .feedback-verdict { color: var(--error); }
+    .article-citation {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.6rem;
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      color: var(--primary);
+      font-size: var(--label-size);
+      font-weight: 700;
+    }
+    .feedback-explanation {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.65;
+    }
+
+    /* Question Card Footer Nav */
+    .stage-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+    .stage-nav-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Sidebar Panels */
+    .sidebar-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .sidebar-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .sidebar-panel h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0;
+      color: var(--on-surface);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-xs);
+    }
+
+    /* Question Navigator Grid */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+      gap: var(--space-xs);
+      max-height: 310px;
+      overflow-y: auto;
+      padding: 2px;
+    }
+    .nav-cell {
+      min-height: 38px;
+      background-color: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .nav-cell:hover {
+      background-color: var(--surface-container);
+    }
+    .nav-cell.is-current {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .nav-cell.is-correct:not(.is-current) {
+      background-color: var(--positive-container);
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+    .nav-cell.is-wrong:not(.is-current) {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .nav-cell.is-bookmarked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--outline);
+      border-radius: var(--rounded);
+    }
+
+    .nav-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      display: inline-block;
+    }
+    .swatch-current { background-color: var(--primary); border-color: var(--primary); }
+    .swatch-correct { background-color: var(--positive-container); border-color: var(--secondary); }
+    .swatch-wrong { background-color: var(--error-container); border-color: var(--error); }
+    .swatch-unanswered { background-color: var(--background); }
+
+    /* Axis Breakdown Table */
+    .axis-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--label-size);
+    }
+    .axis-table th {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 600;
+      text-align: right;
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: 1px solid var(--outline);
+    }
+    .axis-table td {
+      padding: var(--space-sm);
+      border-bottom: var(--hairline);
+      vertical-align: middle;
+    }
+    .axis-table .num-col {
+      text-align: left;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .axis-meter {
+      width: 100%;
+      height: 6px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      margin-top: var(--space-xs);
+    }
+    .axis-meter-fill {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .axis-row-btn {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      color: var(--primary);
+      font-weight: 600;
+      text-align: right;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--outline);
+    }
+    .axis-row-btn:hover {
+      color: var(--tertiary);
+    }
+
+    /* Empty State & Inline Notices */
+    .empty-state {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-xl) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      align-items: flex-start;
+    }
+    .empty-state h3 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin: 0;
+      font-size: var(--headline-size);
+    }
+    .inline-status-msg {
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      border-right: 3px solid var(--primary);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+
+    /* List Mode Container */
+    .list-mode-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .controls-panel {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="title-band">
+    <div class="title-band-inner">
+      <p class="title-kicker">الظهير الشريف رقم <bdi dir="ltr">1.07.167</bdi> &middot; القانون رقم <bdi dir="ltr">69.99</bdi> المتعلق بالأرشيف</p>
+      <h1>الاختبار التفاعلي الشامل في تشريع الأرشيف المغربي</h1>
+      <p class="lede">بنك أسئلة اختيار من متعدد يضم <bdi dir="ltr">110</bdi> أسئلة مؤصّلة بنصوص القانون رقم <bdi dir="ltr">69.99</bdi>، مع تصحيح فوري، وإحالة دقيقة على المواد القانونية، وتتبع للأداء عبر المحاور الستة.</p>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- Scoreboard Figures -->
+    <section aria-label="لوحة النتائج والإحصاءات">
+      <div class="figures-grid">
+        <div class="figure-card">
+          <span class="figure-label">نسبة النجاح الحالية</span>
+          <div class="figure-value" id="stat-accuracy">—</div>
+          <span class="figure-delta" id="stat-accuracy-note">لم تبدأ الإجابة بعد</span>
+        </div>
+        <div class="figure-card">
+          <span class="figure-label">تقدم الاختبار</span>
+          <div class="figure-value" id="stat-progress"><bdi dir="ltr">0 / 110</bdi></div>
+          <span class="figure-delta" id="stat-completion">نسبة الإنجاز: <bdi dir="ltr">0%</bdi></span>
+        </div>
+        <div class="figure-card">
+          <span class="figure-label">الإجابات الصحيحة</span>
+          <div class="figure-value" id="stat-correct"><bdi dir="ltr">0</bdi></div>
+          <span class="figure-delta is-positive" id="stat-wrong-note">الأخطاء المسجلة: <bdi dir="ltr">0</bdi></span>
+        </div>
+        <div class="figure-card">
+          <span class="figure-label">الرصيد المحفوظ للمراجعة</span>
+          <div class="figure-value" id="stat-bookmarks"><bdi dir="ltr">0</bdi></div>
+          <span class="figure-delta" id="stat-mode-label">الوضع: اختبار متسلسل</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls & Filters -->
+    <section aria-label="إعدادات الاختبار والتصفية">
+      <div class="controls-panel">
+        <div class="field-group">
+          <label for="axis-filter">المحور القانوني</label>
+          <select id="axis-filter" class="field-control" onchange="handleFilterChange()">
+            <option value="all">جميع المحاور (110 سؤالاً)</option>
+            <option value="definitions">1. التعريف والمبادئ والأرشيف العامة والخاصة (22)</option>
+            <option value="phases">2. تصنيف الأرشيف في ثلاث مراحل (18)</option>
+            <option value="retention">3. جداول الحفظ والفرز والإتلاف والتسليم (18)</option>
+            <option value="access">4. آجال الاطلاع العمومي والاستثناءات (22)</option>
+            <option value="institution">5. تنظيم ومهام «أرشيف المغرب» (20)</option>
+            <option value="sanctions">6. الأحكام الزجرية والمصالحات (10)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="status-filter">حالة الأسئلة</label>
+          <select id="status-filter" class="field-control" onchange="handleFilterChange()">
+            <option value="all">جميع الأسئلة</option>
+            <option value="unanswered">الأسئلة غير المجاب عنها</option>
+            <option value="wrong">الإجابات الخاطئة للمراجعة</option>
+            <option value="correct">الإجابات الصحيحة</option>
+            <option value="bookmarked">الأسئلة المحفوظة للمراجعة</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="mode-select">نمط العرض والاختبار</label>
+          <select id="mode-select" class="field-control" onchange="handleModeChange()">
+            <option value="single">اختبار تفاعلي (سؤال بسؤال)</option>
+            <option value="quick20">اختبار تجريبي عشوائي (20 سؤالاً)</option>
+            <option value="list">العرض الشامل (قائمة الأسئلة)</option>
+          </select>
+        </div>
+
+        <div class="actions-group">
+          <button type="button" class="btn btn-secondary" onclick="exportResultsCsv()">تصدير التقرير</button>
+          <button type="button" id="reset-btn" class="btn btn-danger" onclick="handleResetClick(this)">إعادة ضبط التقدم</button>
+        </div>
+      </div>
+      <div id="status-banner" class="inline-status-msg" style="display: none; margin-top: var(--space-sm);" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Main Workspace -->
+    <section class="workspace-grid" aria-label="منصة الاختبار والخريطة المرجعية">
+      <div class="question-stage" id="question-stage"></div>
+
+      <div class="sidebar-col">
+        <div class="sidebar-panel">
+          <h3>خريطة الأسئلة السريعة</h3>
+          <div class="nav-legend">
+            <span class="legend-item"><span class="legend-swatch swatch-current"></span> الحالي</span>
+            <span class="legend-item"><span class="legend-swatch swatch-correct"></span> صحيح</span>
+            <span class="legend-item"><span class="legend-swatch swatch-wrong"></span> خطأ</span>
+            <span class="legend-item"><span class="legend-swatch swatch-unanswered"></span> غير مجاب</span>
+          </div>
+          <div class="nav-grid" id="nav-grid" role="navigation" aria-label="التنقل بين الأسئلة"></div>
+        </div>
+
+        <div class="sidebar-panel">
+          <h3>الإتقان حسب المحاور الستة</h3>
+          <table class="axis-table">
+            <thead>
+              <tr>
+                <th>المحور</th>
+                <th class="num-col">النتيجة</th>
+              </tr>
+            </thead>
+            <tbody id="axis-breakdown-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>المصدر القانوني المعتمد: الظهير الشريف رقم <bdi dir="ltr">1.07.167</bdi> الصادر في <bdi dir="ltr">19</bdi> من ذي القعدة <bdi dir="ltr">1428</bdi> (<bdi dir="ltr">30</bdi> نوفمبر <bdi dir="ltr">2007</bdi>) بتنفيذ القانون رقم <bdi dir="ltr">69.99</bdi> المتعلق بالأرشيف (الأرشيف.pdf).</span>
+      <span>اختيارات الإجابة: أ &middot; ب &middot; ج &middot; د</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const AXES = {
+      definitions: `التعريف والمبادئ والأرشيف العامة والخاصة`,
+      phases: `تصنيف الأرشيف في ثلاث مراحل`,
+      retention: `جداول الحفظ والفرز والإتلاف والتسليم`,
+      access: `آجال الاطلاع العمومي والاستثناءات`,
+      institution: `تنظيم ومهام «أرشيف المغرب»`,
+      sanctions: `الأحكام الزجرية والمصالحات`
+    };
+
+    const LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    const QUESTIONS = [
+      // === المحور 1: التعريف والمبادئ العامة والأرشيف العامة والخاصة (22 سؤالاً) ===
+      {
+        id: 1,
+        axis: `definitions`,
+        prompt: `ما رقم الظهير الشريف وتاريخ صدوره بتنفيذ القانون رقم 69.99 المتعلق بالأرشيف؟`,
+        options: [
+          `ظهير شريف رقم 1.07.167 صادر في 30 نوفمبر 2007`,
+          `ظهير شريف رقم 1.99.266 صادر في 12 مارس 1999`,
+          `ظهير شريف رقم 1.05.19 صادر في 17 ديسمبر 2007`,
+          `ظهير شريف رقم 1.80.22 صادر في 19 ذي القعدة 1428`
+        ],
+        correct: 0,
+        article: `الديباجة — القانون رقم 69.99`,
+        explanation: `صدر تنفيذ القانون رقم 69.99 بموجب الظهير الشريف رقم 1.07.167 بتاريخ 19 من ذي القعدة 1428 الموافق 30 نوفمبر 2007، ونشر بالجريدة الرسمية عدد 5586.`
+      },
+      {
+        id: 2,
+        axis: `definitions`,
+        prompt: `ما الفصلان الدستوريان اللذان استند إليهما الظهير الشريف بتنفيذ القانون رقم 69.99؟`,
+        options: [
+          `الفصلان 19 و 45 من الدستور`,
+          `الفصلان 26 و 58 من الدستور`,
+          `الفصلان 30 و 62 من الدستور`,
+          `الفصلان 24 و 81 من الدستور`
+        ],
+        correct: 1,
+        article: `الديباجة — الظهير الشريف 1.07.167`,
+        explanation: `جاء في ديباجة الظهير الشريف رقم 1.07.167: «بناء على الدستور ولا سيما الفصلين 26 و 58 منه» وبموافقة مجلس النواب ومجلس المستشارين.`
+      },
+      {
+        id: 3,
+        axis: `definitions`,
+        prompt: `كيف عرّفت المادة 1 من القانون 69.99 مفهوم «الأرشيف»؟`,
+        options: [
+          `الوثائق الورقية الرسمية الصادرة عن الإدارات العمومية فقط`,
+          `الوثائق التاريخية التي مضى على إنتاجها ثلاثون سنة فأكثر`,
+          `جميع الوثائق كيفما كان تاريخها وشكلها وحاملها المادي التي ينتجها أو يتسلمها كل شخص طبيعي أو معنوي وكل مصلحة أو هيئة عامة أو خاصة خلال مزاولة نشاطهم`,
+          `المستندات الرقمية والملفات الإدارية المحفوظة لدى «أرشيف المغرب» دون غيرها`
+        ],
+        correct: 2,
+        article: `المادة 1 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `اعتمدت المادة 1 تعريفا شاملا لا يتقيد بتاريخ أو شكل أو حامل مادي، ويشمل الوثائق المنتجة أو المتسلمة من الأشخاص الطبيعيين والمعنويين والمصالح والهيئات العامة والخاصة أثناء مزاولة نشاطهم.`
+      },
+      {
+        id: 4,
+        axis: `definitions`,
+        prompt: `ما الغاية التي يتم لأجلها تكوين الأرشيف وحفظها حسب الفقرة الثانية من المادة 1؟`,
+        options: [
+          `لأجل الصالح العام: التدبير، وإثبات الحقوق، والبحث العلمي، وصيانة التراث الوطني`,
+          `لأجل التوثيق الإحصائي السنوي والمحاسبي للمؤسسات العمومية فقط`,
+          `لأجل حفظ الأسرار الإدارية ومنع تداولها بين الإدارات العمومية`,
+          `لأجل تسهيل إتلاف الوثائق الإدارية عند انتهاء كل سنة مالية`
+        ],
+        correct: 0,
+        article: `المادة 1 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `نصت المادة 1 على أن تكوين الوثائق وحفظها يتم لأجل الصالح العام سعيا لما تستلزمه الحاجة إلى التدبير وإثبات حقوق الأشخاص والبحث العلمي وصيانة التراث الوطني.`
+      },
+      {
+        id: 5,
+        axis: `definitions`,
+        prompt: `ما القاعدة التقنية والمنهجية التي فرضتها الفقرة الثالثة من المادة 1 عند حفظ رصيد الأرشيف؟`,
+        options: [
+          `إعادة ترتيب الوثائق أبجديا بغض النظر عن مصدرها الإداري`,
+          `احترام تمام الرصيد وبنيته الداخلية`,
+          `فصل الوثائق الورقية عن الحوامل الإلكترونية في جميع الحالات`,
+          `الاكتفاء بحفظ ملخصات الوثائق وإتلاف الأصول`
+        ],
+        correct: 1,
+        article: `المادة 1 (الفقرة 3) — القانون رقم 69.99`,
+        explanation: `تقضي المادة 1 بحفظ رصيد الأرشيف المكون من لدن الأشخاص والهيئات المشار إليها «مع احترام تمامه وبنيته الداخلية» تكريسا لمبدأ احترام الرصيد.`
+      },
+      {
+        id: 6,
+        axis: `definitions`,
+        prompt: `من يعد مسؤولا عن الوثائق التي أنتجها أو تلقاها أثناء ممارسة مهامه وفق المادة 2؟`,
+        options: [
+          `رئيس المؤسسة أو المدير العام وحده دون غيره`,
+          `مصلحة الضبط المركزية بالإدارة فقط`,
+          `أعوان الشرطة القضائية ومراقبو «أرشيف المغرب»`,
+          `كل موظف أو مستخدم تابع للأشخاص الطبيعيين أو المعنويين المشار إليهم في المادة 1`
+        ],
+        correct: 3,
+        article: `المادة 2 — القانون رقم 69.99`,
+        explanation: `تقرر المادة 2 المسؤولية الشخصية لكل موظف أو مستخدم تابع للأشخاص الطبيعيين أو المعنويين المشار إليهم في المادة 1 عن الوثائق التي أنتجها أو تلقاها أثناء ممارسة مهامه.`
+      },
+      {
+        id: 7,
+        axis: `definitions`,
+        prompt: `هل تقتصر مسؤولية الموظف أو المستخدم في المادة 2 على الوثائق التي أنتجها شخصيا؟`,
+        options: [
+          `نعم، لا يسأل إلا عما حرره ووقعه بنفسه`,
+          `لا، يسأل عن الوثائق التي أنتجها أو تلقاها أثناء ممارسة مهامه`,
+          `نعم، ما لم يتعلق الأمر بوثائق الأرشيف النهائية`,
+          `لا، يسأل فقط عن الوثائق السرية دون الوثائق العادية`
+        ],
+        correct: 1,
+        article: `المادة 2 — القانون رقم 69.99`,
+        explanation: `وسعت المادة 2 نطاق المسؤولية لتشمل كلتا الحالتين: الوثائق التي أنتجها الموظف أو المستخدم وتلك التي تلقاها أثناء ممارسة مهامه.`
+      },
+      {
+        id: 8,
+        axis: `definitions`,
+        prompt: `أي من الهيئات التالية تدخل وثائقها في عداد «الأرشيف العامة» وفق البند الأول من المادة 3؟`,
+        options: [
+          `الدولة والجماعات المحلية والمؤسسات والمنشآت العامة`,
+          `الشركات التجارية الخاصة غير المرتبطة بأي مرفق عام`,
+          `الجمعيات الثقافية المستقلة والوداديات السكنية`,
+          `المقاولات الفردية والمحلات الحرفية`
+        ],
+        correct: 0,
+        article: `المادة 3 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `حددت المادة 3 الأرشيف العامة في جميع الوثائق التي تكونها الدولة والجماعات المحلية والمؤسسات والمنشآت العامة في إطار مزاولة نشاطها.`
+      },
+      {
+        id: 9,
+        axis: `definitions`,
+        prompt: `في أي حدود تعتبر وثائق الهيئات الخاصة المكلفة بإدارة مرفق من المرافق العامة أرشيفا عامة؟`,
+        options: [
+          `تعتبر جميع وثائقها أرشيفا عامة بما فيها وثائقها التجارية الخاصة`,
+          `لا تعتبر وثائقها أرشيفا عامة إطلاقا لكونها هيئة خاصة`,
+          `فقط فيما يتعلق بالأرشيف الناتجة عن نشاط هذا المرفق العام`,
+          `فقط بعد انصرام ثلاثين سنة على إبرام عقد التدبير المفوض`
+        ],
+        correct: 2,
+        article: `المادة 3 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `أدرجت المادة 3 الهيئات الخاصة المكلفة بإدارة مرفق من المرافق العامة ضمن منتجي الأرشيف العامة، ولكن حصرا «فيما يتعلق بالأرشيف الناتجة عن نشاط هذا المرفق».`
+      },
+      {
+        id: 10,
+        axis: `definitions`,
+        prompt: `أي من السجلات والأصول التالية ألحقتها المادة 3 صراحة بـ «الأرشيف العامة»؟`,
+        options: [
+          `سجلات الحسابات البنكية للشركات المساهمة`,
+          `الأصول والفهارس التي يكونها الموثقون والعدول وسجلات الحالة المدنية وسجلات مصلحة التسجيل`,
+          `المخطوطات العائلية والمراسلات الشخصية للمؤرخين`,
+          `السجلات الداخلية للنقابات المهنية والأحزاب السياسية`
+        ],
+        correct: 1,
+        article: `المادة 3 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الثانية من المادة 3 على أن الأرشيف العامة تشمل كذلك الأصول والفهارس التي يكونها الموثقون والعدول وسجلات الحالة المدنية وسجلات مصلحة التسجيل.`
+      },
+      {
+        id: 11,
+        axis: `definitions`,
+        prompt: `ما الخاصية القانونية الحمائية التي أضفتها المادة 3 على الأرشيف العامة؟`,
+        options: [
+          `قابليتها للتقادم بعد مرور خمس عشرة سنة`,
+          `جواز تفويتها للخواص مقابل عوض مالي بقرار وزاري`,
+          `عدم قابليتها للتقادم أو التفويت`,
+          `قابليتها للرهن والحجز التحفظي لصالح الدائنين`
+        ],
+        correct: 2,
+        article: `المادة 3 (الفقرة 3) — القانون رقم 69.99`,
+        explanation: `تنص المادة 3 بصريح العبارة على أن «تعتبر الأرشيف العامة غير قابلة للتقادم أو التفويت»، حماية للملك العام الأرشيفي من الضياع أو التملك بالحيازة.`
+      },
+      {
+        id: 12,
+        axis: `definitions`,
+        prompt: `ما الواجب المفروض على كل شخص خاص (طبيعي أو معنوي) يحوز أرشيفا عامة بأية صفة من الصفات؟`,
+        options: [
+          `الاحتفاظ بها مدى الحياة مع السماح للباحثين بالاطلاع عليها في منزله`,
+          `ردها إلى الهيئة التي أنتجتها أو إلى «أرشيف المغرب» لأجل حفظها`,
+          `بيعها في المزاد العلني بعد إشعار المحكمة المختصة`,
+          `إتلافها فورا لتجنب المساءلة القانونية عن حيازتها`
+        ],
+        correct: 1,
+        article: `المادة 3 (الفقرة 4) — القانون رقم 69.99`,
+        explanation: `تلزم الفقرة الأخيرة من المادة 3 كل شخص خاص، طبيعيا كان أو معنويا، في حوزته أرشيف عامة بأية صفة كانت، بردها إلى الهيئة المنتجة أو إلى «أرشيف المغرب» المنصوص عليها في المادة 26 لأجل حفظها.`
+      },
+      {
+        id: 13,
+        axis: `definitions`,
+        prompt: `ما مصير أرشيف الإدارة أو الهيئة أو المؤسسة العمومية عند انتهاء نشاطها وفق المادة 4؟`,
+        options: [
+          `تسلم أرشيفها إلى «أرشيف المغرب» ما لم تسند اختصاصاتها إلى هيئة تخلفها`,
+          `تتلف جميع وثائقها العادية والوسيطة قبل إغلاق مقراتها`,
+          `توزع أرشيفها على الموظفين العاملين بها عند الحل`,
+          `تسلم أرشيفها مباشرة إلى المكتبة الوطنية للمملكة المغربية`
+        ],
+        correct: 0,
+        article: `المادة 4 — القانون رقم 69.99`,
+        explanation: `توجب المادة 4 على كل إدارة أو هيئة أو مؤسسة مشار إليها في المادة 3 عند انتهاء نشاطها أن تسلم أرشيفها إلى «أرشيف المغرب» ما لم تسند اختصاصاتها إلى هيئة تخلفها.`
+      },
+      {
+        id: 14,
+        axis: `definitions`,
+        prompt: `بالتعاون مع أي جهة يجب على الهيئات والمؤسسات العمومية إعداد وتنفيذ برنامج تدبير أرشيفها العادية والوسيطة؟`,
+        options: [
+          `مع وزارة العدل`,
+          `مع الخزينة العامة للمملكة`,
+          `مع «أرشيف المغرب» وفق مهامها`,
+          `مع المجالس الجهوية للحسابات`
+        ],
+        correct: 2,
+        article: `المادة 5 — القانون رقم 69.99`,
+        explanation: `تفرض المادة 5 على الأشخاص والهيئات والمؤسسات المشار إليها في المادة 3 القيام بتعاون مع «أرشيف المغرب» وفق مهامها بإعداد وتنفيذ برنامج لتدبير أرشيفها العادية والوسيطة.`
+      },
+      {
+        id: 15,
+        axis: `definitions`,
+        prompt: `ما النطاق الزمني الكامل الذي يغطيه برنامج تدبير الوثائق المنصوص عليه في المادة 5؟`,
+        options: [
+          `من تاريخ انتهاء الأجل الإداري إلى تاريخ الفرز فقط`,
+          `من يوم إحداث الوثائق إلى تاريخ تصنيفها النهائي في مصلحة أرشيف عامة أو تاريخ إتلافها`,
+          `من تاريخ تسليم الوثائق إلى «أرشيف المغرب» إلى نهاية أجل الثلاثين سنة`,
+          `من سنة 2007 إلى سنة 2017 فقط`
+        ],
+        correct: 1,
+        article: `المادة 5 — القانون رقم 69.99`,
+        explanation: `يحدد برنامج تدبير الأرشيف في المادة 5 الهياكل والوسائل والإجراءات التي تمكن من تدبير الوثائق طيلة دورة حياتها، أي من يوم إحداثها إلى تاريخ تصنيفها النهائي أو إتلافها.`
+      },
+      {
+        id: 16,
+        axis: `definitions`,
+        prompt: `كيف عرّفت المادة 23 «الأرشيف الخاصة»؟`,
+        options: [
+          `الوثائق السرية التابعة لوزارة الدفاع الوطني والداخلية`,
+          `الوثائق الشخصية لموظفي الدولة المحفوظة في مكاتبهم`,
+          `مجموع الوثائق المحددة في المادة 1 والتي لا تدخل في نطاق تطبيق المادة 3`,
+          `كل وثيقة لا يتجاوز عمرها خمس سنوات من تاريخ إنتاجها`
+        ],
+        correct: 2,
+        article: `المادة 23 — القانون رقم 69.99`,
+        explanation: `تعتمد المادة 23 تعريفا بالاستبعاد: فالأرشيف الخاصة هي مجموع الوثائق المشمولة بتعريف المادة 1 والتي لا تدخل ضمن فئة الأرشيف العامة المحددة في المادة 3.`
+      },
+      {
+        id: 17,
+        axis: `definitions`,
+        prompt: `ما الصيغ القانونية الأربع التي تؤهل بها «أرشيف المغرب» لاقتناء أو تلقي الأرشيف الخاصة حسب المادة 24؟`,
+        options: [
+          `نزع الملكية، أو المصادرة، أو الحجز، أو الضم الإجباري`,
+          `الشراء، أو الهبة، أو الوصية، أو الوديعة القابلة للاسترجاع`,
+          `الإيجار السنوي، أو الرهن الحيازي، أو المقايضة، أو الوقف المعقّب`,
+          `التفويت المجاني، أو التأميم، أو الإرث الشاغر، أو الحوالة`
+        ],
+        correct: 1,
+        article: `المادة 24 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تؤهل المادة 24 «أرشيف المغرب» لأجل صيانة تراث الأرشيف الوطني أن تتملك عن طريق الشراء أو تتلقى على سبيل الهبة أو الوصية أو الوديعة القابلة للاسترجاع أرشيفا خاصة.`
+      },
+      {
+        id: 18,
+        axis: `definitions`,
+        prompt: `باسم من ولحساب من يتم اقتناء أو تلقي الأرشيف الخاصة من قبل «أرشيف المغرب»؟`,
+        options: [
+          `باسم المدير العام ولحساب المجلس الإداري`,
+          `باسم «أرشيف المغرب» ولحسابها الخاص المستقل عن الدولة`,
+          `باسم الدولة ولحسابها`,
+          `باسم الوزارة الوصية ولحساب المكتبة الوطنية`
+        ],
+        correct: 2,
+        article: `المادة 24 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الثانية من المادة 24 على أن كل اقتناء للأرشيف الخاصة من طرف «أرشيف المغرب» بالشراء أو تلقيها بالهبة أو الوصية أو الوديعة القابلة للاسترجاع «يكون باسم الدولة ولحسابها».`
+      },
+      {
+        id: 19,
+        axis: `definitions`,
+        prompt: `كيف تحدد شروط وكيفيات اقتناء الأرشيف الخاصة والاطلاع عليها وفق المادة 24؟`,
+        options: [
+          `بموجب قرار انفرادي يصدره مدير «أرشيف المغرب»`,
+          `باتفاق مشترك بين الأطراف المعنية و«أرشيف المغرب»`,
+          `بأمر قضائي صادر عن المحكمة الإدارية بالرباط`,
+          `بنص تنظيمي موحد يسري جبرا على جميع الملاك الخواص`
+        ],
+        correct: 1,
+        article: `المادة 24 (الفقرة 3) — القانون رقم 69.99`,
+        explanation: `تترك المادة 24 تحديد شروط وكيفيات اقتناء الأرشيف الخاصة والاطلاع عليها للتعاقد التوافقي، أي «باتفاق مشترك بين الأطراف المعنية وأرشيف المغرب».`
+      },
+      {
+        id: 20,
+        axis: `definitions`,
+        prompt: `بمقتضى أي قانون يمكن تصنيف الأرشيف الخاصة ذات المنفعة العامة في عداد «الأرشيف التاريخية» وفق المادة 25؟`,
+        options: [
+          `القانون رقم 22.80 كما تم تغييره وتتميمه بالقانون رقم 19.05`,
+          `القانون رقم 31.13 المتعلق بالحق في الحصول على المعلومات`,
+          `القانون رقم 09.08 المتعلق بحماية المعطيات ذات الطابع الشخصي`,
+          `القانون رقم 62.99 المتعلق بمدونة المحاكم المالية`
+        ],
+        correct: 0,
+        article: `المادة 25 — القانون رقم 69.99`,
+        explanation: `تحيل المادة 25 على الشروط والأشكال المنصوص عليها في القانون رقم 22.80 المتعلق بالمحافظة على المباني التاريخية والمناظر والكتابات المنقوشة والتحف الفنية والعاديات، المغير والمتمم بالقانون رقم 19.05.`
+      },
+      {
+        id: 21,
+        axis: `definitions`,
+        prompt: `ما الآثار الخاصة التي أحالت المادة 25 في شأنها على القانون رقم 22.80 عند تصنيف الأرشيف الخاصة؟`,
+        options: [
+          `إعفاء مالك الأرشيف من الضرائب العقارية ومنح تعويض شهري دائم`,
+          `آثار التصنيف، وتفويت الأرشيف المصنفة، وحق الشفعة، والتصدير غير المشروع، والعقوبات المطبقة`,
+          `سقوط ملكية الخواص فورا ونقل الوثائق بالقوة العمومية إلى الرباط`,
+          `منع ورثة المالك من الاطلاع على الوثائق المصنفة لمدة مائة سنة`
+        ],
+        correct: 1,
+        article: `المادة 25 — القانون رقم 69.99`,
+        explanation: `نصت المادة 25 صراحة على تطبيق مقتضيات القانون 22.80 «ولا سيما تلك المتعلقة بآثار التصنيف وتفويت الأرشيف المصنفة وحق الشفعة والتصدير غير المشروع وكذا العقوبات المطبقة على مخالفة هذه المقتضيات».`
+      },
+      {
+        id: 22,
+        axis: `definitions`,
+        prompt: `ما المهام التي تتولاها «أرشيف المغرب» تجاه الأرشيف الخاصة التي تقتنيها أو تتلقاها بموجب المادة 24؟`,
+        options: [
+          `إيداعها في خزائن سرية دون معالجتها أو فهرستها`,
+          `بيع النسخ الأصلية للمتاحف الدولية عند الحاجة للتمويل`,
+          `حفظها ومعالجتها والتمكين من الاطلاع عليها`,
+          `تسليمها إلى الجماعات الترابية التي تقيم فيها الأسرة المالكة للوثائق`
+        ],
+        correct: 2,
+        article: `المادة 24 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 24 على أن «أرشيف المغرب» تتولى حفظ الأرشيف الخاصة المقتناة أو المتلقاة ومعالجتها والتمكين من الاطلاع عليها وفق الاتفاق المشترك.`
+      },
+
+      // === المحور 2: تصنيف الأرشيف في ثلاث مراحل (18 سؤالاً) ===
+      {
+        id: 23,
+        axis: `phases`,
+        prompt: `ما المراحل الثلاث التي تتكون منها الأرشيف العامة وفق المادة 6 من القانون 69.99؟`,
+        options: [
+          `أرشيف أولية، وأرشيف ثانوية، وأرشيف متقادمة`,
+          `أرشيف عادية، وأرشيف وسيطة، وأرشيف نهائية`,
+          `أرشيف جارية، وأرشيف سرية، وأرشيف تاريخية`,
+          `أرشيف ورقية، وأرشيف رقمية، وأرشيف سمعية بصرية`
+        ],
+        correct: 1,
+        article: `المادة 6 — القانون رقم 69.99`,
+        explanation: `تنص المادة 6 حرفيا على أن «تتكون الأرشيف العامة من أرشيف عادية ووسيطة ونهائية»، وهو التقسيم الثلاثي المعتمد لدورة حياة الأرشيف.`
+      },
+      {
+        id: 24,
+        axis: `phases`,
+        prompt: `كيف تعرّف المادة 7 «الأرشيف العادية»؟`,
+        options: [
+          `الوثائق التي تقرر حفظها الدائم بعد انتهاء عملية الفرز`,
+          `الوثائق التي يستعملها بصفة اعتيادية ولمدة محددة الأشخاص والهيئات والمؤسسات في إطار مزاولة نشاطها`,
+          `الوثائق التي لم تعد تستعمل إلا بصفة عرضية ولم يحدد مصيرها النهائي بعد`,
+          `الوثائق المجردة من كل فائدة علمية أو إحصائية أو تاريخية`
+        ],
+        correct: 1,
+        article: `المادة 7 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تعرّف المادة 7 الأرشيف العادية بأنها الوثائق المشار إليها في المادة 3 التي يستعملها بصفة اعتيادية ولمدة محددة الأشخاص والهيئات والمؤسسات المذكورة في إطار مزاولة نشاطها.`
+      },
+      {
+        id: 25,
+        axis: `phases`,
+        prompt: `بمن تناط مهمة حفظ «الأرشيف العادية» وفق الفقرة الثانية من المادة 7؟`,
+        options: [
+          `بمؤسسة «أرشيف المغرب» بالرباط وحدها`,
+          `بالهيئات التي أنتجتها أو تسلمتها`,
+          `بالمكتبة الوطنية للمملكة المغربية`,
+          `بمصالح الخزينة العامة أو المحاكم الإدارية`
+        ],
+        correct: 1,
+        article: `المادة 7 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تقضي المادة 7 بأن «تناط مهمة حفظ الأرشيف العادية بالهيئات التي أنتجتها أو تسلمتها».`
+      },
+      {
+        id: 26,
+        axis: `phases`,
+        prompt: `ما الخاصية المميزة لـ «الأرشيف الوسيطة» من حيث طبيعة استعمالها وفق المادة 8؟`,
+        options: [
+          `تستعمل بصفة يومية ومستمرة لإنجاز المعاملات الراهنة`,
+          `يمنع استعمالها من قبل الإدارة المنتجة منعا كليا`,
+          `تستعمل بصفة عرضية من قبل الهيئات التي أنتجتها، ولم يحدد بعد مصيرها النهائي`,
+          `توضع تلقائيا رهن إشارة الجمهور للبحث التاريخي`
+        ],
+        correct: 2,
+        article: `المادة 8 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تعرّف المادة 8 الأرشيف الوسيطة بأنها الوثائق التي لم تعد مصنفة ضمن الأرشيف العادية، والتي يمكن استعمالها بصفة عرضية من قبل الهيئات التي أنتجتها، والتي لم يحدد بعد مصيرها النهائي.`
+      },
+      {
+        id: 27,
+        axis: `phases`,
+        prompt: `أين يجب حفظ وتدبير «الأرشيف الوسيطة» ومن يتولى ذلك وفق المادة 8؟`,
+        options: [
+          `تتولاها «أرشيف المغرب» في مستودعاتها المركزية بالرباط`,
+          `تتولاها الهيئات التي أنتجتها في أماكن معدة لهذا الغرض`,
+          `تحفظ في مكاتب الموظفين الذين حرروا الوثائق نفسها`,
+          `تنقل فورا إلى مصالح الجماعات المحلية`
+        ],
+        correct: 1,
+        article: `المادة 8 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص المادة 8 على أنه «يجب أن تتولى حفظ وتدبير الأرشيف الوسيطة الهيئات التي أنتجتها في أماكن معدة لهذا الغرض».`
+      },
+      {
+        id: 28,
+        axis: `phases`,
+        prompt: `ما الالتزام الرقمي الذي أدرجته المادة 8 بخصوص «الأرشيف الوسيطة»؟`,
+        options: [
+          `تدمير النسخ الورقية فور مسحها ضوئيا`,
+          `القيام بحمايتها وحفظها تدريجيا في شكل أرشيف إلكترونية`,
+          `تشفير جميع الأرشيف الوسيطة ومنع نسخها إلكترونيا`,
+          `نشرها مباشرة على شبكة الإنترنت للعموم`
+        ],
+        correct: 1,
+        article: `المادة 8 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `ألزمت المادة 8 الهيئات المنتجة للأرشيف الوسيطة بأن «تقوم بحمايتها وحفظها تدريجيا في شكل أرشيف إلكترونية».`
+      },
+      {
+        id: 29,
+        axis: `phases`,
+        prompt: `متى تتحول الوثائق إلى «أرشيف نهائية» وفق المادة 10؟`,
+        options: [
+          `بمجرد توقيعها من طرف الإدارة المنتجة`,
+          `بعد انصرام آجال الحفظ في الجدول الزمني وإجراء الفرز الذي يقرر حفظها نهائيا`,
+          `تلقائيا بعد مرور سنة واحدة على إنتاجها دون أي فرز`,
+          `عند إغلاق المكتب الإداري الذي أصدرها فقط`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرتان 1 و 2) — القانون رقم 69.99`,
+        explanation: `بعد انصرام آجال الحفظ بالجدول الزمني تخضع الأرشيف للفرز، وتعتبر المادة 10 «أرشيفا نهائية الوثائق التي تقرر حفظها بعد الفرز».`
+      },
+      {
+        id: 30,
+        axis: `phases`,
+        prompt: `أي نوع من الأرشيف يعتبر «لم يحدد بعد مصيره النهائي»؟`,
+        options: [
+          `الأرشيف العادية`,
+          `الأرشيف الوسيطة`,
+          `الأرشيف النهائية`,
+          `الأرشيف الخاصة المصنفة`
+        ],
+        correct: 1,
+        article: `المادة 8 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 8 صراحة على أن الأرشيف الوسيطة هي الوثائق التي لم تعد عادية، ويمكن استعمالها عرضيا، «والتي لم يحدد بعد مصيرها النهائي».`
+      },
+      {
+        id: 31,
+        axis: `phases`,
+        prompt: `لمن يجب تسليم «الأرشيف النهائية» كقاعدة عامة وفق المادة 11؟`,
+        options: [
+          `إلى المجلس الأعلى للحسابات`,
+          `إلى الأمانة العامة للحكومة`,
+          `إلى مؤسسة «أرشيف المغرب»`,
+          `إلى الخزانة العامة للمملكة`
+        ],
+        correct: 2,
+        article: `المادة 11 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `توجب الفقرة الأولى من المادة 11 تسليم الأرشيف النهائية إلى «أرشيف المغرب».`
+      },
+      {
+        id: 32,
+        axis: `phases`,
+        prompt: `هل أعفى القانون الهيئات المنتجة للأرشيف النهائية من الحفظ الإلكتروني لها في المادة 11؟`,
+        options: [
+          `نعم، يقع الحفظ الإلكتروني على «أرشيف المغرب» فقط بعد التسليم`,
+          `لا، يتعين على الهيئات المنتجة للأرشيف النهائية القيام بحفظها تدريجيا في شكل أرشيف إلكترونية`,
+          `نعم، يقتصر الحفظ الإلكتروني على الأرشيف العادية دون النهائية`,
+          `لا، ولكن يشترط لذلك صدور حكم قضائي`
+        ],
+        correct: 1,
+        article: `المادة 11 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 11 على أنه «يجب تسليم الأرشيف النهائية إلى أرشيف المغرب ويتعين على الهيئات المنتجة لهذه الأرشيف القيام بحفظها تدريجيا في شكل أرشيف إلكترونية».`
+      },
+      {
+        id: 33,
+        axis: `phases`,
+        prompt: `متى يجوز لـ «أرشيف المغرب» أن تعهد إلى مصالح مختصة تابعة لبعض الإدارات أو الهيئات بحفظ أرشيفها النهائية؟`,
+        options: [
+          `في الحالات المحددة بنص تنظيمي ووفق شروط التعاون المحددة فيه`,
+          `بقرار شفوي من مدير المصلحة الإدارية المنتجة`,
+          `في جميع الحالات التي تتجاوز فيها الوثائق ألف ملف سنويا`,
+          `لا يجوز ذلك مطلقا لأن المادة 11 تمنع أي استثناء`
+        ],
+        correct: 0,
+        article: `المادة 11 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تستثني المادة 11 الحالات التي تحدد بنص تنظيمي وتعهد فيها «أرشيف المغرب» إلى المصالح المختصة التابعة لبعض الإدارات أو الهيئات أو المؤسسات بحفظ الأرشيف النهائية التي تنتجها أو تسلمها، مع تحديد شروط التعاون بينهما.`
+      },
+      {
+        id: 34,
+        axis: `phases`,
+        prompt: `ما الالتزامات المسندة إلى مصالح «أرشيف المغرب» ومصالح الأرشيف العامة الأخرى بشأن الأرشيف النهائية في المادة 12؟`,
+        options: [
+          `الفرز والإتلاف والبيع بالمزاد`,
+          `الجمع والجرد والتصنيف والوضع رهن إشارة الجمهور والحفظ والصيانة`,
+          `الترجمة إلى اللغات الأجنبية والنشر التجاري`,
+          `الإتلاف الإلكتروني والاحتفاظ بالنسخ الورقية فقط`
+        ],
+        correct: 1,
+        article: `المادة 12 — القانون رقم 69.99`,
+        explanation: `تلزم المادة 12 مصالح «أرشيف المغرب» ومصالح الأرشيف العامة الأخرى بجمع الأرشيف النهائية وجردها وتصنيفها ووضعها رهن إشارة الجمهور، كما تلزمها بحفظها وصيانتها.`
+      },
+      {
+        id: 35,
+        axis: `phases`,
+        prompt: `في أي مرحلة أرشيفية تكون الوثيقة مستعملة «بصفة اعتيادية ولمدة محددة»؟`,
+        options: [
+          `مرحلة الأرشيف العادية`,
+          `مرحلة الأرشيف الوسيطة`,
+          `مرحلة الأرشيف النهائية`,
+          `مرحلة ما بعد الفرز والإتلاف`
+        ],
+        correct: 0,
+        article: `المادة 7 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `يرتبط الاستعمال الاعتيادي والمحدد المدة في إطار مزاولة النشاط بالأرشيف العادية طبقا للمادة 7.`
+      },
+      {
+        id: 36,
+        axis: `phases`,
+        prompt: `ماذا يحدث للوثائق التي يثبت الفرز أنها مجردة من كل فائدة علمية أو إحصائية أو تاريخية؟`,
+        options: [
+          `تظل في مرحلة الأرشيف الوسيطة إلى الأبد`,
+          `يتعين إتلافها وفق قائمة وشروط متفق عليها`,
+          `تسلم إلى «أرشيف المغرب» لتصنف أرشيفا نهائية`,
+          `ترد إلى الموظف الذي أنتجها ليحتفظ بها`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرتان 1 و 2) — القانون رقم 69.99`,
+        explanation: `تخضع الأرشيف للفرز قصد تحديد الوثائق التي ينبغي حفظها نهائيا وتحديد الوثائق المجردة من كل فائدة علمية أو إحصائية أو تاريخية «والتي يتعين إتلافها».`
+      },
+      {
+        id: 37,
+        axis: `phases`,
+        prompt: `لماذا ألزمت المادة 8 بوضع الأرشيف الوسيطة في «أماكن معدة لهذا الغرض»؟`,
+        options: [
+          `لأنها لم تعد مصنفة ضمن الأرشيف العادية وتستوجب حفظا وتدبيرا خاصا حتى يتحدد مصيرها النهائي`,
+          `لإتاحة دخول العموم إليها يوميا دون ترخيص`,
+          `لتمكين الضابطة القضائية من حجزها`,
+          `لأن القانون يمنع بقاءها داخل بنايات الهيئة التي أنتجتها`
+        ],
+        correct: 0,
+        article: `المادة 8 — القانون رقم 69.99`,
+        explanation: `بانتهاء الاستعمال الاعتيادي للوثائق، تنتقل إلى الأرشيف الوسيطة لحاجتها إلى أماكن مهيأة تحميها وتضمن تدبيرها وحفظها في انتظار الفرز وتحديد المصير النهائي.`
+      },
+      {
+        id: 38,
+        axis: `phases`,
+        prompt: `أي عبارة تصف بدقة العلاقة بين مصالح الأرشيف العامة الأخرى و«أرشيف المغرب» في المادة 12؟`,
+        options: [
+          `تلتزم مصالح الأرشيف العامة الأخرى فقط بالحفظ دون الوضع رهن إشارة الجمهور`,
+          `تلتزم كل من مصالح «أرشيف المغرب» ومصالح الأرشيف العامة الأخرى بجمع وجرد وتصنيف الأرشيف النهائية ووضعها رهن إشارة الجمهور وحفظها وصيانتها`,
+          `لا وجود لمصالح أرشيف عامة أخرى غير «أرشيف المغرب»`,
+          `تقتصر مهام مصالح الأرشيف العامة الأخرى على الأرشيف العادية فقط`
+        ],
+        correct: 1,
+        article: `المادة 12 — القانون رقم 69.99`,
+        explanation: `تشمل المادة 12 صراحة «مصالح أرشيف المغرب ومصالح الأرشيف العامة الأخرى» بنفس الالتزامات المتعلقة بالأرشيف النهائية.`
+      },
+      {
+        id: 39,
+        axis: `phases`,
+        prompt: `ما الفرق بين حفظ «الأرشيف العادية» وحفظ «الأرشيف الوسيطة» من حيث الإلزام الإلكتروني الصريح؟`,
+        options: [
+          `القانون ألزم بالحفظ الإلكتروني للأرشيف العادية ولم يذكره في الوسيطة`,
+          `القانون نص صراحة على الحفظ الإلكتروني التدريجي في مادتي الأرشيف الوسيطة (8) والنهائية (11)`,
+          `القانون منع الحفظ الإلكتروني في المراحل الثلاث`,
+          `القانون قصر الحفظ الإلكتروني على الأرشيف الخاصة فقط`
+        ],
+        correct: 1,
+        article: `المادتان 8 و 11 — القانون رقم 69.99`,
+        explanation: `ورد الالتزام بالحماية والحفظ تدريجيا في شكل أرشيف إلكترونية صراحة في المادة 8 (الأرشيف الوسيطة) والمادة 11 (الأرشيف النهائية).`
+      },
+      {
+        id: 40,
+        axis: `phases`,
+        prompt: `هل يمكن أن تستعمل الهيئة المنتجة وثائق الأرشيف الوسيطة عند الحاجة؟`,
+        options: [
+          `نعم، يمكن استعمالها بصفة عرضية من قبل الهيئات التي أنتجتها`,
+          `لا، يمنع الرجوع إليها نهائيا بمجرد خروجها من الأرشيف العادية`,
+          `نعم، ولكن فقط بعد مرور ثلاثين سنة`,
+          `لا، إلا بأمر من النيابة العامة`
+        ],
+        correct: 0,
+        article: `المادة 8 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تسمح المادة 8 باستعمال الأرشيف الوسيطة «بصفة عرضية من قبل الهيئات التي أنتجتها».`
+      },
+
+      // === المحور 3: جداول الحفظ والفرز والإتلاف والتسليم (18 سؤالاً) ===
+      {
+        id: 41,
+        axis: `retention`,
+        prompt: `من الملزم بإعداد وتحيين «الجدول الزمني للحفظ» وفق المادة 9؟`,
+        options: [
+          `«أرشيف المغرب» وحدها نيابة عن كل الإدارات`,
+          `الأشخاص والمؤسسات والهيئات المشار إليها في المادة 3`,
+          `الوزير الأول بقرار دوري كل عشر سنوات`,
+          `الموثقون والعدول دون الإدارات العمومية`
+        ],
+        correct: 1,
+        article: `المادة 9 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تلزم المادة 9 الأشخاص والمؤسسات والهيئات المشار إليها في المادة 3 أعلاه بإعداد وتحيين جدول زمني للحفظ.`
+      },
+      {
+        id: 42,
+        axis: `retention`,
+        prompt: `ما العناصر التي يحددها «الجدول الزمني للحفظ» طبقا للمادة 9؟`,
+        options: [
+          `رواتب الموظفين المكلفين بالأرشيف وترقياتهم`,
+          `آجال حفظ الأرشيف العادية والأرشيف الوسيطة ومآلها النهائي`,
+          `قائمة الأشخاص الممنوعين من دخول قاعات المطالعة`,
+          `موازنة التجهيزات المعلوماتية للمؤسسات العمومية`
+        ],
+        correct: 1,
+        article: `المادة 9 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `يحدد الجدول الزمني للحفظ في المادة 9 آجال حفظ الأرشيف العادية والأرشيف الوسيطة ومآلها النهائي.`
+      },
+      {
+        id: 43,
+        axis: `retention`,
+        prompt: `بأي أداة قانونية تحدد كيفيات حفظ الأرشيف العادية والوسيطة وكيفيات إعداد جداول الحفظ والمصادقة عليها؟`,
+        options: [
+          `بدورية داخلية لمدير كل مؤسسة`,
+          `بنص تنظيمي`,
+          `بأمر قضائي إداري`,
+          `بعرف إداري غير مكتوب`
+        ],
+        correct: 1,
+        article: `المادة 9 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الثانية من المادة 9 على أن ذلك يحدد «بنص تنظيمي».`
+      },
+      {
+        id: 44,
+        axis: `retention`,
+        prompt: `ما الدور الذي تضطلع به «أرشيف المغرب» تجاه الهيئات العمومية بشأن الجداول الزمنية للحفظ حسب المادة 27؟`,
+        options: [
+          `إعفاؤها من إعداد الجداول متى طلبت ذلك`,
+          `تقديم المساعدة لها في إعداد جداول زمنية للحفظ وضمان المصادقة عليها`,
+          `تحرير محاضر مخالفة ضد كل هيئة تطلب المساعدة التقنية`,
+          `تفويض إعداد الجداول لشركات أجنبية خاصة`
+        ],
+        correct: 1,
+        article: `المادة 27 (البند 1) — القانون رقم 69.99`,
+        explanation: `يعهد إلى «أرشيف المغرب» في البند 1 من المادة 27 بتقديم المساعدة للأشخاص الطبيعيين والمعنويين المذكورين في المادة 3 فيما يتعلق بإعداد جداول زمنية للحفظ وضمان المصادقة عليها.`
+      },
+      {
+        id: 45,
+        axis: `retention`,
+        prompt: `كيف تحدد قائمة الوثائق التي يتعين إتلافها وشروط إتلافها حسب المادة 10؟`,
+        options: [
+          `بقرار أحادي تتخذه الهيئة المنتجة للوثائق`,
+          `باتفاق مشترك بين الهيئة التي أنتجتها أو تسلمتها و«أرشيف المغرب»`,
+          `بموافقة المجلس الجماعي المحلي فقط`,
+          `بإذن من قاضي المستعجلات`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تشترط المادة 10 أن تحدد قائمة الوثائق التي يتعين إتلافها وكذا شروط إتلافها «باتفاق مشترك بين الهيئة التي أنتجتها أو تسلمتها وأرشيف المغرب».`
+      },
+      {
+        id: 46,
+        axis: `retention`,
+        prompt: `بماذا تحدد إجراءات فرز الأرشيف وإتلافها وتسليمها إلى «أرشيف المغرب» وفق الفقرة الأخيرة من المادة 10؟`,
+        options: [
+          `بقانون مالي سنوي`,
+          `بنص تنظيمي`,
+          `بمقرر لمجلس النواب`,
+          `بتوصية غير ملزمة من اللجنة الاستشارية`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرة 3) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الأخيرة من المادة 10 على أن إجراءات فرز الأرشيف وإتلافها وتسليمها إلى «أرشيف المغرب» تحدد بنص تنظيمي.`
+      },
+      {
+        id: 47,
+        axis: `retention`,
+        prompt: `متى تبدأ عملية الفرز المنصوص عليها في المادة 10؟`,
+        options: [
+          `فور توقيع الوثيقة وختمها`,
+          `بعد انصرام آجال الحفظ المنصوص عليها في الجدول الزمني للحفظ`,
+          `بعد مرور ستين سنة على وفاة الموظف المنتج`,
+          `عند تغيير الوزير المشرف على القطاع فقط`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تخضع الأرشيف للفرز «بعد انصرام آجال الحفظ المنصوص عليها في الجدول الزمني المشار إليه في المادة 9 أعلاه».`
+      },
+      {
+        id: 48,
+        axis: `retention`,
+        prompt: `ما المعايير الثلاثة التي تفحص عند الفرز لتحديد الوثائق الواجب إتلافها؟`,
+        options: [
+          `القيمة المالية، والوزن الورقي، وسهولة الحفظ`,
+          `الفائدة العلمية، والفائدة الإحصائية، والفائدة التاريخية`,
+          `اللغة المكتوبة بها، وعدد الصفحات، وشكل الخط`,
+          `تاريخ النشر بالجريدة الرسمية، وموافقة الخازن العام`
+        ],
+        correct: 1,
+        article: `المادة 10 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 10 على أن الفرز يستهدف تحديد الوثائق الواجب حفظها نهائيا وتحديد «الوثائق المجردة من كل فائدة علمية أو إحصائية أو تاريخية والتي يتعين إتلافها».`
+      },
+      {
+        id: 49,
+        axis: `retention`,
+        prompt: `من يراقب شروط حفظ الأرشيف العادية والوسيطة الموجودة بحوزة الأشخاص والهيئات في المادة 3؟`,
+        options: [
+          `«أرشيف المغرب»`,
+          `المديرية العامة للأمن الوطني`,
+          `وزارة الاتصال فقط`,
+          `غرفة التجارة والصناعة`
+        ],
+        correct: 0,
+        article: `المادة 27 (البند 1) — القانون رقم 69.99`,
+        explanation: `من بين اختصاصات «أرشيف المغرب» في البند 1 من المادة 27: «مراقبة شروط حفظ الأرشيف العادية والوسيطة التي بحوزة هؤلاء الأشخاص الطبيعيين والمعنويين».`
+      },
+      {
+        id: 50,
+        axis: `retention`,
+        prompt: `ما الإجراء الواجب عند انتهاء نشاط مؤسسة عمومية دون أن تسند اختصاصاتها إلى هيئة تخلفها؟`,
+        options: [
+          `إتلاف جميع أرشيفها تفاديا لتراكمها`,
+          `تسليم أرشيفها إلى «أرشيف المغرب»`,
+          `ترك أرشيفها في المقر المغلق لمدة ثلاثين سنة`,
+          `تفويت أرشيفها لإحدى الجمعيات المحلية`
+        ],
+        correct: 1,
+        article: `المادة 4 — القانون رقم 69.99`,
+        explanation: `تلزم المادة 4 كل إدارة أو هيئة أو مؤسسة مشار إليها في المادة 3 عند انتهاء نشاطها بتسليم أرشيفها إلى «أرشيف المغرب» ما لم تسند اختصاصاتها إلى هيئة تخلفها.`
+      },
+      {
+        id: 51,
+        axis: `retention`,
+        prompt: `إذا انتهى نشاط هيئة عمومية وأسندت اختصاصاتها إلى هيئة تخلفها، فما مصير أرشيفها؟`,
+        options: [
+          `تسلم وجوبا إلى «أرشيف المغرب» في جميع الأحوال`,
+          `تنتقل إلى الهيئة التي تخلفها (استثناءً من التسليم الفوري لأرشيف المغرب)`,
+          `تتلف فورا باتفاق مع وزارة المالية`,
+          `تسلم إلى الشخص الخاص الذي يملك مقر الهيئة`
+        ],
+        correct: 1,
+        article: `المادة 4 — القانون رقم 69.99`,
+        explanation: `تستثني المادة 4 من واجب التسليم إلى «أرشيف المغرب» الحالة التي «تسند اختصاصاتها إلى هيئة تخلفها»، حيث تتولى الهيئة الخلف تدبير تلك الأرشيف.`
+      },
+      {
+        id: 52,
+        axis: `retention`,
+        prompt: `ما المقصود بالالتزام بـ «تحيين» الجدول الزمني للحفظ في المادة 9؟`,
+        options: [
+          `الاكتفاء بوضعه لمرة واحدة عند تأسيس الإدارة دون مراجعة`,
+          `تحديثه ومراجعته دوريا لمواكبة تطور أنشطة ووثائق الهيئة`,
+          `إتلاف الجدول الزمني القديم كل عام`,
+          `نشره في الجريدة الرسمية أسبوعيا`
+        ],
+        correct: 1,
+        article: `المادة 9 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `استعمل المشرع عبارة «إعداد وتحيين جدول زمني للحفظ» لفرض استمرارية مواكبة الجدول للتغييرات التنظيمية والوثائقية للهيئة.`
+      },
+      {
+        id: 53,
+        axis: `retention`,
+        prompt: `من يضع معايير عمليات جمع الأرشيف وفرزها وإتلافها وتصنيفها ووصفها وحفظها الوقائي وترميمها ونقلها في حوامل مخصصة للأرشيف؟`,
+        options: [
+          `كل إدارة عمومية على حدة`,
+          `«أرشيف المغرب»`,
+          `المعهد المغربي للتقييس وحده دون استشارة`,
+          `مجلس المستشارين`
+        ],
+        correct: 1,
+        article: `المادة 27 (البند 3) — القانون رقم 69.99`,
+        explanation: `ينص البند 3 من المادة 27 على اختصاص «أرشيف المغرب» بوضع معايير عمليات الجمع والفرز والإتلاف والتصنيف والوصف والحفظ الوقائي والترميم والنقل في حوامل مخصصة للأرشيف.`
+      },
+      {
+        id: 54,
+        axis: `retention`,
+        prompt: `ما الشرط اللازم لنقل رصيد الأرشيف المحفوظ لدى المكتبة الوطنية للمملكة المغربية إلى «أرشيف المغرب» وفق المادة 40؟`,
+        options: [
+          `نقله فورا دون أي جرد أو نص تنظيمي`,
+          `نقله بعد جرده، ابتداء من تاريخ نشر القانون، طبقا لإجراءات وشروط تحدد بمقتضى نص تنظيمي`,
+          `بقاؤه في المكتبة الوطنية لمدة ثلاثين سنة أخرى`,
+          `إتلاف نصف الرصيد قبل نقله`
+        ],
+        correct: 1,
+        article: `المادة 40 — القانون رقم 69.99`,
+        explanation: `تنص المادة 40 على نقل رصيد الأرشيف المحفوظ لدى المكتبة الوطنية بعد جرده إلى «أرشيف المغرب» ابتداء من تاريخ نشر القانون، وذلك طبقا لإجراءات وشروط تحدد بمقتضى نص تنظيمي.`
+      },
+      {
+        id: 55,
+        axis: `retention`,
+        prompt: `كيف يتكامل «برنامج تدبير الأرشيف» (المادة 5) مع «الجدول الزمني للحفظ» (المادة 9)؟`,
+        options: [
+          `البرنامج يدبر الوثائق من إحداثها حتى تصنيفها النهائي أو إتلافها، والجدول يحدد آجال حفظ العادية والوسيطة ومآلها النهائي`,
+          `كلاهما يتعلق فقط بالأرشيف الخاصة المصنفة`,
+          `الجدول الزمني يلغي برنامج تدبير الأرشيف بعد خمس سنوات`,
+          `البرنامج مخصص للوثائق الرقمية والجدول للوثائق الورقية فقط`
+        ],
+        correct: 0,
+        article: `المادتان 5 و 9 — القانون رقم 69.99`,
+        explanation: `يرسي برنامج التدبير الهياكل والوسائل والإجراءات الشاملة (المادة 5)، بينما يضبط الجدول الزمني للحفظ المدد الزمنية لكل فئة ومآلها النهائي (المادة 9).`
+      },
+      {
+        id: 56,
+        axis: `retention`,
+        prompt: `عندما تعهد «أرشيف المغرب» لإدارة ما بحفظ أرشيفها النهائية وفق المادة 11، من يحدد شروط التعاون بينهما؟`,
+        options: [
+          `النص التنظيمي الصادر تطبيقا للفقرة الثانية من المادة 11`,
+          `محضر شفوي بين الموظفين`,
+          `العرف الإداري المحلي`,
+          `اتفاق مع النيابة العامة`
+        ],
+        correct: 0,
+        article: `المادة 11 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تحدد بنص تنظيمي الحالات التي تعهد فيها «أرشيف المغرب» إلى بعض الإدارات أو الهيئات بحفظ أرشيفها النهائية وكذا شروط التعاون بينهما.`
+      },
+      {
+        id: 57,
+        axis: `retention`,
+        prompt: `ما الجواب الصحيح بخصوص جواز قيام إدارة عمومية بإتلاف وثائقها الوسيطة فور انتهاء أجلها المحدد في الجدول الزمني دون إشراك «أرشيف المغرب»؟`,
+        options: [
+          `يجوز ذلك لأن الأجل قد انصرم في الجدول الزمني`,
+          `لا يجوز، لأن الإتلاف يسبقه فرز وتحديد القائمة وشروط الإتلاف باتفاق مشترك مع «أرشيف المغرب»`,
+          `يجوز إذا كانت الوثائق باللغة العربية فقط`,
+          `يجوز بعد أخذ موافقة الموظف المنتج للوثيقة`
+        ],
+        correct: 1,
+        article: `المادة 10 — القانون رقم 69.99`,
+        explanation: `تخضع الوثائق بعد انصرام الآجال للفرز أولا، ولا تتلف الوثائق المجردة من الفائدة إلا وفق قائمة وشروط تحدد باتفاق مشترك بين الهيئة و«أرشيف المغرب» وطبقا لإجراءات النص التنظيمي.`
+      },
+      {
+        id: 58,
+        axis: `retention`,
+        prompt: `أي من المهام التالية تدخل ضمن التوجيه التقني الذي تقدمه «أرشيف المغرب» للإدارات في مجال التدبير وفق المادة 27؟`,
+        options: [
+          `النهوض ببرنامج تدبير الأرشيف العادية والوسيطة وتنسيقها وإعطاء التعليمات في هذا المجال`,
+          `تعيين رؤساء الأقسام الإدارية داخل الوزارات`,
+          `إعداد الميزانية السنوية للجماعات المحلية`,
+          `مراقبة الصفقات العمومية للبناء والتجهيز`
+        ],
+        correct: 0,
+        article: `المادة 27 (البند 1) — القانون رقم 69.99`,
+        explanation: `ينص البند 1 من المادة 27 على اختصاص «أرشيف المغرب» بـ «النهوض ببرنامج تدبير الأرشيف العادية والأرشيف الوسيطة... وتنسيقها وإعطاء التعليمات في هذا المجال».`
+      },
+
+      // === المحور 4: آجال الاطلاع العمومي والاستثناءات (22 سؤالاً) ===
+      {
+        id: 59,
+        axis: `access`,
+        prompt: `ما الالتزام الملقى على كل موظف أو مستخدم مكلف بجمع الأرشيف أو بالمحافظة عليها وفق المادة 13؟`,
+        options: [
+          `نشر كل الوثائق المحفوظة للعموم فور استلامها`,
+          `كتمان السر المهني فيما يتعلق بكل وثيقة لا يمكن قانونيا وضعها رهن إشارة العموم`,
+          `تسليم نسخ مجانية من جميع الوثائق لأي باحث جامعي دون ترخيص`,
+          `الاحتفاظ بنسخة شخصية من كل ملف إداري هام`
+        ],
+        correct: 1,
+        article: `المادة 13 — القانون رقم 69.99`,
+        explanation: `تلزم المادة 13 كل موظف أو مستخدم مكلف بجمع الأرشيف أو المحافظة عليها بكتمان السر المهني فيما يخص كل وثيقة لا يمكن قانونيا وضعها رهن إشارة العموم.`
+      },
+      {
+        id: 60,
+        axis: `access`,
+        prompt: `هل تفقد الإدارة التي سلمت وثائقها إلى «أرشيف المغرب» حق الرجوع إليها والاطلاع عليها بسبب آجال التقييد (30 أو 60 أو 100 سنة)؟`,
+        options: [
+          `نعم، تخضع الإدارة المنتجة لنفس آجال العموم بمجرد التسليم`,
+          `لا، تظل الوثائق المسلمة موضوعة رهن تصرف الأشخاص والإدارات والهيئات والمؤسسات التي قامت بتسليمها`,
+          `نعم، باستثناء الوثائق المالية التي تحتفظ بنسخة منها`,
+          `لا، ولكن لمدة خمس سنوات فقط بعد التسليم`
+        ],
+        correct: 1,
+        article: `المادة 14 — القانون رقم 69.99`,
+        explanation: `تضمن المادة 14 استمرارية الولوج للجهة المسلمة، فنصت على أن الوثائق المسلمة تظل موضوعة، بالرغم من أحكام المادتين 16 و 17، رهن تصرف الأشخاص والإدارات والهيئات والمؤسسات التي قامت بتسليمها.`
+      },
+      {
+        id: 61,
+        axis: `access`,
+        prompt: `أي وثائق يمكن لكل شخص راغب في الاطلاع عليها أن يطلع عليها فورا «دون مراعاة أي أجل» وفق المادة 15؟`,
+        options: [
+          `ملفات الموظفين ذات الطابع الطبي`,
+          `الوثائق التي توضع عادة رهن إشارة الجمهور أو الوثائق التي يرخص قانون خاص بالاطلاع عليها`,
+          `المساطر القضائية التمهيدية الجارية`,
+          `وثائق الدفاع الوطني غير المصنفة`
+        ],
+        correct: 1,
+        article: `المادة 15 — القانون رقم 69.99`,
+        explanation: `تستثني المادة 15 من أي أجل زمني بعض الوثائق التي توضع عادة رهن إشارة الجمهور أو الوثائق التي يرخص قانون خاص بالاطلاع عليها.`
+      },
+      {
+        id: 62,
+        axis: `access`,
+        prompt: `ما الأجل العام للاطلاع بكل حرية على الأرشيف العامة من طرف الجمهور حسب المادة 16؟`,
+        options: [
+          `عشر سنوات من تاريخ إنتاجها`,
+          `عشرون سنة من تاريخ تصنيفها`,
+          `ثلاثون سنة من تاريخ إنتاجها`,
+          `خمسون سنة من تاريخ تسليمها`
+        ],
+        correct: 2,
+        article: `المادة 16 — القانون رقم 69.99`,
+        explanation: `تقر المادة 16 القاعدة العامة: «يمكن للجمهور أن يطلع بكل حرية على الأرشيف العامة عند انصرام أجل ثلاثين سنة من تاريخ إنتاجها»، باستثناء حالات المادة 17.`
+      },
+      {
+        id: 63,
+        axis: `access`,
+        prompt: `من أي تاريخ يحتسب الأجل العام المحدد في ثلاثين سنة للاطلاع على الأرشيف العامة؟`,
+        options: [
+          `من تاريخ تسليم الوثيقة إلى «أرشيف المغرب»`,
+          `من تاريخ إنتاج الوثيقة`,
+          `من تاريخ وفاة كاتب الوثيقة`,
+          `من تاريخ انتهاء الأرشيف العادية`
+        ],
+        correct: 1,
+        article: `المادة 16 — القانون رقم 69.99`,
+        explanation: `نصت المادة 16 صراحة على أن أجل الثلاثين سنة يحتسب «من تاريخ إنتاجها».`
+      },
+      {
+        id: 64,
+        axis: `access`,
+        prompt: `إلى كم يرفع أجل الاطلاع على الوثائق المشتملة على معلومات فردية ذات طابع طبي وبملفات المستخدمين؟`,
+        options: [
+          `ستين سنة من تاريخ التعيين`,
+          `مائة سنة ابتداء من تاريخ ولادة المعني بالأمر`,
+          `خمسين سنة من تاريخ التقاعد`,
+          `ثلاثين سنة من تاريخ وفاة المعني بالأمر`
+        ],
+        correct: 1,
+        article: `المادة 17 (البند 1-أ) — القانون رقم 69.99`,
+        explanation: `يرفع الأجل بموجب المادة 17 (1-أ) إلى مائة سنة ابتداء من تاريخ ولادة المعني بالأمر بالنسبة للوثائق المشتملة على معلومات فردية ذات طابع طبي وبملفات المستخدمين.`
+      },
+      {
+        id: 65,
+        axis: `access`,
+        prompt: `من أي واقعة زمنية يبدأ احتساب أجل المائة سنة الخاص بالوثائق الطبية وملفات المستخدمين؟`,
+        options: [
+          `من تاريخ إنتاج الوثيقة الطبية أو الإدارية`,
+          `من تاريخ ولادة المعني بالأمر`,
+          `من تاريخ نهاية الخدمة الإدارية`,
+          `من تاريخ تسليم الملف لأرشيف المغرب`
+        ],
+        correct: 1,
+        article: `المادة 17 (البند 1-أ) — القانون رقم 69.99`,
+        explanation: `حددت المادة 17 (1-أ) نقطة انطلاق أجل المائة سنة «ابتداء من تاريخ ولادة المعني بالأمر» لضمان حماية خصوصيته طيلة حياته.`
+      },
+      {
+        id: 66,
+        axis: `access`,
+        prompt: `ما أجل الاطلاع العمومي على الأصول والفهارس لدى الموثقين والعدول وسجلات الحالة المدنية وسجلات مصلحة التسجيل؟`,
+        options: [
+          `ثلاثون سنة`,
+          `ستون سنة`,
+          `مائة سنة`,
+          `مائة وخمسون سنة`
+        ],
+        correct: 2,
+        article: `المادة 17 (البند 1-ب) — القانون رقم 69.99`,
+        explanation: `يرفع الأجل إلى مائة سنة بموجب البند (1-ب) من المادة 17 فيما يتعلق بالأصول والفهارس لدى الموثقين والعدول وسجلات الحالة المدنية وسجلات مصلحة التسجيل.`
+      },
+      {
+        id: 67,
+        axis: `access`,
+        prompt: `ما الأجل المطبق على الوثائق التي قد يمس الاطلاع عليها بأسرار الدفاع الوطني؟`,
+        options: [
+          `ثلاثون سنة من تاريخ النشر`,
+          `ستون سنة ابتداء من تاريخ العقد`,
+          `مائة سنة ابتداء من تاريخ ولادة الوزير`,
+          `لا تفتح للاطلاع العمومي إطلاقا`
+        ],
+        correct: 1,
+        article: `المادة 17 (البند 2-أ) — القانون رقم 69.99`,
+        explanation: `يرفع الأجل إلى ستين سنة ابتداء من تاريخ العقد بموجب البند (2-أ) من المادة 17 بالنسبة للوثائق التي قد يمس الاطلاع عليها بأسرار الدفاع الوطني.`
+      },
+      {
+        id: 68,
+        axis: `access`,
+        prompt: `أي من الفئات التالية تخضع لأجل ستين سنة ابتداء من تاريخ العقد وفق المادة 17؟`,
+        options: [
+          `الوثائق التي تمس باستمرارية سياسة المغرب الخارجية`,
+          `النصوص المنشورة في الجريدة الرسمية`,
+          `ملفات المستخدمين ذات الطابع الطبي`,
+          `الأدلة السياحية والمنشورات العمومية`
+        ],
+        correct: 0,
+        article: `المادة 17 (البند 2-أ) — القانون رقم 69.99`,
+        explanation: `من بين الفئات الخاضعة لأجل الستين سنة من تاريخ العقد في المادة 17: أسرار الدفاع الوطني، واستمرارية سياسة المغرب الخارجية، وأمن الدولة والسلامة العامة وسلامة الأشخاص، والمساطر القضائية، وسريرة الحياة الخاصة.`
+      },
+      {
+        id: 69,
+        axis: `access`,
+        prompt: `ما أجل الاطلاع على الوثائق المتعلقة بالمساطر القضائية والمساطر التمهيدية المتعلقة بها حسب المادة 17؟`,
+        options: [
+          `ثلاثون سنة من تاريخ صدور الحكم`,
+          `ستون سنة ابتداء من تاريخ العقد`,
+          `مائة سنة ابتداء من تاريخ ولادة القاضي`,
+          `عشرون سنة من تاريخ الحفظ النهائي`
+        ],
+        correct: 1,
+        article: `المادة 17 (البند 2-أ) — القانون رقم 69.99`,
+        explanation: `أدرجت المادة 17 (البند 2-أ) «المساطر القضائية والمساطر التمهيدية المتعلقة بها» ضمن الوثائق الخاضعة لأجل ستين سنة ابتداء من تاريخ العقد.`
+      },
+      {
+        id: 70,
+        axis: `access`,
+        prompt: `ما أجل الاطلاع على الوثائق التي قد يمس الاطلاع عليها بـ «سريرة الحياة الخاصة» وفق المادة 17؟`,
+        options: [
+          `ثلاثون سنة`,
+          `خمس وأربعون سنة`,
+          `ستون سنة ابتداء من تاريخ العقد`,
+          `مائة سنة ابتداء من تاريخ العقد`
+        ],
+        correct: 2,
+        article: `المادة 17 (البند 2-أ) — القانون رقم 69.99`,
+        explanation: `تخضع الوثائق التي قد يمس الاطلاع عليها بسريرة الحياة الخاصة لأجل ستين سنة ابتداء من تاريخ العقد طبقا للبند (2-أ) من المادة 17.`
+      },
+      {
+        id: 71,
+        axis: `access`,
+        prompt: `ما أجل الاطلاع على الوثائق التي تم جمعها في إطار الأبحاث الإحصائية للمرافق العامة والمشتملة على معلومات فردية عن الحياة الشخصية والعائلية؟`,
+        options: [
+          `ثلاثون سنة من تاريخ الإحصاء`,
+          `ستون سنة ابتداء من تاريخ الإحصاء أو البحث`,
+          `مائة سنة ابتداء من تاريخ ولادة المستجوب`,
+          `عشر سنوات من تاريخ نشر النتائج الإحصائية`
+        ],
+        correct: 1,
+        article: `المادة 17 (البند 2-ب) — القانون رقم 69.99`,
+        explanation: `ينص البند (2-ب) من المادة 17 على رفع الأجل إلى ستين سنة ابتداء من تاريخ الإحصاء أو البحث بالنسبة للوثائق المجمعة في إطار الأبحاث الإحصائية للمرافق العامة والمشتملة على معلومات فردية لها علاقة بالحياة الشخصية والعائلية والأفعال والتصرفات الخاصة.`
+      },
+      {
+        id: 72,
+        axis: `access`,
+        prompt: `ما الحالتان اللتان تندرجان في البند (2-أ) من المادة 17 الخاص بأجل الستين سنة إلى جانب الدفاع الوطني والسياسة الخارجية والحياة الخاصة والمساطر القضائية؟`,
+        options: [
+          `أمن الدولة أو السلامة العامة أو سلامة الأشخاص`,
+          `صفقات التجهيز المكتبي وأرشيف المهرجانات الثقافية`,
+          `سجلات الحالة المدنية وسجلات مصلحة التسجيل`,
+          `ملفات المستخدمين ذات الطابع الطبي`
+        ],
+        correct: 0,
+        article: `المادة 17 (البند 2-أ) — القانون رقم 69.99`,
+        explanation: `تشمل القائمة الخمسية في البند (2-أ): أسرار الدفاع الوطني، استمرارية سياسة المغرب الخارجية، أمن الدولة أو السلامة العامة أو سلامة الأشخاص، المساطر القضائية والمساطر التمهيدية، وسريرة الحياة الخاصة.`
+      },
+      {
+        id: 73,
+        axis: `access`,
+        prompt: `هل يمكن استثناءً السماح بالاطلاع على الأرشيف العامة قبل انصرام آجال 30 أو 60 أو 100 سنة؟`,
+        options: [
+          `لا، الآجال الزمنية قطعية لا تقبل أي استثناء`,
+          `نعم، يمكن أن تسمح «أرشيف المغرب» بالاطلاع لأغراض البحث العلمي، بعد موافقة الإدارة الأصلية`,
+          `نعم، بمجرد تقديم طلب إلى رئيس الجماعة الترابية`,
+          `لا، إلا بصدور ظهير شريف خاص لكل باحث`
+        ],
+        correct: 1,
+        article: `المادة 18 — القانون رقم 69.99`,
+        explanation: `تنص المادة 18 على أنه استثناء من أحكام المادتين 16 و 17 «يمكن أن تسمح أرشيف المغرب لأغراض البحث العلمي، وبعد موافقة الإدارة الأصلية، بالاطلاع على الأرشيف العامة».`
+      },
+      {
+        id: 74,
+        axis: `access`,
+        prompt: `ما المحظورات الثلاثة التي لا يجوز المساس بها عند منح الاستثناء للبحث العلمي في المادة 18؟`,
+        options: [
+          `أسرار الدفاع الوطني، أو أمن الدولة، أو الحياة الخاصة`,
+          `الأسرار التجارية، أو الميزانيات البلدية، أو نتائج الامتحانات`,
+          `سجلات الحالة المدنية، أو الرسوم العقارية، أو الأبحاث التاريخية`,
+          `القرارات التنظيمية، أو محاضر الاجتماعات الإدارية، أو الجداول الزمنية`
+        ],
+        correct: 0,
+        article: `المادة 18 — القانون رقم 69.99`,
+        explanation: `اشترطت المادة 18 لمنح الترخيص الاستثنائي للبحث العلمي: «على ألا يمس ذلك بأسرار الدفاع الوطني أو أمن الدولة أو الحياة الخاصة».`
+      },
+      {
+        id: 75,
+        axis: `access`,
+        prompt: `على نفقة من يتم إعداد النسخ أو المستخرجات التي يطلبها الشخص المرخص له بالاطلاع على الأرشيف العامة؟`,
+        options: [
+          `على نفقة «أرشيف المغرب»`,
+          `على نفقة الإدارة الأصلية المنتجة للوثيقة`,
+          `على نفقته الشخصية (طالب النسخ أو المستخرجات)`,
+          `على نفقة صندوق البحث العلمي بوزارة التعليم العالي`
+        ],
+        correct: 2,
+        article: `المادة 19 — القانون رقم 69.99`,
+        explanation: `تنص المادة 19 على أنه «يجوز لكل شخص مرخص له بالاطلاع على الأرشيف العامة أن يطلب إعداد نسخ أو مستخرجات منها على نفقته».`
+      },
+      {
+        id: 76,
+        axis: `access`,
+        prompt: `ما الحقوق القانونية التي يجب مراعاتها عند طلب إعداد نسخ أو مستخرجات من الأرشيف العامة حسب المادة 19؟`,
+        options: [
+          `النصوص التشريعية والتنظيمية المتضمنة لحقوق الملكية الصناعية والفكرية والحقوق المجاورة`,
+          `قانون الشغل ومدونة السير فقط`,
+          `النظام الأساسي لمستخدمي أرشيف المغرب فقط`,
+          `اتفاقيات التجارة الحرة والضرائب الجمركية`
+        ],
+        correct: 0,
+        article: `المادة 19 — القانون رقم 69.99`,
+        explanation: `أوجبت المادة 19 عند إعداد النسخ أو المستخرجات «مراعاة النصوص التشريعية والتنظيمية المتضمنة لحقوق الملكية الصناعية والفكرية والحقوق المجاورة».`
+      },
+      {
+        id: 77,
+        axis: `access`,
+        prompt: `من المؤهل قانونا لتسليم نسخ ومستخرجات مشهود بصحتها من وثائق الأرشيف المحفوظة لدى «أرشيف المغرب»؟`,
+        options: [
+          `أي باحث مرخص له بالاطلاع`,
+          `مؤسسة «أرشيف المغرب» مع مراعاة أحكام المادتين 16 و 17`,
+          `الموثقون والعدول دون غيرهم`,
+          `المكتبة الوطنية للمملكة المغربية`
+        ],
+        correct: 1,
+        article: `المادة 20 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تؤهل المادة 20 «أرشيف المغرب» لتسليم نسخ ومستخرجات مشهود بصحتها من وثائق الأرشيف المحفوظة لديها مع مراعاة آجال الاطلاع في المادتين 16 و 17.`
+      },
+      {
+        id: 78,
+        axis: `access`,
+        prompt: `من يتحمل مصاريف استنساخ الوثائق والتأشير عليها في الحالة المنصوص عليها في المادة 20؟`,
+        options: [
+          `الدولة عبر ميزانية التسيير`,
+          `من يطلب الوثائق المذكورة`,
+          `الإدارة التي سلمت الأرشيف`,
+          `المجلس الإداري لأرشيف المغرب`
+        ],
+        correct: 1,
+        article: `المادة 20 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الثانية من المادة 20 على أنه «يتحمل من يطلب الوثائق المذكورة مصاريف استنساخها والتأشير عليها».`
+      },
+      {
+        id: 79,
+        axis: `access`,
+        prompt: `كيف تحدد كيفيات السماح للمستعملين بالاطلاع على الأرشيف العامة وتسليم النسخ والمستخرجات المشهود بصحتها؟`,
+        options: [
+          `بنص تنظيمي`,
+          `بأمر قضائي عام`,
+          `بمقرر صادر عن مجلس النواب`,
+          `بنظام داخلي سري`
+        ],
+        correct: 0,
+        article: `المادة 21 — القانون رقم 69.99`,
+        explanation: `تقضي المادة 21 بأن تحدد بنص تنظيمي كيفيات السماح للمستعملين بالاطلاع على الأرشيف العامة وتسليم النسخ والمستخرجات المشهود بصحتها.`
+      },
+      {
+        id: 80,
+        axis: `access`,
+        prompt: `ما النظام القانوني الذي تظل خاضعة له الأرشيف العامة المتعلقة بالتاريخ العسكري وفق المادة 22؟`,
+        options: [
+          `تخضع لأجل الثلاثين سنة العام في المادة 16`,
+          `لا تطبق عليها مقتضيات باب الاطلاع وتظل خاضعة لمقتضيات الظهير الشريف رقم 1.99.266 بإحداث اللجنة المغربية للتاريخ العسكري`,
+          `تخضع لأجل الستين سنة فقط ثم تنشر للعموم دون أي قيد`,
+          `تدمج تلقائيا في أرصدة المكتبة الوطنية للمملكة المغربية`
+        ],
+        correct: 1,
+        article: `المادة 22 — القانون رقم 69.99`,
+        explanation: `تستثني المادة 22 الأرشيف العامة المتعلقة بالتاريخ العسكري من مقتضيات باب الاطلاع وتبقيها خاضعة فيما يخص التحديد والتصنيف والمحافظة وتيسير الاطلاع لمقتضيات الظهير الشريف رقم 1.99.266 الصادر في 25 من محرم 1420 (12 مارس 1999) بإحداث اللجنة المغربية للتاريخ العسكري.`
+      },
+
+      // === المحور 5: تنظيم ومهام «أرشيف المغرب» (20 سؤالاً) ===
+      {
+        id: 81,
+        axis: `institution`,
+        prompt: `ما الصفة القانونية لمؤسسة «أرشيف المغرب» المحدثة بموجب المادة 26؟`,
+        options: [
+          `مديرية مركزية تابعة لوزارة الثقافة دون شخصية معنوية`,
+          `مؤسسة عمومية تتمتع بالشخصية المعنوية والاستقلال المالي`,
+          `جمعية ذات منفعة عامة خاضعة لظهير الحريات العامة`,
+          `شركة مساهمة ذات رأسمال عمومي`
+        ],
+        correct: 1,
+        article: `المادة 26 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تحدث بموجب المادة 26 «مؤسسة عمومية تسمى أرشيف المغرب وتتمتع بالشخصية المعنوية والاستقلال المالي».`
+      },
+      {
+        id: 82,
+        axis: `institution`,
+        prompt: `أين حدد القانون رقم 69.99 مقر مؤسسة «أرشيف المغرب»؟`,
+        options: [
+          `بالدار البيضاء`,
+          `بفاس`,
+          `بالرباط`,
+          `بطنجة`
+        ],
+        correct: 2,
+        article: `المادة 26 (الفقرة 4) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الأخيرة من المادة 26 صراحة على أن «يحدد مقرها بالرباط».`
+      },
+      {
+        id: 83,
+        axis: `institution`,
+        prompt: `لأي أنواع الرقابة تخضع مؤسسة «أرشيف المغرب» حسب المادة 26؟`,
+        options: [
+          `لا تخضع لأي وصاية أو مراقبة لضمان استقلاليتها المطلقة`,
+          `تخضع لوصاية الدولة وللمراقبة المالية للدولة الجارية على المؤسسات العمومية والهيئات الأخرى`,
+          `تخضع لمراقبة مجلس المنافسة فقط`,
+          `تخضع لوصاية المجلس الجماعي لمدينة الرباط`
+        ],
+        correct: 1,
+        article: `المادة 26 (الفقرتان 2 و 3) — القانون رقم 69.99`,
+        explanation: `تخضع «أرشيف المغرب» لوصاية الدولة لضمان تقيد أجهزتها المختصة بأحكام القانون، وكذا للمراقبة المالية للدولة الجارية على المؤسسات العمومية والهيئات الأخرى.`
+      },
+      {
+        id: 84,
+        axis: `institution`,
+        prompt: `لأي أغراض تسير «أرشيف المغرب» عملية تيسير الاطلاع على الأرشيف العامة وفق المادة 27؟`,
+        options: [
+          `لأغراض تجارية وربحية محضة`,
+          `لأغراض إدارية أو علمية أو اجتماعية أو ثقافية`,
+          `لأغراض قضائية وأمنية حصرية`,
+          `لأغراض دبلوماسية خارجية فقط`
+        ],
+        correct: 1,
+        article: `المادة 27 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تناط بـ «أرشيف المغرب» مهمة صيانة تراث الأرشيف الوطني وتكوين أرشيف عامة وحفظها وتنظيمها وتيسير الاطلاع عليها «لأغراض إدارية أو علمية أو اجتماعية أو ثقافية».`
+      },
+      {
+        id: 85,
+        axis: `institution`,
+        prompt: `ما المهام المسندة لـ «أرشيف المغرب» في الفقرة الأخيرة من المادة 27 بشأن الأرشيف الموجود خارج المغرب؟`,
+        options: [
+          `إبرام اتفاقيات لمبادلة الأرشيف الوطنية بأرشيف أجنبية`,
+          `جمع مصادر الأرشيف المتعلقة بالمغرب والموجودة في الخارج، ومعالجتها وحفظها وتيسير الاطلاع عليها`,
+          `منع الباحثين المغاربة من استغلال الأرشيف الأجنبية`,
+          `رفع دعاوى قضائية آلية لاسترجاع كل الوثائق الأجنبية`
+        ],
+        correct: 1,
+        article: `المادة 27 (الفقرة الأخيرة) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الأخيرة من المادة 27 على أن تناط بـ «أرشيف المغرب» مهام «جمع مصادر الأرشيف المتعلقة بالمغرب والموجودة في الخارج، ومعالجتها وحفظها وتيسير الاطلاع عليها».`
+      },
+      {
+        id: 86,
+        axis: `institution`,
+        prompt: `كيف تنهض «أرشيف المغرب» بمجال الأرشيف وفق البند 4 من المادة 27؟`,
+        options: [
+          `عن طريق البحث العلمي والتكوين المهني والتعاون الدولي`,
+          `عن طريق فرض ضرائب إضافية على المطبوعات`,
+          `عن طريق احتكار طباعة الكتب التاريخية`,
+          `عن طريق إسناد تدبير الأرشيف إلى شركات أجنبية`
+        ],
+        correct: 0,
+        article: `المادة 27 (البند 4) — القانون رقم 69.99`,
+        explanation: `ينص البند 4 من المادة 27 على «النهوض بمجال الأرشيف عن طريق البحث العلمي والتكوين المهني والتعاون الدولي».`
+      },
+      {
+        id: 87,
+        axis: `institution`,
+        prompt: `ما جهازا الإدارة والتسيير اللذان يديران ويسيران «أرشيف المغرب» حسب المادة 28؟`,
+        options: [
+          `مجلس أمناء ولجنة تنفيذية`,
+          `مجلس إداري يديرها ومدير يسيرها`,
+          `جمعية عامة ومكتب مسير`,
+          `رئيس منتدب وكاتب عام`
+        ],
+        correct: 1,
+        article: `المادة 28 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 28 في مستهلها على أنه «يدير أرشيف المغرب مجلس إداري ويسيرها مدير».`
+      },
+      {
+        id: 88,
+        axis: `institution`,
+        prompt: `ممن يتألف المجلس الإداري لـ «أرشيف المغرب» بالإضافة إلى رئيسه؟`,
+        options: [
+          `من ممثلين عن الدولة ومن شخصيات يعينها الوزير الأول من القطاع العام أو الخاص بناء على كفاءتها في المحافظة على الأرشيف`,
+          `من عمداء كليات الآداب والعلوم الإنسانية فقط`,
+          `من ممثلي النقابات الأكثر تمثيلية ومنتخبي الجماعات الترابية`,
+          `من قضاة محكمة النقض وممثلي الغرف المهنية`
+        ],
+        correct: 0,
+        article: `المادة 28 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `يتألف المجلس الإداري بالإضافة إلى رئيسه من ممثلين عن الدولة ومن شخصيات يعينها الوزير الأول يتم اختيارها من القطاع العام أو الخاص بناء على كفاءتها فيما يتعلق بالمحافظة على الأرشيف.`
+      },
+      {
+        id: 89,
+        axis: `institution`,
+        prompt: `ما مدة انتداب الشخصيات المعينة في المجلس الإداري من لدن الوزير الأول، وما حكم تجديدها؟`,
+        options: [
+          `ثلاث سنوات غير قابلة للتجديد`,
+          `أربع سنوات قابلة للتجديد مرتين`,
+          `خمس سنوات قابلة للتجديد مرة واحدة`,
+          `ست سنوات قابلة للتجديد دون تحديد`
+        ],
+        correct: 2,
+        article: `المادة 28 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص المادة 28 على أن الشخصيات المعينة بناء على كفاءتها في المحافظة على الأرشيف «يعينون لمدة خمس سنوات قابلة للتجديد مرة واحدة».`
+      },
+      {
+        id: 90,
+        axis: `institution`,
+        prompt: `كم مرة على الأقل يجتمع مجلس إدارة «أرشيف المغرب» في السنة؟`,
+        options: [
+          `مرة واحدة في السنة`,
+          `مرتين في السنة على الأقل`,
+          `أربع مرات في السنة وجوبا`,
+          `كل شهر بصفة إجبارية`
+        ],
+        correct: 1,
+        article: `المادة 30 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `يجتمع مجلس الإدارة بدعوة من رئيسه كلما دعت الحاجة إلى ذلك، «وعلى الأقل مرتين في السنة» وفق المادة 30.`
+      },
+      {
+        id: 91,
+        axis: `institution`,
+        prompt: `ما الأجل المحدد لاجتماع مجلس الإدارة لحصر القوائم التركيبية للسنة المالية المختتمة؟`,
+        options: [
+          `قبل 31 مارس`,
+          `قبل 30 يونيو`,
+          `قبل 15 أكتوبر`,
+          `قبل 31 ديسمبر`
+        ],
+        correct: 1,
+        article: `المادة 30 (البند 1) — القانون رقم 69.99`,
+        explanation: `ينعقد الاجتماع الأول حسب المادة 30 «قبل 30 يونيو لحصر القوائم التركيبية للسنة المالية المختتمة».`
+      },
+      {
+        id: 92,
+        axis: `institution`,
+        prompt: `ما الأجل المحدد لاجتماع مجلس الإدارة لدراسة وحصر الميزانية والبرنامج التقديري للسنة المالية الموالية؟`,
+        options: [
+          `قبل 30 يونيو`,
+          `قبل 15 غشت`,
+          `قبل 15 أكتوبر`,
+          `قبل 15 يناير`
+        ],
+        correct: 2,
+        article: `المادة 30 (البند 2) — القانون رقم 69.99`,
+        explanation: `ينعقد الاجتماع الثاني حسب المادة 30 «قبل 15 أكتوبر لدراسة وحصر الميزانية والبرنامج التقديري للسنة المالية الموالية».`
+      },
+      {
+        id: 93,
+        axis: `institution`,
+        prompt: `ما النصاب القانوني المشترط لصحة مداولات مجلس إدارة «أرشيف المغرب» وفق المادة 30؟`,
+        options: [
+          `حضور ثلثي الأعضاء شخصيا دون إنابة`,
+          `أن يحضرها على الأقل نصف أعضائه أو يمثل فيها`,
+          `حضور الرئيس وثلاثة أعضاء فقط`,
+          `حضور جميع الأعضاء الممثلين للدولة`
+        ],
+        correct: 1,
+        article: `المادة 30 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص المادة 30 على أنه «يشترط لصحة مداولات المجلس أن يحضرها على الأقل نصف أعضائه أو يمثل فيها».`
+      },
+      {
+        id: 94,
+        axis: `institution`,
+        prompt: `كيف تتخذ قرارات مجلس الإدارة وما الحكم عند تعادل الأصوات؟`,
+        options: [
+          `بالإجماع التام، وإذا تعادلت يؤجل القرار إلى السنة الموالية`,
+          `بأغلبية ثلثي الأعضاء، وإذا تعادلت يلغى المقترح`,
+          `بأغلبية أصوات الأعضاء الحاضرين أو الممثلين، فإن تعادلت رجح الجانب الذي ينتمي إليه الرئيس`,
+          `بأغلبية الأعضاء الحاضرين، فإن تعادلت رجح جانب المدير`
+        ],
+        correct: 2,
+        article: `المادة 30 (الفقرة 3) — القانون رقم 69.99`,
+        explanation: `تتخذ القرارات بأغلبية أصوات الأعضاء الحاضرين أو الممثلين، وعند التعادل يرجح الجانب الذي ينتمي إليه الرئيس.`
+      },
+      {
+        id: 95,
+        axis: `institution`,
+        prompt: `ما المهام المسندة إلى «اللجنة الاستشارية» التي يجوز لمجلس الإدارة إحداثها في حظيرته وفق المادة 31؟`,
+        options: [
+          `ممارسة المتابعات الزجرية وإصدار أحكام الحبس`,
+          `الإدلاء برأيها في كل القضايا المسندة للمؤسسة، ومشاريع النصوص التشريعية والتنظيمية المتعلقة بالأرشيف، وكل قضية تعرضها عليها أرشيف المغرب`,
+          `التصويت على ميزانية المؤسسة بدلا من المجلس الإداري`,
+          `تعيين الموظفين الملحقين من الإدارات العامة`
+        ],
+        correct: 1,
+        article: `المادة 31 — القانون رقم 69.99`,
+        explanation: `تحدد المادة 31 دور اللجنة الاستشارية في الإدلاء برأيها في القضايا المسندة إلى المؤسسة، ومشاريع النصوص التشريعية والتنظيمية المتعلقة بالأرشيف، وكل قضية تعرضها عليها «أرشيف المغرب».`
+      },
+      {
+        id: 96,
+        axis: `institution`,
+        prompt: `طبقا لأي مادة من الدستور يعين مدير مؤسسة «أرشيف المغرب» وفق المادة 32؟`,
+        options: [
+          `المادة 24 من الدستور`,
+          `المادة 30 من الدستور`,
+          `المادة 58 من الدستور`,
+          `المادة 72 من الدستور`
+        ],
+        correct: 1,
+        article: `المادة 32 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تنص المادة 32 في مستهلها على أنه «يسير مؤسسة أرشيف المغرب مدير يعين طبقا للمادة 30 من الدستور» (دستور 1996 المعمول به عند صدور القانون).`
+      },
+      {
+        id: 97,
+        axis: `institution`,
+        prompt: `ما الإلزام الملقى على مدير «أرشيف المغرب» عند رفعه دعاوى قضائية للدفاع عن مصالح المؤسسة؟`,
+        options: [
+          `الحصول على إذن مسبق من البرلمان قبل رفع أي دعوى`,
+          `إخبار رئيس مجلس الإدارة فورا بذلك`,
+          `تكليف اللجنة الاستشارية بالترافع بدلا عنه`,
+          `إيداع نسخة من المقال الافتتاحي لدى المكتبة الوطنية`
+        ],
+        correct: 1,
+        article: `المادة 32 (البند 4) — القانون رقم 69.99`,
+        explanation: `يمثل المدير المؤسسة أمام القضاء ويجوز له رفع الدعاوى للدفاع عن مصالحها «على أن يخبر بذلك فورا رئيس مجلس الإدارة».`
+      },
+      {
+        id: 98,
+        axis: `institution`,
+        prompt: `على أنظار من يعرض مدير «أرشيف المغرب» التقرير السنوي حول نشاط المؤسسة في نهاية كل سنة مالية؟`,
+        options: [
+          `على أنظار الوزير الأول`,
+          `على أنظار مدير المكتبة الوطنية`,
+          `على أنظار رئيس محكمة الاستئناف بالرباط`,
+          `على أنظار والي جهة الرباط`
+        ],
+        correct: 0,
+        article: `المادة 32 (البند 7) — القانون رقم 69.99`,
+        explanation: `يحضر المدير في نهاية كل سنة مالية تقريرا حول نشاط المؤسسة «ويعرض هذا التقرير على أنظار الوزير الأول».`
+      },
+      {
+        id: 99,
+        axis: `institution`,
+        prompt: `أي من الموارد التالية وردت في باب مداخيل ميزانية «أرشيف المغرب» في المادة 33؟`,
+        options: [
+          `حاصل الأجرة عن الخدمات المقدمة وحاصل الرسوم شبه الضريبية المحدثة لفائدتها والإعانات المالية`,
+          `غرامات مخالفات مدونة السير بالرباط`,
+          `الاقتطاعات الإجبارية من أجور كافة موظفي الدولة`,
+          `الضريبة السنوية على القيمة المضافة`
+        ],
+        correct: 0,
+        article: `المادة 33 — القانون رقم 69.99`,
+        explanation: `تشمل مداخيل ميزانية المؤسسة في المادة 33: عائدات الممتلكات، حاصل الأجرة عن الخدمات المقدمة، حاصل الرسوم شبه الضريبية المحدثة لفائدتها، الاقتراضات المأذون بها، الإعانات المالية والهبات والوصايا، وسائر المداخيل المرتبطة بنشاطها.`
+      },
+      {
+        id: 100,
+        axis: `institution`,
+        prompt: `في أي مجال حلت «أرشيف المغرب» محل المكتبة الوطنية للمملكة المغربية وفق المادة 41؟`,
+        options: [
+          `في جميع اختصاصات الإيداع القانوني للكتب والمجلات`,
+          `في حقوقها والتزاماتها المتعلقة بالصفقات والعقود والاتفاقات المبرمة قبل دخول القانون حيز التنفيذ والمرتبطة بأنشطة المكتبة الوطنية في مجال الأرشيف`,
+          `في ملكية كافة البنايات الإدارية للمكتبة الوطنية بالرباط`,
+          `في إدارة المكتبات الجهوية التابعة لوزارة الثقافة`
+        ],
+        correct: 1,
+        article: `المادة 41 — القانون رقم 69.99`,
+        explanation: `تقضي المادة 41 بحلول «أرشيف المغرب» محل المكتبة الوطنية في حقوقها والتزاماتها المتعلقة بصفقات الدراسات والأشغال والتوريدات والنقل والعقود والاتفاقات المرتبطة بأنشطة المكتبة الوطنية «في مجال الأرشيف».`
+      },
+
+      // === المحور 6: الأحكام الزجرية والمصالحات (10 أسئلة) ===
+      {
+        id: 101,
+        axis: `sanctions`,
+        prompt: `ما العقوبة المقررة في المادة 35 لكل شخص قام بإتلاف أو اختلاس أو سرقة أرشيف عمومي في عهدته بحكم مهامه؟`,
+        options: [
+          `غرامة مالية فقط تتراوح بين 1000 و 5000 درهم`,
+          `عقوبة حبس تتراوح مدتها بين ثلاث سنوات وست سنوات`,
+          `عقوبة حبس من شهر واحد إلى ستة أشهر`,
+          `عقوبة تأديبية تقتصر على التوبيخ الإداري`
+        ],
+        correct: 1,
+        article: `المادة 35 — القانون رقم 69.99`,
+        explanation: `تنص المادة 35 على أن كل شخص قام بإتلاف أو اختلاس أو سرقة أرشيف عمومي في عهدته بحكم مهامه يتعرض لعقوبة حبس تتراوح مدتها بين ثلاث سنوات وست سنوات.`
+      },
+      {
+        id: 102,
+        axis: `sanctions`,
+        prompt: `هل يشترط لقيام جريمة المادة 35 (إتلاف أو اختلاس أو سرقة أرشيف عمومي في عهدة الموظف) ثبوت قصد الغش؟`,
+        options: [
+          `نعم، لا يعاقب الموظف إلا إذا ثبتت نية الغش والإضرار العمدي`,
+          `لا، يعاقب بالعقوبة المقررة «ولو دون أن يقصد إلى الغش»`,
+          `نعم، باستثناء حالة الإتلاف الكلي فقط`,
+          `لا يعاقب إلا إذا كان الأرشيف من الأرشيف النهائية`
+        ],
+        correct: 1,
+        article: `المادة 35 — القانون رقم 69.99`,
+        explanation: `شددت المادة 35 في المسؤولية الجنائية للمؤتمن بحكم مهامه، فنصت على العقاب «ولو دون أن يقصد إلى الغش».`
+      },
+      {
+        id: 103,
+        axis: `sanctions`,
+        prompt: `بأي نص جنائي تعاقب مخالفة أحكام المادة 13 المتعلقة بكتمان السر المهني في مجال الأرشيف؟`,
+        options: [
+          `المادة 446 من القانون الجنائي`,
+          `المادة 120 من مدونة الشغل`,
+          `المادة 35 من القانون 69.99`,
+          `المادة 22 من الظهير العسكري`
+        ],
+        correct: 0,
+        article: `المادة 36 — القانون رقم 69.99`,
+        explanation: `تحيل المادة 36 صراحة على أن كل مخالفة لأحكام المادة 13 أعلاه (كتمان السر المهني) تعاقب بالعقوبة المنصوص عليها في المادة 446 من القانون الجنائي.`
+      },
+      {
+        id: 104,
+        axis: `sanctions`,
+        prompt: `ما العقوبة المقررة في المادة 37 لكل من سرق وثيقة من الأرشيف العام أو الخاص محفوظة في مصلحة عامة للأرشيف أو أتلفها أو تسبب في الإضرار بها؟`,
+        options: [
+          `حبس من ستة أشهر إلى سنتين`,
+          `حبس تتراوح مدته بين سنتين وعشر سنوات`,
+          `السجن المؤبد في جميع الحالات`,
+          `تعويض مدني فقط دون عقوبة سالبة للحرية`
+        ],
+        correct: 1,
+        article: `المادة 37 — القانون رقم 69.99`,
+        explanation: `تعاقب المادة 37 كل من سرق وثيقة من الأرشيف العام أو الخاص محفوظة في مصلحة عامة للأرشيف أو أتلفها أو تسبب في الإضرار بها بحبس تتراوح مدته بين سنتين وعشر سنوات.`
+      },
+      {
+        id: 105,
+        axis: `sanctions`,
+        prompt: `هل تشمل الحماية الجنائية في المادة 37 وثائق «الأرشيف الخاصة» إذا كانت محفوظة في مصلحة عامة للأرشيف؟`,
+        options: [
+          `لا، تقتصر المادة 37 على وثائق الأرشيف العامة وحدها`,
+          `نعم، تشمل كل وثيقة من الأرشيف العام أو الخاص محفوظة في مصلحة عامة للأرشيف`,
+          `لا، تحال الأرشيف الخاصة فقط على المادة 35`,
+          `نعم، بشرط أن يتجاوز عمر الوثيقة مائة سنة`
+        ],
+        correct: 1,
+        article: `المادة 37 — القانون رقم 69.99`,
+        explanation: `عبارة المادة 37 واضحة وشاملة: «كل من سرق وثيقة من الأرشيف العام أو الخاص محفوظة في مصلحة عامة للأرشيف أو أتلفها أو تسبب في الإضرار بها».`
+      },
+      {
+        id: 106,
+        axis: `sanctions`,
+        prompt: `علاوة على ضباط الشرطة القضائية، لمن خولت المادة 38 صلاحية معاينة مخالفات أحكام القانون 69.99 والنصوص الصادرة لتطبيقه؟`,
+        options: [
+          `للموظفين المحليين بالجماعات الترابية تلقائيا`,
+          `للأعوان المؤهلين بصفة قانونية لهذا الغرض من قبل «أرشيف المغرب»`,
+          `للباحثين الحاملين لبطاقة القارئ`,
+          `للموثقين والعدول فقط`
+        ],
+        correct: 1,
+        article: `المادة 38 — القانون رقم 69.99`,
+        explanation: `تمنح المادة 38 صلاحية معاينة مخالفات القانون 69.99 ونصوصه التطبيقية للأعوان المؤهلين بصفة قانونية لهذا الغرض من قبل «أرشيف المغرب»، علاوة على ضباط الشرطة القضائية.`
+      },
+      {
+        id: 107,
+        axis: `sanctions`,
+        prompt: `متى يحق لـ «أرشيف المغرب» إبرام مصالحات فيما يتعلق بمخالفات أحكام القانون 69.99 وفق المادة 39؟`,
+        options: [
+          `فقط قبل تحريك الدعوى العمومية من طرف النيابة العامة`,
+          `فقط بعد صدور حكم قضائي نهائي حائز لقوة الشيء المقضي به`,
+          `سواء قبل صدور أحكام قضائية أو بعدها`,
+          `لا يحق لها إبرام أي صلح في القضايا الزجرية`
+        ],
+        correct: 2,
+        article: `المادة 39 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `تجيز المادة 39 لـ «أرشيف المغرب» إبرام مصالحات «سواء قبل صدور أحكام قضائية أو بعدها».`
+      },
+      {
+        id: 108,
+        axis: `sanctions`,
+        prompt: `ما المبرر الموضوعي الذي اشترطته المادة 39 لإبرام «أرشيف المغرب» للصلح؟`,
+        options: [
+          `إذا طلب المخالف ذلك كتابة في جميع القضايا دون قيد`,
+          `إذا تبين أن في ذلك فائدة للمحافظة على أرشيف عامة، أو إذا كانت هذه الأخيرة ذات فائدة تاريخية أو علمية أو حضارية`,
+          `إذا كانت قيمة الوثيقة لا تتجاوز ألف درهم`,
+          `إذا وافق الموظف الذي ارتكب المخالفة على التقاعد المبكر`
+        ],
+        correct: 1,
+        article: `المادة 39 (الفقرة 1) — القانون رقم 69.99`,
+        explanation: `قيدت المادة 39 صلاحية المصالحة بتحقق مصلحة أرشيفية: فائدة للمحافظة على أرشيف عامة أو كون الأرشيف ذات فائدة تاريخية أو علمية أو حضارية.`
+      },
+      {
+        id: 109,
+        axis: `sanctions`,
+        prompt: `ما الشرط الشكلي اللازم لإبرام الصلح المنصوص عليه في الفقرة الثانية من المادة 39؟`,
+        options: [
+          `أن يكون شفويا بحضور شاهدين`,
+          `أن يبرم كتابة وبدون تحفظ`,
+          `أن ينشر في الجريدة الرسمية أولا`,
+          `أن يصادق عليه مجلس المستشارين`
+        ],
+        correct: 1,
+        article: `المادة 39 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تشترط الفقرة الثانية من المادة 39 أن يكون الصلح «مبرما كتابة وبدون تحفظ» لكي ينتج أثره القانوني المسقط للدعاوى.`
+      },
+      {
+        id: 110,
+        axis: `sanctions`,
+        prompt: `ما الأثر القانوني المباشر للصلح المبرم كتابة وبدون تحفظ طبقا للفقرة الثانية من المادة 39؟`,
+        options: [
+          `تخفيض عقوبة الحبس إلى النصف فقط`,
+          `إلغاء الدعاوى المقامة من قبل النيابة العامة وكذلك تلك المرفوعة من لدن الإدارة`,
+          `إلغاء الدعوى الإدارية مع استمرار متابعة النيابة العامة`,
+          `تأجيل النطق بالحكم لمدة سنة واحدة`
+        ],
+        correct: 1,
+        article: `المادة 39 (الفقرة 2) — القانون رقم 69.99`,
+        explanation: `تنص الفقرة الثانية من المادة 39 على أن «يلغي الصلح المبرم كتابة وبدون تحفظ الدعاوى المقامة من قبل النيابة العامة وكذلك تلك المرفوعة من لدن الإدارة».`
+      }
+    ];
+
+    // Application state
+    let appState = {
+      answers: {},       // { [questionId]: selectedOptionIndex }
+      bookmarks: {},     // { [questionId]: true }
+      axisFilter: `all`,
+      statusFilter: `all`,
+      mode: `single`,    // 'single' | 'quick20' | 'list'
+      currentQId: 1,
+      quickIds: []
+    };
+
+    let persistTimer = null;
+
+    function buildQuick20Ids() {
+      const pool = QUESTIONS.map(q => q.id);
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+      }
+      return pool.slice(0, 20);
+    }
+
+    function getFilteredQuestions() {
+      let base = QUESTIONS;
+      if (appState.mode === `quick20`) {
+        if (!Array.isArray(appState.quickIds) || appState.quickIds.length === 0) {
+          appState.quickIds = buildQuick20Ids();
+        }
+        const idSet = new Set(appState.quickIds);
+        base = appState.quickIds
+          .map(id => QUESTIONS.find(q => q.id === id))
+          .filter(Boolean);
+        // Apply axis filter only if user chose one in quick20, or filter normally
+        if (appState.axisFilter !== `all`) {
+          base = base.filter(q => q.axis === appState.axisFilter);
+        }
+      } else {
+        if (appState.axisFilter !== `all`) {
+          base = base.filter(q => q.axis === appState.axisFilter);
+        }
+      }
+
+      if (appState.statusFilter === `unanswered`) {
+        base = base.filter(q => appState.answers[q.id] === undefined);
+      } else if (appState.statusFilter === `wrong`) {
+        base = base.filter(q => appState.answers[q.id] !== undefined && appState.answers[q.id] !== q.correct);
+      } else if (appState.statusFilter === `correct`) {
+        base = base.filter(q => appState.answers[q.id] === q.correct);
+      } else if (appState.statusFilter === `bookmarked`) {
+        base = base.filter(q => Boolean(appState.bookmarks[q.id]));
+      }
+
+      return base;
+    }
+
+    function showBanner(text) {
+      const banner = document.getElementById(`status-banner`);
+      if (!banner) return;
+      if (!text) {
+        banner.style.display = `none`;
+        banner.textContent = ``;
+        return;
+      }
+      banner.textContent = text;
+      banner.style.display = `block`;
+    }
+
+    function schedulePersist() {
+      if (persistTimer) clearTimeout(persistTimer);
+      persistTimer = setTimeout(async () => {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          try {
+            await window.notebookAppApi.setAppState({
+              answers: appState.answers,
+              bookmarks: appState.bookmarks,
+              axisFilter: appState.axisFilter,
+              statusFilter: appState.statusFilter,
+              mode: appState.mode,
+              currentQId: appState.currentQId,
+              quickIds: appState.quickIds
+            });
+          } catch (e) {
+            // Silent resilience if host rejects transient write
+          }
+        }
+      }, 150);
+    }
+
+    function computeStats() {
+      const total = QUESTIONS.length;
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const byAxis = {};
+      Object.keys(AXES).forEach(k => {
+        byAxis[k] = { total: 0, answered: 0, correct: 0 };
+      });
+
+      QUESTIONS.forEach(q => {
+        byAxis[q.axis].total += 1;
+        const ans = appState.answers[q.id];
+        if (ans !== undefined) {
+          answered += 1;
+          byAxis[q.axis].answered += 1;
+          if (ans === q.correct) {
+            correct += 1;
+            byAxis[q.axis].correct += 1;
+          } else {
+            wrong += 1;
+          }
+        }
+      });
+
+      const bookmarksCount = Object.keys(appState.bookmarks).filter(id => appState.bookmarks[id]).length;
+      const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : null;
+      const completion = Math.round((answered / total) * 100);
+
+      return { total, answered, correct, wrong, bookmarksCount, accuracy, completion, byAxis };
+    }
+
+    function renderStats() {
+      const stats = computeStats();
+      const elAcc = document.getElementById(`stat-accuracy`);
+      const elAccNote = document.getElementById(`stat-accuracy-note`);
+      const elProg = document.getElementById(`stat-progress`);
+      const elComp = document.getElementById(`stat-completion`);
+      const elCorr = document.getElementById(`stat-correct`);
+      const elWrong = document.getElementById(`stat-wrong-note`);
+      const elBook = document.getElementById(`stat-bookmarks`);
+      const elModeLabel = document.getElementById(`stat-mode-label`);
+
+      if (elAcc) {
+        elAcc.innerHTML = stats.accuracy === null ? `—` : `<bdi dir="ltr">${stats.accuracy}%</bdi>`;
+      }
+      if (elAccNote) {
+        elAccNote.className = `figure-delta`;
+        if (stats.answered === 0) {
+          elAccNote.textContent = `لم تبدأ الإجابة بعد`;
+        } else if (stats.accuracy >= 80) {
+          elAccNote.classList.add(`is-positive`);
+          elAccNote.textContent = `مستوى متميز في استيعاب القانون`;
+        } else if (stats.accuracy >= 50) {
+          elAccNote.textContent = `تقدم جيد — واصل المراجعة`;
+        } else {
+          elAccNote.classList.add(`is-error`);
+          elAccNote.textContent = `يوصى بمراجعة المواد القانونية`;
+        }
+      }
+
+      if (elProg) elProg.innerHTML = `<bdi dir="ltr">${stats.answered} / ${stats.total}</bdi>`;
+      if (elComp) elComp.innerHTML = `نسبة الإنجاز: <bdi dir="ltr">${stats.completion}%</bdi>`;
+      if (elCorr) elCorr.innerHTML = `<bdi dir="ltr">${stats.correct}</bdi>`;
+      if (elWrong) {
+        elWrong.innerHTML = `الأخطاء المسجلة: <bdi dir="ltr">${stats.wrong}</bdi>`;
+        elWrong.className = stats.wrong > 0 ? `figure-delta is-error` : `figure-delta is-positive`;
+      }
+      if (elBook) elBook.innerHTML = `<bdi dir="ltr">${stats.bookmarksCount}</bdi>`;
+      if (elModeLabel) {
+        const modeMap = {
+          single: `الوضع: اختبار متسلسل`,
+          quick20: `الوضع: اختبار عشوائي (20)`,
+          list: `الوضع: العرض الشامل`
+        };
+        elModeLabel.textContent = modeMap[appState.mode] || `الوضع: اختبار متسلسل`;
+      }
+
+      // Render Axis breakdown table
+      const tbody = document.getElementById(`axis-breakdown-body`);
+      if (tbody) {
+        let rowsHtml = ``;
+        Object.keys(AXES).forEach(axisKey => {
+          const d = stats.byAxis[axisKey];
+          const pct = d.answered > 0 ? Math.round((d.correct / d.answered) * 100) : 0;
+          const labelTxt = d.answered > 0 ? `${d.correct}/${d.answered} (${pct}%)` : `0/${d.total}`;
+          rowsHtml += `
+            <tr>
+              <td>
+                <button type="button" class="axis-row-btn" onclick="selectAxisFromTable('${axisKey}')">${AXES[axisKey]}</button>
+                <div class="axis-meter" aria-hidden="true">
+                  <div class="axis-meter-fill" style="width: ${pct}%;"></div>
+                </div>
+              </td>
+              <td class="num-col"><bdi dir="ltr">${labelTxt}</bdi></td>
+            </tr>
+          `;
+        });
+        tbody.innerHTML = rowsHtml;
+      }
+    }
+
+    function renderQuestionCardHtml(q, indexInList, totalInList, isListMode) {
+      const chosen = appState.answers[q.id];
+      const isAnswered = chosen !== undefined;
+      const isCorrect = isAnswered && chosen === q.correct;
+      const isBookmarked = Boolean(appState.bookmarks[q.id]);
+
+      let optionsHtml = ``;
+      q.options.forEach((optText, idx) => {
+        let cls = `option-btn`;
+        if (isAnswered) {
+          if (idx === q.correct) {
+            cls += ` is-correct`;
+          } else if (idx === chosen) {
+            cls += ` is-wrong`;
+          }
+        }
+        optionsHtml += `
+          <button type="button" class="${cls}" ${isAnswered ? `disabled` : ``} onclick="selectOption(${q.id}, ${idx})">
+            <span class="option-letter">${LETTERS[idx]}</span>
+            <span class="option-text">${optText}</span>
+          </button>
+        `;
+      });
+
+      let feedbackHtml = ``;
+      if (isAnswered) {
+        const verdictText = isCorrect
+          ? `إجابة صحيحة`
+          : `إجابة غير صحيحة — الاختيار الصحيح هو (${LETTERS[q.correct]})`;
+        feedbackHtml = `
+          <div class="feedback-panel ${isCorrect ? `is-correct` : `is-wrong`}" role="region" aria-label="التصحيح والمرجع القانوني">
+            <div class="feedback-header">
+              <span class="feedback-verdict">${verdictText}</span>
+              <span class="article-citation">${q.article}</span>
+            </div>
+            <p class="feedback-explanation">${q.explanation}</p>
+          </div>
+        `;
+      }
+
+      let navHtml = ``;
+      if (!isListMode) {
+        const hasPrev = indexInList > 0;
+        const hasNext = indexInList < totalInList - 1;
+        navHtml = `
+          <div class="stage-nav">
+            <div class="stage-nav-group">
+              <button type="button" class="btn btn-secondary" ${hasPrev ? `` : `disabled`} onclick="stepQuestion(-1)">السؤال السابق</button>
+              <button type="button" class="btn btn-primary" ${hasNext ? `` : `disabled`} onclick="stepQuestion(1)">السؤال التالي</button>
+            </div>
+            <div class="stage-nav-group">
+              ${appState.mode === `quick20` ? `<button type="button" class="btn btn-secondary" onclick="regenerateQuick20()">توليد 20 سؤالاً جديداً</button>` : ``}
+              <button type="button" class="btn btn-secondary" onclick="jumpToNextUnanswered()">التالي غير المجاب</button>
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <article class="question-card" id="q-card-${q.id}">
+          <div class="question-meta">
+            <div class="question-meta-start">
+              <span class="q-number-badge">السؤال <bdi dir="ltr">${q.id}</bdi> &middot; (<bdi dir="ltr">${indexInList + 1}</bdi> من <bdi dir="ltr">${totalInList}</bdi>)</span>
+              <span class="axis-stamp">${AXES[q.axis]}</span>
+            </div>
+            <button type="button" class="bookmark-btn ${isBookmarked ? `is-active` : ``}" onclick="toggleBookmark(${q.id})" aria-pressed="${isBookmarked ? `true` : `false`}">
+              ${isBookmarked ? `محفوظ للمراجعة` : `حفظ للمراجعة`}
+            </button>
+          </div>
+          <h2 class="question-prompt">${q.prompt}</h2>
+          <div class="options-list" role="group" aria-label="خيارات الإجابة">
+            ${optionsHtml}
+          </div>
+          ${feedbackHtml}
+          ${navHtml}
+        </article>
+      `;
+    }
+
+    function renderWorkspace() {
+      const stage = document.getElementById(`question-stage`);
+      const navGrid = document.getElementById(`nav-grid`);
+      const filtered = getFilteredQuestions();
+
+      // Update navigator
+      if (navGrid) {
+        if (filtered.length === 0) {
+          navGrid.innerHTML = ``;
+        } else {
+          // Ensure currentQId is inside filtered
+          if (!filtered.some(q => q.id === appState.currentQId)) {
+            appState.currentQId = filtered[0].id;
+          }
+          let navHtml = ``;
+          filtered.forEach((q, idx) => {
+            const ans = appState.answers[q.id];
+            const isCurr = q.id === appState.currentQId && appState.mode !== `list`;
+            let cls = `nav-cell`;
+            if (isCurr) cls += ` is-current`;
+            if (ans !== undefined) {
+              cls += ans === q.correct ? ` is-correct` : ` is-wrong`;
+            }
+            if (appState.bookmarks[q.id]) cls += ` is-bookmarked`;
+            navHtml += `<button type="button" class="${cls}" onclick="goToQuestion(${q.id})" title="السؤال ${q.id}">${q.id}</button>`;
+          });
+          navGrid.innerHTML = navHtml;
+        }
+      }
+
+      if (!stage) return;
+
+      if (filtered.length === 0) {
+        stage.innerHTML = `
+          <div class="empty-state">
+            <h3>لا توجد أسئلة مطابقة للتصفية المحددة</h3>
+            <p>لم يتم العثور على أسئلة في هذه الفئة الحالية (مثلا: لا توجد إجابات خاطئة أو أسئلة محفوظة ضمن المحور المختار).</p>
+            <button type="button" class="btn btn-primary" onclick="clearFilters()">عرض جميع الأسئلة</button>
+          </div>
+        `;
+        return;
+      }
+
+      if (appState.mode === `list`) {
+        let stackHtml = `<div class="list-mode-stack">`;
+        filtered.forEach((q, idx) => {
+          stackHtml += renderQuestionCardHtml(q, idx, filtered.length, true);
+        });
+        stackHtml += `</div>`;
+        stage.innerHTML = stackHtml;
+      } else {
+        const currentIndex = filtered.findIndex(q => q.id === appState.currentQId);
+        const safeIdx = currentIndex >= 0 ? currentIndex : 0;
+        const currentQ = filtered[safeIdx];
+        appState.currentQId = currentQ.id;
+        stage.innerHTML = renderQuestionCardHtml(currentQ, safeIdx, filtered.length, false);
+      }
+    }
+
+    function renderAll() {
+      renderStats();
+      renderWorkspace();
+    }
+
+    // Event Handlers (hoisted function declarations)
+    function selectOption(qId, optIndex) {
+      if (appState.answers[qId] !== undefined) return;
+      appState.answers[qId] = optIndex;
+      showBanner(``);
+      renderAll();
+      schedulePersist();
+    }
+
+    function toggleBookmark(qId) {
+      if (appState.bookmarks[qId]) {
+        delete appState.bookmarks[qId];
+      } else {
+        appState.bookmarks[qId] = true;
+      }
+      renderAll();
+      schedulePersist();
+    }
+
+    function stepQuestion(delta) {
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) return;
+      const idx = filtered.findIndex(q => q.id === appState.currentQId);
+      const nextIdx = Math.max(0, Math.min(filtered.length - 1, (idx >= 0 ? idx : 0) + delta));
+      appState.currentQId = filtered[nextIdx].id;
+      renderWorkspace();
+      schedulePersist();
+    }
+
+    function goToQuestion(qId) {
+      appState.currentQId = qId;
+      if (appState.mode === `list`) {
+        const el = document.getElementById(`q-card-${qId}`);
+        if (el) el.scrollIntoView({ behavior: `smooth`, block: `start` });
+      } else {
+        renderWorkspace();
+        schedulePersist();
+      }
+    }
+
+    function jumpToNextUnanswered() {
+      const filtered = getFilteredQuestions();
+      const idx = filtered.findIndex(q => q.id === appState.currentQId);
+      const start = idx >= 0 ? idx + 1 : 0;
+      for (let offset = 0; offset < filtered.length; offset++) {
+        const q = filtered[(start + offset) % filtered.length];
+        if (appState.answers[q.id] === undefined) {
+          appState.currentQId = q.id;
+          renderWorkspace();
+          schedulePersist();
+          showBanner(``);
+          return;
+        }
+      }
+      showBanner(`تمت الإجابة عن جميع الأسئلة المعروضة في هذا النطاق.`);
+    }
+
+    function handleFilterChange() {
+      const axisEl = document.getElementById(`axis-filter`);
+      const statusEl = document.getElementById(`status-filter`);
+      if (axisEl) appState.axisFilter = axisEl.value;
+      if (statusEl) appState.statusFilter = statusEl.value;
+      showBanner(``);
+      renderAll();
+      schedulePersist();
+    }
+
+    function handleModeChange() {
+      const modeEl = document.getElementById(`mode-select`);
+      if (!modeEl) return;
+      appState.mode = modeEl.value;
+      if (appState.mode === `quick20` && (!appState.quickIds || appState.quickIds.length === 0)) {
+        appState.quickIds = buildQuick20Ids();
+      }
+      showBanner(``);
+      renderAll();
+      schedulePersist();
+    }
+
+    function regenerateQuick20() {
+      appState.quickIds = buildQuick20Ids();
+      appState.currentQId = appState.quickIds[0];
+      showBanner(`تم توليد سلسلة جديدة من 20 سؤالاً عشوائياً.`);
+      renderAll();
+      schedulePersist();
+    }
+
+    function selectAxisFromTable(axisKey) {
+      const axisEl = document.getElementById(`axis-filter`);
+      if (axisEl) axisEl.value = axisKey;
+      appState.axisFilter = axisKey;
+      if (appState.mode === `quick20`) {
+        appState.mode = `single`;
+        const modeEl = document.getElementById(`mode-select`);
+        if (modeEl) modeEl.value = `single`;
+      }
+      showBanner(``);
+      renderAll();
+      schedulePersist();
+    }
+
+    function clearFilters() {
+      appState.axisFilter = `all`;
+      appState.statusFilter = `all`;
+      const axisEl = document.getElementById(`axis-filter`);
+      const statusEl = document.getElementById(`status-filter`);
+      if (axisEl) axisEl.value = `all`;
+      if (statusEl) statusEl.value = `all`;
+      showBanner(``);
+      renderAll();
+      schedulePersist();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `تأكيد إعادة الضبط؟`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `إعادة ضبط التقدم`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `إعادة ضبط التقدم`;
+      appState.answers = {};
+      appState.bookmarks = {};
+      appState.quickIds = appState.mode === `quick20` ? buildQuick20Ids() : [];
+      appState.currentQId = 1;
+      showBanner(`تمت إعادة ضبط جميع الإجابات والنتائج بنجاح.`);
+      renderAll();
+      schedulePersist();
+    }
+
+    function exportResultsCsv() {
+      const lines = [`رقم السؤال,المحور,السؤال,إجابة المستخدم,الإجابة الصحيحة,النتيجة,المرجع القانوني`];
+      QUESTIONS.forEach(q => {
+        const ansIdx = appState.answers[q.id];
+        const userAns = ansIdx !== undefined ? `${LETTERS[ansIdx]}: ${q.options[ansIdx]}` : `غير مجاب`;
+        const corrAns = `${LETTERS[q.correct]}: ${q.options[q.correct]}`;
+        const status = ansIdx === undefined ? `لم يجب` : (ansIdx === q.correct ? `صحيح` : `خطأ`);
+        const esc = s => `"${String(s).replace(/"/g, `""`)}"`;
+        lines.push([q.id, esc(AXES[q.axis]), esc(q.prompt), esc(userAns), esc(corrAns), esc(status), esc(q.article)].join(`,`));
+      });
+      const csvContent = `\uFEFF` + lines.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `archives_law_69_99_qcm_results.csv`
+        });
+        showBanner(`تم تصدير تقرير النتائج بصيغة CSV.`);
+      } else {
+        showBanner(`تصدير الملفات متاح داخل بيئة التشغيل التفاعلية.`);
+      }
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (saved.bookmarks && typeof saved.bookmarks === `object`) appState.bookmarks = saved.bookmarks;
+            if (typeof saved.axisFilter === `string` && (saved.axisFilter === `all` || AXES[saved.axisFilter])) {
+              appState.axisFilter = saved.axisFilter;
+            }
+            if (typeof saved.statusFilter === `string`) appState.statusFilter = saved.statusFilter;
+            if (typeof saved.mode === `string`) appState.mode = saved.mode;
+            if (typeof saved.currentQId === `number`) appState.currentQId = saved.currentQId;
+            if (Array.isArray(saved.quickIds)) appState.quickIds = saved.quickIds;
+          }
+        }
+      } catch (e) {
+        // Fallback safely to fresh state
+      }
+
+      const axisEl = document.getElementById(`axis-filter`);
+      const statusEl = document.getElementById(`status-filter`);
+      const modeEl = document.getElementById(`mode-select`);
+      if (axisEl) axisEl.value = appState.axisFilter;
+      if (statusEl) statusEl.value = appState.statusFilter;
+      if (modeEl) modeEl.value = appState.mode;
+
+      renderAll();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
