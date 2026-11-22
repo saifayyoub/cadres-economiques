@@ -1,0 +1,3199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="handbook">
+  <title>الاختبار الشامل في مشروع المؤسسة المندمج (100 سؤال) — المذكرة 014x24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Handbook) */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --error: #d4351c;
+      --on-error: #ffffff;
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Fonts */
+      --font-headline: 'IBM Plex Sans Arabic', 'Public Sans', sans-serif;
+      --font-body: 'IBM Plex Sans Arabic', 'Public Sans', sans-serif;
+      --font-label: 'IBM Plex Sans Arabic', 'Public Sans', sans-serif;
+
+      /* Shape */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --inset-rule-positive: 5px solid var(--positive);
+      --inset-rule-error: 5px solid var(--error);
+      --button-shadow-primary: #091526;
+      --button-shadow-secondary: #858686;
+      --button-ground: 0 2px 0 var(--button-shadow-primary);
+      --button-ground-secondary: 0 2px 0 var(--button-shadow-secondary);
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+
+      /* Shared tokens */
+      --positive: #00703c;
+      --positive-container: #e6f4ec;
+      --on-positive-container: #004726;
+      --warning: #944b00;
+      --warning-container: #fef3e6;
+      --error-container: #fdf0ed;
+      --focus: var(--primary);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; margin: 0; padding: 0; }
+    header { position: static !important; }
+
+    body {
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1240px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus treatment (Handbook 4) */
+    button:focus-visible,
+    select:focus-visible,
+    input:focus-visible,
+    [tabindex]:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 0;
+      box-shadow: var(--focus-bar);
+    }
+
+    /* Top Index Rule & Header (Handbook 1) */
+    .index-header {
+      border-top: var(--top-index-rule);
+      border-bottom: 1px solid var(--on-surface);
+      padding: var(--space-sm) 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+
+    .index-kicker-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 700;
+      font-size: var(--label-size);
+      border-radius: var(--rounded);
+    }
+
+    .status-tag--positive {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .status-tag--neutral {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+    }
+
+    .hero-block {
+      padding: var(--space-md) 0 var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .hero-block h1 {
+      margin: 0 0 var(--space-sm);
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--on-surface);
+    }
+
+    .hero-lede {
+      margin: 0;
+      max-width: 75ch;
+      color: var(--on-surface-variant);
+      font-size: var(--subhead-size);
+      line-height: 1.55;
+    }
+
+    /* Key Figures Strip (Handbook 2 - Inset blue rule) */
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .inset-figure {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .inset-figure--positive {
+      border-inline-start: var(--inset-rule-positive);
+    }
+
+    .figure-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+
+    .figure-val {
+      font-size: var(--headline-size);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .figure-sub {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--surface-container);
+      margin-top: var(--space-xs);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--tertiary);
+      width: 0%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .progress-fill--positive {
+      background: var(--positive);
+    }
+
+    /* Controls Toolbar */
+    .toolbar-panel {
+      background: var(--surface-container-low);
+      border-inline-start: var(--inset-rule);
+      padding: var(--space-md);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+
+    .handbook-select,
+    .handbook-input {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded);
+      font-weight: 500;
+    }
+
+    .handbook-select {
+      padding-inline-end: var(--space-xl);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Grounded Action Buttons (Handbook 3) */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--body-size);
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 0;
+      border-radius: var(--rounded);
+      box-shadow: var(--button-ground);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .button:hover:not(:disabled) {
+      background: var(--on-primary-container);
+    }
+
+    .button:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .button--secondary {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+    }
+
+    .button--secondary:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+
+    .button--outline {
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      box-shadow: var(--button-ground-secondary);
+    }
+
+    .button--outline:hover:not(:disabled) {
+      background: var(--surface-container-low);
+    }
+
+    .button--danger-armed {
+      background: var(--error);
+      color: var(--on-error);
+      box-shadow: var(--button-ground);
+    }
+
+    .button--small {
+      min-height: 36px;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--label-size);
+    }
+
+    /* Mode Switcher Tabs */
+    .mode-switch {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .mode-btn {
+      flex: 1 1 auto;
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      font-weight: 700;
+      font-size: var(--label-size);
+      cursor: pointer;
+    }
+
+    .mode-btn[aria-pressed="true"] {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Main Workspace Grid (2/3 Question Stage + 1/3 Side Diagnostic Column) */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    /* Question Stage */
+    .question-stage {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding-top: var(--space-sm);
+    }
+
+    .question-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .question-id-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 32px;
+      padding: 0 var(--space-sm);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 800;
+      font-size: var(--body-size);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .question-title {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--on-surface);
+      max-width: 68ch;
+    }
+
+    .question-hint {
+      margin: 0;
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .option-card {
+      width: 100%;
+      min-height: 52px;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      text-align: start;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .option-card:hover:not(:disabled) {
+      background: var(--surface-container-low);
+    }
+
+    .option-card:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      font-weight: 800;
+      font-size: var(--body-size);
+      color: var(--on-surface);
+    }
+
+    .option-text {
+      flex: 1 1 auto;
+      font-size: var(--body-size);
+      font-weight: 500;
+      line-height: 1.55;
+      padding-top: 2px;
+    }
+
+    .option-status-icon {
+      flex-shrink: 0;
+      font-size: var(--label-size);
+      font-weight: 700;
+      padding-top: 4px;
+    }
+
+    /* Selected / Evaluated states */
+    .option-card--selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+    }
+    .option-card--selected .option-letter {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .option-card--correct {
+      background: var(--positive-container);
+      border-color: var(--positive);
+    }
+    .option-card--correct .option-letter {
+      background: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+    .option-card--correct .option-status-icon {
+      color: var(--positive);
+    }
+
+    .option-card--wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+    }
+    .option-card--wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .option-card--wrong .option-status-icon {
+      color: var(--error);
+    }
+
+    /* Legal & Procedural Feedback Box (Handbook Inset Rule) */
+    .feedback-panel {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .feedback-panel--correct {
+      border-inline-start: var(--inset-rule-positive);
+      background: var(--positive-container);
+    }
+
+    .feedback-panel--wrong {
+      border-inline-start: var(--inset-rule-error);
+      background: var(--background);
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+      border-inline-end: 1px solid var(--outline-variant);
+    }
+
+    .feedback-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .feedback-verdict {
+      font-weight: 800;
+      font-size: var(--subhead-size);
+    }
+
+    .feedback-verdict--correct {
+      color: var(--positive);
+    }
+
+    .feedback-verdict--wrong {
+      color: var(--error);
+    }
+
+    .feedback-ref {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-primary-container);
+      background: var(--primary-container);
+      padding: var(--space-xs) var(--space-sm);
+    }
+
+    .feedback-body {
+      margin: 0;
+      font-size: var(--body-size);
+      line-height: 1.65;
+      color: var(--on-surface);
+      max-width: 65ch;
+    }
+
+    /* Stage Footer Navigation */
+    .stage-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+    }
+
+    .stage-nav-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Sidebar Diagnostic & Question Navigator */
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .side-section {
+      border-top: 2px solid var(--on-surface);
+      padding-top: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .side-heading {
+      margin: 0;
+      font-size: var(--subhead-size);
+      font-weight: 800;
+      color: var(--on-surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Legend */
+    .matrix-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--outline);
+      display: inline-block;
+    }
+    .swatch-current { background: var(--primary); border-color: var(--primary); }
+    .swatch-correct { background: var(--positive); border-color: var(--positive); }
+    .swatch-wrong { background: var(--error); border-color: var(--error); }
+    .swatch-pending { background: var(--primary-container); border-color: var(--tertiary); }
+    .swatch-empty { background: var(--background); }
+
+    /* 100-Question Matrix */
+    .question-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: var(--space-xs);
+      max-height: 360px;
+      overflow-y: auto;
+      padding: var(--space-xs);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+    }
+
+    .matrix-cell {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--label-size);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      background: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .matrix-cell:hover {
+      border-color: var(--outline);
+      background: var(--surface-container);
+    }
+
+    .matrix-cell--current {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .matrix-cell--correct {
+      background: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+
+    .matrix-cell--wrong {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    .matrix-cell--pending {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border-color: var(--tertiary);
+    }
+
+    .matrix-cell--bookmarked::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      inset-inline-end: 2px;
+      width: 6px;
+      height: 6px;
+      background: var(--data-2);
+    }
+
+    /* Domain Summary Table (Handbook Ruled Table) */
+    .domain-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--label-size);
+    }
+
+    .domain-table th {
+      text-align: start;
+      padding: var(--space-sm) var(--space-xs);
+      border-bottom: 2px solid var(--on-surface);
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+
+    .domain-table td {
+      padding: var(--space-sm) var(--space-xs);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: middle;
+    }
+
+    .domain-row-btn {
+      background: none;
+      border: 0;
+      padding: 0;
+      text-align: start;
+      color: var(--tertiary);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .domain-row-btn:hover {
+      color: var(--primary);
+      text-decoration-thickness: 2px;
+    }
+
+    .domain-row-btn--active {
+      color: var(--on-surface);
+      text-decoration: none;
+    }
+
+    .num-cell {
+      text-align: end;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Exam Summary Banner */
+    .exam-results-banner {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .exam-results-banner h2 {
+      margin: 0;
+      font-size: var(--headline-size);
+      font-weight: 800;
+    }
+
+    .inline-notice {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: var(--label-size);
+      font-weight: 700;
+      border-inline-start: var(--inset-rule);
+    }
+
+    .empty-state-box {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: flex-start;
+    }
+
+    .footer-note {
+      border-top: 1px solid var(--outline-variant);
+      padding-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+        padding: var(--space-sm);
+        gap: var(--space-md);
+      }
+      .toolbar-panel {
+        grid-template-columns: 1fr;
+      }
+      .stage-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .stage-nav-group {
+        justify-content: space-between;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top Index Bar (Handbook Treatment 1) -->
+    <header class="index-header">
+      <div class="index-kicker-group">
+        <span class="status-tag">المذكرة الوزارية <bdi dir="ltr">014x24</bdi></span>
+        <span>منصة التقييم الإشهادي في مشروع المؤسسة المندمج (<bdi dir="ltr">PMEI</bdi>)</span>
+      </div>
+      <div class="index-kicker-group">
+        <span id="timer-display" class="status-tag status-tag--neutral" aria-live="polite">المدة المنقضية: 00:00</span>
+        <span id="mode-indicator" class="status-tag status-tag--positive">وضع التدريب الفوري</span>
+      </div>
+    </header>
+
+    <!-- Title & Scope -->
+    <section class="hero-block">
+      <h1>الاختبار الشامل في مشروع المؤسسة المندمج (100 سؤال)</h1>
+      <p class="hero-lede">
+        تقييم تفاعلي متكامل يغطي المراحل الست لمنهجية <bdi dir="ltr">DEPART</bdi> (التشخيص، الانخراط، التخطيط، الأجرأة، الضبط، الانتقال)، لوحات القيادة الرقمية في منظومة مسار، تحليل <bdi dir="ltr">SWOT</bdi>، الحكامة التربوية المحلية، التدبير المالي عبر جمعية دعم مدرسة النجاح، ومساطر الأرشفة وفق المذكرة <bdi dir="ltr">014x24</bdi>.
+      </p>
+    </section>
+
+    <!-- Live KPI Figures Strip -->
+    <section class="figures-grid" aria-label="ملخص الأداء والنتائج">
+      <div class="inset-figure">
+        <span class="figure-label">الأسئلة المنجزة</span>
+        <span class="figure-val" id="stat-answered">0 / 100</span>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-completion"></div>
+        </div>
+        <span class="figure-sub" id="stat-completion-pct">نسبة الإنجاز: 0%</span>
+      </div>
+
+      <div class="inset-figure inset-figure--positive">
+        <span class="figure-label">النتيجة الإجمالية</span>
+        <span class="figure-val" id="stat-score">0 / 100</span>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill progress-fill--positive" id="progress-accuracy"></div>
+        </div>
+        <span class="figure-sub" id="stat-accuracy-pct">معدل الدقة في المصحح: 0%</span>
+      </div>
+
+      <div class="inset-figure">
+        <span class="figure-label">توزيع الإجابات المصححة</span>
+        <span class="figure-val" id="stat-breakdown">0 صحيح · 0 خطأ</span>
+        <span class="figure-sub" id="stat-pending">أسئلة في انتظار التصحيح: 0</span>
+        <span class="figure-sub" id="stat-bookmarked">الأسئلة المعلّمة للمراجعة: 0</span>
+      </div>
+
+      <div class="inset-figure">
+        <span class="figure-label">التحكم السريع والنتائج</span>
+        <div class="toolbar-actions">
+          <button type="button" class="button button--small" id="btn-grade-exam" onclick="gradeExamMode()">تصحيح الامتحان الآن</button>
+          <button type="button" class="button button--outline button--small" onclick="exportResultsCsv()">تصدير <bdi dir="ltr">CSV</bdi></button>
+          <button type="button" class="button button--secondary button--small" id="btn-reset-all" onclick="handleResetAll(this)">إعادة الضبط</button>
+        </div>
+        <span class="figure-sub" id="save-status-msg">الحفظ التلقائي مفعّل</span>
+      </div>
+    </section>
+
+    <!-- Filter & Mode Toolbar -->
+    <section class="toolbar-panel" aria-label="أدوات التصفية ووضع الامتحان">
+      <div class="field-group">
+        <label class="field-label" for="filter-domain">تصفية حسب المحور أو المرحلة</label>
+        <select class="handbook-select" id="filter-domain" onchange="onFilterChange()">
+          <option value="all">جميع المحاور والمراحل (100 سؤال)</option>
+          <option value="gov">1. الإطار المرجعي والحكامة المحلية (12 سؤال)</option>
+          <option value="diag">2. مرحلة التشخيص — D (12 سؤال)</option>
+          <option value="swot">3. تحليل SWOT وترتيب الأولويات (10 أسئلة)</option>
+          <option value="eng">4. مرحلة الانخراط والانطلاق — E (8 أسئلة)</option>
+          <option value="plan">5. مرحلة التخطيط — P (12 سؤال)</option>
+          <option value="act">6. مرحلة الأجرأة والتنفيذ — A (10 أسئلة)</option>
+          <option value="rev">7. مرحلة الضبط والتتبع — R (8 أسئلة)</option>
+          <option value="trans">8. مرحلة الانتقال — T (8 أسئلة)</option>
+          <option value="fin">9. التمويل وجمعية دعم مدرسة النجاح (10 أسئلة)</option>
+          <option value="massar">10. منظومة مسار الرقمية والأرشفة (10 أسئلة)</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="filter-status">تصفية حسب وضعية الإجابة</label>
+        <select class="handbook-select" id="filter-status" onchange="onFilterChange()">
+          <option value="all">كل الأسئلة ضمن المحور</option>
+          <option value="unanswered">الأسئلة غير المجاب عنها فقط</option>
+          <option value="wrong">الإجابات الخاطئة فقط (للمراجعة)</option>
+          <option value="bookmarked">الأسئلة المعلّمة بنجمة</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="search-input">بحث في نص السؤال أو المرجع</label>
+        <input class="handbook-input" type="search" id="search-input" placeholder="مثال: مسار، جمعية، SWOT، مجلس التدبير…" oninput="onSearchInput(this.value)">
+      </div>
+
+      <div class="field-group">
+        <span class="field-label">نظام التقييم والتصحيح</span>
+        <div class="mode-switch" role="group" aria-label="اختيار وضع الاختبار">
+          <button type="button" class="mode-btn" id="btn-mode-practice" aria-pressed="true" onclick="setExamMode('practice')">تدريب فوري</button>
+          <button type="button" class="mode-btn" id="btn-mode-exam" aria-pressed="false" onclick="setExamMode('exam')">محاكاة امتحان</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exam Graded Summary Banner (Hidden until graded or toggled) -->
+    <div id="exam-summary-container" hidden></div>
+
+    <!-- Main 2-Column Workspace -->
+    <main class="workspace-grid">
+      <!-- Primary Question Stage -->
+      <section class="question-stage" id="question-stage" aria-live="polite">
+        <!-- Rendered dynamically by JS -->
+      </section>
+
+      <!-- Side Column: 100-Question Matrix & Domain Mastery Table -->
+      <aside class="side-column" aria-label="خريطة الأسئلة وتشخيص الأداء">
+        <div class="side-section">
+          <h2 class="side-heading">
+            <span>خريطة الأسئلة (<span id="filtered-count-label">100</span>)</span>
+            <button type="button" class="button button--outline button--small" onclick="jumpToNextUnanswered()">التالي غير مجاب</button>
+          </h2>
+          <div class="matrix-legend">
+            <span class="legend-item"><span class="legend-swatch swatch-current"></span>الحالي</span>
+            <span class="legend-item"><span class="legend-swatch swatch-correct"></span>صحيح</span>
+            <span class="legend-item"><span class="legend-swatch swatch-wrong"></span>خطأ</span>
+            <span class="legend-item"><span class="legend-swatch swatch-pending"></span>مسجل</span>
+            <span class="legend-item"><span class="legend-swatch swatch-empty"></span>فارغ</span>
+          </div>
+          <div class="question-matrix" id="question-matrix" role="navigation" aria-label="الانتقال السريع بين الأسئلة">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <div class="side-section">
+          <h2 class="side-heading">تشخيص التمكن حسب المحور</h2>
+          <table class="domain-table">
+            <thead>
+              <tr>
+                <th>المحور / المرحلة</th>
+                <th class="num-cell">الإنجاز</th>
+                <th class="num-cell">الصحيح</th>
+              </tr>
+            </thead>
+            <tbody id="domain-breakdown-body">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer-note">
+      <span>المرجعيات المعتمدة: المذكرة الوزارية رقم <bdi dir="ltr">014x24</bdi> (25 يناير 2024)، القانون الإطار 51.17، المرسوم 2.02.376، خارطة الطريق 2022–2026، ودليل تدبير جمعية دعم مدرسة النجاح ومنظومة مسار.</span>
+      <span>الاختبار يدعم لوحة المفاتيح: الأسهم للتنقل، والمفاتيح 1–4 لاختيار الجواب.</span>
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    const DOMAIN_META = [
+      { id: `gov`, name: `1. الإطار المرجعي والحكامة المحلية`, short: `الحكامة والإطار المرجعي` },
+      { id: `diag`, name: `2. مرحلة التشخيص (D)`, short: `التشخيص (D)` },
+      { id: `swot`, name: `3. تحليل SWOT والأولويات`, short: `تحليل SWOT والأولويات` },
+      { id: `eng`, name: `4. مرحلة الانخراط والانطلاق (E)`, short: `الانخراط والانطلاق (E)` },
+      { id: `plan`, name: `5. مرحلة التخطيط (P)`, short: `التخطيط (P)` },
+      { id: `act`, name: `6. مرحلة الأجرأة والتنفيذ (A)`, short: `الأجرأة والتنفيذ (A)` },
+      { id: `rev`, name: `7. مرحلة الضبط والتتبع (R)`, short: `الضبط والتتبع (R)` },
+      { id: `trans`, name: `8. مرحلة الانتقال (T)`, short: `الانتقال (T)` },
+      { id: `fin`, name: `9. التمويل وجمعية دعم مدرسة النجاح`, short: `المالية ودعم النجاح` },
+      { id: `massar`, name: `10. منظومة مسار والأرشفة`, short: `مسار والأرشفة` }
+    ];
+
+    const OPTION_LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    const QUESTIONS = [
+      /* ==================== 1. الإطار المرجعي والحكامة المحلية (1–12) ==================== */
+      {
+        id: 1,
+        domain: `gov`,
+        q: `ما هو الإطار المرجعي الأساسي الذي صدرت بموجبه المذكرة الوزارية رقم 014x24 بتاريخ 25 يناير 2024 لتعميم العمل بمشروع المؤسسة المندمج؟`,
+        opts: [
+          `مواكبة تنزيل أحكام القانون الإطار 51.17 ومشاريع خارطة الطريق 2022–2026 من أجل مدرسة عمومية ذات جودة`,
+          `تطبيق المخطط الاستعجالي 2009–2012 لتوسيع البنيات التحتية المدرسية فقط`,
+          `تعويض مجالس التدبير بجمعيات آباء وأمهات وأولياء التلاميذ في تدبير الشأن المالي`,
+          `حصر مشروع المؤسسة في التعليم الأولي دون باقي الأسلاك التعليمية`
+        ],
+        ans: 0,
+        ref: `المذكرة الوزارية 014x24 — السياق والمرجعيات`,
+        exp: `تستند المذكرة 014x24 إلى مقتضيات القانون الإطار 51.17 (خاصة المواد المتعلقة بالحكامة واستقلالية المؤسسة) وإلى الإطار الإجرائي لخارطة الطريق 2022–2026 الذي يضع المؤسسة التعليمية في صلب التغيير لتحقيق الأثر داخل الفصول الدراسية.`
+      },
+      {
+        id: 2,
+        domain: `gov`,
+        q: `ما هي المدة الزمنية المعيارية التي يغطيها مشروع المؤسسة المندمج وفق المذكرة 014x24؟`,
+        opts: [
+          `سنة دراسية واحدة قابلة للتجديد دون تقييم`,
+          `ثلاث سنوات دراسية قابلة للتحيين والتعديل السنوي بناءً على التتبع`,
+          `خمس سنوات دراسية مرتبطة بالولاية الجماعية`,
+          `ستة أشهر تغطي الأسدس الأول فقط`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — الهندسة الزمنية للمشروع`,
+        exp: `يُبنى مشروع المؤسسة المندمج على رؤية محلية تمتد على مدى ثلاث سنوات دراسية، مع تنزيلها عبر برامج عمل سنوية ومراجعة وتحيين سنوي خلال مرحلة الضبط والتتبع لضمان مواءمة الأهداف مع النتائج الميدانية.`
+      },
+      {
+        id: 3,
+        domain: `gov`,
+        q: `لماذا سُمّي الجيل الجديد من مشروع المؤسسة بـ «المشروع المندمج» (PMEI)؟`,
+        opts: [
+          `لأنه يدمج مؤسستين تعليميتين متجاورتين في ميزانية واحدة وجوباً`,
+          `لأنه يدمج مختلف البرامج والعمليات التربوية والدعم المدرسي والحياة المدرسية في وثيقة موحدة متكاملة`,
+          `لأنه خاص حصرياً بتلاميذ التربية الدامجة ذوي الاحتياجات الخاصة`,
+          `لأنه يستغني عن التخطيط التربوي ويركز على الصيانة المادية فقط`
+        ],
+        ans: 1,
+        ref: `دليل مشروع المؤسسة المندمج — مفهوم الإدماج`,
+        exp: `جاءت صفة «المندمج» لتجاوز تشتت المشاريع والبرامج القطاعية داخل المؤسسة (الدعم التربوي، الأندية، محاربة الهدر، التربية الدامجة، القراءة...) وتجميعها في منظومة عمل واحدة مترابطة الأهداف والمؤشرات والتمويل.`
+      },
+      {
+        id: 4,
+        domain: `gov`,
+        q: `وفق المرسوم رقم 2.02.376 بمثابة النظام الأساسي الخاص بمؤسسات التربية والتعليم العمومي، أي مجلس يضطلع بصلاحية دراسة مشروع المؤسسة والمصادقة الأولية عليه محلياً؟`,
+        opts: [
+          `مجلس القسم`,
+          `المجلس التعليمي`,
+          `مجلس التدبير`,
+          `خلية الإنصات والوساطة`
+        ],
+        ans: 2,
+        ref: `المرسوم 2.02.376 — المادة 18`,
+        exp: `تنص المادة 18 من المرسوم 2.02.376 على أن مجلس التدبير يتولى دراسة برنامج العمل السنوي الخاص بأنشطة المؤسسة والموافقة عليه، وكذا دراسة مشروع المؤسسة المندمج والمصادقة عليه قبل رفعه للجنة الإقليمية.`
+      },
+      {
+        id: 5,
+        domain: `gov`,
+        q: `ما هو الدور الأساسي للمجلس التربوي (المادة 23 من المرسوم 2.02.376) في علاقة بمشروع المؤسسة المندمج؟`,
+        opts: [
+          `إبرام الصفقات العمومية وصرف منح جمعية دعم مدرسة النجاح`,
+          `إعداد مشاريع البرامج السنوية للعمل التربوي وتنسيق الأنشطة الداعمة والموازية واقتراحها على مجلس التدبير`,
+          `مراقبة الحضور اليومي لأعوان الحراسة والنظافة`,
+          `تأديب التلاميذ وإصدار قرارات الفصل النهائي`
+        ],
+        ans: 1,
+        ref: `المرسوم 2.02.376 — المادة 23`,
+        exp: `يُعنى المجلس التربوي بإعداد مشاريع البرامج السنوية للعمل التربوي والتنسيق بين المواد الدراسية والأنشطة الثقافية والفنية والرياضية وبرامج الدعم، مما يجعله ركيزة أساسية في بلورة الشق البيداغوجي للمشروع.`
+      },
+      {
+        id: 6,
+        domain: `gov`,
+        q: `من يترأس فريق قيادة مشروع المؤسسة المندمج على المستوى المحلي بحكم القانون والاختصاص؟`,
+        opts: [
+          `أقدم أستاذ في المؤسسة`,
+          `مدير(ة) المؤسسة التعليمية`,
+          `رئيس جمعية آباء وأمهات وأولياء التلاميذ`,
+          `المقتصد أو مسير المصالح الاقتصادية دون إشراك المدير`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — آليات الحكامة المحلية`,
+        exp: `يترأس مدير المؤسسة التعليمية فريق القيادة ومجالس المؤسسة، ويتولى مسؤولية التنسيق العام وضمان الانخراط وتفعيل الشراكات وتدبير التتبع والتقييم ومساءلة النتائج.`
+      },
+      {
+        id: 7,
+        domain: `gov`,
+        q: `ما هي الأهداف الاستراتيجية الثلاثة لخارطة الطريق 2022–2026 التي يجب أن يتقاطع معها مشروع المؤسسة المندمج في قياس أثره؟`,
+        opts: [
+          `توحيد الزي المدرسي، تقليص ساعات الدراسة، ورقمنة الامتحانات الإشهادية فقط`,
+          `مضاعفة نسبة التحكم في التعلمات الأساس، مضاعفة نسبة المستفيدين من الأنشطة الموازية، وتقليص الهدر المدرسي بنسبة الثلث`,
+          `بناء قاعات متعددة الوسائط، توظيف حراس أمن، وتوسيع النقل المدرسي فقط`,
+          `رفع نسبة النجاح في البكالوريا إلى 100% دون الاهتمام بالتعليم الابتدائي`
+        ],
+        ans: 1,
+        ref: `خارطة الطريق 2022–2026 — الأهداف الاستراتيجية`,
+        exp: `ترتكز خارطة الطريق 2022–2026 على ثلاثة أهداف استراتيجية كبرى ذات أثر مباشر على التلميذ: مضاعفة التحكم في التعلمات الأساس، مضاعفة الاستفادة من الأنشطة الموازية، وتقليص الهدر المدرسي بالثلث؛ ويجب أن تصب مشاريع المؤسسات في تحقيقها.`
+      },
+      {
+        id: 8,
+        domain: `gov`,
+        q: `ما الجهة الإقليمية المختصة بدراسة مشاريع المؤسسات المندمجة والمصادقة عليها واعتماد تمويلها بعد رفعها من المؤسسات؟`,
+        opts: [
+          `المجلس الجماعي الترابي`,
+          `اللجنة الإقليمية لمشروع المؤسسة المندمج بالمديرية الإقليمية`,
+          `الخزينة العامة للمملكة مباشرة`,
+          `اللجنة الوطنية للصفقات`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — مسطرة المصادقة الإقليمية`,
+        exp: `بعد مصادقة مجلس التدبير محلياً وإدراج المشروع في منظومة مسار، تتولى اللجنة الإقليمية بالمديرية الإقليمية (تحت إشراف المدير الإقليمي) فحص جودة المشروع ومطابقته للتوجهات الاستراتيجية والمصادقة عليه لصرف الاعتمادات.`
+      },
+      {
+        id: 9,
+        domain: `gov`,
+        q: `ما المقصود بمقاربة «المقاربة التشاركية» في الحكامة التربوية المحلية لمشروع المؤسسة المندمج؟`,
+        opts: [
+          `تفويض المدير للكاتب العام إعداد المشروع بمفرده لتوفير الوقت`,
+          `إشراك كافة الفاعلين الداخليين (أساتذة، إدارة، تلاميذ) والخارجيين (أسر، جمعيات، جماعات ترابية) في التشخيص والتخطيط والتنفيذ والتتبع`,
+          `توزيع مهام الحراسة العامة على التلاميذ بالتناوب`,
+          `اعتماد نموذج جاهز وموحّد بين جميع المؤسسات دون تكييف محلي`
+        ],
+        ans: 1,
+        ref: `القانون الإطار 51.17 والمذكرة 014x24`,
+        exp: `تضمن المقاربة التشاركية تملّك المشروع من طرف الجميع وتحويله من وثيقة إدارية معزولة إلى تعاقد جماعي يشارك في بنائه وتنفيذه الأساتذة والتلاميذ والأسر والشركاء المحليون.`
+      },
+      {
+        id: 10,
+        domain: `gov`,
+        q: `أي من الفئات التالية يجب تمثيلها وجوباً في فريق قيادة مشروع المؤسسة المندمج بالمؤسسات الثانوية (الإعدادية والتأهيلية)؟`,
+        opts: [
+          `أعضاء الطاقم الإداري والتربوي وممثلو التلاميذ وجمعية أمهات وآباء وأولياء التلاميذ ومستشارو التوجيه (وفق الحاجة)`,
+          `المفتشون التربويون وحدهم دون أعضاء المؤسسة`,
+          `الممونون والشركات المتعاقدة مع المديرية الإقليمية`,
+          `رؤساء المصالح بالأكاديمية الجهوية فقط`
+        ],
+        ans: 0,
+        ref: `دليل قيادة مشروع المؤسسة المندمج — تركيبة فريق القيادة`,
+        exp: `يضم فريق القيادة مدير المؤسسة رئيساً، وممثلين عن الأطر التربوية والإدارية، وممثلين عن التلاميذ (خاصة بالسلك الثانوي)، وممثلين عن جمعية الآباء، مع إمكانية الاستعانة بالمستشار في التوجيه التربوي والمختص الاجتماعي.`
+      },
+      {
+        id: 11,
+        domain: `gov`,
+        q: `كيف تضمن المذكرة 014x24 ربط الاستقلالية التدبيرية للمؤسسة التعليمية بمبدأ «ربط المسؤولية بالمحاسبة»؟`,
+        opts: [
+          `عبر إلغاء جميع أشكال المراقبة المالية بعد المصادقة على المشروع`,
+          `عبر تحديد مؤشرات دقيقة للإنجاز والأثر، ومواكبة المفتشين واللجان الإقليمية، وتقديم حصيلة دورية أمام مجلس التدبير`,
+          `عبر الاكتفاء بتصريح شفهي للمدير في نهاية السنة الدراسية`,
+          `عبر تحويل ملكية بنايات المؤسسة إلى جمعية دعم مدرسة النجاح`
+        ],
+        ans: 1,
+        ref: `القانون الإطار 51.17 — المادة 39 والمذكرة 014x24`,
+        exp: `الاستقلالية في تدبير مشروع المؤسسة تقترن وجوباً بتعاقد حول الأهداف والنتائج، وتُقاس عبر مؤشرات قابلة للتحقق في منظومة مسار، مع تقارير تقويمية مالية وتربوية تعرض على مجلس التدبير والمديرية الإقليمية.`
+      },
+      {
+        id: 12,
+        domain: `gov`,
+        q: `ما هي الوظيفة الأساسية للمجالس التعليمية (المادة 26 من المرسوم 2.02.376) في دعم مشروع المؤسسة المندمج؟`,
+        opts: [
+          `توزيع المنح المالية على الأساتذة المتفوقين`,
+          `تشخيص وضعية تدريس كل مادة دراسية، ورصد التعثرات التخصصية، واقتراح خطط الدعم والمعالجة لإدماجها في المشروع`,
+          `إصلاح التجهيزات الكهربائية والمائية بالمؤسسة`,
+          `تنظيم رحلات استجمامية خارج الإقليم فقط`
+        ],
+        ans: 1,
+        ref: `المرسوم 2.02.376 — المادة 26`,
+        exp: `تدرس المجالس التعليمية وضعية تدريس المواد الدراسية وتحدد حاجيات التكوين والدعم التربوي للتلاميذ في كل مادة، مما يغذي التشخيص البيداغوجي الدقيق لمشروع المؤسسة المندمج.`
+      },
+
+      /* ==================== 2. مرحلة التشخيص D (13–24) ==================== */
+      {
+        id: 13,
+        domain: `diag`,
+        q: `ما هو الحرف الأول في منهجية DEPART المعتمدة في مشروع المؤسسة المندمج، وماذا يمثل؟`,
+        opts: [
+          `D — ويُقصد به التطوير الإداري (Développement)`,
+          `D — ويُقصد به التشخيص (Diagnostic)`,
+          `D — ويُقصد به التفويض المالي (Délégation)`,
+          `D — ويُقصد به القرار التأديبي (Décision)`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة الأولى (D)`,
+        exp: `يمثل الحرف D مرحلة التشخيص (Diagnostic)، وهي حجر الأساس الذي ينطلق منه المشروع عبر جمع وتحليل المعطيات الكمية والنوعية لفهم الوضعية الراهنة للمؤسسة بدقة وموضوعية.`
+      },
+      {
+        id: 14,
+        domain: `diag`,
+        q: `أي من المؤشرات التالية يُصنّف ضمن المعطيات «الكمية» الأساسية في تشخيص التعلمات بمنظومة مسار؟`,
+        opts: [
+          `انطباعات بعض الأولياء حول نظافة الساحة`,
+          `نسب النجاح، معدلات التحكم في الكفايات الأساس، ونسب التكرار والانقطاع حسب المستوى والشعبة`,
+          `رأي جمعية محلية في جمال الواجهة الأمامية للمؤسسة`,
+          `مقترحات الأنشطة الفنية للأسدس الثاني`
+        ],
+        ans: 1,
+        ref: `دليل التشخيص — المعطيات الكمية في مسار`,
+        exp: `تشمل المعطيات الكمية كل الأرقام والإحصائيات الدقيقة المستخرجة أساساً من منظومة مسار، مثل نسب التحكم في القراءة والرياضيات واللغات، ومعدلات التغطية، ونسب الانقطاع والتكرار والغياب.`
+      },
+      {
+        id: 15,
+        domain: `diag`,
+        q: `لماذا لا يكفي التشخيص الكمي وحده عند بناء مشروع المؤسسة المندمج، بل يجب استكماله بتشخيص نوعي؟`,
+        opts: [
+          `لأن المعطيات الكمية في مسار غالباً ما تكون غير قانونية`,
+          `لأن التشخيص النوعي يفسر الأسباب الكامنة وراء الأرقام (مثل أسباب الهدر أو ضعف الدافعية أو مناخ القسم) عبر الاستمارات والمقابلات`,
+          `لأن التشخيص النوعي يهدف إلى إخفاء نسب الرسوب المرتفعة`,
+          `لأن التشخيص النوعي يعفي المؤسسة من تحديد مؤشرات القياس`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — تكامل التشخيص الكمي والنوعي`,
+        exp: `الأرقام تصف «ماذا يحدث» (مثلاً 12% نسبة تكرار)، بينما يكشف التشخيص النوعي (مجموعات بؤرية، استبيانات التلاميذ والأساتذة، ملاحظات مجالس الأقسام) «لماذا يحدث ذلك» وما هي العوامل التربوية والاجتماعية المفسرة له.`
+      },
+      {
+        id: 16,
+        domain: `diag`,
+        q: `ما هي المجالات الرئيسية التي يجب أن يغطيها التشخيص المندمج للمؤسسة وفق المذكرة 014x24؟`,
+        opts: [
+          `البناية المدرسية والتجهيزات فقط`,
+          `التعلمات الأساس والنتائج الدراسية، التمدرس والهدر المدرسي، الحياة المدرسية والأنشطة الموازية، البنية والتجهيز، والحكامة والشراكة`,
+          `الغياب الإداري للأطر التربوية فقط`,
+          `عدد الوثائق المحفوظة في الأرشيف المالي فقط`
+        ],
+        ans: 1,
+        ref: `نموذج مشروع المؤسسة المندمج — محاور التشخيص`,
+        exp: `يغطي التشخيص المندمج أبعاد المؤسسة كافة بشكل شمولي، مع إيلاء أولوية قصوى لنتائج التعلمات ومؤشرات التمدرس والحياة المدرسية، ثم ربطها بشروط الجودة المادية والحكامة والشراكات.`
+      },
+      {
+        id: 17,
+        domain: `diag`,
+        q: `أثناء تشخيص وضعية التلاميذ في بداية مرحلة (D)، ما الأداة الأنسب لرصد التلاميذ المهددين بالانقطاع المدرسي في الوسط القروي أو شبه الحضري؟`,
+        opts: [
+          `الانتظار إلى نهاية السنة الدراسية لحصر لوائح المنقطعين`,
+          `تحليل بيانات الغياب المتكرر والنتائج المتدنية وبعد السكن والوضعية الاجتماعية عبر «اليقظة التربوية» ومسار`,
+          `توجيه إنذار كتابي موحد لجميع التلاميذ دون تمييز`,
+          `إلغاء تسجيل التلاميذ المتأخرين في الأسبوع الأول`
+        ],
+        ans: 1,
+        ref: `برنامج اليقظة التربوية — التشخيص الوقائي للهدر`,
+        exp: `تسمح معطيات منظومة مسار (الغياب، التكرار، التعثر الحاد، البعد عن المؤسسة) بتفعيل خلايا اليقظة التربوية ورصد حالات الهشاشة مبكراً قبل تحولها إلى انقطاع فعلي.`
+      },
+      {
+        id: 18,
+        domain: `diag`,
+        q: `في مرحلة التشخيص، ما دور «التقويم التشخيصي» الذي ينجزه الأساتذة في بداية السنة الدراسية؟`,
+        opts: [
+          `منح نقط جزائية تدخل في المعدل السنوي النهائي`,
+          `تزويد مشروع المؤسسة بمعطيات دقيقة حول درجة تحكم التلاميذ في المستلزمات الدراسية الأساس لتحديد حاجيات الدعم التربوي`,
+          `تحديد لائحة الأساتذة الذين سيُحالون على التقاعد`,
+          `ملء الزمن المدرسي للأسبوع الأول فقط`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — ربط التشخيص بالتعلمات الأساس`,
+        exp: `تُعد نتائج التقويمات التشخيصية (أو روائز المقاربة وفق المستوى المناسب TaRL بمؤسسات الريادة) مادة خاماً مركزية لمرحلة D، لأنها تحدد بدقة حجم التعثرات الفردية والجماعية التي سيعالجها المشروع.`
+      },
+      {
+        id: 19,
+        domain: `diag`,
+        q: `أي من الممارسات التالية تُعد خطأً منهجياً جسيماً أثناء مرحلة التشخيص (Diagnostic)؟`,
+        opts: [
+          `اعتماد إحصائيات آخر ثلاث سنوات دراسية لرصد المنحى التطوري للمؤشرات`,
+          `القفز مباشرة إلى اقتراح الحلول والأنشطة وتحديد لائحة المشتريات قبل جمع المعطيات وتحليلها`,
+          `تنظيم ورشة تشخيص تشاركية تضم ممثلي التلاميذ والأمهات والآباء`,
+          `مقارنة مؤشرات المؤسسة بالمعدلات الإقليمية والجهوية`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — أخطاء التشخيص الشائعة`,
+        exp: `البدء بالحلول المسبقة أو لوائح التجهيزات قبل التشخيص الدقيق يفرغ المشروع من جدواه الاستراتيجية، وقد يؤدي إلى إنفاق الموارد في أنشطة لا تعالج الإشكالات الحقيقية للمؤسسة.`
+      },
+      {
+        id: 20,
+        domain: `diag`,
+        q: `ماذا يُقصد بـ «التحليل المقارن (Benchmarking الداخلي)» أثناء تشخيص نتائج المؤسسة؟`,
+        opts: [
+          `مقارنة ميزانية المؤسسة بميزانية مؤسسة أخرى في دولة أجنبية`,
+          `مقارنة مؤشرات المؤسسة عبر الزمن (آخر 3 سنوات) وبالمؤشرات المرجعية الإقليمية والجهوية لتحديد الفجوات`,
+          `مقارنة أقدمية الأساتذة لاختيار رئيس فريق القيادة`,
+          `مقارنة أسعار الموردين في السندات المالية`
+        ],
+        ans: 1,
+        ref: `دليل التشخيص — قراءة لوحات القيادة`,
+        exp: `يتيح التتبع التطوري لثلاث سنوات ومقارنته بالعتبات الإقليمية والجهوية معرفة ما إذا كانت المؤسسة في مسار تحسن أم تراجع، وتحديد أين تتركز الفجوة الكبرى.`
+      },
+      {
+        id: 21,
+        domain: `diag`,
+        q: `كيف تُصاغ «بطاقة الوضعية الراهنة» في ختام مرحلة التشخيص (D)؟`,
+        opts: [
+          `في شكل نص أدبي مطوّل دون أرقام أو جداول`,
+          `في شكل خلاصة تركيبية مرقّمة توثق المؤشرات الأساسية، والفجوات المرصودة، والأسباب المفسرة لكل مجال`,
+          `في شكل فواتير وتقارير صرف مالية`,
+          `في شكل جدول حصص أسبوعي للأساتذة`
+        ],
+        ans: 1,
+        ref: `نموذج مشروع المؤسسة المندمج — مخرجات التشخيص`,
+        exp: `تُختتم مرحلة التشخيص بتوليفة واضحة ومرقمة للوضع الراهن، تبرز المشكلات الحقيقية وأسبابها الجذرية، تمهيداً لترتيبها في تحليل SWOT واختيار الأولويات.`
+      },
+      {
+        id: 22,
+        domain: `diag`,
+        q: `ما الأداة التشاركية التي تُستخدم لتفكيك مشكلة معقدة (مثل ضعف التحكم في القراءة أو كثرة التغيب) إلى أسبابها الجذرية وآثارها؟`,
+        opts: [
+          `شجرة المشاكل (Arbre à problèmes)`,
+          `سجل الجرد العام للممتلكات`,
+          `بطاقة الغياب اليومية للحراس العامين`,
+          `جدول العطل المدرسية السنوي`
+        ],
+        ans: 0,
+        ref: `الأدوات المنهجية للتشخيص التشاركي`,
+        exp: `تُساعد «شجرة المشاكل» فرق العمل التربوي على التمييز بين المشكلة المركزية (الجذع)، وأسبابها المباشرة وغير المباشرة (الجذور)، ونتائجها على التلميذ والمؤسسة (الأغصان)، مما يسهّل تحويلها لاحقاً إلى شجرة أهداف.`
+      },
+      {
+        id: 23,
+        domain: `diag`,
+        q: `في تشخيص الحياة المدرسية والأنشطة الموازية، ما المعيار الأساسي الذي تؤكد عليه خارطة الطريق 2022–2026؟`,
+        opts: [
+          `عدد اللافتات المعلقة في بهو المؤسسة`,
+          `نسبة التلاميذ المستفيدين فعلياً وبانتظام من الأندية التربوية والأنشطة الثقافية والرياضية مقارنة بمجموع التلاميذ`,
+          `عدد الصور المنشورة في منصات التواصل الاجتماعي`,
+          `عدد الاجتماعات الإدارية المنعقدة سنوياً`
+        ],
+        ans: 1,
+        ref: `خارطة الطريق 2022–2026 — مؤشر الأنشطة الموازية`,
+        exp: `المعيار المعتمد هو نسبة التلاميذ المنخرطين والمستفيدين بصفة فعلية ومستمرة من الأنشطة الموازية (والهدف مضاعفتها)، وليس مجرد تنظيم مناسبات عابرة أو احتفالات شكلية.`
+      },
+      {
+        id: 24,
+        domain: `diag`,
+        q: `متى يُنصح بإنجاز أو تحيين التشخيص الميداني لدورة مشروع المؤسسة المندمج؟`,
+        opts: [
+          `في الأسبوع الأخير من شهر يوليوز بعد مغادرة التلاميذ والأساتذة`,
+          `في مستهل الموسم الدراسي (أواخر شتنبر وبداية أكتوبر) فور توفر معطيات الدخول المدرسي والروائز التشخيصية`,
+          `خلال فترة الامتحانات الإشهادية في شهر يونيو`,
+          `كل عشر سنوات فقط دون تحيين سنوي`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — الجدولة السنوية لمراحل المشروع`,
+        exp: `إنجاز التشخيص أو تحيينه في بداية السنة الدراسية (شتنبر–أكتوبر) يضمن استثمار معطيات التمدرس الفعلية للسنة الجارية ونتائج التقويم التشخيصي لبناء خطة عمل واقعية.`
+      },
+
+      /* ==================== 3. تحليل SWOT والأولويات (25–34) ==================== */
+      {
+        id: 25,
+        domain: `swot`,
+        q: `في مصفوفة التحليل الاستراتيجي SWOT، إلى أي بيئة ينتمي كل من «نقاط القوة» (Strengths) و«نقاط الضعف» (Weaknesses)؟`,
+        opts: [
+          `البيئة الخارجية للمؤسسة`,
+          `البيئة الداخلية للمؤسسة (ما تتحكم فيه المؤسسة وتملكه ذاتياً)`,
+          `القرارات الوزارية المركزية وحدها`,
+          `التقلبات المناخية والجغرافية للإقليم`
+        ],
+        ans: 1,
+        ref: `منهجية التحليل الاستراتيجي — مصفوفة SWOT`,
+        exp: `يركز تحليل SWOT على تقسيم العوامل إلى داخلية (قوة وضعف) مرتبطة بإمكانات المؤسسة ومواردها البشرية والمادية والتدبيرية، وخارجية (فرص وتهديدات) نابعة من محيط المؤسسة.`
+      },
+      {
+        id: 26,
+        domain: `swot`,
+        q: `أي من العناصر التالية يُصنّف بدقة ضمن «الفرص» (Opportunities) في تحليل SWOT لمؤسسة تعليمية؟`,
+        opts: [
+          `روح التعاون والانسجام العالي بين أساتذة المؤسسة`,
+          `تواجد جمعية مجتمع مدني نشيطة أو شراكة مع الجماعة الترابية لدعم النقل والأنشطة التربوية`,
+          `تقادم التجهيزات المعلوماتية داخل قاعة الإعلاميات`,
+          `ارتفاع نسبة الغياب في صفوف تلاميذ السنة الثالثة إعدادي`
+        ],
+        ans: 1,
+        ref: `نموذج مشروع المؤسسة المندمج — تحليل المحيط الخارجي`,
+        exp: `تُعتبر الشراكات المتاحة في المحيط السوسيو-اقتصادي أو دعم الجماعة الترابية أو البرامج الوطنية الداعمة فرصاً خارجية يمكن استثمارها لتعزيز قدرات المؤسسة، بينما انسجام الأساتذة نقطة قوة داخلية.`
+      },
+      {
+        id: 27,
+        domain: `swot`,
+        q: `أي من العوامل التالية يمثل «تهديداً» (Threat) خارجياً وليس نقطة ضعف داخلية؟`,
+        opts: [
+          `نقص التنسيق بين المجالس التعليمية داخل المؤسسة`,
+          `انتشار ظاهرة الشغب أو تعاطي الممنوعات في المحيط القريب للمؤسسة، أو الهجرة الموسمية للأسر`,
+          `غياب مكتبة مدرسية داخل بناية المؤسسة`,
+          `ضعف توظيف الوسائل الديداكتيكية من طرف بعض الأطر`
+        ],
+        ans: 1,
+        ref: `تحليل SWOT — التمييز بين الضعف الداخلي والتهديد الخارجي`,
+        exp: `التهديدات هي عوامل خارجية لا تتحكم فيها المؤسسة مباشرة (كمحيط غير آمن، أو هشاشة اقتصادية تدفع لتشغيل الأطفال، أو صعوبة الولوج في المسالك الوعرة)، لكنها تؤثر سلباً على سير المشروع إذا لم توضع لها تدابير وقائية.`
+      },
+      {
+        id: 28,
+        domain: `swot`,
+        q: `ماذا تعني استراتيجية (SO — استثمار القوة لاقتناص الفرص) في مصفوفة التقاطع الرباعية لـ SWOT؟`,
+        opts: [
+          `تجميد أنشطة المؤسسة لتفادي المخاطر الخارجية`,
+          `استراتيجية هجومية/نمائية توظف نقاط القوة الداخلية للمؤسسة للاستفادة القصوى من الفرص المتاحة في المحيط`,
+          `تقليص عدد التلاميذ لتقليل نقاط الضعف`,
+          `الاستغناء عن الشركاء الخارجيين نهائياً`
+        ],
+        ans: 1,
+        ref: `مصفوفة SWOT المتقاطعة (TOWS)`,
+        exp: `استراتيجية SO (الهجومية) هي الأعلى مردودية، مثل توظيف كفاءة أساتذة المؤسسة وحماستهم (قوة داخلية) لاستثمار عرض تكويني أو تمويلي من شريك محلي أو برنامج ريادة (فرصة خارجية).`
+      },
+      {
+        id: 29,
+        domain: `swot`,
+        q: `متى تعتمد المؤسسة استراتيجية (WO — تقليص الضعف عبر استثمار الفرص) في مشروعها المندمج؟`,
+        opts: [
+          `عندما تلجأ المؤسسة إلى إشراك جمعيات أو جماعات محلية (فرصة) لسد خصاص في الدعم التربوي أو التجهيز (نقطة ضعف داخلية)`,
+          `عندما تمتلك المؤسسة فائضاً مالياً كبيراً وتوزعه على الأندية دون حاجة`,
+          `عندما تغلق المؤسسة أبوابها أمام المحيط الخارجي`,
+          `عندما لا توجد أي نقط ضعف داخل المؤسسة`
+        ],
+        ans: 0,
+        ref: `مصفوفة SWOT المتقاطعة — استراتيجية التدارك`,
+        exp: `تُستخدم استراتيجية WO لتحويل نقاط الضعف إلى قدرات عبر الاستعانة بالفرص الخارجية، كإبرام شراكة مع جمعية متخصصة في التوجيه أو الدعم التربوي أو التجهيز الرقمي.`
+      },
+      {
+        id: 30,
+        domain: `swot`,
+        q: `لماذا يُفرض على فريق القيادة «ترتيب الأولويات» بعد إنجاز التشخيص وتحليل SWOT بدلاً من إدراج جميع المشاكل في خطة العمل؟`,
+        opts: [
+          `لأن المذكرة الوزارية تمنع معالجة أكثر من تلميذ واحد سنوياً`,
+          `لأن الموارد المالية والبشرية والزمنية محدودة، والتركيز على أولويات قليلة ذات أثر كبير يضمن فعالية التنزيل`,
+          `لإرضاء الأعضاء الأكثر أقدمية في مجلس التدبير فقط`,
+          `لأن منظومة مسار لا تقبل إدخال أكثر من نشاطين اثنين`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — التركيز على الأولويات ذات الأثر`,
+        exp: `مبدأ النجاعة في التدبير يقتضي عدم تشتيت الجهود والاعتمادات المحدودة؛ لذا تُنتقى عادة 3 إلى 4 أولويات استراتيجية ذات أولوية قصوى وأثر مباشر على التعلمات والانقطاع.`
+      },
+      {
+        id: 31,
+        domain: `swot`,
+        q: `ما هي المعايير الأربعة المرجعية المعتمدة عادة في شبكة تنقيط وترتيب الأولويات بعد تحليل SWOT؟`,
+        opts: [
+          `السهولة الشكلية، الكلفة المرتفعة، الرغبة الشخصية، والسرعة`,
+          `الأهمية/الخطورة، الاستعجالية، الأثر المتوقع على التلميذ، والقابلية للإنجاز (الموارد المتاحة)`,
+          `عدد الصفحات، حجم الخط، لون الغلاف، وموعد التسليم`,
+          `قرار المقاول، رغبة الحارس، توفر النقل، وتوقيت العطلة`
+        ],
+        ans: 1,
+        ref: `دليل تحديد الأولويات — مصفوفة الانتقاء`,
+        exp: `يتم تنقيط كل إشكال أو حاجة مرصودة وفق معايير موضوعية: مدى خطورته واستعجاليته، حجم الأثر التربوي المتوقع على التلاميذ، وقدرة المؤسسة على معالجته ضمن مواردها وصلاحياتها.`
+      },
+      {
+        id: 32,
+        domain: `swot`,
+        q: `في مصفوفة SWOT، أي عبارة التالية مصاغة بشكل سليم ودقيق لإدراجها ضمن «نقاط الضعف»؟`,
+        opts: [
+          `المؤسسة سيئة جداً وتحتاج إلى تغيير جذري`,
+          `ضعف تحكم 38% من تلاميذ المستوى الثالث في الكفايات القرائية الأساس خلال الأسدس الأول`,
+          `سوء الأحوال الجوية في فصل الشتاء`,
+          `صدور مذكرة وزارية جديدة حول الأندية التربوية`
+        ],
+        ans: 1,
+        ref: `قواعد الصياغة الموضوعية لـ SWOT`,
+        exp: `ينبغي أن تكون عبارات SWOT محددة، موضوعية، ومستندة إلى معطيات موثقة بعيداً عن التعميمات الانطباعية أو الأحكام القيمية الفضفاضة.`
+      },
+      {
+        id: 33,
+        domain: `swot`,
+        q: `كيف تُعالج استراتيجية (WT — الدفاعية) التقاطع بين «نقاط الضعف» و«التهديدات»؟`,
+        opts: [
+          `تجاهل التهديدات وانتظار تدخل الوزارة وحدها`,
+          `وضع تدابير وقائية وحمائية لتقليص الهشاشة الداخلية والحد من أثر المخاطر الخارجية (مثل تأمين محيط المؤسسة واليقظة التربوية)`,
+          `مضاعفة نقط الضعف لاستقطاب تعاطف الشركاء`,
+          `تحويل الميزانية بأكملها نحو الرحلات الترفيهية`
+        ],
+        ans: 1,
+        ref: `مصفوفة SWOT المتقاطعة — الاستراتيجية الوقائية`,
+        exp: `عندما يتزامن ضعف داخلي (مثلاً نقص التتبع الفردي) مع تهديد خارجي (تفاقم الهدر أو المخاطر المحيطة)، تفرض استراتيجية WT وضع خطة وقائية وتنسيقية عاجلة مع السلطات والأسر لحماية التلاميذ.`
+      },
+      {
+        id: 34,
+        domain: `swot`,
+        q: `عند الانتقال من أولويات SWOT إلى صياغة المحاور الكبرى للمشروع، ما هو التوجه الإلزامي الذي تفرضه المذكرة 014x24؟`,
+        opts: [
+          `تخصيص الحصة الكبرى من الأولويات والعمليات لتحسين التعلمات الأساس، محاربة الهدر المدرسي، وتنشيط الحياة المدرسية`,
+          `تخصيص 100% من المشروع للبستنة وصباغة الجدران دون أي نشاط تربوي`,
+          `الاقتصار على الأولويات التي يطلبها الممون الخارجي`,
+          `تغيير الأولويات كل أسبوعين دون مصادقة`
+        ],
+        ans: 0,
+        ref: `المذكرة 014x24 — أولوية التعلمات والحياة المدرسية`,
+        exp: `تؤكد المذكرة 014x24 وخارطة الطريق على توجيه أولويات المشروع أساساً نحو الرفع من جودة التعلمات الأساس والحد من التعثرات والهدر وتعزيز التفتح داخل الحياة المدرسية.`
+      },
+
+      /* ==================== 4. مرحلة الانخراط والانطلاق E (35–42) ==================== */
+      {
+        id: 35,
+        domain: `eng`,
+        q: `ماذا يمثل الحرف (E) في منهجية DEPART، وما جوهر هذه المرحلة؟`,
+        opts: [
+          `Evaluation — التقويم الختامي بعد ثلاث سنوات`,
+          `Engagement — الانخراط والتعبئة والانطلاق لتأمين التفاف الفاعلين حول المشروع`,
+          `Équipement — اقتناء الحواسيب والسبورات التفاعلية فقط`,
+          `Exclusion — إقصاء الشركاء غير الممولين`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة الثانية (E)`,
+        exp: `يمثل الحرف E مرحلة الانخراط والانطلاق (Engagement)، وهي مرحلة التعبئة الجماعية وبناء الثقة وتقاسم نتائج التشخيص لإشراك الجميع في تملّك المشروع قبل بدء التخطيط التفصيلي والتنفيذ.`
+      },
+      {
+        id: 36,
+        domain: `eng`,
+        q: `ما هي الآلية التواصلية الأنجع لتحقيق الانخراط الفعلي لهيئة التدريس والأطر الإدارية في بداية مرحلة (E)؟`,
+        opts: [
+          `إرسال مذكرة داخلية إجبارية تتضمن توزيع المهام دون استشارة أو نقاش`,
+          `عقد لقاءات تواصلية وتشاركية لتقاسم نتائج التشخيص، ومناقشة الأولويات، وتوزيع المسؤوليات وفق الكفاءات والمبادرات التطوعية`,
+          `إخفاء نتائج التشخيص عن الأساتذة لتفادي الإحراج`,
+          `الاكتفاء بنشر ملصق واحد في قاعة الأساتذة دون اجتماع`
+        ],
+        ans: 1,
+        ref: `دليل التعبئة والانخراط — التواصل الداخلي`,
+        exp: `يتحقق الانخراط الحقيقي حين يشعر الفاعلون التربويون أنهم شركاء في الفهم والقرار، عبر حوار مهني صريح حول تشخيص مؤسستهم يفتح المجال للمبادرة والالتزام الطوعي.`
+      },
+      {
+        id: 37,
+        domain: `eng`,
+        q: `ما المقصود بـ «التعاقد المعنوي / ميثاق الانخراط» في سياق مرحلة (E) لمشروع المؤسسة المندمج؟`,
+        opts: [
+          `عقد عمل تجاري خاضع لمدونة الشغل بين المدير والأساتذة`,
+          `وثيقة تشاركية رمزية وأخلاقية يلتزم بموجبها الفاعلون والشركاء (إدارة، أساتذة، أسر، تلاميذ) بدعم أهداف المشروع وإنجاح عملياته`,
+          `عقد كراء قاعات المؤسسة للجمعيات الرياضية`,
+          `شهادة إدارية تسلم للتلاميذ في نهاية الأسدس`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — أدوات التعبئة`,
+        exp: `يرسخ ميثاق الانخراط الثقافة التعاقدية داخل المؤسسة، حيث يتفق كل طرف على دوره التطوعي أو المهني في مساندة التلميذ وتحقيق الرؤية المشتركة للمؤسسة.`
+      },
+      {
+        id: 38,
+        domain: `eng`,
+        q: `كيف يتم إشراك التلاميذ بفعالية في مرحلة الانخراط والانطلاق (Engagement)؟`,
+        opts: [
+          `من خلال الاستماع إلى أصواتهم وحاجياتهم عبر ممثليهم في المجالس والبرلمان المدرسي والأندية التربوية، وتشجيع مبادراتهم`,
+          `عبر تكليفهم بتنظيف قاعة الاجتماعات فقط`,
+          `عبر منعهم من الاطلاع على أهداف المشروع لأنها تخص الكبار فقط`,
+          `عبر منحهم صلاحية التوقيع على الشيكات البنكية`
+        ],
+        ans: 0,
+        ref: `المذكرة 014x24 — التلميذ فاعل في مشروع المؤسسة`,
+        exp: `التلميذ هو المستهدف الأول والفاعل المحوري في المشروع؛ لذا فإن إشراك مندوبي الأقسام وممثلي التلاميذ في التعبير عن تطلعاتهم وتنشيط الحياة المدرسية يعزز شعورهم بالانتماء والانضباط الإيجابي.`
+      },
+      {
+        id: 39,
+        domain: `eng`,
+        q: `في مرحلة الانخراط، ما الدور المنتظر من جمعية أمهات وآباء وأولياء التلاميذ لتعزيز نجاح المشروع؟`,
+        opts: [
+          `التدخل في تقييم الأداء البيداغوجي للأساتذة داخل الأقسام`,
+          `تعبئة الأسر لمواكبة تمدرس أبنائهم، والحد من الغياب والهدر، والمساهمة المعنوية أو اللوجستيكية في أنشطة الحياة المدرسية`,
+          `تولي حراسة الامتحانات الإشهادية بديلاً عن الأطر الإدارية`,
+          `حل محل مجلس التدبير في المصادقة المنفردة على المشروع`
+        ],
+        ans: 1,
+        ref: `الإطار المرجعي للشراكة مع جمعيات الآباء`,
+        exp: `تُعد جمعية الآباء شريكاً أساسياً في وصل المؤسسة بالأسرة، خاصة في التوعية بأهمية المواظبة، ومواكبة الحالات الاجتماعية، ودعم الأنشطة الموازية في احترام تام للاختصاصات التربوية والإدارية.`
+      },
+      {
+        id: 40,
+        domain: `eng`,
+        q: `أي مؤشر يدل على نجاح مرحلة الانخراط والانطلاق (E) قبل المرور الكامل إلى مرحلة التخطيط؟`,
+        opts: [
+          `تشكيل فرق عمل موضوعاتية فعالة (منسقو الأقطاب/المجالات)، ووضوح الأدوار، واستعداد الفاعلين لتنزيل الخطة`,
+          `صرف جميع اعتمادات جمعية دعم مدرسة النجاح قبل وضع الخطة`,
+          `انسحاب الأطر التربوية من الاجتماعات`,
+          `إلغاء جميع الأندية التربوية لتفادي العمل الإضافي`
+        ],
+        ans: 0,
+        ref: `معايير جودة مرحلة الانخراط (E)`,
+        exp: `تُقاس جودة التعبئة بتأسيس فرق عمل مصغرة ومتخصصة حول الأولويات المنتقاة (فريق الدعم، فريق الحياة المدرسية، فريق اليقظة...) مع انخراط فعلي وتقاسم للرؤية.`
+      },
+      {
+        id: 41,
+        domain: `eng`,
+        q: `ما المقصود بـ «أيام الانطلاق أو الأبواب المفتوحة» كآلية ضمن مرحلة (E)؟`,
+        opts: [
+          `إلغاء الدروس لمدة شهر كامل لتنظيم حفلات`,
+          `لقاءات تواصلية موسعة مع الأسر والشركاء المحليين والسلطات المنتخبة للتعريف برؤية المؤسسة واستقطاب الدعم والشراكات`,
+          `فتح المؤسسة للعموم دون أي تنظيم أمني أو تربوي`,
+          `توزيع النقط والنتائج الدراسية علناً في الساحة`
+        ],
+        ans: 1,
+        ref: `دليل التواصل المدرسي — انفتاح المؤسسة على محيطها`,
+        exp: `تشكل تظاهرات الانطلاق الممنهجة فرصة لتقديم مشروع المؤسسة للشركاء المحتملين (جماعات ترابية، قطاع خاص، جمعيات، فعاليات محلية) وبناء تحالف محلي داعم للمدرسة العمومية.`
+      },
+      {
+        id: 42,
+        domain: `eng`,
+        q: `عند مواجهة مقاومة للتغيير أو فتور في الانخراط من طرف بعض الفاعلين، ما التدخل القيادي الأنجع لمدير المؤسسة؟`,
+        opts: [
+          `اعتماد العقوبات الفورية والتهديد بالاقتطاع في كل اجتماع`,
+          `الإنصات للمخاوف العملية، إبراز الأثر الميداني الميسّر لعمل الأستاذ (مثل تخفيف تعثرات التلاميذ)، والبدء بنماذج نجاح سريعة التحقق`,
+          `إعداد المشروع في سرية تامة ونشره في مسار دون علمهم`,
+          `توقيف العمل بمشروع المؤسسة المندمج لهذا الموسم`
+        ],
+        ans: 1,
+        ref: `تدبير التغيير في القيادة التربوية`,
+        exp: `تُعالج مقاومة التغيير عبر القيادة التحويلية: الإصغاء للإكراهات الحقيقية، ربط المشروع بتحسين شروط عمل الأستاذ داخل الفصل وتقليص تعثر التلاميذ، وتحفيز المبادرات الناجحة.`
+      },
+
+      /* ==================== 5. مرحلة التخطيط P (43–54) ==================== */
+      {
+        id: 43,
+        domain: `plan`,
+        q: `ما الذي يميز مرحلة التخطيط (Planning — P) في منهجية DEPART؟`,
+        opts: [
+          `جمع البيانات الأولية دون تحديد أهداف`,
+          `ترجمة الأولويات المنتقاة إلى رؤية وأهداف ذكية وعمليات إجرائية مبرمجة زمنياً ومالياً مع تحديد مؤشرات التتبع`,
+          `أرشفة ملفات المشروع المنتهية صلاحيتها`,
+          `صرف الشيكات البنكية قبل تحديد الأنشطة`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة الثالثة (P)`,
+        exp: `في مرحلة التخطيط (P)، ينتقل الفريق من «ماذا نريد تغييره؟» إلى «كيف ومتى وبأي موارد وبأي مؤشرات سنحققه؟»، عبر صياغة مصفوفة خطة العمل الثلاثية والسنوية.`
+      },
+      {
+        id: 44,
+        domain: `plan`,
+        q: `في صياغة الأهداف الإجرائية وفق معايير SMART، ماذا يمثل الحرف (M — Measurable)؟`,
+        opts: [
+          `أن يكون الهدف قابلاً للقياس الكمي أو النوعي بمؤشرات واضحة`,
+          `أن يكون الهدف مكلفاً مادياً بالضرورة`,
+          `أن يكون الهدف موجهاً للأطر الإدارية فقط`,
+          `أن يبقى الهدف غامضاً لتفادي المحاسبة`
+        ],
+        ans: 0,
+        ref: `هندسة التخطيط التربوي — معايير SMART`,
+        exp: `يعني معيار M (قابل للقياس) إرفاق الهدف بأرقام أو عتبات مرجعية (مثل: رفع نسبة التحكم من 45% إلى 70%) حتى يتمكن فريق القيادة في مرحلة التتبع من التحقق من مدى تحققه.`
+      },
+      {
+        id: 45,
+        domain: `plan`,
+        q: `أي من صياغات الأهداف التالية تحترم جميع شروط معيار SMART في مشروع المؤسسة المندمج؟`,
+        opts: [
+          `تحسين مستوى التلاميذ في اللغة العربية والرياضيات خلال المستقبل القريب`,
+          `تقليص نسبة التلاميذ المتعثرين في القراءة بالمستوى الثالث ابتدائي من 40% إلى 15% مع متم الأسدس الثاني من الموسم الدراسي 2024–2025 عبر حصص الدعم المكثف`,
+          `جعل المدرسة جميلة وممتعة لجميع التلاميذ والأطر`,
+          `تشجيع التلاميذ على عدم الغياب ما أمكن ذلك`
+        ],
+        ans: 1,
+        ref: `تطبيق معايير SMART في المشاريع التربوية`,
+        exp: `الهدف الثاني محدد (التلاميذ المتعثرون في القراءة بالمستوى الثالث)، قابل للقياس (من 40% إلى 15%)، قابل للتحقق ومرتبط بوسيلة (حصص الدعم)، واقعي، ومحدد بزمن (متم الأسدس الثاني 2024–2025).`
+      },
+      {
+        id: 46,
+        domain: `plan`,
+        q: `ما الفرق المنهجي بين «مؤشر الإنجاز» (Indicateur de réalisation) و«مؤشر الأثر» (Indicateur d'impact) في بطاقة التخطيط؟`,
+        opts: [
+          `لا يوجد أي فرق بينهما؛ كلاهما يقيس عدد الاجتماعات`,
+          `مؤشر الإنجاز يقيس مدى تنفيذ النشاط (مثل عدد حصص الدعم المنجزة)، بينما يقيس مؤشر الأثر التغير الفعلي لدى التلميذ (مثل ارتفاع نسبة التحكم أو تراجع الهدر)`,
+          `مؤشر الإنجاز يهم الميزانية فقط ومؤشر الأثر يهم البناية فقط`,
+          `مؤشر الأثر يُحدد في مسار ومؤشر الإنجاز يُمنع كتابته`
+        ],
+        ans: 1,
+        ref: `منهجية التدبير المرتكز على النتائج (GAR)`,
+        exp: `إنجاز 30 حصة دعم (مؤشر إنجاز) لا يعني بالضرورة نجاح العملية ما لم يُترجم ذلك إلى تحسن فعلي في كفايات التلاميذ (مؤشر أثر). المشروع المندمج يربط التخطيط بالنتائج والأثر.`
+      },
+      {
+        id: 47,
+        domain: `plan`,
+        q: `ما العناصر الإلزامية التي تتضمنها «بطاقة العملية / النشاط» (Fiche action) في خطة عمل المشروع؟`,
+        opts: [
+          `عنوان العملية، الهدف المرتبط بها، الفئة المستهدفة، الجدولة الزمنية، المسؤول عن التنفيذ، الموارد/الكلفة، ومؤشرات التتبع`,
+          `عنوان العملية واسم المدير وتاريخ توقيع المذكرة الوزارية فقط`,
+          `لائحة أسماء الموردين وأرقام حساباتهم البنكية فقط`,
+          `نصوص القوانين المنظمة للتعليم العالي`
+        ],
+        ans: 0,
+        ref: `نموذج مشروع المؤسسة المندمج — بطاقة العملية`,
+        exp: `تُعد بطاقة العملية أداة التخطيط الدقيق لكل نشاط مبرمج، حيث تجيب عن الأسئلة الإجرائية: ماذا؟ لمن؟ متى؟ من المسؤول؟ بكم؟ وكيف نقيس النجاح؟`
+      },
+      {
+        id: 48,
+        domain: `plan`,
+        q: `في مرحلة التخطيط، ما هو الترتيب المنطقي للتسلسل الهرمي لبناء خطة العمل؟`,
+        opts: [
+          `الأنشطة ← الأهداف ← الرؤية المحلية ← الميزانية`,
+          `الرؤية المحلية ← المحاور/الأولويات ← الأهداف الاستراتيجية والإجرائية ← العمليات والأنشطة ← الموارد والمؤشرات`,
+          `الميزانية المتوفرة ← الفواتير ← تشخيص المشاكل`,
+          `توزيع الجوائز ← التقويم ← التخطيط`
+        ],
+        ans: 1,
+        ref: `البناء المنطقي لخطة مشروع المؤسسة`,
+        exp: `ينطلق التخطيط الاستراتيجي من الرؤية بعيدة المدى للمؤسسة (3 سنوات)، ويتفرع إلى أولويات وأهداف ثم عمليات دقيقة وميزانية ومؤشرات، بما يضمن انسجام كل نشاط مع الغاية الكبرى للمشروع.`
+      },
+      {
+        id: 49,
+        domain: `plan`,
+        q: `ماذا يُقصد بـ «التخطيط المتمركز حول التلميذ» وفق المرجعية الحالية لمشروع المؤسسة المندمج؟`,
+        opts: [
+          `ترك التلاميذ يضعون جدول الحصص الدراسية بأنفسهم`,
+          `تصميم كل العمليات والإنفاق التربوي بحيث يعود أثرها المباشر على تعلم التلميذ، وسلامته، وتفتحه، واستمراره الدراسي`,
+          `توجيه الميزانية لتجهيز مكاتب الإدارة بالمكيفات الفاخرة أولاً`,
+          `حصر الأنشطة في التلاميذ المتفوقين وإهمال المتعثرين`
+        ],
+        ans: 1,
+        ref: `خارطة الطريق 2022–2026 — محور التلميذ`,
+        exp: `يؤكد النموذج الجديد لمشروع المؤسسة أن التلميذ هو بوصلة التخطيط؛ فأي عملية لا تبرّر أثرها المباشر أو غير المباشر على جودة تعلم التلاميذ وحياتهم المدرسية لا تُدرج ضمن الأولويات.`
+      },
+      {
+        id: 50,
+        domain: `plan`,
+        q: `كيف يتم تفادي تداخل المهام وتضارب المواعيد عند إعداد الجدولة الزمنية السنوية لعمليات المشروع؟`,
+        opts: [
+          `بترك كل أستاذ يحدد موعد نشاطه في اللحظة نفسها دون تنسيق`,
+          `بإعداد مخطط زمني موحّد (مخطط غانت أو جدولة شهرية/أسدسية) يراعي العطل المدرسية وفترات الفروض والامتحانات`,
+          `ببرمجة جميع أنشطة السنة في الأسبوع الأخير من شهر ماي`,
+          `بإلغاء جميع الأنشطة الثقافية والرياضية`
+        ],
+        ans: 1,
+        ref: `أدوات التخطيط الزمني — البرمجة السنوية`,
+        exp: `تسمح الجدولة الموحدة (خطة العمل السنوية) بتوزيع الأعباء بشكل متوازن على الأسدسين الأول والثاني، وتفادي الضغط على التلاميذ والأساتذة أثناء فترات التقويمات.`
+      },
+      {
+        id: 51,
+        domain: `plan`,
+        q: `ما المقصود بـ «الوضعية المنشودة» أو «العَتَبة المستهدفة» (Valeur cible) في لوحة برمجة الأهداف؟`,
+        opts: [
+          `الوضعية الرقمية التي سُجلت قبل انطلاق المشروع`,
+          `النتيجة الرقمية المحددة التي تلتزم المؤسسة ببلوغها عند نهاية كل سنة أو في نهاية الدورة الثلاثية`,
+          `الحد الأقصى للإنفاق المسموح به في شراء الأقلام`,
+          `تاريخ تأسيس المؤسسة التعليمية`
+        ],
+        ans: 1,
+        ref: `لوحة المؤشرات — القيمة المرجعية والقيمة المستهدفة`,
+        exp: `يُقارن كل مؤشر بين قيمتين: القيمة المرجعية (الأساس في التشخيص، مثلاً 60% نجاح) والقيمة المستهدفة (الوضعية المنشودة، مثلاً 80% في السنة الثالثة)، مع عتبات مرحلية لكل سنة.`
+      },
+      {
+        id: 52,
+        domain: `plan`,
+        q: `عند التخطيط لعملية «محاربة العنف المدرسي وتعزيز السلوك المدني»، أي مقاربة تخطيطية هي الأنسب؟`,
+        opts: [
+          `الاقتصار على العقوبات التأديبية ومجالس الانضباط`,
+          `الجمع بين المقاربة الوقائية التحسيسية (أندية المواطنة، الإنصات، الوساطة المدرسية) وتأهيل الفضاءات والتأطير المندمج`,
+          `منع التلاميذ من الخروج إلى الساحة في فترات الاستراحة`,
+          `تكليف تلاميذ القسم الأكبر بمراقبة التلاميذ الصغار بالقوة`
+        ],
+        ans: 1,
+        ref: `استراتيجية الحياة المدرسية والوقاية من العنف`,
+        exp: `التخطيط التربوي الفعال يعالج العنف من جذوره عبر تنشيط الحياة المدرسية، وتفعيل خلايا الإنصات والوساطة، وإشراك الأسر، وليس بالردع الإداري المعزول.`
+      },
+      {
+        id: 53,
+        domain: `plan`,
+        q: `في مرحلة التخطيط المالي للمشروع، ما القاعدة الذهبية لتوزيع الميزانية التقديرية؟`,
+        opts: [
+          `توزيع الاعتمادات بالتساوي الحسابي بين جميع الأساتذة`,
+          `ربط كل اعتماد مالي مقترح بعملية محددة ومبرّرة في خطة العمل وبأولوية واضحة في المشروع`,
+          `ترك 90% من الميزانية كاحتياط غير مبرمج دون أنشطة`,
+          `صرف كامل المنحة في الأسبوع الأول على التزيين الخارجي`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — ربط التمويل بالعمليات`,
+        exp: `لا تُرصد الاعتمادات بشكل اعتباطي أو توزيعي، بل تخضع لمنطق «الميزنة المرتكزة على الأنشطة والنتائج» بحيث يخدم كل درهم عملية تربوية محددة.`
+      },
+      {
+        id: 54,
+        domain: `plan`,
+        q: `ما الإجراء المؤسساتي الذي يختتم مرحلة التخطيط (P) قبل الشروع الرسمي في التنفيذ الميداني وتمويل العمليات الجديدة؟`,
+        opts: [
+          `نشر الخطة في جريدة وطنية`,
+          `عرض وثيقة المشروع المندمج على مجلس التدبير للمصادقة، ثم مسكها ورفعها في منظومة مسار لمصادقة اللجنة الإقليمية`,
+          `أخذ موافقة شفوية من حارس المؤسسة`,
+          `الاحتفاظ بالخطة في حاسوب المدير الشخصي دون اطلاع الغير`
+        ],
+        ans: 1,
+        ref: `مسطرة المصادقة — المذكرة 014x24`,
+        exp: `لا تكتسب خطة العمل صبغتها الإجرائية الرسمية إلا بعد مصادقة مجلس التدبير عليها محلياً، ثم مصادقة اللجنة الإقليمية بعد التحقق من جودتها عبر منظومة مسار.`
+      },
+
+      /* ==================== 6. مرحلة الأجرأة والتنفيذ A (55–64) ==================== */
+      {
+        id: 55,
+        domain: `act`,
+        q: `ماذا يمثل الحرف (A) في منهجية DEPART؟`,
+        opts: [
+          `Archivage — الأرشفة النهائية قبل البدء`,
+          `Action — الأجرأة والتنفيذ الميداني لخطط العمل والعمليات المبرمجة`,
+          `Absence — حصر غياب التلاميذ فقط`,
+          `Autorisation — طلب رخصة التغيب للأطر`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة الرابعة (A)`,
+        exp: `يمثل الحرف A مرحلة الأجرأة والتنفيذ (Action)، أي تحويل الوثيقة المخططة إلى ممارسات ملموسة داخل الفصول الدراسية، وفي فضاءات الأندية، وفي التدخلات الاجتماعية والتربوية.`
+      },
+      {
+        id: 56,
+        domain: `act`,
+        q: `ما المقصود بـ «القيادة الموزعة» (Leadership distribué) أثناء مرحلة الأجرأة والتنفيذ؟`,
+        opts: [
+          `تخلي المدير عن مسؤوليته الإدارية والقانونية بالكامل`,
+          `تفويض تنسيق العمليات والمبادرات لمنسقي الفرق والأندية والمجالس مع الاحتفاظ بالإشراف والتتبع الاستراتيجي لمدير المؤسسة`,
+          `توزيع ملفات التلاميذ على منازل الأساتذة`,
+          `اتخاذ القرارات المالية بشكل منفرد من طرف كل أستاذ`
+        ],
+        ans: 1,
+        ref: `تدبير التنفيذ — القيادة التربوية التشاركية`,
+        exp: `تنفيذ مشروع مندمج متعدد المجالات يتطلب تفويض التنسيق الميداني لمنسقي الأقطاب التربوية والأندية، مما يرفع سرعة الإنجاز ويعزز روح المسؤولية المشتركة مع بقاء المسؤولية القانونية والإشراف للمدير.`
+      },
+      {
+        id: 57,
+        domain: `act`,
+        q: `أثناء أجرأة حصص الدعم التربوي المندمجة في المشروع، ما هي الممارسة البيداغوجية الأكثر نجاعة؟`,
+        opts: [
+          `إعادة إلقاء نفس الدرس النظري لجميع تلاميذ القسم دفعة واحدة`,
+          `تفييء التلاميذ حسب حاجاتهم الفعلية ومستوى تحكمهم، واعتماد أنشطة علاجية موجهة ومكثفة`,
+          `تكليف التلاميذ بنسخ صفحات من الكتاب المدرسي طوال الحصة`,
+          `الاقتصار على الدعم في الأسبوع الأخير قبل الامتحان الإشهادي`
+        ],
+        ans: 1,
+        ref: `مقاربة الدعم التربوي الفعّال — TaRL والمواكبة`,
+        exp: `يقتضي الدعم التربوي الناجع تشخيص الفئة المتعثرة، وتكوين مجموعات حاجة متجانسة، وتكييف الطرائق والوسائل لمعالجة التعثرات بدقة وفي الوقت المناسب.`
+      },
+      {
+        id: 58,
+        domain: `act`,
+        q: `إذا طرأ إكراه مفاجئ أثناء تنفيذ عملية مبرمجة (مثل تأخر توفر شريك أو تعطل تجهيز)، ما هو التصرف التدبيري السليم؟`,
+        opts: [
+          `إلغاء مشروع المؤسسة برمته إلى غاية السنة المقبلة`,
+          `عقد اجتماع طارئ لفريق القيادة لاقتراح بدائل تنفيذية أو تعديل الجدولة الزمنية مع توثيق ذلك في محضر`,
+          `تزوير تاريخ إنجاز النشاط في مسار لإظهار أن الخطة اكتملت`,
+          `الامتناع عن تقديم أي نشاط آخر طوال الأسدس`
+        ],
+        ans: 1,
+        ref: `المرونة التدبيرية في مرحلة التنفيذ (A)`,
+        exp: `التنفيذ الفعلي يواجه متغيرات ميدانية؛ والمرونة الإجرائية تسمح بتكييف الجدولة أو البحث عن بدائل وتوثيق المبررات رسمياً في محاضر التتبع.`
+      },
+      {
+        id: 59,
+        domain: `act`,
+        q: `كيف تضمن المؤسسة أن تكون الأنشطة الموازية المنفذة ضمن المشروع المندمج «ذات أثر تربوي» وليست مجرد أنشطة استهلاكية؟`,
+        opts: [
+          `بربط كل نادٍ تربوي بكفايات تواصلية أو معرفية أو مدنية محددة وتنفيذه وفق برنامج منتظم على مدار السنة`,
+          `بدعوة وسائل الإعلام في كل حصة نشاط`,
+          `بقصر الأنشطة على التلاميذ الحاصلين على معدل يفوق 16/20`,
+          `بإقامة حفلة واحدة نهاية السنة فقط`
+        ],
+        ans: 0,
+        ref: `دليل الحياة المدرسية — جودة الأندية التربوية`,
+        exp: `تستمد الأندية التربوية (القراءة، المسرح، البيئة، العلوم، المهارات الحياتية...) قيمتها من استمراريتها الأسبوعية أو نصف الشهرية، وارتباطها بأهداف إكساب التلميذ الثقة والقدرة على التعبير والتعاون.`
+      },
+      {
+        id: 60,
+        domain: `act`,
+        q: `ما هي وثيقة الإثبات الميدانية التي يجب أن تواكب تنفيذ كل نشاط أو عملية في مرحلة (A)؟`,
+        opts: [
+          `لا يحتاج التنفيذ لأي وثيقة ما دام النشاط قد أُنجز`,
+          `بطاقة/محضر الإنجاز، لائحة الحضور أو المستفيدين، النماذج المنتجة أو الصور الموثقة (مع احترام الخصوصية)، وفواتير الصرف إن وجدت`,
+          `رسالة شفهية إلى المدير الإقليمي`,
+          `بطاقة الهوية الوطنية لجميع أولياء الأمور`
+        ],
+        ans: 1,
+        ref: `مساطر التتبع والتوثيق الميداني`,
+        exp: `تُعد شواهد الإنجاز الميدانية (لوائح المستفيدين، محاضر الورشات، نتائج الروائز البعدية) الدليل الموضوعي على تنفيذ النشاط وتمهّد لمسك المعطيات في مسار وللأرشفة.`
+      },
+      {
+        id: 61,
+        domain: `act`,
+        q: `أثناء أجرأة عمليات المواكبة النفسية والاجتماعية للتلاميذ في وضعية هشاشة، مع من ينسق فريق المشروع؟`,
+        opts: [
+          `مع المختص الاجتماعي بالمؤسسة، المستشار في التوجيه التربوي، الأطر التربوية، والأسر والشركاء الاجتماعيين`,
+          `مع المطبعة المكلفة بطبع السجلات`,
+          `مع حراس الأمن فقط دون إخبار الأسرة`,
+          `مع التلاميذ الآخرين عبر التشهير بالحالة في الإذاعة المدرسية`
+        ],
+        ans: 0,
+        ref: `الحكامة الاجتماعية واليقظة التربوية`,
+        exp: `يتطلب التدخل الاجتماعي والنفس-تربوي سرية تامة ومهنية عالية عبر تنسيق المختص الاجتماعي والمستشار في التوجيه مع الأسرة ومؤسسات الرعاية والشركاء لتأمين الاستمرار الدراسي.`
+      },
+      {
+        id: 62,
+        domain: `act`,
+        q: `ما دور التأطير والمواكبة من طرف السادة المفتشين التربويين والمواكبين خلال مرحلة التنفيذ (A)؟`,
+        opts: [
+          `تولي التسيير المالي لصندوق الجمعية`,
+          `مواكبة الأطر التربوية والإدارية لتجويد الممارسات البيداغوجية وتذليل الصعوبات التقنية والمنهجية أثناء التنزيل`,
+          `إعداد الفواتير وتوزيع الكتب المدرسية`,
+          `إلغاء قرارات مجلس التدبير دون تعليل`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — المواكبة التربوية والإدارية`,
+        exp: `تلعب هيئة التفتيش والمواكبة دوراً داعماً وموجهاً في مساعدة المؤسسات على تجويد أجرأة المشاريع، خاصة في الشق المرتبط بالتعلمات الأساس وتقويم الأثر.`
+      },
+      {
+        id: 63,
+        domain: `act`,
+        q: `عند تنفيذ عمليات تتعلق بتأهيل الفضاءات التربوية (مكتبة صفية، فضاء قراءة، قاعة متعددة الوسائط)، ما الشرط لضمان فعاليتها؟`,
+        opts: [
+          `إغلاق القاعة بالمفتاح طوال السنة خوفاً على سلامة التجهيزات`,
+          `إعداد نظام داخلي ومخطط استعمال أسبوعي يضمن ولوج جميع التلاميذ والأقسام واستثمار الفضاء بيداغوجياً`,
+          `استعمال القاعة كمستودع للأرشيف الإداري`,
+          `تخصيصها لاجتماعات الإدارة فقط`
+        ],
+        ans: 1,
+        ref: `نجاعة استثمار التجهيزات والفضاءات المدرسية`,
+        exp: `لا قيمة لتجهيز فضاء مدرسي إذا ظل مغلقاً؛ بل يجب ربطه بجدول زمني للاستثمار الصفي والموازي ومؤشر يقيس نسبة ارتياد التلاميذ واستفادتهم منه.`
+      },
+      {
+        id: 64,
+        domain: `act`,
+        q: `ما القاعدة التنظيمية بخصوص «الزمن المدرسي» عند تنزيل أنشطة مشروع المؤسسة المندمج؟`,
+        opts: [
+          `التوقف عن التدريس في المواد الأساس طوال الأسبوع لتنفيذ الأندية`,
+          `احترام الزمن المدرسي وزمن التعلم الصفي، وبرمجة الأنشطة الموازية في أوقات الفراغ البينية، أو نهايات الأسابيع، أو الحصص المخصصة للدعم والحياة المدرسية`,
+          `برمجة الأنشطة بعد الساعة العاشرة ليلاً`,
+          `إلغاء حصص التربية البدنية لتعويضها باجتماعات التلاميذ`
+        ],
+        ans: 1,
+        ref: `ضمان الزمن المدرسي — القوانين التنظيمية`,
+        exp: `يُعد الحفاظ على الزمن المدرسي حقاً دستورياً وتنظيمياً للتلميذ؛ لذلك يُبرمج تنزيل أنشطة الدعم والأندية ضمن الأطر الزمنية المقررة رسمياً دون هدر لحصص التمدرس.`
+      },
+
+      /* ==================== 7. مرحلة الضبط والتتبع R (65–72) ==================== */
+      {
+        id: 65,
+        domain: `rev`,
+        q: `ماذا يمثل الحرف (R) في منهجية DEPART، وما وظيفته الجوهرية؟`,
+        opts: [
+          `Rédaction — تحرير محاضر نهاية الخدمة`,
+          `Régulation / Review — الضبط والتتبع والمراجعة الدورية لتقويم مسار التنفيذ وتصحيح الانحرافات`,
+          `Récréation — تنظيم فترات الاستراحة اليومية`,
+          `Recrutement — توظيف أساتذة جدد من طرف المؤسسة`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة الخامسة (R)`,
+        exp: `يركز الحرف R (الضبط والتتبع / Review) على المراقبة المستمرة لنسب الإنجاز والأثر، ومقارنة المتحقق بالمستهدف من أجل اتخاذ قرارات تعديلية سريعة في الوقت المناسب.`
+      },
+      {
+        id: 66,
+        domain: `rev`,
+        q: `ما هي الوتيرة الدورية الموصى بها لعقد اجتماعات التتبع والتقييم المرحلي لمشروع المؤسسة المندمج؟`,
+        opts: [
+          `مرة واحدة كل ثلاث سنوات عند انتهاء المشروع`,
+          `تتبع شهري مصغّر لفريق القيادة، وتقويم مرحلي عند نهاية كل أسدس ونهاية كل سنة دراسية أمام مجلس التدبير`,
+          `كلما زار مفتش المالية المؤسسة فقط`,
+          `يُمنع عقد أي اجتماع بعد المصادقة على الخطة`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — آليات التتبع والتقويم`,
+        exp: `التتبع المستمر (الشهري لفريق القيادة والأسدسي/السنوي لمجلس التدبير) يمنع تراكم التأخر إلى نهاية السنة، ويتيح التدخل التصحيحي السريع.`
+      },
+      {
+        id: 67,
+        domain: `rev`,
+        q: `إذا كشف التتبع عند نهاية الأسدس الأول أن نسبة تنفيذ العمليات بلغت 85% لكن تحسن تعلمات التلاميذ لم يتجاوز 5%، ماذا يعني ذلك لفريق القيادة؟`,
+        opts: [
+          `أن المشروع ناجح بنسبة 85% ولا داعي لأي تعديل`,
+          `أن هناك نجاعة في الإنجاز الشكلي وضعفاً في الأثر البيداغوجي، مما يستوجب مراجعة جودة ومحتوى العمليات وطرائق التنزيل`,
+          `أن التلاميذ غير قابلين للتعلم`,
+          `أن الميزانية كانت قليلة جداً ويجب إيقاف الدعم`
+        ],
+        ans: 1,
+        ref: `التدبير بالنتائج — تحليل الفجوة بين الإنجاز والأثر`,
+        exp: `يكشف هذا الوضع أن الأنشطة نُفذت شكلياً لكنها لم تُحدث التغيير المنشود في الفصل الدراسي، لذا تدخل مرحلة الضبط (R) لتعديل المقاربة البيداغوجية أو إعادة استهداف الفئات المحتاجة.`
+      },
+      {
+        id: 68,
+        domain: `rev`,
+        q: `ما هي الأداة التركيبية التي يستعملها فريق القيادة لمتابعة تقدم العمليات ونسب تحقق المؤشرات بلمحة واحدة؟`,
+        opts: [
+          `لوحة القيادة للتتبع (Tableau de bord de suivi)`,
+          `دفتر النصوص اليومي فقط`,
+          `لوائح التأمين المدرسي`,
+          `جدول الحراسة اليومي`
+        ],
+        ans: 0,
+        ref: `أدوات التتبع — لوحة القيادة`,
+        exp: `تجمع لوحة القيادة مؤشرات الإنجاز، ونسب الصرف المالي، ومؤشرات الأثر المرحلية مع إشارات بصرية (أخضر/أصفر/أحمر) تبرز بسرعة ما يسير وفق المخطط وما يتطلب تدخلاً عاجلاً.`
+      },
+      {
+        id: 69,
+        domain: `rev`,
+        q: `في مرحلة الضبط (R)، متى يجوز إدخال تعديل أو تحيين على برنامج العمل السنوي أو تحويل اعتماد مالي من عملية لأخرى؟`,
+        opts: [
+          `بقرار فردي وسري من أمين المال دون إخبار أي جهة`,
+          `بناءً على مبررات تقويمية موثقة ومصادقة مجلس التدبير، وموافقة اللجنة الإقليمية إذا مس التعديل جوهر المشروع أو بنود المنحة المعتمدة`,
+          `في اليوم الأخير قبل إغلاق الحساب البنكي دون محضر`,
+          `بناءً على طلب شفوي من أحد الممونين`
+        ],
+        ans: 1,
+        ref: `مساطر التحيين والتعديل — المذكرة 014x24`,
+        exp: `المرونة لا تعني الفوضى؛ فأي إعادة توجيه للأنشطة أو تحويل للاعتمادات يمر وجوباً عبر تبرير موضوعي في التقييم المرحلي ومصادقة مجلس التدبير، وإشعار/مصادقة المديرية الإقليمية حسب المسطرة.`
+      },
+      {
+        id: 70,
+        domain: `rev`,
+        q: `ما الفرق بين «التقويم التكويني/المرحلي» و«التقويم الختامي» داخل دورة المشروع؟`,
+        opts: [
+          `التقويم المرحلي يتم أثناء التنفيذ بغرض التصحيح والضبط، بينما التقويم الختامي يقيس الحصيلة النهائية والأثر الشامل في ختام الدورة`,
+          `التقويم المرحلي يقوم به التلاميذ والختامي يقوم به الممونون`,
+          `التقويم المرحلي خاص بالبنايات والختامي خاص بالأشجار`,
+          `كلاهما يُنجز قبل انطلاق المرحلة الأولى D`
+        ],
+        ans: 0,
+        ref: `هندسة التقويم في المشاريع التربوية`,
+        exp: `يعمل التقويم المرحلي كرادار للتعديل المستمر طيلة السنوات الثلاث، في حين يقيّم التقويم الختامي مدى بلوغ الرؤية والأهداف الاستراتيجية عند انتهاء المشروع.`
+      },
+      {
+        id: 71,
+        domain: `rev`,
+        q: `أي من المعايير الخمسة التالية يُعتمد دولياً ووطنياً في تقييم جودة مشاريع المؤسسات (معايير التقييم الكبرى)؟`,
+        opts: [
+          `الملاءمة، الفعالية، النجاعة، الأثر، والاستدامة`,
+          `السرعة، التكلفة القصوى، السرية، والتعقيد`,
+          `الشكل، الخط، الزخرفة، والضخامة`,
+          `الأقدمية، السن، التخصص، والمسافة`
+        ],
+        ans: 0,
+        ref: `معايير تقييم المشاريع التربوية والتنموية`,
+        exp: `تقيم جودة المشروع عبر: الملاءمة (الارتباط بالحاجات)، الفعالية (بلوغ الأهداف)، النجاعة (علاقة النتائج بالموارد)، الأثر (التغيير الفعلي)، والاستدامة (بقاء المكتسبات).`
+      },
+      {
+        id: 72,
+        domain: `rev`,
+        q: `ما مخرجات اجتماع التقويم السنوي لمجلس التدبير في نهاية السنة الأولى أو الثانية من المشروع؟`,
+        opts: [
+          `محضر رسمي يوثق نسبة تحقق أهداف السنة، الإكراهات المرصودة، التوصيات التصحيحية، وخطة العمل المحيّنة للسنة الموالية`,
+          `توزيع مكافآت مالية على أعضاء المجلس`,
+          `تغيير اسم المؤسسة التعليمية`,
+          `إتلاف جميع وثائق التشخيص الأولية`
+        ],
+        ans: 0,
+        ref: `الحكامة السنوية لمشروع المؤسسة المندمج`,
+        exp: `يُتوج التقييم السنوي بتقرير حصيلة سنوي ومحضر مصادق عليه يغذي مسار ويحدد التعديلات اللازمة لإطلاق السنة الموالية من دورة المشروع الثلاثية.`
+      },
+
+      /* ==================== 8. مرحلة الانتقال T (73–80) ==================== */
+      {
+        id: 73,
+        domain: `trans`,
+        q: `ماذا يمثل الحرف (T) في نهاية منهجية DEPART؟`,
+        opts: [
+          `Transport — تدبير النقل المدرسي فقط`,
+          `Transition — مرحلة الانتقال وتقويم الأثر النهائي وتقاسم الممارسات الفضلى والاستعداد للدورة الموالية`,
+          `Travail — دفتر العمل اليومي للأستاذ`,
+          `Trésorerie — إغلاق الحساب البنكي للجمعية نهائياً وحلها`
+        ],
+        ans: 1,
+        ref: `منهجية DEPART — المرحلة السادسة (T)`,
+        exp: `يمثل الحرف T مرحلة الانتقال (Transition) التي تختتم دورة الثلاث سنوات وتصلها بالدورة الجديدة عبر استثمار الحصيلة وتثبيت المكتسبات واستدامة الأثر.`
+      },
+      {
+        id: 74,
+        domain: `trans`,
+        q: `ما هو الهدف الجوهري من مفهوم «الاستدامة» (Pérennité / Durabilité) في مرحلة الانتقال؟`,
+        opts: [
+          `ضمان استمرار الممارسات التربوية الناجحة والمكتسبات الإيجابية في المؤسسة حتى بعد انتهاء التمويل الخاص بالدورة أو تغير بعض الأطر`,
+          `إبقاء نفس خطة العمل جامدة لعشرين سنة دون تغيير`,
+          `منع انتقال الأساتذة من المؤسسة مدى الحياة`,
+          `الاحتفاظ بنفس لوائح التلاميذ في السجلات`
+        ],
+        ans: 0,
+        ref: `منهجية DEPART — استدامة مكتسبات المشروع`,
+        exp: `النجاح الحقيقي للمشروع يُقاس بقدرته على ترسيخ ثقافة عمل مؤسساتية مستدامة (مثل استمرار عادات القراءة، أو عمل الأندية، أو آليات اليقظة) كجزء من الحياة العادية للمؤسسة.`
+      },
+      {
+        id: 75,
+        domain: `trans`,
+        q: `في مرحلة الانتقال (T)، ماذا يُقصد بـ «رسملة وتقاسم الممارسات الفضلى» (Capitalisation)؟`,
+        opts: [
+          `تراكم الأرباح التجارية في حساب الجمعية`,
+          `توثيق التجارب التربوية والتدبيرية الناجحة التي حققت أثراً إيجابياً، وعرضها لتبادل الخبرات مع المؤسسات المجاورة والشركاء`,
+          `شراء تجهيزات مستعملة من مؤسسات أخرى`,
+          `حذف التجارب الفاشلة من الذاكرة الإدارية للمؤسسة`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — التقاسم والتشبيك بين المؤسسات`,
+        exp: `تسمح رسملة الممارسات الفضلى داخل شبكات المؤسسات أو على مستوى الحوض المدرسي والمديرية الإقليمية بتعميم الحلول الميدانية المبتكرة وتفادي تكرار نفس الأخطاء.`
+      },
+      {
+        id: 76,
+        domain: `trans`,
+        q: `ما الوثيقة المرجعية الشاملة التي تُعد عند نهاية السنوات الثلاث في مرحلة (T)؟`,
+        opts: [
+          `التقرير الختامي لمشروع المؤسسة المندمج (الحصيلة التركيبية الشاملة للأداء التربوي والمالي)`,
+          `بطاقة تشخيص أولية غير مرقمة`,
+          `طلب فتح حساب بنكي جديد`,
+          `لائحة الكتب المقررة للسنة الأولى ابتدائي`
+        ],
+        ans: 0,
+        ref: `نموذج مشروع المؤسسة المندمج — التقرير النهائي`,
+        exp: `يلخص التقرير الختامي مسار المشروع على مدى 3 سنوات: ما تم إنجازه، ومؤشرات الأثر التي تحققت مقارنة بنقطة الانطلاق، والحصيلة المالية، والتوصيات الموجهة للدورة الجديدة.`
+      },
+      {
+        id: 77,
+        domain: `trans`,
+        q: `في حالة تعيين مدير(ة) جديد(ة) للمؤسسة عند نهاية أو منتصف دورة المشروع، ما الإجراء الذي تضمنه مرحلة الانتقال والحكامة الجيدة؟`,
+        opts: [
+          `إلغاء المشروع السابق والبدء من الصفر فور وصول المدير الجديد`,
+          `التسليم السلس لملف المشروع المندمج والوثائق المحاسباتية وتقارير التتبع عبر محضر تسليم المهام لضمان استمرارية المرفق العمومي`,
+          `احتفاظ المدير المنتقل بملفات المشروع ومفاتيح مسار كملكية شخصية`,
+          `إغلاق الأندية التربوية لمدة سنة كاملة`
+        ],
+        ans: 1,
+        ref: `استمرارية المرفق التربوي وتبادل المهام`,
+        exp: `مشروع المؤسسة ملك للمؤسسة ومجلس التدبير وليس للشخص؛ لذلك يفرض مبدأ استمرارية المرفق العمومي تسليم كافة ملفات المشروع ومخرجاته لضمان البناء التراكمي.`
+      },
+      {
+        id: 78,
+        domain: `trans`,
+        q: `كيف تُمهد مرحلة الانتقال (T) للعودة إلى مرحلة التشخيص (D) لبناء الجيل الموالي من مشروع المؤسسة؟`,
+        opts: [
+          `تصبح النتائج النهائية والمؤشرات المحققة في ختام المشروع المنتهي هي المعطيات المرجعية (الوضع الراهن الجديد) لتشخيص الدورة المقبلة`,
+          `لا توجد أي علاقة بين الدورة المنتهية والدورة المقبلة`,
+          `يتم نسخ نفس أهداف المشروع السابق حرفياً للمرة الثانية`,
+          `تتوقف المؤسسة عن إعداد مشاريع لمدة 3 سنوات كفترة راحة`
+        ],
+        ans: 0,
+        ref: `دورة DEPART اللولبية — التطور التراكمي`,
+        exp: `منهجية DEPART ليست خطاً منتهياً بل دورة لولبية مستمرة؛ فحيث ينتهي المشروع الأول (T) بمكتسباته وفجواته المتبقية، ينطلق المشروع الثاني (D) من مستوى جودة أعلى.`
+      },
+      {
+        id: 79,
+        domain: `trans`,
+        q: `أين يتم عرض الحصيلة النهائية ومكاسب المشروع في نهاية مرحلة (T) لتعزيز الشفافية والثقة المجتمعية؟`,
+        opts: [
+          `أمام مجلس التدبير، والأطر التربوية، والتلاميذ، وجمعية الآباء، والشركاء، مع رفعها للمديرية الإقليمية`,
+          `في ملف مغلق داخل خزانة الحارس الليلي`,
+          `في اجتماع سري يقتصر على أمين المال والمورد`,
+          `لا تُعرض الحصيلة على أي طرف محلي`
+        ],
+        ans: 0,
+        ref: `الحكامة التشاركية وربط المسؤولية بالمحاسبة`,
+        exp: `يُعد تقاسم الحصيلة النهائية مع كل من شارك في بناء المشروع وتنفيذه تتويجاً للتعاقد التشاركي، ويزيد من مصداقية المؤسسة في استقطاب شراكات مستقبلية.`
+      },
+      {
+        id: 80,
+        domain: `trans`,
+        q: `ماذا يحدث للتجهيزات والأصول القارة (كتب، حواسيب، معدات ديداكتيكية) المقتناة في إطار المشروع عند انتهاء مدته؟`,
+        opts: [
+          `تُوزع على أعضاء فريق القيادة كمكافأة نهاية المشروع`,
+          `تُدرج وجوباً في سجل الجرد العام للمؤسسة وتظل ملكاً للمؤسسة العمومية لاستثمارها المستدام`,
+          `تُباع في المزاد العلني لصالح جمعية الآباء`,
+          `تُعاد إلى الشركة البائعة بعد ثلاث سنوات`
+        ],
+        ans: 1,
+        ref: `المساطر المحاسباتية وجرد ممتلكات المؤسسة`,
+        exp: `كل التجهيزات والكتب والمعدات غير القابلة للاستهلاك المقتناة من منحة المؤسسة أو الشراكات تُقيد في سجل الجرد وتصبح جزءاً من الرصيد المادي للمؤسسة التعليمية.`
+      },
+
+      /* ==================== 9. التمويل وجمعية دعم مدرسة النجاح (81–90) ==================== */
+      {
+        id: 81,
+        domain: `fin`,
+        q: `ما هي الآلية المؤسساتية والقانونية المعتمدة لتدبير وصرف المنحة المالية المخصصة لمشروع المؤسسة المندمج؟`,
+        opts: [
+          `الحساب البنكي الشخصي لمدير المؤسسة`,
+          `جمعية دعم مدرسة النجاح (وفق النظام الأساسي النموذجي والمذكرات المؤطرة لها)`,
+          `جمعية قدماء التلاميذ إجبارياً`,
+          `الصندوق الأسود لمجلس القسم`
+        ],
+        ans: 1,
+        ref: `المذكرة 73/2009 والمذكرة 014x24 — التمويل عبر الجمعية`,
+        exp: `تُعتبر جمعية دعم مدرسة النجاح الذراع المالي التشاركي المعتمد لاستقبال وصرف الاعتمادات المخصصة لمشروع المؤسسة المندمج بمرونة وقرب، مع خضوعها لقواعد التسيير الجمعوي والمراقبة الإدارية والمالية.`
+      },
+      {
+        id: 82,
+        domain: `fin`,
+        q: `من يجمع قانونياً بين رئاسة المكتب المسير لجمعية دعم مدرسة النجاح وصفة الآمر بالصرف داخل المؤسسة؟`,
+        opts: [
+          `أمين المال بالجمعية`,
+          `مدير(ة) المؤسسة التعليمية بصفته رئيساً للجمعية`,
+          `رئيس جمعية أمهات وآباء التلاميذ`,
+          `أصغر أستاذ سناً بالمؤسسة`
+        ],
+        ans: 1,
+        ref: `النظام الأساسي النموذجي لجمعية دعم مدرسة النجاح`,
+        exp: `ينص النظام الأساسي النموذجي على أن مدير المؤسسة هو رئيس الجمعية بحكم منصبه، ويتولى التوقيع المزدوج على الوثائق المالية والأوامر بالصرف إلى جانب أمين المال.`
+      },
+      {
+        id: 83,
+        domain: `fin`,
+        q: `ما قاعدة التوقيع المالي المعتمدة لصرف أي مبلغ من الحساب البنكي لجمعية دعم مدرسة النجاح؟`,
+        opts: [
+          `توقيع المدير وحده أو أمين المال وحده حسب التوافر`,
+          `التوقيع المزدوج الإلزامي للرئيس (مدير المؤسسة) وأمين المال معاً`,
+          `توقيع ثلاثة تلاميذ من مجلس التدبير`,
+          `توقيع المدير الإقليمي على كل شيك تصدره المؤسسة`
+        ],
+        ans: 1,
+        ref: `الدليل المالي والمحاسباتي لجمعية دعم مدرسة النجاح`,
+        exp: `يشترط النظام الأساسي والتدبير المالي السليم التوقيع المزدوج للرئيس وأمين المال معاً على الشيكات والأوامر بالتحويل لتعزيز الرقابة المتبادلة والشفافية.`
+      },
+      {
+        id: 84,
+        domain: `fin`,
+        q: `أي من المصاريف التالية يُعد مخالفاً لمساطر صرف منحة مشروع المؤسسة عبر جمعية دعم مدرسة النجاح؟`,
+        opts: [
+          `اقتناء عدة تربوية ومعينات ديداكتيكية لدعم القراءة والحساب`,
+          `دفع تعويضات مالية شهرية أو أجور قارة لفائدة موظفي الوزارة العموميين أو أعضاء المكتب المسير`,
+          `اقتناء مستلزمات الأندية التربوية (الرسم، المسرح، المختبر البيئي)`,
+          `صيانة بسيطة وعاجلة لمرفق صحي أو قاعة دراسية مبرمجة في المشروع`
+        ],
+        ans: 1,
+        ref: `دليل المساطر المالية — النفقات المحظورة`,
+        exp: `يُمنع منعاً باتاً صرف أي تعويضات أو منح شخصية أو أجور للموظفين العموميين أو أعضاء مكتب الجمعية من منحة المشروع، كما يحظر استخدامها في النفقات الكبرى للبناء أو الوجبات الفاخرة غير المرتبطة بأنشطة التلاميذ.`
+      },
+      {
+        id: 85,
+        domain: `fin`,
+        q: `ما المقصود بمبدأ «المنافسة والشفافية» عند اقتناء مستلزمات أو خدمات لفائدة مشروع المؤسسة بمبالغ معتبرة؟`,
+        opts: [
+          `الشراء من محل أحد أقارب أمين المال مباشرة دون فاتورة`,
+          `طلب بيانات أثمان متنافسة (Devis) من عدة ممونين (غالباً ثلاثة على الأقل) واختيار العرض الأنسب جودة وسعراً، وتوثيق ذلك بسند الطلب والفاتورة النظامية`,
+          `الدفع نقداً دون طلب أي وثيقة ضريبية لتقليص الثمن`,
+          `تقسيم الفاتورة الواحدة إلى عشر فواتير صغيرة للتهرب من الإثبات`
+        ],
+        ans: 1,
+        ref: `المساطر المالية لجمعية دعم مدرسة النجاح — المشتريات`,
+        exp: `يفرض التدبير المالي الرشيد استشارة عدة متنافسين عبر بيانات أثمان مقارنة، وتجنب تجزئة النفقات، والاعتماد على فواتير نظامية تتضمن التعريف الضريبي والبيانات القانونية للمزود.`
+      },
+      {
+        id: 86,
+        domain: `fin`,
+        q: `ما الحد الأقصى المعمول به غالباً في تسبيقات «صندوق المصاريف الصغرى» (Régie / Caisse) أو السقف النقدي، وما القاعدة الأساسية لاستعماله؟`,
+        opts: [
+          `صرف جميع اعتمادات الجمعية نقداً باليد دون حساب بنكي`,
+          `الأصل هو الأداء عبر الشيك أو التحويل البنكي، ولا يُلجأ للصندوق النقدي إلا للنفقات الصغرى المستعجلة في حدود السقف المحدد بالدليل مع تبريرها بفواتير أو وصولات`,
+          `استخدام الصندوق النقدي لشراء حواسيب وسيارات`,
+          `لا يوجد سقف للمعاملات النقدية في الجمعية`
+        ],
+        ans: 1,
+        ref: `الدليل المالي لجمعية دعم مدرسة النجاح — الأداء البنكي والنقدي`,
+        exp: `الأداء البنكي بالشيك المسطر أو التحويل هو القاعدة لضمان التتبع المحاسباتي، بينما يقتصر الصندوق النقدي على النفقات الطفيفة اليومية في حدود السقف المرخص ومقابل إثباتات قانونية.`
+      },
+      {
+        id: 87,
+        domain: `fin`,
+        q: `ما هي الجهات التي تتولى المراقبة والافتحاص المالي لتدبير منحة مشروع المؤسسة بجمعية دعم مدرسة النجاح؟`,
+        opts: [
+          `لا تخضع الجمعية لأي مراقبة بحكم استقلاليتها الجمعوية`,
+          `الجمع العام للجمعية ومجلس التدبير محلياً، ثم المصالح المختصة بالمديرية الإقليمية والأكاديمية والمفتشية العامة والمجلس الأعلى للحسابات باعتبارها أموالاً عمومية`,
+          `أحد التجار المتبرعين فقط`,
+          `السلطات المحلية دون أي دور للوزارة`
+        ],
+        ans: 1,
+        ref: `الرقابة على المال العام — المذكرة 014x24`,
+        exp: `بما أن منحة الوزارة والأكاديمية هي مال عمومي، فإن جمعية دعم مدرسة النجاح تخضع لمراقبة مزدوجة: رقابة داخلية (مجلس التدبير والجمع العام) ورقابة مؤسساتية (المديرية، الأكاديمية، المفتشيات، والمحاكم المالية).`
+      },
+      {
+        id: 88,
+        domain: `fin`,
+        q: `ما هي المكونات الأساسية للملف المالي لكل عملية صرف منجزة في إطار المشروع؟`,
+        opts: [
+          `ورقة مكتوبة بخط اليد من التلاميذ فقط`,
+          `بيانات الأثمان المقارنة، سند الطلب (Bon de commande)، محضر التسليم/الاستلام موقعاً، الفاتورة النظامية المشهود بصحتها، ونسخة من الشيك أو الإشعار بالتحويل`,
+          `بطاقة التغذية المدرسية فقط`,
+          `صورة فوتوغرافية للتلميذ دون أي وثيقة مالية`
+        ],
+        ans: 1,
+        ref: `سلسلة الإثبات المحاسباتي — جمعية دعم مدرسة النجاح`,
+        exp: `تكتمل مشروعية النفقة بتوفر السلسلة الإثباتية الكاملة التي تثبت: الحاجة المخططة، المنافسة، الطلب، التسلم الفعلي للسلعة أو الخدمة (الخدمة المنجزة)، الفاتورة السليمة، والأداء.`
+      },
+      {
+        id: 89,
+        domain: `fin`,
+        q: `هل يمكن لجمعية دعم مدرسة النجاح تعبئة موارد مالية إضافية غير منحة الوزارة لتمويل أنشطة مشروع المؤسسة المندمج؟`,
+        opts: [
+          `لا، يُمنع على الجمعية تلقي أي مساهمة أو شراكة إضافية`,
+          `نعم، عبر اتفاقيات الشراكة مع الجماعات الترابية، المبادرة الوطنية للتنمية البشرية، المقاولات المواطنة، والهبات القانونية المصرّح بها، شريطة إدراجها في الحساب البنكي للجمعية وتوافقها مع أهداف المدرسة`,
+          `نعم، عبر فرض رسوم إجبارية مرتفعة على التلاميذ عند التسجيل كشرط لولوج الأقسام`,
+          `نعم، عبر فتح مقهى تجاري خاص بالمدير داخل المؤسسة`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — تنويع مصادر التمويل والشراكات`,
+        exp: `تشجع المذكرة 014x24 تنويع مصادر التمويل عبر شراكات مؤسساتية وقانونية شفافة تصب في خدمة المشروع، مع منع أي رسوم غير قانونية على التلاميذ أو أنشطة تجارية مخالفة.`
+      },
+      {
+        id: 90,
+        domain: `fin`,
+        q: `ما السجلات المحاسباتية التي يجب مسكها وتحيينها باستمرار من طرف أمين مال جمعية دعم مدرسة النجاح؟`,
+        opts: [
+          `كناش الجيب الشخصي لأمين المال فقط`,
+          `السجل اليومي للعمليات المالية (البنك والصندوق)، سجل المنخرطين، سجل الجرد الخاص بممتلكات الجمعية/المؤسسة، ومصنف الوثائق الإثباتية`,
+          `سجل النقط المدرسية فقط`,
+          `دفتر المراسلات الواردة فقط`
+        ],
+        ans: 1,
+        ref: `الدليل المسطري لتدبير جمعية دعم مدرسة النجاح`,
+        exp: `يضمن المسك المنتظم للسجل اليومي ومطابقته الدورية مع كشوفات الحساب البنكي (Rapprochement bancaire) وسجل الجرد جاهزية الجمعية لأي افتحاص ووضوح وضعيتها المالية.`
+      },
+
+      /* ==================== 10. منظومة مسار الرقمية والأرشفة (91–100) ==================== */
+      {
+        id: 91,
+        domain: `massar`,
+        q: `ما الوظيفة الأساسية لبوابة «مشروع المؤسسة المندمج» المدمجة داخل منظومة مسار للتدبير المدرسي؟`,
+        opts: [
+          `نشر صور الأنشطة الترفيهية للتلاميذ على العموم`,
+          `رقمنة جميع مراحل المشروع (التشخيص، SWOT، الأهداف، العمليات، الميزانية، التتبع، المصادقة) وتوفير لوحات قيادة آنية للمؤسسة والمديرية والأكاديمية`,
+          `حساب رواتب الأطر الإدارية والتربوية`,
+          `بيع الكتب المدرسية إلكترونياً`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — الرقمنة عبر منظومة مسار`,
+        exp: `تُعد الوحدة الرقمية بمشروع المؤسسة في مسار الفضاء الرسمي الوحيد لوضع المشروع وتتبعه ومصادقته، مما يربط مباشرة معطيات التمدرس والنتائج بلوحة قيادة المشروع دون إعادة إدخال يدوية عشوائية.`
+      },
+      {
+        id: 92,
+        domain: `massar`,
+        q: `أي من المزايا التالية توفرها «لوحات القيادة الرقمية» في مسار لمدير المؤسسة وفريق القيادة؟`,
+        opts: [
+          `استخلاص تلقائي لمؤشرات الغياب، التكرار، نسب التحكم في التعلمات، ونسب تنفيذ العمليات والميزانية بشكل مرئي وفوري`,
+          `تغيير نقط المراقبة المستمرة للتلاميذ تلقائياً دون علم الأساتذة`,
+          `إرسال إشعارات تلقائية إلى شركات الاتصالات`,
+          `حذف التلاميذ المتعثرين من لائحة القسم لتحسين معدل المؤسسة`
+        ],
+        ans: 0,
+        ref: `لوحات القيادة الرقمية في مسار (Dashboards)`,
+        exp: `تربط لوحات القيادة الرقمية بين بيانات التلاميذ في مسار ومؤشرات المشروع، مما يعطي إدارة المؤسسة والمصالح الإقليمية رؤية فورية ودقيقة حول الفجوات والتقدم المحرز.`
+      },
+      {
+        id: 93,
+        domain: `massar`,
+        q: `في مسار العمل الرقمي بمنظومة مسار، متى تنتقل حالة مشروع المؤسسة من «قيد الإعداد» (Brouillon) إلى «مصادق عليه» (Validé)؟`,
+        opts: [
+          `تلقائياً بمجرد فتح مدير المؤسسة للحساب`,
+          `بعد استكمال مسك جميع المحاور، ورفعه للتأشير من طرف المدير بعد مصادقة مجلس التدبير، ثم المصادقة النهائية عليه من طرف اللجنة الإقليمية في مسار`,
+          `عند طباعة الصفحة الأولى فقط`,
+          `بعد موافقة ممون الكتب المدرسية`
+        ],
+        ans: 1,
+        ref: `مسطرة المصادقة الإلكترونية عبر منظومة مسار`,
+        exp: `تخضع المصادقة الرقمية في مسار لسيرورة تدقيق إداري (Workflow): إعداد وإرسال من حساب المؤسسة (بعد مداولة مجلس التدبير)، ثم دراسة وإبداء الرأي أو طلب التعديل أو المصادقة النهائية من حساب المديرية الإقليمية.`
+      },
+      {
+        id: 94,
+        domain: `massar`,
+        q: `ما المقصود بـ «الربط التلقائي للمؤشرات» في لوحة قيادة مشروع المؤسسة بمنظومة مسار؟`,
+        opts: [
+          `تغذية مؤشرات التشخيص والتتبع (مثل نسب النجاح والهدر والغياب) مباشرة من قاعدة بيانات مسار دون تلاعب بشري`,
+          `توليد أرقام عشوائية في نهاية كل سنة`,
+          `ربط حاسوب المدير بالإنترنت فقط`,
+          `نسخ مؤشرات مؤسسة أخرى ووضعها في ملف المؤسسة`
+        ],
+        ans: 0,
+        ref: `موثوقية البيانات الرقمية في مسار`,
+        exp: `يضمن الاستيراد المباشر للمعطيات من قاعدة بيانات مسار الموثوقية والموضوعية، ويجنّب الأخطاء الحسابية أو التضارب بين الإحصائيات المحلية والإقليمية.`
+      },
+      {
+        id: 95,
+        domain: `massar`,
+        q: `لماذا تفرض المذكرة 014x24 ومبادئ الحكامة الجمع بين «الأرشفة الرقمية» و«الأرشفة الورقية الممنهجة» لوثائق مشروع المؤسسة؟`,
+        opts: [
+          `لأن الوثائق الورقية غير معترف بها في الإدارة المغربية`,
+          `لحفظ الذاكرة المؤسساتية وتأمين الحجية القانونية للمحاضر الموقعة والفواتير الأصلية من الضياع أو الأعطاب التقنية وتسهيل مهام التفتيش`,
+          `لملء قاعات التدريس بصناديق الورق`,
+          `لأن مسار لا يخزن أي معطيات بعد شهر واحد`
+        ],
+        ans: 1,
+        ref: `مساطر التوثيق والأرشفة الإدارية والمالية`,
+        exp: `التكامل بين الملف الرقمي (نسخ PDF ممسوحة، جداول بيانات، معطيات مسار) والملف الورقي المرجعي (الأصول الموقعة لمحاضر مجلس التدبير، الفواتير، سندات الطلب) يحمي الإدارة عند الافتحاص أو عند تلف أحد الوسيطين.`
+      },
+      {
+        id: 96,
+        domain: `massar`,
+        q: `ما هي الوثائق الأساسية التي يجب أن يتضمنها «الملف المرجعي الورقي والرقمي» لمشروع المؤسسة المندمج في الأرشيف؟`,
+        opts: [
+          `فواتير الكهرباء الخاصة بسكن الأساتذة`,
+          `نسخة المشروع المصادق عليه، محاضر اجتماعات فريق القيادة ومجلس التدبير الموقعة، بطاقات التتبع المرحلي، التقارير الأدبية والمالية، وشواهد إنجاز الأنشطة`,
+          `المذكرات الوزارية الخاصة بالتعليم العالي`,
+          `مسودات الامتحانات الإشهادية للسنوات الماضية`
+        ],
+        ans: 1,
+        ref: `مكونات أرشيف مشروع المؤسسة المندمج`,
+        exp: `يشكّل هذا الملف المرجعي المرتب زمنياً وموضوعاتياً السجل الرسمي لمسار المشروع، ويُرجع إليه عند التقويم السنوي وأثناء زيارات المراقبة والافتحاص.`
+      },
+      {
+        id: 97,
+        domain: `massar`,
+        q: `كيف ينبغي تصنيف وترتيب «الأرشيف المالي» لجمعية دعم مدرسة النجاح داخل المؤسسة؟`,
+        opts: [
+          `تجميع جميع الأوراق في كيس بلاستيكي واحد دون تواريخ`,
+          `في مصنفات مرقمة ومبوبة حسب السنوات المالية وحسب تسلسل العمليات البنكية والنقدية، مع ربط كل أمر بالصرف بملفه الإثباتي الكامل`,
+          `تسليم الأصول الورقية إلى الممونين بعد الدفع`,
+          `حرق الفواتير فور انتهاء السنة الدراسية`
+        ],
+        ans: 1,
+        ref: `قواعد الأرشفة المحاسباتية السليمة`,
+        exp: `الترتيب الزمني والمرجعي لكل عملية صرف في مصنف خاص يسهل مطابقة السجل اليومي مع كشف البنك ويجعل الوصول لأي فاتورة يستغرق ثواني معدودة.`
+      },
+      {
+        id: 98,
+        domain: `massar`,
+        q: `ما المدة القانونية الدنيا المتعارف عليها للاحتفاظ بالوثائق المحاسباتية والمالية والفواتير الأصلية في الأرشيف؟`,
+        opts: [
+          `ستة أشهر فقط`,
+          `سنة دراسية واحدة`,
+          `عشر (10) سنوات على الأقل وفق القواعد المحاسباتية والتنظيمية الجاري بها العمل (مع حفظ الأصول التاريخية المهمة لمدة أطول)`,
+          `أسبوع واحد بعد مصادقة الجمع العام`
+        ],
+        ans: 2,
+        ref: `القانون المنظم للأرشيف والالتزامات المحاسباتية (قانون 69.99 / مدونة التجارة والمحاسبة)`,
+        exp: `تخضع الوثائق المحاسباتية والإثباتية لالتزام الحفظ لمدة لا تقل عن 10 سنوات حتى تظل متاحة أمام لجان الافتحاص والمراقبة المالية والمحاكم المالية.`
+      },
+      {
+        id: 99,
+        domain: `massar`,
+        q: `عند إعداد الأرشيف الرقمي لتقارير وصور أنشطة التلاميذ في مسار أو قاعدة بيانات المؤسسة، ما الضابط القانوني والأخلاقي الواجب احترامه؟`,
+        opts: [
+          `نشر صور التلاميذ وأرقامهم الهاتفية الخاصة للعموم دون أي ضابط`,
+          `احترام المعطيات ذات الطابع الشخصي للتلاميذ (القانون 09.08)، وأخذ موافقة أولياء الأمور عند نشر أي صور، وتأمين الولوج إلى الملفات الرقمية بكلمات مرور`,
+          `تخزين المعطيات الحساسة على أقراص غير مشفرة وتركها في الساحة`,
+          `إرسال قاعدة بيانات مسار عبر مجموعات غير رسمية`
+        ],
+        ans: 1,
+        ref: `القانون 09.08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي`,
+        exp: `يفرض القانون 09.08 ومذكرات حماية المعطيات صون خصوصية التلاميذ وبياناتهم الطبية والاجتماعية والشخصية، وعدم نشرها في الفضاء العام إلا وفق الضوابط القانونية وموافقة الأولياء.`
+      },
+      {
+        id: 100,
+        domain: `massar`,
+        q: `ما هي القاعدة الذهبية في مسطرة «الأرشفة وتحديث التتبع» داخل منظومة مسار لضمان جاهزية المؤسسة لأي افتحاص أو تقييم إقليمي؟`,
+        opts: [
+          `تأجيل مسك جميع المعطيات وأرشفة المحاضر إلى ليلة زيارة اللجنة الإقليمية`,
+          `التحيين الفوري والمنتظم لمعطيات التنفيذ في مسار عقب كل عملية أو اجتماع، بالتوازي مع الأرشفة الورقية والنسخ الاحتياطي الرقمي`,
+          `الاكتفاء بحفظ المعطيات في ذاكرة المدير دون تدوين`,
+          `استبدال الأرشفة بمنشورات قصيرة على منصات التواصل الاجتماعي`
+        ],
+        ans: 1,
+        ref: `المذكرة 014x24 — الحكامة الرقمية والأرشفة المستمرة`,
+        exp: `تراكم العمل الإداري يؤدي إلى النسيان والأخطاء؛ أما المسك والأرشفة الفورية والمنتظمة في مسار وفي المصنفات الورقية فتجعل المؤسسة في جاهزية دائمة وتعكس شفافية التدبير.`
+      }
+    ];
+
+    /* ==================== Application State ==================== */
+    let appState = {
+      currentQuestionId: 1,
+      mode: `practice`, // 'practice' | 'exam'
+      examGraded: false,
+      answers: {}, // { [questionId]: optionIndex }
+      bookmarks: {}, // { [questionId]: true }
+      filterDomain: `all`,
+      filterStatus: `all`,
+      searchQuery: ``,
+      elapsedSeconds: 0
+    };
+
+    let timerIntervalId = null;
+
+    function getFilteredQuestions() {
+      const qLower = (appState.searchQuery || ``).trim().toLowerCase();
+      return QUESTIONS.filter(function(item) {
+        if (appState.filterDomain !== `all` && item.domain !== appState.filterDomain) {
+          return false;
+        }
+        const userAns = appState.answers[item.id];
+        const isAnswered = typeof userAns === `number`;
+        if (appState.filterStatus === `unanswered` && isAnswered) {
+          return false;
+        }
+        if (appState.filterStatus === `wrong`) {
+          const isEvaluated = appState.mode === `practice` || appState.examGraded;
+          if (!isAnswered || !isEvaluated || userAns === item.ans) {
+            return false;
+          }
+        }
+        if (appState.filterStatus === `bookmarked` && !appState.bookmarks[item.id]) {
+          return false;
+        }
+        if (qLower) {
+          const hay = (item.q + ` ` + item.ref + ` ` + item.exp + ` ` + item.opts.join(` `)).toLowerCase();
+          if (!hay.includes(qLower)) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    function getDomainName(domainId) {
+      const found = DOMAIN_META.find(function(d) { return d.id === domainId; });
+      return found ? found.name : domainId;
+    }
+
+    function formatTime(totalSec) {
+      const mins = Math.floor(totalSec / 60);
+      const secs = totalSec % 60;
+      const mStr = mins < 10 ? `0` + mins : String(mins);
+      const sStr = secs < 10 ? `0` + secs : String(secs);
+      return mStr + `:` + sStr;
+    }
+
+    function computeStats() {
+      let answeredCount = 0;
+      let correctCount = 0;
+      let wrongCount = 0;
+      let pendingCount = 0;
+      let bookmarkCount = 0;
+      const isEvaluated = appState.mode === `practice` || appState.examGraded;
+
+      QUESTIONS.forEach(function(item) {
+        if (appState.bookmarks[item.id]) {
+          bookmarkCount += 1;
+        }
+        const ans = appState.answers[item.id];
+        if (typeof ans === `number`) {
+          answeredCount += 1;
+          if (isEvaluated) {
+            if (ans === item.ans) {
+              correctCount += 1;
+            } else {
+              wrongCount += 1;
+            }
+          } else {
+            pendingCount += 1;
+          }
+        }
+      });
+
+      const evaluatedTotal = correctCount + wrongCount;
+      const completionPct = Math.round((answeredCount / QUESTIONS.length) * 100);
+      const accuracyPct = evaluatedTotal > 0 ? Math.round((correctCount / evaluatedTotal) * 100) : 0;
+
+      return {
+        answeredCount: answeredCount,
+        correctCount: correctCount,
+        wrongCount: wrongCount,
+        pendingCount: pendingCount,
+        bookmarkCount: bookmarkCount,
+        completionPct: completionPct,
+        accuracyPct: accuracyPct,
+        isEvaluated: isEvaluated
+      };
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`);
+    }
+
+    function renderStatsAndControls() {
+      const stats = computeStats();
+
+      const elAnswered = document.getElementById(`stat-answered`);
+      if (elAnswered) elAnswered.textContent = stats.answeredCount + ` / ` + QUESTIONS.length;
+
+      const elCompPct = document.getElementById(`stat-completion-pct`);
+      if (elCompPct) elCompPct.textContent = `نسبة الإنجاز: ` + stats.completionPct + `%`;
+
+      const elProgComp = document.getElementById(`progress-completion`);
+      if (elProgComp) elProgComp.style.width = stats.completionPct + `%`;
+
+      const elScore = document.getElementById(`stat-score`);
+      if (elScore) {
+        if (appState.mode === `exam` && !appState.examGraded) {
+          elScore.textContent = `قيد الانتظار`;
+        } else {
+          elScore.textContent = stats.correctCount + ` / ` + QUESTIONS.length;
+        }
+      }
+
+      const elAccPct = document.getElementById(`stat-accuracy-pct`);
+      if (elAccPct) {
+        if (appState.mode === `exam` && !appState.examGraded) {
+          elAccPct.textContent = `اضغط «تصحيح الامتحان» لإظهار النتيجة`;
+        } else {
+          elAccPct.textContent = `معدل الدقة في المصحح: ` + stats.accuracyPct + `%`;
+        }
+      }
+
+      const elProgAcc = document.getElementById(`progress-accuracy`);
+      if (elProgAcc) {
+        elProgAcc.style.width = (appState.mode === `exam` && !appState.examGraded ? 0 : stats.accuracyPct) + `%`;
+      }
+
+      const elBreak = document.getElementById(`stat-breakdown`);
+      if (elBreak) elBreak.textContent = stats.correctCount + ` صحيح · ` + stats.wrongCount + ` خطأ`;
+
+      const elPending = document.getElementById(`stat-pending`);
+      if (elPending) elPending.textContent = `أسئلة في انتظار التصحيح: ` + stats.pendingCount;
+
+      const elBook = document.getElementById(`stat-bookmarked`);
+      if (elBook) elBook.textContent = `الأسئلة المعلّمة للمراجعة: ` + stats.bookmarkCount;
+
+      const btnPractice = document.getElementById(`btn-mode-practice`);
+      const btnExam = document.getElementById(`btn-mode-exam`);
+      const modeIndicator = document.getElementById(`mode-indicator`);
+      const btnGrade = document.getElementById(`btn-grade-exam`);
+
+      if (btnPractice) btnPractice.setAttribute(`aria-pressed`, appState.mode === `practice` ? `true` : `false`);
+      if (btnExam) btnExam.setAttribute(`aria-pressed`, appState.mode === `exam` ? `true` : `false`);
+
+      if (modeIndicator) {
+        if (appState.mode === `practice`) {
+          modeIndicator.textContent = `وضع التدريب الفوري`;
+          modeIndicator.className = `status-tag status-tag--positive`;
+        } else if (appState.examGraded) {
+          modeIndicator.textContent = `امتحان مصحح (` + stats.correctCount + `/100)`;
+          modeIndicator.className = `status-tag status-tag--positive`;
+        } else {
+          modeIndicator.textContent = `محاكاة امتحان إشهادي`;
+          modeIndicator.className = `status-tag`;
+        }
+      }
+
+      if (btnGrade) {
+        if (appState.mode === `exam` && !appState.examGraded) {
+          btnGrade.disabled = false;
+          btnGrade.textContent = `تصحيح الامتحان الآن`;
+        } else if (appState.mode === `exam` && appState.examGraded) {
+          btnGrade.disabled = false;
+          btnGrade.textContent = `إخفاء التصحيح ومواصلة`;
+        } else {
+          btnGrade.disabled = true;
+          btnGrade.textContent = `التصحيح فوري تلقائياً`;
+        }
+      }
+
+      const selDom = document.getElementById(`filter-domain`);
+      if (selDom) selDom.value = appState.filterDomain;
+
+      const selStat = document.getElementById(`filter-status`);
+      if (selStat) selStat.value = appState.filterStatus;
+
+      const searchInp = document.getElementById(`search-input`);
+      if (searchInp && searchInp.value !== appState.searchQuery) {
+        searchInp.value = appState.searchQuery;
+      }
+    }
+
+    function renderExamSummaryBanner() {
+      const container = document.getElementById(`exam-summary-container`);
+      if (!container) return;
+
+      if (appState.mode !== `exam` || !appState.examGraded) {
+        container.hidden = true;
+        container.innerHTML = ``;
+        return;
+      }
+
+      const stats = computeStats();
+      const scoreOn20 = ((stats.correctCount / QUESTIONS.length) * 20).toFixed(2);
+      let appreciation = `دون عتبة التمكن — يُنصح بمراجعة المحاور المتعثرة عبر مرشح "الإجابات الخاطئة".`;
+      if (stats.correctCount >= 85) {
+        appreciation = `تمكن متميز جداً في هندسة مشروع المؤسسة المندمج والمذكرة 014x24.`;
+      } else if (stats.correctCount >= 70) {
+        appreciation = `تمكن جيد جداً مع ضرورة تدقيق بعض المساطر الجزئية.`;
+      } else if (stats.correctCount >= 50) {
+        appreciation = `تمكن مقبول — ركز على المحاور ذات النسبة الأقل في جدول التشخيص.`;
+      }
+
+      container.hidden = false;
+      container.innerHTML = `
+        <section class="exam-results-banner" aria-label="نتائج محاكاة الامتحان">
+          <h2>حصيلة التصحيح الشامل للامتحان</h2>
+          <p class="feedback-body">
+            حصلت على <strong>${stats.correctCount} من أصل 100</strong> إجابة صحيحة (أي ما يعادل <strong><bdi dir="ltr">${scoreOn20} / 20</bdi></strong>)، مع <strong>${stats.wrongCount}</strong> إجابة خاطئة و<strong>${QUESTIONS.length - stats.answeredCount}</strong> سؤالاً غير مجاب عنه.
+          </p>
+          <p class="feedback-body"><strong>التقدير التشخيصي:</strong> ${escapeHtml(appreciation)}</p>
+          <div class="toolbar-actions">
+            <button type="button" class="button button--small" onclick="filterWrongOnly()">مراجعة الإجابات الخاطئة فقط</button>
+            <button type="button" class="button button--outline button--small" onclick="exportResultsCsv()">تنزيل التقرير التفصيلي <bdi dir="ltr">CSV</bdi></button>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderQuestionStage() {
+      const stage = document.getElementById(`question-stage`);
+      if (!stage) return;
+
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) {
+        stage.innerHTML = `
+          <div class="empty-state-box">
+            <h2 class="question-title">لا توجد أسئلة مطابقة لمعايير التصفية الحالية</h2>
+            <p class="feedback-body">جرّب إزالة البحث النصي أو اختيار «كل الأسئلة ضمن المحور» أو العودة إلى جميع المحاور.</p>
+            <button type="button" class="button" onclick="clearAllFilters()">إظهار جميع الأسئلة (100)</button>
+          </div>
+        `;
+        return;
+      }
+
+      let currentIndex = filtered.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      if (currentIndex === -1) {
+        currentIndex = 0;
+        appState.currentQuestionId = filtered[0].id;
+      }
+
+      const qObj = filtered[currentIndex];
+      const userAns = appState.answers[qObj.id];
+      const hasAnswered = typeof userAns === `number`;
+      const showFeedback = hasAnswered && (appState.mode === `practice` || appState.examGraded);
+      const isBookmarked = Boolean(appState.bookmarks[qObj.id]);
+      const lockOptions = appState.mode === `practice` ? hasAnswered : appState.examGraded;
+
+      let optionsHtml = ``;
+      qObj.opts.forEach(function(optText, idx) {
+        let cls = `option-card`;
+        let statusText = ``;
+
+        if (showFeedback) {
+          if (idx === qObj.ans) {
+            cls += ` option-card--correct`;
+            statusText = `الصحيح`;
+          } else if (idx === userAns && userAns !== qObj.ans) {
+            cls += ` option-card--wrong`;
+            statusText = `اختيارك`;
+          }
+        } else if (hasAnswered && idx === userAns) {
+          cls += ` option-card--selected`;
+          statusText = `مسجّل`;
+        }
+
+        const disabledAttr = lockOptions ? `disabled` : ``;
+        const pressedAttr = hasAnswered && idx === userAns ? `true` : `false`;
+
+        optionsHtml += `
+          <button type="button" class="${cls}" ${disabledAttr} aria-pressed="${pressedAttr}" onclick="selectOption(${qObj.id}, ${idx})">
+            <span class="option-letter">${OPTION_LETTERS[idx]}</span>
+            <span class="option-text">${escapeHtml(optText)}</span>
+            <span class="option-status-icon">${statusText}</span>
+          </button>
+        `;
+      });
+
+      let feedbackHtml = ``;
+      if (showFeedback) {
+        const isRight = userAns === qObj.ans;
+        const panelCls = isRight ? `feedback-panel feedback-panel--correct` : `feedback-panel feedback-panel--wrong`;
+        const verdictCls = isRight ? `feedback-verdict feedback-verdict--correct` : `feedback-verdict feedback-verdict--wrong`;
+        const verdictTxt = isRight
+          ? `إجابة صحيحة — الخيار (${OPTION_LETTERS[qObj.ans]})`
+          : `إجابة غير صحيحة — الجواب المرجعي الصحيح هو (${OPTION_LETTERS[qObj.ans]})`;
+
+        feedbackHtml = `
+          <div class="${panelCls}" role="region" aria-label="التغذية الراجعة القانونية والإجرائية">
+            <div class="feedback-header">
+              <span class="${verdictCls}">${verdictTxt}</span>
+              <span class="feedback-ref">${escapeHtml(qObj.ref)}</span>
+            </div>
+            <p class="feedback-body">${escapeHtml(qObj.exp)}</p>
+          </div>
+        `;
+      } else if (hasAnswered && appState.mode === `exam` && !appState.examGraded) {
+        feedbackHtml = `
+          <div class="inline-notice">
+            تم تسجيل اختيارك (${OPTION_LETTERS[userAns]}) لهذا السؤال. يمكنك تعديله قبل الضغط على «تصحيح الامتحان الآن».
+          </div>
+        `;
+      }
+
+      const prevDisabled = currentIndex <= 0 ? `disabled` : ``;
+      const nextDisabled = currentIndex >= filtered.length - 1 ? `disabled` : ``;
+      const clearAnsBtn = (hasAnswered && !appState.examGraded)
+        ? `<button type="button" class="button button--secondary button--small" onclick="clearSingleAnswer(${qObj.id})">إلغاء الإجابة</button>`
+        : ``;
+
+      stage.innerHTML = `
+        <div class="question-meta-bar">
+          <div class="question-id-group">
+            <span class="step-badge">سؤال ${qObj.id} / ${QUESTIONS.length}</span>
+            <span class="status-tag">${escapeHtml(getDomainName(qObj.domain))}</span>
+            <span class="status-tag status-tag--neutral">الترتيب في التصفية: ${currentIndex + 1} من ${filtered.length}</span>
+          </div>
+          <div class="stage-nav-group">
+            ${clearAnsBtn}
+            <button type="button" class="button button--outline button--small" aria-pressed="${isBookmarked ? `true` : `false`}" onclick="toggleBookmark(${qObj.id})">
+              ${isBookmarked ? `★ معلّم للمراجعة` : `☆ تعليم للمراجعة`}
+            </button>
+          </div>
+        </div>
+
+        <h2 class="question-title">${escapeHtml(qObj.q)}</h2>
+        <p class="question-hint">اختر إجابة واحدة من البدائل الأربعة (أو اضغط المفاتيح 1–4 على لوحة المفاتيح):</p>
+
+        <div class="options-list" role="radiogroup" aria-label="خيارات الإجابة">
+          ${optionsHtml}
+        </div>
+
+        ${feedbackHtml}
+
+        <div class="stage-nav">
+          <div class="stage-nav-group">
+            <button type="button" class="button button--secondary" ${prevDisabled} onclick="navigateRelative(-1)">السؤال السابق</button>
+            <button type="button" class="button" ${nextDisabled} onclick="navigateRelative(1)">السؤال التالي</button>
+          </div>
+          <div class="stage-nav-group">
+            <button type="button" class="button button--outline" onclick="jumpToNextUnanswered()">الانتقال إلى أقرب سؤال فارغ</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMatrixAndBreakdown() {
+      const filtered = getFilteredQuestions();
+      const elCount = document.getElementById(`filtered-count-label`);
+      if (elCount) elCount.textContent = String(filtered.length);
+
+      const matrix = document.getElementById(`question-matrix`);
+      if (matrix) {
+        const isEvaluated = appState.mode === `practice` || appState.examGraded;
+        let html = ``;
+        filtered.forEach(function(item) {
+          let cls = `matrix-cell`;
+          const ans = appState.answers[item.id];
+          if (item.id === appState.currentQuestionId) {
+            cls += ` matrix-cell--current`;
+          } else if (typeof ans === `number`) {
+            if (isEvaluated) {
+              cls += ans === item.ans ? ` matrix-cell--correct` : ` matrix-cell--wrong`;
+            } else {
+              cls += ` matrix-cell--pending`;
+            }
+          }
+          if (appState.bookmarks[item.id]) {
+            cls += ` matrix-cell--bookmarked`;
+          }
+          html += `<button type="button" class="${cls}" onclick="goToQuestion(${item.id})" aria-label="الانتقال إلى السؤال ${item.id}">${item.id}</button>`;
+        });
+        matrix.innerHTML = html;
+      }
+
+      const tbody = document.getElementById(`domain-breakdown-body`);
+      if (tbody) {
+        const isEvaluated = appState.mode === `practice` || appState.examGraded;
+        let rowsHtml = ``;
+        DOMAIN_META.forEach(function(dom) {
+          const domQs = QUESTIONS.filter(function(q) { return q.domain === dom.id; });
+          let done = 0;
+          let right = 0;
+          domQs.forEach(function(q) {
+            const ans = appState.answers[q.id];
+            if (typeof ans === `number`) {
+              done += 1;
+              if (isEvaluated && ans === q.ans) {
+                right += 1;
+              }
+            }
+          });
+          const activeCls = appState.filterDomain === dom.id ? `domain-row-btn domain-row-btn--active` : `domain-row-btn`;
+          const rightTxt = isEvaluated ? (right + ` / ` + domQs.length) : `—`;
+          rowsHtml += `
+            <tr>
+              <td><button type="button" class="${activeCls}" onclick="selectDomainFilter('${dom.id}')">${escapeHtml(dom.short)}</button></td>
+              <td class="num-cell">${done} / ${domQs.length}</td>
+              <td class="num-cell">${rightTxt}</td>
+            </tr>
+          `;
+        });
+        tbody.innerHTML = rowsHtml;
+      }
+    }
+
+    function renderAll() {
+      renderStatsAndControls();
+      renderExamSummaryBanner();
+      renderQuestionStage();
+      renderMatrixAndBreakdown();
+    }
+
+    async function persistState() {
+      const saveMsg = document.getElementById(`save-status-msg`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState({
+            currentQuestionId: appState.currentQuestionId,
+            mode: appState.mode,
+            examGraded: appState.examGraded,
+            answers: appState.answers,
+            bookmarks: appState.bookmarks,
+            filterDomain: appState.filterDomain,
+            filterStatus: appState.filterStatus,
+            elapsedSeconds: appState.elapsedSeconds
+          });
+          if (saveMsg) saveMsg.textContent = `تم حفظ التقدم تلقائياً`;
+        } catch (err) {
+          if (saveMsg) saveMsg.textContent = `تعذر مزامنة الحفظ مؤقتاً`;
+        }
+      }
+    }
+
+    /* ==================== Event Handlers (Hoisted Declarations) ==================== */
+    function selectOption(qId, optIndex) {
+      const qObj = QUESTIONS.find(function(item) { return item.id === qId; });
+      if (!qObj) return;
+      if (appState.mode === `practice` && typeof appState.answers[qId] === `number`) {
+        return;
+      }
+      if (appState.mode === `exam` && appState.examGraded) {
+        return;
+      }
+      appState.answers[qId] = optIndex;
+      renderAll();
+      persistState();
+    }
+
+    function clearSingleAnswer(qId) {
+      if (appState.examGraded) return;
+      delete appState.answers[qId];
+      renderAll();
+      persistState();
+    }
+
+    function toggleBookmark(qId) {
+      if (appState.bookmarks[qId]) {
+        delete appState.bookmarks[qId];
+      } else {
+        appState.bookmarks[qId] = true;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function goToQuestion(qId) {
+      appState.currentQuestionId = qId;
+      renderAll();
+      persistState();
+    }
+
+    function navigateRelative(delta) {
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) return;
+      const idx = filtered.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      const nextIdx = Math.max(0, Math.min(filtered.length - 1, idx + delta));
+      appState.currentQuestionId = filtered[nextIdx].id;
+      renderAll();
+      persistState();
+    }
+
+    function jumpToNextUnanswered() {
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) return;
+      const curIdx = filtered.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      for (let offset = 1; offset <= filtered.length; offset++) {
+        const cand = filtered[(curIdx + offset) % filtered.length];
+        if (typeof appState.answers[cand.id] !== `number`) {
+          appState.currentQuestionId = cand.id;
+          renderAll();
+          persistState();
+          return;
+        }
+      }
+      const saveMsg = document.getElementById(`save-status-msg`);
+      if (saveMsg) saveMsg.textContent = `تمت الإجابة عن جميع الأسئلة في هذه التصفية`;
+    }
+
+    function onFilterChange() {
+      const domEl = document.getElementById(`filter-domain`);
+      const statEl = document.getElementById(`filter-status`);
+      if (domEl) appState.filterDomain = domEl.value;
+      if (statEl) appState.filterStatus = statEl.value;
+
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0 && !filtered.some(function(q) { return q.id === appState.currentQuestionId; })) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function onSearchInput(val) {
+      appState.searchQuery = val || ``;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0 && !filtered.some(function(q) { return q.id === appState.currentQuestionId; })) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+    }
+
+    function selectDomainFilter(domainId) {
+      appState.filterDomain = appState.filterDomain === domainId ? `all` : domainId;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function filterWrongOnly() {
+      appState.filterDomain = `all`;
+      appState.filterStatus = `wrong`;
+      appState.searchQuery = ``;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function clearAllFilters() {
+      appState.filterDomain = `all`;
+      appState.filterStatus = `all`;
+      appState.searchQuery = ``;
+      appState.currentQuestionId = 1;
+      renderAll();
+      persistState();
+    }
+
+    function setExamMode(mode) {
+      if (appState.mode === mode) return;
+      appState.mode = mode;
+      if (mode === `practice`) {
+        appState.examGraded = false;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function gradeExamMode() {
+      if (appState.mode !== `exam`) return;
+      appState.examGraded = !appState.examGraded;
+      renderAll();
+      persistState();
+    }
+
+    function handleResetAll(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.className = `button button--danger-armed button--small`;
+        btn.textContent = `تأكيد المسح؟ اضغط مجدداً`;
+        setTimeout(function() {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.className = `button button--secondary button--small`;
+            btn.textContent = `إعادة الضبط`;
+          }
+        }, 4500);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.className = `button button--secondary button--small`;
+      btn.textContent = `إعادة الضبط`;
+
+      appState.answers = {};
+      appState.bookmarks = {};
+      appState.examGraded = false;
+      appState.elapsedSeconds = 0;
+      appState.currentQuestionId = 1;
+      appState.filterDomain = `all`;
+      appState.filterStatus = `all`;
+      appState.searchQuery = ``;
+      renderAll();
+      persistState();
+    }
+
+    function exportResultsCsv() {
+      const lines = [
+        [`رقم السؤال`, `المحور`, `السؤال`, `إجابة المترشح`, `الإجابة الصحيحة`, `النتيجة`, `المرجع القانوني`].join(`,`)
+      ];
+
+      QUESTIONS.forEach(function(item) {
+        const userAns = appState.answers[item.id];
+        const hasAns = typeof userAns === `number`;
+        const userLetter = hasAns ? OPTION_LETTERS[userAns] : `غير مجاب`;
+        const correctLetter = OPTION_LETTERS[item.ans];
+        const verdict = !hasAns ? `فارغ` : (userAns === item.ans ? `صحيح` : `خطأ`);
+        const row = [
+          item.id,
+          `"` + getDomainName(item.domain).replace(/"/g, `""`) + `"`,
+          `"` + item.q.replace(/"/g, `""`) + `"`,
+          userLetter,
+          correctLetter,
+          verdict,
+          `"` + item.ref.replace(/"/g, `""`) + `"`
+        ].join(`,`);
+        lines.push(row);
+      });
+
+      const csvContent = `\uFEFF` + lines.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `pmei_014x24_exam_results.csv`
+        });
+      }
+    }
+
+    function startTimer() {
+      if (timerIntervalId) clearInterval(timerIntervalId);
+      const timerEl = document.getElementById(`timer-display`);
+      if (timerEl) timerEl.textContent = `المدة المنقضية: ` + formatTime(appState.elapsedSeconds);
+      timerIntervalId = setInterval(function() {
+        appState.elapsedSeconds += 1;
+        const el = document.getElementById(`timer-display`);
+        if (el) el.textContent = `المدة المنقضية: ` + formatTime(appState.elapsedSeconds);
+      }, 1000);
+    }
+
+    function setupKeyboardShortcuts() {
+      document.addEventListener(`keydown`, function(e) {
+        const activeTag = document.activeElement ? document.activeElement.tagName : ``;
+        if (activeTag === `INPUT` || activeTag === `SELECT` || activeTag === `TEXTAREA`) {
+          return;
+        }
+        if (e.key >= `1` && e.key <= `4`) {
+          const idx = parseInt(e.key, 10) - 1;
+          selectOption(appState.currentQuestionId, idx);
+        } else if (e.key === `ArrowLeft`) {
+          navigateRelative(1);
+        } else if (e.key === `ArrowRight`) {
+          navigateRelative(-1);
+        }
+      });
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (typeof saved.currentQuestionId === `number`) appState.currentQuestionId = saved.currentQuestionId;
+            if (saved.mode === `practice` || saved.mode === `exam`) appState.mode = saved.mode;
+            if (typeof saved.examGraded === `boolean`) appState.examGraded = saved.examGraded;
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (saved.bookmarks && typeof saved.bookmarks === `object`) appState.bookmarks = saved.bookmarks;
+            if (typeof saved.filterDomain === `string`) appState.filterDomain = saved.filterDomain;
+            if (typeof saved.filterStatus === `string`) appState.filterStatus = saved.filterStatus;
+            if (typeof saved.elapsedSeconds === `number`) appState.elapsedSeconds = saved.elapsedSeconds;
+          }
+        } catch (err) {
+          /* Safe fallback to fresh state */
+        }
+      }
+
+      renderAll();
+      startTimer();
+      setupKeyboardShortcuts();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
