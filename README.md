@@ -1,6 +1,6 @@
 ﻿# Exam Hub - Vercel
 
-Static site exposing eleven interactive Arabic exam tools with responsive AdSense units.
+Static site exposing eleven interactive Arabic exam tools with responsive AdSense units and Google Tag Manager.
 
 ## Structure
 
@@ -27,6 +27,8 @@ information pages above.
 
 The eleven exam files are copies of the originals with a responsive AdSense unit injected
 just before </body>. The root hub also carries the same unit after the exam cards.
+Every HTML page also loads Google Tag Manager container GTM-KT5RD54L in <head> and its
+noscript fallback immediately after <body>.
 The examen-global-120 page uses the same template/UI as the original exams and was
 generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
 examen_qcm_cadres_economiques_part2.pdf).
@@ -42,7 +44,7 @@ No build step is required.
 
 The edumaroc favicon is served from the site root (/favicon.ico plus PNG variants),
 matching the current icon used on edumaroc.org. Exam pages keep their original
-byte-identical HTML and inherit the favicon via the automatic /favicon.ico request.
+template/UI and inherit the favicon via the automatic /favicon.ico request.
 
 ## Adding another exam
 
