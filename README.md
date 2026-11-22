@@ -25,6 +25,10 @@ Root Directory: .
 
 No build step is required.
 
+The edumaroc favicon is served from the site root (/favicon.ico plus PNG variants),
+matching the current icon used on edumaroc.org. Exam pages keep their original
+byte-identical HTML and inherit the favicon via the automatic /favicon.ico request.
+
 ## Adding another exam
 
 1. Create a folder such as /new-exam/ with an index.html.
