@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>اختبار المحاسبة العمومية — المرسوم الملكي رقم 330.66</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --secondary-container: #e4efe9;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --error-container: #f9e6e6;
+      --on-error: #f7f4ec;
+
+      /* Semantic & Focus */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts (Arabic RTL first, per design_foundation.md) */
+      --font-headline: 'Amiri', 'IBM Plex Sans Arabic', serif;
+      --font-body: 'IBM Plex Sans Arabic', sans-serif;
+      --font-label: 'IBM Plex Sans Arabic', 'IBM Plex Mono', monospace;
+      --font-mono: 'IBM Plex Mono', 'IBM Plex Sans Arabic', monospace;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.65rem, 1.35rem + 1.1vw, 2.2rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.8125rem;
+
+      /* Shape (Charter squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    header { position: static !important; }
+    button, input, select, textarea {
+      font-family: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Charter Navy Title Band (Compact Header Strip for Tool) */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-lg) var(--space-lg) var(--space-lg);
+      border-bottom: 3px solid var(--outline);
+    }
+    .title-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+      margin: 0 0 var(--space-xs) 0;
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.25;
+      color: var(--on-primary);
+      margin: 0;
+    }
+    .title-band .lede {
+      color: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      margin: var(--space-xs) 0 0 0;
+      max-width: 68ch;
+      font-size: var(--body-size);
+    }
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Main Grid */
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Buttons (Charter) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--primary) 85%, var(--on-surface));
+    }
+    .btn-on-navy {
+      background-color: var(--surface-container-low);
+      color: var(--primary);
+      border-color: var(--outline);
+    }
+    .btn-on-navy:hover:not(:disabled) {
+      background-color: var(--surface-container);
+    }
+    .btn-on-navy-outline {
+      background-color: transparent;
+      color: var(--on-primary);
+      border-color: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+    }
+    .btn-on-navy-outline:hover:not(:disabled) {
+      background-color: color-mix(in srgb, var(--on-primary) 12%, var(--primary));
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+    .btn-ghost {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border-color: var(--outline-variant);
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background-color: var(--surface-container-high);
+    }
+    .btn-danger-outline {
+      background-color: transparent;
+      color: var(--error);
+      border-color: var(--error);
+    }
+    .btn-danger-outline:hover:not(:disabled) {
+      background-color: var(--error-container);
+    }
+
+    /* Mode segmented control */
+    .mode-switch {
+      display: inline-flex;
+      border: 1px solid color-mix(in srgb, var(--outline) 70%, var(--on-primary));
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+    .mode-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background-color: transparent;
+      color: color-mix(in srgb, var(--on-primary) 85%, var(--primary));
+      border: none;
+      font-size: var(--label-size);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .mode-btn.active {
+      background-color: var(--surface-container-low);
+      color: var(--primary);
+    }
+    .mode-btn:hover:not(.active) {
+      background-color: color-mix(in srgb, var(--on-primary) 12%, var(--primary));
+    }
+
+    /* Figure Cards (Charter brass top rule) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.25rem + 0.8vw, 2rem);
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+    .figure-delta {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+    .figure-delta.positive { color: var(--secondary); }
+    .figure-delta.negative { color: var(--error); }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      margin-top: var(--space-sm);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Section Head (Charter brass rule above, hairline below) */
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    /* Filter Toolbar */
+    .filter-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .section-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .chip-btn:hover {
+      background-color: var(--surface-container);
+    }
+    .chip-btn.active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .chip-count {
+      font-variant-numeric: tabular-nums;
+      font-size: 0.75rem;
+      padding: 0 var(--space-xs);
+      border: 1px solid currentColor;
+      border-radius: var(--rounded);
+      opacity: 0.85;
+    }
+
+    .controls-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .field-input, .field-select {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+    }
+    .field-select {
+      padding-inline-end: var(--space-xl);
+    }
+    .field-input:focus, .field-select:focus {
+      border-color: var(--primary);
+    }
+
+    /* Main Asymmetric Exam Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Question Card */
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+      animation: cardEnter var(--dur-short) var(--ease-out);
+    }
+    @keyframes cardEnter {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: var(--hairline);
+    }
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .q-number-badge {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--on-primary);
+      background-color: var(--primary);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+      font-variant-numeric: tabular-nums;
+    }
+    .article-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background-color: transparent;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .domain-tag {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 500;
+    }
+    .flag-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-sm);
+      background-color: transparent;
+      color: var(--on-surface-variant);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .flag-btn.flagged {
+      background-color: var(--surface-container);
+      color: var(--tertiary);
+      border-color: var(--outline);
+    }
+
+    .question-text {
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .options-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: var(--space-md);
+      width: 100%;
+      min-height: 52px;
+      padding: var(--space-sm) var(--space-md);
+      text-align: start;
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--outline-variant);
+      background-color: var(--surface-container-low);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: var(--label-size);
+      border-radius: var(--rounded);
+    }
+    .option-status {
+      font-size: var(--label-size);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    /* Option States */
+    .option-btn.selected-exam {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+    .option-btn.selected-exam .option-letter {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .option-btn.is-correct {
+      background-color: var(--secondary-container);
+      border-color: var(--secondary);
+      box-shadow: inset 3px 0 0 var(--secondary);
+    }
+    .option-btn.is-correct .option-letter {
+      background-color: var(--secondary);
+      color: var(--on-primary);
+      border-color: var(--secondary);
+    }
+    .option-btn.is-correct .option-status { color: var(--secondary); }
+
+    .option-btn.is-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      box-shadow: inset 3px 0 0 var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .option-btn.is-wrong .option-status { color: var(--error); }
+
+    /* Legal Explanation Box */
+    .explanation-box {
+      border-right: 3px solid var(--outline);
+      background-color: var(--background);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .explanation-box.correct-tone {
+      border-right-color: var(--secondary);
+    }
+    .explanation-box.wrong-tone {
+      border-right-color: var(--error);
+    }
+    .explanation-title {
+      font-weight: 700;
+      font-size: var(--label-size);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .explanation-title.correct { color: var(--secondary); }
+    .explanation-title.wrong { color: var(--error); }
+    .explanation-text {
+      margin: 0;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.65;
+    }
+    .explanation-ref {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+
+    .question-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+
+    /* Side Rail Navigator */
+    .side-rail {
+      display: grid;
+      gap: var(--space-md);
+      position: sticky;
+      top: var(--space-md);
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: var(--space-xs);
+    }
+    .nav-cell {
+      min-height: 40px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      position: relative;
+    }
+    .nav-cell:hover {
+      background-color: var(--surface-container);
+    }
+    .nav-cell.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+      font-weight: 700;
+    }
+    .nav-cell.answered-exam {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .nav-cell.answered-correct {
+      background-color: var(--secondary-container);
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+    .nav-cell.answered-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      color: var(--error);
+    }
+    .nav-cell.flagged::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--outline);
+      border-radius: var(--rounded);
+    }
+    .legend-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      padding-top: var(--space-xs);
+      border-top: var(--hairline);
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+    }
+    .swatch-correct { background-color: var(--secondary-container); border-color: var(--secondary); }
+    .swatch-wrong { background-color: var(--error-container); border-color: var(--error); }
+    .swatch-exam { background-color: var(--primary-container); border-color: var(--primary); }
+    .swatch-flag { background-color: var(--outline); border-color: var(--outline); }
+
+    /* Summary Table (Charter Style) */
+    .table-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      overflow-x: auto;
+    }
+    table.charter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--body-size);
+    }
+    table.charter-table thead th {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: var(--label-size);
+      text-align: start;
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline);
+    }
+    table.charter-table tbody td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      vertical-align: middle;
+    }
+    table.charter-table tfoot td {
+      padding: var(--space-sm) var(--space-md);
+      border-top: var(--brass-rule);
+      font-weight: 700;
+      background-color: var(--background);
+    }
+    .num-col {
+      font-variant-numeric: tabular-nums lining-nums;
+      text-align: end !important;
+      font-family: var(--font-mono);
+    }
+
+    /* Banner / Inline Messages */
+    .exam-banner {
+      background-color: var(--surface-container);
+      border-right: 3px solid var(--primary);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .empty-state {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      padding: var(--space-xl);
+      text-align: center;
+      display: grid;
+      gap: var(--space-sm);
+      justify-items: center;
+    }
+    .toast-inline {
+      font-size: var(--label-size);
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .footer-note {
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .list-stack {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 900px) {
+      .workspace-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .side-rail {
+        position: static;
+      }
+      .controls-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-md);
+      }
+      .nav-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .option-btn {
+        grid-template-columns: 30px minmax(0, 1fr);
+      }
+      .option-status {
+        grid-column: 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div>
+        <p class="title-kicker">قانون المالية والمحاسبة العمومية بالمغرب</p>
+        <h1>المرسوم الملكي رقم 330.66 بسن نظام عام للمحاسبة العمومية</h1>
+        <p class="lede">
+          منصة تفاعلية لاختبار المعارف القانونية في أحكام المرسوم الملكي المؤرخ في <bdi dir="ltr">10</bdi> محرم <bdi dir="ltr">1387</bdi> (<bdi dir="ltr">21</bdi> أبريل <bdi dir="ltr">1967</bdi>) وتعديلاته، موزعة على <bdi dir="ltr">9</bdi> محاور رئيسية مع تعليل قانوني دقيق وإحالة مضبوطة على الفصول.
+        </p>
+      </div>
+      <div class="header-actions">
+        <div class="mode-switch" role="group" aria-label="نمط الاختبار">
+          <button type="button" id="btn-mode-training" class="mode-btn active" onclick="setMode('training')">التدريب الفوري</button>
+          <button type="button" id="btn-mode-exam" class="mode-btn" onclick="setMode('exam')">الامتحان التجريبي</button>
+        </div>
+        <button type="button" class="btn btn-on-navy-outline" onclick="exportResultsCsv()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          تصدير النتائج
+        </button>
+        <button type="button" id="btn-reset-all" class="btn btn-on-navy-outline" onclick="handleResetClick(this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          إعادة تعيين
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- Executive Scorecard Row -->
+    <section aria-label="مؤشرات الأداء" class="kpi-grid">
+      <div class="figure-card">
+        <div class="figure-label">التقدم في الأسئلة</div>
+        <div class="figure-value" id="kpi-progress">0 / 42</div>
+        <div class="progress-track"><div class="progress-fill" id="kpi-progress-bar" style="width: 0%"></div></div>
+        <div class="figure-delta" id="kpi-progress-sub">ابدأ باختيار الإجابة الأولى</div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-label">النقطة المحصل عليها</div>
+        <div class="figure-value" id="kpi-score">—</div>
+        <div class="figure-delta" id="kpi-score-sub">تظهر النتيجة بعد الإجابة</div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-label">المحور المحدد حالياً</div>
+        <div class="figure-value" id="kpi-section-count">42 سؤالاً</div>
+        <div class="figure-delta" id="kpi-section-name">جميع محاور المرسوم 330.66</div>
+      </div>
+
+      <div class="figure-card">
+        <div class="figure-label">الأسئلة المحددة للمراجعة</div>
+        <div class="figure-value" id="kpi-flagged">0</div>
+        <div class="figure-delta" id="kpi-mode-label">وضع التدريب الفوري نشط</div>
+      </div>
+    </section>
+
+    <!-- Exam Mode Action Banner (visible in exam mode) -->
+    <section id="exam-banner" class="exam-banner" style="display: none;">
+      <div>
+        <strong id="exam-banner-title">وضع الامتحان التجريبي</strong>
+        <div id="exam-banner-desc" style="color: var(--on-surface-variant); font-size: var(--label-size);">
+          اختر أجوبتك في جميع الأسئلة دون كشف التصحيح، ثم اضغط على زر اعتماد وتصحيح الامتحان لعرض النتيجة والتعليل القانوني.
+        </div>
+      </div>
+      <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+        <button type="button" id="btn-submit-exam" class="btn btn-primary" onclick="submitExam()">إنهاء وتصحيح الامتحان</button>
+        <button type="button" id="btn-retake-exam" class="btn btn-secondary" style="display: none;" onclick="retakeExam()">إعادة اجتياز الامتحان</button>
+      </div>
+    </section>
+
+    <!-- Filters & Controls -->
+    <section class="filter-panel" aria-label="تصفية الأسئلة حسب المحاور والفصول">
+      <div class="section-head" style="border-top: none; padding-top: 0;">
+        <h2>تصفية المحاور القانونية</h2>
+        <div style="display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap;">
+          <span id="status-toast" class="toast-inline" aria-live="polite"></span>
+          <button type="button" id="btn-toggle-view" class="btn btn-secondary" onclick="toggleViewMode()">عرض القائمة الكاملة</button>
+          <button type="button" id="btn-toggle-breakdown" class="btn btn-ghost" onclick="toggleBreakdown()">جدول النتائج حسب المحاور</button>
+        </div>
+      </div>
+
+      <div class="section-chips" id="section-chips" role="group" aria-label="أقسام المرسوم الملكي"></div>
+
+      <div class="controls-row">
+        <div class="field-group">
+          <label for="status-filter" class="field-label">تصفية حسب حالة الإجابة</label>
+          <select id="status-filter" class="field-select" onchange="setStatusFilter(this.value)">
+            <option value="all">جميع الأسئلة في هذا المحور</option>
+            <option value="unanswered">الأسئلة غير المجاب عنها</option>
+            <option value="wrong">الإجابات الخاطئة للمراجعة</option>
+            <option value="flagged">الأسئلة المحددة للمراجعة</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="search-input" class="field-label">بحث برقم الفصل أو عبارة قانونية</label>
+          <input type="text" id="search-input" class="field-input" placeholder="مثال: الفصل 11 أو بحكم الواقع أو التصفية" oninput="setSearchQuery(this.value)">
+        </div>
+
+        <button type="button" class="btn btn-ghost" onclick="clearFilters()">مسح التصفيات</button>
+      </div>
+    </section>
+
+    <!-- Domain Breakdown Table (Collapsible) -->
+    <section id="breakdown-section" class="table-card" style="display: none;" aria-label="تفصيل النتائج حسب المحاور">
+      <div class="section-head" style="border-top: none; padding-top: 0; margin-bottom: var(--space-md);">
+        <h2>توزيع الإجابات والنتائج حسب محاور المرسوم 330.66</h2>
+        <button type="button" class="btn btn-ghost" onclick="toggleBreakdown()">إغلاق الجدول</button>
+      </div>
+      <table class="charter-table">
+        <thead>
+          <tr>
+            <th>المحور القانوني</th>
+            <th>الفصول المرجعية</th>
+            <th class="num-col">الأسئلة</th>
+            <th class="num-col">المجاب عنها</th>
+            <th class="num-col">الصحيحة</th>
+            <th class="num-col">نسبة التمكن</th>
+          </tr>
+        </thead>
+        <tbody id="breakdown-tbody"></tbody>
+        <tfoot id="breakdown-tfoot"></tfoot>
+      </table>
+    </section>
+
+    <!-- Main QCM Workspace -->
+    <section class="workspace-grid" aria-label="فضاء الاختبار">
+      <div id="question-stage"></div>
+
+      <aside class="side-rail" aria-label="خريطة الأسئلة">
+        <div class="figure-card">
+          <div class="figure-label" style="margin-bottom: var(--space-sm);">خريطة الأسئلة السريعة</div>
+          <div class="nav-grid" id="nav-grid"></div>
+          <div class="legend-list" style="margin-top: var(--space-md);">
+            <span class="legend-item"><span class="legend-swatch swatch-correct"></span>صحيح</span>
+            <span class="legend-item"><span class="legend-swatch swatch-wrong"></span>خطأ</span>
+            <span class="legend-item"><span class="legend-swatch swatch-exam"></span>مجاب (امتحان)</span>
+            <span class="legend-item"><span class="legend-swatch swatch-flag"></span>للمراجعة</span>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-label">مرجع سريع للمراحل والأطراف</div>
+          <p style="margin: var(--space-xs) 0 0 0; font-size: var(--label-size); color: var(--on-surface-variant); line-height: 1.6;">
+            <strong>التنفيذ الإداري للنفقات:</strong> الالتزام (ف.33) ← التصفية (ف.34) ← الأمر بالصرف (ف.35)؛ ويتولاه الآمر بالصرف.<br>
+            <strong>التنفيذ الحسابي:</strong> المراقبة والتأشير والأداء (ف.11 و40 و41)؛ ويتولاه المحاسب العمومي دون جمع بين المهام (ف.4).
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer-note">
+      <span>المصدر المرجعي: المرسوم الملكي رقم 330.66 بتاريخ 10 محرم 1387 (21 أبريل 1967) بسن نظام عام للمحاسبة العمومية وتعديلاته (1977، 1995، 2000، 2001، 2002، 2003، 2004، 2009، 2010، 2014).</span>
+      <span>جميع الفصول والتعليلات مستقاة من النص القانوني المعتمد.</span>
+    </footer>
+
+  </main>
+
+  <api-shim></api-shim>
+
+  <script>
+    const SECTIONS = [
+      { id: 'principles', title: `المبادئ العامة والمنظمات العمومية`, articles: `الفصول 1–2 و134–135` },
+      { id: 'officers', title: `الآمرون بالصرف والمحاسبون وعدم الجمع`, articles: `الفصول 3–8 و64–66` },
+      { id: 'accountants', title: `مسؤولية المحاسبين والمحاسب بحكم الواقع`, articles: `الفصول 9–19` },
+      { id: 'revenues', title: `عمليات المداخيل والاستخلاص`, articles: `الفصول 20–30 و67–76` },
+      { id: 'expenditures', title: `مراحل تنفيذ النفقات العمومية`, articles: `الفصول 31–50 و78–96` },
+      { id: 'treasury', title: `عمليات الخزينة`, articles: `الفصول 51–54 و97–100` },
+      { id: 'accounting', title: `هيكلة المحاسبة (عامة، تحليلية، إدارية)`, articles: `الفصول 55–58 و101–127` },
+      { id: 'property', title: `تدبير وبيع أملاك الدولة الخاصة`, articles: `الفصلان 82–83` },
+      { id: 'controls', title: `المراقبة المالية والتدقيق`, articles: `الفصول 60–63 و128–133` }
+    ];
+
+    const QUESTIONS = [
+      {
+        id: 1,
+        section: 'principles',
+        article: `الفصل 1`,
+        articleNum: 1,
+        question: `وفقاً للفصل 1 من المرسوم الملكي رقم 330.66، ما هي الجهات التي يُطلق عليها اسم «المنظمات العمومية» وتجري عليها قواعد المحاسبة العمومية؟`,
+        options: [
+          `الدولة فقط ومصالحها المسيرة بصورة مستقلة دون الجماعات الترابية`,
+          `الدولة والجماعات المحلية ومؤسساتها وهيئاتها، ما عدا في حالة سن مقتضيات مخالفة`,
+          `المقاولات العمومية ذات الطابع التجاري والصناعي وشركات المساهمة العمومية`,
+          `الإدارات المركزية للوزارات والمحاكم المالية دون المؤسسات العمومية`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 1 صراحة على أن المحاسبة العمومية هي مجموع القواعد التي تجري، ما عدا في حالة سن مقتضيات مخالفة، على العمليات المالية والحسابية للدولة والجماعات المحلية ومؤسساتها وهيئاتها، ويطلق على هؤلاء الأشخاص المعنويين اسم «المنظمات العمومية».`
+      },
+      {
+        id: 2,
+        section: 'principles',
+        article: `الفصل 2`,
+        articleNum: 2,
+        question: `كيف يوزع الفصل 2 موضوع المرسوم الملكي رقم 330.66 وكيف تُحدد أنظمة المحاسبة المطبقة على الجماعات المحلية والمؤسسات العمومية؟`,
+        options: [
+          `يحدد المرسوم القواعد التفصيلية للدولة والجماعات المحلية دفعة واحدة في جزئه الأول`,
+          `تحدد أنظمة الجماعات المحلية والمؤسسات العمومية بقانون تنظيمي يصدره البرلمان`,
+          `يحدد الجزء الأول المبادئ الأساسية والجزء الثاني قواعد التطبيق على الدولة، وتُحدد أنظمة الجماعات المحلية والمؤسسات العمومية بموجب مرسوم باقتراح من وزير المالية بعد استشارة الوزراء المعنيين`,
+          `يحدد كل وزير بمفرده نظام المحاسبة الخاص بالمؤسسات التابعة لوصايته دون تدخل وزير المالية`
+        ],
+        correctIndex: 2,
+        explanation: `يميز الفصل 2 بين الجزء الأول (المبادئ الأساسية لنظام المحاسبة العمومية) والجزء الثاني (قواعد التطبيق على الدولة والترخيصات بالمخالفة لها)، مع التنصيص على تحديد أنظمة الجماعات المحلية والمؤسسات العمومية لاحقاً بموجب مرسوم يتخذ باقتراح من وزير المالية بعد استشارة الوزراء المعنيين.`
+      },
+      {
+        id: 3,
+        section: 'principles',
+        article: `الديباجة والفصل 134`,
+        articleNum: 134,
+        question: `صدر المرسوم الملكي رقم 330.66 بتاريخ 10 محرم 1387 (21 أبريل 1967) استناداً إلى أي نص قانوني، وماذا ترتب عن صدوره في الفصل 134؟`,
+        options: [
+          `استناداً إلى القانون التنظيمي للمالية لسنة 1963 (لا سيما الفصل 26)، مع إلغاء معظم فصول ظهير 6 غشت 1958 باستثناء الفصلين 54 و55 والمقطعين 3 و4 من الفصل 81`,
+          `استناداً إلى دستور 1996، مع الإلغاء الكلي والنهائي لجميع فصول ظهير 6 غشت 1958`,
+          `استناداً إلى مدونة المحاكم المالية لسنة 2002، مع الإبقاء على مرسوم 1958 ساري المفعول`,
+          `استناداً إلى ظهير التنظيم الجماعي، مع إلغاء قانون الوظيفة العمومية`
+        ],
+        correctIndex: 0,
+        explanation: `تشير الديباجة إلى المرسوم الملكي رقم 136.65 بإعلان حالة الاستثناء والظهير الشريف رقم 1.63.326 بشأن القانون التنظيمي للمالية (الفصل 26 منه). وينص الفصل 134 على إلغاء المقتضيات المخالفة ولا سيما الفصول المحددة من ظهير 6 غشت 1958، مع الإبقاء فقط على الفصلين 54 و55 والمقطعين 3 و4 من الفصل 81.`
+      },
+      {
+        id: 4,
+        section: 'officers',
+        article: `الفصل 3`,
+        articleNum: 3,
+        question: `بمقتضى الفصل 3، من يُعتبر «آمراً عمومياً بالصرف» للمداخيل والنفقات؟`,
+        options: [
+          `كل موظف يعينه الخازن العام لتناول السندات وحفظ الأموال والقيم العمومية`,
+          `كل شخص مؤهل باسم منظمة عمومية لرصد أو إثبات أو تصفية أو أمر باستخلاص دين أو أدائه`,
+          `كل عون يقوم بتحويل داخلي لحسابات الخزينة ومراقبة الصناديق العمومية`,
+          `فقط رئيس الحكومة ووزير المالية دون باقي الوزراء أو مديري المؤسسات`
+        ],
+        correctIndex: 1,
+        explanation: `يُفرّق الفصل 3 بين الفئتين: فالآمر بالصرف هو كل شخص مؤهل باسم منظمة عمومية لرصد أو إثبات أو تصفية أو أمر باستخلاص دين أو أدائه؛ بينما المحاسب العمومي هو كل موظف أو عون مؤهل للقيام بعمليات المداخيل أو النفقات أو تناول السندات.`
+      },
+      {
+        id: 5,
+        section: 'officers',
+        article: `الفصل 4`,
+        articleNum: 4,
+        question: `ما هي القاعدة الأساسية التي يقررها الفصل 4 بخصوص العلاقة بين الآمرين بالصرف والمحاسبين العموميين؟`,
+        options: [
+          `يحق للآمر بالصرف ممارسة مهام المحاسب العمومي في النفقات التي تقل عن 10.000 درهم`,
+          `يُجمع وجوباً بين المهمتين في مصالح الدولة المسيرة بصورة مستقلة لتسريع الأداء`,
+          `لا يجمع بين مهام آمر بالصرف ومهام محاسب، ما عدا إذا كانت مقتضيات مخالفة لذلك`,
+          `يُمنع الجمع فقط على مستوى الجماعات المحلية ولا يسري المنع على ميزانية الدولة`
+        ],
+        correctIndex: 2,
+        explanation: `يكرس الفصل 4 مبدأ الفصل بين الآمرين بالصرف والمحاسبين العموميين (قاعدة عدم الجمع): «لا يجمع بين مهام آمر بالصرف ومهام محاسب ما عدا إذا كانت مقتضيات مخالفة لذلك».`
+      },
+      {
+        id: 6,
+        section: 'officers',
+        article: `الفصل 5`,
+        articleNum: 5,
+        question: `ما هو الشرط الإلزامي لكي يباشر الآمرون بالصرف ومفوضوهم والآمرون بالصرف الثانويون مهامهم أمام المحاسبين العموميين طبقاً للفصل 5؟`,
+        options: [
+          `أداء اليمين القانونية أمام المحكمة الابتدائية وتقديم ضمان مالي`,
+          `وجوب اعتمادهم لدى المحاسبين المكلفين بالمداخيل والنفقات التي يأمرون بإنجازها`,
+          `الحصول على ترخيص مسبق من قاضي الحسابات قبل توقيع أي حوالة`,
+          `تقديم شهادة بنكية تثبت التوفر على حساب إيداع بالخزينة`
+        ],
+        correctIndex: 1,
+        explanation: `يجيز الفصل 5 للآمرين بالصرف التفويض في إمضائهم وتعيين آمرين بالصرف ثانويين تحت مسؤوليتهم ومراقبتهم، ويشترط صراحة أن يتم اعتماد الآمرين بالصرف ومفوضيهم والآمرين بالصرف الثانويين لدى المحاسبين المكلفين بالمداخيل والنفقات التي يأمرون بإنجازها.`
+      },
+      {
+        id: 7,
+        section: 'officers',
+        article: `الفصل 8`,
+        articleNum: 8,
+        question: `هل يمكن للآمر بالصرف أن يتصرف مباشرة في أموال مقيدة في اعتماد حساب مفتوح لمحاسب عمومي؟`,
+        options: [
+          `نعم، بمجرد تقديم طلب شفهي للمحاسب في حالة الاستعجال`,
+          `لا يمكنه ذلك إطلاقاً إلا بواسطة أوامر تصدر لهذا المحاسب وتدعم بأوراق الإثبات القانونية`,
+          `نعم، إذا كان يحمل صفة وزير أو آمر بالصرف مساعد في حدود نصف الاعتماد`,
+          `يمكنه ذلك فقط بالنسبة لحسابات الإيداع الاختيارية بالخزينة`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 8 على أنه لا يمكن لأي آمر بالصرف أن يتوفر على أموال مقيدة في اعتماد حساب مفتوح لمحاسب عمومي إلا بواسطة أوامر تصدر لهذا المحاسب وتدعم بأوراق الإثبات القانونية.`
+      },
+      {
+        id: 8,
+        section: 'officers',
+        article: `الفصلان 64 و66`,
+        articleNum: 64,
+        question: `من هم الآمرون بالصرف بحكم القانون على مستوى الدولة، ومن هو المحاسب السامي للمملكة؟`,
+        options: [
+          `رئيس الحكومة آمر بالصرف وحيد، ووزير المالية هو المحاسب السامي للمملكة`,
+          `الوزراء آمرون بالصرف بحكم القانون لوزاراتهم ومرافقها والحسابات الخصوصية، والخازن العام هو المحاسب السامي للمملكة`,
+          `الولاة والعمال هم الآمرون بالصرف بحكم القانون، ومدير الميزانية هو المحاسب السامي`,
+          `الأمناء العامون للوزارات آمرون بالصرف بحكم القانون، ورئيس المجلس الأعلى للحسابات هو المحاسب السامي`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 64 على أن الوزراء يُعتبرون بحكم القانون آمرين بالصرف فيما يتعلق بمداخيل ونفقات وزاراتهم وميزانيات مصالح الدولة المسيرة بصورة مستقلة والحسابات الخصوصية والميزانيتين الملحقتين. كما ينص الفصل 66 على أن الخازن العام هو المحاسب السامي للمملكة.`
+      },
+      {
+        id: 9,
+        section: 'accountants',
+        article: `الفصل 9`,
+        articleNum: 9,
+        question: `أيّ من الاختصاصات التالية يعهد به الفصل 9 إلى المحاسبين العموميين وحدهم دون غيرهم؟`,
+        options: [
+          `تحديد مقدار الضرائب وإبرام الصفقات العمومية مع الممونين`,
+          `التكفل بأوامر المداخيل والديون المثبتة واستيفاؤها، وأداء النفقات، والإجابة على التعرضات والتبليغات الأخرى`,
+          `تصفية نفقات الموظفين وإصدار مقررات التعيين في الدرجات الإدارية`,
+          `إعداد مشاريع قوانين المالية وتفويض الاعتمادات للآمرين بالصرف الثانويين`
+        ],
+        correctIndex: 1,
+        explanation: `يحصر الفصل 9 اختصاصات المحاسبين العموميين وحدهم في التكفل بأوامر المداخيل والديون المثبتة بعقدة أو رسم ملكية أو سند واستيفائها واستخلاص الحقوق نقداً، وأداء النفقات (بأمر من الآمر بالصرف أو بعد الاطلاع على سندات الدائنين أو من تلقاء أنفسهم)، والإجابة على التعرضات والتبليغات الأخرى.`
+      },
+      {
+        id: 10,
+        section: 'accountants',
+        article: `الفصل 11`,
+        articleNum: 11,
+        question: `بمقتضى الفصل 11 (كما غُيّر بمرسوم 24 ديسمبر 2004)، ما هي القاعدة الحاكمة لمراقبة المحاسبين المكلفين بالتسديد لصحة الالتزامات بالنفقات؟`,
+        options: [
+          `يجب على المحاسبين دائماً مراقبة ملاءمة ومشروعية الالتزام بالنفقة قبل التأشير`,
+          `لا يجوز للمحاسبين العاملين أن يقوموا بمراقبة صحة الالتزامات بالنفقات باستثناء الحالات التي تفوض لهم فيها هذه المراقبة بشكل صريح`,
+          `تقتصر مراقبة المحاسب على التحقق من وجود الاعتمادات فقط دون حسابات التصفية`,
+          `يمارس المحاسب مراقبة الالتزامات بالاتفاق الشفهي مع الآمر بالصرف`
+        ],
+        correctIndex: 1,
+        explanation: `يحدد الفصل 11 المراقبة القبلية للمحاسب (صحة حسابات التصفية، وجود التصديق أو التأشيرة المسبقة للالتزام عندما تكون مطلوبة، الصفة الإبرائية للتسديد، صفة الآمر بالصرف، توفر الاعتمادات، والوثائق المثبتة)، وينص في فقرته الأخيرة على أنه لا يجوز للمحاسبين العاملين مراقبة صحة الالتزامات بالنفقات إلا إذا فوضت لهم صراحة.`
+      },
+      {
+        id: 11,
+        section: 'accountants',
+        article: `الفصل 10`,
+        articleNum: 10,
+        question: `ما هي المراقبة التي يتحتم على المحاسبين المكلفين بالتسديد القيام بها فيما يخص المداخيل طبقاً للفصل 10؟`,
+        options: [
+          `مراقبة صحة الاستخلاص وإدراجه في محله والتحقق من الأوراق المثبتة`,
+          `تقدير مداخيل قانون المالية ومراجعة أسعار الضرائب`,
+          `تخفيض الديون الضريبية عن الملزمين المعسرين دون أمر من الآمر بالصرف`,
+          `إبرام اتفاقيات الصلح في الديون الجبائية بصفة منفردة`
+        ],
+        correctIndex: 0,
+        explanation: `يلزم الفصل 10 المحاسبين المكلفين بالتسديد فيما يخص المداخيل بالقيام بمراقبة صحة الاستخلاص وإدراجه في محله المحاسبي، وكذا التحقق من الأوراق المثبتة.`
+      },
+      {
+        id: 12,
+        section: 'accountants',
+        article: `الفصلان 13 و14`,
+        articleNum: 13,
+        question: `ما هي الالتزامات القانونية والمالية المفروضة على المحاسبين العموميين قبل تنصيبهم وبمناسبة ممارسة مهامهم طبقاً للفصلين 13 و14؟`,
+        options: [
+          `تقديم شهادة براءة الذمة الضريبية فقط دون يمين أو ضمان`,
+          `أداء اليمين قبل تنصيبهم في مركزهم الحسابي الأول، تقديم بيانات عن تصرفهم، الخضوع للامتياز، والالتزام بالضمان`,
+          `أداء اليمين أمام البرلمان وإيداع كفالة نقدية في بنك أجنبي`,
+          `الاقتصار على التأمين لدى شركات التأمين الخاصة دون أداء اليمين`
+        ],
+        correctIndex: 1,
+        explanation: `يلزم الفصل 13 المحاسبين العموميين بأداء اليمين المنصوص عليها في ظهير 9 نونبر 1942 قبل تنصيبهم في مركزهم الحسابي الأول وتقديم بيانات عن تصرفهم. ويخضعهم الفصل 14 لامتياز استخلاص الباقي في ذمتهم ويلزمهم بالضمان لدى شركة للضمان المتبادل أو شركات التأمين المقبولة من وزير المالية.`
+      },
+      {
+        id: 13,
+        section: 'accountants',
+        article: `الفصل 16`,
+        articleNum: 16,
+        question: `من هو «المحاسب بحكم الواقع» وفق الفصل 16، وما هي الآثار المترتبة على اعتباره كذلك؟`,
+        options: [
+          `كل آمر بالصرف يفوض إمضاءه لموظف مرسم، ولا يخضع لأي مراقبة حسابية`,
+          `كل شخص يقوم دون موجب قانوني بعمليات المداخيل والنفقات أو يتناول قيماً تهم منظمة عمومية، وتجري عليه نفس الالتزامات والمراقبات والمسؤوليات الجارية على المحاسب العمومي بصرف النظر عن المقتضيات الجنائية`,
+          `كل موظف يتأخر في تقديم وثائق التصفية، ويُعاقب بغرامة إدارية بسيطة فقط`,
+          `كل محاسب عمومي أُحيل على التقاعد ولم يُغلق حساب تصرفه بعد`
+        ],
+        correctIndex: 1,
+        explanation: `يعرّف الفصل 16 المحاسب بحكم الواقع بأنه كل شخص يقوم دون موجب قانوني بعمليات المداخيل والنفقات أو يتناول قيماً تهم منظمة عمومية، ويُخضعه لنفس الالتزامات والمراقبات الجارية على المحاسب العمومي ولنفس المسؤوليات، بصرف النظر عن المقتضيات الجنائية المعمول بها.`
+      },
+      {
+        id: 14,
+        section: 'accountants',
+        article: `الفصلان 17 و18`,
+        articleNum: 17,
+        question: `ماذا يقرر الفصلان 17 و18 بخصوص صندوق المركز الحسابي، وحساب الإيداع، وطريقة التسديد بين المحاسبين العموميين؟`,
+        options: [
+          `يمكن لكل مركز حسابي التوفر على عدة صناديق وفتح حساب بريدي بالاسم الشخصي للمحاسب`,
+          `يتوفر كل مركز حسابي على صندوق واحد، ويُمنع أن يحمل الحساب البريدي الجاري أو حساب الإيداع بالخزينة الاسم الشخصي للمحاسب، وتنجز التسديدات بين المحاسبين بالتحويل من حساب لآخر`,
+          `تُنجز جميع التسديدات بين المحاسبين العموميين نقداً فقط دون تحويلات بنكية`,
+          `تُحتفظ بجميع المبالغ الفائضة لدى المحاسب دون دفعها إلى حساب الخزينة ببنك المغرب`
+        ],
+        correctIndex: 1,
+        explanation: `يكرس الفصل 17 (المغير بمرسوم 26 ماي 2009) وحدة الصندوق لكل مركز حسابي ويمنع في أي حال أن يحمل الحساب البريدي الجاري أو حساب الإيداع بالخزينة الاسم الشخصي للمحاسب. وينص الفصل 18 على إنجاز جميع التسديدات بين المحاسبين بواسطة التحويل من حساب لآخر باستثناء رواج النقود اللازم لتمويل الصناديق، ودفع الفائض لحساب الخزينة ببنك المغرب.`
+      },
+      {
+        id: 15,
+        section: 'accountants',
+        article: `المادة 19`,
+        articleNum: 19,
+        question: `كيف يتم تعيين القباض والمكلفين بالأداء المفوضين للقيام بعمليات القبض أو الأداء لحساب المحاسبين العموميين؟`,
+        options: [
+          `بقرار منفرد للآمر بالصرف المعني دون موافقة وزارة المالية`,
+          `بموجب قرار مشترك لوزير المالية والوزير المعني بالأمر`,
+          `بمقتضى مرسوم ملكي يُنشر في الجريدة الرسمية لكل قبض مفوض`,
+          `بتفويض شفهي من المحاسب العمومي المحلي`
+        ],
+        correctIndex: 1,
+        explanation: `تنص المادة 19 على أنه يمكن إسناد مهمة القيام لحساب المحاسبين العموميين بعمليات القبض أو الأداء إلى قباض ومكلفين بالأداء مفوضين طبق تعليمات وزير المالية، ويُعينون بموجب قرار مشترك لوزير المالية والوزير المعني بالأمر.`
+      },
+      {
+        id: 16,
+        section: 'revenues',
+        article: `الفصل 21`,
+        articleNum: 21,
+        question: `ما المقصود بالقاعدة الواردة في الفصل 21 حول إدراج المداخيل في الميزانية؟`,
+        options: [
+          `يجوز خصم صوائر التحصيل من المداخيل قبل إدراج الصافي في الميزانية`,
+          `يدرج مبلغ المحصولات بكامله في المداخيل دون مقاصة بين المداخيل والنفقات، ولا تزيد المصالح في اعتماداتها أي مبلغ من الموارد الخصوصية`,
+          `تُرحّل المداخيل الفائضة مباشرة إلى اعتمادات التسيير الخاصة بالإدارة المحصلة`,
+          `تُدرج المداخيل والنفقات في سطر واحد بعد إجراء المقاصة السنوية بينهما`
+        ],
+        correctIndex: 1,
+        explanation: `يرسخ الفصل 21 قاعدة الناتج الإجمالي (عدم المقاصة): «يدرج مبلغ المحصولات بكامله في المداخيل دون مقاصة بين المداخيل والنفقات، وينبغي أن لا تزيد المصالح في مبالغ الاعتمادات المفتوحة لها أي مبلغ من الموارد الخصوصية».`
+      },
+      {
+        id: 17,
+        section: 'revenues',
+        article: `الفصلان 22 و23`,
+        articleNum: 23,
+        question: `ما الإجراء الواجب اتخاذه وفق الفصل 23 عند اكتشاف خطأ في التصفية يضر بالمدين؟`,
+        options: [
+          `يُحتفظ بالمبلغ الزائد في حسابات الخزينة كاحتياطي للسنة المقبلة`,
+          `يترتب عن كل خطأ في التصفية يضر بالمدين إصدار أمر بإلغاء المداخيل أو التخفيض منها تُبين فيه أسباب الإلغاء أو أسس التصفية الجديدة`,
+          `يتقدم المدين بدعوى لدى المجلس الأعلى للحسابات لاستصدار قرار الإلغاء`,
+          `يُصحح المحاسب المبلغ تلقائياً في السجل اليومي دون إشعار الآمر بالصرف`
+        ],
+        correctIndex: 1,
+        explanation: `يوجب الفصل 23 أن يتضمن كل أمر بالدفع أسس التصفية وعناصر التعريف بالمدين، وينص على أنه يترتب عن كل خطأ في التصفية يضر بالمدين إصدار أمر بإلغاء المداخيل أو التخفيض منها مع بيان أسباب الإلغاء أو أسس التصفية الجديدة.`
+      },
+      {
+        id: 18,
+        section: 'revenues',
+        article: `الفصل 26`,
+        articleNum: 26,
+        question: `ما هي العقوبة القانونية المترتبة عن استخلاص ضرائب لم يؤذن فيها بموجب القوانين والأنظمة، وما هو أجل إقامة دعوى الاسترداد؟`,
+        options: [
+          `متابعة من أجل الارتشاء، مع إمكانية إقامة دعوى الاسترداد خلال ثلاث سنوات على المستخلصين والقباض`,
+          `غرامة تأديبية إدارية فقط، ودعوى الاسترداد خلال ستة أشهر`,
+          `تسوية الضريبة بأثر رجعي في قانون التصفية دون أي متابعة`,
+          `إقامة دعوى الاسترداد خلال سنة واحدة ضد المدينين فقط`
+        ],
+        correctIndex: 0,
+        explanation: `يمنع الفصل 26 منعاً كلياً جميع الضرائب التي لم يؤذن فيها قانونياً، وينص على متابعة السلطات الآمرة والمستخدمين والقابضين من أجل الارتشاء، بصرف النظر عن دعوى الاسترداد التي يمكن إقامتها خلال ثلاث سنوات على المستخلصين والقباض أو غيرهم.`
+      },
+      {
+        id: 19,
+        section: 'revenues',
+        article: `الفصلان 27 و28`,
+        articleNum: 28,
+        question: `متى يُستثنى المحاسب من تسليم وصول للملتزم بالأداء مقابل دفع النقود وفق الفصل 28؟`,
+        options: [
+          `إذا كان مبلغ الدين أقل من 500 درهم وتم الدفع نقداً`,
+          `إذا تسلم الملتزم بالأداء مقابل الدفع طوابع أو أوراقاً أو لوازم يثبت التوفر عليها وحدها أداء الحقوق، أو إذا أُثبت الإبراء في سند يُرجع أو يُسلم إليه`,
+          `إذا تم الدفع بواسطة شيك بنكي أو بطاقة بنكية`,
+          `إذا تعلق الأمر بمداخيل الجماعات المحلية والمؤسسات العمومية`
+        ],
+        correctIndex: 1,
+        explanation: `القاعدة في الفصل 28 هي أن كل دفع لنقود يترتب عنه تسليم وصول يعتبر سنداً، وخلافاً لهذه القاعدة لا يُدفع أي وصول إذا تسلم الملزم مقابل الدفع طوابع أو أوراقاً أو لوازم يثبت التوفر عليها وحدها أداء الحقوق أو إذا أُثبت الإبراء في سند يُرجع أو يُسلم للملزم.`
+      },
+      {
+        id: 20,
+        section: 'revenues',
+        article: `الفصل 30`,
+        articleNum: 30,
+        question: `ما هو الأجل القانوني الأقصى لقبول التعرض لدى المحاكم المختصة ضد قوائم الاستخلاص الإجباري التي يحصرها وزير المالية أو وزير الداخلية أو الآمرون بالصرف؟`,
+        options: [
+          `في ظرف شهر واحد من تاريخ إصدار سند المداخيل`,
+          `في ظرف ثلاثة أشهر موالية لتاريخ تبليغ التنبيه`,
+          `في ظرف ستين يوماً من تاريخ نشر القائمة في الجريدة الرسمية`,
+          `لا يُقبل أي تعرض بعد مرور ثلاث سنوات على استحقاق الدين`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 30 على أن لقوائم الاستخلاص التي يحصرها وزير المالية (للدولة) أو وزير الداخلية (للجماعات المحلية) أو الآمرون بالصرف (للمؤسسات العمومية) قوة التنفيذ إلى أن يقدم الطرف المعني تعرضاً لدى المحاكم المختصة، ولا يُقبل أي تعرض إن لم يُقدم في ظرف ثلاثة أشهر موالية لتاريخ تبليغ التنبيه.`
+      },
+      {
+        id: 21,
+        section: 'revenues',
+        article: `الفصول 67 و74 و76`,
+        articleNum: 74,
+        question: `من يتكفل بأوامر الدفع المتعلقة بديون الدولة غير الراجعة للضرائب وأملاك الدولة والتي لم يتأت استخلاصها بالمراضاة، وكيف يُعلن عن الإبراء من الديون؟`,
+        options: [
+          `يتكفل بها العون القضائي للخزينة (الفصل 74)، ويُعلن عن الإبراء من الديون بموجب مرسوم يتخذ باقتراح من وزير المالية (الفصل 76)`,
+          `يتكفل بها قاضي الحسابات، ويُعلن عن الإبراء بقرار من الآمر بالصرف المعني`,
+          `يتكفل بها القابض البلدي، ويُعلن عن الإبراء بمقرر من وزير الداخلية`,
+          `يُحيلها المحاسب إلى المفتشية العامة للمالية، ويتم الإبراء بظهير شريف`
+        ],
+        correctIndex: 0,
+        explanation: `يقضي الفصل 74 بأن أوامر الدفع غير الراجعة للضرائب وأملاك الدولة التي تعذر استخلاصها بالمراضاة يتكفل بها العون القضائي للخزينة طبق ظهير 2 مارس 1953. أما الإبراء من الديون بما فيها الأصل أو الفوائد فيُعلن عنه بموجب مرسوم باقتراح من وزير المالية (الفصل 76)، وتُدرج المداخيل برسم السنة التي استخلصت أثناءها (الفصل 67).`
+      },
+      {
+        id: 22,
+        section: 'expenditures',
+        article: `الفصول 32–35 و41`,
+        articleNum: 33,
+        question: `ما هو الترتيب الصحيح لمراحل تنفيذ النفقة العمومية في المرسوم 330.66، وما هو تعريف «الالتزام» وفق الفصل 33؟`,
+        options: [
+          `التصفية ← الالتزام ← الأداء ← الأمر بالصرف؛ والالتزام هو التأكد من حقيقة الدين`,
+          `الالتزام ← التصفية ← الأمر بالصرف ← الأداء؛ والالتزام هو العمل الذي تحدث أو تثبت بموجبه المنظمة العمومية سنداً يترتب عنه تحمل`,
+          `الأمر بالصرف ← الالتزام ← التصفية ← الأداء؛ والالتزام هو حصر مبلغ النفقة`,
+          `الالتزام ← الأمر بالصرف ← الأداء ← التصفية؛ والالتزام هو تسليم سند الأداء للدائن`
+        ],
+        correctIndex: 1,
+        explanation: `تمر النفقة العمومية بأربع مراحل متعاقبة: الالتزام (ف.33)، التصفية (ف.34)، الأمر بالصرف (ف.35) وتدخل ضمن المرحلة الإدارية؛ ثم الأداء (ف.41) وهو المرحلة الحسابية. ويعرف الفصل 33 الالتزام بأنه العمل الذي تحدث أو تثبت بموجبه المنظمة العمومية سنداً يترتب عنه تحمل، ولا يلتزم به إلا الآمر بالصرف في حدود ترخيصات الميزانية.`
+      },
+      {
+        id: 23,
+        section: 'expenditures',
+        article: `الفصل 34`,
+        articleNum: 34,
+        question: `ما الهدف من مرحلة «التصفية» ومن يباشرها حسب الفصل 34؟`,
+        options: [
+          `التأكد من حقيقة الدين وحصر مبلغ النفقة، ويباشرها رئيس المصلحة المختص تحت مسؤوليته بعد الاطلاع على السندات المثبتة لحقوق الدائنين`,
+          `إصدار الأمر بأداء دين المنظمة العمومية، ويباشرها المحاسب العمومي وحده`,
+          `إبراء ذمة المنظمة العمومية من الدين، ويباشرها الخازن العام`,
+          `التأكد من توفر الاعتمادات في الميزانية، ويباشرها مراقب الالتزامات فقط`
+        ],
+        correctIndex: 0,
+        explanation: `يحدد الفصل 34 غاية التصفية في التأكد من حقيقة الدين وحصر مبلغ النفقة، وينص على أن رئيس المصلحة المختص هو الذي يباشرها تحت مسؤوليته بعد الاطلاع على السندات التي تثبت الحقوق المكتسبة للدائنين.`
+      },
+      {
+        id: 24,
+        section: 'expenditures',
+        article: `الفصلان 35 و40`,
+        articleNum: 40,
+        question: `هل يجوز أداء الأوامر بالصرف أو الحوالات قبل تأشير المحاسب المكلف بالنفقة، ومن يحدد قائمة النفقات المؤداة دون أمر سابق بالصرف؟`,
+        options: [
+          `نعم يجوز الأداء قبل التأشيرة في حدود 10.000 درهم، ويضع القائمة رئيس الحكومة`,
+          `لا يمكن أداء الأوامر بالصرف أو الحوالات إلا بعد التأشير عليها من طرف المحاسب المكلف بالنفقة (الفصل 40)، ويضع وزير المالية بموجب قرار قائمة النفقات التي تؤدى دون أمر سابق بالصرف (الفصل 35)`,
+          `يجوز الأداء بناءً على أمر الآمر بالصرف وحده في نفقات الأدوات، ويضع القائمة قاضي الحسابات`,
+          `لا توجد أي نفقات يمكن أداؤها دون أمر سابق بالصرف مطلقاً`
+        ],
+        correctIndex: 1,
+        explanation: `يضع الفصل 40 قاعدة آمرة: «لا يمكن أداء الأوامر بالصرف أو الحوالات إلا بعد التأشير عليها من طرف المحاسب المكلف بالنفقة». وبالمقابل يخول الفصل 35 لوزير المالية صلاحية وضع قائمة النفقات التي يمكن أن تؤدى دون أمر سابق بالصرف بموجب قرار.`
+      },
+      {
+        id: 25,
+        section: 'expenditures',
+        article: `الفصل 41`,
+        articleNum: 41,
+        question: `استثناءً من مبدأ «الأداء بعد تنفيذ العمل»، أيّ من النفقات التالية أجاز تعديل 26 ماي 2009 في الفصل 41 أداءها قبل تنفيذ العمل؟`,
+        options: [
+          `صفقات الأشغال الكبرى وتجهيز المقرات الإدارية الجديدة`,
+          `الاشتراكات في الجرائد والدوريات والمجلات المتخصصة، الأداء لولوج قواعد بيانات على الخط، والأداء عند طلب شراء المؤلفات بالوحدة`,
+          `تعويضات التنقل والسفر والإقامة للموظفين المدنيين دون ترخيص مسبق`,
+          `كراء السيارات والمعدات المعلوماتية لمدة تفوق خمس سنوات`
+        ],
+        correctIndex: 1,
+        explanation: `تنص الفقرة الثالثة من الفصل 41 (المغيرة بالمرسوم رقم 2.07.1237 بتاريخ 26 ماي 2009) على ثلاثة استثناءات صريحة من قاعدة العمل المنجز: الاشتراكات في الجرائد والدوريات والمجلات المتخصصة، الأداء لولوج قواعد بيانات على الخط، والأداء عند طلب شراء المؤلفات بالوحدة، بالإضافة إلى الأقساط والتسبيقات المقننة.`
+      },
+      {
+        id: 26,
+        section: 'expenditures',
+        article: `الفصول 45 و48 و49`,
+        articleNum: 45,
+        question: `ما هي العتبات المالية الدقيقة المحددة في الفصول 45 و48 و49 بشأن التحويل البنكي، والأداء للأميين بالبصمة، والأداء لورثة الدائن المتوفى؟`,
+        options: [
+          `التحويل وجوبي لما يتجاوز 5.000 درهم؛ والأمي بالبصمة إلى غاية 1.000 درهم؛ والورثة بشهادة مجانية إلى غاية 2.000 درهم`,
+          `التحويل وجوبي لكل نفقة تتجاوز 1.500 درهم (ف.45)؛ والأمي بالبصمة بحضور شاهدين للمبالغ المعادلة أو الأقل من 250 درهما (ف.48)؛ والورثة بشهادة مجانية إذا لم يتجاوز المبلغ 500 درهم (ف.49)`,
+          `التحويل وجوبي لما يتجاوز 10.000 درهم؛ والأمي بالبصمة إلى غاية 500 درهم؛ والورثة بشهادة مجانية إلى غاية 1.500 درهم`,
+          `التحويل وجوبي لما يتجاوز 500 درهم؛ والأمي بالبصمة إلى غاية 250 درهما؛ والورثة بشهادة مجانية بدون سقف مالي`
+        ],
+        correctIndex: 1,
+        explanation: `تحدد الفصول المذكورة هذه المبالغ بدقة: كل نفقة تتجاوز 1.500 درهم لا تؤدى إلا بالتحويل من حساب لآخر ما عدا بترخيص بالمخالفة (الفصل 45)؛ المبالغ التي تعادل 250 درهما أو تقل عنها تؤدى للأميين ببصمات الأصابع بحضور شاهدين، وما فوقها بوصول عدلي أو إداري (الفصل 48)؛ وعند وفاة الدائن بمبلغ لا يتجاوز 500 درهم لمجموع الورثة يُنجز الأداء بشهادة وفاة وذوي حقوق مجانية (الفصل 49).`
+      },
+      {
+        id: 27,
+        section: 'expenditures',
+        article: `الفصل 86`,
+        articleNum: 86,
+        question: `وفق الفصل 86 (المغير في 26 ماي 2009)، ما هي الآجال القانونية المحددة لإصدار الأوامر بالصرف وتأشير المحاسب المكلف عليها؟`,
+        options: [
+          `30 يوماً للآمر بالصرف؛ و10 أيام للمحاسب بالنسبة لجميع النفقات`,
+          `60 يوماً على أبعد تقدير للآمر بالصرف من تاريخ تنفيذ الخدمة؛ و5 أيام للمحاسب لنفقات الموظفين و15 يوماً للأصناف الأخرى من النفقات`,
+          `90 يوماً للآمر بالصرف؛ و30 يوماً للمحاسب بالنسبة لنفقات الاستثمار و10 أيام للتسيير`,
+          `45 يوماً للآمر بالصرف؛ و3 أيام للمحاسب بالنسبة لنفقات الموظفين والأدوات معاً`
+        ],
+        correctIndex: 1,
+        explanation: `يُلزم الفصل 86 الآمر بالصرف بإصدار الأوامر بالصرف أو الحوالات معززة بالإثباتات وتوجيهها للمحاسب في أجل أقصاه 60 يوماً من تاريخ تنفيذ الخدمة المنجزة. ويتوفر المحاسب على أجل 5 أيام لوضع تأشيرته أو رفضها لنفقات الموظفين، و15 يوماً للأصناف الأخرى من النفقات.`
+      },
+      {
+        id: 28,
+        section: 'expenditures',
+        article: `الفصلان 92 و93`,
+        articleNum: 93,
+        question: `متى يجب على المحاسب المكلف بالتسديد رفض الامتثال لطلب «التسخير» (صرف النظر) الصادر كتابة عن الآمر بالصرف طبقاً للفصل 93؟`,
+        options: [
+          `إذا ارتأى المحاسب أن ثمن الخدمة مبالغ فيه مقارنة بأسعار السوق`,
+          `إذا استند إيقاف الأداء إلى عدم وجود الاعتمادات أو توفرها أو كفايتها، أو عدم توفر الصفة الإبرائية، أو عدم وجود التأشيرة المسبقة لمراقب الالتزامات أو تصديقه عند وجوبها`,
+          `إذا تأخر الآمر بالصرف في إرسال الأمر بالصرف لأكثر من ستين يوماً`,
+          `لا يمكن للمحاسب أبداً رفض الامتثال لطلب تسخير كتابي صادر عن وزير`
+        ],
+        correctIndex: 1,
+        explanation: `يرسي الفصل 92 قاعدة التسخير الكتابي تحت مسؤولية الآمر بالصرف، إلا أن الفصل 93 يوجب على المحاسب رفض الامتثال وإخبار وزير المالية فوراً في ثلاث حالات حصرية: عدم وجود/توفر/كفاية الاعتمادات، (عدم) توفر الصفة الإبرائية، أو عدم وجود التأشيرة المسبقة لمراقب الالتزامات أو تصديقه (باستثناء أجور العسكريين غير الضباط وتعويضات الغذاء والسفر لحاجيات الدفاع).`
+      },
+      {
+        id: 29,
+        section: 'expenditures',
+        article: `الفصول 42 و50 و78`,
+        articleNum: 78,
+        question: `برسم أي سنة مالية تُدرج النفقات في الحساب طبقاً للفصل 78، وما العمل عند ضياع أمر بالصرف أو حوالة حسب الفصل 50؟`,
+        options: [
+          `تدرج النفقات برسم سنة الالتزام بالدين؛ ويصدر الآمر بالصرف نظيراً جديداً مباشرة دون مراجعة المحاسب`,
+          `تدرج النفقات في الحساب برسم السنة المالية التي أشر خلالها المحاسب المكلف بالتسديد على الأوامر بالصرف؛ وفي حالة الضياع يؤهل المحاسب وحده لوضع نظير بعد التحقق من عدم الأداء`,
+          `تدرج النفقات برسم سنة إبرام الصفقة؛ ويُلغى الدين نهائياً في حالة ضياع الأمر بالصرف`,
+          `تدرج النفقات برسم السنة التي تسلم فيها الدائن الشيك، ويضع القاضي نظير الحوالة`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 78 (المغير بمرسوم 12 دجنبر 1995) على إدراج النفقات في الحساب برسم السنة المالية التي أشر خلالها المحاسب المكلف بالتسديد على الأوامر بالصرف أو الحوالات، كيفما كان تاريخ الدين. كما ينص الفصل 50 على أن المحاسب المكلف بالتسديد يؤهل وحده لوضع نظير من الأمر بالأداء بعد تلقيه تصريحاً معللاً والتحقق من عدم الأداء.`
+      },
+      {
+        id: 30,
+        section: 'treasury',
+        article: `الفصول 51 و53`,
+        articleNum: 51,
+        question: `ماذا تشمل عمليات الخزينة حسب الفصل 51، وكيف يتم بيانها في الحسابات حسب الفصل 53؟`,
+        options: [
+          `تشمل فقط القروض الدولية وتُدرج بعد إجراء المقاصة بين التحملات والمحصولات`,
+          `تشمل جميع العمليات المتعلقة بالنقود والقيم الممكن تداولها والودائع والحسابات الجارية وحسابات مختلف الديون، وتُبين حسب كل نوع وبدون مقاصة بينها`,
+          `تشمل نفقات الاستثمار في الميزانية العامة وتُدرج في قسم الممتلكات فقط`,
+          `تشمل عمليات بيع عقارات الدولة وتُدرج باسم المحاسبين الشخصي`
+        ],
+        correctIndex: 1,
+        explanation: `يعرف الفصل 51 عمليات الخزينة بأنها جميع العمليات المتعلقة بالنقود والقيم الممكن تداولها والودائع والحسابات الجارية والعمليات التي تهم حسابات مختلف الديون. ويؤكد الفصل 53 أن جميع عمليات الخزينة تُبين حسب كل نوع وبدون مقاصة بينها، وتُدرج التحملات والمحصولات الناتجة عنها في حسابات الميزانية.`
+      },
+      {
+        id: 31,
+        section: 'treasury',
+        article: `الفصل 54`,
+        articleNum: 54,
+        question: `ما هو الحكم الإلزامي الذي ينص عليه الفصل 54 بشأن أموال المنظمات العمومية غير الدولة (الجماعات المحلية والمؤسسات العمومية)؟`,
+        options: [
+          `تودع اختيارياً في الأبناك التجارية أو في الخزينة حسب تقدير الآمر بالصرف`,
+          `تودع وجوباً بالخزينة`,
+          `تودع في صندوق الإيداع والتدبير حصراً بالنسبة لجميع المؤسسات`,
+          `يُحتفظ بها نقداً في صناديق المؤسسات المحلية دون إيداع مركزي`
+        ],
+        correctIndex: 1,
+        explanation: `يقرر الفصل 54 قاعدة وحدة الخزينة بصيغة موجزة وآمرة: «تودع وجوباً بالخزينة أموال المنظمات العمومية غير الدولة».`
+      },
+      {
+        id: 32,
+        section: 'treasury',
+        article: `الفصلان 97 و98`,
+        articleNum: 97,
+        question: `إلى من يُعهد بتنفيذ عمليات الخزينة للدولة طبقاً للفصل 97، وماذا تشمل عمليات حسابات الإيداع في الفصل 98؟`,
+        options: [
+          `يُعهد بها إلى بنك المغرب، وتشمل فقط الودائع الاختيارية للأفراد`,
+          `يُعهد بها إلى الخازن العام، وتشمل حسابات الإيداع: الإيداعات الاختيارية والإجبارية، المبالغ المؤتمن عليها لفائدة بعض الأفراد، الاستخلاصات والأداءات المؤقتة، والأموال الباقية الواجب إرجاعها`,
+          `يُعهد بها إلى الآمرين بالصرف الثانويين، وتشمل صرف أجور الموظفين`,
+          `يُعهد بها إلى العون القضائي للخزينة، وتشمل تحصيل الغرامات القضائية فقط`
+        ],
+        correctIndex: 1,
+        explanation: `يعهد الفصل 97 إلى الخازن العام بتنفيذ عمليات الخزينة (تزويد الصناديق، خصم السفاتج، حسابات الإيداع، إصدار القروض قصيرة ومتوسطة الأمد وتدبيرها). ويفصل الفصل 98 محتوى العمليات المنجزة بحسابات الإيداع في العناصر الأربعة المذكورة.`
+      },
+      {
+        id: 33,
+        section: 'accounting',
+        article: `الفصلان 57 و58`,
+        articleNum: 57,
+        question: `وفقاً للفصلين 57 و58 (المغيرين بمرسوم 27 يناير 2010)، ما هي الأصناف الثلاثة التي تتضمنها محاسبة الدولة ومن يمسك المحاسبة الإدارية؟`,
+        options: [
+          `محاسبة الميزانية، محاسبة الصندوق، ومحاسبة الأرصدة؛ ويمسكها قاضي الحسابات`,
+          `محاسبة عامة، ومحاسبة تحليلية (لحساب أثمان التكلفة ومردودية المصالح)، ومحاسبة إدارية يمسكها الآمرون بالصرف`,
+          `محاسبة مالية، ومحاسبة ضريبية، ومحاسبة تجارية؛ ويمسكها المحاسبون العموميون فقط`,
+          `محاسبة تقديرية ومحاسبة ختامية فقط، ويمسكها وزير المالية مباشرة`
+        ],
+        correctIndex: 1,
+        explanation: `أدخل مرسوم 27 يناير 2010 هيكلة ثلاثية حديثة في الفصل 57: تتضمن محاسبة الدولة محاسبة عامة ومحاسبة تحليلية ومحاسبة إدارية. ويبين الفصل 58 أن المحاسبة التحليلية تمكن من حساب أثمان التكلفة وكلفة المصالح ومردوديتها، بينما تبين المحاسبة الإدارية عمليات الموارد والنفقات في إطار ترخيصات الميزانية ويمسكها الآمرون بالصرف.`
+      },
+      {
+        id: 34,
+        section: 'accounting',
+        article: `الفصل 101`,
+        articleNum: 101,
+        question: `على أي مبدأ محاسبي ترتكز المحاسبة العامة للدولة بموجب الفصل 101 (المعدل سنة 2010)؟`,
+        options: [
+          `مبدأ المحاسبة النقدية (الصندوق) حيث لا تُسجل العملية إلا عند القبض أو الأداء الفعلي`,
+          `مبدأ معاينة الحقوق والواجبات، حيث تُحسب العمليات برسم السنة المالية التي ترتبط بها بغض النظر عن تاريخ أدائها أو قبضها`,
+          `مبدأ القيد البسيط دون إثبات الممتلكات أو التزامات الدولة تجاه الأغيار`,
+          `مبدأ المقاصة السنوية بين أصول الدولة وخصومها الجارية`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 101 صراحة على أن المحاسبة العامة للدولة ترتكز على «مبدأ معاينة الحقوق والواجبات» (محاسبة الاستحقاق)، وتُحسب العمليات المتعلقة بالميزانية والمالية برسم السنة المالية التي ترتبط بها بغض النظر عن تاريخ أدائها أو قبضها.`
+      },
+      {
+        id: 35,
+        section: 'accounting',
+        article: `الفصل 103`,
+        articleNum: 103,
+        question: `كم عدد أقسام مخطط حسابات الدولة المحدد في الفصل 103، وأي قسم تُدرج فيه العمليات الناتجة عن تنفيذ قانون المالية؟`,
+        options: [
+          `سبعة أقسام، وتُدرج عمليات قانون المالية في القسم 5`,
+          `تسعة أقسام، وتُدرج العمليات الناتجة عن تنفيذ قانون المالية في القسم 9 (محاسبة تحليلية للميزانية وقوانين التصفية والحسابات الترتيبية)`,
+          `عشرة أقسام، وتُدرج عمليات قانون المالية في القسم 1`,
+          `خمسة أقسام، وتُدرج عمليات قانون المالية في القسم 3`
+        ],
+        correctIndex: 1,
+        explanation: `يحدد الفصل 103 هيكلة مخطط الحسابات في تسعة أقسام مصنفة عشرياً (من القسم 1: الوضعية الصافية وحسابات التمويل الدائم، إلى القسم 9: محاسبة تحليلية للميزانية وقوانين التصفية والحسابات الترتيبية)، وينص على أن العمليات الناتجة عن تنفيذ قانون المالية تدرج في القسم 9.`
+      },
+      {
+        id: 36,
+        section: 'accounting',
+        article: `الفصول 111 و121 و123`,
+        articleNum: 123,
+        question: `متى يحصر المحاسبون العموميون سجلاتهم المحاسبية، ومتى يُعد الخازن العام للمملكة القوائم المالية السنوية المتعلقة بالممتلكات؟`,
+        options: [
+          `يحصر المحاسبون سجلاتهم في 30 يونيو، ويُعد الخازن العام القوائم المالية في 31 ديسمبر`,
+          `يحصر المحاسبون سجلاتهم في 31 ديسمبر من كل سنة (الفصل 121)، ويُعد الخازن العام القوائم المالية عند تاريخ 31 مارس من السنة الموالية (الفصل 123)`,
+          `يحصر المحاسبون سجلاتهم في 31 أغسطس، ويُعد الخازن العام القوائم المالية في 30 سبتمبر`,
+          `يحصر المحاسبون سجلاتهم كل سنتين مرة واحدة دون قوائم مالية للممتلكات`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 121 على حصر المحاسبين العموميين لبياناتهم وسجلاتهم في 31 ديسمبر من كل سنة (مع إعداد وضعية الصندوق ومحفظة الأوراق المالية والميزان العام للحسابات). وبموجب الفصل 123 يحدد الخازن العام النتيجة السنوية للممتلكات ويُعد عند 31 مارس من السنة الموالية: بيان الوضعية الصافية، حساب النتيجة، جدول حركيات أموال الخزينة، والمذكرات المتعلقة بالبيانات المالية. (أما 31 أغسطس و30 سبتمبر فيتعلقان بعمليات التسوية الإدارية والمحاسبية في الفصل 111).`
+      },
+      {
+        id: 37,
+        section: 'accounting',
+        article: `الفصل 127`,
+        articleNum: 127,
+        question: `من يضع «الحساب العام للمملكة» في نهاية السنة، وإلى أي جهة يوجه؟`,
+        options: [
+          `يضعه الخازن العام ويوجهه إلى رئيس الحكومة فقط`,
+          `يضعه وزير المالية بعد الاطلاع على الحسابات الإدارية للآمرين بالصرف وحساب التصرف الخاص بالمحاسب، ويوجهه إلى قاضي الحسابات مشفوعاً بالمشروع السنوي لقانون التصفية`,
+          `تضعه المفتشية العامة للمالية وتوجهه إلى البرلمان مباشرة دون قاضي الحسابات`,
+          `يضعه الآمرون بالصرف مجتمعين ويوجهونه إلى المحاكم الإدارية`
+        ],
+        correctIndex: 1,
+        explanation: `يقضي الفصل 127 بأن وزير المالية يضع الحساب العام للمملكة بعد الاطلاع على الحسابات الإدارية للآمرين بالصرف وحساب التصرف الخاص بالمحاسب، ويوجه هذا الحساب إلى قاضي الحسابات مشفوعاً بالمشروع السنوي لقانون التصفية.`
+      },
+      {
+        id: 38,
+        section: 'property',
+        article: `الفصل 82`,
+        articleNum: 82,
+        question: `ما هي القاعدة العامة لبيع العقارات من ملك الدولة الخاص حسب الفصل 82، وبإذن من يتم اقتناء العقارات وبيعها؟`,
+        options: [
+          `تُباع بالتراضي كأصل عام وبإذن من الآمر بالصرف المحلي`,
+          `يُرخص اقتناء العقارات وبيعها بقرار للوزير المكلف بالمالية، ويباشر بيع العقارات من ملك الدولة الخاص عن طريق المزاد العلني ما لم تنص أحكام تشريعية أو تنظيمية على خلاف ذلك`,
+          `تُباع بالمزاد العلني بإذن من المحاسب العمومي دون تدخل وزير المالية`,
+          `يُمنع بيع عقارات ملك الدولة الخاص للأشخاص الطبيعيين لإنجاز مشاريع استثمارية`
+        ],
+        correctIndex: 1,
+        explanation: `ينص الفصل 82 (المغير بمرسوم 2002 و2009 و2014) على أن اقتناء العقارات وبيعها من طرف الدولة يرخص بقرار للوزير المكلف بالمالية، وأن بيع العقارات من ملك الدولة الخاص يباشر عن طريق المزاد العلني كأصل عام ما عدا إذا نصت أحكام تشريعية أو تنظيمية على خلاف ذلك.`
+      },
+      {
+        id: 39,
+        section: 'property',
+        article: `الفصل 82`,
+        articleNum: 82,
+        question: `متى يرخص ولاة الجهات في بيع عقارات من ملك الدولة الخاص بالتراضي لإنجاز مشاريع استثمارية في القطاعات المحددة، وما السقف النسبي للقيمة التجارية للعقار؟`,
+        options: [
+          `عندما يقل مبلغ المشروع عن 200 مليون درهم، وألا تتجاوز القيمة التجارية الحقيقية للعقار 10% من التكلفة التقديرية الإجمالية للمشروع`,
+          `عندما يتجاوز مبلغ المشروع 500 مليون درهم، وألا تتجاوز قيمة العقار 25% من التكلفة التقديرية`,
+          `في جميع المشاريع الاستثمارية كيفما كان مبلغها وبنسبة لا تتجاوز 50% من التكلفة`,
+          `عندما يقل مبلغ المشروع عن 50 مليون درهم وبنسبة 5% فقط من التكلفة`
+        ],
+        correctIndex: 0,
+        explanation: `يجيز الفصل 82 لولاة الجهات الترخيص ببيع عقارات ملك الدولة الخاص بالتراضي لمشاريع الاستثمار في الصناعة والتصنيع الفلاحي والمعادن والسياحة والصناعة التقليدية والسكن والتعليم والتكوين والصحة والطاقة الواقعة داخل نفوذهم الترابي إذا قل مبلغها عن 200.000.000 درهم، شريطة ألا تتجاوز القيمة التجارية الحقيقية للعقار 10% من التكلفة التقديرية الإجمالية للمشروع.`
+      },
+      {
+        id: 40,
+        section: 'property',
+        article: `الفصل 82`,
+        articleNum: 82,
+        question: `من يترأس اللجنة الإدارية للخبرة المحددة للقيمة التجارية الحقيقية للعقار، وما هو الأجل الأقصى لتوجيه الطلب من مندوب الأملاك المخزنية إلى المركز الجهوي للاستثمار؟`,
+        options: [
+          `يترأسها ممثل مديرية الضرائب، والأجل الأقصى 60 يوماً`,
+          `يترأسها العامل أو ممثله (ويتولى مندوب الأملاك المخزنية سكرتاريتها)، والأجل الأقصى 20 يوماً ابتداء من تاريخ تسلم الطلب`,
+          `يترأسها مدير المركز الجهوي للاستثمار، والأجل الأقصى 10 أيام`,
+          `يترأسها الخازن الجهوي، والأجل الأقصى 30 يوماً`
+        ],
+        correctIndex: 1,
+        explanation: `تتألف اللجنة الإدارية للخبرة في الفصل 82 من: العامل أو ممثله رئيساً، مندوب الأملاك المخزنية سكرتيراً، ممثل عن مديرية الضرائب، ممثل عن القطاع الحكومي للمشروع، والممثل الجهوي للتعمير. ويوجه مندوب الأملاك المخزنية ملف الطلب المودع لديه إلى المركز الجهوي للاستثمار داخل أجل أقصاه 20 يوماً من تاريخ تسلمه.`
+      },
+      {
+        id: 41,
+        section: 'controls',
+        article: `الفصل 62`,
+        articleNum: 62,
+        question: `كيف تُمارس المراقبة على تصرف المحاسبين العموميين طبقاً للفصل 62؟`,
+        options: [
+          `مراقبة على الوثائق فقط يتولاها الآمرون بالصرف`,
+          `مراقبة في عين المكان (يجريها رؤساؤهم الإداريون السامون وهيئات المراقبة المختصة والمفتشية العامة للمالية) ومراقبة على الوثائق (تناط بقاضي الحسابات أو الخازن العام العامل بتفويض من هذا الأخير)`,
+          `مراقبة برلمانية مباشرة في عين المكان دون تدخل المفتشية العامة للمالية`,
+          `مراقبة قضائية لاحقة فقط بعد مرور خمس سنوات على انتهاء مهام المحاسب`
+        ],
+        correctIndex: 1,
+        explanation: `يميز الفصل 62 بين نوعين من المراقبة على تصرف المحاسبين: المراقبة في عين المكان (الرؤساء الإداريون السامون، هيئات المراقبة المختصة، والمفتشية العامة للمالية)، والمراقبة على الوثائق (قاضي الحسابات أو الخازن العام العامل بتفويض منه).`
+      },
+      {
+        id: 42,
+        section: 'controls',
+        article: `الفصول 128–133`,
+        articleNum: 132,
+        question: `بمقتضى الفصول 128 إلى 133، من يجري التحقيقات على الآمرين بالصرف والمحاسبين العموميين، وإلى أي مرجع تخضع تحقيقات المفتشية العامة للمالية؟`,
+        options: [
+          `تخضع تحقيقات المفتشية العامة للمالية لظهير 14 أبريل 1960 رقم 1.59.269 وتجري على الآمرين بالصرف والمحاسبين، وتُعرض حسابات محاسبي الدولة على قاضي الحسابات بواسطة رئيسهم الإداري`,
+          `تقتصر تحقيقات المفتشية العامة للمالية على المحاسبين دون الآمرين بالصرف، وتُعرض الحسابات على وزير الداخلية`,
+          `يتولى قاضي الحسابات وحده مراقبة العمليات الإدارية في عين المكان دون المفتشية العامة للمالية`,
+          `تُعرض حسابات المحاسبين مباشرة على البرلمان دون وساطة رئيسهم الإداري`
+        ],
+        correctIndex: 0,
+        explanation: `تخضع العمليات الإدارية لمراقبة الوزراء على الآمرين بالصرف الثانويين (ف.128)، ولتحقيقات المفتشية العامة للمالية على الآمرين بالصرف والثانويين (ف.129)، ولمراقبة المحاسبين طبق الفصلين 10 و11 (ف.130). كما تخضع جميع حسابات محاسبي الدولة لتحقيقات المفتشية العامة للمالية وفق ظهير 17 شوال 1379 (14 أبريل 1960) رقم 1.59.269 (ف.132)، وتُعرض حساباتهم على قاضي الحسابات بواسطة رئيسهم الإداري (ف.133).`
+      }
+    ];
+
+    const ARABIC_LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    let appState = {
+      mode: 'training',         // 'training' | 'exam'
+      viewMode: 'single',       // 'single' | 'list'
+      activeSection: 'all',     // 'all' or section.id
+      statusFilter: 'all',      // 'all' | 'unanswered' | 'wrong' | 'flagged'
+      searchQuery: '',
+      currentIndex: 0,
+      answers: {},              // { [questionId]: optionIndex }
+      flagged: [],              // array of questionIds
+      examSubmitted: false,
+      showBreakdown: false
+    };
+
+    function getFilteredQuestions() {
+      const q = (appState.searchQuery || '').trim().toLowerCase();
+      return QUESTIONS.filter(function(item) {
+        if (appState.activeSection !== 'all' && item.section !== appState.activeSection) {
+          return false;
+        }
+        const userAns = appState.answers[item.id];
+        const isAnswered = typeof userAns === 'number';
+        const isCorrect = isAnswered && userAns === item.correctIndex;
+        const isFlagged = appState.flagged.indexOf(item.id) !== -1;
+
+        if (appState.statusFilter === 'unanswered' && isAnswered) return false;
+        if (appState.statusFilter === 'wrong') {
+          if (appState.mode === 'exam' && !appState.examSubmitted) return false;
+          if (!isAnswered || isCorrect) return false;
+        }
+        if (appState.statusFilter === 'flagged' && !isFlagged) return false;
+
+        if (q.length > 0) {
+          const haystack = (item.article + ' ' + item.question + ' ' + item.explanation + ' ' + String(item.articleNum)).toLowerCase();
+          if (haystack.indexOf(q) === -1) return false;
+        }
+        return true;
+      });
+    }
+
+    function getSectionMeta(sectionId) {
+      for (let i = 0; i < SECTIONS.length; i++) {
+        if (SECTIONS[i].id === sectionId) return SECTIONS[i];
+      }
+      return { id: sectionId, title: '', articles: '' };
+    }
+
+    function isFeedbackVisible(questionId) {
+      if (appState.mode === 'training') {
+        return typeof appState.answers[questionId] === 'number';
+      }
+      return appState.examSubmitted;
+    }
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (e) {
+        // Ignore persistence errors silently in non-hosted preview
+      }
+    }
+
+    function renderAll() {
+      renderHeaderControls();
+      renderKPIs();
+      renderSectionChips();
+      renderNavGrid();
+      renderQuestionStage();
+      if (appState.showBreakdown) {
+        renderBreakdownTable();
+      }
+    }
+
+    function renderHeaderControls() {
+      const btnTraining = document.getElementById('btn-mode-training');
+      const btnExam = document.getElementById('btn-mode-exam');
+      const examBanner = document.getElementById('exam-banner');
+      const btnSubmitExam = document.getElementById('btn-submit-exam');
+      const btnRetakeExam = document.getElementById('btn-retake-exam');
+      const bannerTitle = document.getElementById('exam-banner-title');
+      const bannerDesc = document.getElementById('exam-banner-desc');
+      const btnToggleView = document.getElementById('btn-toggle-view');
+      const statusSelect = document.getElementById('status-filter');
+      const searchInput = document.getElementById('search-input');
+
+      if (btnTraining && btnExam) {
+        btnTraining.classList.toggle('active', appState.mode === 'training');
+        btnExam.classList.toggle('active', appState.mode === 'exam');
+      }
+      if (examBanner) {
+        examBanner.style.display = appState.mode === 'exam' ? 'flex' : 'none';
+      }
+      if (btnSubmitExam && btnRetakeExam && bannerTitle && bannerDesc) {
+        if (appState.examSubmitted) {
+          btnSubmitExam.style.display = 'none';
+          btnRetakeExam.style.display = 'inline-flex';
+          bannerTitle.textContent = `تم تصحيح الامتحان التجريبي`;
+          bannerDesc.textContent = `يمكنك الآن مراجعة جميع الأسئلة مع التعليل القانوني التفصيلي وأرقام الفصول المرجعية.`;
+        } else {
+          btnSubmitExam.style.display = 'inline-flex';
+          btnRetakeExam.style.display = 'none';
+          bannerTitle.textContent = `وضع الامتحان التجريبي`;
+          bannerDesc.textContent = `اختر أجوبتك في جميع الأسئلة دون كشف التصحيح، ثم اضغط على زر إنهاء وتصحيح الامتحان لعرض النتيجة والتعليل القانوني.`;
+        }
+      }
+      if (btnToggleView) {
+        btnToggleView.textContent = appState.viewMode === 'single' ? `عرض القائمة الكاملة` : `عرض سؤال بسؤال`;
+      }
+      if (statusSelect && statusSelect.value !== appState.statusFilter) {
+        statusSelect.value = appState.statusFilter;
+      }
+      if (searchInput && searchInput.value !== appState.searchQuery) {
+        searchInput.value = appState.searchQuery;
+      }
+    }
+
+    function renderKPIs() {
+      const total = QUESTIONS.length;
+      let answeredCount = 0;
+      let correctCount = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const ans = appState.answers[q.id];
+        if (typeof ans === 'number') {
+          answeredCount++;
+          if (ans === q.correctIndex) correctCount++;
+        }
+      }
+
+      const kpiProgress = document.getElementById('kpi-progress');
+      const kpiBar = document.getElementById('kpi-progress-bar');
+      const kpiProgressSub = document.getElementById('kpi-progress-sub');
+      const kpiScore = document.getElementById('kpi-score');
+      const kpiScoreSub = document.getElementById('kpi-score-sub');
+      const kpiSectionCount = document.getElementById('kpi-section-count');
+      const kpiSectionName = document.getElementById('kpi-section-name');
+      const kpiFlagged = document.getElementById('kpi-flagged');
+      const kpiModeLabel = document.getElementById('kpi-mode-label');
+
+      const pctDone = Math.round((answeredCount / total) * 100);
+      if (kpiProgress) kpiProgress.textContent = `${answeredCount} / ${total}`;
+      if (kpiBar) kpiBar.style.width = `${pctDone}%`;
+      if (kpiProgressSub) {
+        kpiProgressSub.textContent = answeredCount === 0
+          ? `ابدأ باختيار الإجابة الأولى`
+          : `نسبة الإنجاز: ${pctDone}%`;
+      }
+
+      const canShowScore = appState.mode === 'training' ? answeredCount > 0 : appState.examSubmitted;
+      if (kpiScore && kpiScoreSub) {
+        kpiScoreSub.className = 'figure-delta';
+        if (!canShowScore) {
+          kpiScore.textContent = `—`;
+          kpiScoreSub.textContent = appState.mode === 'exam'
+            ? `تُعرض النقطة بعد إنهاء الامتحان`
+            : `تظهر النتيجة بعد الإجابة`;
+        } else {
+          const denom = appState.mode === 'exam' ? total : answeredCount;
+          const accuracy = Math.round((correctCount / denom) * 100);
+          kpiScore.textContent = `${correctCount} / ${denom} (${accuracy}%)`;
+          if (accuracy >= 75) {
+            kpiScoreSub.classList.add('positive');
+            kpiScoreSub.textContent = `تحكم ممتاز في مقتضيات المرسوم`;
+          } else if (accuracy >= 50) {
+            kpiScoreSub.textContent = `مستوى متوسط — يُنصح بمراجعة التعليلات`;
+          } else {
+            kpiScoreSub.classList.add('negative');
+            kpiScoreSub.textContent = `يحتاج إلى مزيد من المراجعة للفصول`;
+          }
+        }
+      }
+
+      const filtered = getFilteredQuestions();
+      if (kpiSectionCount && kpiSectionName) {
+        kpiSectionCount.textContent = `${filtered.length} سؤالاً`;
+        if (appState.activeSection === 'all') {
+          kpiSectionName.textContent = `جميع محاور المرسوم 330.66`;
+        } else {
+          const sec = getSectionMeta(appState.activeSection);
+          kpiSectionName.textContent = `${sec.title} (${sec.articles})`;
+        }
+      }
+
+      if (kpiFlagged) kpiFlagged.textContent = String(appState.flagged.length);
+      if (kpiModeLabel) {
+        kpiModeLabel.textContent = appState.mode === 'training' ? `وضع التدريب الفوري نشط` : `وضع الامتحان التجريبي نشط`;
+      }
+    }
+
+    function renderSectionChips() {
+      const container = document.getElementById('section-chips');
+      if (!container) return;
+
+      let html = '';
+      const allActive = appState.activeSection === 'all' ? ' active' : '';
+      html += `<button type="button" class="chip-btn${allActive}" onclick="setSectionFilter('all')">الكل <span class="chip-count">${QUESTIONS.length}</span></button>`;
+
+      for (let i = 0; i < SECTIONS.length; i++) {
+        const sec = SECTIONS[i];
+        let count = 0;
+        for (let j = 0; j < QUESTIONS.length; j++) {
+          if (QUESTIONS[j].section === sec.id) count++;
+        }
+        const activeClass = appState.activeSection === sec.id ? ' active' : '';
+        html += `<button type="button" class="chip-btn${activeClass}" onclick="setSectionFilter('${sec.id}')">${sec.title} <span class="chip-count">${count}</span></button>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderNavGrid() {
+      const grid = document.getElementById('nav-grid');
+      if (!grid) return;
+
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1 / -1; color: var(--on-surface-variant); font-size: var(--label-size);">لا توجد أسئلة مطابقة للتصفية الحالية.</div>`;
+        return;
+      }
+
+      if (appState.currentIndex >= filtered.length) {
+        appState.currentIndex = 0;
+      }
+
+      let html = '';
+      for (let i = 0; i < filtered.length; i++) {
+        const q = filtered[i];
+        const ans = appState.answers[q.id];
+        const isAnswered = typeof ans === 'number';
+        const isFlagged = appState.flagged.indexOf(q.id) !== -1;
+        const showFeedback = isFeedbackVisible(q.id);
+
+        let cls = 'nav-cell';
+        if (appState.viewMode === 'single' && i === appState.currentIndex) {
+          cls += ' current';
+        }
+        if (isAnswered) {
+          if (showFeedback) {
+            cls += (ans === q.correctIndex) ? ' answered-correct' : ' answered-wrong';
+          } else {
+            cls += ' answered-exam';
+          }
+        }
+        if (isFlagged) cls += ' flagged';
+
+        html += `<button type="button" class="${cls}" onclick="jumpToQuestion(${i})" aria-label="السؤال رقم ${q.id}">${q.id}</button>`;
+      }
+      grid.innerHTML = html;
+    }
+
+    function buildQuestionCardHtml(q, indexInFiltered, totalFiltered) {
+      const sec = getSectionMeta(q.section);
+      const userAns = appState.answers[q.id];
+      const isAnswered = typeof userAns === 'number';
+      const showFeedback = isFeedbackVisible(q.id);
+      const isFlagged = appState.flagged.indexOf(q.id) !== -1;
+
+      let optionsHtml = '';
+      for (let optIdx = 0; optIdx < q.options.length; optIdx++) {
+        const isSelected = isAnswered && userAns === optIdx;
+        const isRightOption = optIdx === q.correctIndex;
+        let btnClass = 'option-btn';
+        let statusText = '';
+
+        if (showFeedback) {
+          if (isRightOption) {
+            btnClass += ' is-correct';
+            statusText = `<span class="option-status"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>الإجابة الصحيحة</span>`;
+          } else if (isSelected && !isRightOption) {
+            btnClass += ' is-wrong';
+            statusText = `<span class="option-status"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>اختيار غير صحيح</span>`;
+          }
+        } else if (isSelected) {
+          btnClass += ' selected-exam';
+          statusText = `<span class="option-status" style="color: var(--primary);">مختار</span>`;
+        }
+
+        const disabledAttr = (appState.mode === 'exam' && appState.examSubmitted) || (appState.mode === 'training' && isAnswered) ? ' disabled' : '';
+        optionsHtml += `
+          <button type="button" class="${btnClass}"${disabledAttr} onclick="selectOption(${q.id}, ${optIdx})">
+            <span class="option-letter">${ARABIC_LETTERS[optIdx]}</span>
+            <span>${q.options[optIdx]}</span>
+            ${statusText}
+          </button>`;
+      }
+
+      let explanationHtml = '';
+      if (showFeedback) {
+        const isUserRight = isAnswered && userAns === q.correctIndex;
+        const toneClass = isUserRight ? 'correct-tone' : 'wrong-tone';
+        const titleClass = isUserRight ? 'correct' : 'wrong';
+        const titleText = isUserRight
+          ? `أحسنت — إجابة صحيحة`
+          : (isAnswered ? `إجابة غير موفقة — التصحيح القانوني:` : `لم يتم اختيار إجابة — التصحيح القانوني:`);
+
+        explanationHtml = `
+          <div class="explanation-box ${toneClass}">
+            <div class="explanation-title ${titleClass}">${titleText}</div>
+            <p class="explanation-text">${q.explanation}</p>
+            <div class="explanation-ref">المرجع القانوني: المرسوم الملكي رقم 330.66 — ${q.article}</div>
+          </div>`;
+      }
+
+      const navFooterHtml = appState.viewMode === 'single' ? `
+        <div class="question-footer">
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <button type="button" class="btn btn-secondary" ${indexInFiltered <= 0 ? 'disabled' : ''} onclick="stepQuestion(-1)">السؤال السابق</button>
+            <button type="button" class="btn btn-primary" ${indexInFiltered >= totalFiltered - 1 ? 'disabled' : ''} onclick="stepQuestion(1)">السؤال التالي</button>
+          </div>
+          <span style="font-size: var(--label-size); color: var(--on-surface-variant); font-variant-numeric: tabular-nums;">
+            السؤال ${indexInFiltered + 1} من ${totalFiltered}
+          </span>
+        </div>` : '';
+
+      return `
+        <article class="question-card" id="question-card-${q.id}">
+          <div class="question-meta">
+            <div class="meta-tags">
+              <span class="q-number-badge">س ${q.id}</span>
+              <span class="article-stamp">${q.article}</span>
+              <span class="domain-tag">${sec.title}</span>
+            </div>
+            <button type="button" class="flag-btn${isFlagged ? ' flagged' : ''}" onclick="toggleFlag(${q.id})">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="${isFlagged ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              ${isFlagged ? 'محدد للمراجعة' : 'تحديد للمراجعة'}
+            </button>
+          </div>
+          <h3 class="question-text">${q.question}</h3>
+          <div class="options-list">${optionsHtml}</div>
+          ${explanationHtml}
+          ${navFooterHtml}
+        </article>`;
+    }
+
+    function renderQuestionStage() {
+      const stage = document.getElementById('question-stage');
+      if (!stage) return;
+
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) {
+        stage.innerHTML = `
+          <div class="empty-state">
+            <strong style="font-size: var(--subhead-size);">لا توجد أسئلة مطابقة لمعايير التصفية</strong>
+            <p style="margin: 0; color: var(--on-surface-variant);">جرّب مسح نص البحث أو اختيار محور آخر من القائمة أعلاه.</p>
+            <button type="button" class="btn btn-primary" onclick="clearFilters()">إظهار جميع الأسئلة (42)</button>
+          </div>`;
+        return;
+      }
+
+      if (appState.currentIndex >= filtered.length) {
+        appState.currentIndex = 0;
+      }
+
+      if (appState.viewMode === 'single') {
+        const q = filtered[appState.currentIndex];
+        stage.innerHTML = buildQuestionCardHtml(q, appState.currentIndex, filtered.length);
+      } else {
+        let html = '<div class="list-stack">';
+        for (let i = 0; i < filtered.length; i++) {
+          html += buildQuestionCardHtml(filtered[i], i, filtered.length);
+        }
+        html += '</div>';
+        stage.innerHTML = html;
+      }
+    }
+
+    function renderBreakdownTable() {
+      const tbody = document.getElementById('breakdown-tbody');
+      const tfoot = document.getElementById('breakdown-tfoot');
+      if (!tbody || !tfoot) return;
+
+      let rowsHtml = '';
+      let sumTotal = 0;
+      let sumAnswered = 0;
+      let sumCorrect = 0;
+      const showTruth = appState.mode === 'training' || appState.examSubmitted;
+
+      for (let i = 0; i < SECTIONS.length; i++) {
+        const sec = SECTIONS[i];
+        let total = 0;
+        let answered = 0;
+        let correct = 0;
+        for (let j = 0; j < QUESTIONS.length; j++) {
+          const q = QUESTIONS[j];
+          if (q.section === sec.id) {
+            total++;
+            const ans = appState.answers[q.id];
+            if (typeof ans === 'number') {
+              answered++;
+              if (ans === q.correctIndex) correct++;
+            }
+          }
+        }
+        sumTotal += total;
+        sumAnswered += answered;
+        sumCorrect += correct;
+
+        const pctDisplay = showTruth && answered > 0
+          ? `${Math.round((correct / total) * 100)}%`
+          : `—`;
+        const correctDisplay = showTruth ? String(correct) : `—`;
+
+        rowsHtml += `
+          <tr>
+            <td><strong>${sec.title}</strong></td>
+            <td style="color: var(--on-surface-variant);">${sec.articles}</td>
+            <td class="num-col">${total}</td>
+            <td class="num-col">${answered}</td>
+            <td class="num-col">${correctDisplay}</td>
+            <td class="num-col">${pctDisplay}</td>
+          </tr>`;
+      }
+
+      tbody.innerHTML = rowsHtml;
+      const totalPct = showTruth && sumAnswered > 0 ? `${Math.round((sumCorrect / sumTotal) * 100)}%` : `—`;
+      tfoot.innerHTML = `
+        <tr>
+          <td colspan="2">المجموع العام</td>
+          <td class="num-col">${sumTotal}</td>
+          <td class="num-col">${sumAnswered}</td>
+          <td class="num-col">${showTruth ? sumCorrect : '—'}</td>
+          <td class="num-col">${totalPct}</td>
+        </tr>`;
+    }
+
+    // Hoisted handler functions for onclick / onchange / oninput
+    function setMode(mode) {
+      appState.mode = mode;
+      renderAll();
+      persistState();
+    }
+
+    function toggleViewMode() {
+      appState.viewMode = appState.viewMode === 'single' ? 'list' : 'single';
+      renderAll();
+      persistState();
+    }
+
+    function toggleBreakdown() {
+      appState.showBreakdown = !appState.showBreakdown;
+      const sec = document.getElementById('breakdown-section');
+      if (sec) {
+        sec.style.display = appState.showBreakdown ? 'block' : 'none';
+      }
+      if (appState.showBreakdown) renderBreakdownTable();
+      persistState();
+    }
+
+    function setSectionFilter(sectionId) {
+      appState.activeSection = sectionId;
+      appState.currentIndex = 0;
+      renderAll();
+      persistState();
+    }
+
+    function setStatusFilter(status) {
+      appState.statusFilter = status;
+      appState.currentIndex = 0;
+      renderAll();
+      persistState();
+    }
+
+    function setSearchQuery(val) {
+      appState.searchQuery = val;
+      appState.currentIndex = 0;
+      renderAll();
+      persistState();
+    }
+
+    function clearFilters() {
+      appState.activeSection = 'all';
+      appState.statusFilter = 'all';
+      appState.searchQuery = '';
+      appState.currentIndex = 0;
+      renderAll();
+      persistState();
+    }
+
+    function jumpToQuestion(idx) {
+      appState.currentIndex = idx;
+      if (appState.viewMode === 'list') {
+        const filtered = getFilteredQuestions();
+        const target = filtered[idx];
+        if (target) {
+          const el = document.getElementById('question-card-' + target.id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        renderNavGrid();
+      } else {
+        renderAll();
+      }
+      persistState();
+    }
+
+    function stepQuestion(delta) {
+      const filtered = getFilteredQuestions();
+      const next = appState.currentIndex + delta;
+      if (next >= 0 && next < filtered.length) {
+        appState.currentIndex = next;
+        renderAll();
+        persistState();
+      }
+    }
+
+    function selectOption(questionId, optionIndex) {
+      if (appState.mode === 'exam' && appState.examSubmitted) return;
+      if (appState.mode === 'training' && typeof appState.answers[questionId] === 'number') return;
+
+      appState.answers[questionId] = optionIndex;
+      renderAll();
+      persistState();
+    }
+
+    function toggleFlag(questionId) {
+      const idx = appState.flagged.indexOf(questionId);
+      if (idx === -1) {
+        appState.flagged.push(questionId);
+      } else {
+        appState.flagged.splice(idx, 1);
+      }
+      renderAll();
+      persistState();
+    }
+
+    function submitExam() {
+      appState.examSubmitted = true;
+      appState.showBreakdown = true;
+      const sec = document.getElementById('breakdown-section');
+      if (sec) sec.style.display = 'block';
+      renderAll();
+      persistState();
+    }
+
+    function retakeExam() {
+      appState.answers = {};
+      appState.examSubmitted = false;
+      appState.currentIndex = 0;
+      renderAll();
+      persistState();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `اضغط للتأكيد`;
+        setTimeout(function() {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg> إعادة تعيين`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg> إعادة تعيين`;
+      appState.answers = {};
+      appState.flagged = [];
+      appState.examSubmitted = false;
+      appState.currentIndex = 0;
+      showToast(`تمت إعادة تعيين جميع الإجابات.`);
+      renderAll();
+      persistState();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('status-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      setTimeout(function() {
+        if (toast.textContent === msg) toast.textContent = '';
+      }, 3500);
+    }
+
+    function exportResultsCsv() {
+      const lines = ['"رقم السؤال","المحور","الفصل المرجعي","إجابتك","الإجابة الصحيحة","الحالة"'];
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const sec = getSectionMeta(q.section);
+        const ans = appState.answers[q.id];
+        const userText = typeof ans === 'number' ? q.options[ans].replace(/"/g, '""') : 'لم يتم الإجابة';
+        const correctText = q.options[q.correctIndex].replace(/"/g, '""');
+        const statusText = typeof ans !== 'number' ? 'غير مجاب' : (ans === q.correctIndex ? 'صحيح' : 'خطأ');
+        lines.push(`"${q.id}","${sec.title}","${q.article}","${userText}","${correctText}","${statusText}"`);
+      }
+      const csvContent = '\uFEFF' + lines.join('\n');
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: 'text/csv',
+          encoding: 'UTF-8',
+          filename: 'qcm_decree_330_66_results.csv'
+        });
+        showToast(`تم تصدير ملف النتائج بنجاح.`);
+      } else {
+        showToast(`ميزة التصدير متوفرة داخل بيئة دفتر الملاحظات.`);
+      }
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            if (saved.mode === 'training' || saved.mode === 'exam') appState.mode = saved.mode;
+            if (saved.viewMode === 'single' || saved.viewMode === 'list') appState.viewMode = saved.viewMode;
+            if (typeof saved.activeSection === 'string') appState.activeSection = saved.activeSection;
+            if (typeof saved.statusFilter === 'string') appState.statusFilter = saved.statusFilter;
+            if (typeof saved.searchQuery === 'string') appState.searchQuery = saved.searchQuery;
+            if (typeof saved.currentIndex === 'number') appState.currentIndex = saved.currentIndex;
+            if (saved.answers && typeof saved.answers === 'object') appState.answers = saved.answers;
+            if (Array.isArray(saved.flagged)) appState.flagged = saved.flagged;
+            if (typeof saved.examSubmitted === 'boolean') appState.examSubmitted = saved.examSubmitted;
+            if (typeof saved.showBreakdown === 'boolean') appState.showBreakdown = saved.showBreakdown;
+          }
+        }
+      } catch (e) {
+        // Fallback to clean initial state
+      }
+
+      const breakdownSec = document.getElementById('breakdown-section');
+      if (breakdownSec) {
+        breakdownSec.style.display = appState.showBreakdown ? 'block' : 'none';
+      }
+
+      renderAll();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
