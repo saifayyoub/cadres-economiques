@@ -1,0 +1,3351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="handbook">
+  <title>بنك الاختبارات التفاعلي: الدليل المسطري لنظام المطعمة (أبريل 2022)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Handbook) */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --error: #d4351c;
+      --on-error: #ffffff;
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Fonts (Arabic first per Non-Latin & RTL guidance) */
+      --font-headline: 'Noto Sans Arabic', 'Public Sans', sans-serif;
+      --font-body: 'Noto Sans Arabic', 'Public Sans', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'Public Sans', sans-serif;
+
+      /* Shape (Square per Handbook) */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --inset-rule-positive: 5px solid var(--positive);
+      --inset-rule-error: 5px solid var(--error);
+      --inset-rule-warning: 5px solid var(--warning);
+      --button-ground: 0 2px 0 #091526;
+      --button-ground-secondary: 0 2px 0 #858686;
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+
+      /* Shared Semantic Tokens */
+      --positive: #00703c;
+      --positive-container: #e6f4ec;
+      --on-positive-container: #004726;
+      --warning: #9a5500;
+      --warning-container: #fff4e5;
+      --on-warning-container: #5c3200;
+      --error-container: #fbeae8;
+      --on-error-container: #8a1f0e;
+      --focus: var(--focus-yellow);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus states (Treatment 4: Yellow Focus) */
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    [tabindex]:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 0;
+      box-shadow: var(--focus-bar);
+    }
+
+    /* Treatment 1: Heavy top index rule */
+    .index-header {
+      border-top: var(--top-index-rule);
+      border-bottom: 1px solid var(--on-surface);
+      padding: var(--space-sm) 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+
+    .index-meta {
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+
+    /* Page Header / Hero */
+    .page-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .page-title-block h1 {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--display-size);
+      line-height: 1.25;
+      color: var(--on-surface);
+    }
+
+    .page-lede {
+      margin: 0;
+      font-size: var(--subhead-size);
+      color: var(--on-surface-variant);
+      max-width: 68ch;
+      line-height: 1.6;
+    }
+
+    /* Key Figure KPI Row (Treatment 2: Inset Rule) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .inset-kpi {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .inset-kpi--positive {
+      border-inline-start: var(--inset-rule-positive);
+    }
+
+    .inset-kpi--error {
+      border-inline-start: var(--inset-rule-error);
+    }
+
+    .kpi-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+
+    .kpi-value {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--headline-size);
+      line-height: 1.15;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-desc {
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+
+    /* Grounded Buttons (Treatment 3) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-label);
+      font-size: var(--body-size);
+      font-weight: 700;
+      line-height: 1.2;
+      border: 0;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .btn:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+
+    .btn--primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--button-ground);
+    }
+
+    .btn--primary:hover:not(:disabled) {
+      background: var(--on-primary-container);
+    }
+
+    .btn--active-tab {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: inset 0 -3px 0 var(--primary);
+    }
+
+    .btn--danger-armed {
+      background: var(--error);
+      color: var(--on-error);
+      box-shadow: var(--button-ground);
+    }
+
+    /* Mode Switcher Bar */
+    .mode-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 2px solid var(--on-surface);
+    }
+
+    .mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .utility-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Filter & Control Strip */
+    .controls-panel {
+      background: var(--surface-container-low);
+      border-inline-start: var(--inset-rule);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .field-label {
+      font-weight: 700;
+      font-size: var(--body-size);
+      color: var(--on-surface);
+    }
+
+    .field-hint {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .field-control {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      font-weight: 600;
+      width: 100%;
+    }
+
+    select.field-control {
+      padding-inline-end: var(--space-lg);
+    }
+
+    /* Two-column main workspace for Exam Mode */
+    .exam-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    /* Question Card (Ruled, no shadows/rounded corners) */
+    .question-stage {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .question-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .step-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* Treatment 1: Square step badge */
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 34px;
+      padding: 0 var(--space-xs);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 800;
+      font-size: var(--body-size);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: var(--label-size);
+      font-weight: 700;
+      border-radius: var(--rounded);
+    }
+
+    .status-tag--positive {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .status-tag--error {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    .status-tag--warning {
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+    }
+
+    .question-stem {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--headline-size);
+      line-height: 1.45;
+      color: var(--on-surface);
+      max-width: 65ch;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin: var(--space-sm) 0;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      min-height: 52px;
+      padding: var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      text-align: start;
+      font-size: var(--body-size);
+      font-weight: 600;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: var(--surface-container-low);
+      border-color: var(--on-surface);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      color: var(--on-surface);
+      font-weight: 800;
+      font-size: var(--label-size);
+    }
+
+    .option-btn--selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--on-primary-container);
+    }
+
+    .option-btn--selected .option-letter {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .option-btn--correct {
+      background: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--on-positive-container);
+    }
+
+    .option-btn--correct .option-letter {
+      background: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+
+    .option-btn--wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      color: var(--on-error-container);
+    }
+
+    .option-btn--wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    /* Feedback Callout (Treatment 2: Inset Rule) */
+    .feedback-inset {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .feedback-inset--positive {
+      border-inline-start: var(--inset-rule-positive);
+      background: var(--positive-container);
+    }
+
+    .feedback-inset--error {
+      border-inline-start: var(--inset-rule-error);
+      background: var(--error-container);
+    }
+
+    .feedback-title {
+      margin: 0;
+      font-weight: 800;
+      font-size: var(--subhead-size);
+      color: var(--on-surface);
+    }
+
+    .feedback-body {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.6;
+      max-width: 65ch;
+    }
+
+    .feedback-ref {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-primary-container);
+      background: var(--primary-container);
+      padding: var(--space-xs) var(--space-sm);
+      align-self: flex-start;
+    }
+
+    /* Navigation Row */
+    .question-nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+    }
+
+    .nav-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Side Navigator & Category Mastery Panel */
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      border-inline-start: 1px solid var(--outline-variant);
+      padding-inline-start: var(--space-lg);
+    }
+
+    .side-heading {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--subhead-size);
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--on-surface);
+    }
+
+    .question-grid-map {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+      gap: var(--space-xs);
+      max-height: 320px;
+      overflow-y: auto;
+      padding: var(--space-xs);
+      border: 1px solid var(--outline-variant);
+      background: var(--background);
+    }
+
+    .q-tile {
+      min-height: 36px;
+      min-width: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--label-size);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .q-tile:hover {
+      border-color: var(--on-surface);
+      background: var(--surface-container);
+    }
+
+    .q-tile--current {
+      outline: 2px solid var(--on-surface);
+      outline-offset: 1px;
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .q-tile--correct {
+      background: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+
+    .q-tile--wrong {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    .q-tile--pending {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border-color: var(--tertiary);
+    }
+
+    .q-tile--bookmarked {
+      box-shadow: inset 0 -3px 0 var(--warning);
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border: 1px solid var(--outline-variant);
+    }
+
+    .swatch-unanswered { background: var(--surface-container-low); }
+    .swatch-correct { background: var(--positive); border-color: var(--positive); }
+    .swatch-wrong { background: var(--error); border-color: var(--error); }
+    .swatch-pending { background: var(--primary-container); border-color: var(--tertiary); }
+
+    /* Category Mastery Table / Summary List */
+    .mastery-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .mastery-row {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .mastery-row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      font-weight: 700;
+    }
+
+    .mastery-bar-track {
+      width: 100%;
+      height: 8px;
+      background: var(--surface-container);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mastery-bar-fill {
+      height: 100%;
+      background: var(--data-1);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Exam Submit Banner */
+    .exam-submit-banner {
+      border-inline-start: var(--inset-rule-warning);
+      background: var(--warning-container);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .exam-submit-text {
+      color: var(--on-warning-container);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Complete Answer Key Table (Handbook ruled table) */
+    .answer-key-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-top: 2px solid var(--on-surface);
+    }
+
+    table.handbook-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: start;
+      font-size: var(--body-size);
+    }
+
+    table.handbook-table thead th {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 800;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+      border-bottom: 2px solid var(--on-surface);
+      background: var(--surface-container-low);
+      vertical-align: bottom;
+    }
+
+    table.handbook-table tbody td {
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    table.handbook-table tbody tr:hover {
+      background: var(--surface-container-low);
+    }
+
+    .td-num {
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      width: 56px;
+    }
+
+    .td-ref {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      min-width: 160px;
+    }
+
+    .td-answer {
+      font-weight: 700;
+      color: var(--positive);
+    }
+
+    .empty-state {
+      border-inline-start: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .empty-state h3 {
+      margin: 0;
+      font-weight: 800;
+      font-size: var(--headline-size);
+    }
+
+    .empty-state p {
+      margin: 0;
+      color: var(--on-surface-variant);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .source-footer {
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .inline-notice {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-primary-container);
+      background: var(--primary-container);
+      padding: var(--space-xs) var(--space-sm);
+    }
+
+    @media (max-width: 900px) {
+      .exam-workspace {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .side-panel {
+        border-inline-start: 0;
+        border-top: 2px solid var(--on-surface);
+        padding-inline-start: 0;
+        padding-top: var(--space-lg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        grid-template-columns: minmax(0, 1fr);
+        padding: var(--space-md);
+      }
+      body {
+        padding: var(--space-xs);
+      }
+      .controls-panel {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .question-nav-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-group {
+        justify-content: space-between;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top Index Rule (Handbook Treatment 1) -->
+    <div class="index-header">
+      <span>الدليل المسطري لنظام المطعمة · صيغة أبريل 2022</span>
+      <span class="index-meta" id="header-progress-summary">0 من 112 سؤالاً منجزاً</span>
+    </div>
+
+    <!-- Header / Title Block -->
+    <header class="page-title-block">
+      <h1>اختبار التقييم الشامل لنظام المطعمة بالداخليات والمطاعم المدرسية</h1>
+      <p class="page-lede">
+        بنك أسئلة متعدد الاختيارات يضم <strong>112 سؤالاً</strong> يغطي جميع مراحل ومساطر نظام التدبير غير المباشر للإطعام المدرسي، ومقتضيات نموذج دفتر الشروط الخاصة (<bdi dir="ltr">CPS</bdi>) للصفقة الإطار، مع التتبع الفوري للنتائج والمرجع الدقيق لكل إجابة.
+      </p>
+    </header>
+
+    <!-- Real-Time Score KPIs (Inset Rule Panels) -->
+    <section aria-label="ملخص الأداء الفوري" class="kpi-grid">
+      <div class="inset-kpi">
+        <span class="kpi-label">التقدم في بنك الأسئلة</span>
+        <span class="kpi-value" id="kpi-answered">0 / 112</span>
+        <span class="kpi-desc" id="kpi-answered-pct">0% من مجموع الأسئلة</span>
+      </div>
+      <div class="inset-kpi inset-kpi--positive">
+        <span class="kpi-label">الإجابات الصحيحة</span>
+        <span class="kpi-value" id="kpi-correct">0</span>
+        <span class="kpi-desc" id="kpi-accuracy">نسبة الدقة: 0%</span>
+      </div>
+      <div class="inset-kpi inset-kpi--error">
+        <span class="kpi-label">الإجابات الخاطئة</span>
+        <span class="kpi-value" id="kpi-wrong">0</span>
+        <span class="kpi-desc" id="kpi-remaining">المتبقي: 112 سؤالاً</span>
+      </div>
+      <div class="inset-kpi">
+        <span class="kpi-label">الأسئلة المعلّمة للمراجعة</span>
+        <span class="kpi-value" id="kpi-bookmarked">0</span>
+        <span class="kpi-desc" id="kpi-mode-desc">وضع التدريب بالتصحيح الفوري</span>
+      </div>
+    </section>
+
+    <!-- Workspace Mode Switcher & Global Actions -->
+    <div class="mode-bar" role="region" aria-label="أوضاع العمل">
+      <div class="mode-tabs">
+        <button type="button" class="btn btn--active-tab" id="tab-quiz" onclick="switchWorkspaceView('quiz')">
+          الاختبار التفاعلي (112)
+        </button>
+        <button type="button" class="btn" id="tab-key" onclick="switchWorkspaceView('key')">
+          مفتاح الإجابات الشامل
+        </button>
+      </div>
+      <div class="utility-actions">
+        <span class="inline-notice hidden" id="status-toast" role="status" aria-live="polite"></span>
+        <button type="button" class="btn" id="btn-export-csv" onclick="exportAnswerKeyCSV()">
+          تصدير النتائج والمفتاح (<bdi dir="ltr">CSV</bdi>)
+        </button>
+        <button type="button" class="btn" id="btn-reset-all" onclick="handleResetProgress(this)">
+          إعادة تعيين التقدم
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         VIEW 1: INTERACTIVE QUIZ WORKSPACE
+         ========================================================= -->
+    <main id="view-quiz">
+      <!-- Filter & Mode Controls -->
+      <section class="controls-panel" aria-label="تصفية الأسئلة وإعدادات الاختبار">
+        <div class="field-group">
+          <label class="field-label" for="filter-category">المحور الموضوعاتي</label>
+          <select id="filter-category" class="field-control" onchange="applyQuizFilters()">
+            <option value="all">جميع المحاور الستة (112 سؤالاً)</option>
+            <option value="background">1. السياق المرجعي والتدبير غير المباشر (14)</option>
+            <option value="pre_exec">2. ما قبل التنفيذ وتحديد الحاجيات (18)</option>
+            <option value="prep">3. التحضير لبدء تنفيذ الصفقة (18)</option>
+            <option value="exec">4. التنفيذ والنظافة والغرامات الغذائية (32)</option>
+            <option value="post_exec">5. ما بعد التنفيذ وتصفية الصفقة والأداء (14)</option>
+            <option value="penalties">6. التدابير القسرية والغرامات والمنازعات (16)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="filter-status">حالة السؤال</label>
+          <select id="filter-status" class="field-control" onchange="applyQuizFilters()">
+            <option value="all">كل الأسئلة</option>
+            <option value="unanswered">الأسئلة غير المجاب عنها فقط</option>
+            <option value="wrong">الإجابات الخاطئة للمراجعة</option>
+            <option value="bookmarked">الأسئلة المعلّمة بنجمة</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="quiz-eval-mode">نمط التصحيح</label>
+          <select id="quiz-eval-mode" class="field-control" onchange="changeEvalMode(this.value)">
+            <option value="instant">تدريب: تصحيح فوري بعد كل سؤال</option>
+            <option value="exam">امتحان تجريبي: إظهار التصحيح عند التسليم</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Exam Mode Pending Submit Banner -->
+      <div class="exam-submit-banner hidden" id="exam-submit-banner">
+        <p class="exam-submit-text" id="exam-pending-text">
+          أنت في وضع الامتحان التجريبي: يتم تسجيل اختياراتك مؤقتاً دون كشف الإجابة الصحيحة حتى تضغط على تسليم التصحيح.
+        </p>
+        <button type="button" class="btn btn--primary" id="btn-grade-exam" onclick="gradeExamSubmissions()">
+          اعتماد وتصحيح الإجابات المسجلة
+        </button>
+      </div>
+
+      <div class="exam-workspace" style="margin-top: var(--space-lg);">
+        <!-- Active Question Stage -->
+        <section class="question-stage" id="question-stage" aria-live="polite">
+          <!-- Populated dynamically -->
+        </section>
+
+        <!-- Side Navigator & Category Breakdown -->
+        <aside class="side-panel" aria-label="خريطة الأسئلة وأداء المحاور">
+          <div>
+            <h2 class="side-heading" id="map-heading">خريطة الأسئلة</h2>
+            <div class="map-legend" style="margin: var(--space-sm) 0;">
+              <span class="legend-item"><span class="legend-swatch swatch-unanswered"></span> غير مجاب</span>
+              <span class="legend-item"><span class="legend-swatch swatch-correct"></span> صحيح</span>
+              <span class="legend-item"><span class="legend-swatch swatch-wrong"></span> خطأ</span>
+              <span class="legend-item"><span class="legend-swatch swatch-pending"></span> مسجل</span>
+            </div>
+            <div class="question-grid-map" id="question-grid-map"></div>
+          </div>
+
+          <div>
+            <h2 class="side-heading">نسبة الإتقان حسب المحور</h2>
+            <div class="mastery-list" id="category-mastery-list" style="margin-top: var(--space-sm);"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- =========================================================
+         VIEW 2: COMPLETE ANSWER KEY & REFERENCE LOOKUP
+         ========================================================= -->
+    <section id="view-key" class="answer-key-section hidden" aria-label="مفتاح الإجابات الشامل">
+      <div class="controls-panel">
+        <div class="field-group">
+          <label class="field-label" for="key-search">بحث في الأسئلة أو المراجع</label>
+          <input type="search" id="key-search" class="field-control" placeholder="ابحث بكلمة مفتاحية (مثلاً: ONSSA، 18:00، 200‰، 5 أيام)..." oninput="renderAnswerKey()">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="key-category">تصفية حسب المحور</label>
+          <select id="key-category" class="field-control" onchange="renderAnswerKey()">
+            <option value="all">جميع المحاور (112)</option>
+            <option value="background">1. السياق المرجعي والتدبير غير المباشر</option>
+            <option value="pre_exec">2. ما قبل التنفيذ وتحديد الحاجيات</option>
+            <option value="prep">3. التحضير لبدء تنفيذ الصفقة</option>
+            <option value="exec">4. التنفيذ والنظافة والغرامات الغذائية</option>
+            <option value="post_exec">5. ما بعد التنفيذ وتصفية الصفقة والأداء</option>
+            <option value="penalties">6. التدابير القسرية والغرامات والمنازعات</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="key-user-filter">حالة إجابتك</label>
+          <select id="key-user-filter" class="field-control" onchange="renderAnswerKey()">
+            <option value="all">إظهار كل الأسئلة</option>
+            <option value="wrong">الأسئلة التي أخطأت فيها فقط</option>
+            <option value="correct">الأسئلة التي أجبت عنها بشكل صحيح</option>
+            <option value="unanswered">الأسئلة غير المجاب عنها</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="key-count-bar" class="index-meta"></div>
+
+      <div class="table-wrap">
+        <table class="handbook-table">
+          <thead>
+            <tr>
+              <th>رقم</th>
+              <th>المحور</th>
+              <th>السؤال</th>
+              <th>الإجابة الصحيحة والشرح</th>
+              <th>المرجع الصريح</th>
+              <th>وضعك</th>
+            </tr>
+          </thead>
+          <tbody id="answer-key-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="source-footer">
+      <span>المصدر المعتمد: مشروع الدليل المسطري لنظام المطعمة (صيغة أبريل 2022) ونموذج دفتر الشروط الخاصة للصفقة الإطار (<bdi dir="ltr">CPS</bdi>).</span>
+      <span>الاختصارات: <bdi dir="ltr">ONSSA</bdi> المكتب الوطني للسلامة الصحية للمنتجات الغذائية · <bdi dir="ltr">CNSS</bdi> الصندوق الوطني للضمان الاجتماعي · <bdi dir="ltr">ARS</bdi> شهادة تسلم الخدمة.</span>
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    const CATEGORIES = {
+      background: { id: `background`, label: `1. السياق المرجعي والتدبير غير المباشر`, short: `السياق والتدبير غير المباشر`, color: `var(--data-1)` },
+      pre_exec: { id: `pre_exec`, label: `2. ما قبل التنفيذ وتحديد الحاجيات`, short: `تحديد الحاجيات وطلب العروض`, color: `var(--data-2)` },
+      prep: { id: `prep`, label: `3. التحضير لبدء تنفيذ الصفقة`, short: `التحضير لبدء التنفيذ`, color: `var(--data-3)` },
+      exec: { id: `exec`, label: `4. التنفيذ والنظافة والغرامات الغذائية`, short: `التنفيذ والنظافة والتغذية`, color: `var(--data-4)` },
+      post_exec: { id: `post_exec`, label: `5. ما بعد التنفيذ وتصفية الصفقة والأداء`, short: `التصفية والأمر بالأداء`, color: `var(--data-1)` },
+      penalties: { id: `penalties`, label: `6. التدابير القسرية والغرامات والمنازعات`, short: `الغرامات والتدابير القسرية`, color: `var(--error)` }
+    };
+
+    const LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    const QUESTIONS = [
+      // ==================== 1. السياق المرجعي والتدبير غير المباشر (1-14) ====================
+      {
+        id: 1,
+        cat: `background`,
+        q: `ما هو الإطار التشريعي والتنظيمي العام الذي تندرج ضمنه تجربة اعتماد "نظام المطعمة" بالداخليات والمطاعم المدرسية؟`,
+        opts: [
+          `تفعيل التوجيهات الملكية السامية، وأحكام القانون الإطار رقم 51.17، ومواصلة تنزيل تدابير المشروع رقم 3 للدعم الاجتماعي`,
+          `قانون المالية لسنة 2023 ومشروع تعميم المدارس الجماعاتية فقط`,
+          `الميثاق الوطني للتربية والتكوين لسنة 1999 والمشروع رقم 15`,
+          `المرسوم الخاص بالتعليم الخصوصي والبرنامج الاستعجالي`
+        ],
+        ans: 0,
+        exp: `يندرج نظام المطعمة في إطار التوجيهات الملكية السامية، وأحكام القانون الإطار رقم 51.17 المتعلق بمنظومة التربية والتكوين والبحث العلمي، ومواصلة تنزيل المشروع رقم 3 لتطوير منظومة منصفة وناجعة للدعم الاجتماعي.`,
+        ref: `الدليل المسطري (صيغة أبريل 2022) - فقرة التقديم`
+      },
+      {
+        id: 2,
+        cat: `background`,
+        q: `ما هو النقص الأساسي الذي عرقل الرفع من جودة الإطعام في النظام السابق رغم الزيادة النوعية في القيمة المالية للمنحة؟`,
+        opts: [
+          `غياب البنايات المخصصة للمطاعم المدرسية على الصعيد الوطني`,
+          `عدم تناسب الكفايات المهنية (الجانبية) للموارد البشرية العاملة بالأقسام الداخلية والمطاعم مع المهام التنفيذية المنوطة بها`,
+          `منع تقديم وجبة الغذاء في الداخليات بموجب المقرر الوزاري`,
+          `توقف تزويد الداخليات بالماء والكهرباء من طرف الجماعات الترابية`
+        ],
+        ans: 1,
+        exp: `حدد التقديم النقص الأساسي في عدم تناسب الكفايات المهنية (الجانبية) للموارد البشرية العاملة بالأقسام الداخلية والمطاعم المدرسية مع المهام التنفيذية المتعلقة بالتخزين والتحضير والإعداد وتقديم الوجبات.`,
+        ref: `الدليل المسطري - فقرة التقديم`
+      },
+      {
+        id: 3,
+        cat: `background`,
+        q: `كم عدد الصفقات التي تم تقليصها وإدراجها في صفقة وحيدة تحت مسمى "صفقة خدمة المطعمة"؟`,
+        opts: [
+          `ثلاث (3) صفقات فقط (اللحم، الخضر، المواد الغذائية)`,
+          `خمس (5) صفقات`,
+          `سبع (7) صفقات (الخبز، اللحم، الدجاج والبيض، الخضر والفواكه، المواد الغذائية، الغاز، الطهي)`,
+          `تسع (9) صفقات بما فيها صفقة الماء والكهرباء والحراسة`
+        ],
+        ans: 2,
+        exp: `يتيح نظام التدبير غير المباشر تقليص الصفقات السبع (الخبز، اللحم، الدجاج والبيض، الخضر والفواكه، المواد الغذائية، الغاز، الطهي) ودمجها في صفقة وحيدة هي "صفقة خدمة المطعمة".`,
+        ref: `الدليل المسطري - فقرة التقديم`
+      },
+      {
+        id: 4,
+        cat: `background`,
+        q: `أي أكاديمية جهوية أعدت مشروع الدليل المسطري لنظام المطعمة، وخلال أي فترة تمت دراسة وتجريب التجربة ببعض مديرياتها الإقليمية؟`,
+        opts: [
+          `الأكاديمية الجهوية لجهة الرباط سلا القنيطرة خلال الفترة 2015–2018`,
+          `الأكاديمية الجهوية لجهة سوس ماسة بعد مرحلة الدراسة والتجريب خلال الفترة 2017–2020`,
+          `الأكاديمية الجهوية لجهة الدار البيضاء سطات خلال الفترة 2019–2022`,
+          `الأكاديمية الجهوية لجهة مراكش آسفي خلال الفترة 2018–2021`
+        ],
+        ans: 1,
+        exp: `تم إعداد الدليل من طرف الأكاديمية الجهوية للتربية والتكوين بجهة سوس ماسة بعد انتهاء مرحلة الدراسة والتجريب ببعض المديريات الإقليمية التابعة لها خلال الفترة 2017–2020.`,
+        ref: `الدليل المسطري - فقرة التقديم (صيغة أبريل 2022)`
+      },
+      {
+        id: 5,
+        cat: `background`,
+        q: `ما المقصود بنمط "التدبير غير المباشر" للتغذية بالأقسام الداخلية والمطاعم المدرسية؟`,
+        opts: [
+          `إحالة تدبير الوجبات إلى جمعيات آباء وأولياء التلاميذ بشكل تطوعي`,
+          `تفويض خدمات تحضير وإعداد وتقديم الوجبات لمقاول متخصص عبر صفقة إطار وحيدة مقابل ثمن أحادي لكل وجبة`,
+          `توزيع منحة مالية نقدية مباشرة على التلاميذ لاقتناء وجباتهم خارج المؤسسة`,
+          `إسناد مهام الطهي للأعوان العرضيين بالمؤسسة تحت إشراف الممونين السبعة`
+        ],
+        ans: 1,
+        exp: `يقوم التدبير غير المباشر على إبرام صفقة إطار وحيدة لخدمة المطعمة عبر طلب عروض مفتوح يتولى فيها نائل الصفقة التموين والطهي والتقديم والنظافة وفق دفتر الشروط الخاصة.`,
+        ref: `الدليل المسطري (التقديم) + ديباجة CPS`
+      },
+      {
+        id: 6,
+        cat: `background`,
+        q: `وفق أي مرسوم ومقتضيات قانونية يتم إبرام الصفقة الإطار لخدمة المطعمة؟`,
+        opts: [
+          `المرسوم رقم 2-12-349 بتاريخ 20 مارس 2013 المتعلق بالصفقات العمومية (المواد 6 و16 و17)`,
+          `المرسوم رقم 2-02-854 بشأن النظام الأساسي لموظفي الوزارة فقط`,
+          `القانون رقم 54-05 المتعلق بالتدبير المفوض للمرافق العمومية حصراً`,
+          `المرسوم الملكي رقم 330-66 فقط دون التقيد بمرسوم الصفقات`
+        ],
+        ans: 0,
+        exp: `تبرم الصفقة الإطار عبر طلب عروض مفتوح على عروض أثمان في جلسة عمومية بموجب المواد 6، والفقرة 1 من المادة 16، والمادة 17 من المرسوم رقم 2-12-349 (20 مارس 2013).`,
+        ref: `الدليل المسطري (1.2) + ديباجة نموذج CPS`
+      },
+      {
+        id: 7,
+        cat: `background`,
+        q: `ما هي المدة الإجمالية القصوى لتنفيذ الصفقة الإطار الخاصة بنظام المطعمة وكيف يتم تجديدها؟`,
+        opts: [
+          `سنة واحدة غير قابلة للتجديد نهائياً`,
+          `تبرم لمدة لا تتجاوز السنة الجارية وتتجدد ضمنياً من سنة لأخرى في حدود ثلاث (3) سنوات متتالية`,
+          `خمس (5) سنوات متتالية تبتدئ من تاريخ فتح الأظرفة`,
+          `سنتان فقط قابلتان للتمديد بملحق لخمس سنوات إضافية`
+        ],
+        ans: 1,
+        exp: `تنص المادة 11 من دفتر الشروط الخاصة على إبرام الصفقة الإطار لمدة لا تتجاوز السنة الجارية، مع تجديدها ضمنياً من سنة لأخرى في حدود 3 سنوات متتالية طبقا للمادة 6 من المرسوم 2-12-349.`,
+        ref: `نموذج CPS - المادة 11 (DELAI D'EXECUTION DU MARCHE CADRE)`
+      },
+      {
+        id: 8,
+        cat: `background`,
+        q: `ما هي آجال الإشعار المسبق الواجب احترامها في حالة رغبة أحد الطرفين في عدم تجديد الصفقة الإطار؟`,
+        opts: [
+          `شهر واحد لصاحب الصفقة و3 أشهر لصاحب المشروع`,
+          `ثلاثة (3) أشهر قبل نهاية كل سنة لصاحب الصفقة، وشهر واحد (1) لصاحب المشروع`,
+          `15 يوماً لكلا الطرفين قبل نهاية السنة الدراسية`,
+          `6 أشهر لصاحب الصفقة و6 أشهر لصاحب المشروع`
+        ],
+        ans: 1,
+        exp: `يجب تقديم إشعار مسبق بعدم التجديد قبل نهاية كل سنة بمدة 3 أشهر بالنسبة لنائل الصفقة، وبمدة شهر واحد بالنسبة لصاحب المشروع، ويترتب عن عدم التجديد فسخ الصفقة دون أي تعويض.`,
+        ref: `نموذج CPS - المادة 11`
+      },
+      {
+        id: 9,
+        cat: `background`,
+        q: `ما هي طبيعة وخاصية الأثمان المعتمدة في صفقة خدمة المطعمة وفق المادة 12 من دفتر الشروط الخاصة؟`,
+        opts: [
+          `أثمان إجمالية جزافية قابلة للمراجعة كل ثلاثة أشهر`,
+          `أثمان أحادية (prix unitaires) ثابتة وغير قابلة للمراجعة (fermes et non révisables)`,
+          `أثمان مؤقتة تحدد نهاية كل شهر حسب تقلبات السوق`,
+          `أثمان أحادية قابلة للمراجعة وفق مؤشر أسعار الاستهلاك`
+        ],
+        ans: 1,
+        exp: `الصفقة بأثمان أحادية تُحتسب بتطبيقها على الكميات المنفذة فعلياً، وهذه الأثمان ثابتة وغير قابلة للمراجعة وتشمل جميع المصاريف والضرائب والرسوم وهامش الربح.`,
+        ref: `نموذج CPS - المادة 12 (NATURE ET CARACTERE DES PRIX)`
+      },
+      {
+        id: 10,
+        cat: `background`,
+        q: `هل يقتطع أي مبلغ كضمانة محجوزة (Retenue de garantie) من الأقساط المؤداة لمقدم خدمة المطعمة؟`,
+        opts: [
+          `نعم، يقتطع 10% من كل دفعة إلى غاية التسلم النهائي`,
+          `نعم، يقتطع 7% من كل فاتورة شهرية`,
+          `لا، لا يقتطع أي مبلغ كضمانة محجوزة من الأقساط المؤداة لصاحب الصفقة`,
+          `يقتطع 3% فقط من الدفعة الأولى`
+        ],
+        ans: 2,
+        exp: `تنص المادة 15 من نموذج دفتر الشروط الخاصة صراحة على أنه لا يقتطع أي مبلغ كضمانة محجوزة (Aucune retenue de garantie) من الدفعات المؤداة لمقدم الخدمة.`,
+        ref: `نموذج CPS - المادة 15 (RETENUE DE GARANTIE)`
+      },
+      {
+        id: 11,
+        cat: `background`,
+        q: `ما هي النسبة القصوى المسموح بها في حالة المناولة (Sous-traitance) بصفقة المطعمة، وما الشرط الأساسي فيها؟`,
+        opts: [
+          `لا تتجاوز 50% من مبلغ الصفقة، ولا يجوز أن تشمل الحصة أو الشطر الرئيسي، ويجب إسنادها لمقاولين مستقرين بالمغرب`,
+          `تصل إلى 75% شريطة موافقة مدير المؤسسة`,
+          `المناولة ممنوعة كلياً في جميع مراحل الإطعام المدرسي`,
+          `لا تتجاوز 20% ويمكن إسنادها لشركات أجنبية دون ترخيص`
+        ],
+        ans: 0,
+        exp: `وفق المادة 10 من CPS والمادة 158 من المرسوم 2-12-349، لا يمكن للمناولة أن تتجاوز 50% من مبلغ الصفقة ولا أن تمس الشطر الرئيسي، وتُسند لمقاولات وتعاونيات ومقاولين ذاتيين مستقرين بالمغرب مع بقاء صاحب الصفقة مسؤولاً شخصياً.`,
+        ref: `نموذج CPS - المادة 10 (SOUS-TRAITANCE)`
+      },
+      {
+        id: 12,
+        cat: `background`,
+        q: `ما هي نسبة التسبيق (Avance) الممنوح لصاحب الصفقة بموجب المرسوم 2-14-272، وما شروط منحه واسترجاعه؟`,
+        opts: [
+          `20% بدون كفالة بنكية ويسترجع في نهاية السنة الثالثة`,
+          `10% من مبلغ الصفقة باحتساب الرسوم (TTC)، مقابل كفالة شخصية وتضامنية، ولا يُجمع مع الرهن، ويسترجع تدريجياً ويُصفّى كلياً عند بلوغ 80% من مبلغ الصفقة`,
+          `5% من المبلغ دون احتساب الرسوم ويُجمع مع الرهن`,
+          `15% تصرف على ثلاث دفعات فصلية دون كفالة`
+        ],
+        ans: 1,
+        exp: `حددت المادة 14 التسبيق في 10% من مبلغ الصفقة TTC (دون احتساب الحصة المناول بشأنها)، ويشترط كفالة شخصية وتضامنية ولا يجمع مع الرهن، ويصرف خلال 30 يوماً من أمر بدء الخدمة ويسترجع وفق صيغة TRA ليبلغ 100% عند بلوغ 80% من مبلغ الصفقة.`,
+        ref: `نموذج CPS - المادة 14 (OCTROI D'AVANCES)`
+      },
+      {
+        id: 13,
+        cat: `background`,
+        q: `ما هو السند القانوني الخاص المتعلق بالسلامة الصحية للمنتجات الغذائية المطبّق على صفقة المطعمة؟`,
+        opts: [
+          `القانون رقم 28-07 المتعلق بالسلامة الصحية للمنتجات الغذائية ومرسومه التطبيقي رقم 2-10-473`,
+          `القانون رقم 07-00 المتعلق بإحداث الأكاديميات الجهوية فقط`,
+          `القانون رقم 112-13 المتعلق بالرهن فقط`,
+          `مدونة التجارة البحرية دون سواها`
+        ],
+        ans: 0,
+        exp: `تشير المادة 5-B من CPS إلى الظهير 1-10-08 الصادر بتنفيذ القانون 28-07 المتعلق بالسلامة الصحية للمنتجات الغذائية ومرسومه التطبيقي 2-10-473 بتاريخ 6 شتنبر 2011.`,
+        ref: `نموذج CPS - المادة 5 (B- Textes spéciaux)`
+      },
+      {
+        id: 14,
+        cat: `background`,
+        q: `بأي نوع من العبارات يهدف الدليل المسطري إلى ترسيخ ثقافة غذائية سليمة داخل المؤسسات التعليمية؟`,
+        opts: [
+          `تخفيض عدد الوجبات اليومية إلى وجبتين فقط لترشيد الإنفاق`,
+          `احترام حق التلاميذ في التغذية الجيدة والمتوازنة، واتباع نظام غذائي صحي، وضمان الحق في الغذاء الكافي استناداً لمبادئ حقوق الإنسان`,
+          `الاقتصار على الوجبات الجافة المعلبة لتفادي الطهي`,
+          `تفويض إعداد القوائم الغذائية للشركات النائلة للصفقة دون رقابة`
+        ],
+        ans: 1,
+        exp: `نص التقديم على أن نظام المطعمة يهدف إلى ترسيخ ثقافة غذائية سليمة قوامها احترام حق التلاميذ في التغذية الجيدة والمتوازنة، واتباع نظام غذائي صحي، وضمان الحق في الغذاء الكافي استناداً إلى مبادئ حقوق الإنسان.`,
+        ref: `الدليل المسطري - فقرة التقديم`
+      },
+
+      // ==================== 2. مرحلة ما قبل بدء التنفيذ وتحديد الحاجيات (15-32) ====================
+      {
+        id: 15,
+        cat: `pre_exec`,
+        q: `ما هي العناصر الأربعة الأساسية التي يستند إليها صاحب المشروع عند تقدير كلفة خدمة المطعمة قبل أي دعوة للمنافسة؟`,
+        opts: [
+          `عدد الأساتذة فقط، مسافة النقل، عدد القاعات الدراسية، ورأس مال الشركة`,
+          `عدد المستفيدين، البرنامج الغذائي مع التوزيع الكمي لمكونات الوجبات، الكلفة الفردية اليومية لكل وجبة، وعدد أيام الإطعام القصوى خلال السنة`,
+          `عدد الغرف بالداخلية، فواتير الماء والكهرباء، وأجور الحراس العامين`,
+          `قيمة الضمانة المؤقتة، نسبة الضريبة، وسعر اللحوم المستوردة فقط`
+        ],
+        ans: 1,
+        exp: `تستند مسطرة تحديد الحاجيات (1.1.1) إلى 4 عناصر أساسية: عدد المستفيدين، البرنامج الغذائي مع التوزيع الكمي، الكلفة الفردية اليومية لكل وجبة (بما فيها وجبات رمضان)، وعدد أيام الإطعام القصوى بناء على المقرر الوزاري لتنظيم السنة الدراسية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1 (مسطرة تحديد الحاجيات)`
+      },
+      {
+        id: 16,
+        cat: `pre_exec`,
+        q: `عند تحديد عدد المستفيدين من خدمة المطعمة، ما هي الفئات الواجب أخذها بعين الاعتبار إلى جانب التلاميذ الممنوحين؟`,
+        opts: [
+          `معلمات ومعلمو الداخليات، والتلاميذ المؤدون والمتممون في حدود الطاقة الاستيعابية للداخلية`,
+          `أطر التفتيش التربوي والزوار الخارجيون فقط`,
+          `مستخدمو شركة المطعمة وأقاربهم`,
+          `التلاميذ المنقطعون عن الدراسة من السنوات السابقة`
+        ],
+        ans: 0,
+        exp: `يُراعى في تحديد عدد المستفيدين إلى جانب الممنوحين: أعداد معلمات ومعلمي الداخليات، وأعداد التلاميذ المؤدين والمتممين في حدود الطاقة الاستيعابية للداخلية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1`
+      },
+      {
+        id: 17,
+        cat: `pre_exec`,
+        q: `أين يتم إيداع المبالغ المستخلصة من التلاميذ والتلميذات المؤدين والمتممين؟`,
+        opts: [
+          `في صندوق جمعية أمهات وآباء التلاميذ`,
+          `في الحساب البنكي الخاص بممثل شركة المطعمة مباشرة`,
+          `في حساب الأكاديمية الجهوية للتربية والتكوين`,
+          `في صندوق المقتصدية النقدي بالثانوية دون إيداع بنكي`
+        ],
+        ans: 2,
+        exp: `نصت الفقرة 1.1.1 بوضوح على إيداع المبالغ المستخلصة من التلاميذ المؤدين والمتممين في حساب الأكاديمية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1`
+      },
+      {
+        id: 18,
+        cat: `pre_exec`,
+        q: `على أي أساس يتم احتساب تقدير الكلفة اليومية للإطعام عن كل مستفيد؟`,
+        opts: [
+          `على أساس سعر وجبة واحدة فقط في السوق المحلي`,
+          `بناء على القيمة المالية لأصناف المنح مع الأخذ بعين الاعتبار القيمة التقريبية لنفقات الطهي والغاز وكلفة تجديد تجهيزات وعتاد المطبخ وخدمة النظافة`,
+          `بناء على كلفة استهلاك الماء والكهرباء فقط`,
+          `بقسمة ميزانية التجهيز للمديرية على عدد التلاميذ`
+        ],
+        ans: 1,
+        exp: `يتم احتساب تقدير الكلفة اليومية بناء على القيمة المالية لأصناف المنح مع مراعاة الكلفة التقريبية لنفقات الطهي والغاز وتجديد التجهيزات والعتاد وخدمة النظافة.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1`
+      },
+      {
+        id: 19,
+        cat: `pre_exec`,
+        q: `كم موسماً دراسياً مقبلاً تشملها توقعات أعداد الممنوحين التي يعدها المكلف بالتدبير الإداري للمنح؟`,
+        opts: [
+          `الموسم الدراسي الجاري فقط`,
+          `الثلاثة (3) مواسم الدراسية المقبلة`,
+          `الخمسة (5) مواسم الدراسية المقبلة`,
+          `عشرة (10) مواسم دراسية مقبلة`
+        ],
+        ans: 1,
+        exp: `يتولى المكلف بالتدبير الإداري للمنح (مصلحة التخطيط والخريطة المدرسية) تحديد عدد الممنوحين وتوقعات أعدادهم حسب نوع المنحة بكل مؤسسة خلال الثلاثة مواسم الدراسية المقبلة.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 20,
+        cat: `pre_exec`,
+        q: `من يترأس أو يعين اللجنة الإقليمية المكلفة بإعداد البرنامج الغذائي الأسبوعي، ومن تضم في عضويتها؟`,
+        opts: [
+          `يعينها رئيس الحكومة وتضم نواب البرلمان`,
+          `يعينها المدير(ة) الإقليمي(ة) وتضم طبيب الصحة المدرسية، المكلف بالتدبير الإداري للمنح، المكلف بالتدبير المالي للمنح، منسق الدعم الاجتماعي، مسير ومفتش المصالح المادية والمالية، وممثل عن جمعيات الآباء`,
+          `يعينها مدير المؤسسة وتضم الطهاة وممثلي الشركات المتنافسة`,
+          `يعينها الخازن المؤدي وتضم أعضاء مكتب الصفقات فقط`
+        ],
+        ans: 1,
+        exp: `تُكلف اللجنة من طرف المدير(ة) الإقليمي(ة) وتضم طبيب الصحة المدرسية، المكلفين بالتدبير الإداري والمالي للمنح، منسق الدعم الاجتماعي، مسير المصالح المادية والمالية، مفتش المصالح المادية والمالية، وممثل جمعيات أمهات وآباء وأولياء التلاميذ.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1`
+      },
+      {
+        id: 21,
+        cat: `pre_exec`,
+        q: `ما الذي يجب مراعاته عند وضع البرنامج الغذائي الأسبوعي من طرف اللجنة الإقليمية؟`,
+        opts: [
+          `الاقتصار على برنامج واحد موحد لجميع الفئات والأيام دون تغيير`,
+          `مراعاة الخصوصيات المحلية والحاجيات الغذائية لكل فئة عمرية، وإعداد برنامج عادي وبرنامج خاص بشهر رمضان مرفقين بالتوزيع الكمي لمكونات الوجبات`,
+          `إعداد برنامج شهر رمضان فقط وترك باقي السنة لاختيار الشركة`,
+          `استبعاد المنتجات الموسمية والتركيز على المعلبات`
+        ],
+        ans: 1,
+        exp: `تضع اللجنة برنامجاً غذائياً أسبوعياً متكاملاً (عادياً وآخر خاصاً بشهر رمضان) يراعي الخصوصيات المحلية والحاجيات الغذائية لكل فئة عمرية، مرفقاً بالتوزيع الكمي لمكونات الوجبات (ويمكن اعتماد أكثر من برنامج واحد).`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 22,
+        cat: `pre_exec`,
+        q: `إلى من يرسل المنسق الإقليمي لوحدة الدعم الاجتماعي البرامج الغذائية الأسبوعية المعتمدة من طرف اللجنة لتوقيعها؟`,
+        opts: [
+          `إلى ممثلي الشركات المتنافسة`,
+          `إلى الأطباء المتعاقد معهم من أجل التوقيع، ثم يوافي المكلف بالتدبير المالي للمنح بها`,
+          `إلى مكتب الضبط المركزي بالرباط`,
+          `إلى الحارس العام للداخلية للتوقيع النهائي`
+        ],
+        ans: 1,
+        exp: `ينسق المنسق الإقليمي أشغال اللجنة ويوثقها، ويرسل البرامج الغذائية المعتمدة إلى الأطباء المتعاقد معهم للتوقيع، ثم يوافي المكلف بالتدبير المالي للمنح بالبرنامج مرفقاً بالتوزيع الكمي.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 23,
+        cat: `pre_exec`,
+        q: `ما هي المهام الموكولة لمسيري المصالح المادية والمالية بالمؤسسات المستفيدة في مسطرة تحديد الحاجيات؟`,
+        opts: [
+          `إعداد جدول أثمان الصفقة والإعلان عن طلب العروض`,
+          `جرد شامل لتجهيز وعتاد المطبخ المتوفر مع بيان نوعه وحالته (نسخ ورقية وإلكترونية)، وتحديد الخصاص الضروري لتنفيذ الخدمة`,
+          `التوقيع على البرنامج الغذائي الأسبوعي بدلاً من الطبيب`,
+          `صرف التعويضات المالية للممونين الجدد`
+        ],
+        ans: 1,
+        exp: `يتولى مسيرو المصالح المادية والمالية جرداً شاملاً لتجهيز وعتاد المطبخ (نوعه وحالته) وموافاة مكتب التدبير المالي للمنح بنسخ ورقية وإلكترونية منه، وتحديد الخصاص الضروري لتنفيذ الخدمة في ظروف عادية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 24,
+        cat: `pre_exec`,
+        q: `من يتولى تحديد الكلفة الفردية اليومية لكل وجبة من الوجبات الثلاث (بما فيها المعتمدة في رمضان)؟`,
+        opts: [
+          `الحارس العام للداخلية بتنسيق مع ممثل الآباء`,
+          `المكلف بالتدبير المالي للمنح (مصلحة الشؤون الإدارية والمالية) بتنسيق مع مكتب الصفقات`,
+          `لجنة فتح الأظرفة يوم إيداع العروض`,
+          `صاحب الصفقة بعد بدء التنفيذ`
+        ],
+        ans: 1,
+        exp: `يتولى المكلف بالتدبير المالي للمنح، بناءً على أعداد الممنوحين والبرنامج الغذائي الأسبوعي المعتمد، تحديد الكلفة الفردية اليومية لكل وجبة من الوجبات الثلاث (بما فيها رمضان) بتنسيق مع مكتب الصفقات.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 25,
+        cat: `pre_exec`,
+        q: `من يحدد الحد الأدنى للصفقة الإطار قبل مباشرة إجراءات إعداد طلبات العروض؟`,
+        opts: [
+          `رئيس المؤسسة التعليمية`,
+          `مكتب الصفقات`,
+          `طبيب الصحة المدرسية`,
+          `المكلف بالتدبير الإداري للمنح`
+        ],
+        ans: 1,
+        exp: `يتولى مكتب الصفقات تسلم المعطيات المتعلقة بالحاجيات واستثمارها، وإعداد جدول أثمان الصفقة، وتحديد الحد الأدنى للصفقة الإطار قبل مباشرة مسطرة طلبات العروض.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 26,
+        cat: `pre_exec`,
+        q: `بناءً على أي وثيقة يتم تحديد عدد أيام الإطعام القصوى خلال السنة الدراسية؟`,
+        opts: [
+          `بناء على التقدير الشخصي لمدير المؤسسة`,
+          `استناداً على المقرر الوزاري الخاص بتنظيم السنة الدراسية`,
+          `تُحتسب 365 يوماً ثابتة كل سنة دون استثناء`,
+          `بناء على طلب يقدمه نائل الصفقة`
+        ],
+        ans: 1,
+        exp: `تُحدد عدد أيام الإطعام القصوى خلال السنة استناداً على المقرر الوزاري الخاص بتنظيم السنة الدراسية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.1`
+      },
+      {
+        id: 27,
+        cat: `pre_exec`,
+        q: `من يؤشّر على معطيات أعداد الممنوحين قبل موافاة المكلف بالتدبير المالي للمنح بها؟`,
+        opts: [
+          `رئيس مصلحة التخطيط والخريطة المدرسية`,
+          `الحارس العام للداخلية`,
+          `ممثل جمعية الآباء`,
+          `الممون السابق`
+        ],
+        ans: 0,
+        exp: `توافي مصلحة التخطيط والخريطة المدرسية المكلف بالتدبير المالي للمنح بمعطيات أعداد الممنوحين بعد التأشير عليها من طرف رئيس مصلحة التخطيط والخريطة المدرسية.`,
+        ref: `الدليل المسطري - الفقرة 1.1.3`
+      },
+      {
+        id: 28,
+        cat: `pre_exec`,
+        q: `في حالة وجود تناقض بين الوثائق المكونة للصفقة الإطار (غير المتعلق بالعرض المالي)، ما هو الترتيب المعتمد للأولوية حسب المادة 4 من CPS؟`,
+        opts: [
+          `جدول الأثمنة أولاً، ثم CCAG-EMO، ثم CPS، ثم رسالة الالتزام`,
+          `1- رسالة الالتزام (Acte d'engagement)، 2- دفتر الشروط الخاصة (CPS)، 3- جدول الأثمنة-التفصيل التقديري، 4- CCAG-EMO`,
+          `دفتر الشروط الإدارية العامة CCAG-EMO يعلو على جميع الوثائق الأخرى`,
+          `دفتر الشروط الخاصة يسبق رسالة الالتزام دائماً`
+        ],
+        ans: 1,
+        exp: `وفق المادة 4 من CPS، تسود الوثائق عند التناقض بالترتيب التالي: 1- رسالة الالتزام، 2- دفتر الشروط الخاصة (CPS)، 3- جدول الأثمنة-التفصيل التقديري، 4- دفتر الشروط الإدارية العامة CCAG-EMO.`,
+        ref: `نموذج CPS - المادة 4 (DOCUMENTS CONSTITUTIFS DU MARCHE)`
+      },
+      {
+        id: 29,
+        cat: `pre_exec`,
+        q: `ما هو الأجل الأقصى لتبليغ المصادقة على الصفقة لنائلها ابتداءً من تاريخ فتح الأظرفة (ما لم يُمدد أجل صلاحية العروض)؟`,
+        opts: [
+          `30 يوماً`,
+          `45 يوماً`,
+          `75 يوماً (خمسة وسبعون يوماً)`,
+          `90 يوماً`
+        ],
+        ans: 2,
+        exp: `تنص المادة 6 من CPS على أن تبليغ المصادقة يجب أن يتم في أجل أقصاه 75 يوماً من تاريخ فتح الأظرفة (مع إمكانية اقتراح تمديد لا يتجاوز 30 يوماً بموافقة النائل).`,
+        ref: `نموذج CPS - المادة 6 (VALIDITE ET DELAI DE NOTIFICATION)`
+      },
+      {
+        id: 30,
+        cat: `pre_exec`,
+        q: `ما هو الأجل الزمني الواجب انصرامه بعد انتهاء أشغال لجنة طلب العروض قبل أن تضع السلطة المختصة توقيع المصادقة على الصفقة؟`,
+        opts: [
+          `48 ساعة`,
+          `5 أيام`,
+          `15 يوماً (خمسة عشر يوماً)`,
+          `30 يوماً`
+        ],
+        ans: 2,
+        exp: `لا يجوز وضع المصادقة من طرف السلطة المختصة إلا بعد انقضاء أجل 15 يوماً ابتداءً من تاريخ انتهاء أشغال لجنة طلب العروض (فترة التجميد/الانتظار).`,
+        ref: `نموذج CPS - المادة 6`
+      },
+      {
+        id: 31,
+        cat: `pre_exec`,
+        q: `في التوزيع الميزانياتي الوارد بنموذج CPS، كم عدد الوجبات المبرمجة في جدول الأثمنة لكل من الثانويات الإعدادية والتأهيلية؟`,
+        opts: [
+          `3 وجبات فقط (فطور، غذاء، عشاء)`,
+          `7 بنود (فطور، غذاء داخلية، غذاء مطعم، عشاء، فطور رمضان، عشاء رمضان، سحور رمضان)`,
+          `5 بنود تشمل العصرونية فقط`,
+          `بندان اثنان: الوجبة العادية ووجبة رمضان`
+        ],
+        ans: 1,
+        exp: `يتضمن التفصيل التقديري وجدول الأثمنة 7 بنود واضحة: 1- الفطور، 2- غذاء (داخلية)، 3- غذاء (مطعم)، 4- العشاء، 5- فطور رمضان، 6- عشاء رمضان، 7- سحور رمضان.`,
+        ref: `نموذج CPS - جدول التوزيع الميزانياتي وجدول الأثمنة`
+      },
+      {
+        id: 32,
+        cat: `pre_exec`,
+        q: `ما هو البند الميزانياتي (الفقرة والمادة) المخصص في نموذج CPS لدعم التمدرس وخدمة المطعمة بالثانويات الإعدادية والتأهيلية؟`,
+        opts: [
+          `الفقرة 10: التسيير العام والمادة 100`,
+          `المادة 901 (للإعدادي والمدارس الجماعاتية) والمادة 902 (للتأهيلي وما بعد الثانوي) - الفقرة 20: الدعم الاجتماعي (Appui social)`,
+          `المادة 500 - الفقرة 50: الاستثمارات الكبرى`,
+          `المادة 701 - الفقرة 30: الموارد البشرية`
+        ],
+        ans: 1,
+        exp: `ترد في جدول التوزيع الميزانياتي المادة 901 (إلزامية التمدرس) والمادة 902 (التعليم التأهيلي وما بعد الثانوي)، وكلتاهما تحت الفقرة 20: الدعم الاجتماعي (Appui social).`,
+        ref: `نموذج CPS - Ventilation budgétaire des quantités`
+      },
+
+      // ==================== 3. مسطرة التحضير لبدء تنفيذ الصفقة (33-50) ====================
+      {
+        id: 33,
+        cat: `prep`,
+        q: `ما هي نسبة الضمانة النهائية (Cautionnement définitif) المطلوبة من نائل الصفقة، وما هو الأجل الأقصى لتكوينها بعد تبليغ المصادقة؟`,
+        opts: [
+          `5% خلال 15 يوماً`,
+          `3% من المبلغ الأولي للصفقة خلال أجل 30 يوماً تلي تبليغ المصادقة`,
+          `10% خلال 60 يوماً`,
+          `1.5% خلال 10 أيام`
+        ],
+        ans: 1,
+        exp: `تنص المادة 13 من CPS على أن مبلغ الضمانة النهائية يحدد في 3% من المبلغ الأولي للصفقة، وفي حال عدم تكوينها خلال 30 يوماً من تبليغ المصادقة تبقى الضمانة المؤقتة ملكاً لصاحب المشروع.`,
+        ref: `نموذج CPS - المادة 13 + الدليل المسطري (1.2.4)`
+      },
+      {
+        id: 34,
+        cat: `prep`,
+        q: `في أي أجل تُرجع الضمانة النهائية (أو يُرفع اليد عن الكفالة المعوضة لها) بعد تاريخ التسلم النهائي للخدمات؟`,
+        opts: [
+          `فوراً في نفس يوم التسلم النهائي`,
+          `في أجل أقصاه ثلاثة (3) أشهر تلي تاريخ التسلم النهائي للخدمات`,
+          `بعد مرور سنة كاملة من نهاية الصفقة`,
+          `خلال 15 يوماً من تاريخ التسلم المؤقت الأول`
+        ],
+        ans: 1,
+        exp: `تُرجع الضمانة النهائية عبر رفع اليد من طرف صاحب المشروع في أجل أقصاه 3 أشهر بعد تاريخ التسلم النهائي إذا وفّى المتعاقد بجميع التزاماته.`,
+        ref: `نموذج CPS - المادة 13`
+      },
+      {
+        id: 35,
+        cat: `prep`,
+        q: `ما هي وثائق التأمين التي يلتزم نائل الصفقة بالإدلاء بها قبل بدء الخدمة، وما الشرط المرتبط بتجديدها؟`,
+        opts: [
+          `شهادة تأمين البناية فقط، وتجدد كل 3 سنوات`,
+          `شواهد تأمين تغطي حوادث الشغل لجميع مستخدمي المطبخ والمطعم، والمسؤولية المدنية (الأضرار الجسمانية والمادية والتسممات والحرائق)، مع تجديدها باستمرار وعدم تغييرها دون إذن مكتوب`,
+          `تأمين المسؤولية المدنية فقط دون حوادث الشغل`,
+          `تأمين اختياري لا يوقف بدء الخدمة في حال غيابه`
+        ],
+        ans: 1,
+        exp: `بدء الخدمة رهين بالإدلاء بشواهد التأمين (حوادث الشغل + المسؤولية المدنية + التسممات والأضرار للغير)، ويلتزم صاحب الصفقة بتجديدها المتواصل وعدم إحداث أي تغيير دون إذن مسبق مكتوب تحت طائلة الإجراءات القسرية.`,
+        ref: `الدليل المسطري (1.2.4) + نموذج CPS المادة 16`
+      },
+      {
+        id: 36,
+        cat: `prep`,
+        q: `ماذا تضم الملفات الخاصة بالموارد البشرية الموكول إليها تنفيذ الخدمة التي يوافي بها صاحب الصفقة صاحب المشروع؟`,
+        opts: [
+          `نسخة من البطاقة الوطنية فقط`,
+          `الملفات الصحية، الملفات المهنية (الدبلومات والخبرة)، التأمينات، وشواهد الانخراط في الصندوق الوطني للضمان الاجتماعي (CNSS)`,
+          `السيرة الذاتية دون حاجة لوثائق طبية أو ضمان اجتماعي`,
+          `تصريح بالشرف فقط من مسير الشركة`
+        ],
+        ans: 1,
+        exp: `تضم ملفات الموارد البشرية: الملفات الصحية، الملفات المهنية، التأمينات، وشواهد الانخراط في CNSS، بالإضافة للائحة اسمية بأرقام CIN ومؤهلات الطهاة (ودبلومات رؤساء الطهاة).`,
+        ref: `الدليل المسطري (1.2.4) + نموذج CPS المادة 31-A`
+      },
+      {
+        id: 37,
+        cat: `prep`,
+        q: `هل يُسمح بتشغيل أشخاص بصفة "متدرب" (Stagiaire) داخل مطبخ أو مطعم المؤسسة التعليمية في إطار صفقة المطعمة؟`,
+        opts: [
+          `نعم، بنسبة لا تتجاوز 20% من المستخدمين`,
+          `نعم، إذا كان يتوفر على تأمين صحي`,
+          `لا، يُمنع بتاتاً قبول أي شخص بصفة متدرب في أي منصب داخل المطعم، وتُشترط خبرة مؤكدة`,
+          `يُسمح بذلك في فترة العطل الصيفية فقط`
+        ],
+        ans: 2,
+        exp: `تنص المادة 31-A من CPS بوضوح: "تشترط خبرة مؤكدة في مجال الإطعام الجماعي، ولا يُقبل أي شخص بصفة متدرب (stagiaire) للعمل في المطعم أياً كان المنصب المسند إليه".`,
+        ref: `نموذج CPS - المادة 31-A (LE PERSONNEL)`
+      },
+      {
+        id: 38,
+        cat: `prep`,
+        q: `كم مرة في السنة يجب إخضاع مستخدمي المطعم للفحوصات الطبية الإلزامية بعد تسلم شهادة القدرة قبل بدء العمل؟`,
+        opts: [
+          `مرة واحدة كل سنتين`,
+          `على الأقل مرتين (02) في السنة، وكلما طلبت الإدارة ذلك في حالة حدوث وباء`,
+          `مرة واحدة عند التوظيف فقط`,
+          `شهرياً طيلة مدة الصفقة دون استثناء`
+        ],
+        ans: 1,
+        exp: `إضافة إلى شهادة القدرة ونتائج التحاليل الإلزامية قبل بدء الخدمة، يُخضع المستخدمون لفحوصات طبية مرتين في السنة على الأقل، وكلما طلبت الإدارة ذلك عند ظهور وباء.`,
+        ref: `نموذج CPS - المادة 31-B (VISITES MEDICALES)`
+      },
+      {
+        id: 39,
+        cat: `prep`,
+        q: `في حال رفض المؤسسة التعليمية لأحد مستخدمي الشركة لعدم كفاءته أو لإخلاله، ما هو الأجل الذي تفرضه الإدارة لاستبداله؟`,
+        opts: [
+          `أسبوع واحد (7 أيام)`,
+          `48 ساعة تحت طائلة احتفاظ المؤسسة بحق الرفض دون تبرير`,
+          `15 يوماً من تاريخ التبليغ`,
+          `نهاية الشهر المالي`
+        ],
+        ans: 1,
+        exp: `تحتفظ المؤسسة بحق الاعتراض على توظيف أو إبقاء أي مستخدم دون الحاجة لتبرير طلبها، وتلزم الشركة باستبدال المستخدم المرفوض في ظرف 48 ساعة.`,
+        ref: `نموذج CPS - المادة 31-A`
+      },
+      {
+        id: 40,
+        cat: `prep`,
+        q: `ما هي الصلاحيات التي يجب أن يخولها صاحب الصفقة لممثليه ونوابهم على صعيد كل مؤسسة تعليمية؟`,
+        opts: [
+          `التوقيع على عقود الشغل فقط`,
+          `التوقيع على الوثائق المتعلقة بالإشعار باستلام رسائل الطلبيات، ووثائق توريد المواد والوجبات الغذائية، ومحاضر المخالفات المرصودة`,
+          `صرف الحوالات الإدارية من الخزينة`,
+          `تعديل البرنامج الغذائي المعتمد بشكل منفرد`
+        ],
+        ans: 1,
+        exp: `يُخول ممثلو صاحب الصفقة ونوابهم صلاحية التوقيع على الإشعار باستلام رسائل الطلبيات، ووثائق التوريد، ومحاضر المخالفات التي تنجزها إدارة المؤسسة.`,
+        ref: `الدليل المسطري - الفقرة 1.2.4`
+      },
+      {
+        id: 41,
+        cat: `prep`,
+        q: `من يكلّف كتابةً من طرف صاحب المشروع بمهمة تتبع تنفيذ صفقة المطعمة؟`,
+        opts: [
+          `حارس الأمن الخاص بالمؤسسة`,
+          `المكلف بالتدبير المالي للمنح`,
+          `ممثل جمعية الآباء`,
+          `مستخدمو الطهي`
+        ],
+        ans: 1,
+        exp: `يتولى صاحب المشروع تكليفاً كتابياً للعون المكلف بتتبع تنفيذ صفقة المطعمة (المكلف بالتدبير المالي للمنح) وتبليغ اسمه وصفته لصاحب الصفقة ورؤساء المؤسسات المستفيدة.`,
+        ref: `الدليل المسطري - الفقرة 1.2.4`
+      },
+      {
+        id: 42,
+        cat: `prep`,
+        q: `ما هي المهلة المحددة لصاحب الصفقة لإيداع رؤوس العينات (Têtes de série) للعتاد الصغير للمطبخ والمائدة، ومهلة تدارك أي نقص لاحق؟`,
+        opts: [
+          `إيداع رؤوس العينات خلال 10 أيام من أمر بدء الخدمة، وتوريد النقص خلال 05 أيام من تاريخ الإشعار`,
+          `30 يوماً لإيداع العينات و15 يوماً لتوريد النقص`,
+          `48 ساعة لكليهما`,
+          `60 يوماً بعد نهاية الفصل الأول`
+        ],
+        ans: 0,
+        exp: `وفق المادة 36 من CPS، يودع صاحب الصفقة رؤوس العينات للمصادقة من طرف مدير المؤسسة بعد 10 أيام من أمر بدء الخدمة، ويلتزم بتوريد أي نقص يُشعر به في أجل 5 أيام.`,
+        ref: `نموذج CPS - المادة 36 (PETIT MATERIEL DE CUISINE)`
+      },
+      {
+        id: 43,
+        cat: `prep`,
+        q: `من يترأس اجتماع التقديم وخطة العمل التحضيري داخل المؤسسة التعليمية، ومن يحضره إلى جانب ممثل صاحب الصفقة ومستخدميه؟`,
+        opts: [
+          `رئيس المؤسسة التعليمية، بحضور مسير المصالح المادية والمالية، والحارس العام للداخلية، وممثل عن مجلس التدبير عند الاقتضاء`,
+          `الحارس العام للداخلية منفرداً`,
+          `المكلف بتصفية النفقات بالمديرية الإقليمية`,
+          `طبيب الصحة المدرسية ورئيس الجماعة`
+        ],
+        ans: 0,
+        exp: `يعقد رئيس المؤسسة اجتماعاً تحت رئاسته مع ممثل صاحب الصفقة ومستخدميه بحضور مسير المصالح المادية والمالية، والحارس العام للداخلية، وممثل مجلس التدبير عند الاقتضاء لتقديم خطة العمل والضوابط السلوكية وضبط المواقيت.`,
+        ref: `الدليل المسطري - الفقرة 1.2.4`
+      },
+      {
+        id: 44,
+        cat: `prep`,
+        q: `ما الإجراء المسطري اللازم عند وضع مرافق وتجهيز وعتاد المطبخ رهن إشارة صاحب الصفقة؟`,
+        opts: [
+          `تسليم المفاتيح شفوياً دون أي محضر`,
+          `إجراء جرد تعارضي (Inventaire contradictoire) من طرف المسير وممثل صاحب الصفقة وتحرير محضر يحدد بدقة حالة المرافق والتجهيزات موقع من الطرفين (رئيس المؤسسة وممثل صاحب الصفقة)`,
+          `شراء معدات جديدة بالكامل وإتلاف المعدات القديمة`,
+          `تأجير المطبخ للشركة بعقد كراء منفصل`
+        ],
+        ans: 1,
+        exp: `يشرف رئيس المؤسسة على عملية الجرد التعارضي عبر مسير المصالح المادية والمالية وممثل صاحب الصفقة، مع تحرير محضر يحدد بدقة حالة المرافق والتجهيزات المسلمة موقع من الطرفين.`,
+        ref: `الدليل المسطري (1.2.4) + نموذج CPS المادتان 33 و35`
+      },
+      {
+        id: 45,
+        cat: `prep`,
+        q: `بخصوص توزيع التحملات (المادة 30 من CPS)، على عاتق من تقع نفقات استهلاك الماء والكهرباء وحراسة المطعم؟`,
+        opts: [
+          `على عاتق صاحب الصفقة بالكامل`,
+          `مناصفة 50% على الإدارة و50% على صاحب الصفقة`,
+          `على عاتق الإدارة (المؤسسة)، مع التزام صاحب الصفقة بترشيد الاستهلاك وإصلاح الصنابير البسيط`,
+          `على عاتق التلاميذ المؤدين`
+        ],
+        ans: 2,
+        exp: `تتحمل الإدارة استهلاك الماء الصالح للشرب والكهرباء وقنينات الغاز الفارغة وحراسة المطعم ليلاً ونهاراً وصيانة الشبكات الكبرى، بينما يتحمل المقاول تعبئة الغاز وترشيد الاستهلاك والصيانة البسيطة للصنابير.`,
+        ref: `نموذج CPS - المادتان 30 و37`
+      },
+      {
+        id: 46,
+        cat: `prep`,
+        q: `من يتحمل نفقات قنينات الغاز الفارغة مقابل نفقات تعبئتها بغاز الطبخ وتركيبه؟`,
+        opts: [
+          `تتحمل الإدارة القنينات الفارغة، ويتحمل صاحب الصفقة تعبئتها بغاز الطبخ وتركيبه`,
+          `يتحمل صاحب الصفقة شراء القنينات الفارغة وتتحمل الإدارة تعبئتها`,
+          `تتحمل جمعية الآباء تكلفة الغاز بأكملها`,
+          `تُفرض رسوم الغاز على معلمي الداخلية`
+        ],
+        ans: 0,
+        exp: `وفق المادتين 30 و38 من CPS، تضع الإدارة قنينات الغاز الفارغة المتوفرة رهن إشارة صاحب الصفقة، بينما يتحمل صاحب الصفقة توفير الغاز (التعبئة) وتركيبه.`,
+        ref: `نموذج CPS - المادتان 30 و38`
+      },
+      {
+        id: 47,
+        cat: `prep`,
+        q: `كم مرة في السنة على الأقل يجب تجديد بذلة العمل (Tenue de travail) الخاصة بمستخدمي المطعم، وما هي مواعيدها المحددة؟`,
+        opts: [
+          `مرة واحدة في بداية السنة الدراسية فقط`,
+          `مرتان في السنة (شتنبر وفبراير)`,
+          `ثلاث (03) مرات في السنة: اليوم 1 من الشهر الأول، اليوم 1 من الشهر الخامس، واليوم 1 من الشهر التاسع للخدمة`,
+          `أربع مرات في السنة عند نهاية كل فصل`
+        ],
+        ans: 2,
+        exp: `تنص المادة 19-12 من CPS على تجديد بذلة العمل 3 مرات في السنة على الأقل: اليوم الأول من الشهر الـ1، اليوم الأول من الشهر الـ5، واليوم الأول من الشهر الـ9 (بلون فاتح ومطبوع عليها شعار الشركة).`,
+        ref: `نموذج CPS - المادتان 19 (بند 12) و31-C`
+      },
+      {
+        id: 48,
+        cat: `prep`,
+        q: `هل يحق للمؤسسة التعليمية استغلال قاعة الأكل أو المرافق الموضوعة رهن إشارة المقاول لتنظيم أنشطتها أو خلال العطل المدرسية؟`,
+        opts: [
+          `نعم، يمكنها ذلك في أي وقت وخلال العطل المدرسية دون أن يطالب المقاول بأي تعويض إضافي`,
+          `لا، تبقى القاعات مغلقة وحصرية للمقاول طوال مدة العقد`,
+          `نعم، لكن مقابل تعويض يومي تدفعه المؤسسة للمقاول`,
+          `يُشترط الحصول على إذن قضائي مسبق`
+        ],
+        ans: 0,
+        exp: `تنص المادة 34 من CPS على أن المؤسسة يمكنها في أي وقت التصرف في المرافق (خاصة المطعم لتنظيم أنشطتها) وخلال العطل المدرسية دون أن يدّعي مقدم الخدمة أي تعويض.`,
+        ref: `نموذج CPS - المادة 34 (MODE DE GESTION DES LOCAUX)`
+      },
+      {
+        id: 49,
+        cat: `prep`,
+        q: `كيف يجب أن تكون نوعية التجهيزات والأواني المطبخية التي يضعها صاحب الصفقة لتغطية الخصاص أو تجديد العتاد؟`,
+        opts: [
+          `من البلاستيك المقوى لسهولة النقل`,
+          `من الفولاذ المقاوم للصدأ (INOX) وتشتغل معدات الطبخ بالغاز (ما عدا التي لا يمكن تشغيلها بالغاز)`,
+          `من الألمنيوم العادي لتخفيف التكلفة`,
+          `أواني أحادية الاستعمال من الورق طيلة السنة`
+        ],
+        ans: 1,
+        exp: `تنص المادة 35-C من CPS على أن تكون المعدات والأواني والصحون من مادة INOX، وأن تشتغل معدات الطبخ بالغاز (باستثناء المعدات التي لا تشتغل إلا بالكهرباء).`,
+        ref: `نموذج CPS - المادة 35-C`
+      },
+      {
+        id: 50,
+        cat: `prep`,
+        q: `ما الوثائق التي يوافي بها صاحب المشروع المؤسسات التعليمية المستفيدة قبل بدء تنفيذ الصفقة؟`,
+        opts: [
+          `عروض الأثمان السرية لجميع المتنافسين الخاسرين`,
+          `نسخة من الصفقة، ونسخ الملفات الخاصة بمستخدمي وممثلي صاحب الصفقة، ورؤوس العينات للعتاد المطلوب`,
+          `الحوالة المالية السنوية كاملة مقدماً`,
+          `محضر التسلم النهائي مسبقاً`
+        ],
+        ans: 1,
+        exp: `يوافي صاحب المشروع المؤسسات المعنية بنسخة من الصفقة، ونسخ ملفات المستخدمين والممثلين، ويسلمها رؤوس العينات الخاصة بتجهيز وعتاد المطبخ المطلوب توفيره في إطار تغطية الخصاص.`,
+        ref: `الدليل المسطري - الفقرة 1.2.4`
+      },
+
+      // ==================== 4. مرحلة التنفيذ والنظافة والغرامات الغذائية (51-82) ====================
+      {
+        id: 51,
+        cat: `exec`,
+        q: `ما هو تسلسل المتدخلين في مسطرة تقديم الطلبيات اليومية بدءاً من تحديد الأعداد وصولاً للتبليغ؟`,
+        opts: [
+          `المسير يملأ ورقة الاتصال -> الحارس العام يوقع الطلبية -> ممثل الشركة يبلغ المدير`,
+          `الحارس العام للداخلية يعبئ ويوقع ورقة الاتصال -> المسير يعد ويوقع رسالة الطلبية -> رئيس المؤسسة يؤشر عليها ويبلغها لصاحب الصفقة`,
+          `مدير المؤسسة يطلب شفهياً من الطباخ مباشرة في الصباح`,
+          `المكلف بالتدبير المالي للمنح بالمديرية يرسل الطلبية يومياً`
+        ],
+        ans: 1,
+        exp: `يحدد الحارس العام للداخلية الأعداد اليومية المتوقعة في ورقة الاتصال ويوقعها، ثم يعد المسير رسالة الطلبية اليومية ويوقعها ويرفعها لرئيس المؤسسة الذي يؤشر عليها ويبلغها لصاحب الصفقة داخل الآجال التعاقدية.`,
+        ref: `الدليل المسطري - الفقرة 2.1.3 (مسطرة تقديم الطلبيات)`
+      },
+      {
+        id: 52,
+        cat: `exec`,
+        q: `ما هو التوقيت الأقصى المحدد في المادة 28 من دفتر الشروط الخاصة لإرسال طلبية وجبات اليوم الموالي إلى صاحب الصفقة؟`,
+        opts: [
+          `الساعة العاشرة صباحاً (10:00)`,
+          `الساعة الثانية بعد الزوال (14:00)`,
+          `الساعة السادسة مساءً (18:00) على أبعد تقدير`,
+          `الساعة العاشرة ليلاً (22:00)`
+        ],
+        ans: 2,
+        exp: `تنص المادة 28 من CPS على أن طلبية وجبات الغد يجب أن يرسلها مديرو المؤسسات إلى مقدم الخدمة كل يوم في موعد أقصاه الساعة 18:00 وفق نموذج يحدد الكميات المطلوبة.`,
+        ref: `نموذج CPS - المادة 28 (COMMANDE ET DISTRIBUTION DES REPAS)`
+      },
+      {
+        id: 53,
+        cat: `exec`,
+        q: `ما هي المعلومات التي يجب أن تتضمنها "ورقة الاتصال" الخاصة بالولوج اليومي للمطعم؟`,
+        opts: [
+          `أسماء التلاميذ الكاملة وعناوين سكنى آبائهم`,
+          `عدد المستفيدين من كل وجبة مع تبيان نوع المنحة (ممنوح، مؤد، متمم)، والسلك الدراسي (إعدادي، تأهيلي)، وأعداد المعلمين الداخليين، والتاريخ والتوقيعات`,
+          `قائمة المكونات الغذائية وغراماتها بالضبط`,
+          `تقرير النظافة الأسبوعي وصيانة الثلاجات`
+        ],
+        ans: 1,
+        exp: `تعتمد ورقة الاتصال الموحدة على تحديد أعداد المستفيدين حسب الوجبة (فطور، غذاء، عشاء)، ونوع المنحة (ممنوح/مؤد/متمم)، والسلك الدراسي (إعدادي/تأهيلي)، والمعلمين الداخليين، مع التاريخ والتوقيعات الثلاثة.`,
+        ref: `الدليل المسطري - الفقرة 2.1.1 والملحق (نموذج ورقة الاتصال)`
+      },
+      {
+        id: 54,
+        cat: `exec`,
+        q: `في حالة حدوث تغيير فجائي في أعداد المستفيدين المقترحة بعد إرسال الطلبية، ما الإجراء المسطري الواجب اتباعه؟`,
+        opts: [
+          `الاتصال الهاتفي الشفوي دون وثائق`,
+          `تحرير ورقة اتصال ورسالة طلبية معدلة مع احترام جميع العمليات المسطرية`,
+          `خصم الفارق في نهاية السنة الدراسية`,
+          `منع التلاميذ الإضافيين من ولوج المطعم`
+        ],
+        ans: 1,
+        exp: `في حالة حدوث تغيير فجائي في أعداد المستفيدين، وجب تحرير ورقة اتصال ورسالة طلبية معدلة مع احترام جميع العمليات المسطرية (الحارس العام ثم المسير ثم تأشيرة وتبليغ المدير).`,
+        ref: `الدليل المسطري - الفقرة 2.1.3`
+      },
+      {
+        id: 55,
+        cat: `exec`,
+        q: `ما الإجراء المعتمد استثناءً في حالة غياب بعض المستفيدين المتوقع حضورهم عن الوجبة؟`,
+        opts: [
+          `تُرمى الحصص الزائدة في النفايات مباشرة`,
+          `الحرص على إعادة توزيع الحصص الخاصة بالمتغيبين على التلاميذ الحاضرين بشكل عادل، وملء ورقة الغياب اليومي من طرف الحارس العام وتسليمها لرئيس المؤسسة`,
+          `يحتفظ أعوان الشركة بتلك الحصص لأنفسهم`,
+          `تُحفظ الوجبات المطهية لتقديمها في اليوم الموالي`
+        ],
+        ans: 1,
+        exp: `ينص الدليل المسطري في الفقرتين 2.1.3 و2.3.3 على إعادة توزيع حصص المتغيبين والفائض على التلاميذ الحاضرين بشكل عادل، وملء ورقة الغياب اليومي من طرف الحارس العام للداخلية وتسليمها لرئيس المؤسسة.`,
+        ref: `الدليل المسطري - الفقرتان 2.1.3 و2.3.3 والملحق`
+      },
+      {
+        id: 56,
+        cat: `exec`,
+        q: `كيف يشتغل المطعم المدرسي بالداخلية من حيث الأيام، ومتى يتوقف عن العمل خلال العطل؟`,
+        opts: [
+          `يشتغل 5 أيام في الأسبوع ويتوقف كل نهاية أسبوع`,
+          `يشتغل 7 أيام على 7 (7/7)، باستثناء أيام الأعياد وعندما تساوي أو تفوق مدة العطلة المدرسية 72 ساعة (03 أيام)`,
+          `يشتغل 6 أيام ويتوقف يوم الأحد`,
+          `يشتغل طيلة السنة حتى في عطلة الصيف والأعياد`
+        ],
+        ans: 1,
+        exp: `تنص المادة 39 من CPS على أن المطعم يشتغل 7/7 باستثناء الأعياد الدينية/الوطنية وعندما تعادل أو تتجاوز مدة العطلة 72 ساعة (3 أيام).`,
+        ref: `نموذج CPS - المادة 39 (FONCTIONNEMENT DE LA RESTAURATION)`
+      },
+      {
+        id: 57,
+        cat: `exec`,
+        q: `كيف يجب أن تُقدم الوجبات للتلاميذ داخل قاعة الأكل حسب المادة 28 و39 من CPS؟`,
+        opts: [
+          `في أطباق جماعية مشتركة لكل طاولة من 8 تلاميذ`,
+          `بشكل فردي في أطباق فردية (plats individuels) سواء بنظام الخدمة على الطاولة أو الخدمة الذاتية (self-service)`,
+          `في أكياس بلاستيكية يحملونها إلى المراقد`,
+          `دون تقيد بشكل التقديم ما دام الوزن صحيحاً`
+        ],
+        ans: 1,
+        exp: `تشدد المادتان 28 و39 من CPS والفقرة 2.3.3 من الدليل على التوزيع الفردي في أطباق فردية مع التطبيق الحرفي للبرنامج الغذائي.`,
+        ref: `الدليل المسطري (2.3.3) + نموذج CPS المادتان 28 و39`
+      },
+      {
+        id: 58,
+        cat: `exec`,
+        q: `عند تسلم ومراقبة المواد الغذائية الموردة للمطبخ، ما الشهادة الرسمية التي يجب التأكد من توفرها للمواد المعبأة والمعلبات واللحوم والدواجن والأسماك؟`,
+        opts: [
+          `شهادة الغرفة الفلاحية فقط`,
+          `شواهد وترخيص المكتب الوطني للسلامة الصحية للمنتجات الغذائية (ONSSA)`,
+          `فاتورة الشراء من تاجر الجملة دون ترخيص صحي`,
+          `شهادة مطابقة صادرة عن جماعة الترابية`
+        ],
+        ans: 1,
+        exp: `يجب مراقبة التاريخ الاستدلالي للترخيص وتاريخ الصلاحية والتأكد من توفر شواهد وترخيص المكتب الوطني للسلامة الصحية (ONSSA) لكل من اللحوم والدواجن والأسماك والمعلبات والمواد المعبأة (باستثناء القطاني غير المعلبة السائبة).`,
+        ref: `الدليل المسطري (2.2.3) + نموذج CPS المادة 43`
+      },
+      {
+        id: 59,
+        cat: `exec`,
+        q: `ما المقصود بمبدأ "السير إلى الأمام" (La marche en avant) الواجب احترامه داخل المطبخ؟`,
+        opts: [
+          `تقدم الشركة إلى الأمام في توقيع الصفقات المستقبلية`,
+          `تنظيم سير العمل بالمطبخ بحيث تسير المواد الغذائية من المناطق المتسخة (الاستلام والتقشير) نحو المناطق النظيفة (التحضير والطهي والتقديم) دون تراجع أو تقاطع بين المسارات المتسخة والنظيفة`,
+          `ترتيب الطاولات في قاعة الأكل في صفوف أمامية فقط`,
+          `طهي جميع الوجبات قبل أسبوع وتقديمها تباعاً`
+        ],
+        ans: 1,
+        exp: `يقضي مبدأ "السير إلى الأمام" وفصل القطاع المتسخ عن القطاع النظيف بإبعاد المنتجات المنقاة والمطهية عن المنتجات الخام والنفايات ومنع تقاطع المسارات (اللحم/الخضر، المطهي/النيئ، البارد/الساخن).`,
+        ref: `الدليل المسطري (2.2.3) + نموذج CPS المادة 32`
+      },
+      {
+        id: 60,
+        cat: `exec`,
+        q: `أي من الممارسات التالية يُمنع منعاً كلياً أثناء تحضير الطعام وإعداد الوجبات حسب الفقرة 2.2.3 من الدليل؟`,
+        opts: [
+          `استعمال الحمص في إعداد الحريرة المغربية`,
+          `إدخال مواد إضافية ضارة أو غير مرخصة مثل الصودا، المنكهات الصناعية، السمن، الحامض المخلل، أو استعمال الهاتف النقال وارتداء الخواتم والأساور`,
+          `ارتداء غطاء الرأس والقفازات وأحذية المطبخ الخاصة`,
+          `غسل اليدين بالماء والصابون بشكل مستمر`
+        ],
+        ans: 1,
+        exp: `يراقب المسير عدم إدخال مواد إضافية ضارة أو تفتقد لضوابط الجودة (الصودا، المنكهات، السمن، الحامض المخلل)، وتجرد الأعوان من الإكسسوارات (الخواتم، الأساور)، والتركيز على الطهي وعدم استعمال الهاتف النقال.`,
+        ref: `الدليل المسطري - الفقرة 2.2.3`
+      },
+      {
+        id: 61,
+        cat: `exec`,
+        q: `ما هي الأعراض الصحية الظاهرية التي تستوجب مراقبتها واستبعاد عون الطبخ من تهييئ الوجبات عند ظهورها؟`,
+        opts: [
+          `ارتفاع الحرارة، السعال، سيلان الأنف، العطاس، أو وجود جراح باليدين`,
+          `ارتداء النظارات الطبية لتصحيح النظر`,
+          `التحدث باللهجة المحلية أثناء العمل`,
+          `طول القامة أو قصرها`
+        ],
+        ans: 0,
+        exp: `ينص الدليل على مراقبة الحالة الصحية العامة لأعوان الطبخ للتأكد من عدم وجود علامات مرض ظاهرية مثل الحرارة، السعال، سيلان الأنف، العطاس، أو جراح اليدين.`,
+        ref: `الدليل المسطري - الفقرة 2.2.3`
+      },
+      {
+        id: 62,
+        cat: `exec`,
+        q: `كم يوماً يجب الاحتفاظ بعينات الوجبة الشاهدة (Repas témoin) في المجمد مع تحديد تواريخها؟`,
+        opts: [
+          `24 ساعة فقط`,
+          `يومين (48 ساعة)`,
+          `خمسة (05) أيام على الأقل في المجمد في مكان ظاهر مع ذكر التاريخ`,
+          `30 يوماً كاملة`
+        ],
+        ans: 2,
+        exp: `تؤكد المادتان 31-E و41 من CPS والفقرة 2.3.3 من الدليل على الإيداع اليومي المنتظم لعينات الوجبات الشاهدة الممثلة لجميع الأطباق والاحتفاظ بها في المجمد مع ذكر التاريخ لمدة لا تقل عن 5 أيام.`,
+        ref: `الدليل المسطري (2.3.3) + نموذج CPS المادتان 31-E و41`
+      },
+      {
+        id: 63,
+        cat: `exec`,
+        q: `ما هو الحد الأدنى الدوري لإجراء التحاليل البكتريولوجية من طرف مختبر مستقل ومعتمد على نفقة صاحب الصفقة؟`,
+        opts: [
+          `عينة واحدة في السنة الدراسية`,
+          `عينة على ثلاث (3) مواد غذائية شهرياً على الأقل تُجرى على وجبة نموذجية، مع إشعار الإدارة بعقد المختبر خلال الشهر الأول`,
+          `تحليل أسبوعي لجميع الوجبات الثلاث`,
+          `لا تُجرى تحاليل إلا عند وقوع تسمم فعلي`
+        ],
+        ans: 1,
+        exp: `وفق المادة 31-E من CPS، يجري صاحب الصفقة عبر مختبر معتمد ومستقل تحاليل بكتريولوجية بوتيرة لا تقل عن عينة من 3 مواد غذائية كل شهر على وجبة نموذجية، إضافة لفحص زيت القلي.`,
+        ref: `نموذج CPS - المادة 31-E (Contrôles Bactériologiques)`
+      },
+      {
+        id: 64,
+        cat: `exec`,
+        q: `ما هي الوتيرة الدنيا التي يلتزم فيها صاحب الصفقة بإجراء استطلاعات "الجودة" لدى التلاميذ حول الخدمات والوجبات على نفقته؟`,
+        opts: [
+          `كل أسبوع`,
+          `كل ربع سنة (فصلياً) على الأقل، بعد عرض النموذج والمحتوى على المكلف بالمصالح المادية للموافقة`,
+          `مرة واحدة عند نهاية مدة الصفقة (السنة الثالثة)`,
+          `الاستطلاعات اختيارية ولا يلزم بها المقاول`
+        ],
+        ans: 1,
+        exp: `تنص المادة 31-E (سياسة الجودة والنظافة) على إجراء استطلاعات جودة لدى التلاميذ كل ثلاثة أشهر (فصلياً) على الأقل على نفقة المقاول وإبلاغ نتائجها لإدارة المؤسسة.`,
+        ref: `نموذج CPS - المادة 31-E (Politique de Qualité)`
+      },
+      {
+        id: 65,
+        cat: `exec`,
+        q: `ما هي الوتيرة المحددة لتنظيف وتعقيم الأسطح والمواقد والأفران والثلاجات وأواني العمل وجمع النفايات؟`,
+        opts: [
+          `أسبوعياً كل يوم أحد`,
+          `يومياً، مع تعقيم الأواني وألواح التقطيع بعد كل استعمال، وإفراغ النفايات مباشرة بعد كل وجبة`,
+          `شهرياً عند نهاية كل شهر`,
+          `كل ثلاثة أشهر`
+        ],
+        ans: 1,
+        exp: `تُنظف الأسطح والأرضيات والمواقد والأفران والثلاجات يومياً، وتُعقم الأواني وألواح التقطيع والآلات بعد كل استعمال، وتُفرغ النفايات مباشرة بعد كل وجبة، مع تنظيف معمق وشامل نهاية كل أسبوع.`,
+        ref: `الدليل المسطري (2.2.3 و2.3.3) + نموذج CPS المادة 32`
+      },
+      {
+        id: 66,
+        cat: `exec`,
+        q: `ما هي الوتيرة الزمنية المحددة لتفريغ مصفاة الشحوم (Bac à graisse) واستبدالها، وكذا لتسليك شبكة صرف المطبخ؟`,
+        opts: [
+          `تفريغ المصفاة شهرياً، واستبدالها كل 3 سنوات، والتسليك مرة في السنة`,
+          `تفريغ مصفاة الشحوم مرة في الأسبوع على الأقل، واستبدالها مرة في السنة (الأسبوع الأول من شتنبر)، وتسليك الشبكة 3 مرات في السنة (الأسبوع 1 من شتنبر، يناير، أبريل)`,
+          `تفريغ المصفاة يومياً، وتسليك الشبكة كل أسبوعين`,
+          `لا يشمل عقد المطعمة صيانة مصافي الشحوم أو قنوات الصرف`
+        ],
+        ans: 1,
+        exp: `تحدد المادة 30 من CPS تفريغ مصفاة الشحوم أسبوعياً على الأقل، واستبدالها سنوياً في الأسبوع الأول من شتنبر، وتسليك شبكة الصرف 3 مرات في السنة (الأسبوع 1 من شتنبر، يناير، أبريل) وفي كل حالة استعجالية.`,
+        ref: `نموذج CPS - المادة 30 (الفقرة 2)`
+      },
+      {
+        id: 67,
+        cat: `exec`,
+        q: `ما هو الأجل الأقصى لتدخل صاحب الصفقة في إطار الصيانة التصحيحية لإصلاح التجهيزات المعطلة بعد إشعاره؟`,
+        opts: [
+          `7 أيام عمل`,
+          `48 ساعة من تاريخ الإشعار بأمر الإصلاح (ويمكن التبليغ بالبريد الإلكتروني) مع تقديم بطاقات التدخل`,
+          `15 يوماً`,
+          `ساعتان فقط`
+        ],
+        ans: 1,
+        exp: `تنص المادة 35-B من CPS على أن صاحب الصفقة يتدخل خلال أجل 48 ساعة من تاريخ الإشعار (بما فيه البريد الإلكتروني) لإصلاح التجهيزات المعطلة مع تقديم بطاقات التدخل للإدارة.`,
+        ref: `نموذج CPS - المادة 35-B (MAINTENANCE CORRECTIVE)`
+      },
+      {
+        id: 68,
+        cat: `exec`,
+        q: `في حال تسلُّم وجبات لا تطابق الكمية أو النوعية المحددة، أو عند ثبوت مخاطر صحية، ما الإجراء الفوري الذي تتخذه الإدارة؟`,
+        opts: [
+          `قبول الوجبة وتأجيل الملاحظة إلى نهاية الشهر`,
+          `في نقص الكمية/الجودة يُلزم بمعالجة التفاوتات؛ وفي الخطر الصحي يُطالب بسحب الوجبات فوراً من الاستهلاك، وإذا لم يمتثل يحق للإدارة التموين فوراً من موردين آخرين`,
+          `إغلاق الداخلية لمدة أسبوع`,
+          `الاكتفاء بتنبيه شفوي دون إثبات في المحضر`
+        ],
+        ans: 1,
+        exp: `تطالب الإدارة صاحب الصفقة بمعالجة التفاوتات أو سحب الوجبات الفوري عند ثبوت مخاطر صحية، وبموجب المادة 29 من CPS يحق للإدارة التموين فوراً من موردين آخرين إذا لم يعالج الاختلالات.`,
+        ref: `الدليل المسطري (2.3.3) + نموذج CPS المادة 29`
+      },
+      {
+        id: 69,
+        cat: `exec`,
+        q: `ما الغراماج الصافي بعد الطهي المحدد في المادة 44 من CPS لكل من: لحم البقر بدون عظم، واللحم المفروم، والدجاج؟`,
+        opts: [
+          `لحم بقر 150غ، لحم مفروم 100غ، دجاج 250غ`,
+          `لحم بقر بدون عظم 100غ، لحم مفروم 70غ، دجاج 200غ`,
+          `لحم بقر 80غ، لحم مفروم 50غ، دجاج 120غ`,
+          `لحم بقر 200غ، لحم مفروم 150غ، دجاج 300غ`
+        ],
+        ans: 1,
+        exp: `ينص جدول الغراماج (المادة 44 من CPS) على: لحم بقر بدون عظم 100غ، لحم مفروم 70غ، دجاج 200غ، وفيليه وإسكالوب الديك الرومي 100غ لكل منهما بعد الطهي.`,
+        ref: `نموذج CPS - المادة 44 (GRAMMAGE DES MENUS)`
+      },
+      {
+        id: 70,
+        cat: `exec`,
+        q: `ما هي حصة الخبز بعد الطهي في جدول الغراماج (المادة 44) وما مواصفاته في المادة 43؟`,
+        opts: [
+          `300غ من الدقيق الأبيض مطهو قبل 24 ساعة`,
+          `200غ لكل وجبة (في المادة 44)، وبمواصفات خبز دائري من دقيق القمح الكامل الغني بالألياف مطهي في اليوم نفسه خلال 3 ساعات على الأكثر`,
+          `100غ من الخبز المجمد المستورد`,
+          `150غ من خبز الذرة دون تحديد مدة الطهي`
+        ],
+        ans: 1,
+        exp: `يحدد جدول الغراماج حصة الخبز في 200غ، وتنص المادة 43 على أنه محضر بدقيق القمح الكامل الغني بالألياف، جاف اللب، ومخبوز في اليوم نفسه (بأقصى تقدير قبل 3 ساعات).`,
+        ref: `نموذج CPS - المادتان 43 و44`
+      },
+      {
+        id: 71,
+        cat: `exec`,
+        q: `ما هو غراماج كل من الحريرة المغربية، والكسكس بالقمح الصلب، والقطاني والأرز والمعجنات بعد الطهي؟`,
+        opts: [
+          `الحريرة 200غ، الكسكس 80غ، القطاني 60غ`,
+          `الحريرة المغربية 300غ، كسكس القمح الصلب 120غ، القطاني والأرز والمعجنات 100غ`,
+          `الحريرة 500غ، الكسكس 200غ، القطاني 150غ`,
+          `الحريرة 150غ، الكسكس 100غ، القطاني 80غ`
+        ],
+        ans: 1,
+        exp: `حسب المادة 44 من CPS: الحريرة المغربية 300غ، الكسكس بالقمح الصلب 120غ (والسميدة 50غ)، والقطاني والأرز والشعرية/المعجنات 100غ.`,
+        ref: `نموذج CPS - المادة 44`
+      },
+      {
+        id: 72,
+        cat: `exec`,
+        q: `ما هي حصة البيض المسلوق المقررة لكل تلميذ في وجبة الغذاء مقارنة بوجبتي الفطور والعشاء؟`,
+        opts: [
+          `بيضة واحدة في الغذاء ونصف بيضة في الفطور`,
+          `نصف بيضة (1/2 وحدة) في وجبة الغذاء، وبيضة كاملة (1 وحدة) في الفطور والعشاء والأومليط`,
+          `بيضتان في كل وجبة`,
+          `البيض ممنوع في وجبة العشاء`
+        ],
+        ans: 1,
+        exp: `تنص نهاية جدول الغراماج (المادة 44) على: بيضة مسلوقة (غذاء) = 1/2 وحدة؛ وبيضة مسلوقة (فطور وعشاء) أو أومليط = 1 وحدة.`,
+        ref: `نموذج CPS - المادة 44`
+      },
+      {
+        id: 73,
+        cat: `exec`,
+        q: `ما هي حصة كل من الحليب، واللبن، وزيت الزيتون، والمربى، والزبدة، والتمر، والشباكية في المادة 44؟`,
+        opts: [
+          `الحليب 150مل، اللبن 100غ، زيت الزيتون 10مل، المربى 15غ، التمر 40غ`,
+          `الحليب 250مل، اللبن 225غ، زيت الزيتون 25مل، المربى 30غ، الزبدة 20غ، التمر 70غ، الشباكية 60غ`,
+          `الحليب 500مل، اللبن 300غ، زيت الزيتون 50مل، المربى 50غ، التمر 100غ`,
+          `الحليب 200مل، اللبن 200غ، زيت الزيتون 15مل، المربى 20غ، الشباكية 80غ`
+        ],
+        ans: 1,
+        exp: `وفق المادة 44 من CPS: الحليب 250مل، اللبن 225غ، زيت الزيتون 25مل، المربى 30غ، الزبدة 20غ، التمر 70غ، الشباكية 60غ، الفلون 80غ، عصير الفواكه 125مل.`,
+        ref: `نموذج CPS - المادة 44`
+      },
+      {
+        id: 74,
+        cat: `exec`,
+        q: `كم نوعاً من الخضر والمكونات يجب أن يتضمنه طبق "الكسكس بالخضر" على الأقل حسب ملاحظة المادة 44؟`,
+        opts: [
+          `3 مكونات فقط (الجزر واللفت والبطاطس)`,
+          `8 مكونات على الأقل: الجزر، القرع الأحمر، القرع الأخضر (الكوسة)، اللفت، الطماطم، البصل، البطاطس، والحمص`,
+          `4 مكونات دون حمص أو طماطم`,
+          `لا تحدد المادة أي مكونات إلزامية للكسكس`
+        ],
+        ans: 1,
+        exp: `تنص ملاحظة المادة 44 على أن الكسكس بالخضر يجب أن يحتوي على الأقل على 8 مواد: الجزر + القرع الأحمر + الكوسة + اللفت + الطماطم + البصل + البطاطس + الحمص.`,
+        ref: `نموذج CPS - المادة 44 (N.B)`
+      },
+      {
+        id: 75,
+        cat: `exec`,
+        q: `ما هي المكونات الإلزامية العشرة في طبق "السلطة المتنوعة" (180غ) حسب المادة 44 من CPS؟`,
+        opts: [
+          `الطماطم والخيار والبصل فقط`,
+          `البطاطس، الجزر، الشمندر، الخس، الطماطم، الفلفل الأخضر، الخيار، الأرز المصقول، الزيتون الأسود، والتونة المعلبة`,
+          `المعجنات والمايونيز والجبن الأحمر فقط`,
+          `الملفوف والفجل والبقدونس فقط`
+        ],
+        ans: 1,
+        exp: `تشترط المادة 44 أن تحتوي السلطة المتنوعة (180غ) على الأقل على: بطاطس + جزر + شمندر + سلطة خضراء + طماطم + فلفل أخضر + خيار + أرز مصقول + زيتون أسود + تونة معلبة (بغراماج 30غ للتونة).`,
+        ref: `نموذج CPS - المادة 44 (N.B)`
+      },
+      {
+        id: 76,
+        cat: `exec`,
+        q: `ما هي الخصائص المشترطة في كل من البيض والبطاطس واللبن والتونة المعلبة وفق المادة 43 من CPS؟`,
+        opts: [
+          `البيض وزنه أقل من 40غ، واللبن بصلاحية 3 أيام، والتونة بالزيت النباتي المكرر`,
+          `البيض طازج بوزن 50–60غ؛ البطاطس بوزن أدنى 200غ؛ اللبن بصلاحية تفوق 15 يوماً عند التوريد؛ التونة المعلبة في زيت الزيتون حصراً`,
+          `التونة بالماء المملح فقط، والبطاطس غير مغسولة ومبرعمة`,
+          `البيض بدون تاريخ إنتاج واللبن معبأ في براميل سائبة`
+        ],
+        ans: 1,
+        exp: `تحدد المادة 43: البيض طازج ومؤرخ بوزن 50–60غ؛ البطاطس بوزن أدنى 200غ وخالية من التبرعم والاخضرار؛ اللبن بصلاحية تفوق 15 يوماً عند التوريد؛ التونة المعلبة محفوظة حصراً في زيت الزيتون.`,
+        ref: `نموذج CPS - المادة 43 (CLAUSES SPECIFIQUES)`
+      },
+      {
+        id: 77,
+        cat: `exec`,
+        q: `كيف يجب أن يكون اللحم الأحمر والدواجن المستخدمة في إعداد الوجبات حسب المادة 43 من CPS؟`,
+        opts: [
+          `لحم غنم وبقر مجمد مع العظم والشحم`,
+          `لحم بقر أحمر غير مجمد بدون عظم وبدون شحم من مجازر مرخصة ومراقبة بيطرياً، ودجاج وديك رومي غير مجمدين من مؤسسات معتمدة من ONSSA`,
+          `لحوم مجمدة مستوردة دون شواهد بيطرية`,
+          `دواجن مذبوحة في الأسواق الأسبوعية دون ترخيص ONSSA`
+        ],
+        ans: 1,
+        exp: `تشترط المادة 43 لحم بقر أحمر غير مجمد بدون عظم وشحم من مجازر مرخصة ومنقول وفق المرسوم 2-97-177، ودواجن غير مجمدة من وحدات مدرجة باللائحة المحينة لـ ONSSA.`,
+        ref: `نموذج CPS - المادة 43`
+      },
+      {
+        id: 78,
+        cat: `exec`,
+        q: `ما هي آليات التوثيق اليومية التي ينص عليها الدليل المسطري في الفقرة 2.3.3 لتتبع ظروف تقديم الخدمة؟`,
+        opts: [
+          `توثيق الوجبات يومياً بالصور، حفظ الوجبة الشاهدة، إنجاز تقرير يومي مفصل من طرف المسير وآخر من طرف الحارس العام (مؤشرين من رئيس المؤسسة)، وتحرير محاضر المخالفات عند وجودها`,
+          `تسجيل أعداد الغياب في دفتر الحراسة العامة فقط دون تقارير أو صور`,
+          `إعداد تقرير واحد كل نهاية سنة دراسية`,
+          `الاكتفاء بتسجيلات كاميرات المراقبة دون تقارير مكتوبة`
+        ],
+        ans: 0,
+        exp: `تتطلب مسطرة تسلم الوجبات: توثيق الوجبات بالصور يومياً، إيداع الوجبة الشاهدة بالمجمد، إنجاز تقريرين يوميين مفصلين (المسير + الحارس العام للداخلية) مؤشر عليهما من رئيس المؤسسة، وتحرير محضر المخالفة عند الاقتضاء.`,
+        ref: `الدليل المسطري - الفقرة 2.3.3 والملحقات`
+      },
+      {
+        id: 79,
+        cat: `exec`,
+        q: `ما هي البنود الخمسة المكونة لملحق التقرير اليومي للمصالح المادية والمالية الخاص بتتبع خدمة المطعمة؟`,
+        opts: [
+          `مراقبة الأسعار، الجرد السنوي، الحضور الإداري، الفواتير، المشتريات`,
+          `1- تتبع النظافة (7 معايير بسلم من جيدة إلى ضعيفة)، 2- تتبع الوجبات المقدمة (10 مؤشرات بنعم/لا)، 3- إتلاف وصيانة البناية والتجهيزات، 4- ملاحظات عامة واقتراحات`,
+          `قائمة الممونين، لائحة التلاميذ الاسمية، جدول الحصص الدراسية`,
+          `تحاليل المختبر، ورقة الغياب، وتذكرة المستفيدين`
+        ],
+        ans: 1,
+        exp: `يضم ملحق التقرير اليومي لتتبع خدمة المطعمة: 1- تتبع النظافة (أعوان، أواني، قاعة أكل، مطعم، مخازن، مواقد وثلاجات، مخلفات)، 2- تتبع الوجبات (مواعيد، أعداد، برنامج غذائي، حرارة، مكونات، استلام سلع، كميات، جودة طبخ، تخزين، توزيع فردي)، 3- إتلاف وصيانة البناية والتجهيزات، 4- ملاحظات عامة واقتراحات.`,
+        ref: `الدليل المسطري - الملحق (ملحق التقرير اليومي للمصالح المادية والمالية)`
+      },
+      {
+        id: 80,
+        cat: `exec`,
+        q: `متى يُلزم صاحب الصفقة بتقديم لائحة بالعتاد المتلاشي وإرجاع مفاتيح المرافق، وما هو أجل إرجاع المحلات والعتاد عند انتهاء أو فسخ الصفقة؟`,
+        opts: [
+          `تقديم لائحة المتلاشي وإرجاع المفاتيح قبل نهاية كل سنة دراسية؛ وإرجاع المحلات والعتاد عند الانتهاء أو الفسخ يتم بمحضر في أجل ثلاثة (03) أيام`,
+          `خلال 6 أشهر من انتهاء السنة الدراسية`,
+          `يحتفظ صاحب الصفقة بالمفاتيح طيلة السنوات الثلاث دون إرجاعها صيفاً`,
+          `خلال 30 يوماً من انتهاء الصفقة`
+        ],
+        ans: 0,
+        exp: `يلتزم صاحب الصفقة بتقديم لائحة العتاد المتلاشي وإرجاع المفاتيح قبل نهاية كل سنة دراسية (2.3.3)، كما يلتزم عند انتهاء الصفقة أو فسخها بإرجاع المحلات والمعدات بموجب محضر موقع من الطرفين خلال 3 أيام (المادة 32 CPS).`,
+        ref: `الدليل المسطري (2.3.3) + نموذج CPS المادة 32`
+      },
+      {
+        id: 81,
+        cat: `exec`,
+        q: `فيما يخص الحميات الغذائية الخاصة لبعض التلاميذ، ما هي القاعدة المطبقة حسب الدليل والمادة 39 من CPS؟`,
+        opts: [
+          `يُحرم التلاميذ ذوو الحميات الخاصة من الوجبات بالداخلية`,
+          `يُلتزم بتقديم وجبات مناسبة للتلاميذ الخاضعين لحمية خاصة أو توازن غذائي محدد شريطة إشعار مدير المؤسسة لصاحب الصفقة`,
+          `يُفرض على التلميذ دفع ثمن إضافي مضاعف`,
+          `لا يُسمح بتغيير أي طبق حتى لاعتبارات صحية`
+        ],
+        ans: 1,
+        exp: `تنص المادة 39 والفقرة 2.3.3 على مراقبة الحالات الاستثنائية التي تتبع حميات خاصة وتقديم وجبات ملائمة لهم شريطة إخبار مدير المؤسسة لصاحب الصفقة.`,
+        ref: `الدليل المسطري (2.3.3) + نموذج CPS المادة 39`
+      },
+      {
+        id: 82,
+        cat: `exec`,
+        q: `من يوقّع على "محضر مخالفة" في حالة رصد إخلالات أثناء تتبع خدمة المطعمة بالمؤسسة؟`,
+        opts: [
+          `رئيس المؤسسة منفرداً دون علم الشركة`,
+          `أعضاء لجنة التتبع والمراقبة (الحارس العام للداخلية، مسير(ة) المصالح المادية والمالية، رئيس المؤسسة) مع توقيع ممثل الشركة`,
+          `تلاميذ الداخلية وممثل جمعية الآباء فقط`,
+          `الخازن المؤدي للأكاديمية`
+        ],
+        ans: 1,
+        exp: `يتضمن نموذج محضر المخالفة بالملحق توقيع ممثل الشركة إلى جانب توقيعات لجنة التتبع والمراقبة (الحارس العام للداخلية، مسيرة/مسير المصالح المادية والمالية، رئيس المؤسسة التعليمية).`,
+        ref: `الدليل المسطري (2.3.3) + الملحق (نموذج محضر مخالفة)`
+      },
+
+      // ==================== 5. مرحلة ما بعد التنفيذ وتصفية الصفقة والأمر بالأداء (83-96) ====================
+      {
+        id: 83,
+        cat: `post_exec`,
+        q: `ما هي القاعدة الحسابية الجديدة التي يعتمدها الحارس العام للداخلية عند إنجاز بيانات المصاريف الشهرية في نظام المطعمة؟`,
+        opts: [
+          `اعتماد قيمة المنحة اليومية ومدة حضور التلاميذ بالداخلية`,
+          `اعتماد قيمة كل وجبة من الوجبات الثلاث كما هي مدرجة بجدول الأثمنة (عوض قيمة المنحة) وعدد الوجبات المقدمة فعلياً (عوض مدة الحضور)`,
+          `اعتماد ثمن المواد الأولية المشتراة من السوق`,
+          `اعتماد العدد النظري للتلاميذ في الخريطة المدرسية بغض النظر عن التغذية`
+        ],
+        ans: 1,
+        exp: `ينص الدليل في الفقرة 3.1.3 على أن الحارس العام للداخلية ينجز ويوقع بيانات المصاريف شهرياً باعتماد قيمة كل وجبة بجدول الأثمنة (عوض قيمة المنحة) وعدد الوجبات (عوض مدة الحضور).`,
+        ref: `الدليل المسطري - الفقرة 3.1.3 (مسطرة التحضير لتصفية الصفقة)`
+      },
+      {
+        id: 84,
+        cat: `post_exec`,
+        q: `في كم نظير يُعد مسير المصالح المادية والمالية كلاً من المحضر اليومي والمحضر الشهري لتسلم الخدمة؟`,
+        opts: [
+          `في نظير واحد يرسله للمديرية دون احتفاظ بنسخة`,
+          `في نظيرين (02) يوقعهما بمعية رئيس المؤسسة التعليمية (وممثل مقدم الخدمة): يُرسل نظير للمكلف بالتدبير المالي للمنح ويُحفظ النظير الثاني بالمؤسسة`,
+          `في أربعة نظائر توزع على التلاميذ`,
+          `لا يُعد محضراً يومياً بل شهرياً فقط`
+        ],
+        ans: 1,
+        exp: `يعد المسير المحضر اليومي والمحضر الشهري لتسلم الخدمة في نظيرين موقعين، يُرسل أحدهما للمكلف بالتدبير المالي للمنح ويُمسك ويُحفظ النظير الثاني بالمؤسسة (3.1.3)، كما يُسلّم نظير لمقدم الخدمة وفق ملاحظة المادة 17.`,
+        ref: `الدليل المسطري - الفقرة 3.1.3`
+      },
+      {
+        id: 85,
+        cat: `post_exec`,
+        q: `متى يتم إنجاز محضر التسلم المؤقت (Réception provisoire) في دفتر الشروط الخاصة، ومن يتولى إعداده وفي كم نسخة؟`,
+        opts: [
+          `في نهاية كل أسبوع من طرف مدير المؤسسة في نسخة واحدة`,
+          `في نهاية كل ربع سنة (فصل) من طرف لجنة تسلم تضم عضوين على الأقل يقترحهما المدير الإقليمي، في خمس (5) نسخ بناءً على شهادات تسلم الخدمة الفصلية (ARS)`,
+          `في نهاية كل شهر من طرف الحارس العام في نسختين`,
+          `مرة واحدة بعد 3 سنوات في 3 نسخ`
+        ],
+        ans: 1,
+        exp: `وفق المادة 17 من CPS، يحرر في نهاية كل ربع سنة محضر تسلم مؤقت في 5 نسخ توقعه لجنة مكونة من عضوين على الأقل والمدير الإقليمي بناء على شهادات تسلم الخدمة الفصلية ARS المحررة في 5 نسخ.`,
+        ref: `نموذج CPS - المادة 17 (RECEPTIONS PROVISOIRE, PARTIELLE ET DEFINITIVE)`
+      },
+      {
+        id: 86,
+        cat: `post_exec`,
+        q: `كيف توزع النسخ الخمس من شهادات تسلم الخدمة (ARS) ومحاضر التسلم المؤقت الفصلية؟`,
+        opts: [
+          `تحفظ كلها في أرشيف المؤسسة التعليمية`,
+          `نسخة للمؤسسة المستفيدة/المديرية، نسخة لصاحب الصفقة، وثلاث (3) نسخ تُوجه لصاحب المشروع لإرفاقها بالكشف التفصيلي للأداء`,
+          `نسختان لصاحب الصفقة و3 نسخ لوزارة المالية`,
+          `تُسلم جميعها لصاحب الصفقة لإيداعها بالبنك`
+        ],
+        ans: 1,
+        exp: `تُحفظ نسخة لدى الجهة المستفيدة/المديرية الإقليمية، وتُسلم نسخة لنائل الصفقة، وتُوجه 3 نسخ إلى صاحب المشروع (مصلحة الشؤون الإدارية والمالية بالأكاديمية) لإرفاقها بالكشف التفصيلي (Décompte).`,
+        ref: `نموذج CPS - المادة 17`
+      },
+      {
+        id: 87,
+        cat: `post_exec`,
+        q: `ما هو الإجراء الإلزامي في حالة معاينة إخلال ببنود الصفقة عند تحرير شهادة تسلم الخدمة (ARS) ومحضر التسلم المؤقت؟`,
+        opts: [
+          `تجاهل الإخلال لتفادي تأخير صرف الفاتورة`,
+          `التنصيص الإجباري على الإخلال في شهادة ARS وفي محضر التسلم المؤقت مع الإحالة على المادة المعنية في الصفقة لتطبيق الغرامات والتدابير القسرية المحتملة`,
+          `توجيه رسالة شفوية للمقاول بعد الأداء`,
+          `تأجيل التسلم المؤقت لسنة كاملة دون تحرير محضر`
+        ],
+        ans: 1,
+        exp: `تؤكد المادة 17 على وجوب تضمين أي إخلال مرصود في شهادة ARS ومحضر التسلم المؤقت مع الإشارة الصريحة للمادة المعنية في الصفقة لتطبيق الغرامات والتدابير القسرية.`,
+        ref: `نموذج CPS - المادة 17`
+      },
+      {
+        id: 88,
+        cat: `post_exec`,
+        q: `ما الفرق بين "التسلم النهائي الجزئي" و"التسلم النهائي العام" في الصفقة الإطار حسب المادة 17 من CPS؟`,
+        opts: [
+          `التسلم النهائي الجزئي يكون عند نهاية كل سنة مالية، بينما التسلم النهائي العام يكون عند نهاية آخر فترة في الصفقة الإطار بمقدار الخدمات المنجزة طيلة مدتها`,
+          `كلاهما يُنجز في نهاية كل شهر`,
+          `التسلم النهائي الجزئي خاص بالفطور والغداء والعام خاص بالعشاء`,
+          `لا يوجد تسلم نهائي جزئي في الصفقات الإطار`
+        ],
+        ans: 0,
+        exp: `ينجز صاحب المشروع محضر تسلم نهائي جزئي عند نهاية كل سنة مالية، ثم محضر تسلم نهائي عام عند انتهاء آخر فترة في الصفقة الإطار يغطي مجموع الخدمات المنجزة.`,
+        ref: `نموذج CPS - المادة 17 (2- Réception définitive)`
+      },
+      {
+        id: 89,
+        cat: `post_exec`,
+        q: `ما الوثيقة التي يُعدها المكلف بالتدبير المالي للمنح بعد تسلمه المحاضر اليومية والشهرية من المؤسسات، وكيف يسلمها لمكتب تصفية النفقات؟`,
+        opts: [
+          `يعد شيكاً بنكياً ويسلمه للمقاول`,
+          `يُعد ويؤشر بالأحرف الأولى (Parapher) على "المحضر الشهري الإجمالي" لتسلم خدمة المطعمة، ويوافي به مكتب تصفية النفقات مقابل التوقيع في دفتر الاتصال (Cahier de liaison)`,
+          `يُعد الفاتورة نيابة عن الشركة ويرسلها للخزينة`,
+          `يرسل المحاضر اليومية عبر البريد العادي دون دفتر اتصال`
+        ],
+        ans: 1,
+        exp: `يقوم المكلف بالتدبير المالي للمنح بمراقبة المحاضر الواردة من المؤسسات، وإعداد والتوقيع بالأحرف الأولى (parapher) على المحضر الشهري الإجمالي، ثم تسليمه لمكتب تصفية النفقات مقابل التوقيع في دفتر الاتصال.`,
+        ref: `الدليل المسطري - الفقرة 3.2.3 (مسطرة تصفية الصفقة والأمر بالأداء)`
+      },
+      {
+        id: 90,
+        cat: `post_exec`,
+        q: `ما هي العمليات المسطرية الأربع التي ينجزها المكلف بتصفية النفقات عند توصله بالفاتورات والمحضر الإجمالي؟`,
+        opts: [
+          `تسلم الفاتورات المودعة بمكتب الضبط، إعداد الكشف التفصيلي الشهري بناءً على المحاضر، حصر المبلغ النهائي للنفقة وتضمينه على ظهر الفاتورة، وإرسالها لرئيس مصلحة الشؤون الإدارية والمالية للإشهاد`,
+          `زيارة المطابخ يومياً لوزن الوجبات وإعداد ورقة الاتصال`,
+          `مراسلة ONSSA للحصول على تراخيص اللحوم`,
+          `خصم 10% كضمانة محجوزة من كل فاتورة`
+        ],
+        ans: 0,
+        exp: `يتسلم المكلف بتصفية النفقات الفاتورات من مكتب الضبط/كتابة المصلحة، ويعد الكشف التفصيلي الشهري، ويحصر المبلغ النهائي على ظهر الفاتورة، ويرسل الملف لرئيس مصلحة الشؤون الإدارية والمالية للإشهاد قبل توقيع الآمر بالصرف (أو المساعد).`,
+        ref: `الدليل المسطري - الفقرة 3.2.3`
+      },
+      {
+        id: 91,
+        cat: `post_exec`,
+        q: `من يوقع الأمر بالأداء النهائي بعد إشهاد رئيس مصلحة الشؤون الإدارية والمالية على الفاتورة والكشف التفصيلي الشهري؟`,
+        opts: [
+          `مدير المؤسسة التعليمية المستفيدة`,
+          `الآمر بالصرف أو الآمر بالصرف المساعد`,
+          `الحارس العام للداخلية`,
+          `مسير المصالح المادية والمالية`
+        ],
+        ans: 1,
+        exp: `تُرسل الفاتورة والكشف التفصيلي لرئيس مصلحة الشؤون الإدارية للمالية للإشهاد عليها قبل التوقيع عليها من طرف الآمر بالصرف أو الآمر بالصرف المساعد.`,
+        ref: `الدليل المسطري - الفقرتان 3.2.2 و3.2.3`
+      },
+      {
+        id: 92,
+        cat: `post_exec`,
+        q: `في كم نسخة تُقدم الكشوفات التفصيلية (Décomptes) والفاتورات عند طلب الأداء وفق المادة 18 من CPS؟`,
+        opts: [
+          `في نسخة واحدة أصلية`,
+          `الكشوفات التفصيلية في 5 نسخ والفاتورات في 5 نسخ، مرفقة بشهادات ARS ومحضر التسلم (في 3 نسخ)`,
+          `في نسختين فقط`,
+          `في 10 نسخ مصادق عليها`
+        ],
+        ans: 1,
+        exp: `يتم الأداء بحوالة إدارية عند تقديم الكشوفات التفصيلية في 5 نسخ والفاتورات في 5 نسخ مرفقة بشهادات التسلم ARS ومحضر التسلم في 3 نسخ، وذلك بالحساب البنكي RIB من 24 رقماً.`,
+        ref: `نموذج CPS - المادة 18 (MODALITES DE REGLEMENT)`
+      },
+      {
+        id: 93,
+        cat: `post_exec`,
+        q: `ما هي نسبة الضريبة على القيمة المضافة (TVA) المطبقة في جدول الأثمنة التفصيلي التقديري لخدمة المطعمة؟`,
+        opts: [
+          `0% (معفى تماماً)`,
+          `7%`,
+          `10%`,
+          `20%`
+        ],
+        ans: 2,
+        exp: `يُظهر جدول الأثمنة التفصيلي التقديري في ختامه بند احتساب مبلغ الضريبة على القيمة المضافة بنسبة 10% (Montant de la TVA taux 10%).`,
+        ref: `نموذج CPS - جدول الأثمنة التفصيلي التقديري`
+      },
+      {
+        id: 94,
+        cat: `post_exec`,
+        q: `في حال رهن الصفقة (Nantissement) طبقاً للقانون 112-13، من يتولى تصفية المبالغ المستحقة، وما الجهة الوحيدة المؤهلة لتلقي تعرضات الدائنين؟`,
+        opts: [
+          `يتولى التصفية مدير المؤسسة، والجهة المؤهلة هي رئيس المحكمة`,
+          `يتولى التصفية مدير الأكاديمية الجهوية، والجهة الوحيدة المؤهلة لتلقي تبليغات الدائنين هي الخازن المؤدي للأكاديمية (Trésorier payeur)، مع تسليم المقاول نسخة وحيدة (Exemplaire unique)`,
+          `يتولى التصفية مكتب الصفقات والجهة المؤهلة هي البنك التجاري`,
+          `لا يمكن رهن صفقات المطعمة إطلاقاً`
+        ],
+        ans: 1,
+        exp: `وفق المادة 8 من CPS، يصفي مدير الأكاديمية المبالغ، ويُسلَّم لصاحب الصفقة "نظير وحيد" مخصص للرهن، ويكون الخازن المؤدي للأكاديمية هو الجهة الوحيدة المؤهلة للأداء وتلقي إشعارات الدائنين.`,
+        ref: `نموذج CPS - المادة 8 (NANTISSEMENT)`
+      },
+      {
+        id: 95,
+        cat: `post_exec`,
+        q: `ما هي نسبة الاقتطاع من المنبع المطبقة في المادة 20 من CPS على الحائزين الأجانب غير المقيمين بالمغرب، ومن يتحمل حقوق التنبر (المادة 21)؟`,
+        opts: [
+          `اقتطاع من المنبع بنسبة 10% (من المبلغ خارج الضريبة)، وحقوق التنبر على عاتق صاحب الصفقة`,
+          `اقتطاع 20%، وحقوق التنبر على عاتق الأكاديمية`,
+          `إعفاء كامل من الاقتطاع ومن حقوق التنبر`,
+          `اقتطاع 5%، وحقوق التنبر مناصفة`
+        ],
+        ans: 0,
+        exp: `تنص المادة 20 على اقتطاع 10% من المنبع برسم الضريبة على الشركات أو الدخل للحائزين الأجانب غير المقيمين، وتلزم المادة 21 مقدم الخدمة بأداء حقوق التنبر.`,
+        ref: `نموذج CPS - المادتان 20 و21`
+      },
+      {
+        id: 96,
+        cat: `post_exec`,
+        q: `من يوقّع على بيانات المصاريف الشهرية وعلى المحضر اليومي لتسلم الخدمة في مرحلة ما بعد التنفيذ؟`,
+        opts: [
+          `بيانات المصاريف: ينجزها ويوقعها الحارس العام -> يوقعها المسير -> يؤشر عليها رئيس المؤسسة ويرسلها للمديرية؛ المحضر اليومي: يعده المسير ويوقعه بمعية رئيس المؤسسة`,
+          `يوقعها ممثل الشركة وحده ويرسلها مباشرة للآمر بالصرف`,
+          `يوقعها طبيب الصحة المدرسية شهرياً`,
+          `يوقعها التلاميذ المستفيدون في مطعم المؤسسة`
+        ],
+        ans: 0,
+        exp: `وفق الفقرة 3.1.3، ينجز الحارس العام بيانات المصاريف ويوقعها ثم يوقعها المسير ويؤشر عليها رئيس المؤسسة؛ فيما يعد المسير المحضر اليومي والشهري لتسلم الخدمة في نظيرين ويوقعهما بمعية رئيس المؤسسة.`,
+        ref: `الدليل المسطري - الفقرة 3.1.3`
+      },
+
+      // ==================== 6. التدابير القسرية والغرامات والمنازعات (97-112) ====================
+      {
+        id: 97,
+        cat: `penalties`,
+        q: `ما قيمة الغرامة المطبقة عند عدم احترام الممارسات الجيدة للنظافة أو عند تجاوز التحاليل الميكروبيولوجية لعتبة القبول (المادة 19-1)؟`,
+        opts: [
+          `50‰ (خمسون في الألف) من قيمة اليوم الغذائي`,
+          `100‰ (مائة في الألف) من قيمة اليوم الغذائي`,
+          `200‰ (مائتان في الألف / 20%) من قيمة الوجبات المقدمة في اليوم الغذائي`,
+          `1000 درهم جزافية`
+        ],
+        ans: 2,
+        exp: `في حالة الإخلال بالنظافة المرصود من لجنة التسلم أو في التحاليل الميكروبيولوجية المبررة بتقرير، تطبق غرامة قدرها 200‰ (مائتان في الألف) من قيمة الوجبات المقدمة خلال اليوم الغذائي.`,
+        ref: `نموذج CPS - المادة 19 (البند 1)`
+      },
+      {
+        id: 98,
+        cat: `penalties`,
+        q: `كيف تتم مراقبة غراماج الحصص الغذائية، وما الغرامة المترتبة عن عدم احترامه؟`,
+        opts: [
+          `بوزن حصة واحدة، والغرامة 50‰`,
+          `بوزن 10 حصص تُسحب عشوائياً وحساب متوسطها لمقارنته بالبطاقة التقنية وجدول الغراماج، وتُطبق غرامة 100‰ من قيمة اليوم الغذائي عند المخالفة`,
+          `بالتقدير البصري دون ميزان، والغرامة 500 درهم`,
+          `بوزن كل وجبات التلاميذ في المطعم يومياً`
+        ],
+        ans: 1,
+        exp: `وفق المادة 19-2 من CPS، تتم مراقبة الغراماج بوزن 10 حصص عشوائية ومقارنة متوسطها بجدول الغراماج، وعند الإخلال تطبق غرامة 100‰ (مائة في الألف) من قيمة اليوم الغذائي.`,
+        ref: `نموذج CPS - المادة 19 (البند 2)`
+      },
+      {
+        id: 99,
+        cat: `penalties`,
+        q: `ما الجزاء المقرر في حالة تقديم أطباق مفرطة الطهي أو سيئة الإعداد أو إعادة تدوير منتجات مخالفة للنظافة؟`,
+        opts: [
+          `خصم 500 درهم فقط دون استبدال الأطباق`,
+          `إلزام المقاول باستبدال الأطباق المعنية + غرامة 100‰ (مائة في الألف) من قيمة اليوم الغذائي`,
+          `إنذار شفوي فقط في المرة الأولى`,
+          `فسخ الصفقة تلقائياً دون استبدال الوجبة`
+        ],
+        ans: 1,
+        exp: `يلزم المقاول باستبدال الأطباق المعنية فوراً، كما تطبق عليه غرامة قدرها 100‰ (مائة في الألف) من قيمة اليوم الغذائي.`,
+        ref: `نموذج CPS - المادة 19 (البند 3)`
+      },
+      {
+        id: 100,
+        cat: `penalties`,
+        q: `ما الإجراءات والجزاءات المطبقة عند ثبوت تسمم غذائي ناتج عن استهلاك منتج مقدم بمطعم الداخلية؟`,
+        opts: [
+          `إرسال العينة لمختبر معتمد على نفقة صاحب الصفقة، خصم مبلغ اليوم الغذائي كاملاً من الفاتورة، وإمكانية الفسخ النهائي للصفقة مع المتابعات القضائية`,
+          `غرامة 100‰ فقط دون تحاليل مخبرية`,
+          `تقاسم تكلفة التحاليل مناصفة بين الإدارة والمقاول`,
+          `خصم ثمن وجبة التلميذ المتضرر فقط`
+        ],
+        ans: 0,
+        exp: `وفق المادة 19-4 من CPS، ترسل العينة لمختبر معتمد على نفقة المقاول، ويُخصم مبلغ اليوم الغذائي كاملاً من الفاتورة، وإذا ثبتت مسؤوليته يمكن فسخ الصفقة نهائياً مع عدم الإخلال بالمتابعات القضائية.`,
+        ref: `نموذج CPS - المادة 19 (البند 4)`
+      },
+      {
+        id: 101,
+        cat: `penalties`,
+        q: `ما الغرامة والإجراء الفوري عند معاينة أن منتجاً مقدماً في المطعم منتهي الصلاحية؟`,
+        opts: [
+          `سحب المنتجات فوراً واستبدالها + تطبيق غرامة 100‰ من قيمة اليوم الغذائي`,
+          `سحب المنتج فقط دون أي غرامة مالية`,
+          `تقديمه للمعلمين فقط بعد فحصه`,
+          `غرامة 1000 درهم عن كل علبة دون سحبها`
+        ],
+        ans: 0,
+        exp: `يلتزم المقاول بالسحب الفوري للمنتجات منتهية الصلاحية واستبدالها، وتطبق غرامة قدرها 100‰ (مائة في الألف) من قيمة اليوم الغذائي.`,
+        ref: `نموذج CPS - المادة 19 (البند 5)`
+      },
+      {
+        id: 102,
+        cat: `penalties`,
+        q: `ما هي قيمة الغرامة المفروضة في حال غياب أحد مستخدمي المطعم دون تعويضه الفوري؟`,
+        opts: [
+          `200 درهم/يوم/شخص`,
+          `500 درهم/يوم/شخص`,
+          `1000 درهم عن كل يوم وعن كل شخص غائب غير معوّض`,
+          `5000 درهم عن كل وجبة`
+        ],
+        ans: 2,
+        exp: `تراقب الإدارة الحضور الفعلي، وفي حالة عدم تعويض الشخص الغائب تطبق غرامة قدرها 1000 درهم/يوم/شخص (المادة 19-6).`,
+        ref: `نموذج CPS - المادة 19 (البند 6)`
+      },
+      {
+        id: 103,
+        cat: `penalties`,
+        q: `ما قيمة الغرامة عن التأخر في تسليم الوجبات خارج المواعيد التعاقدية المضبوطة؟`,
+        opts: [
+          `1000 درهم عن كل ساعة تأخير`,
+          `100‰ (مائة في الألف) من قيمة اليوم الغذائي`,
+          `5000 درهم عن كل وجبة`,
+          `200‰ من مبلغ الصفقة الإجمالي`
+        ],
+        ans: 1,
+        exp: `عند التأخر عن تسليم الوجبات في الآجال والمواعيد المقررة، تطبق غرامة 100‰ (مائة في الألف) من قيمة اليوم الغذائي (المادة 19-7).`,
+        ref: `نموذج CPS - المادة 19 (البند 7)`
+      },
+      {
+        id: 104,
+        cat: `penalties`,
+        q: `ما قيمة الغرامة اليومية المفروضة عن التأخر في تسليم العتاد الصغير للمطبخ أو التأخر في إصلاح التجهيزات الموضوعة رهن إشارة المقاول؟`,
+        opts: [
+          `1000 درهم عن كل يوم تأخير`,
+          `3000 درهم عن كل يوم تأخير`,
+          `5000 درهم (خمسة آلاف درهم) عن كل يوم تأخير لكل منهما`,
+          `10000 درهم عن كل أسبوع تأخير`
+        ],
+        ans: 2,
+        exp: `تنص المادة 19 (البندان 8 و9) على غرامة قدرها 5000 درهم عن كل يوم تأخير سواء في تسليم العتاد الصغير المبلغ به أو في إصلاح التجهيزات المعطلة.`,
+        ref: `نموذج CPS - المادة 19 (البندان 8 و9)`
+      },
+      {
+        id: 105,
+        cat: `penalties`,
+        q: `ما هي قيمة الغرامة اليومية في الحالات الثلاث التالية: عدم احترام برنامج تسليك الصرف، التأخر في تجديد بذلة العمل، وعدم احترام وتيرة تفريغ مصافي الشحوم؟`,
+        opts: [
+          `5000 درهم/يوم لتسليك الصرف وتجديد البذل، و3000 درهم/يوم لتفريغ واستبدال مصافي الشحوم`,
+          `1000 درهم/يوم لجميعها`,
+          `3000 درهم/يوم لتسليك الصرف وتجديد البذل، و5000 درهم/يوم لمصافي الشحوم`,
+          `10000 درهم/يوم لجميعها`
+        ],
+        ans: 0,
+        exp: `وفق البنود 10 و11 و12 من المادة 19: غرامة عدم احترام برنامج تسليك القنوات 5000 درهم/يوم، وتفريغ/استبدال مصافي الشحوم 3000 درهم/يوم، وتجديد بذلة العمل (3 مرات/سنة) 5000 درهم/يوم.`,
+        ref: `نموذج CPS - المادة 19 (البنود 10، 11، 12)`
+      },
+      {
+        id: 106,
+        cat: `penalties`,
+        q: `ما هي العقوبة القسرية الفورية المفروضة عند توقف أو انقطاع صاحب الصفقة عن تقديم خدمة الإطعام بالداخليات؟`,
+        opts: [
+          `إنذار كتابي بمهمة 15 يوماً دون غرامة`,
+          `غرامة فورية بقوة القانون ودون إنذار مسبق قدرها عشرة آلاف درهم (10,000 درهم) عن كل وجبة`,
+          `خصم 100‰ من ثمن وجبة واحدة فقط`,
+          `تجميد الصفقة لمدة شهر`
+        ],
+        ans: 1,
+        exp: `نظراً لعدم قابلية خدمة إطعام الداخليات للانقطاع لأي سبب، يعاقب أي توقف أو انقطاع دون إنذار مسبق بغرامة 10,000 درهم عن كل وجبة (المادة 19-13).`,
+        ref: `نموذج CPS - المادة 19 (البند 13)`
+      },
+      {
+        id: 107,
+        cat: `penalties`,
+        q: `ما هي المخالفات الجسيمة الأربعة (Manquements graves) المحددة في البند 14 من المادة 19 من CPS؟`,
+        opts: [
+          `تأخر المسير، عدم توفر الفواكه المستوردة، انقطاع الماء، غياب الحارس العام`,
+          `عدم احترام البرنامج الغذائي الموقع والمعلق، عدم احترام الطلبية اليومية كمياً، تحليل بكتريولوجي إيجابي، وغياب أو عدم كفاية الأواني`,
+          `عدم طلاء الجدران، غياب الديكور، تأخر صرف الحوالة، وتغيير الممون`,
+          `نقص الملح، زيادة كمية الخبز، تغيير مواقيت العطل`
+        ],
+        ans: 1,
+        exp: `حدد البند 14 أربع مخالفات جسيمة: 1- عدم احترام القائمة الموقعة والمعلقة، 2- عدم احترام الطلبية اليومية كمياً، 3- تحليل بكتريولوجي إيجابي، 4- غياب أو نقص الأواني.`,
+        ref: `نموذج CPS - المادة 19 (البند 14)`
+      },
+      {
+        id: 108,
+        cat: `penalties`,
+        q: `ماذا يترتب مالياً على المقاول إذا رُصدت مخالفتان جسيمتان (أو أكثر) من المخالفات الأربع في إحدى وجبات اليوم الغذائي؟`,
+        opts: [
+          `تطبق عليه غرامة 100‰ فقط`,
+          `تطبق عليه غرامة 200‰ من قيمة اليوم`,
+          `لا يُؤدَّى له ثمن اليوم الغذائي المعني بكامله (صفر درهم لذلك اليوم) وبقوة القانون ودون إنذار مسبق`,
+          `يُخصم ثمن وجبة واحدة فقط`
+        ],
+        ans: 2,
+        exp: `عند رصد مخالفة جسيمة واحدة تطبق غرامة 100‰؛ أما عند رصد مخالفتين جسيمتين على الأقل في نفس اليوم الغذائي فإن تكلفة اليوم الغذائي المعني لا تُؤدى لصاحب الصفقة نهائياً.`,
+        ref: `نموذج CPS - المادة 19 (البند 14)`
+      },
+      {
+        id: 109,
+        cat: `penalties`,
+        q: `ما هو السقف التراكمي الأقصى لمجموع الغرامات المطبقة على صاحب الصفقة، وما الإجراء المتاح عند بلوغه؟`,
+        opts: [
+          `5% من مبلغ الصفقة، ولا يخول الفسخ`,
+          `10% من مبلغ الصفقة المعدل أو المكمل بملحقات، وعند بلوغ السقف يحق للسلطة المختصة فسخ الصفقة بعد إنذار مسبق وتطبيق تدابير المادة 42 من CCAG-EMO`,
+          `25% من مبلغ الصفقة، مع منح مهلة سنتين إضافيتين`,
+          `لا يوجد أي سقف للغرامات في صفقات الإطعام`
+        ],
+        ans: 1,
+        exp: `يسقف المبلغ التراكمي للغرامات في 10% من مبلغ الصفقة، وعند بلوغه يحق للسلطة المختصة فسخ الصفقة بعد إنذار مسبق دون الإخلال بالتدابير القسرية (المادة 42 من CCAG-EMO).`,
+        ref: `نموذج CPS - المادة 19 (الفقرات الأخيرة)`
+      },
+      {
+        id: 110,
+        cat: `penalties`,
+        q: `ما هي عتبات الظواهر الجوية والطبيعية التي تُعد "قوة قاهرة" (Force majeure) وفق المادة 22 من نموذج CPS؟`,
+        opts: [
+          `الثلوج 10 سم، الأمطار 40 ملم، الرياح 60 كم/س، الزلزال 3 درجات`,
+          `الثلوج: 30 سم، الأمطار: 110 ملم، الرياح: 130 كم/س، الزلزال: 5 درجات على سلم ريشتر`,
+          `الثلوج: 50 سم، الأمطار: 200 ملم، الرياح: 180 كم/س، الزلزال: 7 درجات`,
+          `الحرارة المرتفعة فوق 35 درجة فقط`
+        ],
+        ans: 1,
+        exp: `حددت المادة 22 من CPS (طبقاً للمادة 32 من CCAG-EMO) عتبات القوة القاهرة بدقة: الثلوج 30 سم، الأمطار 110 ملم، الرياح 130 كم/س، والزلزال 5 درجات على سلم ريشتر.`,
+        ref: `نموذج CPS - المادة 22 (CAS DE FORCE MAJEURE)`
+      },
+      {
+        id: 111,
+        cat: `penalties`,
+        q: `في حال إخلال أو إفلاس أو وفاة أو خطأ جسيم لأحد أعضاء تجمع مقاولات (Groupement) نائل للصفقة، ما الإجراء القانوني الممكن؟`,
+        opts: [
+          `يستحيل استمرار الصفقة وتُعاد المناقصة من الصفر دائماً`,
+          `يمكن عزل العضو المخل وفق مساطر الفسخ وإبرام ملحق (Avenant) لمواصلة التنفيذ من طرف الأعضاء الباقين أو باستكمالهم بأعضاء جدد لسد الخصاص`,
+          `تُحول الصفقة تلقائياً إلى الممون صاحب العرض الثاني`,
+          `يتحمل مدير المؤسسة مهام التجمع مؤقتاً`
+        ],
+        ans: 1,
+        exp: `وفق المادة 23 من CPS، في التجمعات يمكن إقصاء العضو المخل وفق مساطر الفسخ وإبرام ملحق يحدد شروط مواصلة التنفيذ من قبل باقي الأعضاء مع إمكانية إضافة أعضاء جدد عند الحاجة.`,
+        ref: `نموذج CPS - المادة 23 (RESILIATION DU MARCHE)`
+      },
+      {
+        id: 112,
+        cat: `penalties`,
+        q: `كيف تُعالج النزاعات والخلافات التي قد تنشأ بين صاحب المشروع ومقدم الخدمة أثناء تنفيذ الصفقة وفق المادة 27 من CPS؟`,
+        opts: [
+          `بالتحكيم الدولي في جنيف مباشرة`,
+          `تُسوّى أولاً في إطار مقتضيات المواد 52 إلى 55 من دفتر الشروط الإدارية العامة (CCAG-EMO)، وإذا لم تُحل تُعرض على المحاكم المختصة`,
+          `يفصل فيها الحارس العام للداخلية بقرار نهائي غير قابل للطعن`,
+          `تُحل عن طريق جمعية أمهات وآباء التلاميذ`
+        ],
+        ans: 1,
+        exp: `يلتزم الطرفان بموجب المادة 27 من CPS بتسوية الخلافات في إطار المواد 52 إلى 55 من CCAG-EMO، وعند تعذر الحل الودي تُعرض على المحاكم المختصة.`,
+        ref: `نموذج CPS - المادة 27 (REGLEMENT DES DIFFERENDS ET LITIGES)`
+      }
+    ];
+
+    // ==================== APPLICATION STATE ====================
+    let appState = {
+      answers: {},         // { questionId: selectedOptionIndex }
+      pendingExam: {},     // { questionId: selectedOptionIndex } in exam mode before grading
+      bookmarks: {},       // { questionId: true }
+      evalMode: `instant`, // 'instant' | 'exam'
+      filterCat: `all`,
+      filterStatus: `all`,
+      currentQId: 1,
+      activeView: `quiz`   // 'quiz' | 'key'
+    };
+
+    let filteredIds = [];
+
+    function getQuestionById(id) {
+      return QUESTIONS.find(function (q) { return q.id === id; }) || null;
+    }
+
+    function getFilteredQuestions() {
+      return QUESTIONS.filter(function (q) {
+        if (appState.filterCat !== `all` && q.cat !== appState.filterCat) {
+          return false;
+        }
+        const userAns = appState.answers[q.id];
+        if (appState.filterStatus === `unanswered`) {
+          return userAns === undefined && appState.pendingExam[q.id] === undefined;
+        }
+        if (appState.filterStatus === `wrong`) {
+          return userAns !== undefined && userAns !== q.ans;
+        }
+        if (appState.filterStatus === `bookmarked`) {
+          return Boolean(appState.bookmarks[q.id]);
+        }
+        return true;
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById(`status-toast`);
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove(`hidden`);
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(function () {
+        toast.classList.add(`hidden`);
+      }, 3200);
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Graceful fallback inside sandbox
+        }
+      }
+    }
+
+    function updateKPIs() {
+      const total = QUESTIONS.length;
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+      let bookmarked = 0;
+
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const a = appState.answers[q.id];
+        if (a !== undefined) {
+          answered++;
+          if (a === q.ans) {
+            correct++;
+          } else {
+            wrong++;
+          }
+        }
+        if (appState.bookmarks[q.id]) {
+          bookmarked++;
+        }
+      }
+
+      const pct = Math.round((answered / total) * 100);
+      const acc = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      const remaining = total - answered;
+
+      const elHeader = document.getElementById(`header-progress-summary`);
+      if (elHeader) elHeader.textContent = `${answered} من ${total} سؤالاً منجزاً (${pct}%)`;
+
+      const elAns = document.getElementById(`kpi-answered`);
+      if (elAns) elAns.textContent = `${answered} / ${total}`;
+
+      const elAnsPct = document.getElementById(`kpi-answered-pct`);
+      if (elAnsPct) elAnsPct.textContent = `${pct}% من مجموع الأسئلة`;
+
+      const elCorr = document.getElementById(`kpi-correct`);
+      if (elCorr) elCorr.textContent = `${correct}`;
+
+      const elAcc = document.getElementById(`kpi-accuracy`);
+      if (elAcc) elAcc.textContent = `نسبة الدقة: ${acc}%`;
+
+      const elWrong = document.getElementById(`kpi-wrong`);
+      if (elWrong) elWrong.textContent = `${wrong}`;
+
+      const elRem = document.getElementById(`kpi-remaining`);
+      if (elRem) elRem.textContent = `المتبقي: ${remaining} سؤالاً`;
+
+      const elBook = document.getElementById(`kpi-bookmarked`);
+      if (elBook) elBook.textContent = `${bookmarked}`;
+
+      const elModeDesc = document.getElementById(`kpi-mode-desc`);
+      if (elModeDesc) {
+        elModeDesc.textContent = appState.evalMode === `instant`
+          ? `وضع التدريب بالتصحيح الفوري`
+          : `وضع الامتحان التجريبي (${Object.keys(appState.pendingExam).length} إجابة معلّقة)`;
+      }
+
+      const pendingCount = Object.keys(appState.pendingExam).length;
+      const banner = document.getElementById(`exam-submit-banner`);
+      const bannerText = document.getElementById(`exam-pending-text`);
+      if (banner && bannerText) {
+        if (appState.evalMode === `exam` || pendingCount > 0) {
+          banner.classList.remove(`hidden`);
+          bannerText.textContent = pendingCount > 0
+            ? `لديك ${pendingCount} إجابة مسجلة في وضع الامتحان التجريبي بانتظار التصحيح والاعتماد.`
+            : `أنت في وضع الامتحان التجريبي: اختر إجاباتك دون كشف الحل، ثم اضغط على زر الاعتماد للتصحيح دفعة واحدة.`;
+        } else {
+          banner.classList.add(`hidden`);
+        }
+      }
+    }
+
+    function renderCategoryMastery() {
+      const container = document.getElementById(`category-mastery-list`);
+      if (!container) return;
+
+      const catKeys = Object.keys(CATEGORIES);
+      let html = ``;
+
+      for (let i = 0; i < catKeys.length; i++) {
+        const key = catKeys[i];
+        const meta = CATEGORIES[key];
+        const catQs = QUESTIONS.filter(function (q) { return q.cat === key; });
+        let corr = 0;
+        let done = 0;
+        for (let j = 0; j < catQs.length; j++) {
+          const a = appState.answers[catQs[j].id];
+          if (a !== undefined) {
+            done++;
+            if (a === catQs[j].ans) corr++;
+          }
+        }
+        const pct = catQs.length > 0 ? Math.round((corr / catQs.length) * 100) : 0;
+        html += `
+          <div class="mastery-row">
+            <div class="mastery-row-head">
+              <span>${meta.short}</span>
+              <span><bdi dir="ltr">${corr}/${catQs.length}</bdi> (${pct}% · أُجيب ${done})</span>
+            </div>
+            <div class="mastery-bar-track" aria-label="${meta.short}: ${pct}%">
+              <div class="mastery-bar-fill" style="width: ${pct}%; background: ${meta.color};"></div>
+            </div>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function renderQuestionMap() {
+      const mapEl = document.getElementById(`question-grid-map`);
+      const headingEl = document.getElementById(`map-heading`);
+      if (!mapEl) return;
+
+      const list = getFilteredQuestions();
+      if (headingEl) {
+        headingEl.textContent = `خريطة الأسئلة (${list.length})`;
+      }
+
+      if (list.length === 0) {
+        mapEl.innerHTML = `<span class="index-meta" style="grid-column: 1 / -1;">لا توجد أسئلة مطابقة للتصفية الحالية.</span>`;
+        return;
+      }
+
+      let html = ``;
+      for (let i = 0; i < list.length; i++) {
+        const q = list[i];
+        const ans = appState.answers[q.id];
+        const pending = appState.pendingExam[q.id];
+        let cls = `q-tile`;
+        if (q.id === appState.currentQId) cls += ` q-tile--current`;
+        else if (ans !== undefined) cls += (ans === q.ans ? ` q-tile--correct` : ` q-tile--wrong`);
+        else if (pending !== undefined) cls += ` q-tile--pending`;
+
+        if (appState.bookmarks[q.id]) cls += ` q-tile--bookmarked`;
+
+        html += `<button type="button" class="${cls}" onclick="jumpToQuestion(${q.id})" aria-label="الانتقال إلى السؤال ${q.id}">${q.id}</button>`;
+      }
+
+      mapEl.innerHTML = html;
+    }
+
+    function renderActiveQuestion() {
+      const stage = document.getElementById(`question-stage`);
+      if (!stage) return;
+
+      const list = getFilteredQuestions();
+      filteredIds = list.map(function (q) { return q.id; });
+
+      if (list.length === 0) {
+        stage.innerHTML = `
+          <div class="empty-state">
+            <h3>لا توجد أسئلة مطابقة لمعايير التصفية</h3>
+            <p>يمكنك إعادة ضبط التصفية لإظهار جميع الأسئلة الـ 112 أو اختيار محور آخر للمتابعة.</p>
+            <button type="button" class="btn btn--primary" onclick="clearQuizFilters()">إظهار جميع الأسئلة (112)</button>
+          </div>
+        `;
+        return;
+      }
+
+      if (filteredIds.indexOf(appState.currentQId) === -1) {
+        appState.currentQId = filteredIds[0];
+      }
+
+      const q = getQuestionById(appState.currentQId);
+      if (!q) return;
+
+      const currentIdx = filteredIds.indexOf(q.id);
+      const prevId = currentIdx > 0 ? filteredIds[currentIdx - 1] : null;
+      const nextId = currentIdx < filteredIds.length - 1 ? filteredIds[currentIdx + 1] : null;
+
+      const catMeta = CATEGORIES[q.cat];
+      const gradedAns = appState.answers[q.id];
+      const pendingAns = appState.pendingExam[q.id];
+      const isGraded = gradedAns !== undefined;
+      const isBookmarked = Boolean(appState.bookmarks[q.id]);
+
+      let statusTagHtml = `<span class="status-tag">${catMeta.label}</span>`;
+      if (isGraded) {
+        statusTagHtml += gradedAns === q.ans
+          ? ` <span class="status-tag status-tag--positive">إجابة صحيحة</span>`
+          : ` <span class="status-tag status-tag--error">إجابة خاطئة</span>`;
+      } else if (pendingAns !== undefined) {
+        statusTagHtml += ` <span class="status-tag status-tag--warning">مسجلة للتصحيح</span>`;
+      }
+
+      let optionsHtml = ``;
+      for (let i = 0; i < q.opts.length; i++) {
+        let optCls = `option-btn`;
+        if (isGraded) {
+          if (i === q.ans) {
+            optCls += ` option-btn--correct`;
+          } else if (i === gradedAns && gradedAns !== q.ans) {
+            optCls += ` option-btn--wrong`;
+          }
+        } else if (pendingAns === i) {
+          optCls += ` option-btn--selected`;
+        }
+
+        const disabledAttr = isGraded ? `disabled` : ``;
+        optionsHtml += `
+          <button type="button" class="${optCls}" ${disabledAttr} onclick="selectOption(${q.id}, ${i})">
+            <span class="option-letter">${LETTERS[i]}</span>
+            <span>${q.opts[i]}</span>
+          </button>
+        `;
+      }
+
+      let feedbackHtml = ``;
+      if (isGraded) {
+        const isCorrect = gradedAns === q.ans;
+        const boxCls = isCorrect ? `feedback-inset feedback-inset--positive` : `feedback-inset feedback-inset--error`;
+        const verdictText = isCorrect
+          ? `أحسنت! الإجابة (${LETTERS[q.ans]}) صحيحة.`
+          : `إجابة غير صحيحة. الاختيار الصحيح هو (${LETTERS[q.ans]}): ${q.opts[q.ans]}`;
+
+        feedbackHtml = `
+          <div class="${boxCls}" role="status">
+            <p class="feedback-title">${verdictText}</p>
+            <p class="feedback-body">${q.exp}</p>
+            <span class="feedback-ref">المرجع الصريح: ${q.ref}</span>
+          </div>
+        `;
+      }
+
+      stage.innerHTML = `
+        <div class="question-header-row">
+          <div class="step-title-wrap">
+            <span class="step-badge" title="رقم السؤال">${q.id}</span>
+            ${statusTagHtml}
+          </div>
+          <button type="button" class="btn" onclick="toggleBookmark(${q.id})" aria-pressed="${isBookmarked}">
+            ${isBookmarked ? `إزالة علامة المراجعة ★` : `تعليم للمراجعة ☆`}
+          </button>
+        </div>
+
+        <h2 class="question-stem">${q.q}</h2>
+
+        <div class="options-list" role="group" aria-label="خيارات الإجابة للسؤال ${q.id}">
+          ${optionsHtml}
+        </div>
+
+        ${feedbackHtml}
+
+        <div class="question-nav-row">
+          <div class="nav-group">
+            <button type="button" class="btn" ${prevId === null ? `disabled` : ``} onclick="jumpToQuestion(${prevId || q.id})">
+              السابق
+            </button>
+            <span class="index-meta" style="align-self: center;">
+              السؤال <bdi dir="ltr">${currentIdx + 1} / ${filteredIds.length}</bdi>
+            </span>
+            <button type="button" class="btn btn--primary" ${nextId === null ? `disabled` : ``} onclick="jumpToQuestion(${nextId || q.id})">
+              التالي
+            </button>
+          </div>
+          <div class="nav-group">
+            ${isGraded ? `<button type="button" class="btn" onclick="retryQuestion(${q.id})">إعادة محاولة هذا السؤال</button>` : ``}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAllQuizUI() {
+      updateKPIs();
+      renderActiveQuestion();
+      renderQuestionMap();
+      renderCategoryMastery();
+    }
+
+    // ==================== EVENT HANDLERS (HOISTED FUNCTIONS) ====================
+    function switchWorkspaceView(view) {
+      appState.activeView = view === `key` ? `key` : `quiz`;
+
+      const viewQuiz = document.getElementById(`view-quiz`);
+      const viewKey = document.getElementById(`view-key`);
+      const tabQuiz = document.getElementById(`tab-quiz`);
+      const tabKey = document.getElementById(`tab-key`);
+
+      if (viewQuiz && viewKey && tabQuiz && tabKey) {
+        if (appState.activeView === `key`) {
+          viewQuiz.classList.add(`hidden`);
+          viewKey.classList.remove(`hidden`);
+          tabQuiz.classList.remove(`btn--active-tab`);
+          tabKey.classList.add(`btn--active-tab`);
+          renderAnswerKey();
+        } else {
+          viewKey.classList.add(`hidden`);
+          viewQuiz.classList.remove(`hidden`);
+          tabKey.classList.remove(`btn--active-tab`);
+          tabQuiz.classList.add(`btn--active-tab`);
+          renderAllQuizUI();
+        }
+      }
+      persistState();
+    }
+
+    function applyQuizFilters() {
+      const catEl = document.getElementById(`filter-category`);
+      const statusEl = document.getElementById(`filter-status`);
+      if (catEl) appState.filterCat = catEl.value;
+      if (statusEl) appState.filterStatus = statusEl.value;
+
+      const list = getFilteredQuestions();
+      if (list.length > 0 && !list.some(function (q) { return q.id === appState.currentQId; })) {
+        appState.currentQId = list[0].id;
+      }
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function clearQuizFilters() {
+      appState.filterCat = `all`;
+      appState.filterStatus = `all`;
+      const catEl = document.getElementById(`filter-category`);
+      const statusEl = document.getElementById(`filter-status`);
+      if (catEl) catEl.value = `all`;
+      if (statusEl) statusEl.value = `all`;
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function changeEvalMode(mode) {
+      appState.evalMode = mode === `exam` ? `exam` : `instant`;
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function jumpToQuestion(qId) {
+      if (!getQuestionById(qId)) return;
+      appState.currentQId = qId;
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function selectOption(qId, optIdx) {
+      const q = getQuestionById(qId);
+      if (!q) return;
+      if (appState.answers[qId] !== undefined) return;
+
+      if (appState.evalMode === `instant`) {
+        appState.answers[qId] = optIdx;
+        delete appState.pendingExam[qId];
+      } else {
+        appState.pendingExam[qId] = optIdx;
+      }
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function retryQuestion(qId) {
+      delete appState.answers[qId];
+      delete appState.pendingExam[qId];
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function toggleBookmark(qId) {
+      if (appState.bookmarks[qId]) {
+        delete appState.bookmarks[qId];
+      } else {
+        appState.bookmarks[qId] = true;
+      }
+      renderAllQuizUI();
+      persistState();
+    }
+
+    function gradeExamSubmissions() {
+      const pendingKeys = Object.keys(appState.pendingExam);
+      if (pendingKeys.length === 0) {
+        showToast(`لا توجد إجابات معلّقة لاعتمادها حالياً.`);
+        return;
+      }
+      for (let i = 0; i < pendingKeys.length; i++) {
+        const qId = parseInt(pendingKeys[i], 10);
+        appState.answers[qId] = appState.pendingExam[qId];
+      }
+      appState.pendingExam = {};
+      appState.evalMode = `instant`;
+      const modeEl = document.getElementById(`quiz-eval-mode`);
+      if (modeEl) modeEl.value = `instant`;
+
+      renderAllQuizUI();
+      persistState();
+      showToast(`تم تصحيح واعتماد ${pendingKeys.length} إجابة بنجاح.`);
+    }
+
+    function handleResetProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `اضغط مرة أخرى لتأكيد المسح`;
+        btn.classList.add(`btn--danger-armed`);
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `إعادة تعيين التقدم`;
+            btn.classList.remove(`btn--danger-armed`);
+          }
+        }, 4000);
+        return;
+      }
+
+      btn.dataset.armed = `false`;
+      btn.textContent = `إعادة تعيين التقدم`;
+      btn.classList.remove(`btn--danger-armed`);
+
+      appState.answers = {};
+      appState.pendingExam = {};
+      appState.bookmarks = {};
+      appState.currentQId = 1;
+      renderAllQuizUI();
+      if (appState.activeView === `key`) {
+        renderAnswerKey();
+      }
+      persistState();
+      showToast(`تم مسح جميع الإجابات وإعادة التعيين.`);
+    }
+
+    function renderAnswerKey() {
+      const tbody = document.getElementById(`answer-key-tbody`);
+      const countBar = document.getElementById(`key-count-bar`);
+      const searchEl = document.getElementById(`key-search`);
+      const catEl = document.getElementById(`key-category`);
+      const userEl = document.getElementById(`key-user-filter`);
+
+      if (!tbody) return;
+
+      const query = searchEl ? searchEl.value.trim().toLowerCase() : ``;
+      const catFilter = catEl ? catEl.value : `all`;
+      const userFilter = userEl ? userEl.value : `all`;
+
+      const items = QUESTIONS.filter(function (q) {
+        if (catFilter !== `all` && q.cat !== catFilter) return false;
+
+        const uAns = appState.answers[q.id];
+        if (userFilter === `wrong` && !(uAns !== undefined && uAns !== q.ans)) return false;
+        if (userFilter === `correct` && !(uAns !== undefined && uAns === q.ans)) return false;
+        if (userFilter === `unanswered` && uAns !== undefined) return false;
+
+        if (query) {
+          const hay = `${q.q} ${q.opts[q.ans]} ${q.exp} ${q.ref}`.toLowerCase();
+          if (hay.indexOf(query) === -1) return false;
+        }
+        return true;
+      });
+
+      if (countBar) {
+        countBar.textContent = `عرض ${items.length} من أصل ${QUESTIONS.length} سؤالاً في مفتاح الإجابات`;
+      }
+
+      if (items.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="padding: var(--space-lg); text-align: start;">
+              لا توجد نتائج مطابقة لكلمة البحث أو التصفية المحددة.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      let rowsHtml = ``;
+      for (let i = 0; i < items.length; i++) {
+        const q = items[i];
+        const uAns = appState.answers[q.id];
+        let stateBadge = `<span class="status-tag">غير مجاب</span>`;
+        if (uAns !== undefined) {
+          stateBadge = uAns === q.ans
+            ? `<span class="status-tag status-tag--positive">صحيحة</span>`
+            : `<span class="status-tag status-tag--error">خاطئة (${LETTERS[uAns]})</span>`;
+        }
+
+        rowsHtml += `
+          <tr>
+            <td class="td-num">
+              <button type="button" class="q-tile" onclick="openQuestionFromKey(${q.id})" title="فتح في الاختبار">${q.id}</button>
+            </td>
+            <td>${CATEGORIES[q.cat].short}</td>
+            <td><strong>${q.q}</strong></td>
+            <td>
+              <div class="td-answer">(${LETTERS[q.ans]}) ${q.opts[q.ans]}</div>
+              <div style="margin-top: var(--space-xs); color: var(--on-surface-variant);">${q.exp}</div>
+            </td>
+            <td class="td-ref">${q.ref}</td>
+            <td>${stateBadge}</td>
+          </tr>
+        `;
+      }
+
+      tbody.innerHTML = rowsHtml;
+    }
+
+    function openQuestionFromKey(qId) {
+      appState.filterCat = `all`;
+      appState.filterStatus = `all`;
+      appState.currentQId = qId;
+      const catEl = document.getElementById(`filter-category`);
+      const statusEl = document.getElementById(`filter-status`);
+      if (catEl) catEl.value = `all`;
+      if (statusEl) statusEl.value = `all`;
+      switchWorkspaceView(`quiz`);
+    }
+
+    function escapeCsv(val) {
+      const s = String(val).replace(/"/g, `""`);
+      return `"${s}"`;
+    }
+
+    function exportAnswerKeyCSV() {
+      const rows = [
+        [`رقم السؤال`, `المحور`, `السؤال`, `الإجابة الصحيحة`, `الشرح`, `المرجع في الدليل / CPS`, `إجابة المستخدم`, `النتيجة`]
+      ];
+
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const uAns = appState.answers[q.id];
+        const uText = uAns !== undefined ? `${LETTERS[uAns]}: ${q.opts[uAns]}` : `غير مجاب`;
+        const verdict = uAns === undefined ? `غير مجاب` : (uAns === q.ans ? `صحيح` : `خطأ`);
+        rows.push([
+          q.id,
+          CATEGORIES[q.cat].label,
+          q.q,
+          `${LETTERS[q.ans]}: ${q.opts[q.ans]}`,
+          q.exp,
+          q.ref,
+          uText,
+          verdict
+        ]);
+      }
+
+      const bom = `\uFEFF`;
+      const csvContent = bom + rows.map(function (r) {
+        return r.map(escapeCsv).join(`,`);
+      }).join(`\n`);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `catering_manual_qcm_results.csv`
+        });
+        showToast(`تم تصدير بنك الأسئلة ونتائجك بصيغة CSV.`);
+      } else {
+        showToast(`تعذر التصدير في هذا الوضع.`);
+      }
+    }
+
+    function restoreControlsFromState() {
+      const catEl = document.getElementById(`filter-category`);
+      const statusEl = document.getElementById(`filter-status`);
+      const modeEl = document.getElementById(`quiz-eval-mode`);
+
+      if (catEl && (appState.filterCat === `all` || CATEGORIES[appState.filterCat])) {
+        catEl.value = appState.filterCat;
+      }
+      if (statusEl) {
+        statusEl.value = appState.filterStatus || `all`;
+      }
+      if (modeEl) {
+        modeEl.value = appState.evalMode === `exam` ? `exam` : `instant`;
+      }
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = {
+              answers: saved.answers || {},
+              pendingExam: saved.pendingExam || {},
+              bookmarks: saved.bookmarks || {},
+              evalMode: saved.evalMode === `exam` ? `exam` : `instant`,
+              filterCat: saved.filterCat || `all`,
+              filterStatus: saved.filterStatus || `all`,
+              currentQId: typeof saved.currentQId === `number` ? saved.currentQId : 1,
+              activeView: saved.activeView === `key` ? `key` : `quiz`
+            };
+          }
+        } catch (err) {
+          // Use clean default state
+        }
+      }
+
+      restoreControlsFromState();
+
+      if (appState.activeView === `key`) {
+        switchWorkspaceView(`key`);
+      } else {
+        renderAllQuizUI();
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
