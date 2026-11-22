@@ -1,14 +1,19 @@
-﻿# Exam Hub â€” Vercel
+﻿# Exam Hub - Vercel
 
-Static site exposing two interactive Arabic exam tools.
+Static site exposing four interactive Arabic exam tools.
 
 ## Structure
 
-- / â€” hub page, lets the visitor choose an exam
-- /cadres-economiques/ â€” interactive exam on decree 2.22.431 (100 questions)
-- /comptabilite-publique/ â€” interactive exam on royal decree 330.66 (42 questions)
+- / - hub page, lets the visitor choose an exam
+- /cadres-economiques/ - interactive exam on decree 2.22.431 (100 questions)
+- /comptabilite-publique/ - interactive exam on royal decree 330.66 (42 questions)
+- /loi-cadre-51-17/ - interactive exam on framework law 51.17 (105 questions, 10 chapters)
+- /examen-global-120/ - combined 120-question exam built from the two PDF parts
 
-Both exam files are byte-identical copies of the original HTML files.
+The first three exam files are byte-identical copies of the original HTML files.
+The examen-global-120 page uses the same template/UI as the original exams and was
+generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
+examen_qcm_cadres_economiques_part2.pdf).
 
 ## Vercel
 

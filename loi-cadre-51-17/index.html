@@ -1,0 +1,2922 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>بنك الاختبار التفاعلي للقانون الإطار رقم 51.17 — 105 أسئلة QCM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Semantic containers & data series */
+      --positive: #2d5a4a;
+      --positive-container: #e6efe9;
+      --warning: #8a6a35;
+      --error-container: #f8e7e7;
+      --focus: #14213d;
+      --title-band-kicker: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+      --title-band-lede: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      --title-band-btn-bg: color-mix(in srgb, var(--on-primary) 10%, var(--primary));
+      --title-band-btn-hover: color-mix(in srgb, var(--on-primary) 18%, var(--primary));
+
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts (Arabic RTL pairing matching Charter voice) */
+      --font-headline: 'Amiri', serif;
+      --font-body: 'IBM Plex Sans Arabic', sans-serif;
+      --font-label: 'IBM Plex Sans Arabic', sans-serif;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.91rem + 0.15vw, 1rem);
+      --label-size: 0.78rem;
+
+      /* Shape (Charter squared 2px corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; margin: 0; padding: 0; }
+    header { position: static !important; }
+
+    body {
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1240px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* 1. Navy Title Band (compact tool header) */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-bottom: 3px solid var(--outline);
+      padding: var(--space-lg) var(--space-lg);
+    }
+
+    .title-band-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md) var(--space-xl);
+    }
+
+    .title-band-copy {
+      max-width: 68ch;
+    }
+
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--title-band-kicker);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.25;
+      color: var(--on-primary);
+      margin: 0 0 var(--space-xs);
+      border-bottom: 1px solid var(--outline);
+      padding-bottom: var(--space-sm);
+    }
+
+    .title-band .lede {
+      margin: var(--space-sm) 0 0;
+      color: var(--title-band-lede);
+      font-size: var(--body-size);
+      line-height: 1.55;
+    }
+
+    .title-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--on-surface);
+      border-color: var(--on-surface);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--primary-container);
+    }
+
+    .btn-band {
+      background: var(--title-band-btn-bg);
+      color: var(--on-primary);
+      border-color: var(--outline);
+    }
+    .btn-band:hover:not(:disabled) {
+      background: var(--title-band-btn-hover);
+    }
+    .btn-band-danger[data-armed="true"] {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--on-error);
+    }
+
+    .btn-band:focus-visible {
+      outline: 2px solid var(--on-primary);
+      outline-offset: 2px;
+    }
+
+    /* KPI Statement Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .figure-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-xs);
+    }
+
+    .figure-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .figure-delta {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+      margin: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .figure-delta.is-positive {
+      color: var(--secondary);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      margin-top: var(--space-xs);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .progress-fill.is-positive {
+      background: var(--secondary);
+    }
+
+    /* Main Workspace Layout */
+    .tool-workspace {
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Section Head (Brass Rule Treatment) */
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      margin: 0 0 var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .section-head h2 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.3;
+    }
+
+    /* Sidebar: Chapters + Navigator */
+    .sidebar-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .chapter-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .chapter-btn {
+      width: 100%;
+      text-align: right;
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-height: 44px;
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .chapter-btn:hover {
+      background: var(--surface-container);
+    }
+
+    .chapter-btn.is-active {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      border-right: 3px solid var(--primary);
+    }
+
+    .chapter-btn-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      width: 100%;
+    }
+
+    .chapter-btn-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .chapter-btn-meta {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .chapter-mini-bar {
+      width: 100%;
+      height: 3px;
+      background: var(--surface-container);
+      overflow: hidden;
+    }
+
+    .chapter-mini-fill {
+      height: 100%;
+      background: var(--secondary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Question Navigator Grid */
+    .nav-grid-box {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+    }
+
+    .nav-grid-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .nav-grid-title {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .nav-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-sm);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      display: inline-block;
+    }
+    .legend-swatch.is-correct { background: var(--secondary); border-color: var(--secondary); }
+    .legend-swatch.is-wrong { background: var(--error); border-color: var(--error); }
+    .legend-swatch.is-current { background: var(--primary); border-color: var(--primary); }
+
+    .q-dots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: 4px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 2px;
+    }
+
+    .q-dot {
+      height: 34px;
+      border: 1px solid var(--outline-variant);
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      border-radius: var(--rounded);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .q-dot:hover {
+      background: var(--surface-container);
+    }
+
+    .q-dot.is-correct {
+      background: var(--positive-container);
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+
+    .q-dot.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      color: var(--error);
+    }
+
+    .q-dot.is-current {
+      box-shadow: 0 0 0 2px var(--primary);
+      border-color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Main Quiz Stage */
+    .quiz-stage {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Toolbar Controls */
+    .controls-bar {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .control-input,
+    .control-select {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+    }
+
+    .control-select {
+      padding-left: var(--space-xl);
+    }
+
+    .control-input:focus-visible,
+    .control-select:focus-visible {
+      border-color: var(--primary);
+    }
+
+    .toolbar-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+
+    .toggle-pill {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .toggle-pill:hover {
+      background: var(--surface-container-high);
+    }
+
+    .toggle-pill.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Question Card */
+    .question-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+
+    .q-index-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 2px var(--space-sm);
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background: transparent;
+      font-size: var(--label-size);
+      font-weight: 600;
+      border-radius: var(--rounded);
+    }
+
+    .article-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: 2px var(--space-sm);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: var(--label-size);
+      font-weight: 700;
+      border-radius: var(--rounded);
+    }
+
+    .status-stamp {
+      font-size: var(--label-size);
+      font-weight: 700;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded);
+    }
+    .status-stamp.is-correct {
+      background: var(--positive-container);
+      color: var(--secondary);
+    }
+    .status-stamp.is-wrong {
+      background: var(--error-container);
+      color: var(--error);
+    }
+
+    .question-stem {
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--on-surface);
+      margin: 0;
+      max-width: 70ch;
+    }
+
+    .options-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: right;
+      min-height: 50px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.5;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    .option-letter {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 700;
+      font-size: var(--label-size);
+      border-radius: var(--rounded);
+      margin-top: 2px;
+    }
+
+    .option-text {
+      flex: 1;
+    }
+
+    .option-status-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Instant Feedback States */
+    .option-btn.is-correct {
+      background: var(--positive-container);
+      border-color: var(--secondary);
+      box-shadow: inset 0 0 0 1px var(--secondary);
+    }
+    .option-btn.is-correct .option-letter {
+      background: var(--secondary);
+      color: var(--on-primary);
+    }
+
+    .option-btn.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      box-shadow: inset 0 0 0 1px var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .option-btn.is-dimmed {
+      opacity: 0.65;
+    }
+
+    /* Legal Justification Panel */
+    .justification-panel {
+      background: var(--background);
+      border-right: 3px solid var(--outline);
+      border-top: var(--hairline);
+      border-bottom: var(--hairline);
+      border-left: var(--hairline);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      animation: fadeSlide var(--dur-short) var(--ease-out);
+    }
+
+    .justification-panel.is-correct-box {
+      border-right-color: var(--secondary);
+    }
+
+    .justification-panel.is-wrong-box {
+      border-right-color: var(--error);
+    }
+
+    .justification-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xs);
+    }
+
+    .justification-title {
+      font-weight: 700;
+      font-size: var(--body-size);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .justification-title.is-correct { color: var(--secondary); }
+    .justification-title.is-wrong { color: var(--error); }
+
+    .justification-ref {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-container);
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .justification-body {
+      margin: 0;
+      color: var(--on-surface);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      max-width: 72ch;
+    }
+
+    /* Question Footer Nav */
+    .question-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+    }
+
+    .nav-pair {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .list-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Empty State */
+    .empty-state {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      padding: var(--space-xl);
+      text-align: center;
+      border-radius: var(--rounded);
+    }
+    .empty-state h3 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: 0 0 var(--space-xs);
+    }
+    .empty-state p {
+      color: var(--on-surface-variant);
+      margin: 0 0 var(--space-md);
+    }
+
+    /* Source Footer */
+    .source-footer {
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile / Narrow Responsive */
+    @media (max-width: 960px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .tool-workspace {
+        grid-template-columns: 1fr;
+      }
+      .controls-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .title-band {
+        padding: var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-md);
+      }
+      .q-dots {
+        max-height: 180px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div class="title-band-copy">
+        <p class="title-kicker">منظومة التربية والتكوين والبحث العلمي بالمغرب • مرجع تشريعي تفاعلي</p>
+        <h1>بنك أسئلة القانون الإطار رقم 51.17</h1>
+        <p class="lede">
+          تطبيق تدريبي يضم 105 أسئلة اختيار من متعدد تغطي الديباجة والأبواب العشرة (المواد 1 إلى 59)، مع التصحيح الفوري، والتعليل القانوني الدقيق ورقم المادة، وتتبع مستوى الإتقان حسب كل باب.
+        </p>
+      </div>
+      <div class="title-actions">
+        <button type="button" class="btn btn-band" id="export-btn" onclick="exportReport()">
+          <i data-lucide="download" aria-hidden="true"></i>
+          <span>تصدير ملخص النتائج</span>
+        </button>
+        <button type="button" class="btn btn-band btn-band-danger" id="reset-btn" data-armed="false" onclick="handleResetClick(this)">
+          <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+          <span>إعادة تعيين التقدم</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- KPI Statement Row -->
+    <section aria-label="ملخص الأداء والنتائج" class="kpi-grid">
+      <article class="figure-card">
+        <p class="figure-label">النتيجة الإجمالية</p>
+        <p class="figure-value" id="kpi-score">0 / 0</p>
+        <p class="figure-delta is-positive" id="kpi-accuracy">الدقة: 0%</p>
+      </article>
+
+      <article class="figure-card">
+        <p class="figure-label">التقدم في بنك الأسئلة</p>
+        <p class="figure-value" id="kpi-progress">0 / 105</p>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="kpi-progress-bar" style="width: 0%;"></div>
+        </div>
+      </article>
+
+      <article class="figure-card">
+        <p class="figure-label">سلسلة الإجابات الصحيحة</p>
+        <p class="figure-value" id="kpi-streak">0</p>
+        <p class="figure-delta" id="kpi-best-streak">أفضل سلسلة: 0</p>
+      </article>
+
+      <article class="figure-card">
+        <p class="figure-label">أداء الباب النشط</p>
+        <p class="figure-value" id="kpi-chapter-score">0 / 105</p>
+        <p class="figure-delta" id="kpi-chapter-name">جميع الأبواب العشرة</p>
+      </article>
+    </section>
+
+    <!-- Primary Tool Workspace -->
+    <div class="tool-workspace">
+      <!-- Sidebar: 10 Chapters + Navigator -->
+      <aside class="sidebar-panel" aria-label="التصنيف حسب الأبواب العشرة وخريطة الأسئلة">
+        <div>
+          <div class="section-head">
+            <h2>الأبواب العشرة</h2>
+          </div>
+          <div class="chapter-list" id="chapter-list"></div>
+        </div>
+
+        <div class="nav-grid-box" id="navigator-box">
+          <div class="nav-grid-header">
+            <p class="nav-grid-title">خريطة الأسئلة المعروضة (<span id="nav-count">105</span>)</p>
+          </div>
+          <div class="nav-legend">
+            <span class="legend-item"><span class="legend-swatch is-current"></span> الحالي</span>
+            <span class="legend-item"><span class="legend-swatch is-correct"></span> صحيح</span>
+            <span class="legend-item"><span class="legend-swatch is-wrong"></span> خطأ</span>
+            <span class="legend-item"><span class="legend-swatch"></span> دون إجابة</span>
+          </div>
+          <div class="q-dots" id="question-dots"></div>
+        </div>
+      </aside>
+
+      <!-- Main Stage -->
+      <section class="quiz-stage" aria-label="منطقة الاختبار والتصحيح">
+        <div class="controls-bar">
+          <div class="field-group">
+            <label class="field-label" for="search-input">البحث برقم المادة أو المفهوم القانوني</label>
+            <input
+              type="search"
+              id="search-input"
+              class="control-input"
+              placeholder="مثال: المادة 31، التناوب اللغوي، ثلاث سنوات..."
+              oninput="handleSearchInput(this.value)"
+            >
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="status-filter">تصفية حسب حالة الإجابة</label>
+            <select id="status-filter" class="control-select" onchange="handleStatusChange(this.value)">
+              <option value="all">جميع الأسئلة</option>
+              <option value="unanswered">أسئلة لم يُجب عنها</option>
+              <option value="wrong">إجابات خاطئة للمراجعة</option>
+              <option value="correct">إجابات صحيحة</option>
+            </select>
+          </div>
+
+          <div class="toolbar-toggles">
+            <button type="button" class="toggle-pill is-active" id="mode-single-btn" onclick="setViewMode('single')">
+              <i data-lucide="square-check" aria-hidden="true"></i>
+              <span>بطاقة مركزة</span>
+            </button>
+            <button type="button" class="toggle-pill" id="mode-list-btn" onclick="setViewMode('list')">
+              <i data-lucide="list" aria-hidden="true"></i>
+              <span>كل الأسئلة</span>
+            </button>
+            <button type="button" class="toggle-pill" id="shuffle-btn" onclick="toggleShuffle()">
+              <i data-lucide="shuffle" aria-hidden="true"></i>
+              <span>خلط الأسئلة</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="stage-content"></div>
+      </section>
+    </div>
+
+    <footer class="source-footer">
+      <span>المصدر: القانون - الإطار رقم 51.17 المتعلق بمنظومة التربية والتكوين والبحث العلمي (الديباجة والمواد من 1 إلى 59).</span>
+      <span id="persistence-status">حفظ تلقائي للتقدم مفعّل</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+
+  <script>
+    const CHAPTERS = [
+      { id: 0, title: `جميع الأبواب العشرة`, articles: `الديباجة والمواد 1–59` },
+      { id: 1, title: `الباب الأول: أحكام عامة (والديباجة)`, articles: `الديباجة والمادتان 1–2` },
+      { id: 2, title: `الباب الثاني: مبادئ المنظومة وأهدافها ووظائفها`, articles: `المواد 3–6` },
+      { id: 3, title: `الباب الثالث: مكونات المنظومة وهيكلتها`, articles: `المواد 7–18` },
+      { id: 4, title: `الباب الرابع: الولوج وآليات الاستفادة`, articles: `المواد 19–26` },
+      { id: 5, title: `الباب الخامس: المناهج والبرامج والتكوينات`, articles: `المواد 27–35` },
+      { id: 6, title: `الباب السادس: الموارد البشرية`, articles: `المواد 36–39` },
+      { id: 7, title: `الباب السابع: مبادئ وقواعد الحكامة`, articles: `المواد 40–44` },
+      { id: 8, title: `الباب الثامن: مجانية التعليم والتمويل`, articles: `المواد 45–52` },
+      { id: 9, title: `الباب التاسع: التقييم وضمان الجودة`, articles: `المواد 53–56` },
+      { id: 10, title: `الباب العاشر: أحكام انتقالية وختامية`, articles: `المواد 57–59` }
+    ];
+
+    const QUESTIONS = [
+      /* ================= الباب الأول والديباجة (1–12) ================= */
+      {
+        id: 1, ch: 1, article: `الديباجة`,
+        q: `تفعيلا لتوصية أي وثيقة مرجعية تم تحويل الاختيارات الكبرى لإصلاح منظومة التربية والتكوين إلى القانون الإطار رقم 51.17؟`,
+        options: [
+          `الميثاق الوطني للتربية والتكوين 1999-2009`,
+          `الرؤية الاستراتيجية للإصلاح 2015-2030`,
+          `المخطط الاستعجالي 2009-2012`,
+          `النموذج التنموي الجديد 2021`
+        ],
+        correct: 1,
+        reason: `تنص ديباجة القانون الإطار 51.17 صراحة على أنه جاء تفعيلا لتوصية الرؤية الاستراتيجية للإصلاح 2015-2030 التي أقرها جلالة الملك محمد السادس، والداعية إلى تحويل اختياراتها الكبرى إلى قانون-إطار يجسد تعاقدا وطنيا ملزما للجميع.`
+      },
+      {
+        id: 2, ch: 1, article: `الديباجة`,
+        q: `على أي ركيزتين أساسيتين تستند المدرسة الجديدة المفتوحة أمام الجميع التي يكمن فيها جوهر القانون الإطار 51.17؟`,
+        options: [
+          `اللامركزية واللاتمركز من جهة، والرقمنة من جهة أخرى`,
+          `المساواة وتكافؤ الفرص من جهة، والجودة للجميع من جهة أخرى`,
+          `التعليم العتيق من جهة، والتكوين المهني من جهة أخرى`,
+          `التناوب اللغوي من جهة، والانفتاح الثقافي من جهة أخرى`
+        ],
+        correct: 1,
+        reason: `ورد في الديباجة أن جوهر هذا القانون-الإطار يكمن في إرساء مدرسة جديدة مفتوحة أمام الجميع، تتوخى تأهيل الرأسمال البشري، مستندة إلى ركيزتي المساواة وتكافؤ الفرص من جهة، والجودة للجميع من جهة أخرى، بغية الارتقاء بالفرد وتقدم المجتمع.`
+      },
+      {
+        id: 3, ch: 1, article: `الديباجة`,
+        q: `أي من الرافعات التالية نصت الديباجة على أنها ضرورية لتحقيق الإنصاف وتكافؤ الفرص؟`,
+        options: [
+          `إحداث صندوق خاص للبحث التطبيقي بالمقاولات`,
+          `جعل التعليم الأولي إلزاميا بالنسبة للدولة والأسر، وتخويل تمييز إيجابي للمناطق القروية وشبه الحضرية`,
+          `فتح مسارات للتكوين المهني باللغة الإسبانية في التعليم العالي`,
+          `إحداث هيئة مستقلة لتصنيف الشهادات الجامعية`
+        ],
+        correct: 1,
+        reason: `حددت الديباجة ست رافعات لتحقيق الإنصاف وتكافؤ الفرص، من بينها تعميم تعليم دامج وتضامني، وجعل التعليم الأولي إلزاميا بالنسبة للدولة والأسر، وتخويل تمييز إيجابي لفائدة الأطفال في المناطق القروية وشبه الحضرية ومناطق الخصاص.`
+      },
+      {
+        id: 4, ch: 1, article: `الديباجة`,
+        q: `ما مواصفات النموذج البيداغوجي الذي تنص الديباجة على اعتماده لضمان تعليم ذي جودة للجميع؟`,
+        options: [
+          `نموذج يقتصر على التلقين والمهارات التقنية الصرفة`,
+          `نموذج بيداغوجي موجه نحو الذكاء، يطور الحس النقدي وينمي الانفتاح والابتكار ويربي على المواطنة والقيم الكونية`,
+          `نموذج يعتمد كليا على التعليم عن بعد في جميع الأسلاك`,
+          `نموذج يمنح الأولوية للتعليم الثانوي التأهيلي على حساب التعليم الأولي`
+        ],
+        correct: 1,
+        reason: `أكدت الديباجة أن ضمان تعليم ذي جودة للجميع يستلزم اعتماد نموذج بيداغوجي موجه نحو الذكاء، يطور الحس النقدي وينمي الانفتاح والابتكار ويربي على المواطنة والقيم الكونية، إلى جانب التعددية والتناوب اللغوي.`
+      },
+      {
+        id: 5, ch: 1, article: `المادة 1`,
+        q: `طبقا للمادة الأولى من القانون الإطار 51.17، ما الموضوع العام الذي يحدده هذا القانون؟`,
+        options: [
+          `النظام الأساسي الخاص بموظفي وزارة التربية الوطنية فقط`,
+          `المبادئ التي ترتكز عليها المنظومة، والأهداف الأساسية لسياسة الدولة واختياراتها الاستراتيجية لإصلاحها وآليات تحقيقها`,
+          `توزيع الميزانية السنوية للأكاديميات الجهوية والجامعات`,
+          `كيفيات إجراء امتحانات البكالوريا ومعادلة الشهادات الأجنبية فقط`
+        ],
+        correct: 1,
+        reason: `تنص المادة الأولى على أن القانون-الإطار يحدد، طبقا لأحكام الدستور، المبادئ التي ترتكز عليها منظومة التربية والتكوين والبحث العلمي، والأهداف الأساسية لسياسة الدولة واختياراتها الاستراتيجية لإصلاحها، وآليات تحقيق هذه الأهداف بما فيها المكونات والهيكلة والولوج والحكامة والتمويل.`
+      },
+      {
+        id: 6, ch: 1, article: `المادة 2`,
+        q: `حسب المادة 2، ما المقصود بمصطلح «المتعلم» في مدلول القانون الإطار 51.17؟`,
+        options: [
+          `التلميذ المسجل بالتعليم المدرسي الإلزامي فقط`,
+          `كل مستفيد من الخدمات التعليمية أو التكوينية أو هما معا، سواء بصفته تلميذا أو طالبا أو متدربا أو بأي صفة أخرى`,
+          `الطالب الجامعي المسجل بسلك الإجازة أو الماستر`,
+          `الأطفال المسجلون بالتعليم الأولي والابتدائي دون التكوين المهني`
+        ],
+        correct: 1,
+        reason: `تُعرف المادة 2 «المتعلم» بأنه كل مستفيد من الخدمات التعليمية أو التكوينية أو هما معا التي تقدمها مؤسسات التربية والتعليم والتكوين بمختلف أصنافها وبأي شكل من الأشكال، سواء بصفته تلميذا أو طالبا أو متدربا أو بأي صفة أخرى.`
+      },
+      {
+        id: 7, ch: 1, article: `المادة 2`,
+        q: `ما التعريف الدقيق لمفهوم «التناوب اللغوي» الوارد في المادة 2 من القانون الإطار 51.17؟`,
+        options: [
+          `استبدال اللغتين الرسميتين بلغة أجنبية واحدة في جميع المواد`,
+          `مقاربة بيداغوجية وخيار تربوي متدرج يستثمر في التعليم المتعدد اللغات بتدريس بعض المواد، ولاسيما العلمية والتقنية، أو بعض مضامينها بلغة أو بلغات أجنبية`,
+          `تدريس اللغات الأجنبية في التعليم العالي والتكوين المهني فقط`,
+          `تخصيص أسبوع للغة العربية وأسبوع للغة الأمازيغية بالتناوب`
+        ],
+        correct: 1,
+        reason: `عرفت المادة 2 «التناوب اللغوي» بأنه مقاربة بيداغوجية وخيار تربوي متدرج يستثمر في التعليم المتعدد اللغات، بهدف تنويع لغات التدريس إلى جانب اللغتين الرسميتين للدولة، وذلك بتدريس بعض المواد، ولاسيما العلمية والتقنية منها، أو بعض المضامين أو المجزوءات في بعض المواد بلغة أو بلغات أجنبية.`
+      },
+      {
+        id: 8, ch: 1, article: `المادة 2`,
+        q: `أي مصطلح تُعرفه المادة 2 بأنه: «التشبث بالثوابت الدستورية للبلاد، والتمسك بالهوية بشتى روافدها، وإدراك الواجبات والحقوق، والتحلي بفضيلة الاجتهاد المثمر وروح المبادرة»؟`,
+        options: [
+          `الجودة التربوية`,
+          `السلوك المدني`,
+          `الإنصاف وتكافؤ الفرص`,
+          `التعلم مدى الحياة`
+        ],
+        correct: 1,
+        reason: `ينطبق هذا التعريف في المادة 2 حرفيا على مصطلح «السلوك المدني»، الذي يشمل أيضا الاعتزاز بالانتماء للأمة، والوعي بالالتزامات الوطنية والمسؤوليات تجاه الذات والأسرة والمجتمع، والتشبع بقيم التسامح والتضامن والتعايش.`
+      },
+      {
+        id: 9, ch: 1, article: `المادة 2`,
+        q: `ما المقصود بـ «الإطار الوطني المرجعي للإشهاد» حسب المادة 2؟`,
+        options: [
+          `وثيقة تحدد حقوق وواجبات المتعلم داخل النظام الداخلي للمؤسسة`,
+          `آلية لتحديد وتصنيف الشهادات على الصعيد الوطني وفق شبكة مرجعية من المعايير تراعي حاجات سوق الشغل وتنمية المجتمع`,
+          `سجل وطني لتقييم أداء الأطر الإدارية والتربوية`,
+          `ميثاق أخلاقيات مهن التربية والتكوين والبحث العلمي`
+        ],
+        correct: 1,
+        reason: `عرفت المادة 2 «الإطار الوطني المرجعي للإشهاد» بأنه آلية لتحديد وتصنيف الشهادات على الصعيد الوطني، وفق شبكة مرجعية من المعايير تنطبق على مستويات محددة من نتائج التعلمات، تراعي حاجات سوق الشغل وتنمية المجتمع.`
+      },
+      {
+        id: 10, ch: 1, article: `المادة 2`,
+        q: `من الفئات التي تشملها عبارة «الأطفال في وضعيات خاصة» في المادة 2؟`,
+        options: [
+          `الأطفال المتفوقون في الأولمبياد العلمية الوطنية فقط`,
+          `الأطفال المتخلى عنهم أو في وضعية صعبة بمؤسسات الرعاية الاجتماعية، والأحداث الجانحون بالمراكز المستقبلة، وأبناء الأجانب الوافدين الموجودون في وضعية صعبة`,
+          `أبناء الجالية المغربية المقيمة بالخارج وأبناء الأطر التربوية`,
+          `الأطفال المتمدرسون بالوسط الحضري دون القروي`
+        ],
+        correct: 1,
+        reason: `تنص المادة 2 على أن «الأطفال في وضعيات خاصة» هم: الأطفال المتخلى عنهم أو في وضعية صعبة أو غير مستقرة أو في وضعية احتياج المقيمون بمؤسسات الرعاية الاجتماعية، والأطفال المقيمون بالمراكز والمؤسسات المستقبلة للأحداث الجانحين، وأبناء الأجانب الوافدين الموجودين في وضعية صعبة.`
+      },
+      {
+        id: 11, ch: 1, article: `المادة 2`,
+        q: `كيف عرفت المادة 2 «مشروع المؤسسة»؟`,
+        options: [
+          `برنامج لبناء مدارس جديدة بالمجال القروي وشبه الحضري`,
+          `الإطار المنهجي الموجه لمجهودات جميع الفاعلين التربويين والشركاء، والآلية العملية لتنظيم العمليات التدبيرية والتربوية لتحسين جودة التعلمات وأجرأة السياسات التربوية داخل كل مؤسسة`,
+          `اتفاقية شراكة مالية بين وزارة التربية الوطنية والقطاع الخاص`,
+          `لائحة الأنشطة الثقافية والرياضية الموازية بالجامعات`
+        ],
+        correct: 1,
+        reason: `حددت المادة 2 «مشروع المؤسسة» بوصفه الإطار المنهجي الموجه لمجهودات جميع الفاعلين التربويين والشركاء، والآلية العملية الضرورية لتنظيم وتفعيل مختلف العمليات التدبيرية والتربوية الهادفة إلى تحسين جودة التعلمات والأداة الأساسية لأجرأة السياسات التربوية داخل كل مؤسسة مع مراعاة خصوصياتها.`
+      },
+      {
+        id: 12, ch: 1, article: `المادة 2`,
+        q: `ما الفرق بين «التصديق على المكتسبات المهنية والحرفية» و«التعلم مدى الحياة» في المادة 2؟`,
+        options: [
+          `الأول يخص الشهادات الجامعية العليا، والثاني يخص التعليم الأولي`,
+          `الأول آلية للتقييم والاعتراف بمكتسبات التعلم المتأتية من التجربة المهنية قصد متابعة الدراسة، والثاني كل نشاط في أي لحظة من الحياة لتطوير المعارف والمهارات والكفايات`,
+          `الأول خاص بالقطاع الخاص، والثاني خاص بالقطاع العام`,
+          `لا يوجد فرق بينهما فكلاهما يشير إلى التكوين المستمر للأطر`
+        ],
+        correct: 1,
+        reason: `تميز المادة 2 بين «التصديق على المكتسبات المهنية والحرفية» بوصفه آلية لتقييم والاعتراف بمكتسبات التعلم المتأتية من التجربة المهنية والمؤهلات الشخصية قصد تمكين المترشح من متابعة الدراسة، وبين «التعلم مدى الحياة» بوصفه كل نشاط يتم في أي لحظة من الحياة لتطوير المعارف أو المهارات أو الكفايات في إطار مشروع شخصي أو مهني أو مجتمعي.`
+      },
+
+      /* ================= الباب الثاني (13–24) ================= */
+      {
+        id: 13, ch: 2, article: `المادة 3`,
+        q: `وفقا للمادة 3، كيف يصف القانون الإطار تعميم التعليم ذي الجودة وفرض إلزاميته بالنسبة لجميع الأطفال في سن التمدرس؟`,
+        options: [
+          `التزام تطوعي للدولة واختياري للأسر`,
+          `حق للطفل، وواجب على الدولة، وملزم للأسرة`,
+          `حق للأسرة وواجب على الجماعات الترابية فقط`,
+          `خدمة اجتماعية مشروطة بالقدرة المادية للأسرة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 3 في فقرتها الثالثة على هدف «تعميم التعليم ذي الجودة وفرض إلزاميته بالنسبة لجميع الأطفال في سن التمدرس، باعتباره حقا للطفل، وواجبا على الدولة وملزما للأسرة».`
+      },
+      {
+        id: 14, ch: 2, article: `المادة 3`,
+        q: `ما الغاية التي حددتها المادة 3 لمحاربة الهدر والانقطاع المدرسيين بكل الوسائل المتاحة؟`,
+        options: [
+          `الاكتفاء بفرض غرامات مالية على الأسر`,
+          `إعادة إدماج المتعلمين المنقطعين عن الدراسة في إحدى مكونات المنظومة، أو إعدادهم للاندماج المهني`,
+          `إحالتهم تلقائيا إلى مؤسسات التعليم العالي`,
+          `إعفاؤهم من التمدرس الإلزامي إذا تجاوزوا عشر سنوات`
+        ],
+        correct: 1,
+        reason: `تنص المادة 3 على «محاربة الهدر والانقطاع المدرسيين بكل الوسائل المتاحة، وإعادة إدماج المتعلمين المنقطعين عن الدراسة في إحدى مكونات منظومة التربية والتكوين والبحث العلمي، أو إعدادهم للاندماج المهني».`
+      },
+      {
+        id: 15, ch: 2, article: `المادة 3`,
+        q: `بأي آلية تروم المادة 3 تنمية قدرات المتعلم على التواصل وانفتاحه على مختلف الثقافات وتحقيق النجاح الدراسي؟`,
+        options: [
+          `توحيد لغة التدريس في لغة أجنبية واحدة`,
+          `اعتماد هندسة لغوية منسجمة في مختلف مستويات المنظومة ومكوناتها`,
+          `إلغاء اللغات الأجنبية في التعليم الإعدادي`,
+          `حصر اللغات الأجنبية في مسالك البحث العلمي`
+        ],
+        correct: 1,
+        reason: `تستهدف المادة 3 «اعتماد هندسة لغوية منسجمة في مختلف مستويات منظومة التربية والتكوين والبحث العلمي ومكوناتها، وذلك بهدف تنمية قدرات المتعلم على التواصل، وانفتاحه على مختلف الثقافات، وتحقيق النجاح الدراسي المطلوب».`
+      },
+      {
+        id: 16, ch: 2, article: `المادة 3`,
+        q: `من الأهداف الاجتماعية الواردة في المادة 3 لتمكين المتعلمين من ذوي الاحتياج من متابعة دراستهم في ظروف ملائمة:`,
+        options: [
+          `إلغاء رسوم التأمين في المؤسسات الخاصة فقط`,
+          `توسيع نطاق تطبيق أنظمة التغطية الاجتماعية لفائدة المتعلمين من ذوي الاحتياج`,
+          `منح قروض تجارية للأسر المعوزة`,
+          `اقتصار الدعم الاجتماعي على طلبة السلك الثالث`
+        ],
+        correct: 1,
+        reason: `نصت المادة 3 في بندها الأخير على «توسيع نطاق تطبيق أنظمة التغطية الاجتماعية لفائدة المتعلمين من ذوي الاحتياج قصد تمكينهم من الاستفادة من خدمات اجتماعية تساعدهم وتحفزهم على متابعة دراستهم في ظروف مناسبة وملائمة».`
+      },
+      {
+        id: 17, ch: 2, article: `المادة 4`,
+        q: `ما الثوابت الدستورية الأربع التي تستند إليها منظومة التربية والتكوين والبحث العلمي وفق المادة 4؟`,
+        options: [
+          `اللغة العربية، الأمازيغية، التعددية الحزبية، والجهوية المتقدمة`,
+          `الدين الإسلامي الحنيف، والوحدة الوطنية متعددة الروافد، والملكية الدستورية، والاختيار الديمقراطي`,
+          `المساواة، الجودة، الحكامة، والتقييم الدوري`,
+          `العدالة الاجتماعية، التضامن، الاستدامة، والابتكار`
+        ],
+        correct: 1,
+        reason: `تحدد المادة 4 في مطلعها الثوابت الدستورية للبلاد المتمثلة في: الدين الإسلامي الحنيف، والوحدة الوطنية متعددة الروافد، والملكية الدستورية، والاختيار الديمقراطي.`
+      },
+      {
+        id: 18, ch: 2, article: `المادة 4`,
+        q: `كيف تعتبر المادة 4 الاستثمار في التربية والتكوين والبحث العلمي؟`,
+        options: [
+          `نفقة اجتماعية غير منتجة تُمول من المساعدات الدولية`,
+          `استثمارا منتجا في الرأسمال البشري، ورافعة للتنمية المستدامة، ودعامة أساسية للنموذج التنموي للبلاد`,
+          `مجالا خاصا بالمقاولات الصناعية الكبرى`,
+          `أولوية ثانوية تلي البنيات التحتية الطرقية`
+        ],
+        correct: 1,
+        reason: `تؤكد المادة 4 مبدأ «اعتبار الاستثمار في التربية والتكوين والبحث العلمي استثمارا منتجا في الرأسمال البشري، ورافعة للتنمية المستدامة ودعامة أساسية للنموذج التنموي للبلاد».`
+      },
+      {
+        id: 19, ch: 2, article: `المادة 4`,
+        q: `لماذا تعتمد المنظومة منهجية التقييم الدوري والمنتظم بكل مكوناتها ومستوياتها حسب المادة 4؟`,
+        options: [
+          `من أجل تقليص عدد المتمدرسين في التعليم العالي`,
+          `من أجل قياس مردوديتها ومدى تحقيق وبلوغ الأهداف المرسومة لها`,
+          `من أجل توحيد الامتحانات مع دول الجوار فقط`,
+          `من أجل نقل صلاحيات التدريس إلى الجماعات الترابية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 4 على «اعتماد منهجية التقييم الدوري والمنتظم للمنظومة بكل مكوناتها ومستوياتها، من أجل قياس مردوديتها ومدى تحقيق وبلوغ الأهداف المرسومة لها».`
+      },
+      {
+        id: 20, ch: 2, article: `المادة 4`,
+        q: `وفق المادة 4، ما الغاية من تطوير منظومة الدعم الاجتماعي؟`,
+        options: [
+          `دعم الأسر ذات الدخل المرتفع في التعليم الخاص`,
+          `دعم الأسر المعوزة، قصد تحفيزها على ضمان تمدرس أبنائها`,
+          `تمويل مشاريع البحث العلمي التطبيقي بالجامعات`,
+          `تغطية نفقات البرامج الثقافية بالخارج`
+        ],
+        correct: 1,
+        reason: `نصت المادة 4 على «تطوير منظومة الدعم الاجتماعي لفائدة الأسر المعوزة، قصد تحفيزها على ضمان تمدرس أبنائها».`
+      },
+      {
+        id: 21, ch: 2, article: `المادة 5`,
+        q: `كيف تضمن المنظومة تعريف الأجيال القادمة بالموروث الثقافي الوطني وتثمينه حسب المادة 5؟`,
+        options: [
+          `تنظيم رحلات اختيارية في العطل الصيفية فقط`,
+          `إدماج البعد الثقافي في البرامج والمناهج والتكوينات والوسائط التعليمية، بما يكفل تعريف الأجيال بالموروث الوطني والانفتاح على الثقافات الأخرى`,
+          `تخصيص مادة مستقلة في سلك الدكتوراه فقط`,
+          `تكليف الجمعيات الرياضية وحدها بهذه المهمة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 5 في وظيفتها السادسة على «إدماج البعد الثقافي في البرامج والمناهج والتكوينات والوسائط التعليمية، بما يكفل تعريف الأجيال القادمة بالموروث الثقافي الوطني بمختلف روافده وتثمينه، والانفتاح على الثقافات الأخرى، وتنمية الثقافة الوطنية».`
+      },
+      {
+        id: 22, ch: 2, article: `المادة 5`,
+        q: `في أي إطار تقوم منظومة التربية والتكوين والبحث العلمي بوظائفها الست المنصوص عليها في المادة 5؟`,
+        options: [
+          `في إطار استقلالية تامة ومنفصلة لكل سلك عن الآخر`,
+          `في إطار من التكامل والتناسق والالتقائية بين مختلف مكوناتها ومستوياتها`,
+          `في إطار تنافسي بين التعليم العمومي والتعليم العتيق`,
+          `في إطار مؤقت ينتهي بانتهاء مرحلة التعليم الإلزامي`
+        ],
+        correct: 1,
+        reason: `تؤكد المادة 5 في مستهلها أن المنظومة تقوم بوظائفها (التنشئة الاجتماعية، التعليم والتكوين، نشر المعرفة والبحث، الإسهام في التطورات العلمية والمهنية، الاندماج الثقافي، وإدماج البعد الثقافي) «في إطار من التكامل والتناسق والالتقائية بين مختلف مكوناتها ومستوياتها».`
+      },
+      {
+        id: 23, ch: 2, article: `المادة 6`,
+        q: `على عاتق من تقع مسؤولية تحقيق أهداف إصلاح المنظومة وتجديدها المستمر طبقا للمادة 6؟`,
+        options: [
+          `الوزارة المكلفة بالتربية الوطنية وحدها`,
+          `مسؤولية مشتركة بين الدولة والأسرة وهيئات المجتمع المدني والفاعلين الاقتصاديين والاجتماعيين وفاعلي الثقافة والإعلام والاتصال`,
+          `البرلمان والمجلس الأعلى للتربية والتكوين فقط`,
+          `الأسر والقطاع الخاص دون تدخل الدولة`
+        ],
+        correct: 1,
+        reason: `تقضي المادة 6 بأن تحقيق أهداف إصلاح المنظومة وتجديدها المستمر «أولوية وطنية ملحة، ومسؤولية مشتركة بين الدولة والأسرة وهيئات المجتمع المدني، والفاعلين الاقتصاديين والاجتماعيين، وغيرهم من الفاعلين في مجالات الثقافة والإعلام والاتصال».`
+      },
+      {
+        id: 24, ch: 2, article: `المادة 6`,
+        q: `ما التزام كل من الدولة والجماعات الترابية والقطاع الخاص وفق المادة 6؟`,
+        options: [
+          `تتولى الدولة التوجيه المعنوي فقط، وتتحمل الجماعات الترابية كل الأجور`,
+          `تتخذ الدولة ما يلزم من تدابير تشريعية وتنظيمية وإدارية ومالية، وتساهم الجماعات الترابية والقطاع الخاص في تحقيق الأهداف وتقديم أشكال الدعم`,
+          `يُعفى القطاع الخاص من الانخراط في مسلسل تنفيذ الإصلاح`,
+          `تتخذ الجماعات الترابية النصوص التشريعية الوطنية بديلا عن الحكومة`
+        ],
+        correct: 1,
+        reason: `تُلزم المادة 6 الدولة باتخاذ ما يلزم من تدابير تشريعية وتنظيمية وإدارية ومالية والسهر على تنفيذها، كما تلزم الجماعات الترابية والقطاع الخاص ومختلف الهيئات العامة والخاصة بالمساهمة والانخراط في مسلسل التنفيذ وتقديم مختلف أشكال الدعم.`
+      },
+
+      /* ================= الباب الثالث (25–40) ================= */
+      {
+        id: 25, ch: 3, article: `المادة 7`,
+        q: `ما المكونات الثلاثة الكبرى التي تتألف منها منظومة التربية والتكوين والبحث العلمي بقطاعيها العام والخاص وفق المادة 7؟`,
+        options: [
+          `التعليم الأولي، التعليم الابتدائي، والتعليم العالي`,
+          `قطاع التربية والتعليم والتكوين النظامي، وقطاع التربية والتعليم والتكوين غير النظامي، ومؤسسات للبحث العلمي والتقني`,
+          `القطاع العمومي، والقطاع الخصوصي، والتعاون الدولي`,
+          `التعليم المدرسي، والتكوين المستمر، والمدارس الجماعاتية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 7 على أن المنظومة تتكون، بقطاعيها العام والخاص، من: قطاع التربية والتعليم والتكوين النظامي، وقطاع التربية والتعليم والتكوين غير النظامي، ومن مؤسسات للبحث العلمي والتقني.`
+      },
+      {
+        id: 26, ch: 3, article: `المادة 7`,
+        q: `أي من العناصر التالية يندرج ضمن «قطاع التربية والتعليم والتكوين النظامي» حسب المادة 7؟`,
+        options: [
+          `برامج محاربة الأمية وتعليم أبناء الجالية بالخارج`,
+          `التعليم المدرسي بما فيه التعليم الأصيل، والتكوين المهني، والتعليم العتيق، والتعليم العالي`,
+          `مختبرات البحث التابعة للمقاولات الخاصة فقط`,
+          `برامج التربية غير النظامية للاستدراك المدرسي`
+        ],
+        correct: 1,
+        reason: `يضم قطاع التربية والتعليم والتكوين النظامي وفق المادة 7: التعليم المدرسي بما فيه التعليم الأصيل، والتكوين المهني، والتعليم العتيق، والتعليم العالي، على أساس التخصص التدريجي وإرساء الجسور والممرات بينها.`
+      },
+      {
+        id: 27, ch: 3, article: `المادة 7`,
+        q: `ما البرامج التي يشملها «قطاع التربية والتعليم والتكوين غير النظامي» على وجه الخصوص حسب المادة 7؟`,
+        options: [
+          `التعليم الأولي والتعليم الثانوي التأهيلي`,
+          `برامج التربية غير النظامية، ومحاربة الأمية، والبرامج المخصصة لتربية وتعليم أبناء الجالية المغربية المقيمة بالخارج`,
+          `التعليم العتيق ومسارات التعليم المهني الإعدادي`,
+          `التكوين الأساسي لأطر التفتيش والتدبير`
+        ],
+        correct: 1,
+        reason: `تنص الفقرة الأخيرة من المادة 7 على أن قطاع التربية والتعليم والتكوين غير النظامي يشمل، على وجه الخصوص، برامج التربية غير النظامية، ومحاربة الأمية، والبرامج المخصصة لتربية وتعليم أبناء الجالية المغربية المقيمة بالخارج.`
+      },
+      {
+        id: 28, ch: 3, article: `المادة 8`,
+        q: `ما الأسلاك الأربعة التي يشتمل عليها التعليم المدرسي وفق المادة 8؟`,
+        options: [
+          `الأولي، الابتدائي، المهني، والعالي`,
+          `التعليم الأولي، والتعليم الابتدائي، والتعليم الإعدادي، والتعليم الثانوي التأهيلي`,
+          `التعليم العتيق، والابتدائي، والإعدادي، والتقني`,
+          `الحضانة، والابتدائي، والإعدادي، والتأهيلي`
+        ],
+        correct: 1,
+        reason: `تستهل المادة 8 بالقول: «يشتمل التعليم المدرسي على التعليم الأولي، والتعليم الابتدائي، والتعليم الإعدادي، والتعليم الثانوي التأهيلي، ويعاد تنظيمه...».`
+      },
+      {
+        id: 29, ch: 3, article: `المادة 8`,
+        q: `ما الأجل المحدد للشروع في دمج التعليم الأولي تدريجيا في التعليم الابتدائي ليشكلا معا «سلك التعليم الابتدائي»؟`,
+        options: [
+          `سنتان، ويفتح أولا للبالغين 3 سنوات`,
+          `ثلاث سنوات، ويفتح في وجه الأطفال بين 4 و6 سنوات ثم للبالغين 3 سنوات بعد تعميمه`,
+          `ست سنوات، ويفتح اختياريا للأطفال من 5 سنوات فقط`,
+          `عشر سنوات، ويبقى منفصلا إداريا عن الابتدائي`
+        ],
+        correct: 1,
+        reason: `تنص المادة 8 على إرساء التعليم الأولي وفتحه في وجه جميع الأطفال المتراوحة أعمارهم ما بين أربع وست سنوات والشروع في دمجه تدريجيا في التعليم الابتدائي في أجل ثلاث سنوات، ويشكلان معا «سلك التعليم الابتدائي»، على أن يتم فتحه في وجه الأطفال البالغين ثلاث سنوات بعد تعميمه.`
+      },
+      {
+        id: 30, ch: 3, article: `المادة 8`,
+        q: `ما السلكان اللذان يُربطان معا في إطار «سلك للتعليم الإلزامي» طبقا للمادة 8؟`,
+        options: [
+          `التعليم الأولي والتعليم الثانوي التأهيلي`,
+          `التعليم الابتدائي والتعليم الإعدادي`,
+          `التعليم الإعدادي والتكوين المهني`,
+          `التعليم الإعدادي والتعليم الثانوي التأهيلي`
+        ],
+        correct: 1,
+        reason: `تنص المادة 8 في بندها الثاني على: «ربط التعليم الابتدائي بالتعليم الإعدادي في إطار «سلك للتعليم الإلزامي»».`
+      },
+      {
+        id: 31, ch: 3, article: `المادة 8`,
+        q: `من أي مستوى يبتدئ «مسار التعليم المهني» الذي يُحدث لربط التعليم المدرسي بالتكوين المهني وفق المادة 8؟`,
+        options: [
+          `من التعليم الابتدائي`,
+          `من التعليم الإعدادي`,
+          `من التعليم الثانوي التأهيلي فقط`,
+          `بعد الحصول على شهادة البكالوريا`
+        ],
+        correct: 1,
+        reason: `تقضي المادة 8 بإرساء روابط بين التعليم المدرسي والتكوين المهني ودمجهما في تنظيم بيداغوجي منسجم «من خلال إحداث مسار للتعليم المهني يبتدئ من التعليم الإعدادي وتعزيز سلك التعليم الثانوي التأهيلي بتنويع مسالكه».`
+      },
+      {
+        id: 32, ch: 3, article: `المادة 9`,
+        q: `ما الدور المعترف به للتعليم العتيق في المادة 9، وما واجب الدولة تجاهه؟`,
+        options: [
+          `يُدمج كليا في التعليم الثانوي التأهيلي ويلغى طابعه الديني`,
+          `يساهم في تعميم التعليم وفرض إلزاميته، وتعمل الدولة على مواصلة تأهيله وتقوية الجسور بينه وبين التعليم العمومي مع مراعاة الإنصاف والجودة`,
+          `يقتصر على التعليم غير النظامي ولا تقام جسور بينه وبين التعليم العمومي`,
+          `يتحول إلى تعليم خصوصي ممول حصريا من التبرعات`
+        ],
+        correct: 1,
+        reason: `تنص المادة 9 على أن التعليم العتيق مكون من مكونات المنظومة، يساهم في تحقيق هدف تعميم التعليم وفرض إلزاميته أخذا بعين الاعتبار خصوصيته ووظائفه التربوية والتكوينية والدينية، وتعمل الدولة على مواصلة تأهيله وتقوية الجسور بينه وبين التعليم العمومي.`
+      },
+      {
+        id: 33, ch: 3, article: `المادة 10`,
+        q: `على أي ركائز يرتكز التكوين المهني في مختلف مستوياته وفق المادة 10؟`,
+        options: [
+          `تقوية الجسور مع النسيج الاقتصادي، وتجديد التكوينات وملاءمتها مع تطور المهن، واستحضار البعد الجهوي`,
+          `المركزية المطلقة في إعداد البرامج دون مراعاة البعد الجهوي`,
+          `الاقتصار على التكوين النظري داخل قاعات الدرس`,
+          `فصل التكوين المهني نهائيا عن تحولات النسيج الاقتصادي`
+        ],
+        correct: 0,
+        reason: `حددت المادة 10 ارتكاز التكوين المهني على الملاءمة المستمرة مع تحولات النسيج الاقتصادي وتطور المهن من خلال: تقوية الجسور مع النسيج الاقتصادي، وتجديد التكوينات وتنويعها وملاءمتها بانتظام مع تطور المهن، واستحضار البعد الجهوي في هندسة التكوينات.`
+      },
+      {
+        id: 34, ch: 3, article: `المادة 11`,
+        q: `ما الأجل الأقصى الذي تعمل فيه الحكومة مع مجالس الجهات على تنويع عرض التكوين المهني والرفع من طاقته الاستيعابية وتأهيل مؤسساته القائمة؟`,
+        options: [
+          `ثلاث سنوات`,
+          `أربع سنوات`,
+          `ست سنوات`,
+          `عشر سنوات`
+        ],
+        correct: 2,
+        reason: `تنص المادة 11 على أن الحكومة تعمل مع مجالس الجهات، كلما اقتضى الأمر ذلك، في أجل أقصاه ست سنوات، على تنويع عرض التكوين المهني بجميع مستوياته وأصنافه، والرفع من طاقته الاستيعابية، وتأهيل مؤسساته القائمة بما يستجيب لتنافسية الاقتصاد وحاجات سوق الشغل.`
+      },
+      {
+        id: 35, ch: 3, article: `المادة 12`,
+        q: `على من تعرض الحكومة مخطط إعادة هيكلة التعليم العالي لما بعد الباكلوريا لإبداء الرأي بشأنه وفق المادة 12؟`,
+        options: [
+          `المجلس الوطني للبحث العلمي`,
+          `المجلس الأعلى للتربية والتكوين والبحث العلمي`,
+          `الهيئة الوطنية المستقلة للإشهاد`,
+          `مجالس الجهات الاثنتي عشرة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 12 على أن الحكومة تقوم بإعداد مخطط متعدد السنوات متشاور بشأنه لإعادة هيكلة التعليم العالي وتجميع مكوناته لما بعد الباكلوريا، وعرضه على المجلس الأعلى للتربية والتكوين والبحث العلمي لإبداء الرأي بشأنه.`
+      },
+      {
+        id: 36, ch: 3, article: `المادة 12`,
+        q: `بأي آليات يتم إرساء شبكة وطنية متجددة للجامعات وغيرها من مؤسسات التعليم العالي والبحث العلمي وفق المادة 12؟`,
+        options: [
+          `الاقتصار على جامعة واحدة مركزية في كل إقليم`,
+          `وضع خارطة وطنية استشرافية للتعليم العالي، وإقامة أقطاب جامعية موضوعاتية، وإحداث مركبات جامعية جهوية متكاملة`,
+          `تحويل جميع مؤسسات التعليم العالي إلى القطاع الخاص`,
+          `فصل البحث العلمي عن المركبات الجامعية الجهوية`
+        ],
+        correct: 1,
+        reason: `حددت المادة 12 إرساء شبكة وطنية متجددة للجامعات من خلال: وضع خارطة وطنية استشرافية للتعليم العالي، وإقامة أقطاب جامعية موضوعاتية، وإحداث مركبات جامعية جهوية متكاملة تتوفر فيها شروط التعلم والتكوين والبحث والخدمات الاجتماعية والثقافية والرياضية.`
+      },
+      {
+        id: 37, ch: 3, article: `المادة 13`,
+        q: `ما الأجل المحدد لمؤسسات التربية والتعليم والتكوين التابعة للقطاع الخاص لتوفير حاجاتها من الأطر التربوية والإدارية المؤهلة والقارة؟`,
+        options: [
+          `لا يتعدى ثلاث سنوات`,
+          `لا يتعدى أربع سنوات`,
+          `لا يتعدى ست سنوات`,
+          `لا يتعدى عشر سنوات`
+        ],
+        correct: 1,
+        reason: `تنص الفقرة الثانية من المادة 13 على التزام مؤسسات التربية والتعليم والتكوين التابعة للقطاع الخاص، «في أجل لا يتعدى أربع سنوات، بتوفير حاجاتها من الأطر التربوية والإدارية المؤهلة والقارة».`
+      },
+      {
+        id: 38, ch: 3, article: `المادتان 13 و14`,
+        q: `كيف تُحدد وتُراجع رسوم التسجيل والدراسة والتأمين والخدمات ذات الصلة بمؤسسات التربية والتعليم والتكوين الخاصة؟`,
+        options: [
+          `يحددها كل مستثمر خاص بحرية مطلقة دون ضوابط`,
+          `تُحدد وتُراجع وفق معايير تحدد بمرسوم، وتُحدد نسبة مساهمة القطاع الخاص بالمجان للفئات المعوزة بنص تنظيمي`,
+          `تُحدد من طرف جمعيات آباء التلاميذ سنويا`,
+          `تُلغى جميع الرسوم بالمؤسسات الخاصة بموجب قانون المالية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 13 على تحديد شروط ونسبة مساهمة القطاع الخاص بالمجان لفائدة المعوزين وذوي الإعاقة بنص تنظيمي، وتنص المادة 14 على «تحديد ومراجعة رسوم التسجيل والدراسة والتأمين والخدمات ذات الصلة بمؤسسات التربية والتعليم والتكوين الخاصة وفق معايير تحدد بمرسوم».`
+      },
+      {
+        id: 39, ch: 3, article: `المادة 16`,
+        q: `ما الهيئة التي تُحدث بنص تنظيمي لتتبع استراتيجية البحث العلمي والتقني والابتكار والتنسيق بين مختلف المتدخلين؟`,
+        options: [
+          `اللجنة الدائمة للمناهج والبرامج`,
+          `مجلس وطني للبحث العلمي`,
+          `المرصد الوطني لملاءمة المهن`,
+          `الأكاديمية الوطنية للابتكار التربوي`
+        ],
+        correct: 1,
+        reason: `تقضي المادة 16 بإحداث «مجلس وطني للبحث العلمي» بنص تنظيمي، يناط به تتبع استراتيجية البحث العلمي والتقني والابتكار، وكذا التنسيق بين مختلف المتدخلين في هذا المجال، مع مواصلة الدولة الرفع من الميزانية العامة لتشجيع البحث العلمي.`
+      },
+      {
+        id: 40, ch: 3, article: `المادتان 17 و18`,
+        q: `بمقتضى المادة 18، ما الآلية المحدثة لجعل المنظومة دائمة الانفتاح والتلاؤم مع محيطها الخارجي، وبأي فصل دستوري ترتبط تشريعات المادة 17؟`,
+        options: [
+          `إحداث مرصد للملاءمة بين المهن والتكوينات الجديدة وحاجات سوق الشغل؛ والفقرة الأولى من الفصل 71 من الدستور`,
+          `إحداث مكتب للتشغيل بكل مدرسة ابتدائية؛ والفصل 168 من الدستور`,
+          `إحداث صندوق للتضامن الجامعي؛ والفصل 19 من الدستور`,
+          `إحداث مجلس وزاري دائم للغات؛ والفصل 31 من الدستور`
+        ],
+        correct: 0,
+        reason: `تستند المادة 17 إلى الفقرة الأولى من الفصل 71 من الدستور لتحديد التوجهات والتنظيم العام لكل مكون بتشريعات خاصة، وتنص المادة 18 على إحداث «مرصد للملاءمة بين المهن والتكوينات الجديدة وحاجات سوق الشغل» وشبكات للتربية والتكوين محليا وجهويا.`
+      },
+
+      /* ================= الباب الرابع (41–54) ================= */
+      {
+        id: 41, ch: 4, article: `المادة 19`,
+        q: `ما النطاق العمري المحدد لاعتبار الطفل بالغا سن التمدرس الإلزامي وفق المادة 19؟`,
+        options: [
+          `من ست سنوات إلى تمام خمس عشرة سنة`,
+          `من أربع سنوات إلى تمام ست عشرة سنة`,
+          `من ثلاث سنوات إلى تمام ثماني عشرة سنة`,
+          `من خمس سنوات إلى تمام أربع عشرة سنة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 19 صراحة على أنه «يعتبر الطفل بالغا سن التمدرس إذا بلغ من العمر أربع سنوات إلى تمام ست عشرة سنة».`
+      },
+      {
+        id: 42, ch: 4, article: `المادة 19`,
+        q: `على عاتق من يقع إلزام الولوج إلى التعليم المدرسي من قبل جميع الأطفال إناثا وذكورا البالغين سن التمدرس؟`,
+        options: [
+          `على عاتق الأسرة وحدها دون الدولة`,
+          `على عاتق الدولة والأسرة أو أي شخص مسؤول عن رعاية الطفل قانونا`,
+          `على عاتق الجماعات الترابية والجمعيات التربوية فقط`,
+          `على عاتق المؤسسات الخاصة بالوسط الحضري فقط`
+        ],
+        correct: 1,
+        reason: `تقرر المادة 19 أن الولوج إلى التعليم المدرسي إلزامي لجميع الأطفال إناثا وذكورا البالغين سن التمدرس، «ويقع هذا الإلزام على عاتق الدولة والأسرة أو أي شخص مسؤول عن رعاية الطفل قانونا».`
+      },
+      {
+        id: 43, ch: 4, article: `المادة 20`,
+        q: `ما الأجل الأقصى الذي يتعين على الدولة خلاله تعبئة جميع الوسائل اللازمة لتعميم التعليم الإلزامي؟`,
+        options: [
+          `ثلاث سنوات`,
+          `أربع سنوات`,
+          `ست سنوات`,
+          `عشر سنوات`
+        ],
+        correct: 2,
+        reason: `تنص المادة 20 على أنه من أجل تعميم التعليم الإلزامي لجميع الأطفال البالغين سن التمدرس، «يتعين على الدولة، خلال أجل لا يتعدى ست سنوات، تعبئة جميع الوسائل اللازمة، واتخاذ جميع التدابير الملائمة لبلوغ هذا الهدف».`
+      },
+      {
+        id: 44, ch: 4, article: `المادة 20`,
+        q: `أي نموذج مدرسي دعت المادة 20 إلى توسيع نطاق تجربته ولا سيما بالوسط القروي والعمل على تطويره ودعمه في إطار اتفاقيات للشراكة؟`,
+        options: [
+          `المدارس الافتراضية الكاملة`,
+          `المدارس الجماعاتية`,
+          `الأقسام التحضيرية للمدارس العليا`,
+          `مراكز التكوين المهني السريع`
+        ],
+        correct: 1,
+        reason: `تضمنت المادة 20 تدبير «توسيع نطاق تجربة المدارس الجماعاتية ولا سيما بالوسط القروي، والعمل على تطويرها ودعمها، والرفع من أدائها في إطار اتفاقيات للشراكة بين الدولة والجماعات الترابية والمؤسسات العمومية وجمعيات المجتمع المدني والقطاع الخاص».`
+      },
+      {
+        id: 45, ch: 4, article: `المادة 20`,
+        q: `ما البرامج المنصوص عليها في المادة 20 لإعادة إدماج الأطفال المنقطعين عن الدراسة، وكيف تحدد قواعد اشتغال جمعيات آباء التلاميذ؟`,
+        options: [
+          `برامج التمدرس الاستدراكي؛ وتحدد قواعد اشتغال جمعيات أمهات وآباء وأولياء التلاميذ بنص تنظيمي`,
+          `برامج التعليم العتيق؛ وتحدد قواعد اشتغال الجمعيات بقرار مدير المؤسسة`,
+          `برامج التكوين المستمر؛ وتحدد قواعد اشتغالها بقانون المالية`,
+          `برامج الدعم النفسي؛ وتحدد قواعد اشتغالها بدورية داخلية غير ملزمة`
+        ],
+        correct: 0,
+        reason: `تنص المادة 20 على وضع «برامج متكاملة ومندمجة للتمدرس الاستدراكي» لإعادة إدماج الأطفال المنقطعين، كما تقضي في فقرتها الأخيرة بأن «تحدد بنص تنظيمي قواعد اشتغال وأدوار ومهام جمعيات أمهات وآباء وأولياء التلاميذ في علاقتها بمؤسسات التربية والتكوين».`
+      },
+      {
+        id: 46, ch: 4, article: `المادة 21`,
+        q: `ما الخدمات الاجتماعية الأربع التي نصت المادة 21 على تمكين المتعلمين في مختلف مستويات المنظومة من الاستفادة منها؟`,
+        options: [
+          `السكن الوظيفي، النقل الجوي، التغطية الصحية، والتقاعد`,
+          `الإيواء والإطعام لذوي الاحتياج، التغطية الصحية لغير المستفيدين، المنح الدراسية للفئات الهشة، ونظام تفضيلي للقروض الدراسية للتعليم العالي`,
+          `القروض العقارية، المنح الرياضية، التأمين التجاري، والنقل البحري`,
+          `توزيع الحواسيب فقط دون خدمات الإيواء أو التغطية الصحية`
+        ],
+        correct: 1,
+        reason: `تحدد المادة 21 الخدمات الاجتماعية الأربع: 1) الإيواء والإطعام لذوي الاحتياج، 2) نظام التغطية الصحية لغير المستفيدين برسم نظام آخر، 3) نظام للمنح الدراسية للمستحقين في وضعية اجتماعية هشة، 4) نظام تفضيلي للقروض الدراسية لمتابعة التعليم العالي.`
+      },
+      {
+        id: 47, ch: 4, article: `المادة 21`,
+        q: `وفق أي مبادئ يتم تمكين المتعلمين من الاستفادة من الخدمات الاجتماعية المنصوص عليها في المادة 21؟`,
+        options: [
+          `الأقدمية والاختيار العشوائي`,
+          `الاستحقاق والشفافية وتكافؤ الفرص`,
+          `التمييز الجغرافي لصالح المدن الكبرى فقط`,
+          `الانتماء المؤسساتي للقطاع الخاص`
+        ],
+        correct: 1,
+        reason: `تنص المادة 21 صراحة على استفادة المتعلمين من تلك الخدمات الاجتماعية «وذلك وفق مبادئ الاستحقاق والشفافية وتكافؤ الفرص».`
+      },
+      {
+        id: 48, ch: 4, article: `المادة 22`,
+        q: `ما الأجل الأقصى لإنجاز برنامج وطني لتأهيل مؤسسات التربية والتعليم والتكوين القائمة في تاريخ دخول القانون الإطار حيز التنفيذ؟`,
+        options: [
+          `سنة واحدة`,
+          `ثلاث سنوات`,
+          `ست سنوات`,
+          `عشر سنوات`
+        ],
+        correct: 1,
+        reason: `تنص المادة 22 في فقرتها الأولى على العمل «خلال أجل لا يتعدى ثلاث سنوات، على إنجاز برنامج وطني لتأهيل مؤسسات التربية والتعليم والتكوين القائمة في تاريخ دخول هذا القانون-الإطار حيز التنفيذ، وفق معايير مرجعية لتحسين أداء هذه المؤسسات والرفع من مردوديتها».`
+      },
+      {
+        id: 49, ch: 4, article: `المادة 22`,
+        q: `ما الأجل الأقصى لسد الخصاص الحاصل في عدد مؤسسات التربية والتعليم والتكوين وتزويدها بالأطر الكافية والبنيات والتجهيزات وفق المادة 22؟`,
+        options: [
+          `ثلاث سنوات`,
+          `أربع سنوات`,
+          `ست سنوات`,
+          `ثماني سنوات`
+        ],
+        correct: 2,
+        reason: `حددت المادة 22 في بندها الثاني العمل «خلال أجل أقصاه ست سنوات، على سد الخصاص الحاصل في عدد مؤسسات التربية والتعليم والتكوين، وتزويدها بالأطر التربوية والإدارية الكافية وبالبنيات والتجهيزات اللازمة والملائمة».`
+      },
+      {
+        id: 50, ch: 4, article: `المادة 22`,
+        q: `ما البنيات المواكبة التي نصت المادة 22 على إقامتها وتطويرها وتعميمها وطنيا في أجل لا يتعدى ثلاث سنوات؟`,
+        options: [
+          `وحدات للدعم النفسي وخلايا للوساطة تشرف عليها أطر متخصصة`,
+          `مكاتب جهوية للضرائب التربوية`,
+          `محاكم إدارية داخل كل ثانوية تأهيلية`,
+          `مختبرات للتصنيع الصناعي بكل مدرسة ابتدائية`
+        ],
+        correct: 0,
+        reason: `نصت المادة 22 على «العمل على إقامة وتطوير وحدات للدعم النفسي وخلايا للوساطة تشرف عليها أطر متخصصة بمؤسسات التربية والتعليم والتكوين بشراكة مع مختلف الفاعلين وشركاء المنظومة، وتعميمها على الصعيد الوطني خلال أجل لا يتعدى ثلاث سنوات».`
+      },
+      {
+        id: 51, ch: 4, article: `المادة 23`,
+        q: `ما الأجل الأقصى المحدد في المادة 23 للسعي من أجل القضاء على الأمية ومسبباتها ومظاهرها؟`,
+        options: [
+          `ثلاث سنوات`,
+          `ست سنوات`,
+          `عشر سنوات`,
+          `خمس عشرة سنة`
+        ],
+        correct: 2,
+        reason: `تنص المادة 23 على أن الحكومة تعمل بشراكة مع جميع الهيئات العامة والخاصة وفعاليات المجتمع المدني على اتخاذ التدابير اللازمة لضمان استدامة التعلم والسعي من أجل القضاء على الأمية ومسبباتها ومظاهرها «وذلك في أجل أقصاه عشر سنوات».`
+      },
+      {
+        id: 52, ch: 4, article: `المادتان 23 و24`,
+        q: `ما الشرط التحفيزي المبتكر لأصحاب المشاريع المدرة للدخل غير المتعلمين في المادة 23، وما غاية المادة 24 للمتحررين من الأمية؟`,
+        options: [
+          `إدراج الاستفادة من برامج محو الأمية ضمن شروط تمويل تلك المشاريع؛ وتمكين المتحررين من الاندماج المهني والاقتصادي لمنع الارتداد إلى الأمية`,
+          `إعفاؤهم من الضرائب لمدة عشرين سنة دون تعلم؛ وإدماجهم تلقائيا في التعليم العالي`,
+          `تغريمهم ماليا عند طلب التمويل؛ ومنعهم من ممارسة الحرف`,
+          `قصر برامج محو الأمية على الوسط الحضري دون القروي`
+        ],
+        correct: 0,
+        reason: `تفرض المادة 23 إعداد برامج خاصة لمحو الأمية لغير المتعلمين من أصحاب المشاريع المدرة للدخل «وإدراج الاستفادة من هذه البرامج ضمن شروط تمويل المشاريع المذكورة»، وتُلزم المادة 24 الحكومة بوضع مشاريع لتنمية قدرات المتحررين من الأمية لتمكينهم من الاندماج المهني والاقتصادي «وضمان عدم الارتداد إلى الأمية».`
+      },
+      {
+        id: 53, ch: 4, article: `المادة 25`,
+        q: `ما الأجل المحدد للحكومة لوضع مخطط وطني متكامل للتربية الدامجة للأشخاص في وضعية إعاقة أو في وضعية خاصة؟`,
+        options: [
+          `سنة واحدة`,
+          `ثلاث سنوات`,
+          `ست سنوات`,
+          `عشر سنوات`
+        ],
+        correct: 1,
+        reason: `تنص المادة 25 على أن الحكومة تضع، «خلال أجل ثلاث سنوات، مخططا وطنيا متكاملا للتربية الدامجة للأشخاص في وضعية إعاقة أو في وضعية خاصة، ضمن مختلف مكونات المنظومة، قوامه تعزيز وإرساء تكوينات مهنية وجامعية متخصصة في مجال تربية هؤلاء الأشخاص وتكوينهم».`
+      },
+      {
+        id: 54, ch: 4, article: `المادة 26`,
+        q: `ما الطبيعة القانونية والتنظيمية لـ «ميثاق المتعلم» المنصوص عليه في المادة 26؟`,
+        options: [
+          `وثيقة اختيارية استئناسية للجمعيات الثقافية فقط`,
+          `ميثاق يحدد حقوق المتعلم وواجباته ويعتبر جزءا لا يتجزأ من الأنظمة الداخلية لكل مؤسسة من مؤسسات التربية والتعليم والتكوين`,
+          `مرسوم خاص بتنظيم مباريات الولوج إلى الوظيفة العمومية`,
+          `عقد تمويل مالي بين الدولة والقطاع الخاص`
+        ],
+        correct: 1,
+        reason: `تنص المادة 26 على أن السلطات الحكومية المكلفة تضع «ميثاق المتعلم» يحدد حقوق المتعلم وواجباته، يوضع رهن إشارة كل متعلم وجميع الفاعلين الذين يتعين عليهم التقيد بمقتضياته، «ويعتبر جزءا لا يتجزأ من الأنظمة الداخلية لكل مؤسسة» ويمكن عرضه على المجلس الأعلى لإبداء الرأي.`
+      },
+
+      /* ================= الباب الخامس (55–69) ================= */
+      {
+        id: 55, ch: 5, article: `المادة 27`,
+        q: `مع من تتشاور السلطات الحكومية المعنية عند العمل على تجديد وملاءمة المناهج والبرامج والتكوينات وفق المادة 27؟`,
+        options: [
+          `مع الإدارات المركزية للوزارة وحدها`,
+          `بتشاور مع مختلف الشركاء، ولا سيما منهم الفاعلون التربويون والاقتصاديون والاجتماعيون والخبراء`,
+          `مع مديري المؤسسات الخاصة دون الفاعلين التربويين`,
+          `مع الهيئات الدبلوماسية الأجنبية فقط`
+        ],
+        correct: 1,
+        reason: `تنص المادة 27 على أن السلطات الحكومية المعنية تتولى العمل على تجديد وملاءمة المناهج والبرامج والتكوينات «بتشاور مع مختلف الشركاء، ولا سيما منهم الفاعلون التربويون والاقتصاديون والاجتماعيون والخبراء».`
+      },
+      {
+        id: 56, ch: 5, article: `المادة 28`,
+        q: `ما المهمة الرئيسية لـ «اللجنة الدائمة» المحدثة لدى السلطات الحكومية المختصة بموجب المادة 28؟`,
+        options: [
+          `التفتيش المالي للأكاديميات الجهوية`,
+          `التجديد والملاءمة المستمران لمناهج وبرامج وتكوينات مختلف مكونات المنظومة، وإعداد إطار مرجعي للمنهاج ودلائل مرجعية للبرامج والتكوينات`,
+          `إبرام الصفقات العقارية لبناء الجامعات`,
+          `الإشراف على مباريات التوظيف الإداري`
+        ],
+        correct: 1,
+        reason: `تُحدث المادة 28 لجنة دائمة تعنى بالتجديد والملاءمة المستمرين لمناهج وبرامج وتكوينات مختلف مكونات المنظومة، وتتولى إعداد «إطار مرجعي للمنهاج ودلائل مرجعية للبرامج والتكوينات، والسهر على تحيينها وملاءمتها مع التطورات البيداغوجية الحديثة بكيفية مستمرة».`
+      },
+      {
+        id: 57, ch: 5, article: `المادة 28`,
+        q: `أي قاعدة اعتمدتها المادة 28 بخصوص موقع المتعلم، وبخصوص الأنشطة الثقافية والرياضية والإبداعية؟`,
+        options: [
+          `جعل الكتاب المدرسي محور الفعل التربوي، وجعل الأنشطة الثقافية والرياضية اختيارية خارج المنهاج`,
+          `جعل المتعلم محور الفعل التربوي وفاعلا أساسيا في بناء التعلمات، وإلزامية إدماج الأنشطة الثقافية والرياضية والإبداعية في صلب المناهج`,
+          `حصر الأنشطة الإبداعية في التعليم الأولي فقط`,
+          `تأجيل إدماج الأنشطة الرياضية إلى التعليم العالي`
+        ],
+        correct: 1,
+        reason: `ألزمت المادة 28 اللجنة الدائمة بمراعاة «جعل المتعلم محور الفعل التربوي وفاعلا أساسيا في بناء التعلمات»، وكذا «إلزامية إدماج الأنشطة الثقافية والرياضية والإبداعية في صلب المناهج التعليمية والبرامج البيداغوجية والتكوينية».`
+      },
+      {
+        id: 58, ch: 5, article: `المادة 28`,
+        q: `ما المبادئ الأربعة التي يجب مراعاتها في الهندسة البيداغوجية المعتمدة في كل مكون عند مراجعة المناهج والبرامج حسب المادة 28؟`,
+        options: [
+          `التعقيد، الإطالة، الجمود، والمركزية`,
+          `التخفيف، والتبسيط، والمرونة، والتكيف`,
+          `التكرار، التلقين، الإقصاء، والتصنيف`,
+          `الانتقاء، التنافس، الفردانية، والتقشف`
+        ],
+        correct: 1,
+        reason: `ينص البند الأخير من المادة 28 على إقرار آليات دائمة للتقييم والمراجعة المستمرة للمناهج والبرامج، «مع مراعاة مبادئ التخفيف والتبسيط والمرونة والتكيف في الهندسة البيداغوجية المعتمدة في كل مكون من مكونات المنظومة».`
+      },
+      {
+        id: 59, ch: 5, article: `المادة 29`,
+        q: `بأي أداة قانونية يحدد تأليف اللجنة الدائمة لتجديد وملاءمة المناهج والبرامج ومجموعات العمل المتخصصة المحدثة لديها وكيفيات سيرها؟`,
+        options: [
+          `بقرار وزاري مشترك`,
+          `بمرسوم`,
+          `بدورية أكاديمية`,
+          `بنظام داخلي يصادق عليه المجلس الأعلى`
+        ],
+        correct: 1,
+        reason: `تنص المادة 29 في فقرتها الثانية صراحة على أنه «يحدد تأليف اللجنة الدائمة ومجموعات العمل المحدثة لديها، وكيفيات سيرها بمرسوم».`
+      },
+      {
+        id: 60, ch: 5, article: `المادة 30`,
+        q: `على من يُعرض الإطار والدلائل المرجعية للمناهج قبل الشروع في العمل بها، وما الأجل الأقصى لذلك وفق المادة 30؟`,
+        options: [
+          `على المجلس الأعلى للرأي وعلى مصادقة اللجنة الوطنية لتتبع ومواكبة الإصلاح، في أجل أقصاه ثلاث سنوات من شروع اللجنة الدائمة في مهامها`,
+          `على مجلس النواب للمصادقة في أجل ست سنوات`,
+          `على المجالس الجهوية في أجل عشر سنوات`,
+          `على جمعيات الآباء في أجل سنة واحدة`
+        ],
+        correct: 0,
+        reason: `تنص المادة 30 على عرض الإطار والدلائل المرجعية قبل الشروع في العمل بها «على المجلس الأعلى للتربية والتكوين والبحث العلمي لإبداء الرأي بشأنها وعلى مصادقة اللجنة الوطنية لتتبع ومواكبة إصلاح منظومة التربية والتكوين والبحث العلمي... في أجل أقصاه ثلاث سنوات ابتداء من تاريخ شروع اللجنة في ممارسة مهامها».`
+      },
+      {
+        id: 61, ch: 5, article: `المادة 31`,
+        q: `كيف حددت المادة 31 وضع كل من اللغة العربية واللغة الأمازيغية في الهندسة اللغوية بالمدرسة المغربية؟`,
+        options: [
+          `اعتماد اللغة الأمازيغية فقط في التعليم العالي، والعربية في التعليم غير النظامي`,
+          `اعتماد اللغة العربية لغة أساسية للتدريس، وتطوير وضع اللغة الأمازيغية في المدرسة ضمن إطار عمل وطني باعتبارها لغة رسمية للدولة ورصيدا مشتركا لجميع المغاربة بدون استثناء`,
+          `اعتماد اللغتين اختياريا في التعليم الخاص فقط`,
+          `الاقتصار على لغة أجنبية واحدة لغةً أساسية للتدريس منذ التعليم الأولي`
+        ],
+        correct: 1,
+        reason: `تنص المادة 31 على «اعتماد اللغة العربية لغة أساسية للتدريس، وتطوير وضع اللغة الأمازيغية في المدرسة ضمن إطار عمل وطني واضح ومتناغم مع أحكام الدستور، باعتبارها لغة رسمية للدولة، ورصيدا مشتركا لجميع المغاربة بدون استثناء».`
+      },
+      {
+        id: 62, ch: 5, article: `المادة 31`,
+        q: `ما الكفاية اللغوية المستهدفة لدى المتعلم الحاصل على الباكالوريا ضمن إرساء التعددية اللغوية في المادة 31؟`,
+        options: [
+          `إتقان اللغة العربية ولغة أجنبية واحدة فقط`,
+          `إتقان اللغتين العربية والأمازيغية، والتمكن من لغتين أجنبيتين على الأقل`,
+          `التمكن من ثلاث لغات أجنبية دون اشتراط اللغتين الرسميتين`,
+          `إتقان اللغة الفرنسية وحدها في التخصصات العلمية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 31 على «إرساء تعددية لغوية بكيفية تدريجية ومتوازنة تهدف إلى جعل المتعلم الحاصل على الباكالوريا متقنا للغتين العربية والأمازيغية، ومتمكنا من لغتين أجنبيتين على الأقل».`
+      },
+      {
+        id: 63, ch: 5, article: `المادة 31`,
+        q: `ما الأجل الأقصى المحدد في المادة 31 لتهيئة المتعلمين وتأهيلهم قصد التملك الوظيفي للغات الأجنبية في سن مبكرة؟`,
+        options: [
+          `ثلاث سنوات`,
+          `أربع سنوات`,
+          `ست سنوات ابتداء من دخول القانون الإطار حيز التنفيذ`,
+          `عشر سنوات`
+        ],
+        correct: 2,
+        reason: `تنص المادة 31 على العمل على تهيئة المتعلمين من أجل تمكينهم من إتقان اللغات الأجنبية في سن مبكرة، وتأهيلهم قصد التملك الوظيفي لهذه اللغات، «وذلك خلال أجل أقصاه ست سنوات ابتداء من تاريخ دخول هذا القانون-الإطار حيز التنفيذ».`
+      },
+      {
+        id: 64, ch: 5, article: `المادة 31`,
+        q: `ما الالتزام المفروض على المؤسسات التربوية الأجنبية العاملة بالمغرب تجاه الأطفال المغاربة الذين يتابعون تعليمهم بها؟`,
+        options: [
+          `إعفاؤهم من دراسة أي لغة وطنية والاكتفاء بلغة البعثة`,
+          `الالتزام بتدريس اللغة العربية واللغة الأمازيغية لكل الأطفال المغاربة على غرار المواد التي تعرفهم بهويتهم الوطنية، مع مراعاة الاتفاقيات الثنائية`,
+          `تدريس اللغة العربية في التعليم الثانوي فقط دون الأمازيغية`,
+          `إلزامها بتدريس جميع المواد العلمية باللغة العربية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 31 صراحة على أنه يتعين على المؤسسات التربوية الأجنبية العاملة بالمغرب «الالتزام بتدريس اللغة العربية واللغة الأمازيغية لكل الأطفال المغاربة الذين يتابعون تعليمهم بها على غرار المواد التي تعرفهم بهويتهم الوطنية، مع مراعاة أحكام الاتفاقيات الثنائية الدولية».`
+      },
+      {
+        id: 65, ch: 5, article: `المادة 32`,
+        q: `ما اللغات الأربع التي تُفتح بها مسارات لمتابعة الدراسة في التعليم العالي في إطار استقلالية الجامعات، وما اللغة المدرجة في التكوين المهني وفق المادة 32؟`,
+        options: [
+          `العربية والفرنسية والإنجليزية والإسبانية في التعليم العالي؛ وإدراج التكوين باللغة الإنجليزية في تخصصات وشعب التكوين المهني`,
+          `الفرنسية والإنجليزية فقط في التعليم العالي؛ والإسبانية في التكوين المهني`,
+          `العربية والأمازيغية فقط في التعليم العالي؛ والفرنسية فقط في التكوين المهني`,
+          `الألمانية والإيطالية والإنجليزية والفرنسية في التعليم العالي`
+        ],
+        correct: 0,
+        reason: `نصت المادة 32 على «فتح مسارات لمتابعة الدراسة باللغات العربية والفرنسية والإنجليزية والإسبانية في إطار استقلالية الجامعات»، وعلى «إدراج التكوين باللغة الإنجليزية في تخصصات وشعب التكوين المهني، إلى جانب اللغات المعتمدة في التكوين».`
+      },
+      {
+        id: 66, ch: 5, article: `المادة 32`,
+        q: `ما التدبير الإضافي الذي أوجبته المادة 32 في المسالك المدرسة باللغات الأجنبية بالتعليم العالي، وما الالتزام المفروض على أطر التدريس؟`,
+        options: [
+          `إدراج وحدة دراسية تلقن باللغة العربية في تلك المسالك؛ وتقيد الأطر باستعمال اللغة المقررة في التدريس دون غيرها من الاستعمالات اللغوية`,
+          `منع تدريس أي وحدة باللغة العربية في التعليم العالي؛ وحرية الأستاذ في اختيار أي لغة داخل القسم`,
+          `إلغاء المسالك باللغات الأجنبية خلال ثلاث سنوات`,
+          `تعويض اللغة العربية بالترجمة الفورية في الامتحانات فقط`
+        ],
+        correct: 0,
+        reason: `أقرت المادة 32: «إدراج وحدة دراسية تلقن باللغة العربية في المسالك المدرسة باللغات الأجنبية في التعليم العالي»، و«تمكين أطر التدريس والتكوين والبحث من اكتساب كفايات لغوية متعددة، مع تقيدهم باستعمال اللغة المقررة في التدريس دون غيرها من الاستعمالات اللغوية».`
+      },
+      {
+        id: 67, ch: 5, article: `المادة 33`,
+        q: `كيف تحدد المادة 33 العلاقة بين «التعلم عن بعد» و«التعلم الحضوري»، وما وضع التعليم الإلكتروني؟`,
+        options: [
+          `التعلم عن بعد بديل نهائي يلغي التعلم الحضوري`,
+          `تنمية وتطوير التعلم عن بعد باعتباره مكملا للتعلم الحضوري، وإدماج التعليم الإلكتروني تدريجيا في أفق تعميمه`,
+          `منع التعليم الإلكتروني في المؤسسات العمومية`,
+          `قصر التعلم عن بعد على محاربة الأمية فقط`
+        ],
+        correct: 1,
+        reason: `تنص المادة 33 على «تنمية وتطوير التعلم عن بعد، باعتباره مكملا للتعلم الحضوري»، و«إدماج التعليم الإلكتروني تدريجيا في أفق تعميمه»، بالإضافة إلى إحداث مختبرات للابتكار وإنتاج الموارد الرقمية وتكوين مختصين.`
+      },
+      {
+        id: 68, ch: 5, article: `المادة 34`,
+        q: `ما الأجل الأقصى للمراجعة الشاملة لنظام التوجيه المدرسي والمهني والإرشاد الجامعي، وما الأدوات المعتمدة فيه حسب المادة 34؟`,
+        options: [
+          `ثلاث سنوات؛ بالاعتماد على السن فقط`,
+          `ست سنوات؛ باعتماد الروائز مع الأخذ بعين الاعتبار معدلات التحصيل الدراسي، وميول واختيارات المتعلم ومشروعه الشخصي`,
+          `عشر سنوات؛ باعتماد الاختيار الإلزامي دون استشارة المتعلم`,
+          `أربع سنوات؛ بالاعتماد على قرار جمعية الآباء`
+        ],
+        correct: 1,
+        reason: `تلزم المادة 34 السلطات الحكومية، خلال أجل لا يتعدى ست سنوات، بمراجعة شاملة لنظام التوجيه المدرسي والمهني والإرشاد الجامعي، وتجديد آلياته «من خلال اعتماد الروائز مع الأخذ بعين الاعتبار معدلات التحصيل الدراسي، وميول واختيارات المتعلم ومشروعه الشخصي».`
+      },
+      {
+        id: 69, ch: 5, article: `المادة 35`,
+        q: `في أي أجل تتم مراجعة نظام التقييم والامتحانات والإشهاد، ومن يعد الإطار الوطني المرجعي للإشهاد والتصديق حسب المادة 35؟`,
+        options: [
+          `خلال أجل لا يتعدى ثلاث سنوات؛ وتعده هيئة وطنية مستقلة تحدث لهذا الغرض بنص تنظيمي`,
+          `خلال ست سنوات؛ وتعده اللجان الوزارية للتقييم`,
+          `خلال عشر سنوات؛ وتعده الجامعات بشكل منفرد`,
+          `خلال أربع سنوات؛ وتعده هيئات القطاع الخاص`
+        ],
+        correct: 0,
+        reason: `تقضي المادة 35 بمراجعة شاملة لنظام التقييم والامتحانات والإشهاد خلال أجل لا يتعدى ثلاث سنوات، وبوضع إطار وطني مرجعي للإشهاد والتصديق يتضمن قواعد ترتيب الشهادات والتصديق على المكتسبات المهنية والحرفية، «تعده هيئة وطنية مستقلة تحدث لهذا الغرض، تمثل فيها مختلف قطاعات التعليم والتكوين والمنظمات المهنية، وذلك بنص تنظيمي».`
+      },
+
+      /* ================= الباب السادس (70–77) ================= */
+      {
+        id: 70, ch: 6, article: `المادة 36`,
+        q: `على أي مبدأ يقوم الالتزام المشترك لجميع المتدخلين في إصلاح المنظومة، وما الوثيقة المحددة له وفق المادة 36؟`,
+        options: [
+          `مبدأ التطوع الفردي دون التزام تعاقدي`,
+          `مبدأ التلازم بين الحقوق والواجبات التي يحددها ميثاق تعاقدي لأخلاقيات مهن التربية والتعليم والتكوين والبحث`,
+          `مبدأ التفريع المالي بين الأكاديميات`,
+          `ميثاق المتعلم وحده دون الأطر`
+        ],
+        correct: 1,
+        reason: `تنص المادة 36 على وجوب إسهام جميع المتدخلين في إطار الالتزام المشترك، «على أساس مبدإ التلازم بين الحقوق والواجبات التي يحددها ميثاق تعاقدي لأخلاقيات مهن التربية والتعليم والتكوين والبحث، يوضع لهذا الغرض من قبل السلطة الحكومية المختصة».`
+      },
+      {
+        id: 71, ch: 6, article: `المادة 37`,
+        q: `فيمَ تُعتمد «الدلائل المرجعية للوظائف والكفاءات» المنصوص عليها في المادة 37؟`,
+        options: [
+          `لتصنيف الكتب المدرسية والوسائط الرقمية فقط`,
+          `لإسناد المسؤوليات التربوية والعلمية والإدارية، وتقييم الأداء، والترقي المهني`,
+          `لتحديد رسوم التسجيل في التعليم الخصوصي`,
+          `لتوزيع المنح الدراسية الجامعية على الطلبة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 37 في فقرتها الأولى على تحديد مهام وكفايات الأطر التربوية والإدارية والتقنية في دلائل مرجعية للوظائف والكفاءات، «تعتمد لإسناد المسؤوليات التربوية والعلمية والإدارية، وتقييم الأداء، والترقي المهني».`
+      },
+      {
+        id: 72, ch: 6, article: `المادة 37`,
+        q: `ما المسطرة القانونية المعتمدة لإعداد الدلائل المرجعية للوظائف والكفاءات والمصادقة عليها حسب المادة 37؟`,
+        options: [
+          `تعدها السلطة الحكومية منفردة وتصدرها في مذكرة داخلية`,
+          `تعد بمنهجية تشاورية مع ممثلي الهيئات والمنظمات المهنية المعنية، وتعرض على المجلس الأعلى لإبداء الرأي قبل المصادقة عليها بمرسوم`,
+          `تصدرها النقابات التعليمية وتصادق عليها مجالس الجهات`,
+          `يعدها المجلس الأعلى وتصادق عليها الأكاديميات الجهوية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 37 على أن السلطات الحكومية المكلفة تعد الدلائل المرجعية «وفق منهجية تشاورية مع ممثلي الهيئات والمنظمات المهنية المعنية، وتعرض على المجلس الأعلى للتربية والتكوين والبحث العلمي لإبداء الرأي قبل المصادقة عليها بمرسوم».`
+      },
+      {
+        id: 73, ch: 6, article: `المادة 37`,
+        q: `ماذا أوجبت الفقرة الأخيرة من المادة 37 بخصوص الأنظمة الأساسية الخاصة بمختلف الفئات المهنية؟`,
+        options: [
+          `إلغاء جميع الأنظمة الأساسية الخاصة نهائيا`,
+          `ملاءمة الأنظمة الأساسية الخاصة بمختلف الفئات المهنية مع المبادئ والقواعد والمعايير المنصوص عليها في الدلائل المرجعية`,
+          `ترك الأنظمة الأساسية كما هي دون أي تعديل`,
+          `تطبيق الأنظمة الأساسية على أطر القطاع الخاص وحدهم`
+        ],
+        correct: 1,
+        reason: `تُلزم الفقرة الرابعة من المادة 37 السلطات الحكومية المعنية بـ «ملاءمة الأنظمة الأساسية الخاصة بمختلف الفئات المهنية المشار إليها في الفقرة الأولى من هذه المادة مع المبادئ والقواعد والمعايير المنصوص عليها في الدلائل المرجعية المذكورة».`
+      },
+      {
+        id: 74, ch: 6, article: `المادة 38`,
+        q: `علاوة على الشروط النظامية المطلوبة لولوج مهن التدريس والتكوين والتأطير والتدبير والتفتيش بالقطاع العام، ما الشرط اللازم الذي أقرته المادة 38؟`,
+        options: [
+          `قضاء عشر سنوات في القطاع الخاص`,
+          `التكوين الأساس، فضلا عن الاستجابة للمعايير والمؤهلات المحددة في الدلائل المرجعية`,
+          `الحصول على شهادة الدكتوراه لولوج التدريس بالأولي`,
+          `الانتماء إلى جمعية مهنية محلية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 38 بوضوح على أنه «علاوة على الشروط النظامية المطلوبة لولوج مهن التدريس والتكوين والتأطير والتدبير والتفتيش بالقطاع العام يعد التكوين الأساس شرطا لازما لولوج مهن التربية والتكوين والبحث العلمي، فضلا عن الاستجابة للمعايير والمؤهلات المحددة في الدلائل المرجعية المشار إليها في المادة 37».`
+      },
+      {
+        id: 75, ch: 6, article: `المادة 39`,
+        q: `بمَ تلتزم السلطات الحكومية ومؤسسات التكوين تجاه برامج ومناهج التكوين الأساسي للأطر العاملة بمختلف مكونات المنظومة وفق المادة 39؟`,
+        options: [
+          `الاحتفاظ بنفس البرامج القديمة لمدة عشر سنوات`,
+          `مراجعتها وملاءمة أنظمة التكوين مع المستجدات التربوية والبيداغوجية والعلمية والتكنولوجية، مع مراعاة خصوصيات كل صنف`,
+          `حذف الجانب البيداغوجي والاكتفاء بالتكوين الإداري`,
+          `نقل التكوين الأساسي بالكامل إلى خارج البلاد`
+        ],
+        correct: 1,
+        reason: `تنص الفقرة الأولى من المادة 39 على العمل على مراجعة برامج ومناهج التكوين الأساسي لفائدة الأطر لتأهيلهم والرفع من كفاءتهم المهنية «من خلال ملاءمة أنظمة التكوين مع المستجدات التربوية والبيداغوجية والعلمية والتكنولوجية، مع مراعاة خصوصيات كل صنف من أصناف التكوين».`
+      },
+      {
+        id: 76, ch: 6, article: `المادة 39`,
+        q: `ما الوتيرة الزمنية لبرامج التكوين المستمر والمتخصص التي توضع بشراكة مع الهيئات العامة والخاصة وفق المادة 39؟`,
+        options: [
+          `برامج كل عشر سنوات`,
+          `برامج سنوية للتكوين المستمر والمتخصص`,
+          `برامج تُنظم مرة واحدة عند التقاعد`,
+          `برامج اختيارية كل ست سنوات`
+        ],
+        correct: 1,
+        reason: `تنص الفقرة الثانية من المادة 39 على وضع «برامج سنوية للتكوين المستمر والمتخصص لفائدة الأطر المذكورة، من أجل تطوير مهاراتهم وتحسين مردوديتهم»، وذلك بشراكة مع الهيئات العامة والخاصة كل في مجال اختصاصه.`
+      },
+      {
+        id: 77, ch: 6, article: `المادة 39`,
+        q: `ما الصفة القانونية للتكوين المستمر، وأين يظهر أثره المهني حسب المادة 39 (وكذا المادة 14 للقطاع الخاص)؟`,
+        options: [
+          `تكوين تطوعي لا يدخل في المسار المهني`,
+          `تكوين إلزامي، ويدخل ضمن عناصر تقييم الأداء والترقي المهني`,
+          `تكوين خاص بالأطر الإدارية دون هيئة التدريس`,
+          `تكوين بديل عن التكوين الأساسي عند التوظيف`
+        ],
+        correct: 1,
+        reason: `تختم المادة 39 بالتنصيص على أنه «يتعين جعل التكوين المستمر إلزاميا وضمن عناصر تقييم الأداء والترقي المهني المشار إليها في الدلائل المرجعية الواردة في المادة 37 من هذا القانون»، وهو المقتضى نفسه الذي أكدته المادة 14 بالنسبة للقطاع الخاص.`
+      },
+
+      /* ================= الباب السابع (78–85) ================= */
+      {
+        id: 78, ch: 7, article: `المادة 40`,
+        q: `ما السياسة التدبيرية والمبدأ التنظيمي اللذان تلتزم السلطات العمومية بتفعيلهما على المستوى الترابي وفق المادة 40؟`,
+        options: [
+          `المركزية المطلقة وتجميع كل القرارات بالإدارة المركزية`,
+          `سياسة اللامركزية واللاتمركز، وإعمال مبدأ التفريع لتمكين بنيات التدبير الجهوية والمحلية من ممارسة اختصاصاتها`,
+          `خصخصة الأكاديميات الجهوية للتربية والتكوين`,
+          `إلغاء البنيات الجهوية والاكتفاء بالمجالس المحلية`
+        ],
+        correct: 1,
+        reason: `تؤكد المادة 40 اتخاذ التدابير اللازمة «لمواصلة تفعيل سياسة اللامركزية واللاتمركز في تدبير المنظومة على المستوى الترابي، وإعمال مبدأ التفريع من أجل تمكين بنيات التدبير الجهوية والمحلية للمنظومة من ممارسة المهام والاختصاصات الموكولة إليها».`
+      },
+      {
+        id: 79, ch: 7, article: `المادة 40`,
+        q: `على ماذا يُبنى إرساء استقلالية مؤسسات التربية والتعليم والتكوين والبحث العلمي وفق المادة 40؟`,
+        options: [
+          `اعتماد مشروع المؤسسة أساسا لتنميتها المستمرة وتدبيرها الناجع`,
+          `استقلاليتها المالية التامة عن ميزانية الدولة`,
+          `إسناد تدبيرها لشركات المناولة الخاصة`,
+          `إلغاء مجالس التدبير والمجالس التربوية`
+        ],
+        correct: 0,
+        reason: `ينص البند الخامس من المادة 40 صراحة على: «إرساء استقلالية مؤسسات التربية والتعليم والتكوين والبحث العلمي، باعتماد مشروع المؤسسة أساسا لتنميتها المستمرة وتدبيرها الناجع».`
+      },
+      {
+        id: 80, ch: 7, article: `المادة 40`,
+        q: `ما الآلية المعتمدة لتحقيق حسن الاستعمال المشترك للتجهيزات والممتلكات على الصعيد الترابي، وكيف تُعزز استقلالية الجامعات والأكاديميات؟`,
+        options: [
+          `بيع الممتلكات الفائضة؛ ومنح استقلالية مطلقة دون رقابة`,
+          `وضع آلية لتحقيق التعاضد في الموارد والممتلكات والتجهيزات؛ وتعزيز الاستقلالية الفعلية للجامعات والأكاديميات في إطار تعاقدي مع التتبع والتقييم وقياس الأداء والافتحاص الدوري`,
+          `حصر استعمال التجهيزات في مؤسسة واحدة دون جوارها`,
+          `تعليق العمل بالإطار التعاقدي والاكتفاء بالتعيين المركزي`
+        ],
+        correct: 1,
+        reason: `تنص المادة 40 على وضع آلية لتحقيق «التعاضد في الموارد والممتلكات والتجهيزات» لاستغلالها المشترك، كما تنص على «تعزيز الاستقلالية الفعلية للجامعات والأكاديميات الجهوية للتربية والتكوين في إطار تعاقدي، مع إقرار آلية للتتبع والتقييم وقياس الأداء والافتحاص بكيفية دورية».`
+      },
+      {
+        id: 81, ch: 7, article: `المادة 41`,
+        q: `أي من حزم المبادئ التالية تقوم عليها منظومة التدبير الداخلي لمؤسسات المنظومة ولا سيما الجامعات والأكاديميات وفق المادة 41؟`,
+        options: [
+          `السرية التامة، والمركزية، وتعقيد المساطر`,
+          `الديموقراطية، المسؤولية، التفويض، الشفافية، المحاسبة، الترشيد، التنسيق، تبسيط المساطر، والمراقبة الداخلية`,
+          `التدبير الفردي دون محاسبة أو تفويض`,
+          `تجميد النصوص التنظيمية دون مراجعة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 41 على وجوب قيام منظومة التدبير الداخلي، ولا سيما بالجامعات والأكاديميات، «على مبادئ الديموقراطية والمسؤولية والتفويض والشفافية والمحاسبة والترشيد والتنسيق وتبسيط المساطر والمراقبة الداخلية»، مع مراجعة النصوص التنظيمية المتعلقة بهياكلها وسيرها.`
+      },
+      {
+        id: 82, ch: 7, article: `المادة 42`,
+        q: `ما الأداة الرقمية التدبيرية التي تعمل السلطات الحكومية على وضعها بشراكة مع المؤسسات المعنية وفق المادة 42؟`,
+        options: [
+          `شبكة تواصل اجتماعي ترفيهية للمتعلمين`,
+          `نظام وطني متكامل للمعلومات، لإدماج تكنولوجيا المعلومات والاتصالات في تدبير وتقييم مختلف مكونات المنظومة، وتأمينه وتحيينه باستمرار`,
+          `أرشيف ورقي مركزي للامتحانات المهنية`,
+          `منصة تجارية لبيع المراجع التربوية`
+        ],
+        correct: 1,
+        reason: `تقضي المادة 42 بوضع «نظام وطني متكامل للمعلومات، من أجل إدماج تكنولوجيا المعلومات والاتصالات في تدبير وتقييم مختلف مكونات منظومة التربية والتكوين والبحث العلمي، والسهر على تأمينه وتطويره وتحيينه بكيفية دائمة ومستمرة».`
+      },
+      {
+        id: 83, ch: 7, article: `المادة 43`,
+        q: `ما الإجراء التشريعي والتحفيزي الذي تتخذه السلطات العمومية لتشجيع الشراكات البحثية للجامعات مع المقاولات والهيئات الوطنية والأجنبية والدولية وفق المادة 43؟`,
+        options: [
+          `منع الجامعات من التعاقد مع المقاولات الأجنبية`,
+          `إقرار نظام خاص ومتكامل للتحفيز على إبرام الشراكات لتشجيع البحث العلمي المنتج، مع إمكانية تكليف مؤسسات البحث بإنجاز مشاريع لحساب الدولة في إطار تعاقد استراتيجي`,
+          `إلزام الباحثين بتمويل مشاريعهم من مداخيلهم الخاصة`,
+          `حصر البحث العلمي في الدراسات النظرية غير التطبيقية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 43 على إبرام الجامعات شراكات وطنية وأجنبية ودولية، واتخاذ السلطات العمومية التدابير التشريعية لإقرار «نظام خاص ومتكامل للتحفيز» لتشجيع مشاريع البحث المنتج وتكوين الباحثين وانخراطهم في الشبكات الدولية، فضلا عن التعاقد الاستراتيجي للدولة معها.`
+      },
+      {
+        id: 84, ch: 7, article: `المادة 44`,
+        q: `ما الغاية من «الإطار التعاقدي الاستراتيجي الشامل» الذي تضعه الدولة وفق المادة 44؟`,
+        options: [
+          `استبدال التعليم العمومي بالتعليم الخصوصي كليا`,
+          `تحديد مساهمة القطاع الخاص في تطوير المنظومة والرفع من مردوديتها وتمويلها وتحسين جودتها وتنويع العرض والإجراءات التحفيزية له`,
+          `إعفاء مؤسسات القطاع الخاص من أي التزامات تعاقدية`,
+          `نقل ملكية الجامعات العمومية إلى شركات أجنبية`
+        ],
+        correct: 1,
+        reason: `تعمل الدولة وفق المادة 44 على وضع «إطار تعاقدي استراتيجي شامل» يحدد مساهمة القطاع الخاص في تطوير المنظومة والرفع من مردوديتها وتمويلها وتحسين جودتها وتنويع العرض التربوي، وكذا الإجراءات والتدابير التحفيزية التي يمكن أن يستفيد منها.`
+      },
+      {
+        id: 85, ch: 7, article: `المادة 44`,
+        q: `ما المعايير المجالية والتدبيرية الواجب مراعاتها في الإطار التعاقدي الاستراتيجي مع القطاع الخاص حسب المادة 44؟`,
+        options: [
+          `الربحية السريعة والتركيز على الأحياء الراقية فقط`,
+          `مبادئ التوازن المجالي وأولوية المناطق ذات الخصاص، ومعايير الحكامة والجودة والتمركز الجغرافي وتكاليف التمدرس والمردودية`,
+          `الاقتصار على معيار عدد التلاميذ دون اعتبار للجودة`,
+          `توحيد الرسوم في جميع أنحاء العالم دون تمييز مجالي`
+        ],
+        correct: 1,
+        reason: `اشترطت المادة 44 مراعاة «مبادئ التوازن المجالي على الصعيد الترابي، وأولوية المناطق ذات الخصاص في البنيات المدرسية»، وفي فقرتها الثانية مراعاة «معايير الحكامة والجودة والتمركز الجغرافي وتكاليف التمدرس والمردودية».`
+      },
+
+      /* ================= الباب الثامن (86–93) ================= */
+      {
+        id: 86, ch: 8, article: `المادة 45`,
+        q: `ما حدود «مجانية التعليم العمومي» التي تضمنها الدولة وفق المادة 45؟`,
+        options: [
+          `التعليم الإلزامي فقط حتى سن السادسة عشرة`,
+          `في جميع أسلاكه وتخصصاته، لجعل التعليم في متناول كافة المواطنات والمواطنين على قدم المساواة`,
+          `التعليم الابتدائي والإعدادي دون الثانوي التأهيلي والعالي`,
+          `التخصصات العلمية فقط دون الأدبية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 45 صراحة على أن «تضمن الدولة مجانية التعليم العمومي في جميع أسلاكه وتخصصاته وتعمل على تعبئة وضمان كل الإمكانات المتاحة لجعله في متناول كافة المواطنات والمواطنين على قدم المساواة».`
+      },
+      {
+        id: 87, ch: 8, article: `المادة 45`,
+        q: `ما الضمانة الدستورية والاجتماعية التي نصت عليها الفقرة الثانية من المادة 45 بخصوص متابعة الدراسة؟`,
+        options: [
+          `لا يحرم أحد من متابعة الدراسة لأسباب مادية محضة، إذا ما استوفى الكفايات والمكتسبات اللازمة`,
+          `تُلغى شروط الاستحقاق والكفايات في التعليم العالي`,
+          `تقتصر متابعة الدراسة العليا على القادرين على الأداء المالي`,
+          `تُفرض رسوم إلزامية في التعليم العمومي على كل الأسر`
+        ],
+        correct: 0,
+        reason: `تؤكد الفقرة الثانية من المادة 45 قاعدة حاسمة مفادها: «لا يحرم أحد من متابعة الدراسة لأسباب مادية محضة، إذا ما استوفى الكفايات والمكتسبات اللازمة».`
+      },
+      {
+        id: 88, ch: 8, article: `المادة 46`,
+        q: `على أي مبدأ تقوم مساهمة الجماعات الترابية والمؤسسات والمقاولات العمومية والقطاع الخاص في تنويع مصادر تمويل المنظومة حسب المادة 46؟`,
+        options: [
+          `التبرع الفردي الموسمي`,
+          `تفعيل التضامن الوطني والقطاعي`,
+          `اقتطاع أجور المتعلمين`,
+          `إلغاء التمويل العمومي من ميزانية الدولة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 46 على مواصلة الدولة تعبئة الموارد وتنويع مصادر التمويل، «ولا سيما تفعيل التضامن الوطني والقطاعي، من خلال مساهمة جميع الأطراف والشركاء المعنيين، وخصوصا منهم الجماعات الترابية والمؤسسات والمقاولات العمومية والقطاع الخاص».`
+      },
+      {
+        id: 89, ch: 8, article: `المادة 47`,
+        q: `بأي قانون يُحدث الصندوق الخاص لتنويع مصادر تمويل منظومة التربية والتكوين وتحسين جودتها، ومع مراعاة أي قانون تنظيمي؟`,
+        options: [
+          `بموجب مرسوم، مع مراعاة قانون الصفقات العمومية`,
+          `بموجب قانون للمالية، مع مراعاة أحكام القانون التنظيمي رقم 130.13 لقانون المالية`,
+          `بموجب قرار لوزير التربية الوطنية دون قانون للمالية`,
+          `بموجب ظهير خاص خارج الميزانية العامة`
+        ],
+        correct: 1,
+        reason: `تنص المادة 47 على أنه «يحدث بموجب قانون للمالية صندوق خاص لتنويع مصادر تمويل منظومة التربية والتكوين، وتحسين جودتها، يتم تمويله في إطار الشراكة من طرف الدولة والمؤسسات والمقاولات العمومية ومساهمات القطاع الخاص وباقي الشركاء، وذلك مع مراعاة أحكام القانون التنظيمي رقم 130.13 لقانون المالية».`
+      },
+      {
+        id: 90, ch: 8, article: `المادة 48`,
+        q: `ما المجالات ذات الأولوية التي يتعين على الدولة تطوير برامج التعاون والشراكة الدولية فيها وفق المادة 48؟`,
+        options: [
+          `تمويل تعميم التعليم الإلزامي، والتعليم عن بعد، والتربية غير النظامية، ومحاربة الأمية، والتعليم مدى الحياة، وتنمية البحث العلمي، والرفع من جودة المنظومة`,
+          `تمويل الأنشطة الترفيهية بالمدارس الخاصة الأجنبية فقط`,
+          `تغطية رواتب الإداريين المركزيين فقط`,
+          `تمويل السفر السياحي للأطر الإدارية`
+        ],
+        correct: 0,
+        reason: `نصت المادة 48 على تطوير برامج التعاون والشراكة في إطار التعاون الدولي، وخاصة فيما يتعلق بتمويل تعميم التعليم الإلزامي، والتعليم عن بعد، والتربية غير النظامية، ومحاربة الأمية، والتعليم مدى الحياة، وتنمية البحث العلمي، والرفع من جودة المنظومة.`
+      },
+      {
+        id: 91, ch: 8, article: `المادة 49`,
+        q: `ما الصندوق الذي تعمل الحكومة على تعزيزه بموارد إضافية لتمويل تجهيزات البحث العلمي وتأهيل موارده البشرية وفق المادة 49؟`,
+        options: [
+          `صندوق التضامن العائلي`,
+          `الصندوق الوطني لدعم البحث العلمي والتنمية التكنولوجية (المحدث بموجب قانون المالية رقم 55.00 لسنة 2001)`,
+          `الصندوق الخاص لتعميم التعليم الأولي`,
+          `صندوق دعم المدارس الجماعاتية`
+        ],
+        correct: 1,
+        reason: `تنص المادة 49 على تعزيز «الصندوق الوطني لدعم البحث العلمي والتنمية التكنولوجية المحدث بموجب قانون المالية رقم 55.00 للسنة المالية 2001» بموارد إضافية، تُعبأ لاستدراك الخصاص في تجهيزات البحث العلمي، وتمويل برامج تكوين وتأهيل الباحثين والخبراء المتخصصين.`
+      },
+      {
+        id: 92, ch: 8, article: `المادتان 50 و51`,
+        q: `ما التدبيران اللذان أقرتهما المادتان 50 و51 لتسهيل تدبير البحث العلمي وتحفيز الشراكة فيه مع المقاولات الوطنية؟`,
+        options: [
+          `تعقيد مساطر الإنفاق العمومي ومنع المقاولات من الشراكة`,
+          `مراجعة شاملة لمساطر وإجراءات الإنفاق العمومي على البحث العلمي لتبسيطها وشفافيتها وعقلنتها؛ ووضع نظام تحفيز يتضمن تدابير مالية وجبائية خاصة بموجب قانون للمالية`,
+          `إعفاء مشاريع البحث العلمي من أي تقييم مالي`,
+          `فرض ضريبة إضافية على المقاولات الوطنية المتعاقدة مع الجامعات`
+        ],
+        correct: 1,
+        reason: `تسهر الحكومة وفق المادة 50 على مراجعة مساطر الإنفاق العمومي على قطاع البحث العلمي لتبسيطها وعقلنتها، وتشجع وفق المادة 51 الشراكة والتعاقد بين مؤسسات البحث والمقاولات الوطنية عبر وضع نظام للتحفيز يتضمن «تدابير مالية وجبائية خاصة تحدد بموجب قانون للمالية».`
+      },
+      {
+        id: 93, ch: 8, article: `المادة 52`,
+        q: `ما الذي يتضمنه «نظام الحسابات الوطنية في مجال التربية والتعليم والتكوين» المحدث بموجب المادة 52؟`,
+        options: [
+          `لائحة أسماء التلاميذ المستفيدين من المنح فقط`,
+          `كشفا حسابيا يوضح بدقة طبيعة التكاليف، والموارد، وكيفية استعمالها ومبرراتها، ومقاييس مردوديتها وقياس نجاعتها وارتباطها بالأهداف المحددة لكل تكليف`,
+          `ميزانية القطاع الخاص دون القطاع العام`,
+          `تقريرا سنويا عن نتائج امتحانات البكالوريا فقط`
+        ],
+        correct: 1,
+        reason: `يحدث بمقتضى المادة 52 نظام للحسابات الوطنية في مجال التربية والتعليم والتكوين، «يتضمن كشفا حسابيا يوضح بدقة طبيعة التكاليف، والموارد، وكيفية استعمالها ومبرراتها، ومقاييس مردوديتها وقياس نجاعتها وارتباطها بالأهداف المحددة لكل تكليف».`
+      },
+
+      /* ================= الباب التاسع (94–99) ================= */
+      {
+        id: 94, ch: 9, article: `المادة 53`,
+        q: `ما المرجعية الدستورية والقانونية التي يجب مراعاتها عند مراجعة النصوص المنظمة للتقييم فيما يخص اختصاصات المجلس الأعلى للتربية والتكوين والبحث العلمي؟`,
+        options: [
+          `الفصل 71 من الدستور والقانون رقم 130.13`,
+          `الفصل 168 من الدستور والقانون رقم 105.12 المتعلق بهذا المجلس`,
+          `الفصل 31 من الدستور وقانون المالية 55.00`,
+          `النظام الأساسي للوظيفة العمومية فقط`
+        ],
+        correct: 1,
+        reason: `تنص المادة 53 صراحة على مراجعة النصوص المنظمة لمهام التقييم وإقرار أساس تعاقدي لبرامج عمل هيئات التقييم «مع مراعاة المهام والاختصاصات المسندة للمجلس الأعلى للتربية والتكوين والبحث العلمي في مجال التقييم بموجب الفصل 168 من الدستور والقانون رقم 105.12 المتعلق بهذا المجلس».`
+      },
+      {
+        id: 95, ch: 9, article: `المادة 53`,
+        q: `ما الأداة المرجعية التي تنص المادة 53 على وضعها وإتاحتها لمؤسسات المنظومة في القطاعين العام والخاص لضمان الجودة؟`,
+        options: [
+          `إطار مرجعي للجودة يُعتمد كأساس لإعداد دلائل مرجعية لمعايير الجودة حسب كل مكون ومستوى`,
+          `مذكرة تصنيف المؤسسات حسب عدد التلاميذ فقط`,
+          `لائحة العقوبات التأديبية للتلاميذ`,
+          `نظام داخلي موحد لجميع الجامعات الأجنبية`
+        ],
+        correct: 0,
+        reason: `تنص المادة 53 في بندها الثاني على «وضع إطار مرجعي للجودة يعتمد كأساس لإعداد دلائل مرجعية لمعايير الجودة حسب كل مكون من مكونات المنظومة ومستوياتها، ووضعها رهن إشارة مؤسسات التربية والتعليم والتكوين والبحث العلمي والفاعلين التربويين وسائر العاملين بها في القطاعين العام والخاص».`
+      },
+      {
+        id: 96, ch: 9, article: `المادة 54`,
+        q: `كيف تُميز المادة 54 بين «التقييم الداخلي» و«التقييم الخارجي» للمنظومة؟`,
+        options: [
+          `الداخلي ينجزه المجلس الأعلى، والخارجي تنجزه الوزارة`,
+          `التقييم الداخلي تنجزه السلطة الحكومية المكلفة بكيفية دورية ومستمرة، والتقييم الخارجي يقوم به المجلس الأعلى للتربية والتكوين والبحث العلمي وفق برمجة سنوية ومتعددة السنوات`,
+          `التقييم الداخلي خاص بالقطاع الخاص، والخارجي خاص بالمدارس الجماعاتية`,
+          `التقييم الخارجي يتم مرة كل عشر سنوات من طرف هيئات أجنبية`
+        ],
+        correct: 1,
+        reason: `توضح المادة 54 أن عمليات التقييم تشتمل على «تقييم داخلي تنجزه السلطة الحكومية المكلفة بالتربية والتعليم والتكوين والبحث العلمي بكيفية دورية ومستمرة، وعلى تقييم خارجي يقوم به المجلس الأعلى للتربية والتكوين والبحث العلمي وفق برمجة سنوية ومتعددة السنوات».`
+      },
+      {
+        id: 97, ch: 9, article: `المادة 55`,
+        q: `أي من الجوانب التالية تهمه عمليات التقييم المنصوص عليها في المادة 55؟`,
+        options: [
+          `قياس تحصيل المتعلمين فقط دون النظر إلى كلفة الإنفاق`,
+          `المردودية الداخلية والخارجية، والهندسة البيداغوجية، والتقييمات الكمية والكيفية للمتعلمين، وأداء أجهزة الإدارة، وبرامج البحث العلمي، وكلفة وحجم الإنفاق مقارنة بالمخرجات`,
+          `تقييم المقررات الدراسية دون أداء أجهزة الإدارة والتدبير`,
+          `تقييم التعليم العالي دون التعليم المدرسي والتكوين المهني`
+        ],
+        correct: 1,
+        reason: `حددت المادة 55 ستة جوانب شاملة للتقييم: 1) المردودية الداخلية والخارجية وجودة الخدمات، 2) عناصر الهندسة البيداغوجية وأداء الفاعلين، 3) تقييمات كمية وكيفية لمكتسبات المتعلمين، 4) أداء أجهزة الإدارة والتدبير، 5) برامج البحث العلمي، 6) كلفة وحجم الإنفاق مقارنة بالأهداف والمخرجات.`
+      },
+      {
+        id: 98, ch: 9, article: `المادة 55`,
+        q: `إلى ماذا يجب أن تستند عمليات التقييم الواردة في المادة 55؟`,
+        options: [
+          `إلى الانطباعات الشخصية للمقيمين دون معايير`,
+          `إلى الدلائل المرجعية ولا سيما المتعلقة بمعايير الجودة، وكذا القوانين والأنظمة ووثائق الشراكات المبرمة`,
+          `إلى تقارير وسائل الإعلام وحدها`,
+          `إلى معايير القطاع الخاص الربحية فقط`
+        ],
+        correct: 1,
+        reason: `تنص الفقرة الأخيرة من المادة 55 على وجوب أن تتم عمليات التقييم «استنادا إلى الدلائل المرجعية المشار إليها في هذا القانون-الإطار ولا سيما منها المتعلقة بمعايير الجودة، وكذا إلى المبادئ والقواعد المنصوص عليها في القوانين والأنظمة ووثائق الشراكات المبرمة».`
+      },
+      {
+        id: 99, ch: 9, article: `المادة 56`,
+        q: `ما الجهة المحدثة لدى السلطات الحكومية لتتبع نتائج التقييمات واقتراح تصحيح الاختلالات، وكيف تُحدد مهامها وسيرها؟`,
+        options: [
+          `لجان وزارية؛ وتحدد مهامها وتنظيمها وكيفيات سيرها بمرسوم`,
+          `جمعيات الآباء؛ وتحدد مهامها بقانون مالي`,
+          `لجان جهوية مستقلة؛ وتحدد مهامها بمذكرة وزارية`,
+          `المجلس الوطني للبحث العلمي؛ وتحدد مهامه باتفاقية شراكة`
+        ],
+        correct: 0,
+        reason: `تنص المادة 56 على إحداث «لجان وزارية» لدى السلطات الحكومية المكلفة، يعهد إليها بتتبع نتائج التقييمات المنجزة واقتراح التدابير اللازمة لتصحيح الاختلالات وتطوير أداء المنظومة، «وتحدد مهام هذه اللجان وتنظيمها وكيفيات سيرها بمرسوم».`
+      },
+
+      /* ================= الباب العاشر (100–105) ================= */
+      {
+        id: 100, ch: 10, article: `المادة 57`,
+        q: `لدى من تُحدث «اللجنة الوطنية لتتبع ومواكبة إصلاح منظومة التربية والتكوين والبحث العلمي»، وبماذا يُحدد تأليفها وسيرها؟`,
+        options: [
+          `لدى وزير التربية الوطنية، ويحدد تأليفها بمذكرة داخلية`,
+          `لدى رئيس الحكومة، ويحدد تأليفها وتنظيمها وكيفيات سيرها بنص تنظيمي`,
+          `لدى المجلس الأعلى للتربية والتكوين، ويحدد تأليفها بظهير`,
+          `لدى مجلس النواب، ويحدد تأليفها بالنظام الداخلي للبرلمان`
+        ],
+        correct: 1,
+        reason: `تنص المادة 57 صراحة على أنه «تحدث لدى رئيس الحكومة لجنة وطنية لتتبع ومواكبة إصلاح منظومة التربية والتكوين والبحث العلمي»، وأن «يحدد تأليف هذه اللجنة وتنظيمها وكيفيات سيرها بنص تنظيمي».`
+      },
+      {
+        id: 101, ch: 10, article: `المادة 57`,
+        q: `ما المهام الأربع المسندة إلى اللجنة الوطنية لتتبع ومواكبة الإصلاح وفق المادة 57؟`,
+        options: [
+          `تدريس اللغات، وتأليف الكتب المدرسية، وتوزيع المنح، وتدبير الامتحانات`,
+          `حصر تدابير تطبيق القانون، ومواكبة إعداد مشاريع النصوص التشريعية والتنظيمية، واقتراح تدابير التقائية السياسات القطاعية، وتتبع تنفيذ الأهداف داخل الآجال القانونية`,
+          `إدارة الجامعات، وتفتيش الأساتذة، وتحديد رسوم القطاع الخاص`,
+          `تمويل البحث العلمي بالخارج، وإبرام الاتفاقيات الثنائية`
+        ],
+        correct: 1,
+        reason: `حددت المادة 57 أربع مهام دقيقة للجنة الوطنية: 1) حصر مجموع الإجراءات والتدابير اللازمة للتطبيق، 2) مواكبة وتتبع إعداد مشاريع النصوص التشريعية والتنظيمية، 3) اقتراح كل تدبير لضمان التقائية السياسات والبرامج القطاعية ومطابقتها للاختيارات الاستراتيجية، 4) تتبع تنفيذ الأهداف داخل الآجال القانونية.`
+      },
+      {
+        id: 102, ch: 10, article: `المادة 58`,
+        q: `ما الطبيعة القانونية للآجال المنصوص عليها في القانون الإطار رقم 51.17 حسب المادة 58؟`,
+        options: [
+          `آجال استرشادية غير ملزمة`,
+          `آجال كاملة`,
+          `آجال قابلة للتقليص التلقائي إلى النصف`,
+          `آجال تخص التعليم العالي وحده`
+        ],
+        correct: 1,
+        reason: `تنص المادة 58 في صدرها على أن «تعتبر الآجال المنصوص عليها في هذا القانون-الإطار آجالا كاملة».`
+      },
+      {
+        id: 103, ch: 10, article: `المادة 58`,
+        q: `ابتداء من أي تاريخ يُحتسب سريان الآجال الكاملة المنصوص عليها في القانون الإطار 51.17 وفق المادة 58؟`,
+        options: [
+          `ابتداء من تاريخ المصادقة عليه في المجلس الحكومي`,
+          `ابتداء من تاريخ دخول النصوص التشريعية والتنظيمية اللازمة لتطبيقه حيز التنفيذ`,
+          `ابتداء من سنة 2015 تاريخ اعتماد الرؤية الاستراتيجية`,
+          `ابتداء من دخول قانون المالية لسنة 2025 حيز التنفيذ`
+        ],
+        correct: 1,
+        reason: `تقضي المادة 58 بأن الآجال المنصوص عليها في القانون-الإطار تعتبر آجالا كاملة، «وتحتسب ابتداء من تاريخ دخول النصوص التشريعية والتنظيمية اللازمة لتطبيقه حيز التنفيذ».`
+      },
+      {
+        id: 104, ch: 10, article: `المادة 59`,
+        q: `متى تدخل أحكام القانون الإطار 51.17 حيز التنفيذ، وما مآل النصوص التشريعية والتنظيمية الجاري بها العمل عند نشره؟`,
+        options: [
+          `يدخل حيز التنفيذ بعد عشر سنوات، وتُلغى كل النصوص السابقة فورا دون بديل`,
+          `يدخل حيز التنفيذ ابتداء من تاريخ نشره بالجريدة الرسمية، وتظل النصوص الجاري بها العمل سارية المفعول إلى حين نسخها أو تعويضها أو تعديلها`,
+          `يدخل حيز التنفيذ بمجرد توقيعه قبل النشر في الجريدة الرسمية`,
+          `لا يدخل حيز التنفيذ إلا بعد تعديل الدستور`
+        ],
+        correct: 1,
+        reason: `تنص المادة 59 على أن أحكام القانون-الإطار تدخل حيز التنفيذ «ابتداء من تاريخ نشره بالجريدة الرسمية»، مع بقاء النصوص التشريعية والتنظيمية الجاري بها العمل سارية المفعول «إلى حين نسخها أو تعويضها أو تعديلها، حسب الحالة، طبقا لأحكام هذا القانون-الإطار».`
+      },
+      {
+        id: 105, ch: 10, article: `المادة 59`,
+        q: `ما المدة الزمنية المحددة للبرمجة التي يتعين على الحكومة وضعها لإعداد النصوص التشريعية والتنظيمية اللازمة لتطبيق القانون وعرضها على مسطرة المصادقة؟`,
+        options: [
+          `سنة واحدة`,
+          `سنتان`,
+          `ثلاث سنوات`,
+          `ست سنوات`
+        ],
+        correct: 2,
+        reason: `تختم المادة 59 بالتنصيص على أنه «يتعين على الحكومة، وفق ما تم التنصيص عليه في هذا القانون-الإطار، أن تضع برمجة زمنية محددة في ثلاث سنوات لإعداد النصوص التشريعية والتنظيمية اللازمة لتطبيقه وعرضها على مسطرة المصادقة».`
+      }
+    ];
+
+    const LETTERS = [`أ`, `ب`, `ج`, `د`];
+
+    let appState = {
+      answers: {},       // { [questionId]: chosenOptionIndex }
+      activeChapter: 0,  // 0 = all, 1..10 = chapter
+      statusFilter: `all`, // 'all' | 'unanswered' | 'wrong' | 'correct'
+      searchQuery: ``,
+      viewMode: `single`,  // 'single' | 'list'
+      shuffled: false,
+      shuffleOrder: [],  // array of question ids
+      currentQuestionId: 1,
+      currentStreak: 0,
+      bestStreak: 0
+    };
+
+    function getOrderedQuestions() {
+      if (appState.shuffled && appState.shuffleOrder.length === QUESTIONS.length) {
+        const map = new Map();
+        for (let i = 0; i < QUESTIONS.length; i++) {
+          map.set(QUESTIONS[i].id, QUESTIONS[i]);
+        }
+        const result = [];
+        for (let i = 0; i < appState.shuffleOrder.length; i++) {
+          const item = map.get(appState.shuffleOrder[i]);
+          if (item) result.push(item);
+        }
+        if (result.length === QUESTIONS.length) return result;
+      }
+      return QUESTIONS;
+    }
+
+    function getFilteredQuestions() {
+      const base = getOrderedQuestions();
+      const qTerm = appState.searchQuery.trim().toLowerCase();
+      return base.filter(function (item) {
+        if (appState.activeChapter !== 0 && item.ch !== appState.activeChapter) {
+          return false;
+        }
+        const chosen = appState.answers[item.id];
+        const isAnswered = chosen !== undefined;
+        const isCorrect = isAnswered && chosen === item.correct;
+        if (appState.statusFilter === `unanswered` && isAnswered) return false;
+        if (appState.statusFilter === `correct` && !isCorrect) return false;
+        if (appState.statusFilter === `wrong` && (!isAnswered || isCorrect)) return false;
+
+        if (qTerm.length > 0) {
+          const haystack = (
+            item.q + ` ` +
+            item.article + ` ` +
+            item.reason + ` ` +
+            item.options.join(` `)
+          ).toLowerCase();
+          if (haystack.indexOf(qTerm) === -1) return false;
+        }
+        return true;
+      });
+    }
+
+    function computeStats() {
+      let totalAnswered = 0;
+      let totalCorrect = 0;
+      const byChapter = {};
+      for (let c = 0; c <= 10; c++) {
+        byChapter[c] = { total: 0, answered: 0, correct: 0 };
+      }
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        byChapter[0].total++;
+        byChapter[q.ch].total++;
+        const chosen = appState.answers[q.id];
+        if (chosen !== undefined) {
+          totalAnswered++;
+          byChapter[0].answered++;
+          byChapter[q.ch].answered++;
+          if (chosen === q.correct) {
+            totalCorrect++;
+            byChapter[0].correct++;
+            byChapter[q.ch].correct++;
+          }
+        }
+      }
+      return { totalAnswered, totalCorrect, byChapter };
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`);
+    }
+
+    function renderKPIs(stats) {
+      const scoreEl = document.getElementById(`kpi-score`);
+      const accEl = document.getElementById(`kpi-accuracy`);
+      const progEl = document.getElementById(`kpi-progress`);
+      const progBarEl = document.getElementById(`kpi-progress-bar`);
+      const streakEl = document.getElementById(`kpi-streak`);
+      const bestEl = document.getElementById(`kpi-best-streak`);
+      const chScoreEl = document.getElementById(`kpi-chapter-score`);
+      const chNameEl = document.getElementById(`kpi-chapter-name`);
+
+      const acc = stats.totalAnswered > 0
+        ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100)
+        : 0;
+      const progPct = Math.round((stats.totalAnswered / QUESTIONS.length) * 100);
+
+      if (scoreEl) scoreEl.textContent = `${stats.totalCorrect} / ${stats.totalAnswered}`;
+      if (accEl) accEl.textContent = `نسبة الصواب: ${acc}%`;
+      if (progEl) progEl.textContent = `${stats.totalAnswered} / ${QUESTIONS.length}`;
+      if (progBarEl) progBarEl.style.width = `${progPct}%`;
+      if (streakEl) streakEl.textContent = `${appState.currentStreak}`;
+      if (bestEl) bestEl.textContent = `أفضل سلسلة: ${appState.bestStreak}`;
+
+      const chStat = stats.byChapter[appState.activeChapter] || stats.byChapter[0];
+      const chObj = CHAPTERS[appState.activeChapter] || CHAPTERS[0];
+      if (chScoreEl) chScoreEl.textContent = `${chStat.correct} / ${chStat.total}`;
+      if (chNameEl) chNameEl.textContent = chObj.title;
+    }
+
+    function renderChapters(stats) {
+      const container = document.getElementById(`chapter-list`);
+      if (!container) return;
+      let html = ``;
+      for (let i = 0; i < CHAPTERS.length; i++) {
+        const ch = CHAPTERS[i];
+        const st = stats.byChapter[ch.id];
+        const pct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+        const activeClass = appState.activeChapter === ch.id ? ` is-active` : ``;
+        html += `
+          <button type="button" class="chapter-btn${activeClass}" onclick="selectChapter(${ch.id})">
+            <span class="chapter-btn-top">
+              <span class="chapter-btn-title">${escapeHtml(ch.title)}</span>
+              <span class="chapter-btn-meta">${st.correct}/${st.total}</span>
+            </span>
+            <span class="chapter-btn-top">
+              <span class="chapter-btn-meta">${escapeHtml(ch.articles)}</span>
+              <span class="chapter-btn-meta">تمت الإجابة: ${st.answered}</span>
+            </span>
+            <span class="chapter-mini-bar" aria-hidden="true">
+              <span class="chapter-mini-fill" style="width: ${pct}%;"></span>
+            </span>
+          </button>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderNavigator(filtered) {
+      const dotsEl = document.getElementById(`question-dots`);
+      const countEl = document.getElementById(`nav-count`);
+      const navBox = document.getElementById(`navigator-box`);
+      if (countEl) countEl.textContent = `${filtered.length}`;
+      if (!dotsEl) return;
+
+      if (navBox) {
+        navBox.style.display = appState.viewMode === `list` ? `none` : `block`;
+      }
+
+      if (filtered.length === 0) {
+        dotsEl.innerHTML = ``;
+        return;
+      }
+
+      let html = ``;
+      for (let i = 0; i < filtered.length; i++) {
+        const q = filtered[i];
+        const chosen = appState.answers[q.id];
+        let cls = `q-dot`;
+        if (chosen !== undefined) {
+          cls += chosen === q.correct ? ` is-correct` : ` is-wrong`;
+        }
+        if (q.id === appState.currentQuestionId) {
+          cls += ` is-current`;
+        }
+        html += `<button type="button" class="${cls}" onclick="jumpToQuestion(${q.id})" aria-label="السؤال رقم ${q.id}">${i + 1}</button>`;
+      }
+      dotsEl.innerHTML = html;
+    }
+
+    function buildQuestionCardHtml(q, displayPos, totalInView, includeFooterNav) {
+      const chosen = appState.answers[q.id];
+      const isAnswered = chosen !== undefined;
+      const isCorrect = isAnswered && chosen === q.correct;
+      const chTitle = CHAPTERS[q.ch] ? CHAPTERS[q.ch].title : ``;
+
+      let statusBadge = ``;
+      if (isAnswered) {
+        statusBadge = isCorrect
+          ? `<span class="status-stamp is-correct">إجابة صحيحة (+1)</span>`
+          : `<span class="status-stamp is-wrong">إجابة غير موفقة</span>`;
+      }
+
+      let optionsHtml = ``;
+      for (let i = 0; i < q.options.length; i++) {
+        let optClass = `option-btn`;
+        let iconHtml = ``;
+        if (isAnswered) {
+          if (i === q.correct) {
+            optClass += ` is-correct`;
+            iconHtml = `<span class="option-status-icon" aria-hidden="true"><i data-lucide="check-circle-2"></i></span>`;
+          } else if (i === chosen) {
+            optClass += ` is-wrong`;
+            iconHtml = `<span class="option-status-icon" aria-hidden="true"><i data-lucide="x-circle"></i></span>`;
+          } else {
+            optClass += ` is-dimmed`;
+          }
+        }
+        const disabledAttr = isAnswered ? ` disabled` : ``;
+        optionsHtml += `
+          <button type="button" class="${optClass}" onclick="answerQuestion(${q.id}, ${i})"${disabledAttr}>
+            <span class="option-letter">${LETTERS[i]}</span>
+            <span class="option-text">${escapeHtml(q.options[i])}</span>
+            ${iconHtml}
+          </button>
+        `;
+      }
+
+      let justificationHtml = ``;
+      if (isAnswered) {
+        const boxClass = isCorrect ? `is-correct-box` : `is-wrong-box`;
+        const titleClass = isCorrect ? `is-correct` : `is-wrong`;
+        const headingText = isCorrect
+          ? `أحسنت! الإجابة صحيحة`
+          : `التصحيح الفوري: الإجابة الصحيحة هي (${LETTERS[q.correct]})`;
+
+        justificationHtml = `
+          <div class="justification-panel ${boxClass}" role="status" aria-live="polite">
+            <div class="justification-head">
+              <span class="justification-title ${titleClass}">
+                <i data-lucide="${isCorrect ? `shield-check` : `scale`}" aria-hidden="true"></i>
+                <span>${headingText}</span>
+              </span>
+              <span class="justification-ref">السند القانوني: ${escapeHtml(q.article)}</span>
+            </div>
+            <p class="justification-body">${escapeHtml(q.reason)}</p>
+          </div>
+        `;
+      }
+
+      let footerHtml = ``;
+      if (includeFooterNav) {
+        const hasPrev = displayPos > 1;
+        const hasNext = displayPos < totalInView;
+        footerHtml = `
+          <div class="question-footer">
+            <div class="nav-pair">
+              <button type="button" class="btn btn-secondary" onclick="stepQuestion(-1)"${hasPrev ? `` : ` disabled`}>
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                <span>السؤال السابق</span>
+              </button>
+              <button type="button" class="btn btn-primary" onclick="stepQuestion(1)"${hasNext ? `` : ` disabled`}>
+                <span>السؤال التالي</span>
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
+              </button>
+            </div>
+            <span class="q-index-label">المرجع داخل البنك: س${q.id}</span>
+          </div>
+        `;
+      }
+
+      return `
+        <article class="question-card" id="question-card-${q.id}">
+          <div class="question-meta">
+            <div class="meta-tags">
+              <span class="q-index-label">السؤال ${displayPos} من ${totalInView}</span>
+              <span class="stamp-tag">${escapeHtml(chTitle)}</span>
+              <span class="article-stamp">${escapeHtml(q.article)}</span>
+            </div>
+            ${statusBadge}
+          </div>
+          <p class="question-stem">${escapeHtml(q.q)}</p>
+          <div class="options-list">
+            ${optionsHtml}
+          </div>
+          ${justificationHtml}
+          ${footerHtml}
+        </article>
+      `;
+    }
+
+    function renderStage(filtered) {
+      const stageEl = document.getElementById(`stage-content`);
+      if (!stageEl) return;
+
+      if (filtered.length === 0) {
+        stageEl.innerHTML = `
+          <div class="empty-state">
+            <h3>لا توجد أسئلة مطابقة للتصفية الحالية</h3>
+            <p>يمكنك مسح عبارة البحث أو تغيير فلتر حالة الأسئلة لعرض جميع أسئلة هذا الباب.</p>
+            <button type="button" class="btn btn-primary" onclick="clearFilters()">عرض جميع الأسئلة</button>
+          </div>
+        `;
+        return;
+      }
+
+      if (appState.viewMode === `list`) {
+        let html = `<div class="list-stack">`;
+        for (let i = 0; i < filtered.length; i++) {
+          html += buildQuestionCardHtml(filtered[i], i + 1, filtered.length, false);
+        }
+        html += `</div>`;
+        stageEl.innerHTML = html;
+      } else {
+        let idx = filtered.findIndex(function (item) {
+          return item.id === appState.currentQuestionId;
+        });
+        if (idx === -1) {
+          idx = 0;
+          appState.currentQuestionId = filtered[0].id;
+        }
+        stageEl.innerHTML = buildQuestionCardHtml(filtered[idx], idx + 1, filtered.length, true);
+      }
+    }
+
+    function syncControlsUI() {
+      const searchEl = document.getElementById(`search-input`);
+      const filterEl = document.getElementById(`status-filter`);
+      const singleBtn = document.getElementById(`mode-single-btn`);
+      const listBtn = document.getElementById(`mode-list-btn`);
+      const shuffleBtn = document.getElementById(`shuffle-btn`);
+
+      if (searchEl && searchEl.value !== appState.searchQuery) {
+        searchEl.value = appState.searchQuery;
+      }
+      if (filterEl && filterEl.value !== appState.statusFilter) {
+        filterEl.value = appState.statusFilter;
+      }
+      if (singleBtn) singleBtn.classList.toggle(`is-active`, appState.viewMode === `single`);
+      if (listBtn) listBtn.classList.toggle(`is-active`, appState.viewMode === `list`);
+      if (shuffleBtn) shuffleBtn.classList.toggle(`is-active`, appState.shuffled);
+    }
+
+    function renderAll() {
+      const stats = computeStats();
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        const exists = filtered.some(function (q) { return q.id === appState.currentQuestionId; });
+        if (!exists) {
+          appState.currentQuestionId = filtered[0].id;
+        }
+      }
+      syncControlsUI();
+      renderKPIs(stats);
+      renderChapters(stats);
+      renderNavigator(filtered);
+      renderStage(filtered);
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+    }
+
+    async function persistState() {
+      const statusEl = document.getElementById(`persistence-status`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+          if (statusEl) statusEl.textContent = `تم حفظ التقدم تلقائيا`;
+        } catch (err) {
+          if (statusEl) statusEl.textContent = `تعذر مزامنة الحفظ في الجلسة`;
+        }
+      }
+    }
+
+    function selectChapter(chapterId) {
+      appState.activeChapter = chapterId;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function handleSearchInput(val) {
+      appState.searchQuery = val || ``;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function handleStatusChange(val) {
+      appState.statusFilter = val || `all`;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function setViewMode(mode) {
+      appState.viewMode = mode === `list` ? `list` : `single`;
+      renderAll();
+      persistState();
+    }
+
+    function toggleShuffle() {
+      appState.shuffled = !appState.shuffled;
+      if (appState.shuffled) {
+        const ids = QUESTIONS.map(function (q) { return q.id; });
+        for (let i = ids.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = ids[i];
+          ids[i] = ids[j];
+          ids[j] = tmp;
+        }
+        appState.shuffleOrder = ids;
+      } else {
+        appState.shuffleOrder = [];
+      }
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function jumpToQuestion(qId) {
+      appState.currentQuestionId = qId;
+      renderAll();
+      persistState();
+    }
+
+    function stepQuestion(delta) {
+      const filtered = getFilteredQuestions();
+      if (filtered.length === 0) return;
+      const idx = filtered.findIndex(function (q) { return q.id === appState.currentQuestionId; });
+      const nextIdx = Math.max(0, Math.min(filtered.length - 1, (idx === -1 ? 0 : idx) + delta));
+      appState.currentQuestionId = filtered[nextIdx].id;
+      renderAll();
+      persistState();
+    }
+
+    function answerQuestion(qId, optionIdx) {
+      if (appState.answers[qId] !== undefined) return;
+      const question = QUESTIONS.find(function (q) { return q.id === qId; });
+      if (!question) return;
+
+      appState.answers[qId] = optionIdx;
+      if (optionIdx === question.correct) {
+        appState.currentStreak++;
+        if (appState.currentStreak > appState.bestStreak) {
+          appState.bestStreak = appState.currentStreak;
+        }
+      } else {
+        appState.currentStreak = 0;
+      }
+
+      renderAll();
+      persistState();
+    }
+
+    function clearFilters() {
+      appState.searchQuery = ``;
+      appState.statusFilter = `all`;
+      appState.activeChapter = 0;
+      const filtered = getFilteredQuestions();
+      if (filtered.length > 0) {
+        appState.currentQuestionId = filtered[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        const span = btn.querySelector(`span`);
+        if (span) span.textContent = `اضغط للتأكيد`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            const s = btn.querySelector(`span`);
+            if (s) s.textContent = `إعادة تعيين التقدم`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      const span = btn.querySelector(`span`);
+      if (span) span.textContent = `إعادة تعيين التقدم`;
+
+      appState.answers = {};
+      appState.currentStreak = 0;
+      appState.bestStreak = 0;
+      appState.statusFilter = `all`;
+      appState.searchQuery = ``;
+      appState.activeChapter = 0;
+      appState.currentQuestionId = 1;
+      renderAll();
+      persistState();
+    }
+
+    function exportReport() {
+      const stats = computeStats();
+      const lines = [
+        `تقرير نتائج الاختبار التفاعلي — القانون الإطار رقم 51.17`,
+        `النتيجة الإجمالية: ${stats.totalCorrect} من ${stats.totalAnswered} مجاب عنه (من أصل ${QUESTIONS.length} سؤالا)`,
+        `أفضل سلسلة إجابات صحيحة: ${appState.bestStreak}`,
+        ``,
+        `--- تفصيل الأداء حسب الأبواب العشرة ---`
+      ];
+      for (let i = 1; i <= 10; i++) {
+        const ch = CHAPTERS[i];
+        const st = stats.byChapter[i];
+        lines.push(`${ch.title} (${ch.articles}): ${st.correct} صحيحة / ${st.answered} مجاب عنها (إجمالي ${st.total})`);
+      }
+      lines.push(``);
+      lines.push(`--- الأسئلة التي تتطلب مراجعة (الإجابات الخاطئة) ---`);
+      let wrongCount = 0;
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const chosen = appState.answers[q.id];
+        if (chosen !== undefined && chosen !== q.correct) {
+          wrongCount++;
+          lines.push(`[${q.article}] س${q.id}: ${q.q}`);
+          lines.push(`  إجابتك: ${q.options[chosen]}`);
+          lines.push(`  الإجابة الصحيحة: ${q.options[q.correct]}`);
+          lines.push(`  التعليل: ${q.reason}`);
+          lines.push(``);
+        }
+      }
+      if (wrongCount === 0) {
+        lines.push(`لا توجد إجابات خاطئة مسجلة حتى الآن.`);
+      }
+
+      const content = lines.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `law_51_17_report.txt`
+        });
+      }
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (typeof saved.activeChapter === `number`) appState.activeChapter = saved.activeChapter;
+            if (typeof saved.statusFilter === `string`) appState.statusFilter = saved.statusFilter;
+            if (typeof saved.searchQuery === `string`) appState.searchQuery = saved.searchQuery;
+            if (saved.viewMode === `single` || saved.viewMode === `list`) appState.viewMode = saved.viewMode;
+            if (typeof saved.shuffled === `boolean`) appState.shuffled = saved.shuffled;
+            if (Array.isArray(saved.shuffleOrder)) appState.shuffleOrder = saved.shuffleOrder;
+            if (typeof saved.currentQuestionId === `number`) appState.currentQuestionId = saved.currentQuestionId;
+            if (typeof saved.currentStreak === `number`) appState.currentStreak = saved.currentStreak;
+            if (typeof saved.bestStreak === `number`) appState.bestStreak = saved.bestStreak;
+          }
+        } catch (err) {
+          /* Ignore load errors and use fresh state */
+        }
+      }
+
+      renderAll();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>

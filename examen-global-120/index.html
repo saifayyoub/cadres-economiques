@@ -1,0 +1,3164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>الامتحان الشامل في التشريع المالي والتربوي وحكامة المؤسسات التعليمية — 120 سؤال</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-hover: #0e182e;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Semantic & derived state tokens */
+      --positive: #2d5a4a;
+      --positive-bg: #e7f0ec;
+      --warning: #8a6a35;
+      --warning-bg: #f4ecdc;
+      --error-bg: #f7e6e6;
+      --focus: #14213d;
+      --title-lede: #d9d5cb;
+      --brass-on-navy: #d4b98a;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts (Arabic first per RTL rules) */
+      --font-headline: 'Amiri', 'Libre Caslon Text', serif;
+      --font-body: 'Noto Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'Inter', sans-serif;
+
+      /* Shape (Charter squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-band-border: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+      --brass-ring: 0 0 0 2px var(--outline);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+      --body-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+      --label-size: 0.8125rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+    }
+    header { position: static !important; }
+    button, input, select, textarea {
+      font-family: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    /* Focus visibility */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Title Band (Charter Treatment 1 & 2) */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-xl) var(--space-lg);
+      border-bottom: var(--brass-band-border);
+    }
+    .title-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-lg);
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--brass-on-navy);
+      margin-bottom: var(--space-xs);
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.25;
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--on-primary);
+    }
+    .title-band .lede {
+      color: var(--title-lede);
+      margin: 0;
+      max-width: 65ch;
+      font-size: var(--body-size);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--outline);
+    }
+    .title-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Main Page Grid */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Key Figures Strip (Charter Treatment 3 & 4) */
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      container-type: inline-size;
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+    .figure-value.is-positive { color: var(--positive); }
+    .figure-value.is-primary { color: var(--primary); }
+    .figure-delta {
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+
+    /* Controls Bar */
+    .controls-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .control-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .control-select {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      cursor: pointer;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .control-select:hover {
+      border-color: var(--outline);
+    }
+    .control-select:focus-visible {
+      border-color: var(--primary);
+    }
+    .controls-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Buttons (Charter) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+    .btn-on-navy {
+      background-color: transparent;
+      color: var(--on-primary);
+      border-color: var(--outline);
+    }
+    .btn-on-navy:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+    }
+    .btn-danger-outline {
+      background-color: transparent;
+      color: var(--error);
+      border-color: var(--error);
+    }
+    .btn-danger-outline:hover:not(:disabled) {
+      background-color: var(--error-bg);
+    }
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--label-size);
+    }
+
+    /* Main Asymmetric Workspace (2/3 main + 1/3 navigator rail) */
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Question Panel */
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-md);
+      border-bottom: var(--hairline);
+      margin-bottom: var(--space-md);
+    }
+    .question-number {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      color: var(--tertiary);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background-color: transparent;
+    }
+    .stamp-tag.is-article {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--primary-container);
+    }
+
+    /* Progress Bar */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      margin-bottom: var(--space-lg);
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .question-stem {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-lg) 0;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .option-btn {
+      width: 100%;
+      min-height: 52px;
+      padding: var(--space-md);
+      text-align: right;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-size: var(--body-size);
+      line-height: 1.5;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-key {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      background-color: var(--background);
+    }
+    .option-text {
+      flex: 1;
+    }
+    .option-btn.is-selected {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+    .option-btn.is-selected .option-key {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .option-btn.is-correct {
+      background-color: var(--positive-bg);
+      border-color: var(--positive);
+      box-shadow: inset 3px 0 0 var(--positive);
+    }
+    .option-btn.is-correct .option-key {
+      background-color: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+    .option-btn.is-wrong {
+      background-color: var(--error-bg);
+      border-color: var(--error);
+      box-shadow: inset 3px 0 0 var(--error);
+    }
+    .option-btn.is-wrong .option-key {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    /* Feedback & Legal Reference Panel */
+    .feedback-panel {
+      border-top: var(--brass-rule);
+      border-bottom: var(--hairline);
+      background-color: var(--background);
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-radius: var(--rounded);
+    }
+    .feedback-panel.is-correct {
+      border-top-color: var(--positive);
+      background-color: var(--positive-bg);
+    }
+    .feedback-panel.is-wrong {
+      border-top-color: var(--error);
+      background-color: var(--error-bg);
+    }
+    .feedback-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .feedback-verdict {
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .feedback-verdict.is-correct { color: var(--positive); }
+    .feedback-verdict.is-wrong { color: var(--error); }
+    .feedback-body {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.65;
+      max-width: 65ch;
+    }
+
+    /* Question Footer Nav */
+    .question-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: var(--hairline);
+    }
+    .nav-pair {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* Side Navigator Rail */
+    .rail-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .rail-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .section-head {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+      margin: 0 0 var(--space-md) 0;
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      color: var(--on-surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rail-card .section-head {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    /* Question Matrix (44px touch targets with 8px gap) */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+      gap: var(--space-sm);
+      max-height: 330px;
+      overflow-y: auto;
+      padding: var(--space-xs);
+    }
+    .matrix-btn {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .matrix-btn:hover {
+      background-color: var(--surface-container);
+      border-color: var(--outline);
+    }
+    .matrix-btn.is-current {
+      box-shadow: var(--brass-ring);
+      border-color: var(--primary);
+      font-weight: 700;
+    }
+    .matrix-btn.is-correct {
+      background-color: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+    .matrix-btn.is-wrong {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .matrix-btn.is-answered-exam {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--rounded);
+      display: inline-block;
+      border: 1px solid var(--outline-variant);
+    }
+    .swatch-correct { background-color: var(--positive); border-color: var(--positive); }
+    .swatch-wrong { background-color: var(--error); border-color: var(--error); }
+    .swatch-exam { background-color: var(--primary); border-color: var(--primary); }
+    .swatch-unanswered { background-color: var(--background); }
+
+    /* Chapter Breakdown Mini-Bars */
+    .chapter-bars {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .chapter-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .chapter-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--label-size);
+      gap: var(--space-sm);
+    }
+    .chapter-bar-name {
+      color: var(--on-surface);
+      font-weight: 500;
+    }
+    .chapter-bar-stat {
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .chapter-bar-track {
+      height: 6px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+    .chapter-bar-fill {
+      height: 100%;
+      background-color: var(--secondary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Summary View */
+    .summary-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .summary-banner {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-xl) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+    .summary-score-big {
+      font-family: var(--font-headline);
+      font-size: clamp(2.25rem, 1.8rem + 1.5vw, 3rem);
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .summary-grade {
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      margin-top: var(--space-xs);
+    }
+    .summary-grade.is-pass { color: var(--positive); }
+    .summary-grade.is-fail { color: var(--error); }
+
+    /* Charter Table */
+    .table-wrap {
+      overflow-x: auto;
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+    }
+    table.charter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--body-size);
+    }
+    table.charter-table th {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: var(--label-size);
+      text-align: right;
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline);
+    }
+    table.charter-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      color: var(--on-surface);
+    }
+    table.charter-table td.num,
+    table.charter-table th.num {
+      text-align: left;
+      font-variant-numeric: tabular-nums;
+    }
+    table.charter-table tr.total-row td {
+      border-top: var(--brass-rule);
+      border-bottom: none;
+      font-weight: 700;
+      background-color: var(--background);
+    }
+
+    /* Review List inside Summary */
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .review-item {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .review-item.is-wrong { border-top-color: var(--error); }
+    .review-item.is-correct { border-top-color: var(--positive); }
+    .review-item-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .review-q {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      margin: 0 0 var(--space-sm) 0;
+    }
+    .review-answers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+      font-size: var(--body-size);
+    }
+    .review-ans-user { color: var(--error); font-weight: 600; }
+    .review-ans-correct { color: var(--positive); font-weight: 600; }
+    .review-expl {
+      margin: 0;
+      padding-top: var(--space-sm);
+      border-top: var(--hairline);
+      color: var(--on-surface-variant);
+      font-size: var(--body-size);
+    }
+
+    /* Empty / Notice Box */
+    .inline-notice {
+      background-color: var(--warning-bg);
+      border-top: var(--brass-rule);
+      padding: var(--space-md) var(--space-lg);
+      color: var(--on-surface);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .footer-note {
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .is-hidden { display: none !important; }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .figures-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .title-band {
+        padding: var(--space-lg) var(--space-md);
+      }
+      .figures-grid {
+        grid-template-columns: 1fr;
+      }
+      .controls-panel {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div>
+        <div class="title-kicker">بنك الأسئلة القانونية والتنظيمية — المملكة المغربية</div>
+        <h1>الامتحان الشامل في التشريع المالي والتربوي وحكامة المؤسسات التعليمية</h1>
+        <p class="lede">اختبار تفاعلي من <bdi dir="ltr">120</bdi> سؤالا (الجزآن الأول والثاني)، يغطي القانون الإطار رقم <bdi dir="ltr">51.17</bdi> والمحاسبة العمومية والصفقات والتدبير المادي والأرشيف، مع التصحيح الفوري والتعليل القانوني وتقرير الأداء حسب المحاور.</p>
+      </div>
+      <div class="title-actions">
+        <button type="button" class="btn btn-on-navy" id="btn-toggle-view" onclick="toggleSummaryView()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span id="btn-toggle-view-label">عرض التقرير النهائي</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- Live Summary Strip -->
+    <section class="figures-grid" aria-label="مؤشرات الأداء الحالية">
+      <div class="figure-card">
+        <div class="figure-label">الأسئلة المجاب عنها</div>
+        <div class="figure-value is-primary" id="stat-answered">0 / 120</div>
+        <div class="figure-delta" id="stat-progress-pct">نسبة الإنجاز: 0%</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">الإجابات الصحيحة</div>
+        <div class="figure-value is-positive" id="stat-correct">0</div>
+        <div class="figure-delta" id="stat-wrong">الأخطاء: 0</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">معدل الدقة</div>
+        <div class="figure-value" id="stat-accuracy">—</div>
+        <div class="figure-delta" id="stat-scope-label">النطاق: كافة المحاور</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-label">وضع الاختبار</div>
+        <div class="figure-value" id="stat-mode-title">التدريب الفوري</div>
+        <div class="figure-delta" id="stat-mode-hint">التصحيح والتعليل بعد كل سؤال</div>
+      </div>
+    </section>
+
+    <!-- Mode & Filter Controls -->
+    <section class="controls-panel" aria-label="إعدادات الاختبار والتصفية">
+      <div class="control-group">
+        <label class="control-label" for="select-mode">نمط التمرين والامتحان</label>
+        <select class="control-select" id="select-mode" onchange="changeMode(this.value)">
+          <option value="practice">وضع التدريب (تصحيح فوري وتعليل)</option>
+          <option value="exam">وضع الامتحان (إخفاء التصحيح حتى الإنهاء)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="select-chapter">المحور / الباب الموضوعاتي</label>
+        <select class="control-select" id="select-chapter" onchange="changeChapterFilter(this.value)">
+          <option value="all">جميع المحاور (120 سؤال)</option>
+          <option value="1">1. القانون الإطار 51.17 (6)</option>
+          <option value="2">2. القانون 07.00 للأكاديميات (4)</option>
+          <option value="3">3. المرسوم 2.02.376 للمؤسسات (7)</option>
+          <option value="4">4. القانون التنظيمي للمالية 130.13 (8)</option>
+          <option value="5">5. المرسوم الملكي 330.66 (19)</option>
+          <option value="6">6. القانون 69.00 للمراقبة المالية (4)</option>
+          <option value="7">7. دليل التدبير المالي والمادي (10)</option>
+          <option value="8">8. مدونة المحاكم المالية والمحاسبة (2)</option>
+          <option value="9">9. جمعية دعم مدرسة النجاح (4)</option>
+          <option value="10">10. المحاسبة المادية والجرد (2)</option>
+          <option value="11">11. مرسوم الصفقات 2.22.431 (18)</option>
+          <option value="12">12. الدليل المسطري لنظام المطعمة (5)</option>
+          <option value="13">13. مشروع المؤسسة المندمج (11)</option>
+          <option value="14">14. منظومة مسار الرقمية (1)</option>
+          <option value="15">15. القانون 69.99 المتعلق بالأرشيف (10)</option>
+          <option value="16">16. التدبير المادي للقسم الخارجي (1)</option>
+          <option value="17">17. المسؤولية الإدارية والمالية (1)</option>
+          <option value="18">18. التدبير المالي للداخليات (1)</option>
+          <option value="19">19. محاور متقدمة في التشريع المالي والتربوي (6)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="select-status">تصفية حالة الأسئلة</label>
+        <select class="control-select" id="select-status" onchange="changeStatusFilter(this.value)">
+          <option value="all">كل الأسئلة</option>
+          <option value="unanswered">الأسئلة غير المجاب عنها فقط</option>
+          <option value="wrong">الأسئلة الخاطئة للمراجعة</option>
+          <option value="mock20">اختبار تجريبي سريع (20 سؤالا)</option>
+        </select>
+      </div>
+      <div class="controls-actions">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-new-mock" onclick="startRandomMock()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          <span>نموذج 20 سؤالا</span>
+        </button>
+        <button type="button" class="btn btn-danger-outline btn-sm" id="btn-reset" onclick="handleResetClick(this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          <span>إعادة تعيين الإجابات</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Exam Mode Pending Banner -->
+    <div class="inline-notice is-hidden" id="exam-banner">
+      <div>
+        <strong>وضع الامتحان نشط:</strong> يتم تسجيل اختياراتك دون إظهار التصحيح. عند الانتهاء اضغط على «اعتماد وإنهاء الامتحان» لعرض النقطة والتعليل القانوني الكامل.
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" onclick="submitExam()">اعتماد وإنهاء الامتحان</button>
+    </div>
+
+    <!-- Active Question Workspace -->
+    <section class="workspace" id="quiz-workspace" aria-label="فضاء طرح الأسئلة">
+      <div>
+        <article class="question-card" id="question-stage">
+          <div class="question-meta">
+            <span class="question-number" id="q-counter">السؤال 1 من 120</span>
+            <span class="stamp-tag" id="q-chapter-tag">المحور 1</span>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="q-progress-fill" style="width: 1%;"></div>
+          </div>
+
+          <h2 class="question-stem" id="q-stem">...</h2>
+
+          <div class="options-list" id="q-options" role="group" aria-label="خيارات الإجابة"></div>
+
+          <div class="feedback-panel is-hidden" id="q-feedback" aria-live="polite">
+            <div class="feedback-header">
+              <span class="feedback-verdict" id="q-verdict"></span>
+              <span class="stamp-tag is-article" id="q-article-ref"></span>
+            </div>
+            <p class="feedback-body" id="q-explanation"></p>
+          </div>
+
+          <div class="question-footer">
+            <div class="nav-pair">
+              <button type="button" class="btn btn-secondary" id="btn-prev" onclick="navigateQuestion(-1)">السؤال السابق</button>
+              <button type="button" class="btn btn-primary" id="btn-next" onclick="navigateQuestion(1)">السؤال التالي</button>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="showSummaryView()">إنهاء وعرض ملخص النتائج</button>
+          </div>
+        </article>
+
+        <!-- Empty Filter Fallback -->
+        <div class="question-card is-hidden" id="empty-filter-state">
+          <h2 class="question-stem">لا توجد أسئلة مطابقة للتصفية المحددة حاليا</h2>
+          <p class="feedback-body">لم يبقَ أي سؤال ضمن هذا التصنيف (مثل الأسئلة الخاطئة أو غير المجاب عنها). يمكنك العودة لعرض كافة الأسئلة لمتابعة المراجعة.</p>
+          <div class="question-footer">
+            <button type="button" class="btn btn-primary" onclick="resetFilters()">عرض كافة الأسئلة (120)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigator & Chapter Breakdown Rail -->
+      <aside class="rail-stack" aria-label="خريطة الأسئلة والأداء حسب المحاور">
+        <div class="rail-card">
+          <h2 class="section-head">
+            <span>خريطة الأسئلة</span>
+            <span class="stamp-tag" id="matrix-count-tag">120 سؤال</span>
+          </h2>
+          <div class="matrix-grid" id="q-matrix"></div>
+          <div class="legend-row">
+            <span class="legend-item"><span class="legend-swatch swatch-correct"></span>صحيحة</span>
+            <span class="legend-item"><span class="legend-swatch swatch-wrong"></span>خاطئة</span>
+            <span class="legend-item"><span class="legend-swatch swatch-exam"></span>مسجلة</span>
+            <span class="legend-item"><span class="legend-swatch swatch-unanswered"></span>غير مجاب</span>
+          </div>
+        </div>
+
+        <div class="rail-card">
+          <h2 class="section-head"><span>التقدم حسب المحاور</span></h2>
+          <div class="chapter-bars" id="chapter-bars"></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Final Score Summary View -->
+    <section class="summary-section is-hidden" id="summary-view" aria-label="ملخص النتائج النهائي">
+      <div class="summary-banner">
+        <div>
+          <div class="figure-label">النتيجة الإجمالية للاختبار</div>
+          <div class="summary-score-big" id="sum-score-big">0 / 120</div>
+          <div class="summary-grade" id="sum-grade-text">لم تبدأ الإجابة بعد</div>
+        </div>
+        <div class="controls-actions">
+          <button type="button" class="btn btn-primary" onclick="hideSummaryView()">العودة إلى الأسئلة</button>
+          <button type="button" class="btn btn-secondary" id="btn-retry-wrong" onclick="practiceWrongOnly()">مراجعة الأسئلة الخاطئة فقط</button>
+          <button type="button" class="btn btn-secondary" onclick="exportResultsCsv()">تصدير التقرير (<bdi dir="ltr">CSV</bdi>)</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <h2 class="section-head"><span>توزيع النتائج حسب المحاور التنظيمية</span></h2>
+        <table class="charter-table">
+          <thead>
+            <tr>
+              <th>المحور / الباب</th>
+              <th class="num">عدد الأسئلة</th>
+              <th class="num">المجاب عنها</th>
+              <th class="num">الصحيحة</th>
+              <th class="num">الخاطئة</th>
+              <th class="num">نسبة النجاح</th>
+            </tr>
+          </thead>
+          <tbody id="sum-table-body"></tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="section-head">
+          <span>المراجعة المفصلة بالتعليل القانوني</span>
+          <div class="controls-actions">
+            <select class="control-select" id="sum-review-filter" aria-label="تصفية قائمة المراجعة" onchange="renderSummaryReview()">
+              <option value="wrong">الأسئلة الخاطئة فقط</option>
+              <option value="answered">جميع الأسئلة المجاب عنها</option>
+              <option value="all">جميع الأسئلة (120)</option>
+            </select>
+          </div>
+        </div>
+        <div class="review-list" id="sum-review-list"></div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span>المرجع القانوني: القانون الإطار رقم <bdi dir="ltr">51.17</bdi>، والمرسوم الملكي رقم <bdi dir="ltr">330.66</bdi>، ومرسوم الصفقات رقم <bdi dir="ltr">2.22.431</bdi> — المملكة المغربية.</span>
+      <span>تحفظ الإجابات والتقدم تلقائيا خلال الجلسة.</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+
+  <script>
+    const CHAPTERS = [
+      { id: 1, name: `القانون الإطار 51.17` },
+      { id: 2, name: `القانون 07.00 للأكاديميات` },
+      { id: 3, name: `المرسوم 2.02.376 للمؤسسات` },
+      { id: 4, name: `القانون التنظيمي للمالية 130.13` },
+      { id: 5, name: `المرسوم الملكي 330.66` },
+      { id: 6, name: `القانون 69.00 للمراقبة المالية` },
+      { id: 7, name: `دليل التدبير المالي والمادي` },
+      { id: 8, name: `مدونة المحاكم المالية والمحاسبة` },
+      { id: 9, name: `جمعية دعم مدرسة النجاح` },
+      { id: 10, name: `المحاسبة المادية والجرد` },
+      { id: 11, name: `مرسوم الصفقات 2.22.431` },
+      { id: 12, name: `الدليل المسطري لنظام المطعمة` },
+      { id: 13, name: `مشروع المؤسسة المندمج` },
+      { id: 14, name: `منظومة مسار الرقمية` },
+      { id: 15, name: `القانون 69.99 المتعلق بالأرشيف` },
+      { id: 16, name: `التدبير المادي للقسم الخارجي` },
+      { id: 17, name: `المسؤولية الإدارية والمالية` },
+      { id: 18, name: `التدبير المالي للداخليات` },
+      { id: 19, name: `محاور متقدمة في التشريع المالي والتربوي` }
+    ];
+
+    const OPTION_LABELS = [`أ`, `ب`, `ج`, `د`];
+
+    // === الامتحان الشامل: الجزآن الأول والثاني (120 سؤالا) ===
+const QUESTIONS = [
+      {
+        id: 1, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `الغاية الكبرى من إرساء المدرسة الجديدة المفتوحة أمام الجميع وفق المادة 2 من القانون الإطار 51.17 هي:`,
+        options: [
+          `التأهيل الحصري للتعليم العالي والبحث المالي`,
+          `تحقيق الإنصاف وتكافؤ الفرص والجودة للجميع والارتقاء بالفرد والمجتمع`,
+          `إلغاء مجانية التعليم وتفويض التدبير الخصوصي`,
+          `تقليص عدد أطر الإدارة التربوية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 2 والمادة 3 الإنصاف والجودة والارتقاء`
+      },
+      {
+        id: 2, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `يقصد بالتناوب اللغوي وفق المادة 2 والمادة 31 من القانون الإطار 51.17:`,
+        options: [
+          `التدريس باللغة الأجنبية حصرا في جميع المراحل`,
+          `مقاربة بيداغوجية لتنويع لغات التدريس بتدريس بعض المواد أو المضامين بلغة أو بلغات أجنبية`,
+          `استبدال اللغة العربية باللغة الإنجليزية في التعليم الابتدائي`,
+          `إلغاء تدريس اللغات الأجنبية في الثانوي`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 2 والمادة 31 التناوب اللغوي والهندسة اللغوية`
+      },
+      {
+        id: 3, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `يشمل سلك التعليم الإلزامي وفق المادتين 8 و 19 من القانون الإطار 51.17:`,
+        options: [
+          `التعليم الابتدائي حصرا`,
+          `ربط التعليم الابتدائي بالتعليم الإعدادي مع إرساء التعليم الأولي وفتحه للأطفال من 4 إلى 6 سنوات`,
+          `التعليم الثانوي التأهيلي والجامعي`,
+          `مؤسسات التكوين المهني العليا`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 8 والمادة 19 التعليم الإلزامي والأولي`
+      },
+      {
+        id: 4, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `تنص المادتان 14 و 39 من القانون الإطار 51.17 بشأن التكوين المستمر للأطر التربوية والإدارية على أنه:`,
+        options: [
+          `إجراء اختياري لا يتصل بالترقية المهنية`,
+          `التزام اختياري حسب رغبة الموظف`,
+          `إلزاميا ويدخل ضمن عناصر تقييم الأداء والترقي المهني`,
+          `مقتصر على موظفي القطاع الخاص`
+        ],
+        correct: 2,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 14 والمادة 39 إلزامية التكوين المستمر والترقية`
+      },
+      {
+        id: 5, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `تضمن الدولة مجانية التعليم العمومي وفق المادة 45 من القانون الإطار 51.17 في:`,
+        options: [
+          `السلك الابتدائي فقط`,
+          `جميع أسلاكه وتخصصاته وتعمل على تعبئة الإمكانات المتاحة لجعله في متناول الجميع`,
+          `التعليم الأولي والكتاتيب القرأنية حصرا`,
+          `الأقسام التحضيرية ومؤسسات التكوين الفني`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 45 مجانية التعليم العمومي في سائر الأسلاك`
+      },
+      {
+        id: 6, chapter: 1, article: `القانون الإطار 51.17`,
+        q: `يحدث وفق المادة 47 من القانون الإطار 51.17 بموجب قانون المالية صندوق خاص لـ:`,
+        options: [
+          `تنويع مصادر تمويل منظومة التربية والتكوين وتحسين جودتها`,
+          `صرف تعويضات السفر لأطر الأكاديمية`,
+          `تمويل المؤسسات الخاصة بالمجال الحضري`,
+          `تغطية ديون الصفقات العمومية`
+        ],
+        correct: 0,
+        explanation: `المرجع: القانون الإطار 51.17. المادة 47 الصندوق الخاص بتنويع مصادر التمويل`
+      },
+      {
+        id: 7, chapter: 2, article: `القانون 07.00 للأكاديميات`,
+        q: `تتمتع الأكاديمية الجهوية للتربية والتكوين بموجب المادة 1 من القانون 07.00 بـ:`,
+        options: [
+          `الشخصية المعنوية والاستقلال المالي وتخضع لوصاية الدولة`,
+          `صفة مصلحة خارجية تابعة للوزارة بدون استقلال مالي`,
+          `صفة جمعية مدنية ذات منفعة عامة`,
+          `شركة مساهمة خاضعة للقانون التجاري`
+        ],
+        correct: 0,
+        explanation: `المرجع: القانون 07.00 للأكاديميات. المادة 1 الشخصية المعنوية والاستقلال المالي والوصاية`
+      },
+      {
+        id: 8, chapter: 2, article: `القانون 07.00 للأكاديميات`,
+        q: `يدير الأكاديمية الجهوية للتربية والتكوين وفق المادتين 3 و 4 من القانون 07.00 مجلس إداري يترأسه:`,
+        options: [
+          `مدير الأكاديمية الجهوية`,
+          `السلطة الحكومية المكلفة بالتربية الوطنية الوزير`,
+          `والي الجهة`,
+          `رئيس مجلس الجهة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 07.00 للأكاديميات. المادة 3 والمادة 4 رئاسة الوزير للمجلس الإداري`
+      },
+      {
+        id: 9, chapter: 2, article: `القانون 07.00 للأكاديميات`,
+        q: `يجتمع المجلس الإداري للأكاديمية وفق المادة 5 من القانون 07.00 بدعوة من رئيسه كلما دعت الضرورة وعلى الأقل:`,
+        options: [
+          `مرة واحدة في السنة`,
+          `مرتين في السنة دورة في بداية السنة ودورة لحصر الميزانية والبرامج`,
+          `أربع مرات في السنة`,
+          `مرة كل سنتين`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 07.00 للأكاديميات. المادة 5 دورات المجلس الإداري مرتين سنويا`
+      },
+      {
+        id: 10, chapter: 2, article: `القانون 07.00 للأكاديميات`,
+        q: `يعين مدير الأكاديمية الجهوية للتربية والتكوين وفق المادة 8 من القانون 07.00 بـ:`,
+        options: [
+          `قرار صادر عن مديرية الموارد البشرية`,
+          `ظهير شريف باقتراح من السلطة الحكومية الوصية`,
+          `قرار لرئيس مجلس الجهة`,
+          `مقرر من المجلس الإداري`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 07.00 للأكاديميات. المادة 8 تعيين مدير الأكاديمية بظهير شريف`
+      },
+      {
+        id: 11, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `تنقسم مؤسسات التربية والتعليم العمومي وفق المادة 2 من المرسوم رقم 2.02.376 إلى:`,
+        options: [
+          `المدارس والجامعات فقط`,
+          `المدرسة الابتدائية، الثانوية الإعدادية، والثانوية التأهيلية`,
+          `مراكز التكوين والمصالح الإقليمية`,
+          `المدارس الجماعاتية والمعاهد العليا`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 2 أصناف المؤسسات التعليمية الثلاث`
+      },
+      {
+        id: 12, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `يشرف على تسيير المدرسة الابتدائية وفق المادة 10 من المرسوم رقم 2.02.376:`,
+        options: [
+          `المدير، والناظر، والحارس العام`,
+          `المدير، ويمكن إسناد مهمة تسيير كل فرع يتجاوز 3 أقسام لأستاذ المكلف دون إعفائه من التدريس`,
+          `مجلس التدبير بمفرده`,
+          `حارس عام للخارجية وحارس عام للداخلية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 10 إدارة المدرسة الابتدائية وتسيير الفروع`
+      },
+      {
+        id: 13, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `من المهام الرئيسية لمدير المؤسسة التعليمية وفق المادة 11 من المرسوم رقم 2.02.376:`,
+        options: [
+          `الإشراف على التدبير التربوي والإداري والمالي ومراقبة العاملين وترأس مجالس المؤسسة`,
+          `التدريس الإجباري لمدة 18 ساعة أسبوعيا`,
+          `المصادقة على صفقات الأكاديمية الجهوية`,
+          `إعداد قوانين المالية السنوية`
+        ],
+        correct: 0,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 11 اختصاصات مدير المؤسسة التعليمية`
+      },
+      {
+        id: 14, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `يجتمع مجلس تدبير المؤسسة التعليمية وفق المادة 20 من المرسوم رقم 2.02.376 على الأقل:`,
+        options: [
+          `مرة واحدة كل شهر`,
+          `مرتين في السنة دورة في بداية السنة لتحديد التوجيهات ودورة في نهاية السنة لدراسة المنجزات`,
+          `أربع مرات سنويا`,
+          `مرة كل ثلاث سنوات`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 20 دورتي مجلس التدبير ببدء ونهاية السنة`
+      },
+      {
+        id: 15, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `تختص المجالس التعليمية بالمؤسسة التعليمية وفق المادة 26 من المرسوم رقم 2.02.376 بـ:`,
+        options: [
+          `المصادقة على الميزانية المالية السنوية للأكاديمية`,
+          `التنسيق العمودي والأفقي بين مدرسي المادة الواحدة ووضع برمجة التقويم واقتراح الكتب والأنشطة`,
+          `البت في العقوبات التأديبية للتلاميذ`,
+          `تنظيم صفقات المطعمة والوجبات المدرسية القسم الثاني: التشريع المالي والمحاسبة العمومية والمراقبة القانون التنظيمي 31.031، المرسوم الملكي 66.033، والقانون 69.00`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 26 مهام وتنسيق المجالس التعليمية`
+      },
+      {
+        id: 16, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `يقصد بمبدأ سنوية قانون المالية وفق أحكام القانون التنظيمي رقم 130.13 المتعلق بقانون المالية:`,
+        options: [
+          `ترخيص الإيرادات والنفقات لمدة سنة مالية تبدأ من 1 يناير وتنتهي في 31 ديسمبر`,
+          `تمديد الاعتمادات تلقائيا لخمس سنوات`,
+          `تنفيذ الميزانية على مدار سنتين دراسيتين`,
+          `إعداد الميزانية كل ستة أشهر`
+        ],
+        correct: 0,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 3 والمادة 6 مبدأ سنوية قانون المالية`
+      },
+      {
+        id: 17, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `تجمع نفقات الميزانية العامة وفق المادة 38 من القانون التنظيمي رقم 130.13 في ثلاثة أبواب هي:`,
+        options: [
+          `نفقات الموظفين، نفقات المعدات، ونفقات الدعم`,
+          `نفقات التسيير، نفقات الاستثمار، ونفقات متعلقة بدمة الدين العمومي`,
+          `نفقات الأكاديميات، نفقات الجماعات، ونفقات الجمعيات`,
+          `نفقات أولية، نفقات ثانوية، ونفقات طارئة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 38 تبويب أبواب نفقات الميزانية العامة`
+      },
+      {
+        id: 18, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `يشترط لإحداث مصلحة للدولة مسيرة بصورة مستقلة وفق المادة 21 من القانون التنظيمي 130.13:`,
+        options: [
+          `أن تتجاوز نفقاتها 100 مليون درهم`,
+          `إثبات وجود موارد ذاتية متأتية من أجور الخدمات أو السلع تمثل 30 على الأقل من إجمالي الموارد المأذون بها`,
+          `الحصول على دعم دولي كامل`,
+          `أن تتبع مباشرة للجماعات الترابية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 21 شروط إحداث مرافق المصلحة المستقلة وشافية 30`
+      },
+      {
+        id: 19, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `يودع مشروع قانون التصفية المتعلق بتنفيذ قانون المالية وفق المادة 65 من القانون التنظيمي 130.13 بمكتب مجلس النواب في أجل أقصاه:`,
+        options: [
+          `نهاية السنة المالية المعنية`,
+          `نهاية السنة الثانية التي تلي سنة تنفيذ قانون المالية المعني`,
+          `نهاية شهر مارس من كل سنة`,
+          `بعد مرور 5 سنوات على تنفيذ قانون المالية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 65 إيداع مشروع قانون التصفية بالبرلمان`
+      },
+      {
+        id: 20, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `تعرف المحاسبة العمومية بموجب الفصل 1 من المرسوم الملكي رقم 330.66 بأنها:`,
+        options: [
+          `مجموع قواعد الحسابات الخاصة بالشركات التجارية`,
+          `مجموع القواعد التي تجري على العمليات المالية والحسابية للدولة والجماعات والمؤسسات العمومية وتحدد التزامات الأعوان المكلفين بها`,
+          `نظام التدبير المالي للجمعيات الوطنية`,
+          `قواعد الاقتراض الخارجي للمؤسسات المالية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 1 تعريف وتطبيقات المحاسبة العمومية`
+      },
+      {
+        id: 21, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ينص الفصل 4 من المرسوم الملكي رقم 330.66 بشأن العلاقة بين الآمر بالصرف والمحاسب العمومي على:`,
+        options: [
+          `إمكانية دمج مهام الآمر بالصرف والمحاسب العمومي في شخص واحد بقرار وزاري`,
+          `عدم الجمع بين مهام آمر بالصرف ومهام محاسب عمومي ما لم تكن هناك مقتضيات صريحة مخالفة`,
+          `إسناد جميع مهام الأداء والتصفية للآمر بالصرف الثانوي`,
+          `تحويل صلاحيات المحاسب العمومي إلى رئيس الجمعية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 4 عدم الجمع بين الآمر بالصرف والمحاسب`
+      },
+      {
+        id: 22, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `تمر عملية تنفيذ النفقة العمومية من الجانب الإداري والمالي وفق المرسوم الملكي 330.66 بالترتيب التالي:`,
+        options: [
+          `الأداء التصفية الالتزام الأمر بالدفع`,
+          `الالتزام ثم التصفية ثم الأمر بالدفع ثم الأداء النهائي`,
+          `الأمر بالدفع الالتزام التصفية الأداء`,
+          `التصفية الأداء الالتزام الأمر بالدفع`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصول 3140 مراحل الالتزام، التصفية، الأمر بالدفع، والأداء`
+      },
+      {
+        id: 23, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `يعرف الالتزام بالنفقة وفق الفصل 33 من المرسوم الملكي رقم 330.66 بأنه:`,
+        options: [
+          `العملية التي يتم بموجبها تسليم المبالغ المالية للدائن`,
+          `العمل الذي تحدث أو تثبت بموجبه المنظمة العمومية سندا يترتب عنه تحمل مالي`,
+          `حصر المبلغ الدقيق للدين وتحقق استحقاقه`,
+          `تحرير حوالة الأداء من طرف المحاسب`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 33 تعريف الالتزام بالنفقة العمومية`
+      },
+      {
+        id: 24, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `تهدف تصفية النفقة وفق التشريع المالي العمومي الفصل 34 من المرسوم الملكي 330.66 إلى:`,
+        options: [
+          `التأكد من وجود الاعتمادات في الميزانية`,
+          `التحقق من واقعية الدين وحصر المبلغ الصحيح للنفقة والتأكد من إنجاز الخدمة المعينة`,
+          `التوقيع على شيك الأداء`,
+          `إصدار أمر بالأداء موجه إلى الخازن العام`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 34 تعريف وإجراءات تصفية النفقة`
+      },
+      {
+        id: 25, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `يعتبر آمرا رئيسيا بالصرف للمداخيل والنفقات بحكم القانون وفق الفصل 64 من المرسوم الملكي 330.66:`,
+        options: [
+          `مدير الأكاديمية الجهوية`,
+          `الوزراء فيما يتعلق بمداخيل ونفقات وزاراتهم والمصالح المستقلة التابعة لهم`,
+          `الخازن العام للمملكة`,
+          `رئيس مجلس الإدارة بالمؤسسة`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 64 صفة الوزراء كآمرين رئيسيين بالصرف`
+      },
+      {
+        id: 26, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `يتولى صفة المحاسب السامي للمملكة وفق الفصل 66 من المرسوم الملكي 330.66:`,
+        options: [
+          `المفتش العام للمالية`,
+          `الخازن العام للمملكة`,
+          `وزير الاقتصاد والمالية`,
+          `رئيس المحكمة المالية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 66 صفة الخازن العام للمملكة كمحاسب سام`
+      },
+      {
+        id: 27, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `تتضمن محاسبة الدولة وفق الفصل 57 من المرسوم الملكي رقم 330.66 المعدل:`,
+        options: [
+          `محاسبة نقدية فقط`,
+          `محاسبة عامة، ومحاسبة تحليلية، ومحاسبة إدارية يمسكها الآمرون بالصرف`,
+          `محاسبة الشركات والتجارة الدولية`,
+          `محاسبة عينية ومحاسبة أرشيفية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 57 مكونات المحاسبة العامة والتحليلية والإدارية`
+      },
+      {
+        id: 28, chapter: 6, article: `القانون 69.00 للمراقبة المالية`,
+        q: `يخضع لأحكام القانون رقم 69.00 المتعلق بالمراقبة المالية للدولة:`,
+        options: [
+          `الوزارات والمحاكم الإدارية حصرا`,
+          `المؤسسات العمومية، وشركات الدولة، والشركات التابعة العامة، والشركات المختلطة والمقاولات ذات الامتياز`,
+          `الجمعيات الرياضية المدرسية فقط`,
+          `المقاولات الذاتية الفردية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.00 للمراقبة المالية. المادة 1 والمادة 2 نطاق تطبيق المراقبة المالية للدولة`
+      },
+      {
+        id: 29, chapter: 6, article: `القانون 69.00 للمراقبة المالية`,
+        q: `تشمل أنواع المراقبة المالية المقررة في القانون رقم 69.00:`,
+        options: [
+          `المراقبة القبلية، والمراقبة المواكبة، والمراقبة بمقتضى اتفاقية`,
+          `المراقبة القضائية الجنائية فقط`,
+          `المراقبة الدولية والمائية`,
+          `المراقبة الذاتية غير المباشرة`
+        ],
+        correct: 0,
+        explanation: `المرجع: القانون 69.00 للمراقبة المالية. المواد 7، 71، و 26 أنواع المراقبة القبلية والمواكبة والاتفاقية`
+      },
+      {
+        id: 30, chapter: 6, article: `القانون 69.00 للمراقبة المالية`,
+        q: `تصبح مقررات مجلس إدارة المؤسسة العمومية الخاضعة للمراقبة المواكبة نهائية وفق المادة 22 من القانون 69.00 بعد:`,
+        options: [
+          `موافقة الوزير المكلف بالمالية على الميزانيات والبيانات التوقعية وتخصيص النتائج`,
+          `نشرها بالجريدة الرسمية دون أي تأشيرة`,
+          `توقيع رئيس الجمعية الرياضية`,
+          `مصادقة الجماعة الترابية المحلية القسم الثالث: التدبير المالي والمادي ومستلزمات المؤسسة والصفقات العمومية الدليل المالي، مدرسة النجاح، الصفقات 134.22.2، والمطعمة`
+        ],
+        correct: 0,
+        explanation: `المرجع: القانون 69.00 للمراقبة المالية. المادة 22 موافقة وزير المالية على ميزانيات المراقبة المواكبة`
+      },
+      {
+        id: 31, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `يقصد بالخارج عن الميزانية بالمؤسسات التعليمية وفق دليل التدبير المالي والمادي:`,
+        options: [
+          `الموارد الناتجة عن الميزانية العامة للدولة`,
+          `النظام المالي الخاص بالموارد الذاتية للمؤسسة واجبات التسجيل، الذخائر، والخدمات المنظم بمذكرات وزارية`,
+          `المبالغ المخصصة لصفقات البناء الكبرى`,
+          `قروض البنك الدولي`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. قسم 1.1 تعريف الخارج عن الميزانية والموارد الذاتية`
+      },
+      {
+        id: 32, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `تحصل واجبات التسجيل بمؤسسات التعليم الثانوي التأهيلي والإعدادي وفق المذكرات الوزارية لتغطية:`,
+        options: [
+          `أجور المدرسين والمستشارين`,
+          `المصاريف العامة، المكتبة الترفيهية، الأنشطة الاجتماعية التربوية، والأدوات الصغيرة ووسائل الإيضاح`,
+          `بناء الحجرات الدراسية الجديدة`,
+          `إقتناء السيارات الإدارية`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. قسم 11 توزيع خانات واجبات التسجيل والمصاريف الإضافية`
+      },
+      {
+        id: 33, chapter: 8, article: `مدونة المحاكم المالية والمحاسبة`,
+        q: `يعتبر شخص محاسبا بحكم الواقع وفق المادة 27 من مدونة المحاكم المالية والفصل 73 من المحاسبة العمومية إذا:`,
+        options: [
+          `تم تعيينه بقرار من وزير المالية`,
+          `باشر دون أن يكون مؤهلا قانونا عمليات قبض الموارد أو دفع النفقات أو حيازة أموال عمومية`,
+          `مارس مهام مدير مؤسسة تعليمية`,
+          `قام بإعداد التقرير التربوي السنوي`
+        ],
+        correct: 1,
+        explanation: `المرجع: مدونة المحاكم المالية والمحاسبة. المادة 27 من القانون 62.99 والفصل 73 من مرسوم 330.66`
+      },
+      {
+        id: 34, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `تبدأ السنة المالية الدراسية لتنفيذ مالية المؤسسات التعليمية الخارج عن الميزانية وفق المذكرة 55 من:`,
+        options: [
+          `1 يناير وتكتمل في 31 ديسمبر`,
+          `فاتح يوليوز وتكتمل في 30 يونيو من السنة الموالية`,
+          `1 سبتمبر وتكتمل في 31 أغسطس`,
+          `1 مارس وتكتمل في 30 نوفمبر`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. قسم 52 المذكرة الوزارية 55 السنة المالية الدراسية`
+      },
+      {
+        id: 35, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `تقضي قاعدة تخصيص الموارد في التدبير المالي للمؤسسات التعليمية بـ:`,
+        options: [
+          `استغلال مداخيل الجمعية الرياضية لتغطية نفقات الإطعام الداخلي`,
+          `استعمال المداخيل المحصلة برسم خانة معينة حصريا لتغطية النفقات المحددة لهذه الخانة وعدم تحويلها إلا بترخيص صريح`,
+          `دمج كافة المداخيل في حساب شخصي للمدير`,
+          `إلغاء جميع الخانات المالية المحددة`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. قسم 52 قاعدة تخصيص الموارد والخانات المالية`
+      },
+      {
+        id: 36, chapter: 9, article: `جمعية دعم مدرسة النجاح`,
+        q: `شكلت جمعيات دعم مدرسة النجاح بمؤسسات التربية والتعليم العمومي المذكرة 37 كـ:`,
+        options: [
+          `مقاولة تجارية تهدف لتحقيق الأرباح`,
+          `إطار مؤسساتي ومالي داعم لثقافة العمل بالمشروع وتسهيل صرف نفقات القرب والتدبير الذاتي`,
+          `نقابة مهنية لأطر التسيير المالي`,
+          `مصلحة تابعة للخزينة العامة مباشرة`
+        ],
+        correct: 1,
+        explanation: `المرجع: جمعية دعم مدرسة النجاح. المذكرة الوزارية 37 والدليل المسطري الإطار المؤسساتي للتدبير`
+      },
+      {
+        id: 37, chapter: 9, article: `جمعية دعم مدرسة النجاح`,
+        q: `يصرف الدعم المالي الممنوح لجمعية دعم مدرسة النجاح وفق الدليل المسطري في:`,
+        options: [
+          `النفقات التدبيرية الصغرى، الصيانة الوقائية، التظاهرات المدرسية، النوادي المدرسية، وتشجيع التفوق`,
+          `أجور المنشطين الدائمين والمدرسين`,
+          `بناء الداخليات وتوسيع المؤسسات`,
+          `شراء العقارات والأراضي`
+        ],
+        correct: 0,
+        explanation: `المرجع: جمعية دعم مدرسة النجاح. المحور 3.4 مجالات ونفقات القرب الخمسة المحددة`
+      },
+      {
+        id: 38, chapter: 9, article: `جمعية دعم مدرسة النجاح`,
+        q: `بخصوص تغطية أجور منشطي برامج الدعم بالمؤسسة ينص الدليل المسطري لجمعية دعم مدرسة النجاح على:`,
+        options: [
+          `جواز صرفها مباشرة من منحة مدرسة النجاح`,
+          `عدم جواز تغطية أجور منشطي برامج الدعم من ميزانية الجمعية، وإمكانية إدراجها في إطار شراكات مع فاعلين`,
+          `اقتطاعها من واجبات التسجيل والتأمين`,
+          `تحويلها تلقائيا من حساب الأكاديمية`
+        ],
+        correct: 1,
+        explanation: `المرجع: جمعية دعم مدرسة النجاح. المحور 3.4 منع صرف أجور منشطي الدعم من المنحة`
+      },
+      {
+        id: 39, chapter: 10, article: `المحاسبة المادية والجرد`,
+        q: `تسجل في سجل الجرد بالمؤسسة التعليمية وفق دليل التدبير المادي والمالي كل المنقولات والأجهزة التي:`,
+        options: [
+          `تستهلك بمجرد الاستعمال الأول كالطباشير والأوراق`,
+          `تعادل أو تفوق قيمتها 10 دراهم وتكتسي طابع الديمومة والاستعمال المستمر`,
+          `تقل قيمتها عن درهم واحد`,
+          `تكون في ملكية القطاع الخاص حصرا`
+        ],
+        correct: 1,
+        explanation: `المرجع: المحاسبة المادية والجرد. المذكرة 127 والتعليمات المادية سجل الجرد والقيمة 10 دراهم`
+      },
+      {
+        id: 40, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `يرسخ مرسوم الصفقات العمومية 2.22.431 مبادئ رئيسية لتأمين نجاعة الطلبيات العمومية منها:`,
+        options: [
+          `حرية الولوج للطلبية العمومية، المساواة في المعاملة، الشفافية، والتحديد القبلي للحاجيات`,
+          `إبرام الصفقات بالتراضي المباشر دون منافسة كأصل عام`,
+          `سرية المساطر وعدم نشر الإعلانات بالبوابة`,
+          `تفضيل العروض الأغلى سعرا`
+        ],
+        correct: 0,
+        explanation: `المرجع: مرسوم الصفقات 2.22.431. المادة 1 المبادئ العامة الموجهة للطلبيات العمومية`
+      },
+      {
+        id: 41, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `تعتبر القاعدة العامة والأصل في إبرام الصفقات العمومية وفق المرسوم رقم 2.22.431:`,
+        options: [
+          `المسطرة التفاوضية بدون إشهار`,
+          `طلب العروض مفتوح أو محدود أو بالانتقاء المسبق`,
+          `الاستشارة المعمارية التفاوضية`,
+          `التعيين المباشر للنادين`
+        ],
+        correct: 1,
+        explanation: `المرجع: مرسوم الصفقات 2.22.431. المادة 16 والمادة 17 طلبات العروض كأصل عام في الصفقات`
+      },
+      {
+        id: 42, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `يلجأ إلى تنفيذ الأعمال بواسطة سندات الطلب وفق المادة 91 من المرسوم 2.22.431 في حدود سقف سنوي محدد في:`,
+        options: [
+          `10,000 درهم`,
+          `500,000 درهم مع احتساب الرسوم لكل نوع من الأعمال برسم سنة مالية واحدة لكل صاحب مشروع`,
+          `5 ملايين درهم`,
+          `بدون أي سقف مالي`
+        ],
+        correct: 1,
+        explanation: `المرجع: مرسوم الصفقات 2.22.431. المادة 91 سقف سندات الطلب المحدد في 500.000 درهم سنويا`
+      },
+      {
+        id: 43, chapter: 12, article: `الدليل المسطري لنظام المطعمة`,
+        q: `يهدف نظام المطعمة المعتمد بالداخليات والمطاعم المدرسية الدليل المسطري للمطعمة إلى:`,
+        options: [
+          `دمج الصفقات المتعددة في صفقة موحدة لخدمة الإطعام وترشيد نفقات القرب وتجويد الوجبات`,
+          `إلغاء تقديم الوجبات بالداخليات`,
+          `تفويض التغذية لأسر التلاميذ`,
+          `إسناد المطبخ للجمعيات الرياضية`
+        ],
+        correct: 0,
+        explanation: `المرجع: الدليل المسطري لنظام المطعمة. مقدمة الدليل التدبير غير المباشر والصفقة الموحدة للوجبات`
+      },
+      {
+        id: 44, chapter: 12, article: `الدليل المسطري لنظام المطعمة`,
+        q: `تعتبر ورقة الاتصال اليومية بالداخلية وفق الدليل المسطري لنظام المطعمة الوثيقة الرسمية التي يحدد فيها:`,
+        options: [
+          `الأعداد اليومية المتوقعة للمستفيدين من كل وجبة ممنوح، مؤد، متمم المعتمدة لإعداد رسالة الطلبية`,
+          `لائحة الغائبين السنوية`,
+          `الفواتير النهائية للصرف`,
+          `برنامج العطل المدرسية`
+        ],
+        correct: 0,
+        explanation: `المرجع: الدليل المسطري لنظام المطعمة. المحور 2.1 مسطرة ورقة الاتصال اليومية ورسالة الطلبية`
+      },
+      {
+        id: 45, chapter: 12, article: `الدليل المسطري لنظام المطعمة`,
+        q: `ينجز الجرد التعارضي لمعدات وعتاد المطبخ قبل بدء تنفيذ صفقة المطعمة بين:`,
+        options: [
+          `المفتش العام للوزارة والنائب الإقليمي`,
+          `مسير المصالح المادية والمالية بالمؤسسة وممثل الشركة صاحبة الصفقة وتحرير محضر موقع`,
+          `حارس الأمن الخاص ورئيس جمعية الآباء`,
+          `الخازن العام ومراقب الدولة القسم الرابع: مشروع المؤسسة المندمج وإدارة الأرشيف والحياة المدرسية المذكرة 01424 والقانون 69.99`
+        ],
+        correct: 1,
+        explanation: `المرجع: الدليل المسطري لنظام المطعمة. المحور 1.2 الجرد التعارضي للمطبخ بين المسير والشركة`
+      },
+      {
+        id: 46, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `يعرف مشروع المؤسسة المندمج وفق المذكرة 01424 والدليل المرجعي بأنه:`,
+        options: [
+          `آلية عملية للتخطيط والتذبير الذاتي المرتكز على النتائج لتحسين جودة التعلمات والارتقاء بالمؤسسة`,
+          `تقرير إداري سنوي يرسل للوزارة دون تنفيذ ميداني`,
+          `سجل لتقييم أجور الموظفين`,
+          `عقد تجاري مع المقاولات الموردة`
+        ],
+        correct: 0,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المذكرة 01424 والمؤشرات الإستراتيجية مفهوم مشروع المؤسسة`
+      },
+      {
+        id: 47, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `تنتظم مراحل إعداد وتنزيل مشروع المؤسسة المندمج وفق منهجية ست مراحل مرتبة:`,
+        options: [
+          `التخطيط التنفيذ الانطلاقة التقييم التشخيص الانتقال`,
+          `الانطلاقة تشخيص الوضعية التخطيط والبرمجة الأجرأة الضبط والتقويم الانتقال`,
+          `التقييم الأجرأة التخطيط الانطلاقة التشخيص الضبط`,
+          `التشخيص الأجرأة الانتقال التخطيط الضبط الانطلاقة`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المراحل الست لمنهجية الانطلاقة، التشخيص، التخطيط، الأجرأة، الضبط، والانتقال`
+      },
+      {
+        id: 48, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `تتضمن مرحلة تشخيص الوضعية الراهنة ضمن منهجية مشروع المؤسسة المندمج:`,
+        options: [
+          `تحديد الميزانية النهائية فقط`,
+          `اعتماد المقاربة التشاركية وتحليل المعطيات واعتماد التحليل الاستراتيجي لنقاط القوة والضعف والفرص والمخاطر`,
+          `توقيع اتفاقيات الشراكة الخارجية حصرا`,
+          `حصر لائحة التلاميذ الممنوحين`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. مرحلة تشخيص الوضعية المقاربة التشاركية وتحليل المعطيات`
+      },
+      {
+        id: 49, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `يصادق على مشروع المؤسسة المندمج في مرحلته الأولى محليا من طرف:`,
+        options: [
+          `رئيس المجلس الجماعي`,
+          `مجلس تدبير المؤسسة التعليمية، ثم يرفع للجنة الإقليمية للمصادقة النهائية`,
+          `المفتش الإقليمي بمفرده`,
+          `جمعية أمهات وآباء التلاميذ حصرا`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. مسطرة المصادقة مصادقة مجلس التدبير ثم اللجنة الإقليمية`
+      },
+      {
+        id: 50, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `يمتد مخطط مشروع المؤسسة المندمج كإطار استراتيجي للتدبير عادة على مدى:`,
+        options: [
+          `شهر واحد فقط`,
+          `ثلاث سنوات دراسية`,
+          `عشر سنوات كاملة`,
+          `سنة واحدة غير قابلة والتجديد`
+        ],
+        correct: 1,
+        explanation: `المخطط الزمني لمشروع المؤسسة المندمج 3 سنوات دراسية`
+      },
+      {
+        id: 51, chapter: 14, article: `منظومة مسار الرقمية`,
+        q: `توفر منظومة مسار الرقمية في مكون مشروع المؤسسة المندمج:`,
+        options: [
+          `لوحات قيادة إلكترونية لتتبع المؤشرات وإدخال المعطيات والأرشفة الإلكترونية للمراحل`,
+          `أداء أجور الموردين بطريقة إلكترونية مباشرة`,
+          `إلغاء المحاضر الورقية لمجلس التدبير`,
+          `تحويل الاعتمادات البنكية تلقائيا`
+        ],
+        correct: 0,
+        explanation: `المرجع: منظومة مسار الرقمية. لوحات القيادة والتتبع والمكون الإلكتروني لمنظومة مسار`
+      },
+      {
+        id: 52, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `يعرف الأرشيف بموجب المادة 1 من القانون رقم 69.99 المتعلق بالأرشيف بأنه:`,
+        options: [
+          `الكتب الترفيهية بالمكتبات المدرسية`,
+          `مجموع الوثائق كيفما كان تاريخها أو شكلها أو سندها المادي التي ينتجها أو يتسلمها كل شخص طبيعي أو معنوي أثناء ممارسة نشاطه`,
+          `الملفات الطبية للتلاميذ فقط`,
+          `السجلات المالية المحصورة منذ أكثر من 50 سنة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 1 تعريف الأرشيف والوثائق العامة والخاصة`
+      },
+      {
+        id: 53, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `تمر الوثائق الأرشيفية وفق القانون رقم 69.99 بثلاث مراحل متتالية هي:`,
+        options: [
+          `الأرشيف الابتدائي، الثانوي، والعالي`,
+          `الأرشيف العادي أرشيف الجاريالنشيط، الأرشيف الوسيط، والأرشيف النهائي التاريخي`,
+          `الأرشيف المالي، التربوي، والإداري`,
+          `الأرشيف السري، العلني، والمتروك`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المواد 29 المراحل الثلاث: العادي، الوسيط، والنهائي`
+      },
+      {
+        id: 54, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `أحدثت مؤسسة أرشيف المغرب بموجب القانون رقم 69.99 كـ:`,
+        options: [
+          `شركة مساهمة خاصة`,
+          `مؤسسة عمومية تتمتع بالشخصية المعنوية والاستقلال المالي تناط بها صيانة التراث الأرشيفي الوطني وتنظيمه وتيسير الاطلاع عليه`,
+          `مصلحة تابعة للوزارة المكلفة بالثقافة بدون استقلال مالي`,
+          `لجنة استشارية مؤقتة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 26 إحداث مؤسسة أرشيف المغرب وهياكلها`
+      },
+      {
+        id: 55, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `يصبح الاطلاع على الأرشيف العامة ممكنا كأصل عام وفق المادة 15 من القانون رقم 69.99 بعد مرور مهلة:`,
+        options: [
+          `5 سنوات من تاريخ إنشائها`,
+          `30 سنة من تاريخ إنشائها مع وجود استثناءات تصل لـ 60 أو 100 سنة للوثائق ذات الصبغة الخاصة كالسر الدفاعي أو الحياة الخاصة`,
+          `100 سنة لجميع الوثائق بدون استثناء`,
+          `فور إنشائها وتداولها`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 15 مهلة 30 سنة للاطلاع العام والاستثناءات`
+      },
+      {
+        id: 56, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `ينص القانون رقم 69.99 في أحكامه الزجرية على أن كل من أقدم عمدا على إتلاف أو اختلاس وثائق أرشيفية عامة يعاقب بـ:`,
+        options: [
+          `التوبيخ الإداري فقط`,
+          `العقوبات السالبة للحرية والغرامات المالية المنصوص عليها في القانون التشريعي الجاري به العمل`,
+          `الإعفاء من الرسوم المدرسية`,
+          `التنازل عن الوثيقة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. أحكام الباب السادس العقوبات الزجرية لإتلاف الأرشيف`
+      },
+      {
+        id: 57, chapter: 16, article: `التدبير المادي للقسم الخارجي`,
+        q: `يمسك سجل الاستهلاك للوازم المكتبية والتعليمية بالقسم الخارجي استنادا إلى:`,
+        options: [
+          `المذكرة الوزارية رقم 40 بتاريخ 10 مايو 1990 لتسجيل الدخول والخروج وضبط المخزون`,
+          `مرسوم الصفقات العمومية`,
+          `القانون التنظيمي للمالية`,
+          `نظام المطعمة بالداخليات`
+        ],
+        correct: 0,
+        explanation: `المرجع: التدبير المادي للقسم الخارجي. المذكرة الوزارية 40 بتاريخ 10 مايو 1990 سجل الاستهلاك`
+      },
+      {
+        id: 58, chapter: 17, article: `المسؤولية الإدارية والمالية`,
+        q: `يتحمل الآمر بالصرف بالمؤسسات التعليمية والمنظمات العمومية بمناسبة مزاولة مهامه المسؤولية:`,
+        options: [
+          `الأخلاقية فقط دون المدنية أو الجنائية`,
+          `التأديبية والمدنية والجنائية والمشتركة المقررة في القوانين والأنظمة المعمول بها`,
+          `المنعدمة تماما`,
+          `المقتصرة على الأخطاء التي يرتكبها الغير`
+        ],
+        correct: 1,
+        explanation: `المرجع: المسؤولية الإدارية والمالية. الفصل 7 من مرسوم 330.66 ودليل المسؤولية والمراقبة`
+      },
+      {
+        id: 59, chapter: 18, article: `التدبير المالي للداخليات`,
+        q: `ينص التنظيم المالي المادي على احتساب الرصيد الاحتياطي للداخليات والمطاعم المدرسية لـ:`,
+        options: [
+          `شراء سيارات الخدمة للمؤسسة`,
+          `مواجهة الطوارئ وسد العجز غير المتوقع في التموين والتغذية وفق المساطر والترخيصات المنظمة`,
+          `توزيع أرباح على الموظفين`,
+          `تمويل الرحلات المدرسية الخارجية`
+        ],
+        correct: 1,
+        explanation: `المرجع: التدبير المالي للداخليات. المذكرة الوزارية 102 والمذكرة 111 احتساب الرصيد الاحتياطي`
+      },
+      {
+        id: 60, chapter: 12, article: `الدليل المسطري لنظام المطعمة`,
+        q: `ينص الدليل المسطري للمطعمة على وجوب إيداع عينات من الوجبات اليومية المقدمة للتلاميذ والاحتفاظ بها في:`,
+        options: [
+          `قاعة الأكل بدون غطاء`,
+          `المجمد مع تحديد تواريخها لمدة 48 ساعة على الأقل لمعاينتها عند أي طارئ صحي`,
+          `مخزن الكتب المدرسية`,
+          `مكتب مدير الدراسة`
+        ],
+        correct: 1,
+        explanation: `المرجع: الدليل المسطري لنظام المطعمة. المحور 2.3 الاحتفاظ بعينات الوجبات في المجمد 48 ساعة`
+      },
+      {
+        id: 61, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `وفق الفصل 5 من المرسوم الملكي رقم330.66 ، ما هو الشرط الأساسي للآمرين بالصرف الثانويين المعينين لممارسة مهامهم؟`,
+        options: [
+          `تقديم ضمانة مالية لدى صندوق الإيداع والتدبير`,
+          `اعتمادهم لدى المحاسبين العموميين المكلفين بالمداخيل والنفقات التي يأمرون بإنجازها`,
+          `الحصول على موافقة المجلس الأعلى للحسابات`,
+          `التوفر على أقدمية لا تقل عن 10 سنوات في الوظيفة العمومية`
+        ],
+        correct: 1,
+        explanation: `الفصل 5 من المرسوم الملكي 330.66 اعتماد الآمرين بالصرف الثانويين لدى المحاسبين`
+      },
+      {
+        id: 62, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `حسب الفصل 11 من المرسوم الملكي330.66 ، ماذا تشمل مراقبة المحاسب العمومي قبل التأشير بالأداء؟`,
+        options: [
+          `مراقبة ملائمة النفقة وجدواها التربوية`,
+          `صحة حسابات التصفية، وجود التثبيتالتأشيرة المسبقة للالتزام، والصفة الإبرائية للتسديد`,
+          `تقييم الأداء المالي للآمر بالصرف`,
+          `التأكد من إدراج الصفقة في بوابة الصفقات فقط`
+        ],
+        correct: 1,
+        explanation: `الفصل 11 من المرسوم الملكي 330.66 مراقبة صحة حسابات التصفية والتأشيرة والصفة الإبرائية`
+      },
+      {
+        id: 63, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ما هي النفقات المستثناة من تطبيق أحكام المراقبة العادية للمحاسبين طبقاً للفصل 91 المكرر من المرسوم330.66 ؟`,
+        options: [
+          `نفقات التسيير العادية للمؤسسات التعليمية`,
+          `نفقات الاستثمار الممولة من ميزانية الدولة`,
+          `نفقات الدولة المنجزة في إطار برامج هبات خارجية يمنحها الاتحاد الأوروبي`,
+          `نفقات جمعية دعم مدرسة النجاح`
+        ],
+        correct: 2,
+        explanation: `الفصل 91 المكرر من المرسوم الملكي 330.66 استثناء نفقات برامج الهبات الخارجية الأجنبية`
+      },
+      {
+        id: 64, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ما العمل الإداري والمحاسبي الذي يقوم به الآمر بالصرف إذا أُدرجت نفقة بصفة قانونية لكن أُسيء ترتيبها في حسابات المحاسب الفصل71 ؟`,
+        options: [
+          `إلغاء الأمر بالصرف نهائياً`,
+          `إصدار شهادة بإعادة الإدراج لزيادة التحمل في الفصل الصحيح وتخفيض الآخر`,
+          `إحالة الملف على العون القضائي للخزينة`,
+          `اقتطاع النفقة من الحساب الجاري البريدي للمؤسسة`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 71 من المرسوم 330.66 إصدار شهادة إعادة الإدراج لتصحيح التكفل الحسابي`
+      },
+      {
+        id: 65, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ما هو الأجل الأقصى المسموح به للآمرين بالصرف لإجراء عمليات التسوية المتعلقة بالمحاسبة الإدارية طبقاً للفصل 111 من المرسوم330.66 ؟`,
+        options: [
+          `غاية 31 مارس من السنة المالية الحالية`,
+          `غاية 30 يونيو من السنة المالية التالية`,
+          `غاية 31 أغسطس من السنة المالية التالية لسنة قانون المالية المعني`,
+          `غاية 31 ديسمبر من السنة المالية الحالية`
+        ],
+        correct: 2,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 111 من المرسوم 330.66 أجل 31 أغسطس من السنة المالية التالية لتسوية المحاسبة الإدارية`
+      },
+      {
+        id: 66, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `يتولى العون القضائي للخزينة التكفل بالأوامر بالدفع غير المستخلصة وفق الفصل 74 بالنسبة لأي صنف من الديون؟`,
+        options: [
+          `الضرائب والرسوم المباشرة المستحقة للدولة`,
+          `الديون غير الراجعة للضرائب وأملاك الدولة والتي لم يتأت استخلاصها بالمراضات`,
+          `واجبات التسجيل المدرسي المستحقة للمؤسسات`,
+          `اقتطاعات الأجور والرواتب الخاصة بالموظفين`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 74 من المرسوم 330.66 التكفل بالديون غير الراجعة للضرائب وأملاك الدولة بواسطة العون القضائي`
+      },
+      {
+        id: 67, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `بناءً على المادة 64 من القانون التنظيمي للمالية130.13 ، ما هي الوثائق الأساسية التي تجب إرفاقها بمشروع قانون التصفية؟`,
+        options: [
+          `جدول أثمان الصفقات المبرمة فقط`,
+          `الحساب العام للدولة، التقرير السنوي حول نجاعة الأداء، تقرير الموارد المخصصة للجماعات الترابية، وتقرير افتحاص النجاعة`,
+          `الميزان العام للحسابات البريدية للمؤسسات`,
+          `النظام الداخلي لجمعيات دعم مدرسة النجاح`
+        ],
+        correct: 1,
+        explanation: `المادة 64 من القانون التنظيمي للمالية 130.13 الوثائق المرفقة بمشروع قانون التصفية`
+      },
+      {
+        id: 68, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ماذا تعني المحاسبة الإدارية وفق المادة 58 من المرسوم الملكي330.66 ؟`,
+        options: [
+          `المحاسبة التي تبرز العمليات المالية المنجزة لحساب الأغيار`,
+          `المحاسبة التي تبين جميع عمليات الموارد والنفقات المنجزة في إطار ترخيصات الميزانية ويمسكها الآمرون بالصرف`,
+          `المحاسبة التي يمسكها الخازن العام لتحديد ثمن التكلفة`,
+          `سجل الجرد المادي المعمر والمستهلك`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 58 من المرسوم 330.66 تعريف المحاسبة الإدارية الخاصة بالآمرين بالصرف`
+      },
+      {
+        id: 69, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ما هي القاعدة الحاكمة لأداء الأوامر بالصرف والحوالات المالية وفق الفصل 40 من مرسوم المحاسبة العمومية؟`,
+        options: [
+          `لا يمكن أداؤها إلا بعد مصادقة المجلس الأعلى للحسابات`,
+          `لا يمكن أداؤها إلا بعد التأشير عليها من طرف المحاسب المكلف بالنفقة`,
+          `تؤدى فور صدورها من الآمر بالصرف دون حاجة لتأشيرة`,
+          `تؤدى بناءً على طلب شفوي من المستفيد`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 40 من المرسوم 330.66 اشتراط تأشيرة المحاسب العمومي لأداء الحوالات والأوامر بالصرف`
+      },
+      {
+        id: 70, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `إذا رفض المحاسب المكلف بالتسديد التأشير على نفقة واستعمل الآمر بالصرف حق التسخير الطلب الكتابي وتحت مسؤوليته وفق الفصل93 ، كيف يتصرف المحاسب؟`,
+        options: [
+          `يمتنع عن الأداء مطلقاً ويحيل الملف على القضاء`,
+          `يباشر التأشير لأجل الأداء مع إضافة نسخة من تصريحه بالإخبار وطلب التسخير، ولا يعود مسؤولاً عن النفقة`,
+          `يلغي الترخيص بالميزانية فوراً`,
+          `يخصم قيمة النفقة من حسابه الشخصي`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 93 من المرسوم 330.66 مسطرة التسخير والطلب الكتابي وإعلاء مسؤولية المحاسب`
+      },
+      {
+        id: 71, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `ما هو الرصيد الأدنى للموارد الذاتية الواجب استيفاؤه لإحداث مرافق الدولة المسيرة بصورة مستقلة وفق المادة 21 من130.13 ؟`,
+        options: [
+          `15 من إجمالي الموارد المأذون بها`,
+          `20 من إجمالي الموارد المأذون بها`,
+          `30 على الأقل من إجمالي الموارد المأذون بها ابتداءً من السنة الثالثة الموالية للإحداث`,
+          `50 من الميزانية العامة للدولة`
+        ],
+        correct: 2,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 21 من 130.13 شرط 30 على الأقل من الموارد الذاتية لاستمرار مرافق`
+      },
+      {
+        id: 72, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `يُقصد بمفهوم قانون التصفية في التشريع المالي المغربي المادة 2 من130.13:`,
+        options: [
+          `القانون الذي يحدد التقديرات الأولية للنفقات والمداخيل للسنة القادمة`,
+          `القانون الذي يثبت ويحصر المبلغ النهائي للمداخيل المقبوضة والنفقات المنسوبة لنفس السنة المالية ويوافق على حساب النتيجة`,
+          `التعديل الذي يطرأ على قانون المالية خلال السنة المالية جارٍ تنفيذه`,
+          `الميزانية الاستثنائية الخاصة بظروف الكوارث والأزمات`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 2 والمادة 64 من 130.13 تعريف قانون التصفية وحصر النتائج النهائية`
+      },
+      {
+        id: 73, chapter: 4, article: `القانون التنظيمي للمالية 130.13`,
+        q: `تُحدد الموارد المالية المستخلصة من بيع العقارات والمنقولات المملوكة للدولة ضمن أي صنف في ميزانية الدولة المادة 11 من130.13 ؟`,
+        options: [
+          `نفقات التسيير العادية`,
+          `الموارد الدائمة للميزانية العامة للدولة`,
+          `الحسابات الخصوصية للخزينة حصرياً`,
+          `ميزانيات الجمعيات المدرسية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون التنظيمي للمالية 130.13. المادة 11 من 130.13 إدراج حصيلة تفويت العقارات والمنقولات ضمن موارد الدولة`
+      },
+      {
+        id: 74, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `حسب الفصل 39 من المرسوم330.66 ، إذا رفض الدائن تسلم سند الأداء أو الأداء نفسه، ماذا يجوز للآمر بالصرف أن يطلب من المحاسب؟`,
+        options: [
+          `تحويل المبلغ فوراً إلى ميزانية الأكاديمية`,
+          `إيداع مبلغ الأداء في صندوق الإيداع والتدبير مع إعلام الدائن برسالة مضمونة الوصول`,
+          `إلغاء الاعتماد المالي المخصص نهائياً`,
+          `توزيع المبلغ على تلاميذ المؤسسة`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 39 من المرسوم 330.66 إيداع مبالغ الديون المرفوضة بصندوق الإيداع والتدبير`
+      },
+      {
+        id: 75, chapter: 5, article: `المرسوم الملكي 330.66`,
+        q: `ما هي السجلات الأساسية التي يمسكها الآمر بالصرف لتتبع تنفيذ النفقات طبقاً للفصل 108 من المرسوم330.66 ؟`,
+        options: [
+          `دفتر الإيصالات العادية فقط`,
+          `سجل تقييد حقوق الدائنين، السجل اليومي للأوامر بالصرف أو الحوالات الصادرة، وسجل الحسابات حسب أبواب النفقات`,
+          `سجل الاستهلاك اليومي للمطعم المدرسية`,
+          `سجل الجرد العشري للمنقولات القسم الثاني :الصفقات العمومية والطلبيات العمومية المتقدمة مرسوم رقم2.22.431`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم الملكي 330.66. الفصل 108 من المرسوم 330.66 سجلات المحاسبة الإدارية للآمرين بالصرف`
+      },
+      {
+        id: 76, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما هو السقف المالي المحدد للجوء إلى إبرام الصفقات العمومية بواسطة سندات الطلب وفق المادة 91 من المرسوم2.22.431 ؟`,
+        options: [
+          `200,000 درهم مع احتساب الرسوم`,
+          `500,000 درهم مع احتساب الرسوم كحد أقصى برسم سنة مالية واحدة لكل آمر بالصرف وبحسب نوع الأعمال`,
+          `1,000,000 درهم دون احتساب الرسوم`,
+          `5,000,000 درهم لكافة توريدات المؤسسة`
+        ],
+        correct: 1,
+        explanation: `المادة 91 من مرسوم الصفقات 2.22.431 سقف سندات الطلب 500,000 درهم مع احتساب الرسوم`
+      },
+      {
+        id: 77, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما المقصود بـ عقود أو اتفاقيات القانون العادي وفق المادة 4 البند 7 من مرسوم الصفقات العمومية؟`,
+        options: [
+          `صفقات تفاوضية سرية تخص الدفاع الوطني`,
+          `العقود التي موضوعها إنجاز أعمال سبق تحديد شروط تنفيذها وثمنها ولا يمكن لصاحب المشروع تعديلها كالماء، الكهرباء، الهاتف`,
+          `الطلبيات التي تقل قيمتها عن 10,000 درهم`,
+          `الشراكات المبرمة مع الجمعيات الرياضية المدرسية`
+        ],
+        correct: 1,
+        explanation: `المادة 4 البند 7 من مرسوم الصفقات 2.22.431 تعريف اتفاقيات وعقود القانون العادي`
+      },
+      {
+        id: 78, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `وفق المادة 19 من المرسوم2.22.431 ، متى يُتاح اللجوء إلى مسطرة طلب العروض المفتوح المبسط ؟`,
+        options: [
+          `عندما تفوق كلفة الصفقة 10 ملايين درهم`,
+          `عندما يساوي أو يقل المبلغ التقديري للصفقة عن مليون 1,000,000 درهم دون احتساب الرسوم`,
+          `في صفقات الدراسات والمعماريين حصراً`,
+          `عند حالات الاستعجال القصوى الناجمة عن الكوارث الطبيعية`
+        ],
+        correct: 1,
+        explanation: `المادة 19 من مرسوم الصفقات 2.22.431 طلب العروض المفتوح المبسط للطلبيات 1,000,000 درهم`
+      },
+      {
+        id: 79, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما هو الأجل الأدنى لنشر الإعلان عن طلب العروض المفتوح المبسط في بوابة الصفقات العمومية قبل تاريخ جلسة فتح الأظرفة؟`,
+        options: [
+          `5 أيام على الأقل`,
+          `10 أيام على الأقل`,
+          `21 يوماً على الأقل`,
+          `40 يوماً على الأقل`
+        ],
+        correct: 1,
+        explanation: `المادة 19 من مرسوم الصفقات 2.22.431 أجل 10 أيام لنشر إعلان طلب العروض المبسط`
+      },
+      {
+        id: 80, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `حسب المادة 89 من مرسوم الصفقات2.22.431 ، متى يُمكن إبرام صفقة تفاوضية بدون إشهار مسبق وبدون إجراء منافسة؟`,
+        options: [
+          `لجميع نفقات التسيير العادية بالمؤسسات`,
+          `في حالات الاستعجال القصوى الناجمة عن ظروف غير متوقعة، أو للأعمال التي يحتكر صنعها حاملو براءات الاختراع`,
+          `عندما يتجاوز مبلغ الصفقة 50 مليون درهم`,
+          `لشراء التجهيزات المكتبية العادية في بداية السنة الدراسية`
+        ],
+        correct: 1,
+        explanation: `المادة 89 البند من مرسوم الصفقات 2.22.431 حالات الصفقات التفاوضية بدون إشهار`
+      },
+      {
+        id: 81, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما النسبة المئوية المطبقة في إطار الأفضلية الوطنية للشركات المغربية والتعاونيات وفق المادة 147 والمادة21 ؟`,
+        options: [
+          `5`,
+          `10`,
+          `15 تُضاف إلى مبالغ عروض المتنافسين الأجانب عند التقييم والمفاضلة المالية`,
+          `25 من الميزانية الإجمالية للصفقة`
+        ],
+        correct: 2,
+        explanation: `المادتان 21 و 147من مرسوم الصفقات 2.22.431 نسبة 15 للأفضلية الوطنية`
+      },
+      {
+        id: 82, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما هي المسطرة الواجب اتباعها إذا تبين للجنة طلب العروض تساوي عدة عروض واعتُبرت الأفضل اقتصادياً وكان أحد المتنافسين تعاونية أو مقاولاً ذاتياً المادة43 ؟`,
+        options: [
+          `إعطاء حق الأفضلية المباشر للتعاونية أو المقاول الذاتي`,
+          `إعطاء الأفضلية للشركة الأكبر رأسمالاً`,
+          `إجراء القرعة فوراً بين الجميع دون اعتبار لنوع المقاولة`,
+          `إلغاء طلب العروض بالكامل وإعادته`
+        ],
+        correct: 0,
+        explanation: `المادة 43 من مرسوم الصفقات 2.22.431 منح الأفضلية للتعاونيات والمقاول الذاتي عند التساوي`
+      },
+      {
+        id: 83, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `وفق المادة 134 من مرسوم الصفقات العمومية2.22.431 ، ما الجهة المكلفة بتدبير بوابة الصفقات العمومية ؟`,
+        options: [
+          `وزارة التربية الوطنية والتعليم الأولية`,
+          `الخزينة العامة للمملكة`,
+          `المجلس الأعلى للحسابات`,
+          `اللجنة الوطنية للطلبيات العمومية`
+        ],
+        correct: 1,
+        explanation: `المادة 134 من مرسوم الصفقات 2.22.431 إسناد تدبير بوابة الصفقات للخزينة العامة`
+      },
+      {
+        id: 84, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `كم يُحدد الأجل القانوني المقبول لتقديم الشكايات من طرف المتنافسين إلى صاحب المشروع قبل جلسة فتح الأظرفة المادة169 ؟`,
+        options: [
+          `يومين قبل جلسة فتح الأظرفة`,
+          `7 أيام على الأقل قبل تاريخ فتح الأظرفة لمعالجة الاختلالات المسطرية`,
+          `شهر كامل بعد فتح الأظرفة`,
+          `لا يحق للمتنافسين تقديم أي شكاية`
+        ],
+        correct: 1,
+        explanation: `المادة 169 من مرسوم الصفقات 2.22.431 أجل 7 أيام لتقديم الشكايات قبل فتح الأظرفة`
+      },
+      {
+        id: 85, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما هو المعيار المحدد لإلغاء طلب العروض بقرار معلل من السلطة المختصة وفق المادة 48 من المرسوم2.22.431 ؟`,
+        options: [
+          `تجاوز العروض المالية للمبلغ التقديري للنفقة أو وجود عيوب مسطرية شابت الدعوة للمنافسة`,
+          `عدم حضور وسائل الإعلام للجلسة العمومية`,
+          `انخفاض عدد الحاضرين عن 50 متنافس`,
+          `اعتراض جمعية آباء وأولياء التلاميذ حسب المادة 148 من مرسوم الصفقات العمومية، ما هي النسبة الأدنى الواجب تخصيصها سنوياً للمقاولات الجد صغيرة والصغيرة والمتوسطة والتعاونيات والمقاول الذاتي؟`
+        ],
+        correct: 0,
+        explanation: `المادة 48 من مرسوم الصفقات 2.22.431 شروط وأسباب إلغاء طلب العروض بمقرر معلل`
+      },
+      {
+        id: 86, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `حسب المادة 148 من مرسوم الصفقات العمومية، ما هي النسبة الأدنى الواجب تخصيصها سنوياً للمقاولات الجد صغيرة والصغيرة والمتوسطة والتعاونيات والمقاول الذاتي؟`,
+        options: [
+          `10 من المبلغ التوقعي للصفقات المبرمة برسم السنة`,
+          `20`,
+          `30 على الأقل من المبلغ التوقعي للصفقات المبرمة برسم السنة المالية لكل صاحب مشروع`,
+          `50 من النفقات الإجمالية للدولة`
+        ],
+        correct: 2,
+        explanation: `المادة 148 من مرسوم الصفقات 2.22.431 تخصيص 30 للمقاولات الصغرى والتعاونيات`
+      },
+      {
+        id: 87, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما الشكليّة المطلوبة للتوقيع على الوثائق والمستندات المجردة من الصفة المادية في بوابة الصفقات العمومية المادة141 ؟`,
+        options: [
+          `التوقيع اليدوي التقليدي المصادق عليه لدى الجماعة فقط`,
+          `التوقيع الإلكتروني أو التوقيع بالمسح الضوئي المعتمد وفق التشريعات الجاري بها العمل`,
+          `التوقيع الشفوي المسجل مقطع صوتي`,
+          `الخاتم الإداري للمؤسسة دون توقيع شخصي المحصصة ، هل يجوز لنفس المتنافس تقديم عرض فردي وعرض آخر ضمن تجمع برسم نفس الحصة المادة150 ؟`
+        ],
+        correct: 1,
+        explanation: `المادة 141 من مرسوم الصفقات 2.22.431 التوقيع الإلكتروني والمسح الضوئي للوثائق`
+      },
+      {
+        id: 88, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `في حالة الصفقات`,
+        options: [
+          `نعم، يُسمح بذلك دون قيود`,
+          `لا يجوز لنفس المتنافس تقديم أكثر من عرض برسم نفس الحصة سواء كان فردياً أو عضواً في تجمع`,
+          `يُسمح بذلك فقط إذا كانت القيمة أقل من 100,000 درهم`,
+          `يُسمح بذلك للشركات العمومية فقط`
+        ],
+        correct: 1,
+        explanation: `المادة 150 من مرسوم الصفقات 2.22.431 منع الازدواجية في تقديم العروض ضمن تجمعات بنفس الحصة`
+      },
+      {
+        id: 89, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ماذا يُشترط بالنسبة لصفقات خدمات الدراسات لتقييم العروض واختيار العرض الأفضل اقتصادياً المادة43 ؟`,
+        options: [
+          `اختيار الثمن الأقل حصراً بغض النظر عن الجودة التقنية`,
+          `اختيار العرض الحاصل على أفضل نقطة تقنية ومالية`,
+          `الاعتماد على أقدمية مكتب الدراسات فقط`,
+          `إجراء القرعة بين جميع المكاتب المشاركة`
+        ],
+        correct: 1,
+        explanation: `المرجع: مرسوم الصفقات 2.22.431. المادة 43 والمادة 144 من مرسوم الصفقات اختيار العرض الأفضل تقنياً ومالياً لخدمات الدراسات`
+      },
+      {
+        id: 90, chapter: 11, article: `مرسوم الصفقات 2.22.431`,
+        q: `ما التزام صاحب المشروع في بداية كل سنة مالية فيما يخص سندات الطلب وعقود القانون العادي المنفذة برسم السنة المنصرمة المادتان 4 و91؟`,
+        options: [
+          `إرسالها إلى القضاء المستعجل`,
+          `نشر قائمة ببوابة الصفقات العمومية تتضمن العدد والمبلغ الإجمالي لسندات الطلب وعقود القانون العادي المبرمة`,
+          `إحراق الوثائق القديمة لإفراغ الأرشيف`,
+          `نشرها في جريدة حائطية بالمؤسسة القسم الثالث :التدبير المالي والمادي والمحاسبي المباشر بالمؤسسات التعليمية`
+        ],
+        correct: 1,
+        explanation: `المرجع: مرسوم الصفقات 2.22.431. المادتان 4 و 91من مرسوم الصفقات نشر قائمة سندات الطلب وعقود القانون العادي سنوياً`
+      },
+      {
+        id: 91, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `وفق دليل التدبير المالي والمادي لمؤسسات التربية والتعليم العمومي، ما قيمة المنقولات المعمرة الواجب تسجيلها وجوباً بسجل الجرد المادي ؟`,
+        options: [
+          `كل المنقولات مهما بلغت قيمتها بدءاً من 1 درهم`,
+          `الأشياء المنقولة المعمرة التي تعادل أو تتجاوز قيمتها الفردية 10 دراهم أو الحدود المحددة بالدوريات المنظمة`,
+          `المعدات التي تفوق قيمتها 10,000 درهم فقط`,
+          `العقارات المبنية والمدارس فقط`
+        ],
+        correct: 1,
+        explanation: `دليل التدبير المالي والمادي والدوريات المنظمة جرد المنقولات المعمرة من 10 دراهم فما فوق`
+      },
+      {
+        id: 92, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `كيف تُتداول وتُسجل المواد الاستهلاكية اليومية والعتاد الصغير الفاني كالأقلام وحبر الطابعات والطباشير؟`,
+        options: [
+          `تُسجل بسجل الجرد المادي المعمر وتأخذ رقم جرد دائم`,
+          `لا تُسجل بدفاتر الجرد المادي المعمر وإنما تتداول وتُضبط عبر المحاسبة الخاصة بالاستهلاك سجل الاستهلاكالمخزن`,
+          `تُسجل في سجل الحساب الجاري البريدي فقط`,
+          `لا تخضع لأي تقييد محاسبي`
+        ],
+        correct: 1,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. دليل التدبير المادي المحاسبة الخاصة بالاستهلاك والمخزن للمواد الفانية والأدوات`
+      },
+      {
+        id: 93, chapter: 10, article: `المحاسبة المادية والجرد`,
+        q: `ما هي مسطرة التخلص من المتلاشيات والعتاد غير القابل للاستعمال المنقول بسجلات الجرد المادي للمؤسسة؟`,
+        options: [
+          `رميها خارج المؤسسة بقرار انفرادي من الحارس العام`,
+          `تحيين سجلات الجرد سنوياً بحذف العتاد المتلاشي بموجب محضر رسمي معتمد من لجنة التفتيش والإدارة والترخيص بالبيعالإتلاف`,
+          `تحويلها إلى ممتلكات شخصية لمدير المؤسسة`,
+          `بيعها للمنافسين دون تحرير محضر`
+        ],
+        correct: 1,
+        explanation: `المرجع: المحاسبة المادية والجرد. دليل التدبير المادي والمذكرات الوزارية مسطرة التخلص من المتلاشيات وتحيين الجرد`
+      },
+      {
+        id: 94, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `ما هو المبلغ الرمزي المحدد لااشتراك التلميذ في خزانة الكتب المدرسية وفق المذكرة الوزارية رقم74 ؟`,
+        options: [
+          `1 درهم عن كل كتاب دون حد أقصى`,
+          `2 دراهم للكتاب الواحد على ألا يتعدى المبلغ الإجمالي لكافة الكتب المقررة 20 درهماً`,
+          `100 درهم كواجب ثابت لجميع المستويات`,
+          `مجاناً لجميع التلاميذ دون استثناء`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. المذكرة الوزارية رقم 74 تحديد واجب إعارة الكتب بـ 2 دراهم وسقف 20 درهماً`
+      },
+      {
+        id: 95, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `ما هي الحسابات والسجلات المحاسبية التي يلتزم مسير المصالح المادية والمالية بمسكها لتطبيقيات الخارج عن الميزانية؟`,
+        options: [
+          `سجل الحساب البريدي فقط`,
+          `سجل الإيصالات العام، سجل المداخيل، سجل النفقات، سجل الصندوق، سجل الحقوق المثبتة، وسجل الحساب الجاري البريدي`,
+          `دفتر الملاحظات اليومية للحراس العامين`,
+          `سجل الغياب والمواظبة للتلاميذ`
+        ],
+        correct: 1,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. المذكرات الوزارية 1330 و 1708و 105منظومة سجلات الخارج عن الميزانية`
+      },
+      {
+        id: 96, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `أين تُودع المبالغ والسيولة النقدية التي تتجاوز السقف المرخص به محلياً في الصندوق الحديدي للمؤسسة التعليمية؟`,
+        options: [
+          `في الحساب الشخصي لمدير المؤسسة`,
+          `وجوب دفعها وإيداعها بالحساب الجاري البريدي المفتوح باسم المؤسسة التعليمية`,
+          `حفظها في خزانة خشبية بمكتب العون`,
+          `توزيعها كتسبيقات على الموظفين`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. دليل التدبير المالي والمذكرة 25 وجوب إيداع الفوائض بالحساب الجاري البريدي`
+      },
+      {
+        id: 97, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `بناءً على المذكرة الوزارية رقم 37 والدليل المسطري، ما مجالات الصرف الخمسة المسموح بها لمنحة جمعية دعم مدرسة النجاح؟`,
+        options: [
+          `شراء السيارات الفارهة وأجور الموظفين الدائمين`,
+          `النفقات التدبيرية الصغرى، الصيانة الوقائية، التظاهرات المدرسية، النوادي المدرسية، وتشجيع التفوق والإبداع`,
+          `بناء القاعات الدراسية الكبرى فقط`,
+          `أداء مستحقات الكهرباء والماء الخاصة بالأكاديمية`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. المذكرة الوزارية رقم 37 والدليل المسطري مجالات صرف نفقات القرب الخمسة`
+      },
+      {
+        id: 98, chapter: 9, article: `جمعية دعم مدرسة النجاح`,
+        q: `هل يصح صراحة استخدام أموال منحة جمعية دعم مدرسة النجاح لأداء أجور أو تعويضات دائمية لمنشطي الدعم أو العاملين؟`,
+        options: [
+          `نعم، يُسمح بذلك مطلقاً وبأي مبلغ`,
+          `يُمنع منعاً باتاً أداء أجور دائمية لمنشطي الدعم أو الموظفين من منحة الجمعية وتُخصص المنحة لنفقات القرب ومشاريع المؤسسة`,
+          `يُسمح بذلك بشرط موافقة رئيس الجماعة`,
+          `يُسمح به في المؤسسات القروية فقط`
+        ],
+        correct: 1,
+        explanation: `الدليل المسطري لجمعية دعم مدرسة النجاح حظر أداء أجور الموظفين والدائمين من المنحة`
+      },
+      {
+        id: 99, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `ما هو السند التشريعي المباشر الذي ينظم حركية وأدوار الجمعيات الرياضية المدرسية بمؤسسات التربية والتعليم العمومي؟`,
+        options: [
+          `القانون رقم 06.99 المتعلق بحرية الأسعار`,
+          `القانون رقم 30.09 المتعلق بالتربية البدنية والرياضة والمرسوم رقم2.12.67`,
+          `قانون التزام العقود والالتزامات`,
+          `مدونة التجارة البحرية`
+        ],
+        correct: 1,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. القانون رقم 30.09 المتعلق بالتربية البدنية والمرسوم 2.12.67 تأسيس الجمعيات الرياضية`
+      },
+      {
+        id: 100, chapter: 12, article: `الدليل المسطري لنظام المطعمة`,
+        q: `وفق مشروع الدليل المسطري لنظام المطعمة2022 ، ما هو النمط الجديد لتدبير خدمة الإطعام بالداخليات والمطاعم المدرسية؟`,
+        options: [
+          `شراء المواد الغذائية وطبخها محلياً من طرف المقتنيين العاديين دون مراقبة`,
+          `التسيير المباشر غير المباشر المطعمة عبر صفقة إطار موحدة تضمن الجودة والسلامة الصحية وتوزيع الوجبات`,
+          `إلغاء الداخليات وتوزيع مبالغ مالية مباشرة على التلاميذ`,
+          `تفويض الإطعام للجماعات الترابية حصراً`
+        ],
+        correct: 1,
+        explanation: `مشروع الدليل المسطري لنظام المطعمة 2022 نمط الصفقات الإطار الموحدة وتفويض الخدمة`
+      },
+      {
+        id: 101, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `ما الوثيقة اليومية الأساسية التي تُحرر بين المؤسسة والمورد في نظام المطعمة للتحقق من عدد الوجبات المسلمة وجودتها؟`,
+        options: [
+          `عقد البيع الابتدائي`,
+          `محضر التسلم اليومي وبيان الطلب اليومي`,
+          `فاتورة إجمالية سنوية فقط`,
+          `الإشعار البريدي الصادر من الخزينة`
+        ],
+        correct: 1,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. الدليل المسطري للمطعمة محاضر التسلم اليومي وبطاقات الطلب اليومية للوجبات`
+      },
+      {
+        id: 102, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `ما هو السند الذي يحدد المبالغ المالية لواجب التسجيل والمصاريف الإضافية بالتعليم الثانوي التأهيلي والتعليم التقني؟`,
+        options: [
+          `القرار الجماعي الصادر عن رئيس المجلس البلدي`,
+          `المذكرات الوزارية المنظمة للواجبات المالية المدرسية مثل المذكرة 165 والمذكرة20`,
+          `قانون المالية السنوي للوزارة`,
+          `اتفاقية الشراكة مع الجمعيات الخيرية`
+        ],
+        correct: 1,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. المذكرات الوزارية المنظمة للمصاريف الإضافية وواجبات التسجيل بالمؤسسات`
+      },
+      {
+        id: 103, chapter: 8, article: `مدونة المحاكم المالية والمحاسبة`,
+        q: `يُعرف المحاسب بحكم الواقع في التشريع المالي والمادي المادة 41 من قانون 62.99 بـ:`,
+        options: [
+          `المحاسب العمومي المعين بقرار رسمي من وزير المالية`,
+          `كل شخص يباشر دون إذن أو تأهيل قانوني عمليات قبض الموارد ودفع النفقات أو حيازة أموال عمومية`,
+          `مدير المدرسة الذي يرفض توقيع محاضر الدخول`,
+          `رئيس جمعية أمهات وآباء التلاميذ`
+        ],
+        correct: 1,
+        explanation: `المرجع: مدونة المحاكم المالية والمحاسبة. المادة 27 و 41من مدونة المحاكم المالية قانون 62.99 تعريف المحاسب بحكم الواقع`
+      },
+      {
+        id: 104, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `ما هو التكليف المباشر المنوط بالحارس العام للداخلية فيما يخص التغذية والمنح المدرسية بحسب مرسوم المؤسسات2.02.376 ؟`,
+        options: [
+          `عقد الصفقات العمومية للمطعمة بمفرده`,
+          `الإشراف المباشر على الحياة الداخلية ومواظبة الممنوحين وإعداد بيانات مصاريف المنح بالتعاون مع مسير المصالح المادية`,
+          `تحصيل أجور الأساتذة وتوزيعها`,
+          `صيانة البنايات الكبرى وإصلاح السقف`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المرسوم 2.02.376 ودليل التدبير المالي اختصاصات الحارس العام للداخلية وتتبع المنح`
+      },
+      {
+        id: 105, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `متى يتم حصر وتقفيل سجلات المحاسبة المالية والمادية بالنسبة للسنة المالية الدراسية بمؤسسات التعليم العمومي؟`,
+        options: [
+          `في 31 ديسمبر من كل سنة ميلادية`,
+          `في 30 يونيو من كل سنة دراسية وفق المذكرة 11 الصادرة في 2 مارس1995`,
+          `في 30 سبتمبر مع بداية الدخول المدرسي`,
+          `لا تُحصر السجلات مطلقاً وتستمر طوال عقود القسم الرابع :مشروع المؤسسة المندمج وحكامة منظومة الأرشيف والمراقبة`
+        ],
+        correct: 1,
+        explanation: `المرجع: دليل التدبير المالي والمادي. المذكرة الوزارية رقم 11 الصادرة في 2 مارس 1995 حصر الحسابات في 30 يونيو`
+      },
+      {
+        id: 106, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `ما اسم المنهجية العلمية المعتمدة لإعداد وتطبيق مشروع المؤسسة المندمج المحددة بالمذكرة الوزارية01424 ؟`,
+        options: [
+          `منهجية الاستثمارية التجارية`,
+          `منهجية التي تضم ست مراحل متسلسلة الانطلاقة، التشخيص، التخطيط، الأجرأة، التقويم، والانتقال`,
+          `منهجية 9001 لإدارة الجودة المصنعين`,
+          `التخطيط المركزي المباشر من الوزارة`
+        ],
+        correct: 1,
+        explanation: `المذكرة الوزارية 01424 اعتماد منهجية الست لمشروع المؤسسة المندمج`
+      },
+      {
+        id: 107, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `ما هي اللوحة الإلكترونية المنظومة الرقمية المعتمدة لمسك وأجرأة وتتبع وثائق مشروع المؤسسة المندمج كلياً؟`,
+        options: [
+          `منظومة تيسير للدعم المالي`,
+          `منظومة مسار عبر المصوغة الخاصة بمشروع المؤسسة المندمج`,
+          `البوابة الوطنية للوظيفة العمومية`,
+          `البريد الإلكتروني الشخصي لمدير المؤسسة`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المذكرة 01424 والدليل التنفيذي اعتماد مصوغة بمنظومة مسار الرقمية`
+      },
+      {
+        id: 108, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `ما هو الأجل المحدد بجدول أجرأة مشروع المؤسسة المندمج لإرسال الوثيقة المصادق عليها أولياً من مجلس التدبير إلى المديرية الإقليمية؟`,
+        options: [
+          `في أجل أقصاه 31 ديسمبر من السنة الدراسية`,
+          `خلال شهري مارس وأبريل، وعلى الأكثر قبل 30 أبريل ليتسنى للمصادقة الإقليمية بدء العمل قبل 30 مايو`,
+          `في نهاية شهر يوليو بعد مغادرة التلاميذ`,
+          `خلال العطلة البينية الأولى في أكتوبر`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المذكرة 01424 البرمجة الزمنية لإعداد والمصادقة على مشاريع المؤسسات`
+      },
+      {
+        id: 109, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `وفق القانون رقم 69.99 المتعلق بالأرشيف، ما المقصود بـ الأرشيف العادي ؟`,
+        options: [
+          `الوثائق التاريخية التي يتجاوز عمرها 100 سنة`,
+          `الوثائق التي تنشئها أو تتسلمها المؤسسات وتستعملها بصفة مستمرة للقيام بنشاطها وتُحفظ بمصالحها`,
+          `الملفات المتلاشية المعدة للإحراق فوراً`,
+          `الكتب والمجلات المعروضة في المكتبة العمومية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 3 و 4من القانون رقم 69.99 المتعلق بالأرشيف تعريف الأرشيف العادي والخدمة`
+      },
+      {
+        id: 110, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `ما هي المرحلة الثانية لتدبير الوثائق والأرشيف وفق القانون 69.99 والمعروفة بـ الأرشيف الوسيط ؟`,
+        options: [
+          `حفظ الوثائق نهائياً بمؤسسة أرشيف المغرب`,
+          `الوثائق التي انتهت مدة استعمالها العادي وتقتضي الحاجة حفظها مؤقتاً لأسباب وقائية أو قانونية في مصلحة الأرشيف الوسيط`,
+          `الوثائق التالفة التي أُلغي نفعها تماماً`,
+          `السجلات اليومية للحراسة العامة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 5 من القانون رقم 69.99 تعريف الأرشيف الوسيط وشروط الحفظ المؤقت`
+      },
+      {
+        id: 111, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `ما هي المؤسسة العمومية الوطنية المحدثة بموجب القانون رقم 69.99 والمكلفة بصيانة التراث الأرشيفي الوطني وتنظيمه؟`,
+        options: [
+          `المكتبة الوطنية للمملكة المغربية`,
+          `مؤسسة أرشيف المغرب ذات الشخصية المعنوية والاستقلال المالي`,
+          `الخزينة العامة للمملكة`,
+          `اللجنة الوطنية للطلبيات العمومية`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 26 من القانون رقم 69.99 إحداث مؤسسة أرشيف المغرب ومهامها`
+      },
+      {
+        id: 112, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `ما هو العقاب الجنائيالزجري المحدد بالقانون 69.99 لكل من أقدم عمداً على إتلاف أو سرقة أو اختلاس وثائق أرشيف عامة؟`,
+        options: [
+          `غرامة مالية قدرها 100 درهم فقط`,
+          `العقوبات السجنية والمالية المنصوص عليها في المادة 52 من القانون الحبس والغرامة وحرمان من الحقوق`,
+          `التوبيخ الشفوي من رئيس المصلحة`,
+          `النقل الإجباري إلى مؤسسة أخرى`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 52 من القانون رقم 69.99 العقوبات الزجرية لإتلاف واختلاس الأرشيف العام`
+      },
+      {
+        id: 113, chapter: 6, article: `القانون 69.00 للمراقبة المالية`,
+        q: `بناءً على القانون رقم 69.00 المتعلق بالمراقبة المالية للدولة على المنشآت العامة، ما نوع المراقبة المطبقة على الأكاديميات الجهوية ؟`,
+        options: [
+          `المراقبة القضائية للجماعات المحلية فقط`,
+          `المراقبة المالية للدولة المراقبة القبلية أو المواكبة بحسب طبيعة المؤسسة وعقود البرامج`,
+          `الإعفاء التام والكامل من أي مراقبة مالية`,
+          `المراقبة التجارية للشركات المساهمة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.00 للمراقبة المالية. القانون رقم 69.00 والقانون 07.00 المراقبة المالية للدولة على الأكاديميات الجهوية`
+      },
+      {
+        id: 114, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `ما الهيئة الإدارية التي يتولى رئيسها قيادة ومواكبة إعداد مشروع المؤسسة المندمج على المستوى الإقليمي وفق المذكرة01424 ؟`,
+        options: [
+          `المجلس الجماعي للبلدية`,
+          `اللجنة الإقليمية لقيادة مشروع المؤسسة المندمج برئاسة المديرة الإقليمية`,
+          `جمعية تجار المدينة`,
+          `المفتشية العامة للمالية`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المذكرة 01424 تشكيل واختصاصات اللجنة الإقليمية بقيادة المدير الإقليمي`
+      },
+      {
+        id: 115, chapter: 15, article: `القانون 69.99 المتعلق بالأرشيف`,
+        q: `كم يُحدد الأجل العام المحدد بالقانون 69.99 لإمكانية اطلاع العموم على الأرشيفات العامة كأصل عام؟`,
+        options: [
+          `فور إنشائها وتوقيعها مباشرة`,
+          `انقضاء أجل 30 سنة ابتداءً من تاريخ إنشاء الوثيقة مع استثناءات تخص الدفاع والأمن والصحة`,
+          `100 سنة لجميع أنواع الوثائق دون استثناء`,
+          `يمنع الاطلاع عليها مطلقاً ومدى الحياة`
+        ],
+        correct: 1,
+        explanation: `المرجع: القانون 69.99 المتعلق بالأرشيف. المادة 16 من القانون 69.99 أجل 30 سنة كأصل عام للاطلاع على الأرشيف العام`
+      },
+      {
+        id: 116, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `ما المحور الأول الأساسي من المحاور الثلاثة لمعايير التقييم الذاتي لمشروع المؤسسة المندمج المرفق بالمذكرة01424 ؟`,
+        options: [
+          `محور تجارة التجهيزات المستوردة`,
+          `محور التلميذة ويشمل الزمن المدرسي، الدعم التربوي، الأنشطة الموازية، والدعم الاجتماعي`,
+          `محور أجور الموظفين المركزية`,
+          `محور بناء المدارس الكبرى`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. الملحق 1 من المذكرة 01424 محور التلميذ كمعيار رئيسي للتقييم الذاتي`
+      },
+      {
+        id: 117, chapter: 19, article: `محاور متقدمة في التشريع المالي والتربوي`,
+        q: `تُشكل المفتشية العامة للمالية والمفتشية العامة لوزارة التربية الوطنية هيئات مراقبة وتدقيق تمارس مهامها بناءً على أي أسلوب؟`,
+        options: [
+          `المراقبة البعدية والميدانية المباغتة أو البرمجية للتأكد من نظامية ونجاعة التدبير المالي والمادي`,
+          `المصادقة القبلية على كل فاتورة تقل عن 100 درهم`,
+          `إدارة المؤسسات التعليمية بدلاً من المدير`,
+          `وضع المناهج والكتب المدرسية فقط`
+        ],
+        correct: 0,
+        explanation: `المرجع: محاور متقدمة في التشريع المالي والتربوي. ظهير 1.59.269 والمراسيم المنظمة للتفتيش مهام المراقبة البعدية والميدانية المباغتة`
+      },
+      {
+        id: 118, chapter: 3, article: `المرسوم 2.02.376 للمؤسسات`,
+        q: `ما هو الهيكل التنفيذي الداخلي بالمؤسسة الذي يتولى قراءة ودراسة تقارير التدبير المالي والمحاسبي والمصادقة على التقرير السنوي مرسوم2.02.376 ؟`,
+        options: [
+          `مجلس القسم`,
+          `مجلس التدبير`,
+          `الجمعية الرياضية المدرسية`,
+          `المجلس التعليمي لمادة التربية البدنية`
+        ],
+        correct: 1,
+        explanation: `المرجع: المرسوم 2.02.376 للمؤسسات. المادة 18 من المرسوم 2.02.376 اختصاصات مجلس التدبير في دراسة التدبير المالي`
+      },
+      {
+        id: 119, chapter: 7, article: `دليل التدبير المالي والمادي`,
+        q: `ما هي الدورية التي يُلزم بها مسير المصالح المادية والمالية بتقديم وضعية الصندوق ووضعيات الحساب الجاري البريدي للمدير المباشر؟`,
+        options: [
+          `مرة كل 5 سنوات`,
+          `دورياً وبشكل منتظم وشريطة حصر الصندوق يومياً وكلما أُنجزت عملية قبض أو دفع`,
+          `عند نهاية الخدمة والتقاعد فقط`,
+          `لا يقدم أي وضعية مطلقاً`
+        ],
+        correct: 1,
+        explanation: `دليل التدبير المالي والمادي قاعدة حصر الصندوق يومياً والرقابة الداخلية`
+      },
+      {
+        id: 120, chapter: 13, article: `مشروع المؤسسة المندمج`,
+        q: `يُعتبر قانون الإطار رقم 51.17 المرجع التشريعي الأسمى لإصلاح المنظومة التربوية بالمغرب، حيث جعل من مشروع المؤسسة المندمج:`,
+        options: [
+          `نشاطاً اختيارياً ثانوياً لا ترتبط به أي ميزانية`,
+          `القاعدة والرافعة الأساسية لتطوير الحكامة والتدبير الناجع والذاتي للمؤسسات التعليمية المادة40`,
+          `وثيقة ملغاة تم تعويضها بالنظام التجاري`,
+          `اختصاصاً حصرياً للقطاع الخاص دون العمومي`
+        ],
+        correct: 1,
+        explanation: `المرجع: مشروع المؤسسة المندمج. المادة 40 من القانون الإطار رقم 51.17 مشروع المؤسسة كرافعة للحكامة والاستقلالية`
+      }
+];
+
+    // Application State
+    let appState = {
+      mode: `practice`,
+      chapterFilter: `all`,
+      statusFilter: `all`,
+      mockIds: [],
+      answers: {},
+      examSubmitted: false,
+      currentPos: 0,
+      view: `quiz`
+    };
+
+    function getFilteredQuestions() {
+      let list = QUESTIONS.slice();
+      if (appState.statusFilter === `mock20` && Array.isArray(appState.mockIds) && appState.mockIds.length > 0) {
+        const idSet = new Set(appState.mockIds);
+        list = list.filter(function (q) { return idSet.has(q.id); });
+      }
+      if (appState.chapterFilter !== `all`) {
+        const ch = Number(appState.chapterFilter);
+        list = list.filter(function (q) { return q.chapter === ch; });
+      }
+      if (appState.statusFilter === `unanswered`) {
+        list = list.filter(function (q) { return appState.answers[String(q.id)] === undefined; });
+      } else if (appState.statusFilter === `wrong`) {
+        list = list.filter(function (q) {
+          const ans = appState.answers[String(q.id)];
+          return ans !== undefined && ans !== q.correct;
+        });
+      }
+      return list;
+    }
+
+    function computeStats(scopeList) {
+      const target = scopeList || QUESTIONS;
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+      for (let i = 0; i < target.length; i++) {
+        const q = target[i];
+        const ans = appState.answers[String(q.id)];
+        if (ans !== undefined) {
+          answered++;
+          if (ans === q.correct) correct++;
+          else wrong++;
+        }
+      }
+      return { total: target.length, answered: answered, correct: correct, wrong: wrong };
+    }
+
+    function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        window.notebookAppApi.setAppState({
+          mode: appState.mode,
+          chapterFilter: appState.chapterFilter,
+          statusFilter: appState.statusFilter,
+          mockIds: appState.mockIds,
+          answers: appState.answers,
+          examSubmitted: appState.examSubmitted,
+          currentPos: appState.currentPos,
+          view: appState.view
+        }).catch(function () {});
+      }
+    }
+
+    function renderStats() {
+      const overall = computeStats(QUESTIONS);
+      const revealResults = (appState.mode === `practice` || appState.examSubmitted);
+
+      const elAnswered = document.getElementById(`stat-answered`);
+      const elPct = document.getElementById(`stat-progress-pct`);
+      const elCorrect = document.getElementById(`stat-correct`);
+      const elWrong = document.getElementById(`stat-wrong`);
+      const elAccuracy = document.getElementById(`stat-accuracy`);
+      const elScope = document.getElementById(`stat-scope-label`);
+      const elModeTitle = document.getElementById(`stat-mode-title`);
+      const elModeHint = document.getElementById(`stat-mode-hint`);
+
+      if (elAnswered) elAnswered.textContent = overall.answered + ` / ` + overall.total;
+      if (elPct) elPct.textContent = `نسبة الإنجاز: ` + Math.round((overall.answered / overall.total) * 100) + `%`;
+
+      if (revealResults) {
+        if (elCorrect) elCorrect.textContent = String(overall.correct);
+        if (elWrong) elWrong.textContent = `الأخطاء: ` + overall.wrong;
+        if (elAccuracy) {
+          elAccuracy.textContent = overall.answered > 0
+            ? Math.round((overall.correct / overall.answered) * 100) + `%`
+            : `—`;
+        }
+      } else {
+        if (elCorrect) elCorrect.textContent = `مخفي`;
+        if (elWrong) elWrong.textContent = `تظهر النتائج بعد الإنهاء`;
+        if (elAccuracy) elAccuracy.textContent = `قيد الامتحان`;
+      }
+
+      if (elScope) {
+        const chObj = CHAPTERS.find(function (c) { return String(c.id) === appState.chapterFilter; });
+        elScope.textContent = chObj ? `المحور ${chObj.id}` : `النطاق: كافة المحاور`;
+      }
+      if (elModeTitle) {
+        elModeTitle.textContent = appState.mode === `practice`
+          ? `التدريب الفوري`
+          : (appState.examSubmitted ? `امتحان منتهٍ` : `امتحان تجريبي`);
+      }
+      if (elModeHint) {
+        elModeHint.textContent = appState.mode === `practice`
+          ? `التصحيح والتعليل بعد كل سؤال`
+          : (appState.examSubmitted ? `تم اعتماد الإجابات وعرض التصحيح` : `التصحيح مخفي حتى الضغط على الإنهاء`);
+      }
+
+      const examBanner = document.getElementById(`exam-banner`);
+      if (examBanner) {
+        if (appState.mode === `exam` && !appState.examSubmitted) {
+          examBanner.classList.remove(`is-hidden`);
+        } else {
+          examBanner.classList.add(`is-hidden`);
+        }
+      }
+    }
+
+    function renderChapterBars() {
+      const container = document.getElementById(`chapter-bars`);
+      if (!container) return;
+      const revealResults = (appState.mode === `practice` || appState.examSubmitted);
+      let html = ``;
+      for (let i = 0; i < CHAPTERS.length; i++) {
+        const ch = CHAPTERS[i];
+        const chQs = QUESTIONS.filter(function (q) { return q.chapter === ch.id; });
+        const st = computeStats(chQs);
+        const pct = revealResults
+          ? (st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0)
+          : (st.total > 0 ? Math.round((st.answered / st.total) * 100) : 0);
+        const statText = revealResults
+          ? `${st.correct} / ${st.total} صحيحة`
+          : `${st.answered} / ${st.total} مجاب`;
+        html += `<div class="chapter-bar-item">
+          <div class="chapter-bar-top">
+            <span class="chapter-bar-name">${ch.id}. ${ch.name.split(` (`)[0]}</span>
+            <span class="chapter-bar-stat">${statText}</span>
+          </div>
+          <div class="chapter-bar-track">
+            <div class="chapter-bar-fill" style="width: ${pct}%;"></div>
+          </div>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderMatrix(filtered) {
+      const matrix = document.getElementById(`q-matrix`);
+      const countTag = document.getElementById(`matrix-count-tag`);
+      if (countTag) countTag.textContent = filtered.length + ` سؤال`;
+      if (!matrix) return;
+
+      const revealResults = (appState.mode === `practice` || appState.examSubmitted);
+      let html = ``;
+      for (let i = 0; i < filtered.length; i++) {
+        const q = filtered[i];
+        const ans = appState.answers[String(q.id)];
+        let cls = `matrix-btn`;
+        if (i === appState.currentPos) cls += ` is-current`;
+        if (ans !== undefined) {
+          if (revealResults) {
+            cls += (ans === q.correct) ? ` is-correct` : ` is-wrong`;
+          } else {
+            cls += ` is-answered-exam`;
+          }
+        }
+        html += `<button type="button" class="${cls}" onclick="jumpToPos(${i})" aria-label="الانتقال إلى السؤال ${q.id}">${q.id}</button>`;
+      }
+      matrix.innerHTML = html;
+    }
+
+    function renderCurrentQuestion() {
+      const filtered = getFilteredQuestions();
+      const stage = document.getElementById(`question-stage`);
+      const emptyBox = document.getElementById(`empty-filter-state`);
+
+      renderMatrix(filtered);
+      renderChapterBars();
+      renderStats();
+
+      if (filtered.length === 0) {
+        if (stage) stage.classList.add(`is-hidden`);
+        if (emptyBox) emptyBox.classList.remove(`is-hidden`);
+        return;
+      }
+
+      if (stage) stage.classList.remove(`is-hidden`);
+      if (emptyBox) emptyBox.classList.add(`is-hidden`);
+
+      if (appState.currentPos >= filtered.length) appState.currentPos = filtered.length - 1;
+      if (appState.currentPos < 0) appState.currentPos = 0;
+
+      const q = filtered[appState.currentPos];
+      const userAns = appState.answers[String(q.id)];
+      const revealResults = (appState.mode === `practice` || appState.examSubmitted);
+      const isAnswered = userAns !== undefined;
+      const showFeedback = isAnswered && revealResults;
+
+      const elCounter = document.getElementById(`q-counter`);
+      const elTag = document.getElementById(`q-chapter-tag`);
+      const elProgress = document.getElementById(`q-progress-fill`);
+      const elStem = document.getElementById(`q-stem`);
+      const elOptions = document.getElementById(`q-options`);
+      const elFeedback = document.getElementById(`q-feedback`);
+      const elVerdict = document.getElementById(`q-verdict`);
+      const elArticle = document.getElementById(`q-article-ref`);
+      const elExplanation = document.getElementById(`q-explanation`);
+      const btnPrev = document.getElementById(`btn-prev`);
+      const btnNext = document.getElementById(`btn-next`);
+
+      if (elCounter) elCounter.textContent = `السؤال ${appState.currentPos + 1} من ${filtered.length} (رقم ${q.id})`;
+      const chObj = CHAPTERS.find(function (c) { return c.id === q.chapter; });
+      if (elTag && chObj) elTag.textContent = chObj.name.split(` (`)[0];
+      if (elProgress) elProgress.style.width = Math.round(((appState.currentPos + 1) / filtered.length) * 100) + `%`;
+      if (elStem) elStem.textContent = q.q;
+
+      if (elOptions) {
+        let optHtml = ``;
+        for (let i = 0; i < q.options.length; i++) {
+          let cls = `option-btn`;
+          if (showFeedback) {
+            if (i === q.correct) cls += ` is-correct`;
+            else if (i === userAns && userAns !== q.correct) cls += ` is-wrong`;
+          } else if (userAns === i) {
+            cls += ` is-selected`;
+          }
+          const disabledAttr = (appState.mode === `practice` && isAnswered) || (appState.mode === `exam` && appState.examSubmitted)
+            ? `disabled`
+            : ``;
+          optHtml += `<button type="button" class="${cls}" ${disabledAttr} onclick="selectOption(${q.id}, ${i})">
+            <span class="option-key">${OPTION_LABELS[i]}</span>
+            <span class="option-text">${q.options[i]}</span>
+          </button>`;
+        }
+        elOptions.innerHTML = optHtml;
+      }
+
+      if (elFeedback) {
+        if (showFeedback) {
+          elFeedback.classList.remove(`is-hidden`, `is-correct`, `is-wrong`);
+          const isOk = userAns === q.correct;
+          elFeedback.classList.add(isOk ? `is-correct` : `is-wrong`);
+          if (elVerdict) {
+            elVerdict.className = `feedback-verdict ` + (isOk ? `is-correct` : `is-wrong`);
+            elVerdict.textContent = isOk
+              ? `إجابة صحيحة`
+              : `إجابة خاطئة — الصواب هو الخيار (${OPTION_LABELS[q.correct]})`;
+          }
+          if (elArticle) elArticle.textContent = `المرجع القانوني: ` + q.article;
+          if (elExplanation) elExplanation.textContent = q.explanation;
+        } else {
+          elFeedback.classList.add(`is-hidden`);
+        }
+      }
+
+      if (btnPrev) btnPrev.disabled = appState.currentPos === 0;
+      if (btnNext) btnNext.disabled = appState.currentPos >= filtered.length - 1;
+    }
+
+    function selectOption(qId, optIndex) {
+      if (appState.mode === `practice` && appState.answers[String(qId)] !== undefined) return;
+      if (appState.mode === `exam` && appState.examSubmitted) return;
+      appState.answers[String(qId)] = optIndex;
+      persistState();
+      renderCurrentQuestion();
+    }
+
+    function navigateQuestion(delta) {
+      const filtered = getFilteredQuestions();
+      const next = appState.currentPos + delta;
+      if (next >= 0 && next < filtered.length) {
+        appState.currentPos = next;
+        persistState();
+        renderCurrentQuestion();
+      }
+    }
+
+    function jumpToPos(pos) {
+      appState.currentPos = pos;
+      persistState();
+      renderCurrentQuestion();
+    }
+
+    function changeMode(modeVal) {
+      appState.mode = modeVal;
+      if (modeVal === `practice`) {
+        appState.examSubmitted = false;
+      }
+      persistState();
+      renderCurrentQuestion();
+      if (appState.view === `summary`) renderSummaryView();
+    }
+
+    function changeChapterFilter(val) {
+      appState.chapterFilter = val;
+      appState.currentPos = 0;
+      persistState();
+      if (appState.view === `summary`) hideSummaryView();
+      else renderCurrentQuestion();
+    }
+
+    function changeStatusFilter(val) {
+      appState.statusFilter = val;
+      if (val === `mock20` && (!Array.isArray(appState.mockIds) || appState.mockIds.length === 0)) {
+        generateMock20Ids();
+      }
+      appState.currentPos = 0;
+      persistState();
+      if (appState.view === `summary`) hideSummaryView();
+      else renderCurrentQuestion();
+    }
+
+    function generateMock20Ids() {
+      const pool = QUESTIONS.map(function (q) { return q.id; });
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+      }
+      appState.mockIds = pool.slice(0, 20).sort(function (a, b) { return a - b; });
+    }
+
+    function startRandomMock() {
+      generateMock20Ids();
+      appState.statusFilter = `mock20`;
+      appState.chapterFilter = `all`;
+      appState.currentPos = 0;
+      const selStatus = document.getElementById(`select-status`);
+      const selChap = document.getElementById(`select-chapter`);
+      if (selStatus) selStatus.value = `mock20`;
+      if (selChap) selChap.value = `all`;
+      persistState();
+      hideSummaryView();
+    }
+
+    function resetFilters() {
+      appState.chapterFilter = `all`;
+      appState.statusFilter = `all`;
+      appState.currentPos = 0;
+      const selStatus = document.getElementById(`select-status`);
+      const selChap = document.getElementById(`select-chapter`);
+      if (selStatus) selStatus.value = `all`;
+      if (selChap) selChap.value = `all`;
+      persistState();
+      renderCurrentQuestion();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      const labelSpan = btn.querySelector(`span`);
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        if (labelSpan) labelSpan.textContent = `تأكيد مسح جميع الإجابات؟`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            if (labelSpan) labelSpan.textContent = `إعادة تعيين الإجابات`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      if (labelSpan) labelSpan.textContent = `إعادة تعيين الإجابات`;
+      appState.answers = {};
+      appState.examSubmitted = false;
+      appState.currentPos = 0;
+      persistState();
+      renderCurrentQuestion();
+      if (appState.view === `summary`) renderSummaryView();
+    }
+
+    function submitExam() {
+      appState.examSubmitted = true;
+      persistState();
+      showSummaryView();
+    }
+
+    function toggleSummaryView() {
+      if (appState.view === `summary`) hideSummaryView();
+      else showSummaryView();
+    }
+
+    function showSummaryView() {
+      if (appState.mode === `exam` && !appState.examSubmitted) {
+        appState.examSubmitted = true;
+      }
+      appState.view = `summary`;
+      persistState();
+
+      const quizSec = document.getElementById(`quiz-workspace`);
+      const sumSec = document.getElementById(`summary-view`);
+      const toggleLabel = document.getElementById(`btn-toggle-view-label`);
+      if (quizSec) quizSec.classList.add(`is-hidden`);
+      if (sumSec) sumSec.classList.remove(`is-hidden`);
+      if (toggleLabel) toggleLabel.textContent = `العودة إلى الأسئلة`;
+
+      renderStats();
+      renderSummaryView();
+    }
+
+    function hideSummaryView() {
+      appState.view = `quiz`;
+      persistState();
+
+      const quizSec = document.getElementById(`quiz-workspace`);
+      const sumSec = document.getElementById(`summary-view`);
+      const toggleLabel = document.getElementById(`btn-toggle-view-label`);
+      if (quizSec) quizSec.classList.remove(`is-hidden`);
+      if (sumSec) sumSec.classList.add(`is-hidden`);
+      if (toggleLabel) toggleLabel.textContent = `عرض التقرير النهائي`;
+
+      renderCurrentQuestion();
+    }
+
+    function renderSummaryView() {
+      const scope = (appState.statusFilter === `mock20` && appState.mockIds.length > 0)
+        ? QUESTIONS.filter(function (q) { return appState.mockIds.indexOf(q.id) !== -1; })
+        : QUESTIONS;
+      const st = computeStats(scope);
+      const scoreEl = document.getElementById(`sum-score-big`);
+      const gradeEl = document.getElementById(`sum-grade-text`);
+      const retryBtn = document.getElementById(`btn-retry-wrong`);
+
+      const pct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+      if (scoreEl) scoreEl.textContent = `${st.correct} / ${st.total} (${pct}%)`;
+      if (gradeEl) {
+        gradeEl.className = `summary-grade`;
+        if (st.answered === 0) {
+          gradeEl.textContent = `لم تتم الإجابة على أي سؤال بعد`;
+        } else if (pct >= 80) {
+          gradeEl.classList.add(`is-pass`);
+          gradeEl.textContent = `تقدير: ممتاز — إتقان متميز لمقتضيات الامتحان الشامل`;
+        } else if (pct >= 60) {
+          gradeEl.classList.add(`is-pass`);
+          gradeEl.textContent = `تقدير: جيد — تحكم قوي في القواعد الأساسية للصفقات العمومية`;
+        } else if (pct >= 50) {
+          gradeEl.classList.add(`is-pass`);
+          gradeEl.textContent = `تقدير: مقبول — يوصى بمراجعة المحاور ذات النسبة المنخفضة`;
+        } else {
+          gradeEl.classList.add(`is-fail`);
+          gradeEl.textContent = `دون المعدل المطلوب — ينصح بمراجعة الأسئلة الخاطئة وتعليلها القانوني`;
+        }
+      }
+
+      if (retryBtn) retryBtn.disabled = st.wrong === 0;
+
+      const tbody = document.getElementById(`sum-table-body`);
+      if (tbody) {
+        let rows = ``;
+        for (let i = 0; i < CHAPTERS.length; i++) {
+          const ch = CHAPTERS[i];
+          const chList = scope.filter(function (q) { return q.chapter === ch.id; });
+          if (chList.length === 0) continue;
+          const cst = computeStats(chList);
+          const cpct = cst.answered > 0 ? Math.round((cst.correct / cst.answered) * 100) + `%` : `—`;
+          rows += `<tr>
+            <td>${ch.id}. ${ch.name}</td>
+            <td class="num">${cst.total}</td>
+            <td class="num">${cst.answered}</td>
+            <td class="num">${cst.correct}</td>
+            <td class="num">${cst.wrong}</td>
+            <td class="num">${cpct}</td>
+          </tr>`;
+        }
+        const totalPct = st.answered > 0 ? Math.round((st.correct / st.answered) * 100) + `%` : `—`;
+        rows += `<tr class="total-row">
+          <td>المجموع الإجمالي</td>
+          <td class="num">${st.total}</td>
+          <td class="num">${st.answered}</td>
+          <td class="num">${st.correct}</td>
+          <td class="num">${st.wrong}</td>
+          <td class="num">${totalPct}</td>
+        </tr>`;
+        tbody.innerHTML = rows;
+      }
+
+      renderSummaryReview();
+    }
+
+    function renderSummaryReview() {
+      const listEl = document.getElementById(`sum-review-list`);
+      const filterEl = document.getElementById(`sum-review-filter`);
+      if (!listEl) return;
+      const fVal = filterEl ? filterEl.value : `wrong`;
+
+      const scope = (appState.statusFilter === `mock20` && appState.mockIds.length > 0)
+        ? QUESTIONS.filter(function (q) { return appState.mockIds.indexOf(q.id) !== -1; })
+        : QUESTIONS;
+
+      const items = scope.filter(function (q) {
+        const ans = appState.answers[String(q.id)];
+        if (fVal === `wrong`) return ans !== undefined && ans !== q.correct;
+        if (fVal === `answered`) return ans !== undefined;
+        return true;
+      });
+
+      if (items.length === 0) {
+        listEl.innerHTML = `<div class="review-item"><p class="review-expl">لا توجد أسئلة ضمن هذا التصنيف للمراجعة.</p></div>`;
+        return;
+      }
+
+      let html = ``;
+      for (let i = 0; i < items.length; i++) {
+        const q = items[i];
+        const ans = appState.answers[String(q.id)];
+        const isCorrect = ans === q.correct;
+        const statusCls = ans === undefined ? `` : (isCorrect ? `is-correct` : `is-wrong`);
+        const userText = ans === undefined ? `لم تتم الإجابة` : `${OPTION_LABELS[ans]}) ${q.options[ans]}`;
+        html += `<div class="review-item ${statusCls}">
+          <div class="review-item-head">
+            <span class="question-number">السؤال رقم ${q.id}</span>
+            <span class="stamp-tag is-article">${q.article}</span>
+          </div>
+          <h3 class="review-q">${q.q}</h3>
+          <div class="review-answers">
+            ${!isCorrect ? `<div class="review-ans-user">إجابتك: ${userText}</div>` : ``}
+            <div class="review-ans-correct">الجواب الصحيح: ${OPTION_LABELS[q.correct]}) ${q.options[q.correct]}</div>
+          </div>
+          <p class="review-expl">${q.explanation}</p>
+        </div>`;
+      }
+      listEl.innerHTML = html;
+    }
+
+    function practiceWrongOnly() {
+      appState.mode = `practice`;
+      appState.statusFilter = `wrong`;
+      appState.chapterFilter = `all`;
+      appState.currentPos = 0;
+      const selMode = document.getElementById(`select-mode`);
+      const selStatus = document.getElementById(`select-status`);
+      const selChap = document.getElementById(`select-chapter`);
+      if (selMode) selMode.value = `practice`;
+      if (selStatus) selStatus.value = `wrong`;
+      if (selChap) selChap.value = `all`;
+      persistState();
+      hideSummaryView();
+    }
+
+    function exportResultsCsv() {
+      const headers = [`رقم السؤال`, `المحور`, `المرجع القانوني`, `السؤال`, `إجابة المترشح`, `الجواب الصحيح`, `الحالة`];
+      const rows = [headers.join(`,`)];
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const ans = appState.answers[String(q.id)];
+        const ansStr = ans !== undefined ? q.options[ans] : `غير مجاب`;
+        const corStr = q.options[q.correct];
+        const statusStr = ans === undefined ? `غير مجاب` : (ans === q.correct ? `صحيح` : `خطأ`);
+        const cols = [
+          q.id,
+          q.chapter,
+          `"` + q.article.replace(/"/g, `""`) + `"`,
+          `"` + q.q.replace(/"/g, `""`) + `"`,
+          `"` + ansStr.replace(/"/g, `""`) + `"`,
+          `"` + corStr.replace(/"/g, `""`) + `"`,
+          statusStr
+        ];
+        rows.push(cols.join(`,`));
+      }
+      const csvContent = `\uFEFF` + rows.join(`\n`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `qcm-decret-2-22-431-results.csv`
+        });
+      }
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.mode === `practice` || saved.mode === `exam`) appState.mode = saved.mode;
+            if (typeof saved.chapterFilter === `string`) appState.chapterFilter = saved.chapterFilter;
+            if (typeof saved.statusFilter === `string`) appState.statusFilter = saved.statusFilter;
+            if (Array.isArray(saved.mockIds)) appState.mockIds = saved.mockIds;
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (typeof saved.examSubmitted === `boolean`) appState.examSubmitted = saved.examSubmitted;
+            if (typeof saved.currentPos === `number`) appState.currentPos = saved.currentPos;
+            if (saved.view === `summary` || saved.view === `quiz`) appState.view = saved.view;
+          }
+        }
+      } catch (e) {}
+
+      const selMode = document.getElementById(`select-mode`);
+      const selChap = document.getElementById(`select-chapter`);
+      const selStatus = document.getElementById(`select-status`);
+      if (selMode) selMode.value = appState.mode;
+      if (selChap) selChap.value = appState.chapterFilter;
+      if (selStatus) selStatus.value = appState.statusFilter;
+
+      if (appState.view === `summary`) {
+        showSummaryView();
+      } else {
+        renderCurrentQuestion();
+      }
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
