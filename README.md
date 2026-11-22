@@ -16,9 +16,14 @@ Static site exposing eleven interactive Arabic exam tools with responsive AdSens
 - /loi-07-00-academies-region/ - 108-question exam on law 07.00 on regional academies
 - /archive-69-99/ - 110-question exam on law 69.99 on the archive
 - /concours-loi-organique-130-13/ - 105-question competitive exam on organic finance law 130.13
+- /privacy-policy/ - privacy policy, including Google AdSense cookie disclosure
+- /about/ - about the author
+- /contact/ - direct LinkedIn and Instagram contact links
+- /terms/ - terms of use and disclaimer
 
 The root page also has an Arabic About section with the author photo and introduction from
-edumaroc.org, plus direct LinkedIn and Instagram contact links.
+edumaroc.org, plus direct LinkedIn and Instagram contact links. All pages link to the four
+information pages above.
 
 The eleven exam files are copies of the originals with a responsive AdSense unit injected
 just before </body>. The root hub also carries the same unit after the exam cards.
