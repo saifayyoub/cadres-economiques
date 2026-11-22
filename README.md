@@ -1,6 +1,6 @@
 ﻿# Exam Hub - Vercel
 
-Static site exposing eleven interactive Arabic exam tools.
+Static site exposing eleven interactive Arabic exam tools with responsive AdSense units.
 
 ## Structure
 
@@ -20,7 +20,8 @@ Static site exposing eleven interactive Arabic exam tools.
 The root page also has an Arabic About section with the author photo and introduction from
 edumaroc.org, plus direct LinkedIn and Instagram contact links.
 
-All eleven exam files are byte-identical copies of their original HTML files.
+The eleven exam files are copies of the originals with a responsive AdSense unit injected
+just before </body>. The root hub also carries the same unit after the exam cards.
 The examen-global-120 page uses the same template/UI as the original exams and was
 generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
 examen_qcm_cadres_economiques_part2.pdf).
