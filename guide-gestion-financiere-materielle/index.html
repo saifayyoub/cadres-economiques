@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>بنك الاختبارات التفاعلي: دليل التدبير المالي والمادي لمؤسسات التربية والتعليم العمومي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter palette) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Derived semantic tokens (no raw hex in body CSS) */
+      --positive: #2d5a4a;
+      --positive-container: #e4efe9;
+      --on-positive-container: #1b3b30;
+      --warning: #8a6a35;
+      --warning-container: #f3ebd9;
+      --error-container: #f8e6e6;
+      --on-error-container: #6e1c1c;
+      --brass-on-navy: color-mix(in srgb, var(--outline) 75%, var(--on-primary));
+      --lede-on-navy: color-mix(in srgb, var(--on-primary) 82%, var(--primary));
+      --focus: #14213d;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Fonts (Arabic script first) */
+      --font-headline: 'Noto Naskh Arabic', 'Libre Caslon Text', serif;
+      --font-body: 'Noto Sans Arabic', 'Inter', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'Inter', sans-serif;
+
+      /* Shape (Charter 2px squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --brass-rule-thick: 3px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.625rem, 1.3rem + 1.1vw, 2.25rem);
+      --headline-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.8125rem;
+
+      /* Spacing scale (4pt base) */
+      --space-2xs: 0.125rem;
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Navy Title Band (Charter Treatment 1 & 2) */
+    .title-band {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      padding: var(--space-lg) var(--space-lg);
+      border-bottom: var(--brass-rule-thick);
+    }
+    .title-band-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .title-band-copy {
+      max-width: 68ch;
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--brass-on-navy);
+      margin: 0 0 var(--space-xs) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.25;
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--on-primary);
+      border-bottom: 1px solid var(--outline);
+      padding-bottom: var(--space-sm);
+    }
+    .title-band .lede {
+      margin: 0;
+      font-size: var(--body-size);
+      color: var(--lede-on-navy);
+      line-height: 1.6;
+    }
+    .title-band-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--space-xs);
+    }
+    .bank-stamp {
+      border: 1px solid var(--outline);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      color: var(--brass-on-navy);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums lining-nums;
+      white-space: nowrap;
+    }
+
+    /* Main Container */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1240px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* KPI / Figure Cards (Charter Treatments 3 & 4) */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .figure-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.25rem + 0.8vw, 1.875rem);
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+    .figure-delta {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+    .figure-delta.is-positive { color: var(--positive); }
+    .figure-delta.is-error { color: var(--error); }
+    .mini-progress-track {
+      height: 5px;
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+      margin-top: var(--space-xs);
+    }
+    .mini-progress-fill {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Controls Bar */
+    .controls-panel {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-bottom: var(--hairline);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .controls-top-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+    .charter-select, .charter-input {
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      width: 100%;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .charter-select:hover, .charter-input:hover {
+      border-color: var(--outline);
+    }
+    .charter-select:focus-visible, .charter-input:focus-visible {
+      border-color: var(--primary);
+    }
+
+    .controls-bottom-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-top: var(--hairline);
+      padding-top: var(--space-sm);
+    }
+    .mode-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .utility-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Buttons (Charter Rules) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: var(--label-size);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--on-surface);
+      border-color: var(--on-surface);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--primary-container);
+    }
+    .btn-subtle {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border-color: var(--outline-variant);
+    }
+    .btn-subtle:hover:not(:disabled) {
+      background-color: var(--surface-container-high);
+      border-color: var(--outline);
+    }
+    .btn-danger-armed {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .btn-active-tab {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Inline status message */
+    .status-banner {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      border-inline-start: 3px solid var(--primary);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .status-banner.is-visible {
+      display: flex;
+    }
+
+    /* Exam Results Panel */
+    .exam-summary-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule-thick);
+      border-bottom: var(--hairline);
+      padding: var(--space-lg);
+      border-radius: var(--rounded);
+      display: none;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .exam-summary-card.is-visible {
+      display: flex;
+    }
+    .exam-summary-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-md);
+    }
+    .exam-summary-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      margin: 0;
+      color: var(--primary);
+    }
+    .exam-score-big {
+      font-family: var(--font-headline);
+      font-size: 2rem;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+
+    /* Two-column Workspace */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Active Question Panel */
+    .question-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      container-type: inline-size;
+    }
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .stamp-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--outline);
+      background-color: transparent;
+      color: var(--tertiary);
+      padding: var(--space-2xs) var(--space-sm);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .stamp-tag--primary {
+      border-color: var(--primary);
+      color: var(--primary);
+      background-color: var(--primary-container);
+    }
+    .q-counter {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums lining-nums;
+    }
+    .bookmark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background-color: transparent;
+      border: 1px solid var(--outline-variant);
+      color: var(--on-surface-variant);
+      padding: var(--space-xs) var(--space-sm);
+      min-height: 44px;
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-size: var(--label-size);
+      font-weight: 600;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .bookmark-btn:hover {
+      border-color: var(--outline);
+      color: var(--on-surface);
+    }
+    .bookmark-btn.is-bookmarked {
+      background-color: var(--warning-container);
+      border-color: var(--outline);
+      color: var(--tertiary);
+    }
+
+    .question-stem {
+      font-family: var(--font-headline);
+      font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.325rem);
+      font-weight: 600;
+      line-height: 1.65;
+      color: var(--on-surface);
+      margin: 0;
+      max-width: 65ch;
+    }
+
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      text-align: start;
+      background-color: var(--background);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      min-height: 52px;
+      cursor: pointer;
+      line-height: 1.55;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container-high);
+      border-color: var(--outline);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-letter {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--primary);
+      background-color: var(--surface-container-low);
+    }
+    .option-text {
+      flex: 1;
+      padding-top: 2px;
+    }
+    .option-status-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: 700;
+      font-size: var(--label-size);
+    }
+
+    /* Option States */
+    .option-btn.is-selected {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+    [dir="rtl"] .option-btn.is-selected {
+      box-shadow: inset -3px 0 0 var(--primary);
+    }
+    .option-btn.is-selected .option-letter {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .option-btn.is-correct {
+      background-color: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--on-positive-container);
+      box-shadow: inset -3px 0 0 var(--positive);
+    }
+    .option-btn.is-correct .option-letter {
+      background-color: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+    .option-btn.is-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      color: var(--on-error-container);
+      box-shadow: inset -3px 0 0 var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background-color: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+
+    /* Rationale Box */
+    .rationale-box {
+      display: none;
+      flex-direction: column;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      border-inline-start: 4px solid var(--positive);
+      background-color: var(--positive-container);
+      color: var(--on-positive-container);
+      animation: fadeSlide var(--dur-short) var(--ease-out);
+    }
+    .rationale-box.is-visible {
+      display: flex;
+    }
+    .rationale-box.is-wrong-state {
+      border-inline-start-color: var(--error);
+      background-color: var(--error-container);
+      color: var(--on-error-container);
+    }
+    .rationale-verdict {
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .rationale-text {
+      margin: 0;
+      color: var(--on-surface);
+      line-height: 1.7;
+      max-width: 65ch;
+    }
+    .rationale-ref {
+      margin-top: var(--space-xs);
+      padding-top: var(--space-xs);
+      border-top: var(--hairline);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Question Footer Controls */
+    .question-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-top: var(--hairline);
+      padding-top: var(--space-md);
+    }
+    .nav-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .kbd-hint {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+
+    /* Empty State */
+    .empty-state {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-radius: var(--rounded);
+    }
+    .empty-state.is-visible {
+      display: flex;
+    }
+
+    /* Sidebar Panel */
+    .sidebar-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .sidebar-card {
+      background-color: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .section-head {
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-xs);
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Axis Breakdown List */
+    .axis-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .axis-item-btn {
+      text-align: start;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-bottom: var(--hairline);
+      padding: var(--space-sm);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .axis-item-btn:hover {
+      background-color: var(--surface-container);
+    }
+    .axis-item-btn.is-active {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+    }
+    .axis-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+    .axis-item-nums {
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface-variant);
+      white-space: nowrap;
+    }
+
+    /* Question Map Grid */
+    .q-map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      display: inline-block;
+    }
+    .swatch-correct { background-color: var(--positive); border-color: var(--positive); }
+    .swatch-wrong { background-color: var(--error); border-color: var(--error); }
+    .swatch-current { background-color: var(--primary); border-color: var(--primary); }
+    .swatch-unanswered { background-color: var(--background); }
+
+    .q-map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+      gap: var(--space-xs);
+      max-height: 310px;
+      overflow-y: auto;
+      padding: var(--space-2xs);
+    }
+    .q-map-cell {
+      position: relative;
+      height: 36px;
+      min-width: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--outline-variant);
+      background-color: var(--background);
+      color: var(--on-surface);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums lining-nums;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .q-map-cell:hover {
+      border-color: var(--outline);
+      background-color: var(--surface-container-high);
+    }
+    .q-map-cell.is-correct {
+      background-color: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--on-positive-container);
+    }
+    .q-map-cell.is-wrong {
+      background-color: var(--error-container);
+      border-color: var(--error);
+      color: var(--on-error-container);
+    }
+    .q-map-cell.is-selected {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--on-primary-container);
+    }
+    .q-map-cell.is-current {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .q-map-cell.is-bookmarked::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      inset-inline-end: 2px;
+      width: 6px;
+      height: 6px;
+      background-color: var(--outline);
+      border-radius: var(--rounded);
+    }
+
+    /* Footer */
+    .source-footer {
+      border-top: var(--brass-rule);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 920px) {
+      .workspace-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .title-band {
+        padding: var(--space-md);
+      }
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-md);
+      }
+      .controls-panel, .question-card, .sidebar-card {
+        padding: var(--space-md);
+      }
+      .title-band-meta {
+        align-items: flex-start;
+      }
+      .kbd-hint {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div class="title-band-copy">
+        <p class="title-kicker">
+          <span>منصة التقييم والمراجعة المرجعية</span>
+          <span>—</span>
+          <span>التشريع والتسيير المالي والمادي بالمؤسسات التعليمية</span>
+        </p>
+        <h1>بنك الاختبارات التفاعلي: دليل التدبير المالي والمادي لمؤسسات التربية والتعليم العمومي</h1>
+        <p class="lede">اختبار اختيار من متعدد (<bdi dir="ltr">QCM</bdi>) من 110 أسئلة مغطية لكافة محاور الدليل النظري والعملي، مع تصحيح فوري، وتعليل قانوني وإجرائي دقيق، وتتبع حي للنتائج حسب المحاور.</p>
+      </div>
+      <div class="title-band-meta">
+        <div class="bank-stamp" id="header-mode-badge">بنك الأسئلة: 110 أسئلة • وضع التدريب</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- Live Telemetry Strip -->
+    <section class="stats-grid" aria-label="ملخص التقدم والنتائج">
+      <article class="figure-card">
+        <span class="figure-label">النتيجة والدقة</span>
+        <span class="figure-value" id="stat-score">0 / 0</span>
+        <span class="figure-delta" id="stat-accuracy">نسبة النجاح: 0%</span>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">نسبة الإنجاز العام</span>
+        <span class="figure-value" id="stat-progress">0 / 110</span>
+        <div class="mini-progress-track" aria-hidden="true">
+          <div class="mini-progress-fill" id="stat-progress-bar" style="width: 0%;"></div>
+        </div>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">سلسلة الإجابات الصحيحة</span>
+        <span class="figure-value" id="stat-streak">0</span>
+        <span class="figure-delta" id="stat-best-streak">أفضل سلسلة: 0</span>
+      </article>
+      <article class="figure-card">
+        <span class="figure-label">أولوية المراجعة</span>
+        <span class="figure-value" id="stat-focus-axis" style="font-size: var(--subhead-size); font-weight: 700;">—</span>
+        <span class="figure-delta" id="stat-focus-note">ابدأ الإجابة لتحديد المحاور التي تحتاج دعما</span>
+      </article>
+    </section>
+
+    <!-- Filter & Mode Controls -->
+    <section class="controls-panel" aria-label="أدوات التصفية وأوضاع الاختبار">
+      <div class="controls-top-row">
+        <div class="field-group">
+          <label class="field-label" for="filter-axis">المحور الموضوعاتي</label>
+          <select id="filter-axis" class="charter-select" onchange="onFilterChange()">
+            <option value="all">جميع المحاور (110 أسئلة)</option>
+            <option value="m1">1. الإطار القانوني وموارد الخارج عن الميزانية (20)</option>
+            <option value="m2">2. قواعد التنفيذ والفصل بين المهام والتسيير بحكم الواقع (18)</option>
+            <option value="m3">3. المحاسبة النقدية والسجلات وحصر الحسابات والمنح (22)</option>
+            <option value="m4">4. التدبير المادي والجرد ومحاسبة الاستهلاك والوقاية (22)</option>
+            <option value="m5">5. المسؤولية الإدارية والمدنية والجنائية والمالية (14)</option>
+            <option value="m6">6. منظومة المراقبة الإدارية والقضائية والسياسية (14)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="filter-difficulty">درجة الصعوبة</label>
+          <select id="filter-difficulty" class="charter-select" onchange="onFilterChange()">
+            <option value="all">كل المستويات</option>
+            <option value="أساسي">أساسي</option>
+            <option value="متوسط">متوسط</option>
+            <option value="متعمق">متعمق</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="filter-status">حالة السؤال</label>
+          <select id="filter-status" class="charter-select" onchange="onFilterChange()">
+            <option value="all">الكل</option>
+            <option value="unanswered">لم يُجب عنه بعد</option>
+            <option value="wrong">إجابات خاطئة للمراجعة</option>
+            <option value="bookmarked">الأسئلة المحفوظة بنجمة</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="search-input">بحث نصي في الأسئلة أو المراجع</label>
+          <input id="search-input" type="search" class="charter-input" placeholder="مثال: الجرد، سند الطلب، الغدر..." oninput="onFilterChange()">
+        </div>
+      </div>
+
+      <div class="controls-bottom-row">
+        <div class="mode-switch" role="group" aria-label="اختيار وضع الاختبار">
+          <button type="button" id="btn-mode-practice" class="btn btn-active-tab" onclick="setMode('practice')">
+            وضع التدريب (تصحيح فوري)
+          </button>
+          <button type="button" id="btn-mode-exam" class="btn btn-secondary" onclick="setMode('exam')">
+            امتحان تجريبي (20 سؤالا)
+          </button>
+        </div>
+        <div class="utility-actions">
+          <button type="button" class="btn btn-subtle" onclick="shuffleVisibleOrder()">
+            خلط ترتيب الأسئلة
+          </button>
+          <button type="button" class="btn btn-subtle" onclick="exportProgressCsv()">
+            تصدير النتائج (<bdi dir="ltr">CSV</bdi>)
+          </button>
+          <button type="button" id="btn-reset-progress" class="btn btn-subtle" onclick="handleResetClick(this)">
+            إعادة ضبط التقدم
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inline Status Banner -->
+    <div id="status-banner" class="status-banner" role="status" aria-live="polite">
+      <span id="status-banner-text"></span>
+      <button type="button" class="btn btn-subtle" style="min-height: 36px; padding: var(--space-xs) var(--space-sm);" onclick="hideBanner()">إغلاق</button>
+    </div>
+
+    <!-- Exam Mode Summary Banner -->
+    <section id="exam-summary-card" class="exam-summary-card" aria-label="نتيجة الامتحان التجريبي">
+      <div class="exam-summary-header">
+        <div>
+          <h2 class="exam-summary-title">محصلة الامتحان التجريبي (20 سؤالا)</h2>
+          <p id="exam-summary-subtitle" style="margin: var(--space-xs) 0 0 0; color: var(--on-surface-variant);"></p>
+        </div>
+        <div class="exam-score-big" id="exam-score-big">0 / 20</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+        <button type="button" class="btn btn-primary" onclick="startNewExam()">بدء امتحان جديد (20 سؤالا)</button>
+        <button type="button" class="btn btn-secondary" onclick="reviewExamMistakes()">مراجعة الأخطاء في هذا الامتحان</button>
+        <button type="button" class="btn btn-subtle" onclick="setMode('practice')">العودة إلى بنك الأسئلة الكامل</button>
+      </div>
+    </section>
+
+    <!-- Main Two-Column Workspace -->
+    <div class="workspace-grid">
+      <!-- Primary Column: Question Card -->
+      <div>
+        <section id="empty-state" class="empty-state">
+          <h2 style="margin: 0; font-family: var(--font-headline); font-size: var(--headline-size);">لا توجد أسئلة مطابقة لمعايير التصفية الحالية</h2>
+          <p style="margin: 0; color: var(--on-surface-variant);">لم يتم العثور على أسئلة في هذه الفئة أو مطابقَة لكلمة البحث. يمكنك إعادة تعيين المرشحات لعرض كامل البنك المكون من 110 أسئلة.</p>
+          <button type="button" class="btn btn-primary" onclick="resetFilters()">إظهار جميع الأسئلة</button>
+        </section>
+
+        <article id="question-card" class="question-card" aria-live="polite">
+          <div class="question-meta">
+            <div class="meta-tags">
+              <span class="q-counter" id="q-counter">السؤال 1 من 110</span>
+              <span class="stamp-tag stamp-tag--primary" id="q-axis-badge">المحور الأول</span>
+              <span class="stamp-tag" id="q-diff-badge">أساسي</span>
+            </div>
+            <button type="button" id="btn-bookmark" class="bookmark-btn" onclick="toggleBookmark()">
+              <span id="bookmark-icon" aria-hidden="true">☆</span>
+              <span id="bookmark-label">حفظ للمراجعة</span>
+            </button>
+          </div>
+
+          <h2 class="question-stem" id="q-stem">...</h2>
+
+          <div class="options-list" id="options-list" role="radiogroup" aria-label="خيارات الإجابة"></div>
+
+          <div id="rationale-box" class="rationale-box">
+            <p class="rationale-verdict" id="rationale-verdict"></p>
+            <p class="rationale-text" id="rationale-text"></p>
+            <div class="rationale-ref" id="rationale-ref"></div>
+          </div>
+
+          <div class="question-footer">
+            <div class="nav-group">
+              <button type="button" id="btn-prev" class="btn btn-subtle" onclick="goPrev()">السابق</button>
+              <button type="button" id="btn-next" class="btn btn-primary" onclick="goNext()">التالي</button>
+              <button type="button" id="btn-next-unanswered" class="btn btn-secondary" onclick="goNextUnanswered()">التالي غير المجاب</button>
+              <button type="button" id="btn-submit-exam" class="btn btn-primary" style="display: none;" onclick="submitExam()">تصحيح وإنهاء الامتحان</button>
+            </div>
+            <span class="kbd-hint">اختصارات: 1–4 للاختيار • الأسهم للتنقل</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Secondary Column: Axis Mastery & Navigator -->
+      <aside class="sidebar-stack" aria-label="متابعة الأداء وخريطة الأسئلة">
+        <section class="sidebar-card">
+          <h3 class="section-head">الأداء حسب المحاور الستة</h3>
+          <div class="axis-list" id="axis-breakdown"></div>
+        </section>
+
+        <section class="sidebar-card">
+          <h3 class="section-head">خريطة التنقل السريع</h3>
+          <div class="q-map-legend">
+            <span class="legend-chip"><span class="legend-swatch swatch-current"></span>الحالي</span>
+            <span class="legend-chip"><span class="legend-swatch swatch-correct"></span>صحيح</span>
+            <span class="legend-chip"><span class="legend-swatch swatch-wrong"></span>خاطئ</span>
+            <span class="legend-chip"><span class="legend-swatch swatch-unanswered"></span>متبقي</span>
+          </div>
+          <div class="q-map-grid" id="q-map-grid"></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="source-footer">
+      <span>المرجع الأساسي: دليل التدبير المالي والمادي لمؤسسات التربية والتعليم العمومي — الوحدة الجهوية للافتحاص، الأكاديمية الجهوية للتربية والتكوين لجهة فاس-مكناس.</span>
+      <span>110 أسئلة مراجعة قانونية ومحاسبية وإجرائية</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const AXES = [
+      { id: 'm1', short: `المحور 1: الخارج عن الميزانية والموارد`, title: `1. الإطار القانوني وموارد الخارج عن الميزانية` },
+      { id: 'm2', short: `المحور 2: الفصل بين المهام والتنفيذ`, title: `2. قواعد التنفيذ والفصل بين المهام والتسيير بحكم الواقع` },
+      { id: 'm3', short: `المحور 3: المحاسبة النقدية والمنح`, title: `3. المحاسبة النقدية والسجلات وحصر الحسابات والمنح` },
+      { id: 'm4', short: `المحور 4: التدبير المادي والجرد`, title: `4. التدبير المادي والجرد ومحاسبة الاستهلاك والوقاية` },
+      { id: 'm5', short: `المحور 5: المسؤولية القانونية والمالية`, title: `5. المسؤولية الإدارية والمدنية والجنائية والمالية` },
+      { id: 'm6', short: `المحور 6: منظومة المراقبة والتفتيش`, title: `6. منظومة المراقبة الإدارية والقضائية والسياسية` }
+    ];
+
+    const QUESTIONS = [
+      /* ==================== المحور الأول: الإطار القانوني وموارد الخارج عن الميزانية (1 - 20) ==================== */
+      {
+        id: 1, domain: 'm1', difficulty: 'أساسي',
+        question: `كيف يصنّف النظام القانوني المغربي المؤسسة التعليمية العمومية من حيث طبيعتها المالية والإدارية؟`,
+        options: [
+          `مؤسسة عمومية تتمتع بالشخصية المعنوية والاستقلال المالي الكامل`,
+          `مصلحة من مصالح الدولة المسيرة بصورة مستقلة`,
+          `ليست مؤسسة عمومية ولا مصلحة مسيرة بصورة مستقلة، ولها موارد ذاتية تسمى "الخارج عن الميزانية"`,
+          `شركة عمومية خاضعة لمراقبة المحاكم التجارية`
+        ],
+        correct: 2,
+        rationale: `ينص الدليل في مدخل "الخارج عن الميزانية" على أن المؤسسة التعليمية هي مؤسسة للتربية والتعليم العمومي؛ فلا هي بمؤسسة عمومية، ولا هي بمصلحة من مصالح الدولة المسيرة بصورة مستقلة، وليس لها سوى موارد مالية ذاتية يصطلح عليها بالخارج عن الميزانية.`,
+        ref: `الدليل: الجزء الأول — فقرة 1 (الخارج عن الميزانية)`
+      },
+      {
+        id: 2, domain: 'm1', difficulty: 'أساسي',
+        question: `ما هو المرسوم الذي يحدد كيفية إحداث وتنظيم وتسيير مؤسسات التربية والتعليم العمومي (الابتدائية والإعدادية والتأهيلية)؟`,
+        options: [
+          `المرسوم الملكي رقم 330.66 بتاريخ 21 أبريل 1967`,
+          `المرسوم رقم 2.02.376 بتاريخ 17 يوليو 2002`,
+          `المرسوم رقم 2.02.854 بتاريخ 10 فبراير 2003`,
+          `المرسوم رقم 2.10.452 بتاريخ 29 أكتوبر 2010`
+        ],
+        correct: 1,
+        rationale: `النظام الأساسي الخاص بمؤسسات التربية والتعليم العمومي صادر بموجب المرسوم رقم 2.02.376 بتاريخ 17 يوليو 2002، وقد وضع المؤسسات تحت سلطة الأكاديمية الجهوية للتربية والتكوين وحدد هياكل إدارتها التربوية ومجالسها.`,
+        ref: `المرسوم رقم 2.02.376 (17 يوليو 2002)`
+      },
+      {
+        id: 3, domain: 'm1', difficulty: 'أساسي',
+        question: `ما هي المجالس الأربعة المكونة لآليات التأطير والتدبير التربوي والإداري بالمؤسسة وفق المرسوم 2.02.376؟`,
+        options: [
+          `مجلس التدبير، المجلس التربوي، المجالس التعليمية، ومجالس الأقسام`,
+          `مجلس الإدارة، المجلس التأديبي، مجلس المالية، ومجلس الآباء`,
+          `المجلس الإداري، المجلس التربوي، مجلس الصفقات، ومجلس الداخلية`,
+          `مجلس التدبير، المجلس العلمي، مجلس التوجيه، ومجلس المحاسبة`
+        ],
+        correct: 0,
+        rationale: `وفق الباب الثاني من المرسوم رقم 2.02.376، تتكون آليات التأطير والتدبير من إدارة تربوية وأربعة مجالس هي: مجلس التدبير، والمجلس التربوي، والمجالس التعليمية، ومجالس الأقسام.`,
+        ref: `المرسوم 2.02.376 — الباب الثاني (مقتضيات عامة)`
+      },
+      {
+        id: 4, domain: 'm1', difficulty: 'متوسط',
+        question: `هل يجوز لرئيس المؤسسة أو مسير المصالح المادية والمالية الزيادة في واجبات التسجيل أو إحداث خانات لمداخيل إضافية غير منصوص عليها؟`,
+        options: [
+          `نعم، شريطة مصادقة مجلس التدبير عليها بالأغلبية`,
+          `نعم، إذا كان الغرض تمويل أنشطة ثقافية استثنائية`,
+          `لا يمكن بأي حال من الأحوال الرفع منها أو خلق مداخيل أخرى أو إحداث خانات جديدة، تحت طائلة المساءلة الإدارية والقضائية`,
+          `يجوز ذلك فقط في التعليم الثانوي التأهيلي بموافقة جمعية الآباء`
+        ],
+        correct: 2,
+        rationale: `تُحدد مداخيل الخارجية بمقتضى مذكرات وزارية حصرية، ولا يمكن بأي حال الرفع منها أو خلق مداخيل أخرى أو إحداث خانات بغرض تحصيل مداخيل إضافية، تفاديا للمساءلة الإدارية والقضائية (بما فيها جريمة الغدر).`,
+        ref: `الدليل: الجزء الأول — 1-1 (مداخيل الخارجية)`
+      },
+      {
+        id: 5, domain: 'm1', difficulty: 'أساسي',
+        question: `في حالة انتقال تلميذ من مؤسسة عمومية إلى مؤسسة أخرى خلال نفس الموسم الدراسي، ما حكم أداء واجبات التسجيل والضمان المدرسي؟`,
+        options: [
+          `تؤدى من جديد كاملة في المؤسسة المستقبلة`,
+          `يؤدى فقط نصف واجب التسجيل دون واجب الضمان`,
+          `لا يجدد أداء الواجب المالي ولا الضمان المدرسي، مع وجوب الإدلاء بالوصل المسلم من المؤسسة الأصلية`,
+          `يجدد الضمان المدرسي فقط دون المصاريف الإضافية`
+        ],
+        correct: 2,
+        rationale: `طبقا للمذكرة الوزارية حول النظام الداخلي واتفاقية الضمان المدرسي، فإن أداء واجب التسجيل وواجب التأمين المدرسي يتم مرة واحدة في السنة ولا يجدد في حالة انتقال التلميذ إلى مؤسسة أخرى، مع ضرورة إدلائه بالوصل المسلم له من المؤسسة الأصلية.`,
+        ref: `الدليل: فقرة واجب التسجيل وواجب الضمان المدرسي`
+      },
+      {
+        id: 6, domain: 'm1', difficulty: 'متوسط',
+        question: `ما هو الحساب الجاري الذي يحوّل إليه القسط المخصص للجمعية الأم للأنشطة الاجتماعية التربوية بالرباط؟`,
+        options: [
+          `الحساب الجاري <bdi dir="ltr">5094.70.X Rabat</bdi>`,
+          `الحساب الجاري <bdi dir="ltr">E-57-646</bdi> المفتوح باسم جمعية الأنشطة الاجتماعية التربوية - الرباط`,
+          `الحساب الجاري البريدي <bdi dir="ltr">72 M 5820</bdi>`,
+          `الحساب البنكي للخزينة العامة للمملكة`
+        ],
+        correct: 1,
+        rationale: `تنص مذكرات واجب التسجيل على تحويل القسط المخصص للجمعية الأم (مقرها بالرباط) من خانة الأنشطة الاجتماعية التربوية إلى الحساب الجاري رقم <bdi dir="ltr">E-57-646</bdi> المفتوح باسم جمعية الأنشطة الاجتماعية التربوية بالرباط.`,
+        ref: `الدليل: مجالات صرف اعتمادات واجب التسجيل`
+      },
+      {
+        id: 7, domain: 'm1', difficulty: 'متوسط',
+        question: `هل تندرج الكتب والمقررات الدراسية المقررة ضمن نفقات خانة "المكتبة الترفيهية" في واجبات التسجيل؟`,
+        options: [
+          `نعم، هي الأولوية الأولى في هذه الخانة`,
+          `نعم، بشرط ألا يتجاوز سعر الكتاب 50 درهما`,
+          `لا، تقتصر المكتبة الترفيهية على اقتناء الكتب التثقيفية ولا تندرج ضمنها كتب المقررات الدراسية`,
+          `تندرج ضمنها كتب التعليم التقني فقط`
+        ],
+        correct: 2,
+        rationale: `تخصص خانة "المكتبة الترفيهية" للنفقات الخاصة باقتناء الكتب التثقيفية التي تنمي المطالعة، ولا تندرج ضمنها كتب المقررات الدراسية التي لها مساطرها واعتماداتها الخاصة.`,
+        ref: `الدليل: مجالات صرف الاعتمادات (المكتبة الترفيهية)`
+      },
+      {
+        id: 8, domain: 'm1', difficulty: 'متوسط',
+        question: `في نطاق التغطية المكانية والزمنية للضمان المدرسي، متى يكون التلميذ مؤمنا أثناء تنقله من وإلى المؤسسة؟`,
+        options: [
+          `طيلة اليوم دون قيد زمني`,
+          `خلال نصف ساعة قبل الدخول فقط`,
+          `أثناء تنقله ذهابا وإيابا خلال ساعة قبل الدخول أو الخروج مع إمكانية مراعاة المدة المحددة`,
+          `داخل حافلات النقل المدرسي فقط دون الراجلين`
+        ],
+        correct: 2,
+        rationale: `تنص اتفاقية الضمان المدرسي على تأمين التلاميذ داخل المؤسسة، وأثناء تنقلهم إليها ذهابا وإيابا خلال ساعة واحدة قبل الدخول أو بعد الخروج، مع إمكانية مراعاة المدة المحددة عند الاقتضاء.`,
+        ref: `الدليل: بنود اتفاقية الضمان المدرسي`
+      },
+      {
+        id: 9, domain: 'm1', difficulty: 'متعمق',
+        question: `أي من الحالات التالية تُستثنى صراحة من تغطية الضمان المدرسي ولا تعتبر حادثة مدرسية مشمولة بالتعويض التعاقدي؟`,
+        options: [
+          `التسمم الغذائي داخل مطعم المؤسسة`,
+          `الإصابة خلال حصة التربية البدنية أو تظاهرة رياضية رسمية`,
+          `الحوادث الناجمة عن استعمال دراجة نارية مؤمن عليها أو سياقة سيارة أو المشاركة في مشاجرة (باستثناء الدفاع الشرعي عن النفس)`,
+          `الحوادث الواقعة خلال رحلة مدرسية مؤطرة قانونيا`
+        ],
+        correct: 2,
+        rationale: `تستثني الاتفاقية: استعمال دراجة نارية مؤمن عليها، سياقة سيارة، التواطؤ، الحوادث السابقة لسريان التأمين، الأمراض غير الناجمة عن الحادثة، الوفاة بالسكر أو الانتحار، الكوارث الطبيعية، والمشاركة في المظاهرات أو المشاجرات والجرائم باستثناء الدفاع الشرعي عن النفس.`,
+        ref: `الدليل: مستثنيات اتفاقية الضمان المدرسي`
+      },
+      {
+        id: 10, domain: 'm1', difficulty: 'متوسط',
+        question: `بماذا يتميز الضمان الضمني للدولة بمقتضى ظهير التعويض عن الحوادث المدرسية عن التأمين التعاقدي (الضمان المدرسي)؟`,
+        options: [
+          `يقتصر فقط على التلاميذ الداخليين الممنوحين`,
+          `يضمن تعويضا للتلميذ المسجل رسميا دون تعمد منه في شكل إيراد عند نتوج عجز دائم وفق النسبة القانونية المحددة، ويجدد مؤقتا قبل تحديده نهائيا`,
+          `يغطي فقط تكاليف الدواء الأولي دون العجز الدائم`,
+          `يشمل التلاميذ أثناء تواجدهم بمنازل أسرهم`
+        ],
+        correct: 1,
+        rationale: `بمقتضى الظهير الشريف المؤرخ في 26 أكتوبر 1942، يؤمَّن التلميذ المسجل رسميا ضمنيا من طرف الدولة أثناء تواجده تحت رقابة المكلفين بالحراسة شريطة عدم تعمده الحادث، وإذا نتج عجز دائم بنسبة تبلغ الحد الأدنى القانوني تمنح الدولة إيرادا مؤقتا يجدد سنويا لمدة محددة قبل تثبيته نهائيا.`,
+        ref: `الظهير الشريف المتعلق بالتعويض عن الحوادث المدرسية`
+      },
+      {
+        id: 11, domain: 'm1', difficulty: 'أساسي',
+        question: `ما هي الجمعية الوحيدة التي يندرج واجب انخراطات التلاميذ بها ضمن مداخيل المؤسسة التعليمية؟`,
+        options: [
+          `جمعية أمهات وآباء وأولياء التلاميذ`,
+          `جمعية دعم مدرسة النجاح`,
+          `الجمعية الرياضية المدرسية المنضوية تحت لواء الجامعة الملكية المغربية للرياضة المدرسية`,
+          `جمعية قدماء التلميذات والتلاميذ`
+        ],
+        correct: 2,
+        rationale: `تُصنّف الجمعيات إلى مدرسية وتدبيرية وشريكة وداعمة، وتعتبر الجمعية الرياضية المدرسية الجمعية الوحيدة التي يندرج واجب انخراطات التلاميذ بها ضمن مداخيل المؤسسة (الخارج عن الميزانية).`,
+        ref: `الدليل: فقرة واجب الانخراط في الجمعيات`
+      },
+      {
+        id: 12, domain: 'm1', difficulty: 'متعمق',
+        question: `وفقا للقانون رقم 30.09 المتعلق بالتربية البدنية والرياضة، كيف يتشكل المكتب التنفيذي للجمعية الرياضية المدرسية؟`,
+        options: [
+          `يرأسه أستاذ التربية البدنية، وثلثاه من التلاميذ وثلثه من الإداريين`,
+          `يرأسه مدير المؤسسة، وثلثا أعضائه من أساتذة التربية البدنية والرياضة، وثلثه الآخر من تلاميذ المؤسسة المنتخبين`,
+          `يرأسه ممثل جمعية الآباء بالتساوي بين الأساتذة والتلاميذ`,
+          `يرأسه مسير المصالح المادية والمالية ويعين بقية الأعضاء`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 6 من القانون 30.09 على أن مدير المؤسسة يرأس الجمعية الرياضية، ويتكون ثلثا المكتب التنفيذي من أساتذة التربية البدنية والرياضة (منتخبين أو معينين عند الاقتضاء) والثلث الآخر من التلاميذ المنتخبين، مع مشاركة رئيس جمعية الآباء وممثل مجلس التدبير والمسؤول عن الأنشطة الموازية بصفة استشارية.`,
+        ref: `القانون رقم 30.09 — المتعلق بالتربية البدنية والرياضة`
+      },
+      {
+        id: 13, domain: 'm1', difficulty: 'متوسط',
+        question: `في تدبير تجهيزات وأدوات الجمعية الرياضية المدرسية، ما هو التوزيع الصحيح للاختصاصات بين الجمعية ومسير المصالح المادية والمالية؟`,
+        options: [
+          `يقوم المسير بالشراء والصيانة وتقوم الجمعية بالجرد`,
+          `تقتني الجمعية التجهيزات وتدبرها وتصونها، بينما يتولى المسير جردها وتحيين جردها عند نهاية السنة الدراسية`,
+          `لا تخضع تجهيزات الجمعية الرياضية لأي جرد رسمي`,
+          `تقوم المديرية الإقليمية بجردها دون تدخل المسير`
+        ],
+        correct: 1,
+        rationale: `يبقى من اختصاص الجمعية الرياضية اقتناء وتدبير وصيانة التجهيزات والأدوات وموافاة المسير بوضعيتها في نهاية كل سنة دراسية، فيما يتولى مسير المصالح المادية والمالية استخلاص الانخراطات وتحويل الحصص وجرد هذه التجهيزات طبقا للتنظيمات الجاري بها العمل.`,
+        ref: `الدليل: دور مسير المصالح المادية والمالية في الجمعية الرياضية`
+      },
+      {
+        id: 14, domain: 'm1', difficulty: 'أساسي',
+        question: `متى تنطلق عملية إعارة الكتب المدرسية بالخزانة المدرسية ومتى يجب إرجاعها؟`,
+        options: [
+          `تنطلق في شهر نونبر وترجع في شهر ماي`,
+          `تنطلق خلال الأسبوع الأول من انطلاق الدراسة وترجع خلال الأسبوعين الأخيرين من شهر يونيو`,
+          `تنطلق بعد العطلة البينية الأولى وترجع عند نهاية الامتحانات فقط`,
+          `تستمر الإعارة لسنتين متتاليتين دون إرجاع`
+        ],
+        correct: 1,
+        rationale: `تنطلق عملية إعارة الكتب المدرسية خلال الأسبوع الأول من انطلاق الدراسة كما يحدده المقرر الوزاري لتنظيم السنة الدراسية، وتُرجع الكتب إلى الخزانة خلال الأسبوعين الأخيرين من شهر يونيو مع تغريم كل تلميذ أتلف ما بذمته.`,
+        ref: `الدليل: فقرة واجب كراء الكتب المدرسية`
+      },
+      {
+        id: 15, domain: 'm1', difficulty: 'متوسط',
+        question: `من يملك صلاحية إعفاء بعض التلاميذ من الأسر ذات الدخل المحدود المشهود بمجهوداتهم في التحصيل من واجبات كراء الكتب المدرسية؟`,
+        options: [
+          `مسير المصالح المادية والمالية بقرار منفرد`,
+          `رئيس المؤسسة وباقتراح من مجلس القسم`,
+          `جمعية أمهات وآباء وأولياء التلاميذ`,
+          `مفتش المصالح المادية والمالية`
+        ],
+        correct: 1,
+        rationale: `يمكن لرئيس المؤسسة، وباقتراح من مجلس القسم، إعفاء بعض التلاميذ المنتمين لأسر ذات دخل محدود والمشهود بمجهوداتهم في التحصيل بشكل كلي أو جزئي من واجبات كراء الكتب للسنة الموالية.`,
+        ref: `الدليل: مقتضيات إعارة الكتب المدرسية`
+      },
+      {
+        id: 16, domain: 'm1', difficulty: 'متوسط',
+        question: `كيف تحسب مدة استحقاق الكفالة بالداخلية بالنسبة للتلميذ غير الممنوح عند تغير مدة حضوره؟`,
+        options: [
+          `تحسب باليوم الواحد فقط`,
+          `تكيف مع مدة الحضور؛ فكل فترة 15 يوما ابتدأت (من 1 إلى 15 أو من 16 إلى نهاية الشهر) تصبح مستحقة الأداء`,
+          `تؤدى سنويا دفعة واحدة ولا تتجزأ تحت أي ظرف`,
+          `تحسب بالأسبوع الدراسي الكامل`
+        ],
+        correct: 1,
+        rationale: `تُكيف أسعار الكفالات مع مدة حضور التلميذ بالداخلية؛ فكل فترة من 15 يوما ابتدأت (من فاتح الشهر إلى منتصفه أو من السادس عشر إلى نهايته) تصبح مستحقة الأداء بالكامل.`,
+        ref: `الدليل: جدول مقادير الكفالات (القرار المشترك 2462.09)`
+      },
+      {
+        id: 17, domain: 'm1', difficulty: 'متوسط',
+        question: `أين تدرج مداخيل التغذية ومداخيل الإقامة الخاصة بالمائدة المشتركة؟`,
+        options: [
+          `تدرج كلتاهما في حساب الذخائر`,
+          `تدرج مداخيل التغذية بخانة المائدة المشتركة بحساب الداخلية، ومداخيل الإقامة بالخارج عن الميزانية لصيانة وتجهيز مرافق الداخلي`,
+          `تحول مباشرة إلى ميزانية الجماعة الترابية`,
+          `تدرج في خانة المكتبة الترفيهية`
+        ],
+        correct: 1,
+        rationale: `تنص توجيهات المائدة المشتركة على إدراج مداخيل التغذية بخانة المائدة المشتركة بحساب الداخلية، بينما تدرج مداخيل الإقامة في الخانة المخصصة لها بالحساب الخارج عن الميزانية لصيانة وتجهيز مرافق القسم الداخلي، ويُحسم في مآل مداخيل الكفالات والمائدة المشتركة من طرف مدير الأكاديمية.`,
+        ref: `الدليل: فقرة المائدة المشتركة، الإقامة والتغذية`
+      },
+      {
+        id: 18, domain: 'm1', difficulty: 'أساسي',
+        question: `من يبت في طلبات الاستفادة من المائدة المشتركة بالنسبة للعاملين خارج المؤسسة مقارنة بالعاملين بها؟`,
+        options: [
+          `المسير المالي يبت في جميع الطلبات`,
+          `توجه طلبات العاملين خارج المؤسسة إلى المدير الإقليمي، وطلبات العاملين بها إلى رئيس المؤسسة`,
+          `توجه جميع الطلبات إلى الأكاديمية الجهوية`,
+          `الحارس العام للداخلية يبت في طلبات الخارجيين`
+        ],
+        correct: 1,
+        rationale: `يوجه الراغبون في الاستفادة من خدمات المائدة المشتركة طلباتهم إلى السادة المديرين الإقليميين إذا كانوا يعملون خارج المؤسسة، وإلى السادة رؤساء المؤسسات إذا كانوا يعملون بها، مع أداء الواجبات مسبقا للمصالح المادية والمالية.`,
+        ref: `الدليل: توجيهات المائدة المشتركة`
+      },
+      {
+        id: 19, domain: 'm1', difficulty: 'متعمق',
+        question: `ما هي الجهة التي تملك صلاحية تعديل مبلغ ضمانة الداخلية أو ورشات التعليم التقني، وما هو المسار الإجرائي لذلك؟`,
+        options: [
+          `المسير المالي بقرار كتابي يبلغ للتلاميذ`,
+          `مجلس التدبير مع وجوب تضمينه في النظام الداخلي وعرضه على مجلس الأكاديمية للمصادقة`,
+          `رئيس جمعية الآباء باتفاق مع الحارس العام`,
+          `لا يمكن تغيير مبلغ الضمانة أبدا`
+        ],
+        correct: 1,
+        rationale: `طبقا للمادة 18 من المرسوم 2.02.376، لمجلس التدبير صلاحية تحديد أو تغيير قدر ضمانة الداخلية أو ورشات التعليم التقني، مع وجوب تضمين ذلك في النظام الداخلي للمؤسسة وعرضه على مجلس الأكاديمية للمصادقة.`,
+        ref: `المرسوم 2.02.376 — المادة 18 (ضمانة الداخلية)`
+      },
+      {
+        id: 20, domain: 'm1', difficulty: 'متوسط',
+        question: `ما الفرق المحاسبي بين "المداخيل الداخلية" و"مداخيل التسوية" في حسابات المؤسسة؟`,
+        options: [
+          `المداخيل الداخلية هي رسوم التسجيل، ومداخيل التسوية هي المنح الدراسية`,
+          `المداخيل الداخلية قيود دفترية لنقل الأرصدة الدائنة للخارج عن الميزانية والذخائر بعد إقفال السنة، ومداخيل التسوية تقنية لتصحيح الإدراج الخاطئ أو إعادة إقرار مبلغ`,
+          `كلاهما يعني المبالغ النقدية المتحصلة من الكفالات`,
+          `المداخيل الداخلية تخص الصندوق الحديدي فقط`
+        ],
+        correct: 1,
+        rationale: `المداخيل الداخلية هي مجرد قيود دفترية متعلقة بالأرصدة الدائنة للخارج عن الميزانية والذخائر تُضبط بعد إقفال السنة المالية الدراسية لنقلها إلى السنة الموالية، أما مداخيل التسوية فهي تقنية يتم اللجوء إليها لتصحيح الإدراج الخاطئ أو إعادة إقرار مبلغ ما.`,
+        ref: `الدليل: مداخيل تهم الخارجية والداخلية`
+      },
+
+      /* ==================== المحور الثاني: قواعد التنفيذ والفصل بين المهام والتسيير بحكم الواقع (21 - 38) ==================== */
+      {
+        id: 21, domain: 'm2', difficulty: 'أساسي',
+        question: `على أي مبدأ جوهري يرتكز تنفيذ العمليات المالية بالمؤسسة التعليمية (الخارج عن الميزانية)؟`,
+        options: [
+          `مبدأ وحدة الشخص المنفذ لجميع العمليات الإدارية والمحاسبية`,
+          `مبدأ الثنائية والفصل بين المهام (السلطة التقريرية للآمر والسلطة التنفيذية للمحاسب)`,
+          `مبدأ تفويض المهام المالية لجمعية الآباء`,
+          `مبدأ التسيير العرفي دون تقيد بالسجلات`
+        ],
+        correct: 1,
+        rationale: `يستند تنفيذ الخارج عن الميزانية على مبدأي الثنائية والفصل بين المهام، المستمد من فلسفة المرسوم الملكي 330.66 للمحاسبة العمومية، حيث يفصل بين السلطة التقريرية (المدير كآمر بالصرف) والسلطة التنفيذية المحاسبية (المسير كمحاسب).`,
+        ref: `الدليل: الجزء الأول — 2-1 (الفصل بين المهام)`
+      },
+      {
+        id: 22, domain: 'm2', difficulty: 'متعمق',
+        question: `ما هي الصفة القانونية الدقيقة لكل من رئيس المؤسسة ومسير المصالح المادية والمالية في تنفيذ الخارج عن الميزانية؟`,
+        options: [
+          `المدير آمر عمومي بالصرف والمسير محاسب عمومي خاضع مباشرة للخزينة العامة`,
+          `المدير يقوم بدور الآمر بالصرف ولا يعتبر آمرا عموميا، والمسير يقوم بدور المحاسب لكنه ليس بمحاسب عمومي ولا بمحاسب بحكم الواقع`,
+          `كلاهما يعتبران محاسبين بحكم الواقع بموجب المرسوم 2.02.376`,
+          `المسير آمر مساعد بالصرف والمدير عون تنفيذ`
+        ],
+        correct: 1,
+        rationale: `بما أن أموال الخارج عن الميزانية لا تخضع للمحاسبة العمومية، فقد اعتمدت الوزارة هيكلتها مع استثناءات: رئيس المؤسسة يقوم بدور الآمر بالصرف (ولا يعتبر آمرا عموميا)، ومسير المصالح المادية والمالية يقوم بدور المحاسب (وليس محاسبا عموميا ولا محاسبا بحكم الواقع).`,
+        ref: `الدليل: الجزء الأول — 2-2 (الأشخاص المكلفون بالتنفيذ)`
+      },
+      {
+        id: 23, domain: 'm2', difficulty: 'أساسي',
+        question: `أي من الاعتبارات التالية يبرر تطبيق مبدأ الفصل بين مهام المدير والمسير من زاوية "السلطة تحد السلطة"؟`,
+        options: [
+          `الاعتبار الرقابي (تأمين المحافظة على الأموال وضمان رقابة متبادلة وفعالة ومستمرة)`,
+          `الاعتبار الجغرافي لتوزيع المكاتب`,
+          `الاعتبار التطوعي لتخفيف ساعات العمل`,
+          `الاعتبار الضريبي لتقليص واجب التنبر`
+        ],
+        correct: 0,
+        rationale: `يستند فصل المهام على ثلاثة اعتبارات: التنظيمي (الأموال لا توضع تحت يد المدير بل بيد المسير)، الوظيفي (تفادي التعسف والشطط والشبهات)، والرقابي (ضمان رقابة متبادلة ومستمرة انطلاقا من مبدأ "السلطة تحد السلطة").`,
+        ref: `الدليل: الاعتبارات المبررة لمبدأ الفصل بين المهام`
+      },
+      {
+        id: 24, domain: 'm2', difficulty: 'متوسط',
+        question: `ما هي الأركان الثلاثة الواجب توفرها لاعتبار شخص ما "محاسبا بحكم الواقع" طبقا لمدونة المحاكم المالية والمرسوم الملكي 330.66؟`,
+        options: [
+          `الخطأ الحسابي، التأخر في الإيداع، وعدم مسك السجل اليومي`,
+          `انعدام الصفة، وأن تكون الأموال المقبوضة أموالا عمومية، وأن يكون قبضها منوطا مبدئيا بالمحاسب العمومي`,
+          `الاستقالة، عدم توفر الصندوق الحديدي، ووجود عجز مالي`,
+          `شهادة شاهدين، وجود فاتورة، وموافقة مجلس التدبير`
+        ],
+        correct: 1,
+        rationale: `يستوجب قيام التسيير بحكم الواقع توفر ثلاثة عناصر: 1) انعدام الصفة القانونية، 2) كون الأموال المقبوضة أو المتداولة أموالا عمومية، 3) كون قبض هذه الموارد أو دفعها منوطا مبدئيا بالمحاسب العمومي.`,
+        ref: `القانون 62.99 (مدونة المحاكم المالية) والمرسوم الملكي 330.66`
+      },
+      {
+        id: 25, domain: 'm2', difficulty: 'متوسط',
+        question: `أي من التصرفات التالية يمثل حالة نموذجية للتسيير بحكم الواقع في جانب المداخيل؟`,
+        options: [
+          `تأخر المسير في حصر سجل الصندوق إلى اليوم الموالي`,
+          `قيام موظف بإصدار أمر صوري لبيع متلاشيات أو أشجار أو غلات لتغذية صندوق أسود دون اتباع المسطرة القانونية`,
+          `ترحيل رصيد دائن من سنة مالية إلى سنة موالية`,
+          `رفض المسير لأمر أداء لعدم توفر الاعتماد`
+        ],
+        correct: 1,
+        rationale: `من أمثلة التسيير بحكم الواقع في المداخيل: قيام موظف بإصدار أمر صوري لاستخلاص أموال عمومية عبر بيع متلاشيات أو معدات أو أشجار أو غلات لتغذية صندوق أسود دون سلوك المسطرة القانونية، ويُخضع ذلك لمسطرة التدقيق والبت أمام المحاكم المالية.`,
+        ref: `الدليل: الجزء الأول — 2-3 (التسيير بحكم الواقع)`
+      },
+      {
+        id: 26, domain: 'm2', difficulty: 'أساسي',
+        question: `هل يحق لمدير المؤسسة الاحتفاظ بمفاتيح صندوق المال والمخازن أو إجراء عمليات الصندوق؟`,
+        options: [
+          `نعم، بصفته المسؤول الأول عن المؤسسة`,
+          `لا، فالمدير يتولى المحاسبة الإدارية فقط ولا يتداول الأموال ولا يحتفظ بمفاتيح الصندوق والمخازن ولا يجري أية عملية للصندوق`,
+          `يجوز له الاحتفاظ بمفاتيح المخزن دون صندوق المال`,
+          `يجوز له ذلك خلال العطل الصيفية فقط`
+        ],
+        correct: 1,
+        rationale: `يقوم المدير بدور الآمر فيتولى عمليات المحاسبة الإدارية (إثبات الحقوق والأمر بالتحصيل والالتزام والأمر بالدفع)، ولا يتداول الأموال ولا يحتفظ بمفاتيح صندوق المال والمخازن ولا يجري أية عملية للصندوق.`,
+        ref: `الدليل: الجزء الأول — 2-4 (القواعد الخاصة بالمدير والمسير)`
+      },
+      {
+        id: 27, domain: 'm2', difficulty: 'أساسي',
+        question: `ما هي الصفات الثلاث التي يجمعها مسير المصالح المادية والمالية وفق النصوص التنظيمية؟`,
+        options: [
+          `آمر بالصرف، ومفتش، ومقرر لمجلس القسم`,
+          `محاسب مالي، ومحاسب مادي للمواد، ومدبر (عضو بمجلس التدبير)`,
+          `حارس عام، وأمين مكتبة، وممثل جمعية الآباء`,
+          `محاسب عمومي، وقاض مالي، ووكيل مزودين`
+        ],
+        correct: 1,
+        rationale: `يحمل المسير صفتين محاسبيتين: محاسب لمالية المؤسسة (قبض المداخيل وأداء النفقات وتداول الأموال دون سلطة استخدامها)، ومحاسب لموادها (الطلب، الاستعمال، الحفظ، الجرد)، إلى جانب صفته مدبرا وعضوا في مجلس التدبير.`,
+        ref: `الدليل: الجزء الأول — 2-4 (القواعد الخاصة بالمدير والمسير)`
+      },
+      {
+        id: 28, domain: 'm2', difficulty: 'أساسي',
+        question: `بماذا يتوجب على كل من المدير والمسير توثيق بدء ممارسة مهامهما عند التعيين بالمؤسسة؟`,
+        options: [
+          `بإعلان شفوي أمام مجلس التدبير`,
+          `بتوقيع محضر تسليم المهام`,
+          `بإشعار كتابي يوجه لجمعية أمهات وآباء التلاميذ`,
+          `بانتظار نهاية الدورة المحاسبية الأولى`
+        ],
+        correct: 1,
+        rationale: `يتعين وجوبا على كل من المدير والمسير تسلم مهامهما بواسطة محضر تسليم المهام لتحديد المسؤوليات بدقة وحصر الوضعية المالية والمادية عند تاريخ التسلم.`,
+        ref: `الدليل: القواعد الخاصة بالمدير والمسير (محضر تسليم المهام)`
+      },
+      {
+        id: 29, domain: 'm2', difficulty: 'متعمق',
+        question: `في حالة تسيير مسير المصالح المادية والمالية لمؤسستين خارجيتين، كيف ينظم حضوره الأسبوعي؟`,
+        options: [
+          `يعمل شهرا في المؤسسة الأولى وشهرا في الثانية`,
+          `يعمل نصف حصته الأسبوعية بكل مؤسسة على حدة، مع ضرورة الحضور للمؤسستين بالتناوب مرة في الصباح ومرة في المساء`,
+          `يكتفي بالحضور لمؤسسة واحدة ويفوض الأخرى للحارس العام`,
+          `يعمل 4 أيام في الكبرى ويوما واحدا في الصغرى`
+        ],
+        correct: 1,
+        rationale: `توزع حصص عمل المسير من طرف رئيس المؤسسة من الإثنين إلى السبت، وفي حالة تسييره لمؤسستين خارجيتين يعمل نصف المدة الأسبوعية (19 ساعة) بكل مؤسسة على حدة بالتناوب مرة في الصباح ومرة في المساء، مع التمتع برخصة نصف يوم مرتين غير متتابعتين باستثناء صباح الإثنين.`,
+        ref: `الدليل: حصص عمل المسير`
+      },
+      {
+        id: 30, domain: 'm2', difficulty: 'متوسط',
+        question: `ما هو الصباح الذي يُستثنى من رخصة نصف اليومين الأسبوعية الممنوحة لمسير المصالح المادية والمالية؟`,
+        options: [
+          `صباح يوم الأربعاء`,
+          `صباح يوم السبت`,
+          `صباح يوم الإثنين`,
+          `صباح يوم الجمعة`
+        ],
+        correct: 2,
+        rationale: `بالإضافة إلى يوم الأحد، يتمتع المسير برخصة نصف يوم مرتين غير متتابعتين في الأسبوع، باستثناء صباح يوم الإثنين، كما أنه ملزم بالمشاركة في المداومة.`,
+        ref: `الدليل: حصص عمل المسير والمداومة`
+      },
+      {
+        id: 31, domain: 'm2', difficulty: 'أساسي',
+        question: `متى تبتدئ السنة المالية الدراسية المعتمدة لتنفيذ مالية المؤسسات التعليمية ومتى تنتهي؟`,
+        options: [
+          `من فاتح يناير إلى 31 دجنبر`,
+          `من فاتح شتنبر إلى 31 غشت`,
+          `من فاتح يوليوز إلى 30 يونيو من كل سنة`,
+          `من فاتح أكتوبر إلى 30 شتنبر`
+        ],
+        correct: 2,
+        rationale: `خلافا للسنة المالية للدولة (من فاتح يناير إلى 31 دجنبر)، تبدأ السنة المالية الدراسية للمؤسسات التعليمية في فاتح يوليوز وتنتهي في 30 يونيو من كل سنة، وذلك عملا بقاعدة السنوية.`,
+        ref: `الدليل: 2-5 (أ- قاعدة السنوية)`
+      },
+      {
+        id: 32, domain: 'm2', difficulty: 'أساسي',
+        question: `ماذا تعني "قاعدة وحدة الصندوق" في التدبير المالي للمؤسسة التعليمية؟`,
+        options: [
+          `إلغاء جميع السجلات والاكتفاء بسجل واحد فقط`,
+          `أن يتضمن الصندوق عدة أموال لعدة حسابات (الخارجية، الداخلية، الذخائر...) يعبر عنها في سجلات منفصلة ولكنها موحدة في صندوق واحد وتصب في حساب جاري واحد`,
+          `منع فتح أي حساب جاري بريدي للمؤسسة`,
+          `صرف جميع المداخيل في بند المصاريف العامة`
+        ],
+        correct: 1,
+        rationale: `تعني قاعدة وحدة الصندوق أن جميع أموال الحسابات المختلفة (الخارجية، الداخلية، الذخائر...) تدوّن في سجلات محاسبية منفصلة لكنها تبقى موحدة ماديا في صندوق واحد وتصب في حساب جاري بريدي واحد.`,
+        ref: `الدليل: 2-5 (ب- قاعدة وحدة الصندوق)`
+      },
+      {
+        id: 33, domain: 'm2', difficulty: 'متوسط',
+        question: `ما مصير الاعتماد المفتوح في خانة معينة من الخارج عن الميزانية إذا لم يُصرف خلال السنة المالية الدراسية؟`,
+        options: [
+          `يُلغى تلقائيا ويُرجع لخزينة الدولة`,
+          `يُحوّل إجباريا إلى حساب جمعية الآباء`,
+          `لا يلغى لعدم الاستعمال، وإنما ينقل إلى السنة الموالية الجديدة محتفظا بنفس الإدراج وداخل نفس الحساب`,
+          `يُخصم منه 50% ويُنقل الباقي إلى خانة المصاريف العامة`
+        ],
+        correct: 2,
+        rationale: `وفقا لقاعدة تخصيص الاعتماد السنوي، إذا لم يُوظَّف الاعتماد خلال السنة التي فُتح فيها فإنه لا يُلغى لعدم الاستعمال، وإنما يُرحَّل إلى السنة المالية الدراسية الموالية محتفظا بنفس الإدراج وداخل نفس الحساب.`,
+        ref: `الدليل: 2-5 (ث- قاعدة تخصيص الاعتماد السنوي)`
+      },
+      {
+        id: 34, domain: 'm2', difficulty: 'متوسط',
+        question: `متى يجوز تحويل اعتماد من حساب لآخر أو من بند لآخر داخل بنود الحساب بالخارج عن الميزانية؟`,
+        options: [
+          `بقرار شفوي من مدير المؤسسة`,
+          `بمبادرة من مسير المصالح المادية والمالية عند وجود فائض`,
+          `لا يجوز ذلك إلا برخصة من السلطة المختصة (الأكاديمية الجهوية للتربية والتكوين)`,
+          `يجوز ذلك كل نهاية شهر دون ترخيص`
+        ],
+        correct: 2,
+        rationale: `تنص قاعدة تخصيص الاعتمادات حسب الحسابات والبنود على أن اعتمادات المؤسسة ليست كتلة واحدة، ولا يجوز القيام بعملية تحويل من حساب لآخر أو من بند لآخر داخل بنود الحساب إلا برخصة من السلطة المختصة (الأكاديمية).`,
+        ref: `الدليل: 2-5 (ج- قاعدة تخصيص الاعتمادات حسب الحسابات والبنود)`
+      },
+      {
+        id: 35, domain: 'm2', difficulty: 'أساسي',
+        question: `ما المقصود بـ "قاعدة تخصيص الموارد" عند إنفاق اعتمادات المؤسسة؟`,
+        options: [
+          `إنفاق جميع الموارد في الصيانة فقط`,
+          `تخصيص مورد معين من إيرادات المؤسسة لإنفاقه على صنف معين من أصناف النفقات مع احترام الإدراج الصحيح`,
+          `توزيع الاعتمادات بالتساوي على الأساتذة`,
+          `تحويل موارد المكتبة إلى الأنشطة الرياضية`
+        ],
+        correct: 1,
+        rationale: `تقتضي قاعدة تخصيص الموارد تخصيص مورد معين من الإيرادات لإنفاقه على صنف معين من النفقات مع احترام الإدراج عند الإنفاق؛ فلا يجوز إدراج نفقة في بند لا تنتسب إليه أو تغطيتها من اعتماد لم يفتح من أجله.`,
+        ref: `الدليل: 2-5 (ت- قاعدة تخصيص الموارد)`
+      },
+      {
+        id: 36, domain: 'm2', difficulty: 'أساسي',
+        question: `ما هي الخانة الوحيدة التي يُستثنى فيها وجود رصيد مدين عند إقفال السنة المالية طبقا لقاعدة التوازن الحسابي؟`,
+        options: [
+          `خانة المكتبة الترفيهية`,
+          `خانة المصاريف العامة`,
+          `الخانة رقم 12 المخصصة للتسبيقات أو القروض الممنوحة لمؤسسة ما بمقتضى ترخيص`,
+          `خانة الضمان المدرسي`
+        ],
+        correct: 2,
+        rationale: `عملا بقاعدة التوازن الحسابي، يجب ألا تفوق النفقات المداخيل في أية خانة حتى لا تقع المالية في عجز، باستثناء الخانة المخصصة للتسبيقات أو القروض الممنوحة لمؤسسة أخرى بترخيص من الوزارة أو الأكاديمية.`,
+        ref: `الدليل: قاعدة التوازن وبيان اختتام السنة المالية`
+      },
+      {
+        id: 37, domain: 'm2', difficulty: 'متوسط',
+        question: `ماذا تعني "قاعدة الصدقية" في تنفيذ العمليات المالية بالمؤسسة التعليمية؟`,
+        options: [
+          `الاكتفاء بالتقارير الشفوية عند غياب الفواتير`,
+          `التزام المتدخلين في تنفيذ العمليات المالية بالعمل بحكامة وأمانة ومسؤولية`,
+          `تقديم الفواتير بعد مرور سنة من الأداء`,
+          `إعفاء التلاميذ من أداء الرسوم بمجرد التصريح الشفوي`
+        ],
+        correct: 1,
+        rationale: `تُعد قاعدة الصدقية إحدى القواعد السبع لتنفيذ الخارج عن الميزانية، وتعني وجوب تحلي كافة المتدخلين في العمليات المالية (الآمر والمحاسب ومساعديهما) بالحكامة والأمانة والمسؤولية والشفافية.`,
+        ref: `الدليل: 2-5 (خ- قاعدة الصدقية)`
+      },
+      {
+        id: 38, domain: 'm2', difficulty: 'متعمق',
+        question: `في إطار المرسوم 2.72.113، متى يتم دعم مسير المصالح المادية والمالية بمساعد واحد في مؤسسة تعليمية خارجية (إعدادية أو تأهيلية)؟`,
+        options: [
+          `بمجرد افتتاح المؤسسة أيا كان عدد التلاميذ`,
+          `إذا تجاوز عدد تلاميذها 1000 تلميذ`,
+          `عندما تضم المؤسسة قسما رياضيا فقط`,
+          `بناء على طلب جمعية الآباء`
+        ],
+        correct: 1,
+        rationale: `طبقا للفصل 5 من المرسوم 2.72.113 (الذي لم يُنسخ بمرسوم 2.02.376)، تسند للمسير مؤسسة أو مؤسستان خارجيتان في حدود 1000 تلميذ، ويدعم بمساعد واحد في كل مؤسسة خارجية يتجاوز عدد تلاميذها 1000 تلميذ (وتوجد عتبات خاصة بالمؤسسات ذات الداخلية).`,
+        ref: `المرسوم 2.72.113 — الفصل 5`
+      },
+
+      /* ==================== المحور الثالث: المحاسبة النقدية والسجلات وحصر الحسابات والمنح (39 - 60) ==================== */
+      {
+        id: 39, domain: 'm3', difficulty: 'أساسي',
+        question: `ما هي المراحل الثلاث للتنفيذ الإداري للمداخيل التي يضطلع بها الآمر بالصرف (المدير)؟`,
+        options: [
+          `الالتزام، التصفية، والأمر بالدفع`,
+          `الإثبات، التصفية، والأمر بالتحصيل (الاستخلاص)`,
+          `القبض، الإيداع، والحصر`,
+          `التسجيل، التبويب، والترحيل`
+        ],
+        correct: 1,
+        rationale: `يمر التنفيذ الإداري للمداخيل عبر ثلاث مراحل من مهام الآمر: 1) الإثبات (تكريس حق الدائن)، 2) التصفية (حصر المبلغ الصحيح)، 3) الأمر بالتحصيل (تسليم سند القبض أو التأشير على سجلات الحقوق المثبتة)، ثم يتولى المسير المرحلة الرابعة وهي التحصيل.`,
+        ref: `الدليل: الجزء الأول — 3-1 (المسطرة العادية لتنفيذ المداخيل)`
+      },
+      {
+        id: 40, domain: 'm3', difficulty: 'متوسط',
+        question: `بماذا يعوّض "سند القبض" في المؤسسات التعليمية عند إصدار الأمر بتحصيل الحقوق المثبتة؟`,
+        options: [
+          `بإعلان معلق في السبورة الحائطية`,
+          `بتأشيرة رئيس المؤسسة على سجلات الحقوق المثبتة (للخارجية والداخلية)`,
+          `برسالة هاتفية إلى مسير المصالح المادية والمالية`,
+          `بمحضر اجتماع مجلس القسم`
+        ],
+        correct: 1,
+        rationale: `بالنسبة للمؤسسات التعليمية، يمكن تعويض سند القبض الفردي بتأشيرة رئيس المؤسسة على سجلات الحقوق المثبتة (سجل مراقبة الخارجية ومراقبة الداخلية) بناء على قوائم التلاميذ المعدة في بداية الموسم الدراسي.`,
+        ref: `الدليل: تنفيذ المداخيل — الأمر بالاستخلاص`
+      },
+      {
+        id: 41, domain: 'm3', difficulty: 'أساسي',
+        question: `ما هي المراحل الثلاث للتنفيذ الإداري للنفقات قبل وصول الملف إلى مرحلة الأداء المحاسبي؟`,
+        options: [
+          `الإثبات، القبض، والإيداع`,
+          `الالتزام، التصفية، والأمر بالدفع`,
+          `الجرد، التحويل، والحذف`,
+          `الطلب الهاتفي، التسلم، والتسبيق`
+        ],
+        correct: 1,
+        rationale: `لا يتم أداء النفقات إلا بعد التنفيذ الإداري عبر ثلاث عمليات: 1) الالتزام (بواسطة سند طلب)، 2) التصفية (التحقق من العمل المنجز وحصر المبلغ)، 3) الأمر بالدفع (عبارة المدير: "تأكد من صحته وصالح للأداء").`,
+        ref: `الدليل: الجزء الأول — 3-1 (تنفيذ النفقات)`
+      },
+      {
+        id: 42, domain: 'm3', difficulty: 'متوسط',
+        question: `ما هو الموقف القانوني الصحيح من استعمال "رسالة طلب" أو "الهاتف" بدلا من "سند الطلب" في التزامات الخارج عن الميزانية؟`,
+        options: [
+          `أسلوب مقبول تماما ومساوٍ لسند الطلب`,
+          `نهج غير مقبول، ولا يُلجأ إليه إلا لتأكيد سند طلب سبق تحريره`,
+          `مقبول في النفقات التي تقل عن 5000 درهم`,
+          `مقبول فقط في اقتناء المواد الغذائية`
+        ],
+        correct: 1,
+        rationale: `لا يتم الالتزام إلا بواسطة "سند طلب" (خاص بتنفيذ الخارج عن الميزانية)، ويعتبر استعمال "رسالة طلب" أو "الهاتف" نهجا غير مقبول ولا يُلجأ إليه إلا لتأكيد سند طلب سبق تحريره، كما يخصص دفتر سندات واحد لكل مزود ويُحتفظ بالسند الملغى داخل الدفتر.`,
+        ref: `الدليل: توجيهات سند الطلب`
+      },
+      {
+        id: 43, domain: 'm3', difficulty: 'أساسي',
+        question: `ما هي العبارة التي يعبّر بها رئيس المؤسسة عن "الأمر بالدفع" الموجّه إلى مسير المصالح المادية والمالية؟`,
+        options: [
+          `"مقبول للاستخلاص الفوري"`,
+          `"تأكد من صحته وصالح للأداء"`,
+          `"لأجل الإبراء <bdi dir="ltr">Pour Acquit</bdi>"`,
+          `"مادة حولت إلى"`
+        ],
+        correct: 1,
+        rationale: `الأمر بالدفع هو القرار الإداري الذي يصدره رئيس المؤسسة طبقا لنتائج التصفية، ويعبر عنه كتابة بعبارة "تأكد من صحته وصالح للأداء"، وهي بمثابة أمر للمسير بتسديد الدين.`,
+        ref: `الدليل: تنفيذ النفقات — الأمر بالدفع`
+      },
+      {
+        id: 44, domain: 'm3', difficulty: 'متعمق',
+        question: `في أي حالة من الحالات التالية يتعيّن على المسير التمسك بالرفض وعدم الامتثال لأمر الأداء الصادر عن المدير؟`,
+        options: [
+          `عدم إخضاع الالتزام لتوقيع المسير فقط مع سلامة الخدمة والاعتماد`,
+          `تأخر المزود يوما واحدا عن الموعد المتفق عليه`,
+          `عدم وجود الاعتماد أو عدم كفايته، أو الإدراج الخاطئ، أو عدم إثبات إنجاز الخدمة، أو انعدام الصفة الإبرائية للتسديد`,
+          `تغيير اسم المزود التجاري بعد التصفية مع توفر الوكالة القانونية`
+        ],
+        correct: 2,
+        rationale: `يتمسك المسير بالرفض ولا يمتثل للأمر بالأداء مع مراسلة السلطات المختصة في أربع حالات حصرية: انعدام الاعتماد أو عدم كفايته، الإدراج الخاطئ، عدم إثبات إنجاز الخدمة، وعدم توفر الصفة الإبرائية للتسديد. أما مجرد عيب في مرحلتي الالتزام أو التصفية فيجيز للمسير التسوية مع إشعار الرؤساء كتابة.`,
+        ref: `الدليل: خطاطة وموانع الأداء`
+      },
+      {
+        id: 45, domain: 'm3', difficulty: 'متعمق',
+        question: `إذا ردّ المسير ملف نفقة للآمر بالصرف بسبب عيب إداري لا يمس جوهر موانع الأداء الأربع، وأصر الآمر كتابة على التنفيذ، ما الإجراء الذي يُعفي المسير من المسؤولية؟`,
+        options: [
+          `الامتناع النهائي وإغلاق الصندوق`,
+          `استعمال الآمر لسلطة التسخير (طلب صرف النظر مع الدفع)، فيؤدي المسير النفقة مع الإعفاء من المسؤولية وإشعار الرؤساء`,
+          `توجيه الملف مباشرة إلى وكيل الملك`,
+          `طلب قرض من جمعية الآباء لتغطية النفقة`
+        ],
+        correct: 1,
+        rationale: `تظهر خطاطة الفصل بين المهام أنه في الحالات غير المانعة للأداء (خارج الحالات الأربع الحصرية)، إذا أصدر الآمر "طلب صرف النظر مع الدفع" (سلطة التسخير)، ينفذ المسير الدفع مع إعفائه من المسؤولية وإشعار المسؤولين الرؤساء كتابة.`,
+        ref: `الدليل: خطاطة عمليات المداخيل والنفقات والمراقبة`
+      },
+      {
+        id: 46, domain: 'm3', difficulty: 'متوسط',
+        question: `ما هو الترتيب التسلسلي الصحيح لإشعارات ملاحقة المدينين عند التأخر في أداء الواجبات المدرسية؟`,
+        options: [
+          `المدير أولا، ثم الحارس العام، ثم المسير، ثم الأكاديمية`,
+          `رسالة تذكير أولى من المسير، ثم ثانية من المدير بتعاون مع الناظر، ثم ثالثة وأخيرة من رئيس المؤسسة بأجل محدد، ثم طلب المسير الملاحقة القضائية`,
+          `محضر الشرطة مباشرة بعد انقضاء الأسبوع الأول`,
+          `إشعار من جمعية الآباء ثم رسالة من المسير`
+        ],
+        correct: 1,
+        rationale: `تُبعث رسالة التذكير الأولى موقعة من المسير؛ وعند عدم الاستجابة تبعث الثانية موقعة من المدير بتعاون مع الناظر للتحري في الأسباب؛ ثم الثالثة والأخيرة من رئيس المؤسسة للتنبيه بإرجاع التلميذ لذويه والعواقب القضائية، وبعد انقضاء الأجل يلتمس المسير الملاحقة القضائية ويحيل الرئيس الأمر للقضاء.`,
+        ref: `الدليل: قواعد تنفيذ المداخيل — ملاحقة المدينين`
+      },
+      {
+        id: 47, domain: 'm3', difficulty: 'أساسي',
+        question: `ما هي القاعدة الإجرائية عند الأداء نقدا لدائن أميّ لا يحسن التوقيع؟`,
+        options: [
+          `يمتنع المسير عن أدائه نقدا مهما كان المبلغ`,
+          `يبصم الدائن على وثيقة الإبراء بحضور شاهدين يوقعان معه`,
+          `يوقع مسير المصالح المادية نيابة عنه`,
+          `يكفي أخذ صورة للبطاقة الوطنية دون بصمة`
+        ],
+        correct: 1,
+        rationale: `عند الأداء نقدا من صندوق المؤسسة، يؤرخ الدائن ويوقع تحت عبارة "لأجل الإبراء <bdi dir="ltr">Pour Acquit</bdi>" مع طرح واجب التنبر، وإذا كان الدائن أميا يتعين عليه وضع بصمته بحضور شاهدين يوقعان معه على التصريح أو وثيقة الإبراء.`,
+        ref: `الدليل: الأداء وطرقه`
+      },
+      {
+        id: 48, domain: 'm3', difficulty: 'أساسي',
+        question: `كم رقما يتكون منه رقم بيان التعريف البنكي (<bdi dir="ltr">RIB</bdi>) المطلوب عند تنفيذ أمر بالتحويل من الحساب الجاري للمؤسسة إلى بنك عادي؟`,
+        options: [
+          `16 رقما`,
+          `20 رقما`,
+          `24 رقما`,
+          `12 رقما`
+        ],
+        correct: 2,
+        rationale: `إذا كان المستفيد يتوفر على حساب ببنك آخر غير بريد بنك، يتطلب الأمر بالتحويل من الحساب الجاري للمؤسسة الإدلاء برقم بيان التعريف البنكي (<bdi dir="ltr">RIB</bdi>) المكون من 24 رقما، مع اعتماد التحويل أو الشيك المسطر غير القابل للتظهير عند تجاوز السقف المحدد أو عندما يكون للجهة المستفيدة محاسب عمومي.`,
+        ref: `الدليل: الأداء وطرقه (الأمر بالتحويل)`
+      },
+      {
+        id: 49, domain: 'm3', difficulty: 'أساسي',
+        question: `ما هو الحد الأقصى المسموح به لمنح "التسبيقات" من الصندوق في انتظار تقديم الفاتورة للتسديد؟`,
+        options: [
+          `نصف (1/2) قيمة الأعمال المسلمة`,
+          `ثلثا (2/3) قيمة الأعمال المسلمة (أشغال، توريدات، خدمات)`,
+          `ربع (1/4) قيمة الأعمال المسلمة`,
+          `كامل المبلغ (100%) قبل تسلم الأعمال`
+        ],
+        correct: 1,
+        rationale: `يجوز منح تسبيقات على شكل دفعات مقدمة من الصندوق في انتظار تقديم الفاتورة للتسديد، شريطة ألا يتجاوز التسبيق ما مجموعه ثلثي (2/3) قيمة الأعمال المسلمة فعليا.`,
+        ref: `الدليل: الأحكام المتعلقة بالأداء (التسبيقات)`
+      },
+      {
+        id: 50, domain: 'm3', difficulty: 'متوسط',
+        question: `ما المقصود بقاعدة "التقادم الرباعي" في ديون المؤسسة التعليمية؟`,
+        options: [
+          `إعادة جرد الكتب كل أربع سنوات`,
+          `سقوط حق الدائن في المطالبة بمستحقاته بمرور أربع سنوات على إصدار الأمر بأداء النفقة، ما لم يكن التأخير لخطإ إداري أو إجراءات قضائية`,
+          `صلاحية الشيك المسطر لمدة أربع سنوات`,
+          `حصر السجلات المحاسبية كل أربعة فصول`
+        ],
+        correct: 1,
+        rationale: `التقادم الرباعي هو سقوط الحق بمضي أربع سنوات؛ إذ يسقط حق الدائن في المطالبة بمستحقاته بمرور أربع سنوات على إصدار الأمر بأداء النفقة، باستثناء النفقات التي لم تتم بشأنها التصفية والأمر بالأداء أو إذا كان التأخير بسبب خطإ إداري أو إجراءات قضائية.`,
+        ref: `الدليل: الأحكام المتعلقة بالأداء (التقادم الرباعي)`
+      },
+      {
+        id: 51, domain: 'm3', difficulty: 'متوسط',
+        question: `أي من النفقات التالية لا تخضع لـ "المسطرة المبسطة للتنفيذ" ذات الالتزام التلقائي؟`,
+        options: [
+          `الضمان المدرسي وحصص الجامعة الملكية المغربية للرياضة المدرسية`,
+          `النفقات الطارئة التي لا تتحمل الانتظار وتكاليف البعثات البريدية`,
+          `نفقات اقتناء تجهيزات كبرى مبرمجة في الظروف العادية مع حضور المدير`,
+          `رسوم السحب والإيداع والأوامر بالصرف الإجمالية`
+        ],
+        correct: 2,
+        rationale: `تطبق المسطرة المبسطة (بالمذكرتين 1008 و1125) شريطة عرضها على تأشيرة المدير مباشرة بعد تسويتها على: الضمان المدرسي، حصص الرياضة المدرسية والأنشطة الاجتماعية، النفقات البسيطة والطارئة، غياب المدير لسبب قاهر دون خلف، البعثات البريدية، رسوم السحب والإيداع، التسبيقات، والأوامر بالصرف الإجمالية.`,
+        ref: `الدليل: 3-2 (المسطرة المبسطة للتنفيذ)`
+      },
+      {
+        id: 52, domain: 'm3', difficulty: 'متعمق',
+        question: `ما هي الوثائق المطلوبة لإيداع طلب "تغيير التوقيع" لدى مركز تدبير الحسابات البريدية الجارية بالرباط عند تعيين مسير جديد؟`,
+        options: [
+          `البطاقة الوطنية فقط ترسل مباشرة عبر البريد العادي`,
+          `طلب عبر السلم الإداري (المدير ثم المديرية الإقليمية ثم الأكاديمية) مرفق بنسخة مصادق عليها من قرار التعيين، ونسخة البطاقة الوطنية، وبطاقة <bdi dir="ltr">CH 25</bdi> موقعة`,
+          `محضر مجلس التدبير موثق لدى الجماعة`,
+          `شهادة عدم الملكية ونسخة من سجل الصندوق`
+        ],
+        correct: 1,
+        rationale: `يتعين على المسير الجديد التقدم بطلب عبر السلم الإداري (مدير المؤسسة -> المديرية الإقليمية -> الأكاديمية) إلى مركز تدبير الحسابات البريدية الجارية بالرباط، مرفقا بنسخة مصادق عليها من قرار تعيينه بالمؤسسة، ونسخة من بطاقته الوطنية، وبطاقة <bdi dir="ltr">CH 25</bdi> المتوفرة لدى المصالح البريدية حاملة لتوقيعه.`,
+        ref: `الدليل: 3-3 (الحساب الجاري البريدي)`
+      },
+      {
+        id: 53, domain: 'm3', difficulty: 'متوسط',
+        question: `ما الإجراء المحاسبي الواجب تطبيقه على "سجل الإيصالات الملحق" عند انتهاء صلاحيته في 31 دجنبر من كل سنة؟`,
+        options: [
+          `إحراقه فورا وإتلاف جميع أوراقه`,
+          `بتر الإيصالات غير المستعملة إلى نصفين في الوسط عموديا، مع إلصاق النصف المبتور على اليسار قبالة النصف الآخر`,
+          `مواصلة استعماله في السنة الموالية إلى حين نفاده`,
+          `إرساله إلى إدارة أملاك الدولة`
+        ],
+        correct: 1,
+        rationale: `يستعمل سجل الإيصالات الملحق لتحصيل مستحقات الخارجية نقدا فقط، وتنتهي صلاحيته في 31 دجنبر من كل سنة، حيث يجب بتر الإيصالات غير المستعملة إلى نصفين في الوسط وعموديا، وإلصاق النصف المبتور على اليسار قبالة النصف الآخر لمنع أي استعمال لاحق.`,
+        ref: `الدليل: 4-1 (أ- سجلات المداخيل: سجل الإيصالات الملحق)`
+      },
+      {
+        id: 54, domain: 'm3', difficulty: 'متوسط',
+        question: `بماذا يختلف "سجل الإيصالات العام" عن "سجل الإيصالات الملحق" من حيث مدة الصلاحية والاستعمال؟`,
+        options: [
+          `كلاهما ينتهي في 31 دجنبر`,
+          `السجل العام يستمر العمل به إلى أن تنفذ جميع إيصالاته، مع فصل السنة المنصرمة عن الجديدة بترك صفحة فارغة وإبطال إيصالاتها`,
+          `السجل العام يقتصر على مداخيل الداخلية فقط`,
+          `السجل الملحق يستعمل للشيكات والحوالات البريدية`
+        ],
+        correct: 1,
+        rationale: `على عكس السجل الملحق الذي تنتهي صلاحيته في 31 دجنبر، يستمر العمل بسجل الإيصالات العام لتسجيل كل مداخيل المؤسسة كيفما كان نوعها إلى أن تنفذ جميع إيصالاته، مع فصل السنة المنصرمة عن السنة الجديدة بترك صفحة فارغة مع إبطال إيصالاتها.`,
+        ref: `الدليل: 4-1 (سجل الإيصالات العام)`
+      },
+      {
+        id: 55, domain: 'm3', difficulty: 'أساسي',
+        question: `متى يجب حصر "سجل الصندوق" وما المعطيان اللذان يتيح معرفتهما؟`,
+        options: [
+          `مرة واحدة في نهاية السنة الدراسية لمعرفة عدد التلاميذ`,
+          `في آخر اليوم كلما نُفّذت عملية تحصيل أو دفع، ويتيح معرفة محتوى الصندوق نقدا (السيولة) وكذا الرصيد بالحساب الجاري`,
+          `عند زيارة المفتش الإقليمي فقط`,
+          `في نهاية كل أسبوعين لمعرفة عدد الوجبات`
+        ],
+        correct: 1,
+        rationale: `يقيّد في سجل الصندوق المبلغ الإجمالي للمداخيل المستخلصة والمصاريف المؤداة (نقدا أو بالشيك)، ويجب حصر الصندوق في آخر اليوم كلما نُفّذت عملية تحصيل أو دفع، وبخصم المصاريف من المداخيل يُعرف محتوى الصندوق نقدا والرصيد بالحساب الجاري.`,
+        ref: `الدليل: 4-1 (سجل الصندوق)`
+      },
+      {
+        id: 56, domain: 'm3', difficulty: 'أساسي',
+        question: `ما العبارة الرسمية التي يفتح ويؤشر بها مدير المؤسسة السجلات المحاسبية المتداولة قبل بدء استعمالها؟`,
+        options: [
+          `"سجل مفتوح للتجريب تحت مسؤولية المسير"`,
+          `"يحتوي سجل (نوع السجل) هذا على (العدد) صفيحة، مرقمة وممضاة في أول وآخر صفيحة من طرفنا نحن (الاسم الكامل للمدير) مدير (المؤسسة)"`,
+          `"صالح للأداء والتحصيل دون ترقيم"`,
+          `"مؤشر عليه من طرف مجلس التدبير"`
+        ],
+        correct: 1,
+        rationale: `قبل الشروع في استعمال أي سجل، يفتحه مدير المؤسسة ويؤشر عليه بعبارة التأشير الرسمية المحددة لنوع السجل وعدد صفائحه المرقمة والممضاة في أول وآخر صفيحة، كما يؤشر على السجلات بعد كل مراقبة وحصر دوري أو سنوي.`,
+        ref: `الدليل: 4-1 (ت- الأحكام المتعلقة بالسجلات)`
+      },
+      {
+        id: 57, domain: 'm3', difficulty: 'أساسي',
+        question: `كم عدد الدورات المحاسبية التي تحصر فيها حسابات المؤسسة التعليمية خلال السنة المالية الدراسية؟`,
+        options: [
+          `دورتان فقط (الأولى والثانية)`,
+          `أربع دورات: التمهيدية، والأولى، والثانية، والثالثة (تنتهي في 30 يونيو)`,
+          `ست دورات بمعدل دورة كل شهرين`,
+          `ثلاث دورات فقط تنتهي في 31 مارس`
+        ],
+        correct: 1,
+        rationale: `تُحصر الحسابات عند نهاية كل دورة محاسبية من الدورات الأربع: الدورة التمهيدية (تبتدئ في فاتح يوليوز إلى نهاية شتنبر)، الدورة الأولى (إلى 31 دجنبر)، الدورة الثانية (فاتح يناير إلى 31 مارس)، والدورة الثالثة (فاتح أبريل إلى 30 يونيو).`,
+        ref: `الدليل: 4-2 (حصر الحسابات)`
+      },
+      {
+        id: 58, domain: 'm3', difficulty: 'متوسط',
+        question: `من يعدّ "بيانات مصاريف المنح" و"بيانات اقتراحات آخر السنة" الخاصة بالقسم الداخلي، ومن يوقعها؟`,
+        options: [
+          `يعدها أستاذ التربية البدنية ويوقعها رئيس جمعية الآباء`,
+          `تعبأ من طرف الحارس العام للداخلية بتعاون مع رئيس المصالح المادية والمالية، وتوقع من طرف رئيس المؤسسة (ومع المسير في بيانات المصاريف)`,
+          `تعدها المديرية الإقليمية وترسلها للمؤسسة للتنفيذ`,
+          `يعدها أعوان الطبخ والحراسة`
+        ],
+        correct: 1,
+        rationale: `تعبأ بيانات مصاريف المنح وبيانات اقتراحات آخر السنة (التجديد، التخفيض، الحذف، الترقية، الاحتفاظ الاستثنائي، التغيير، التوقيف، الاسترجاع) من طرف الحارس العام للداخلية بتعاون مع رئيس المصالح المادية والمالية، وتوقع من طرف رئيس المؤسسة (مع رئيس المصالح المادية والمالية في بيانات المصاريف) وتوجه للمديرية الإقليمية.`,
+        ref: `الدليل: 4-2 (الوثائق الدورية والسنوية)`
+      },
+      {
+        id: 59, domain: 'm3', difficulty: 'متوسط',
+        question: `على من تقع مسؤولية المصادقة على "برنامج التغذية" الأسبوعي بالأقسام الداخلية، وأين يجب نشره؟`,
+        options: [
+          `المسير فقط، ويحفظ داخل الصندوق الحديدي`,
+          `يصادق عليه الطبيب المتعاقد ورئيس المؤسسة والمسير، وينشر في المطبخ والمطعم والنادي ليطلع عليه التلاميذ`,
+          `الحارس العام للداخلية فقط، ويرسل للأكاديمية`,
+          `ممون السوق الأسبوعي ورئيس جمعية الآباء`
+        ],
+        correct: 1,
+        rationale: `يصادق على برنامج التغذية كل من الطبيب المتعاقد ورئيس المؤسسة والمسير، ويتوفر الحارس العام للداخلية على نسخة منه، وينشر في المطبخ والمطعم والنادي؛ وأي تعديل فيه يستوجب تعبئة "مطبوع تغيير الوجبة" وتوقيعه من الرئيس والمسير مع تعليل الأسباب.`,
+        ref: `الدليل: 5-2 (ت- برنامج التغذية)`
+      },
+      {
+        id: 60, domain: 'm3', difficulty: 'متعمق',
+        question: `متى تتوقف خدمات الداخلية، ومن يتولى مهمة "حراس الداخلية" وبأي مقابل مادي؟`,
+        options: [
+          `تتوقف خلال العطل التي تعادل أو تفوق 3 أيام؛ ويسند حراس الداخلية للتلاميذ المستحقين غير الممنوحين (أو موظفين عند عدم وجودهم) دون مقابل مادي`,
+          `لا تتوقف خدمات الداخلية أبدا، ويتقاضى حراس الداخلية أجرا شهريا من الخارج عن الميزانية`,
+          `تتوقف في العطل التي تتجاوز 15 يوما، ويتولى المهمة التلاميذ الممنوحون بمكافأة`,
+          `تتوقف يوم الأحد فقط، ويؤدى الأجر من صندوق الذخائر`
+        ],
+        correct: 0,
+        rationale: `تتوقف خدمات الداخلية خلال العطل التي تعادل أو تفوق 3 أيام (مع إمكانية الإيواء فقط للمتعذر سفرهم بشرط توفير مداوم). كما يعمل حراس الداخلية بإذن من رئيس المؤسسة بدون مقابل مادي ويسندون للتلاميذ المستحقين والمحتاجين غير الممنوحين تحت المسؤولية المباشرة للحارس العام للداخلية.`,
+        ref: `الدليل: 5-2 (اعتماد التغذية وحراس الداخلية)`
+      },
+
+      /* ==================== المحور الرابع: التدبير المادي والجرد ومحاسبة الاستهلاك والوقاية (61 - 82) ==================== */
+      {
+        id: 61, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هي القاعدة القانونية التي تحمي الأملاك العمومية المادية منذ ظهير فاتح يوليوز 1914؟`,
+        options: [
+          `إمكانية تملكها بالتقادم بعد مرور أربع سنوات`,
+          `عدم قابليتها للتملك بالتقادم، وعدم جواز الحجز عليها، وعدم التصرف فيها`,
+          `جواز بيعها من طرف رئيس المؤسسة دون مسطرة`,
+          `إخضاعها للرهن العقاري لتغطية العجز`
+        ],
+        correct: 1,
+        rationale: `سنّ المشرع المغربي أحكاما تحمي الملك العام من التصرفات المدنية، وتتمثل في ثلاث خصائص جوهرية: عدم قابليته للتملك بالتقادم، وعدم جواز الحجز عليه، وعدم التصرف فيه، وتخضع المؤسسات التعليمية لنفس هذه الضوابط.`,
+        ref: `الدليل: الجزء الثاني — 1 (الأملاك العمومية المادية)`
+      },
+      {
+        id: 62, domain: 'm4', difficulty: 'متوسط',
+        question: `كيف تُصنّف المقاعد الدراسية والتجهيزات المثبتة بصفة دائمة داخل المؤسسة التعليمية لخدمتها واستغلالها؟`,
+        options: [
+          `منقولات فانية`,
+          `عقار بالتخصيص`,
+          `منقول بالمآل`,
+          `أملاك خاصة قابلة للحجز`
+        ],
+        correct: 1,
+        rationale: `العقار بالتخصيص هو الأشياء المنقولة التي يضعها المالك في عقار مملوك له إما لخدمة العقار وإما لاستغلاله، وتُلحق بالملك بصفة دائمة مثل المقاعد الموجودة في مؤسسة تعليمية أو آلات المصنع.`,
+        ref: `الدليل: الجزء الثاني — 1-1 (أ- أملاك ثابتة / العقار بالتخصيص)`
+      },
+      {
+        id: 63, domain: 'm4', difficulty: 'متوسط',
+        question: `ماذا يقصد بـ "المنقول بالمآل" في تصنيف الأملاك العمومية؟`,
+        options: [
+          `النقود السائلة داخل الصندوق الحديدي`,
+          `أشياء ثابتة تتخذ صفة منقولات متى انصرفت النية إلى فصلها عن مستقرها، مثل أنقاض بناء أو بيع الثمار`,
+          `السيارات والآلات المكتبية`,
+          `الأرض المقام عليها القسم الداخلي`
+        ],
+        correct: 1,
+        rationale: `المنقول بالمآل هي أشياء ثابتة في الأصل ولكنها تتخذ صفة منقولات متى انصرفت النية إلى فصلها عن مستقرها في المستقبل القريب، مثل أنقاض بناء مهدم أو بيع الثمار والمحصولات الزراعية.`,
+        ref: `الدليل: الجزء الثاني — 1-1 (ب- أملاك منقولة)`
+      },
+      {
+        id: 64, domain: 'm4', difficulty: 'أساسي',
+        question: `ما الفرق بين "الأشياء المنقولة المعمرة" و"الأشياء المنقولة الفانية" من حيث المعالجة المحاسبية المادية؟`,
+        options: [
+          `المعمرة تدرج في سجل الخزين والفانية تدرج في بطاقة الجرد`,
+          `المعمرة (ذات القيمة 10 دراهم فما فوق) تخضع للجرد المادي، بينما الفانية (الاستهلاكية) تخضع للمحاسبة الخاصة بالاستهلاك`,
+          `كلاهما لا يخضع لأي تسجيل`,
+          `الفانية تخضع للتحيين العشري والمعمرة للميزان اليومي`
+        ],
+        correct: 1,
+        rationale: `الأشياء المنقولة المعمرة تحقق سلسلة متتابعة من الإشباع دون أن تفقد وظيفتها بالاستعمال الأول (أثاث، كتب، آلات) وتُجرد متى بلغت قيمتها 10 دراهم فما فوق؛ أما الفانية فتستنفد قدرتها بالاستعمال الأول (وقود، ورق، أطعمة، أدوية) وتُمسك لها محاسبة خاصة بالاستهلاك.`,
+        ref: `الدليل: الجزء الثاني — 1-2 و 2 (المحاسبة المادية)`
+      },
+      {
+        id: 65, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هي القيمة الدنيا المحددة لتقييد الأشياء المنقولة المعمرة في سجلات وبطاقات الجرد المادي بالمؤسسة؟`,
+        options: [
+          `100 درهم فما فوق`,
+          `10 دراهم فما فوق (يفوق 9,99 درهما)`,
+          `50 درهما فما فوق`,
+          `500 درهم فما فوق`
+        ],
+        correct: 1,
+        rationale: `يتطلب التسجيل بالجرد المادي أن يكون الشيء منقولا ومعمرا، وأن تكون قيمته المعروفة أو المقدرة محددة في 10 دراهم فما فوق (تفوق 9,99 درهما وفق مراسلة الكتابة العامة للحماية رقم <bdi dir="ltr">883 SGP</bdi>).`,
+        ref: `مراسلة الكتابة العامة للحماية 883 SGP والدليل (2-1 و 2-2)`
+      },
+      {
+        id: 66, domain: 'm4', difficulty: 'متوسط',
+        question: `كيف تدوّن المجرودات في "الدفتر اليومي للدخول والخروج" عند حيازتها لأول مرة؟`,
+        options: [
+          `مصنفة حسب الحروف الأبجدية قبل تقييدها`,
+          `حسب الترتيب الزمني من دون تصنيفها، ثم تسجل ثانية بسجل مرتب حسب الصنف`,
+          `تُدرج فقط في نهاية السنة الدراسية`,
+          `تقتصر على الأثاث المنزلي دون معدات المختبر`
+        ],
+        correct: 1,
+        rationale: `توجب الدورية 263 تسجيل المجرودات في الدفتر اليومي للدخول والخروج حسب الترتيب الزمني من دون تصنيفها، ثم تسجيلها ثانية في السجل الخاص المرتب حسب الصنف، فضلا عن إعداد بطاقات الجرد.`,
+        ref: `الدليل: الجزء الثاني — 2-1 و 2-2 (الجرد المادي)`
+      },
+      {
+        id: 67, domain: 'm4', difficulty: 'متعمق',
+        question: `في تصنيف بطاقات الجرد المادي بالأحرف والألوان، ما هو الحرف الدلالي واللون المخصص لـ "المنقول المألوف" (<bdi dir="ltr">Mobilier usuel</bdi>)؟`,
+        options: [
+          `الحرف <bdi dir="ltr">B</bdi> واللون الأزرق`,
+          `الحرف <bdi dir="ltr">A</bdi> واللون الأصفر`,
+          `الحرف <bdi dir="ltr">C</bdi> واللون الأخضر`,
+          `الحرف <bdi dir="ltr">E</bdi> واللون الأحمر`
+        ],
+        correct: 1,
+        rationale: `تميّز بطاقات الجرد باستعمال لون خاص وحرف دلالي، حيث يخصص للمنقول المألوف (<bdi dir="ltr">Mobilier usuel</bdi>) الحرف "<bdi dir="ltr">A</bdi>" واللون الأصفر، بينما يرمز <bdi dir="ltr">B</bdi> للمكتبة، و<bdi dir="ltr">C</bdi> لمعدات المختبر، و<bdi dir="ltr">D</bdi> للورشات، و<bdi dir="ltr">E</bdi> لأدوات التعليم المختلفة.`,
+        ref: `الدليل: جدول بطاقات الجرد (A - B - C - D - E)`
+      },
+      {
+        id: 68, domain: 'm4', difficulty: 'متوسط',
+        question: `كم خانة تتضمنها كل بطاقة من بطاقات الجرد العام، وكيف تُرتب داخل المرتب؟`,
+        options: [
+          `5 خانات وترتب حسب السعر`,
+          `12 خانة منفصلة ومتميزة وترتب أبجديا داخل الجرد العام`,
+          `20 خانة وترتب حسب اسم المزود`,
+          `4 خانات وترتب حسب رقم القاعة`
+        ],
+        correct: 1,
+        rationale: `تُرتب بطاقات الجرد بمرتب ترتيبا أبجديا داخل الجرد العام، وتتضمن كل بطاقة 12 خانة منفصلة ومتميزة تحتوي على معلومات دقيقة ومحددة بشأن الشيء المجرود.`,
+        ref: `الدليل: الجزء الثاني — 2-1 (ب- بطاقات الجرد)`
+      },
+      {
+        id: 69, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هي الحالات الثلاث المحددة قانونا للحذف من الجرد المادي؟`,
+        options: [
+          `الإهداء للأساتذة، أو الضياع، أو التعديل السعري`,
+          `كون الشيء خارج الاستعمال أو مختفيا، أو تحويله إلى مؤسسة أخرى، أو إحالته على إدارة أملاك الدولة لعدم صلاحيته`,
+          `مرور سنتين على الاقتناء، أو كسر جزئي، أو انتقال المدير`,
+          `انتهاء السنة المالية، أو تغيير اسم المؤسسة، أو إغلاق الداخلية`
+        ],
+        correct: 1,
+        rationale: `تنحصر حالات الحذف من الجرد في ثلاث: 1) خارج الاستعمال أو في حالة اختفاء (مكسر، بال، غير قابل للإصلاح)، 2) التحويل إلى مؤسسة أخرى بمطبوع "براءة الذمة / تحمل"، 3) الإحالة على إدارة أملاك الدولة لعدم صلاحية الاستعمال.`,
+        ref: `الدليل: الجزء الثاني — 2-2 (الحذف من الجرد)`
+      },
+      {
+        id: 70, domain: 'm4', difficulty: 'متوسط',
+        question: `عند تحويل تجهيز مجرود من مؤسسة تعليمية إلى أخرى، ما العبارة التي تكتب في الدفتر اليومي وبطاقة الجرد وما الوثيقة الموقعة؟`,
+        options: [
+          `تكتب عبارة "حذف نهائي" دون أي وثيقة`,
+          `يعبأ مطبوع "براءة الذمة / تحمل" يوقع من المتسلم، وتوضع في الدفتر اليومي وبطاقة الجرد عبارة "مادة حولت إلى"`,
+          `يكفي تسليم فاتورة الشراء الأصلية`,
+          `يحرر شيك بمبلغ التجهيز من طرف المؤسسة المستقبلة`
+        ],
+        correct: 1,
+        rationale: `عند تحويل أداة أو تجهيز مجرود إلى مؤسسة أخرى، يتعين تعبئة مطبوع "براءة الذمة / تحمل" وتوقيعه من طرف المتسلم، مع الإشارة في الخانة المخصصة بالدفتر اليومي وبطاقة الجرد بعبارة "مادة حولت إلى".`,
+        ref: `الدليل: الجزء الثاني — 2-2 (الحذف بالتحويل)`
+      },
+      {
+        id: 71, domain: 'm4', difficulty: 'متوسط',
+        question: `كيف يوثّق تسليم المتلاشيات والتجهيزات غير الصالحة للاستعمال إلى إدارة أملاك الدولة؟`,
+        options: [
+          `بوصل استلام من سجل الإيصالات العام`,
+          `بمحضر محرر في نسختين وموقع من الطرفين معا (ممثل أملاك الدولة وممثل المؤسسة)`,
+          `برسالة إلكترونية موجهة للأكاديمية`,
+          `بقرار فردي من رئيس مجلس التدبير`
+        ],
+        correct: 1,
+        rationale: `عند إحالة التجهيز لإدارة أملاك الدولة بسبب عدم صلاحية استعماله (تطبيقا للدورية <bdi dir="ltr">272 M</bdi>)، يثبت التسليم في محضر محرر في نسختين وموقع من الطرفين معا: ممثل أملاك الدولة وممثل المؤسسة.`,
+        ref: `الدليل: الجزء الثاني — 2-2 (الإحالة لأملاك الدولة)`
+      },
+      {
+        id: 72, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هما العمليتان الملزمتان لتحيين الجرد المادي للمنقولات التابعة للدولة؟`,
+        options: [
+          `تحيين شهري وتحيين نصف سنوي`,
+          `تحيين سنوي (<bdi dir="ltr">récolement annuel</bdi>) وتحيين عشري كل عشر سنوات (<bdi dir="ltr">réfection décennale</bdi>)`,
+          `تحيين فصلي عند نهاية كل دورة`,
+          `تحيين يتم فقط عند تقاعد المسير`
+        ],
+        correct: 1,
+        rationale: `يجب إجراء تحيين سنوي للجرد (<bdi dir="ltr">récolement annuel</bdi>) وتحيين عشري كل عشر سنوات (<bdi dir="ltr">réfection décennale</bdi>)، وتعتبر هاتان العمليتان ملزمتين لجميع الموظفين المسؤولين عن جرد الأثاث والأجهزة التابعة للدولة.`,
+        ref: `الدليل: الجزء الثاني — 2-2 (ب- التحيين)`
+      },
+      {
+        id: 73, domain: 'm4', difficulty: 'متعمق',
+        question: `في أي حالة يتحرر مسير المصالح المادية والمالية من المسؤولية الشخصية عن جرد بعض الأثاث والعتاد بالمؤسسة؟`,
+        options: [
+          `بمجرد توقيعه محضر الدخول المدرسي`,
+          `فيما يتعلق بالأثاث والعتاد الموجه للاستعمال الخاص، وكذا الذي يتحمله موظفون معينون من طرف رئيس المؤسسة لهذا الغرض (المكتبات، المختبرات، المعامل)`,
+          `عند غيابه في العطلة السنوية`,
+          `لا يتحرر من المسؤولية في أي حالة`
+        ],
+        correct: 1,
+        rationale: `يتحمل المسير بصفته محاسبا المسؤولية الشخصية عن حيازة وقيد واستعمال وصيانة المجرودات، غير أنه يتحرر من المسؤولية بالنسبة للأثاث والعتاد الموجه للاستعمال الخاص، وكذا الذي يتحمله موظفون تعينهم الإدارة لهذا الغرض (قيم المكتبة، محضر المختبر، رئيس الأشغال/المعامل).`,
+        ref: `الدليل: الجزء الثاني — 2-2 (ت- الواجبات والمسؤوليات في مسك الجرد)`
+      },
+      {
+        id: 74, domain: 'm4', difficulty: 'أساسي',
+        question: `ما نوع المراقبة التي يتعين على رئيس المؤسسة القيام بها على الموجودات من الأشياء المنقولة والعتاد؟`,
+        options: [
+          `مراقبة سنوية معلن عنها مسبقا بشهر`,
+          `مراقبة مستمرة وبشكل فجائي، مع وجوب الأمر بالتحيين السنوي عند الاقتضاء`,
+          `مراقبة تقتصر على الأوراق دون معاينة الموجودات`,
+          `مراقبة تسند لجمعية قدماء التلاميذ`
+        ],
+        correct: 1,
+        rationale: `بوصفه السلطة العليا بالمؤسسة والمسؤول الأول تراتبيا، يقوم رئيس المؤسسة بمراقبة أنشطة المسير ومنها التأكد من الموجودات من الأشياء المنقولة والعتاد، وهي عملية يتعين عليه القيام بها باستمرار وبشكل فجائي مع الأمر بالتحيين السنوي.`,
+        ref: `الدليل: واجبات رئيس المؤسسة في الجرد`
+      },
+      {
+        id: 75, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هي الوثائق الثلاث الأساسية لمسك المحاسبة الخاصة بالاستهلاك في القسم الخارجي (للأشياء أقل من 10 دراهم والمواد الفانية)؟`,
+        options: [
+          `الدفتر اليومي، وبطاقات الجرد الصفراء، والسجل الخاص`,
+          `سجل المزود، وسجل أو بطاقة الخزين، ودفتر التحمل أو إبراء الذمة`,
+          `سجل الإيصالات الملحق، وسجل الذخائر، وسجل الصندوق`,
+          `دفتر الخازن، ودفتر الاستهلاك اليومي، وسجل المنح`
+        ],
+        correct: 1,
+        rationale: `تمسك المحاسبة الخاصة بالاستهلاك بالقسم الخارجي بواسطة ثلاث وثائق أساسية: 1) سجل المزود (لتحديد ديون المؤسسة)، 2) سجل أو بطاقة الخزين (تتبع الدخول والخروج يوما بيوم ومادة بمادة)، 3) دفتر التحمل أو إبراء الذمة (يوقعه المستفيد إقرارا بتحمل المسؤولية).`,
+        ref: `الدليل: الجزء الثاني — 2-3 (أ- القسم الخارجي)`
+      },
+      {
+        id: 76, domain: 'm4', difficulty: 'متوسط',
+        question: `بماذا تتميز سجلات المحاسبة الخاصة بالاستهلاك بالقسم الخارجي عن سجلات الجرد المادي من حيث التحيين؟`,
+        options: [
+          `تخضع للتحيين العشري كل 10 سنوات`,
+          `لا تخضع للتحيين أو إعادة الإنشاء الدورية، بل تخضع فقط لعملية "الميزان" بصفة منتظمة للتأكد من المخزون`,
+          `تُتلف في نهاية كل شهر`,
+          `تخضع لمصادقة أملاك الدولة كل سنة`
+        ],
+        correct: 1,
+        rationale: `من مزايا وثائق المحاسبة الخاصة بالاستهلاك بالقسم الخارجي (سجل الخزين، المزود، إبراء الذمة) أنها لا تكون موضوع تحيين سنوي أو عشري كما هو الشأن في الجرد، بل تخضع فقط لعملية "الميزان" المنتظمة لمطابقة الباقي بالخزين.`,
+        ref: `الدليل: الجزء الثاني — 2-3 (أ- القسم الخارجي)`
+      },
+      {
+        id: 77, domain: 'm4', difficulty: 'أساسي',
+        question: `ما هي السجلات الرسمية الثلاثة المعتمدة في المحاسبة الخاصة بالاستهلاك بالقسم الداخلي؟`,
+        options: [
+          `سجل الإيصالات، وسجل الذخائر، ودفتر التحمل`,
+          `دفتر الخازن، ودفتر الاستهلاك اليومي، وسجل المخزن`,
+          `الدفتر اليومي للجرد، وبطاقات الجرد، وسجل المزود`,
+          `بيان المصاريف، ومحضر الحادثة، وسجل المداومة`
+        ],
+        correct: 1,
+        rationale: `يضبط استهلاك المواد الغذائية ومواد النظافة والمحروقات بالداخلية عبر ثلاثة سجلات رسمية: 1) دفتر الخازن (شهري لتسجيل الدخول والخروج الفوري لكل وجبة)، 2) دفتر الاستهلاك اليومي (لمعرفة المستهلك وتكلفة اليوم والمجاميع المتراكمة)، 3) سجل المخزن (صفحة لكل مادة يمسك يوميا استنادا لدفتر الاستهلاك).`,
+        ref: `الدليل: الجزء الثاني — 2-3 (ب- القسم الداخلي)`
+      },
+      {
+        id: 78, domain: 'm4', difficulty: 'متوسط',
+        question: `من يمسك "دفتر الخازن" الشهري في القسم الداخلي، وعلى أي معطى يعتمد لتحديد الأعداد المرتقبة للمستفيدين؟`,
+        options: [
+          `يمسكه الطباخ اعتمادا على طلبات التلاميذ الشفوية`,
+          `يمسكه الخازن (أو مساعد المسير) اعتمادا على الأعداد المرتقبة المبلغ بها من طرف الحراسة العامة للداخلية`,
+          `يمسكه الحارس الليلي اعتمادا على كشف الحضور الأسبوعي`,
+          `يمسكه المدير اعتمادا على الميزانية السنوية`
+        ],
+        correct: 1,
+        rationale: `دفتر الخازن هو دفتر شهري (واحد لكل شهر) يمسكه الخازن إن وجد وإلا فمساعد المسير، ويشير إلى التاريخ والوجبة والأعداد المرتقبة المبلغ بها من الحراسة العامة للداخلية، مع التسجيل الفوري لدخول وخروج المواد في كل وجبة.`,
+        ref: `الدليل: الجزء الثاني — 2-3 (دفتر الخازن)`
+      },
+      {
+        id: 79, domain: 'm4', difficulty: 'أساسي',
+        question: `ما التدابير الواجب اتخاذها لترشيد استهلاك الماء والكهرباء بالمؤسسات التعليمية تجاه السكنيات الوظيفية والمقاولين؟`,
+        options: [
+          `دمج عدادات السكنيات مع عداد المؤسسة وتسهيل استغلال الماء للمقاول مجانا`,
+          `فصل ربط السكنيات الوظيفية والإدارية عن شبكة المؤسسة، ومنع المقاولين المنفذين لصفقات أو سندات طلب من استغلال ماء وكهرباء المؤسسة`,
+          `إلغاء عدادات الكهرباء في المكاتب الإدارية`,
+          `تحصيل فواتير السكنيات من رصيد الأنشطة الاجتماعية`
+        ],
+        correct: 1,
+        rationale: `حرصا على ترشيد استهلاك الماء والكهرباء، يجب وضع سجل تتبع الاستهلاك، وفصل ربط السكنيات الوظيفية أو الإدارية عن شبكة المؤسسة، وصيانة العدادات والشبكات، وعدم السماح لمن يقوم بأشغال الصيانة أو البناء (صفقة، سند طلب، عقدة) باستغلال ماء وكهرباء المؤسسة.`,
+        ref: `الدليل: الجزء الثاني — 2-3 (ت- استهلاك الماء والكهرباء)`
+      },
+      {
+        id: 80, domain: 'm4', difficulty: 'أساسي',
+        question: `أي مما يلي يجب أن يتضمنه الملف التقني الشامل للبنية المادية بكل مؤسسة تعليمية؟`,
+        options: [
+          `التصاميم (العقاري، شبكات الماء والكهرباء والصرف الصحي)، والمساحات وعدد الأشجار، وأرقام العدادات والاشتراكات`,
+          `لائحة النقط الفصلية للتلاميذ فقط`,
+          `فواتير المكتبة الترفيهية فقط`,
+          `محاضر مجالس الأقسام فقط`
+        ],
+        correct: 0,
+        rationale: `ينبغي أن تتوفر كل مؤسسة على ملف يتضمن الغلاف المالي والعنوان والمرافق، والتصاميم (العقاري، شبكة الماء، الكهرباء، الصرف الصحي)، والمساحات الإجمالية والمبنية وأنواع وعدد الأشجار، وأرقام عدادات واشتراكات الماء والكهرباء والهاتف والفاكس والبريد الإلكتروني.`,
+        ref: `الدليل: الجزء الثاني — 2-3 (ملف معطيات المؤسسة)`
+      },
+      {
+        id: 81, domain: 'm4', difficulty: 'أساسي',
+        question: `على عاتق من تقع مسؤولية صيانة مرافق وتجهيزات المؤسسة التعليمية في مجال الإجراءات الوقائية؟`,
+        options: [
+          `على عاتق الأعوان المنظفين وحدهم`,
+          `مسؤولية مشتركة بين سائر الفئات الموجودة في الحرم المدرسي (إداريون وأساتذة وتلاميذ)`,
+          `على عاتق جمعية قدماء التلاميذ فقط`,
+          `على عاتق مفتش المصالح المادية والمالية`
+        ],
+        correct: 1,
+        rationale: `يؤكد الدليل في مجال الصيانة أن صيانة المرافق والممتلكات مسؤولية مشتركة بين سائر الفئات الموجودة في الحرم المدرسي من إداريين وأساتذة وتلاميذ، عبر التبليغ اليومي والإصلاح الفوري ومراقبة القاعات المتخصصة وتحفيز التلاميذ.`,
+        ref: `الدليل: الجزء الثاني — 3-1 (مجال الصيانة)`
+      },
+      {
+        id: 82, domain: 'm4', difficulty: 'متوسط',
+        question: `ما الإجراء الأمني الواجب الالتزام به لحماية المكاتب والمخازن والمختبرات والمعامل والمكتبات داخل المؤسسة؟`,
+        options: [
+          `ترك النوافذ مفتوحة للتهوية الليلية دون حواجز`,
+          `تحصين الأبواب الخارجية بأبواب حديدية، وحماية نوافذ المكاتب والمخازن والمختبرات والمعامل والمكتبات بسياج أمني متين، مع إغلاق المرافق بعد خروج التلاميذ`,
+          `الاكتفاء بقفل خشبي خفيف دون إنارة ليلية`,
+          `السماح بدخول جميع العموم للمرافق بعد أوقات الدراسة`
+        ],
+        correct: 1,
+        rationale: `في مجال الأمن الوقائي، يجب منع دخول الغرباء باستثناء المسموح لهم قانونا، وإقامة أسوار متينة، وتحصين الأبواب الخارجية بأبواب حديدية، وحماية نوافذ المرافق الحساسة بسياج أمني متين، وتوفير الإنارة الليلية وتشديد الحراسة على المدخل الرئيسي وإغلاق جميع المرافق بعد خروج التلاميذ.`,
+        ref: `الدليل: الجزء الثاني — 3-2 (مجال الأمن)`
+      },
+
+      /* ==================== المحور الخامس: المسؤولية الإدارية والمدنية والجنائية والمالية (83 - 96) ==================== */
+      {
+        id: 83, domain: 'm5', difficulty: 'أساسي',
+        question: `أي من الواجبات التالية ينص عليه الظهير الشريف رقم <bdi dir="ltr">1.58.008</bdi> بمثابة النظام الأساسي العام للوظيفة العمومية؟`,
+        options: [
+          `أداء الواجب في حدود القانون، واجب الطاعة، كتمان السر المهني، والابتعاد عن مواطن الشبهة`,
+          `الحق في الامتناع عن تنفيذ المهام المحاسبية في العطل فقط`,
+          `الجمع بين الوظيفة العمومية والسمسرة في صفقات المؤسسة`,
+          `عدم التزام المسير بالسلطة التراتبية`
+        ],
+        correct: 0,
+        rationale: `طبقا للفصل 3 وما يليه من الظهير الشريف <bdi dir="ltr">1.58.008</bdi> (24 فبراير 1958)، يوجد الموظف في حالة قانونية ونظامية إزاء الإدارة، ومن أهم واجباته: أداء الواجب في الحدود القانونية، واجب الطاعة، كتمان السر المهني، والابتعاد والامتناع عن مواطن الشبهة.`,
+        ref: `الظهير الشريف 1.58.008 — الوظيفة العمومية`
+      },
+      {
+        id: 84, domain: 'm5', difficulty: 'أساسي',
+        question: `ما العقوبتان التأديبيتان اللتان تنفرد السلطة المختصة بالتعيين بتوقيعهما على الموظف دون استشارة المجلس التأديبي؟`,
+        options: [
+          `الحذف من لائحة الترقي والانحدار من الرتبة`,
+          `الإنذار والتوبيخ`,
+          `القهقرة من الدرجة والعزل دون توقيف التقاعد`,
+          `التوقيف المؤقت والعزل النهائي`
+        ],
+        correct: 1,
+        rationale: `تنفرد السلطة المختصة بالتعيين بتوقيع عقوبتي الإنذار والتوبيخ دون استشارة المجلس التأديبي (اللجان الإدارية المتساوية الأعضاء)، بينما تستوجب بقية العقوبات السبع عرض الموظف على المجلس التأديبي.`,
+        ref: `الظهير الشريف 1.58.008 — الفصل 66 (المسؤولية الإدارية)`
+      },
+      {
+        id: 85, domain: 'm5', difficulty: 'متعمق',
+        question: `ما هو الترتيب التصاعدي الصحيح للعقوبات التأديبية السبع المنصوص عليها في قانون الوظيفة العمومية حسب درجة الخطورة؟`,
+        options: [
+          `التوبيخ، الإنذار، الانحدار، الحذف، القهقرة، العزل بتوقيف التقاعد، العزل دون توقيف التقاعد`,
+          `الإنذار، التوبيخ، الحذف من لائحة الترقي، الانحدار من الرتبة، القهقرة من الدرجة، العزل من غير توقيف حق التقاعد، العزل المصحوب بتوقيف التقاعد`,
+          `الإنذار، الحذف، التوبيخ، القهقرة، الانحدار، العزل بتوقيف التقاعد، العزل بدون توقيف التقاعد`,
+          `الإنذار، الغرامة، التوبيخ، الحذف، التقاعد النسبي، العزل`
+        ],
+        correct: 1,
+        rationale: `حدد المشرع العقوبات التأديبية على سبيل الحصر ومرتبة من الأخف إلى الأشد كما يلي: 1) الإنذار، 2) التوبيخ، 3) الحذف من لائحة الترقي، 4) الانحدار من الرتبة، 5) القهقرة من الدرجة، 6) العزل من غير توقيف حق التقاعد، 7) العزل المصحوب بتوقيف حق التقاعد.`,
+        ref: `الظهير الشريف 1.58.008 — الفصل 66`
+      },
+      {
+        id: 86, domain: 'm5', difficulty: 'متعمق',
+        question: `هل تملك السلطة التأديبية توقيع عقوبة تأديبية أشد من تلك التي اقترحها المجلس التأديبي؟`,
+        options: [
+          `نعم، في جميع الأحوال وبقرار منفرد من المدير الإقليمي`,
+          `لا يمكن للسلطة التأديبية توقيع عقوبة أشد مما يقترحه المجلس التأديبي إلا إذا وافق عليها رئيس الحكومة (الوزير الأول)`,
+          `لا يمكنها ذلك مطلقا حتى بموافقة رئيس الحكومة`,
+          `نعم، إذا وافق عليها مجلس التدبير`
+        ],
+        correct: 1,
+        rationale: `تتقيد السلطة التأديبية بسقف العقوبة المقترحة من المجلس التأديبي، ولا يمكنها توقيع عقوبة أشد من تلك التي يقترحها المجلس إلا إذا وافق عليها رئيس الحكومة (الوزير الأول سابقا).`,
+        ref: `الدليل: الجزء الثالث — 1-1 (أ- المسؤولية الإدارية)`
+      },
+      {
+        id: 87, domain: 'm5', difficulty: 'متوسط',
+        question: `ما الأجل القانوني الأقصى لتسوية وضعية الموظف الموقوف حالا بسبب هفوة خطيرة (غير خاضع لمتابعة جنائية)؟`,
+        options: [
+          `ثلاثون يوما`,
+          `أربعة أشهر ابتداء من يوم العمل بالتوقيف، وإلا يتقاضى الموظف من جديد مرتبه بأكمله`,
+          `سنة كاملة قابلة للتجديد`,
+          `ستة أشهر دون استرجاع المبالغ المقتطعة`
+        ],
+        correct: 1,
+        rationale: `طبقا للفصل 73 من ظهير الوظيفة العمومية، تجب تسوية حالة الموظف الموقوف نهائيا في أجل أربعة أشهر من يوم العمل بالتوقيف، وإن لم يصدر مقرر يتقاضى مرتبه بأكمله، ويسترجع المقتطع إذا لم تصدر عقوبة غير الإنذار والتوبيخ والتشطيب أو لم يقع البت، ما لم تجر عليه متابعات جنائية.`,
+        ref: `الظهير الشريف 1.58.008 — الفصل 73`
+      },
+      {
+        id: 88, domain: 'm5', difficulty: 'متعمق',
+        question: `ما أثر الحكم الصادر عن القضاء الزجري بـ "انتفاء الفعل المتابع به الموظف" على المتابعة التأديبية وفق القضاء الإداري؟`,
+        options: [
+          `لا أثر له لأن المسطرة التأديبية مستقلة تماما في كل الحالات`,
+          `تنمحي آثاره على المتابعة التأديبية عملا بمبدأ "حجية الأمر المقضي به"`,
+          `يُخفّض فقط العقوبة من العزل إلى التوبيخ`,
+          `يُلزم الموظف بأداء غرامة مالية جديدة`
+        ],
+        correct: 1,
+        rationale: `كرّس القضاء الإداري قاعدة أساسية مفادها أنه «إذا صرح القضاء الزجري بانتفاء الفعل المتابع به الموظف تنمحي آثاره على المتابعة التأديبية عملا بمبدأ حجية الأمر المقضي به».`,
+        ref: `الدليل: الجزء الثالث — 1-1 (المسؤولية الإدارية)`
+      },
+      {
+        id: 89, domain: 'm5', difficulty: 'أساسي',
+        question: `متى تتحقق "المسؤولية المدنية" للمسؤول التربوي أو المالي وتلزمُه بالتعويض من ماله الخاص؟`,
+        options: [
+          `عند غياب المطر وتلف الساحة`,
+          `عند ارتكابه فعلا عن بينة واختيار دون إذن قانوني أحدث ضررا ماديا أو معنويا للغير وثبتت العلاقة السببية المباشرة`,
+          `عند تأخر الأكاديمية في تحويل المنحة`,
+          `عند تنفيذ أمر تسخير قانوني مكتمل الشروط`
+        ],
+        correct: 1,
+        rationale: `تقوم المسؤولية المدنية الشخصية على ثلاثة أركان: فعل ارتُكب عن بينة واختيار ودون مسوغ قانوني (كالتزوير أو الإضرار العمدي)، وحصول ضرر مادي أو معنوي للغير، وثبوت أن الفعل هو السبب المباشر في الضرر، مما يلزم مرتكبه بالتعويض من ماله الخاص.`,
+        ref: `الدليل: الجزء الثالث — 1-1 (ب- المسؤولية المدنية)`
+      },
+      {
+        id: 90, domain: 'm5', difficulty: 'أساسي',
+        question: `بماذا يعرّف القانون الجنائي المغربي جريمة "الغدر" التي قد يرتكبها الموظف العمومي؟`,
+        options: [
+          `إتلاف السجلات المحاسبية عن طريق الخطأ غير العمدي`,
+          `طلب أو تلقي أو فرض أو أمر بتحصيل ما يعلم أنه غير مستحق أو يتجاوز المستحق، سواء للإدارة أو للغير أو لنفسه خاصة`,
+          `تأخر المسير في تسليم وصل التسجيل بيوم واحد`,
+          `رفض أداء نفقة لعدم كفاية الاعتماد`
+        ],
+        correct: 1,
+        rationale: `يعاقب القانون الجنائي بالحبس من سنتين إلى خمس وبغرامة من 5000 إلى 100000 درهم (وتتضاعف العقوبة إذا فاق المبلغ 100 ألف درهم) كل موظف عمومي طلب أو تلقى أو فرض أو أمر بتحصيل ما يعلم أنه غير مستحق أو يتجاوز المستحق، وتلك هي جريمة الغدر.`,
+        ref: `الدليل: الجزء الثالث — 1-1 (ت- المسؤولية الجنائية / جريمة الغدر)`
+      },
+      {
+        id: 91, domain: 'm5', difficulty: 'متوسط',
+        question: `ما العقوبة المقررة لجريمة الغدر في القانون الجنائي إذا فاق المبلغ المحصّل دون وجه حق مائة ألف (100.000) درهم؟`,
+        options: [
+          `الإنذار الإداري فقط`,
+          `تضاعف العقوبة المقررة (الحبس والغرامة)`,
+          `إرجاع المبلغ فقط دون متابعة`,
+          `تحويل المبلغ إلى حساب الأنشطة الاجتماعية`
+        ],
+        correct: 1,
+        rationale: `تنص المقتضيات الزجرية لجريمة الغدر على الحبس من سنتين إلى خمس سنوات وغرامة من خمسة آلاف إلى مائة ألف درهم، وتُضاعف العقوبة إذا كان المبلغ يفوق مائة ألف درهم.`,
+        ref: `القانون الجنائي المغربي — جريمة الغدر`
+      },
+      {
+        id: 92, domain: 'm5', difficulty: 'أساسي',
+        question: `من يتحمل "المسؤولية المالية" عن العجز أو الخصاص في الصندوق أو النفقات غير المبررة بالمؤسسة التعليمية؟`,
+        options: [
+          `جمعية أمهات وآباء التلاميذ`,
+          `المدير أو المسير أو هما معا حسب الحالة المكتشفة بعد المراقبة والبت والتدقيق في الحسابات`,
+          `مصلحة البريد بنك`,
+          `المجلس التربوي للمؤسسة`
+        ],
+        correct: 1,
+        rationale: `يتحمل المسؤولية المالية المدير أو المسير أو هما معا وفق ما تكشف عنه عمليات المراقبة والبت والتدقيق في الحسابات؛ ويكون المسير مسؤولا ماليا شخصيا عن أفعاله وأفعال مساعديه وملزما بتسديد الخصاص من ماله الخاص.`,
+        ref: `الدليل: الجزء الثالث — 1-1 (ث- المسؤولية المالية)`
+      },
+      {
+        id: 93, domain: 'm5', difficulty: 'متعمق',
+        question: `ماذا يشمل نطاق المسؤولية المالية لمسير المصالح المادية والمالية عند نقل الأموال من وإلى المؤسسة؟`,
+        options: [
+          `لا يُسأل عن أي سرقة أو خسارة تقع خارج أسوار المؤسسة`,
+          `يعتبر مسؤولا عن حفظ الأموال وعن السرقة والخسارة التي يمكن أن تحدث أثناء حمل هذه الأموال من وإلى المؤسسة`,
+          `تتحمل شركة التأمين المدرسي خسارة الصندوق الحديدي`,
+          `يتحمل السائق أو الحارس الليلي المسؤولية المالية كاملة`
+        ],
+        correct: 1,
+        rationale: `يشدد الدليل على أن المسير مسؤول ماليا عن حفظ الأموال وعن السرقة والخسارة التي يمكن أن تحدث أثناء حمل هذه الأموال من وإلى المؤسسة، وهو ملزم بدفع المبالغ من ماله الخاص عقب وقوع خصاص أو عجز أو صدور مقررات عن أجهزة المراقبة.`,
+        ref: `الدليل: المسؤولية المالية للمسير`
+      },
+      {
+        id: 94, domain: 'm5', difficulty: 'متعمق',
+        question: `ما الإجراء الوقائي الذي يجب على المسير الجديد اتخاذه عند تنصيبه حتى لا يتحمل المسؤولية عن تسيير سلفه؟`,
+        options: [
+          `الاكتفاء بالتوقيع على سجل الحضور العام`,
+          `أن يبلغ كتابة تحفظاته المدققة تجاه تسيير سابقيه داخل الأجل المحدد عند تنصيبه، وإلا يعتبر مسؤولا عنها كذلك`,
+          `فتح سجلات جديدة وإخفاء السجلات السابقة في الربائد دون حصرها`,
+          `انتظار نهاية السنة المالية لرفع تقرير شفوي`
+        ],
+        correct: 1,
+        rationale: `يعتبر المسير مسؤولا عن تصرفات سابقيه ومرؤوسيه ومساعديه ما لم يبد تحفظا؛ فعليه عند تنصيبه وفي غضون مدة محددة أن يبلغ كتابة تحفظاته المدققة تجاه تسيير سابقيه وإلا اعتُبر مسؤولا عنها كذلك.`,
+        ref: `الدليل: الجزء الثالث — 1-2 (أبعاد المسؤولية)`
+      },
+      {
+        id: 95, domain: 'm5', difficulty: 'متوسط',
+        question: `هل تنتهي مسؤولية مسير المصالح المادية والمالية عن تسييره بمجرد انتقاله أو تقاعده؟`,
+        options: [
+          `نعم، تنقضي فورا يوم توقيع محضر الخروج`,
+          `لا، يظل مسؤولا عن تسييره طيلة مدة مزاولته لوظيفته المحاسبية وحتى بعد انقطاعه عنها عن كل مخالفة لالتزاماته`,
+          `تنتهي بعد مرور شهر واحد من الانتقال`,
+          `تنتقل تلقائيا إلى الحارس العام للداخلية`
+        ],
+        correct: 1,
+        rationale: `المسير مسؤول عن تسييره طيلة مدة مزاولة وظيفته المحاسبية، وحتى بعد انقطاعه عنها، فقد يُسأل عن كل مخالفة لالتزاماته في ميدان التحصيل أو الإنفاق أو المحافظة على الأموال أو المحاسبة، وتقوم المسؤولية وفق معايير موضوعية.`,
+        ref: `الدليل: أبعاد المسؤولية`
+      },
+      {
+        id: 96, domain: 'm5', difficulty: 'متوسط',
+        question: `أي من الأفعال التالية يثير المسؤولية المحاسبية للمسير استنادا إلى "معايير موضوعية"؟`,
+        options: [
+          `دفع نفقة غير مبررة أو ترك دخل مشروع دون تحصيل`,
+          `الاستعانة ببطاقات الجرد الملونة`,
+          `تقديم مقترحات لتحسين تغذية الداخليين`,
+          `ممارسة الرقابة المتبادلة على سندات الطلب`
+        ],
+        correct: 0,
+        rationale: `تطرح المسؤولية المالية والمحاسبية انطلاقا من معايير موضوعية بغض النظر عن سوء النية أو حسنها، كما هو الحال عند دفع نفقة غير مبررة بوثائق إثبات أو ترك دخل قانوني دون تحصيل.`,
+        ref: `الدليل: أبعاد المسؤولية (المعايير الموضوعية)`
+      },
+
+      /* ==================== المحور السادس: منظومة المراقبة الإدارية والقضائية والسياسية (97 - 110) ==================== */
+      {
+        id: 97, domain: 'm6', difficulty: 'أساسي',
+        question: `كيف تصنّف الرقابة المالية "من حيث المرحلة" التي تجري فيها؟`,
+        options: [
+          `رقابة موضعية ورقابة على الوثائق`,
+          `رقابة قبلية (سابقة/وقائية)، ورقابة مصاحبة (مواكبة/مزامنة)، ورقابة لاحقة (بعدية/علاجية)`,
+          `رقابة قضائية ورقابة برلمانية فقط`,
+          `رقابة فردية ورقابة جماعية`
+        ],
+        correct: 1,
+        rationale: `تنقسم الرقابة من حيث الزمن والمرحلة إلى ثلاث: 1) الرقابة القبلية (وقائية للحيلولة دون الخطأ قبل الالتزام)، 2) الرقابة المصاحبة (أثناء تنفيذ العمليات لتقويم الخلل فوريا)، 3) الرقابة اللاحقة (بعد الإنجاز لمقارنة المنجز بالمطلوب ومدى احترام النصوص).`,
+        ref: `الدليل: الجزء الثالث — 2-1 (تصنيف المراقبة من حيث المرحلة)`
+      },
+      {
+        id: 98, domain: 'm6', difficulty: 'أساسي',
+        question: `ما الفرق بين "الرقابة الموضعية في عين المكان" و"الرقابة على الوثائق أو المستندات"؟`,
+        options: [
+          `الموضعية تخص المداخيل والوثائقية تخص النفقات`,
+          `الموضعية تعني انتقال المراقب إلى جانب المشمول بالمراقبة للتدقيق في أعماله وموجوداته، والوثائقية هي الاطلاع على التقارير والوثائق المرسلة`,
+          `الموضعية يمارسها البرلمان والوثائقية يمارسها المدير`,
+          `الوثائقية تعني تفتيش المخزن دون سجلات`
+        ],
+        correct: 1,
+        rationale: `تصنّف الرقابة من حيث النوعية إلى: رقابة موضعية في عين المكان (انتقال المراقب إلى المؤسسة للتدقيق الميداني في الأعمال والمخازن والصندوق) ورقابة على الوثائق أو المستندات (تدقيق التقارير والبيانات الدورية المرسلة عن بعد).`,
+        ref: `الدليل: الجزء الثالث — 2-2 (من حيث النوعية)`
+      },
+      {
+        id: 99, domain: 'm6', difficulty: 'أساسي',
+        question: `ما الجهات التي تمارس "الرقابة الخارجية" المستقلة عن الإدارة التربوية؟`,
+        options: [
+          `رئيس المؤسسة ومجلس التدبير`,
+          `الرقابة القضائية (المحاكم المالية) والرقابة السياسية (البرلمان)`,
+          `مفتش المصالح المادية والمالية والمفتشية العامة للوزارة`,
+          `الأكاديمية الجهوية والمديرية الإقليمية`
+        ],
+        correct: 1,
+        rationale: `من حيث النطاق والهيئات، تنقسم الرقابة إلى داخلية (ذاتية تمارسها الإدارة عبر أجهزتها كالرقابة الإدارية) وخارجية تمارسها جهات مستقلة عن الإدارة هي: الرقابة القضائية (المحاكم المالية) والرقابة السياسية (البرلمان).`,
+        ref: `الدليل: الجزء الثالث — 2-3 (من حيث نطاقها والهيئات التي تمارسها)`
+      },
+      {
+        id: 100, domain: 'm6', difficulty: 'متوسط',
+        question: `ما طبيعة "الرقابة الرئاسية" و"رقابة الوصاية" التي يمارسها وزير التربية الوطنية في منظومة الرقابة الإدارية؟`,
+        options: [
+          `رقابة قضائية تصدر أحكاما بالحبس`,
+          `رقابة رئاسية تراتبية على العاملين بوزارته ورقابة وصائية على الإدارات اللامركزية الخاضعة لوصايته، بنفسه أو عبر هيئات المراقبة`,
+          `رقابة برلمانية تشريعية`,
+          `رقابة تقتصر على المؤسسات الخاصة`
+        ],
+        correct: 1,
+        rationale: `يوجد الوزير في قمة هرم السلطة الإدارية؛ فيمارس رقابة رئاسية تسلسلية على جميع العاملين بوزارته، ورقابة وصائية على الإدارات والمؤسسات اللامركزية الخاضعة لوصايته، إما بنفسه أو بواسطة هيئات التفتيش والمراقبة.`,
+        ref: `الدليل: الجزء الثالث — 2-4 (الرقابة الإدارية — الرقابة الرئاسية)`
+      },
+      {
+        id: 101, domain: 'm6', difficulty: 'متعمق',
+        question: `مع أي من الهيئات المستقلة تتعاون "المفتشية العامة للوزارة" وتنسق وفق المقتضيات القانونية الجاري بها العمل؟`,
+        options: [
+          `مؤسسة الوسيط، والمجلس الأعلى للحسابات، والمفتشية العامة للمالية، والهيئة المركزية للوقاية من الرشوة`,
+          `جمعيات قدماء التلاميذ والاتحادات الرياضية الدولية`,
+          `المجالس التعليمية ومجالس الأقسام فقط`,
+          `الشركات المزودة باللوازم المكتبية`
+        ],
+        correct: 0,
+        rationale: `المفتشية العامة للوزارة هيئة تفتيش وتدقيق وتقييم غير مستقلة إداريا (تابعة للوزير)، وتُناط بها مهام التفتيش والتدقيق الداخلي والتقصي، كما يُعهد إليها بالتنسيق مع مؤسسة الوسيط والتعاون مع المجلس الأعلى للحسابات والمفتشية العامة للمالية والهيئة المركزية للوقاية من الرشوة.`,
+        ref: `الدليل: رقابة المفتشية العامة للوزارة`
+      },
+      {
+        id: 102, domain: 'm6', difficulty: 'أساسي',
+        question: `ما هي المحاور الأربعة التي تشملها رقابة "مفتش المصالح المادية والمالية" بالمؤسسة التعليمية؟`,
+        options: [
+          `التدبير المالي، والتدبير الإداري، والتدبير المادي، والتدبير التربوي`,
+          `التدبير القضائي، والتدبير السياسي، والتدبير البنكي، والتدبير العقاري`,
+          `تدبير الامتحانات، وتدبير التوجيه، وتدبير النقل، وتدبير النقابات`,
+          `تدبير الأجور، وتدبير التقاعد، وتدبير الصفقات الدولية، وتدبير البريد`
+        ],
+        correct: 0,
+        rationale: `تشمل رقابة مفتش المصالح المادية والمالية أربعة محاور متكاملة: التدبير المالي (المحاسبة النقدية والصندوق)، التدبير الإداري (الاعتمادات والوثائق الإثباتية والملفات)، التدبير المادي (المحاسبة المادية والجرد والتموين والمتلاشيات)، والتدبير التربوي (العلاقات، ظروف التمدرس، الوسائل التربوية، الحياة بالداخلية).`,
+        ref: `الدليل: رقابة مفتش المصالح المادية والمالية`
+      },
+      {
+        id: 103, domain: 'm6', difficulty: 'متوسط',
+        question: `أي من المهام التالية تندرج ضمن "المحور التربوي" في تدخل مفتش المصالح المادية والمالية؟`,
+        options: [
+          `تدقيق مطابقة الفواتير لسندات الطلب`,
+          `مراقبة العلاقات، وظروف التمدرس، وتوفير الوسائل التربوية، وتدعيم الأنشطة التربوية، وتفقد الوسط المدرسي والعناية بالحياة في النظام الداخلي`,
+          `إتلاف السجلات القديمة بمديرية أملاك الدولة`,
+          `مراجعة الرقم التعريفي البنكي للمزودين`
+        ],
+        correct: 1,
+        rationale: `لا تقتصر مهام مفتش المصالح المادية والمالية على الحسابات، بل تشمل أيضا التدبير التربوي: جودة العلاقات، ظروف التمدرس، توفير الوسائل التربوية، تدعيم الأنشطة، تفقد الوسط المدرسي، والعناية بالحياة في النظام الداخلي.`,
+        ref: `الدليل: محاور رقابة مفتش المصالح المادية والمالية`
+      },
+      {
+        id: 104, domain: 'm6', difficulty: 'أساسي',
+        question: `بأي صفة يمارس مدير المؤسسة التعليمية مراقبته على المصالح المادية والمالية؟`,
+        options: [
+          `بصفة مراقب ثانوي موسمي`,
+          `بوصفه المراقب الأول والأساسي لسير المصالح المادية والمالية، ويمارس هذه المراقبة بصفة مستمرة`,
+          `بصفة ممثل للخزينة العامة للمملكة`,
+          `بصفة قاض بالمحاكم المالية`
+        ],
+        correct: 1,
+        rationale: `طبقا للمرسوم 2.02.376 والمذكرات 1008 و1125 و129، يتحتم على المدير بوصفه المسؤول الأول والمراقب الأساسي لسير المصالح المادية والمالية ممارسة المراقبة على هذه المصالح بصفة مستمرة.`,
+        ref: `الدليل: رقابة رئيس المؤسسة`
+      },
+      {
+        id: 105, domain: 'm6', difficulty: 'أساسي',
+        question: `ما الغاية الجوهرية من "الرقابة المتبادلة" بين رئيس المؤسسة ومسير المصالح المادية والمالية؟`,
+        options: [
+          `تبادل مفاتيح الصندوق الحديدي أسبوعيا`,
+          `ضمان رقابة متوازنة بين المتدخلين بحيث يراقب المدير المسير ويراقب المسير المدير بفضل الفصل بين الصلاحيات الإدارية والمحاسبية`,
+          `إعفاء الأكاديمية من التفتيش الجهوي`,
+          `تمكين المسير من توقيع أوامر الصرف بنفسه`
+        ],
+        correct: 1,
+        rationale: `يهدف إقرار مبدأ الفصل بين الصلاحيات الإدارية (الآمر) والصلاحيات المحاسبية (المحاسب) إلى ضمان رقابة متبادلة ومستمرة بين المتدخلين في تنفيذ العمليات المالية، فالمدير يراقب المسير والعكس بالعكس.`,
+        ref: `الدليل: الرقابة المتبادلة`
+      },
+      {
+        id: 106, domain: 'm6', difficulty: 'أساسي',
+        question: `كيف يمارس "مجلس التدبير" رقابته على التدبير المالي والمادي والمحاسبي للمؤسسة طبقا للمادة 18 من المرسوم 2.02.376؟`,
+        options: [
+          `بإصدار عقوبات تأديبية ضد المسير`,
+          `بالمصادقة على التقرير السنوي العام المتعلق بنشاط وسير المؤسسة، الذي يتضمن لزوما المعطيات الإدارية والمالية والمحاسبية`,
+          `بتحصيل واجبات التسجيل مباشرة من التلاميذ`,
+          `بفتح حساب جاري بريدي خاص به`
+        ],
+        correct: 1,
+        rationale: `تنص المادة 18 من المرسوم 2.02.376 على أن مجلس التدبير يتولى المصادقة على التقرير السنوي العام المتعلق بنشاط وسير المؤسسة، والذي يتعين أن يتضمن لزوما المعطيات المتعلقة بالتدبير الإداري والمالي والمحاسبي (بما فيه تقرير المسير عن التدبير).`,
+        ref: `المرسوم 2.02.376 — المادة 18`
+      },
+      {
+        id: 107, domain: 'm6', difficulty: 'متوسط',
+        question: `بواسطة أي هيئات تابعة لها تمارس وزارة الاقتصاد والمالية رقابتها على المالية المرتبطة بالمؤسسات التعليمية؟`,
+        options: [
+          `المجلس الأعلى للحسابات ومجلس المستشارين`,
+          `المفتشية العامة للمالية، والخزينة العامة للمملكة، والخازن المؤدي (في حالة تعيين مدير المؤسسة آمرا مساعدا بالصرف)`,
+          `مجلس التدبير والمجلس التربوي`,
+          `الحراسة العامة للداخلية`
+        ],
+        correct: 1,
+        rationale: `تمارس وزارة المالية رقابتها بواسطة الهيئات التابعة لها، وهي: المفتشية العامة للمالية (<bdi dir="ltr">IGF</bdi>)، والخزينة العامة للمملكة (<bdi dir="ltr">TGR</bdi>)، والخازن المؤدي في حالة تعيين مدير المؤسسة آمرا مساعدا بالصرف.`,
+        ref: `الدليل: رقابة وزارة المالية`
+      },
+      {
+        id: 108, domain: 'm6', difficulty: 'أساسي',
+        question: `ما الجهاز الأعلى الذي يتولى ممارسة "الرقابة القضائية" العليا على الأموال العامة وفق مدونة المحاكم المالية؟`,
+        options: [
+          `المحكمة التجارية الابتدائية`,
+          `المجلس الأعلى للحسابات (والمحاكم المالية)`,
+          `المفتشية العامة للوزارة`,
+          `لجنة التفتيش الإقليمية`
+        ],
+        correct: 1,
+        rationale: `يتولى المجلس الأعلى للحسابات ممارسة الرقابة العليا على الأموال العامة، وقد حدد القانون رقم 62.99 المتعلق بمدونة المحاكم المالية أنواع الرقابة التي يباشرها في وظيفتين قضائيتين وثالثة إدارية.`,
+        ref: `القانون 62.99 (الرقابة القضائية)`
+      },
+      {
+        id: 109, domain: 'm6', difficulty: 'متوسط',
+        question: `كيف تمارس الأكاديمية الجهوية للتربية والتكوين والمديرية الإقليمية رقابتهما الميدانية على المؤسسات التعليمية؟`,
+        options: [
+          `عبر تشكيل لجان أو عبر المنسق الجهوي للتفتيش على صعيد الأكاديمية، وعبر المفتش الإقليمي للمصالح المادية والمالية أو لجنة بالمديرية الإقليمية`,
+          `عبر تعيين مراقب دائم مقيم بكل مدرسة ابتدائية`,
+          `عبر تفويض جمعية الآباء لإجراء الافتحاص`,
+          `تكتفيان بتلقي مكالمات هاتفية في نهاية السنة`
+        ],
+        correct: 0,
+        rationale: `تمارس الأكاديمية رقابتها على جميع المؤسسات تحت نفوذها الترابي بواسطة هيئات المراقبة إما بتشكيل لجنة أو في شخص المكلف بتنسيق التفتيش الجهوي؛ وتجري المديرية الإقليمية المراقبة بواسطة المفتش الإقليمي للمصالح المادية والمالية أو لجنة يكون ضمن أعضائها.`,
+        ref: `الدليل: رقابة الأكاديمية الجهوية والمديرية الإقليمية`
+      },
+      {
+        id: 110, domain: 'm6', difficulty: 'أساسي',
+        question: `ما الجهة التي تضطلع بـ "الرقابة السياسية" لضمان تنفيذ العمليات المالية وفق النصوص التشريعية والتنظيمية المعمول بها؟`,
+        options: [
+          `البرلمان`,
+          `الخازن المؤدي`,
+          `مجلس القسم`,
+          `الحارس العام للخارجية`
+        ],
+        correct: 0,
+        rationale: `تتمثل الرقابة السياسية في قيام الجهاز السياسي المختص، وهو البرلمان، بمراقبة تنفيذ العمليات المالية والقوانين المالية طبقا للنصوص التشريعية والتنظيمية المعمول بها، وهي تشكل مع الرقابة القضائية منظومة الرقابة الخارجية.`,
+        ref: `الدليل: الجزء الثالث — 2-4 (ت- الرقابة السياسية)`
+      }
+    ];
+
+    const OPTION_LETTERS = ['أ', 'ب', 'ج', 'د'];
+
+    let appState = {
+      mode: 'practice',           // 'practice' | 'exam'
+      axisFilter: 'all',
+      difficultyFilter: 'all',
+      statusFilter: 'all',
+      searchQuery: '',
+      currentQuestionId: 1,
+      answers: {},                // { [id]: selectedOptionIndex }
+      bookmarks: {},              // { [id]: true }
+      currentStreak: 0,
+      bestStreak: 0,
+      customOrder: null,          // array of question ids if shuffled
+      examIds: [],                // 20 ids for exam mode
+      examAnswers: {},            // { [id]: selectedOptionIndex }
+      examSubmitted: false
+    };
+
+    let isPersistReady = false;
+
+    function getOrderedQuestions() {
+      if (Array.isArray(appState.customOrder) && appState.customOrder.length === QUESTIONS.length) {
+        const byId = new Map(QUESTIONS.map(function(q) { return [q.id, q]; }));
+        return appState.customOrder.map(function(id) { return byId.get(id); }).filter(Boolean);
+      }
+      return QUESTIONS.slice();
+    }
+
+    function getVisibleQuestions() {
+      const ordered = getOrderedQuestions();
+      if (appState.mode === 'exam') {
+        const byId = new Map(QUESTIONS.map(function(q) { return [q.id, q]; }));
+        return appState.examIds.map(function(id) { return byId.get(id); }).filter(Boolean);
+      }
+      const query = (appState.searchQuery || '').trim().toLowerCase();
+      return ordered.filter(function(q) {
+        if (appState.axisFilter !== 'all' && q.domain !== appState.axisFilter) return false;
+        if (appState.difficultyFilter !== 'all' && q.difficulty !== appState.difficultyFilter) return false;
+        const ans = appState.answers[q.id];
+        if (appState.statusFilter === 'unanswered' && ans !== undefined) return false;
+        if (appState.statusFilter === 'wrong' && (ans === undefined || ans === q.correct)) return false;
+        if (appState.statusFilter === 'bookmarked' && !appState.bookmarks[q.id]) return false;
+        if (query) {
+          const hay = (q.question + ' ' + q.rationale + ' ' + q.ref + ' ' + q.options.join(' ')).toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+    }
+
+    async function persistState() {
+      if (!isPersistReady) return;
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (e) {
+          // Ignore transient host persistence error
+        }
+      }
+    }
+
+    function showBanner(msg) {
+      const banner = document.getElementById('status-banner');
+      const text = document.getElementById('status-banner-text');
+      if (!banner || !text) return;
+      text.textContent = msg;
+      banner.classList.add('is-visible');
+    }
+
+    function hideBanner() {
+      const banner = document.getElementById('status-banner');
+      if (banner) banner.classList.remove('is-visible');
+    }
+
+    function onFilterChange() {
+      const axisEl = document.getElementById('filter-axis');
+      const diffEl = document.getElementById('filter-difficulty');
+      const statusEl = document.getElementById('filter-status');
+      const searchEl = document.getElementById('search-input');
+      if (axisEl) appState.axisFilter = axisEl.value;
+      if (diffEl) appState.difficultyFilter = diffEl.value;
+      if (statusEl) appState.statusFilter = statusEl.value;
+      if (searchEl) appState.searchQuery = searchEl.value;
+
+      if (appState.mode === 'exam') {
+        appState.mode = 'practice';
+        showBanner('تم الانتقال إلى وضع التدريب لتطبيق معايير التصفية المختارة.');
+      }
+
+      const visible = getVisibleQuestions();
+      if (visible.length > 0 && !visible.some(function(q) { return q.id === appState.currentQuestionId; })) {
+        appState.currentQuestionId = visible[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function resetFilters() {
+      appState.axisFilter = 'all';
+      appState.difficultyFilter = 'all';
+      appState.statusFilter = 'all';
+      appState.searchQuery = '';
+      appState.mode = 'practice';
+      syncControlsFromState();
+      const visible = getVisibleQuestions();
+      if (visible.length > 0) appState.currentQuestionId = visible[0].id;
+      renderAll();
+      persistState();
+    }
+
+    function syncControlsFromState() {
+      const axisEl = document.getElementById('filter-axis');
+      const diffEl = document.getElementById('filter-difficulty');
+      const statusEl = document.getElementById('filter-status');
+      const searchEl = document.getElementById('search-input');
+      if (axisEl) axisEl.value = appState.axisFilter;
+      if (diffEl) diffEl.value = appState.difficultyFilter;
+      if (statusEl) statusEl.value = appState.statusFilter;
+      if (searchEl) searchEl.value = appState.searchQuery;
+    }
+
+    function buildExamQuestionIds() {
+      const pool = QUESTIONS.map(function(q) { return q.id; });
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = pool[i];
+        pool[i] = pool[j];
+        pool[j] = tmp;
+      }
+      return pool.slice(0, 20);
+    }
+
+    function setMode(targetMode) {
+      if (targetMode === 'exam') {
+        appState.mode = 'exam';
+        if (!Array.isArray(appState.examIds) || appState.examIds.length !== 20) {
+          appState.examIds = buildExamQuestionIds();
+          appState.examAnswers = {};
+          appState.examSubmitted = false;
+        }
+        if (!appState.examIds.includes(appState.currentQuestionId)) {
+          appState.currentQuestionId = appState.examIds[0];
+        }
+      } else {
+        appState.mode = 'practice';
+        const visible = getVisibleQuestions();
+        if (visible.length > 0 && !visible.some(function(q) { return q.id === appState.currentQuestionId; })) {
+          appState.currentQuestionId = visible[0].id;
+        }
+      }
+      hideBanner();
+      renderAll();
+      persistState();
+    }
+
+    function startNewExam() {
+      appState.mode = 'exam';
+      appState.examIds = buildExamQuestionIds();
+      appState.examAnswers = {};
+      appState.examSubmitted = false;
+      appState.currentQuestionId = appState.examIds[0];
+      hideBanner();
+      renderAll();
+      persistState();
+    }
+
+    function submitExam() {
+      const answeredCount = appState.examIds.filter(function(id) {
+        return appState.examAnswers[id] !== undefined;
+      }).length;
+      if (answeredCount < appState.examIds.length) {
+        const submitBtn = document.getElementById('btn-submit-exam');
+        if (submitBtn && submitBtn.dataset.armed !== 'true') {
+          submitBtn.dataset.armed = 'true';
+          submitBtn.textContent = 'تأكيد التصحيح (' + answeredCount + '/20 مجاب)';
+          showBanner('لا تزال هناك ' + (20 - answeredCount) + ' أسئلة دون إجابة. انقر على زر التصحيح مرة أخرى للتأكيد النهائي.');
+          return;
+        }
+      }
+      const submitBtn = document.getElementById('btn-submit-exam');
+      if (submitBtn) {
+        submitBtn.dataset.armed = 'false';
+        submitBtn.textContent = 'تصحيح وإنهاء الامتحان';
+      }
+      appState.examSubmitted = true;
+      hideBanner();
+      renderAll();
+      persistState();
+    }
+
+    function reviewExamMistakes() {
+      const byId = new Map(QUESTIONS.map(function(q) { return [q.id, q]; }));
+      const firstWrong = appState.examIds.find(function(id) {
+        const q = byId.get(id);
+        return q && appState.examAnswers[id] !== q.correct;
+      });
+      if (firstWrong) {
+        appState.currentQuestionId = firstWrong;
+        renderAll();
+        persistState();
+      } else {
+        showBanner('تهانينا! لقد أجبت عن جميع أسئلة هذا الامتحان التجريبي إجابة صحيحة.');
+      }
+    }
+
+    function shuffleVisibleOrder() {
+      if (appState.mode === 'exam') {
+        startNewExam();
+        showBanner('تم توليد نموذج امتحان تجريبي جديد من 20 سؤالا عشوائيا.');
+        return;
+      }
+      const ids = QUESTIONS.map(function(q) { return q.id; });
+      for (let i = ids.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = ids[i];
+        ids[i] = ids[j];
+        ids[j] = tmp;
+      }
+      appState.customOrder = ids;
+      const visible = getVisibleQuestions();
+      if (visible.length > 0) appState.currentQuestionId = visible[0].id;
+      showBanner('تم خلط ترتيب الأسئلة بنجاح.');
+      renderAll();
+      persistState();
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.classList.remove('btn-subtle');
+        btn.classList.add('btn-danger-armed');
+        btn.textContent = 'تأكيد مسح جميع الإجابات؟';
+        setTimeout(function() {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.classList.remove('btn-danger-armed');
+            btn.classList.add('btn-subtle');
+            btn.textContent = 'إعادة ضبط التقدم';
+          }
+        }, 4500);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.classList.remove('btn-danger-armed');
+      btn.classList.add('btn-subtle');
+      btn.textContent = 'إعادة ضبط التقدم';
+
+      appState.answers = {};
+      appState.bookmarks = {};
+      appState.currentStreak = 0;
+      appState.bestStreak = 0;
+      appState.customOrder = null;
+      appState.examIds = [];
+      appState.examAnswers = {};
+      appState.examSubmitted = false;
+      appState.mode = 'practice';
+      appState.axisFilter = 'all';
+      appState.difficultyFilter = 'all';
+      appState.statusFilter = 'all';
+      appState.searchQuery = '';
+      appState.currentQuestionId = 1;
+      syncControlsFromState();
+      showBanner('تم مسح جميع الإجابات وإعادة ضبط التتبع بنجاح.');
+      renderAll();
+      persistState();
+    }
+
+    function selectOption(optionIndex) {
+      const visible = getVisibleQuestions();
+      const q = visible.find(function(item) { return item.id === appState.currentQuestionId; });
+      if (!q) return;
+
+      if (appState.mode === 'exam') {
+        if (appState.examSubmitted) return;
+        appState.examAnswers[q.id] = optionIndex;
+        const submitBtn = document.getElementById('btn-submit-exam');
+        if (submitBtn) {
+          submitBtn.dataset.armed = 'false';
+          submitBtn.textContent = 'تصحيح وإنهاء الامتحان';
+        }
+        renderAll();
+        persistState();
+        return;
+      }
+
+      if (appState.answers[q.id] !== undefined) return;
+      appState.answers[q.id] = optionIndex;
+      if (optionIndex === q.correct) {
+        appState.currentStreak += 1;
+        if (appState.currentStreak > appState.bestStreak) {
+          appState.bestStreak = appState.currentStreak;
+        }
+      } else {
+        appState.currentStreak = 0;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function toggleBookmark() {
+      const id = appState.currentQuestionId;
+      if (appState.bookmarks[id]) {
+        delete appState.bookmarks[id];
+      } else {
+        appState.bookmarks[id] = true;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function jumpToQuestion(id) {
+      appState.currentQuestionId = id;
+      renderAll();
+      persistState();
+    }
+
+    function goPrev() {
+      const visible = getVisibleQuestions();
+      const idx = visible.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      if (idx > 0) {
+        appState.currentQuestionId = visible[idx - 1].id;
+        renderAll();
+        persistState();
+      }
+    }
+
+    function goNext() {
+      const visible = getVisibleQuestions();
+      const idx = visible.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      if (idx >= 0 && idx < visible.length - 1) {
+        appState.currentQuestionId = visible[idx + 1].id;
+        renderAll();
+        persistState();
+      }
+    }
+
+    function goNextUnanswered() {
+      const visible = getVisibleQuestions();
+      const mapObj = appState.mode === 'exam' ? appState.examAnswers : appState.answers;
+      const curIdx = visible.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      for (let offset = 1; offset <= visible.length; offset++) {
+        const candidate = visible[(curIdx + offset) % visible.length];
+        if (mapObj[candidate.id] === undefined) {
+          appState.currentQuestionId = candidate.id;
+          renderAll();
+          persistState();
+          return;
+        }
+      }
+      showBanner('تمت الإجابة عن جميع الأسئلة المعروضة حاليا!');
+    }
+
+    function filterByAxisFromSidebar(axisId) {
+      appState.mode = 'practice';
+      appState.axisFilter = (appState.axisFilter === axisId) ? 'all' : axisId;
+      syncControlsFromState();
+      const visible = getVisibleQuestions();
+      if (visible.length > 0 && !visible.some(function(q) { return q.id === appState.currentQuestionId; })) {
+        appState.currentQuestionId = visible[0].id;
+      }
+      renderAll();
+      persistState();
+    }
+
+    function exportProgressCsv() {
+      const lines = ['رقم السؤال,المحور,درجة الصعوبة,السؤال,إجابة المستعمل,الإجابة الصحيحة,النتيجة,المرجع'];
+      const axisTitleMap = new Map(AXES.map(function(a) { return [a.id, a.title]; }));
+      QUESTIONS.forEach(function(q) {
+        const userChoiceIdx = appState.answers[q.id];
+        const userChoiceText = userChoiceIdx !== undefined ? q.options[userChoiceIdx] : 'لم يجب عنه';
+        const correctText = q.options[q.correct];
+        const status = userChoiceIdx === undefined ? 'متبقي' : (userChoiceIdx === q.correct ? 'صحيح' : 'خاطئ');
+        const row = [
+          q.id,
+          axisTitleMap.get(q.domain) || q.domain,
+          q.difficulty,
+          q.question.replace(/<[^>]*>/g, ''),
+          userChoiceText.replace(/<[^>]*>/g, ''),
+          correctText.replace(/<[^>]*>/g, ''),
+          status,
+          q.ref.replace(/<[^>]*>/g, '')
+        ].map(function(val) {
+          return '"' + String(val).replace(/"/g, '""') + '"';
+        }).join(',');
+        lines.push(row);
+      });
+      const csvContent = '\uFEFF' + lines.join('\n');
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: csvContent,
+          contentType: 'text/csv',
+          encoding: 'UTF-8',
+          filename: 'qcm_tadbir_mali_madi_results.csv'
+        });
+        showBanner('تم تصدير تقرير النتائج بصيغة CSV.');
+      } else {
+        showBanner('ميزة التصدير تتطلب واجهة التشغيل المدمجة.');
+      }
+    }
+
+    function renderStats() {
+      let answered = 0;
+      let correct = 0;
+      QUESTIONS.forEach(function(q) {
+        const ans = appState.answers[q.id];
+        if (ans !== undefined) {
+          answered += 1;
+          if (ans === q.correct) correct += 1;
+        }
+      });
+
+      const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+      const pctDone = Math.round((answered / QUESTIONS.length) * 100);
+
+      const scoreEl = document.getElementById('stat-score');
+      const accEl = document.getElementById('stat-accuracy');
+      const progEl = document.getElementById('stat-progress');
+      const progBarEl = document.getElementById('stat-progress-bar');
+      const streakEl = document.getElementById('stat-streak');
+      const bestStreakEl = document.getElementById('stat-best-streak');
+      const focusAxisEl = document.getElementById('stat-focus-axis');
+      const focusNoteEl = document.getElementById('stat-focus-note');
+
+      if (scoreEl) scoreEl.textContent = correct + ' / ' + answered;
+      if (accEl) {
+        accEl.textContent = 'نسبة النجاح: ' + accuracy + '%';
+        accEl.className = 'figure-delta' + (answered === 0 ? '' : (accuracy >= 70 ? ' is-positive' : ' is-error'));
+      }
+      if (progEl) progEl.textContent = answered + ' / ' + QUESTIONS.length;
+      if (progBarEl) progBarEl.style.width = pctDone + '%';
+      if (streakEl) streakEl.textContent = String(appState.currentStreak);
+      if (bestStreakEl) bestStreakEl.textContent = 'أفضل سلسلة: ' + appState.bestStreak;
+
+      // Determine weakest axis with at least 1 answered question
+      let weakest = null;
+      let lowestAcc = 101;
+      AXES.forEach(function(axis) {
+        const qs = QUESTIONS.filter(function(q) { return q.domain === axis.id; });
+        let a = 0;
+        let c = 0;
+        qs.forEach(function(q) {
+          if (appState.answers[q.id] !== undefined) {
+            a += 1;
+            if (appState.answers[q.id] === q.correct) c += 1;
+          }
+        });
+        if (a > 0) {
+          const r = (c / a) * 100;
+          if (r < lowestAcc) {
+            lowestAcc = r;
+            weakest = { axis: axis, acc: Math.round(r), answered: a };
+          }
+        }
+      });
+
+      if (focusAxisEl && focusNoteEl) {
+        if (!weakest) {
+          focusAxisEl.textContent = 'جاهز للبدء';
+          focusNoteEl.textContent = 'أجب عن الأسئلة لرصد نقاط القوة والضعف';
+        } else if (lowestAcc >= 85) {
+          focusAxisEl.textContent = 'أداء متميز في المحاور';
+          focusNoteEl.textContent = 'أدنى محور بنسبة ' + weakest.acc + '% (' + weakest.axis.short + ')';
+        } else {
+          focusAxisEl.textContent = weakest.axis.short;
+          focusNoteEl.textContent = 'دقة ' + weakest.acc + '% من أصل ' + weakest.answered + ' أسئلة مجابة';
+        }
+      }
+    }
+
+    function renderModeAndExamSummary() {
+      const btnPractice = document.getElementById('btn-mode-practice');
+      const btnExam = document.getElementById('btn-mode-exam');
+      const badge = document.getElementById('header-mode-badge');
+      const summaryCard = document.getElementById('exam-summary-card');
+      const summarySub = document.getElementById('exam-summary-subtitle');
+      const scoreBig = document.getElementById('exam-score-big');
+
+      if (btnPractice && btnExam) {
+        if (appState.mode === 'practice') {
+          btnPractice.className = 'btn btn-active-tab';
+          btnExam.className = 'btn btn-secondary';
+        } else {
+          btnPractice.className = 'btn btn-secondary';
+          btnExam.className = 'btn btn-active-tab';
+        }
+      }
+      if (badge) {
+        badge.textContent = appState.mode === 'exam'
+          ? 'امتحان تجريبي: 20 سؤالا • ' + (appState.examSubmitted ? 'تم التصحيح' : 'قيد الإنجاز')
+          : 'بنك الأسئلة: ' + QUESTIONS.length + ' سؤالا • وضع التدريب';
+      }
+
+      if (summaryCard) {
+        if (appState.mode === 'exam' && appState.examSubmitted) {
+          const byId = new Map(QUESTIONS.map(function(q) { return [q.id, q]; }));
+          let score = 0;
+          appState.examIds.forEach(function(id) {
+            const q = byId.get(id);
+            if (q && appState.examAnswers[id] === q.correct) score += 1;
+          });
+          const pct = Math.round((score / 20) * 100);
+          if (scoreBig) scoreBig.textContent = score + ' / 20 (' + pct + '%)';
+          if (summarySub) {
+            summarySub.textContent = score >= 14
+              ? 'نتيجة ممتازة تؤكد تمكنا دقيقا من المقتضيات القانونية والإجرائية للدليل.'
+              : (score >= 10 ? 'نتيجة متوسطة: يُنصح بمراجعة التعليلات القانونية للأسئلة الخاطئة.' : 'يُنصح بمراجعة المحاور الأساسية في وضع التدريب قبل إعادة الامتحان.');
+          }
+          summaryCard.classList.add('is-visible');
+        } else {
+          summaryCard.classList.remove('is-visible');
+        }
+      }
+    }
+
+    function renderQuestionCard() {
+      const visible = getVisibleQuestions();
+      const emptyEl = document.getElementById('empty-state');
+      const cardEl = document.getElementById('question-card');
+      if (!emptyEl || !cardEl) return;
+
+      if (visible.length === 0) {
+        emptyEl.classList.add('is-visible');
+        cardEl.style.display = 'none';
+        return;
+      }
+
+      emptyEl.classList.remove('is-visible');
+      cardEl.style.display = 'flex';
+
+      let idx = visible.findIndex(function(q) { return q.id === appState.currentQuestionId; });
+      if (idx < 0) {
+        idx = 0;
+        appState.currentQuestionId = visible[0].id;
+      }
+      const q = visible[idx];
+      const axisObj = AXES.find(function(a) { return a.id === q.domain; });
+
+      const counterEl = document.getElementById('q-counter');
+      const axisBadgeEl = document.getElementById('q-axis-badge');
+      const diffBadgeEl = document.getElementById('q-diff-badge');
+      const stemEl = document.getElementById('q-stem');
+      const optsEl = document.getElementById('options-list');
+      const rationaleBox = document.getElementById('rationale-box');
+      const verdictEl = document.getElementById('rationale-verdict');
+      const rationaleTextEl = document.getElementById('rationale-text');
+      const rationaleRefEl = document.getElementById('rationale-ref');
+      const bookmarkBtn = document.getElementById('btn-bookmark');
+      const bookmarkIcon = document.getElementById('bookmark-icon');
+      const bookmarkLabel = document.getElementById('bookmark-label');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnNextUnans = document.getElementById('btn-next-unanswered');
+      const btnSubmitExam = document.getElementById('btn-submit-exam');
+
+      if (counterEl) counterEl.textContent = 'السؤال ' + (idx + 1) + ' من ' + visible.length + ' (رقم ' + q.id + ')';
+      if (axisBadgeEl && axisObj) axisBadgeEl.textContent = axisObj.short;
+      if (diffBadgeEl) diffBadgeEl.textContent = 'المستوى: ' + q.difficulty;
+      if (stemEl) stemEl.innerHTML = q.question;
+
+      const isBookmarked = Boolean(appState.bookmarks[q.id]);
+      if (bookmarkBtn) bookmarkBtn.classList.toggle('is-bookmarked', isBookmarked);
+      if (bookmarkIcon) bookmarkIcon.textContent = isBookmarked ? '★' : '☆';
+      if (bookmarkLabel) bookmarkLabel.textContent = isBookmarked ? 'محفوظ للمراجعة' : 'حفظ للمراجعة';
+
+      const ansMap = appState.mode === 'exam' ? appState.examAnswers : appState.answers;
+      const userChoice = ansMap[q.id];
+      const showCorrection = appState.mode === 'practice' ? (userChoice !== undefined) : appState.examSubmitted;
+
+      if (optsEl) {
+        optsEl.innerHTML = '';
+        q.options.forEach(function(optText, i) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'option-btn';
+          btn.setAttribute('role', 'radio');
+          btn.setAttribute('aria-checked', String(userChoice === i));
+          btn.onclick = function() { selectOption(i); };
+
+          if (appState.mode === 'practice' && userChoice !== undefined) {
+            btn.disabled = true;
+          } else if (appState.mode === 'exam' && appState.examSubmitted) {
+            btn.disabled = true;
+          }
+
+          let statusMarker = '';
+          if (showCorrection) {
+            if (i === q.correct) {
+              btn.classList.add('is-correct');
+              statusMarker = '✓';
+            } else if (userChoice === i && i !== q.correct) {
+              btn.classList.add('is-wrong');
+              statusMarker = '✕';
+            }
+          } else if (userChoice === i) {
+            btn.classList.add('is-selected');
+          }
+
+          btn.innerHTML =
+            '<span class="option-letter">' + OPTION_LETTERS[i] + '</span>' +
+            '<span class="option-text">' + optText + '</span>' +
+            (statusMarker ? '<span class="option-status-icon" aria-hidden="true">' + statusMarker + '</span>' : '');
+          optsEl.appendChild(btn);
+        });
+      }
+
+      if (rationaleBox && verdictEl && rationaleTextEl && rationaleRefEl) {
+        if (showCorrection) {
+          const isRight = userChoice === q.correct;
+          rationaleBox.classList.add('is-visible');
+          rationaleBox.classList.toggle('is-wrong-state', !isRight);
+          if (userChoice === undefined) {
+            verdictEl.textContent = 'لم تتم الإجابة — الجواب الصحيح هو (' + OPTION_LETTERS[q.correct] + ')';
+          } else if (isRight) {
+            verdictEl.textContent = 'إجابة صحيحة (' + OPTION_LETTERS[q.correct] + ')';
+          } else {
+            verdictEl.textContent = 'إجابة غير دقيقة — الصواب هو (' + OPTION_LETTERS[q.correct] + ')';
+          }
+          rationaleTextEl.innerHTML = '<strong>التعليل القانوني والإجرائي:</strong> ' + q.rationale;
+          rationaleRefEl.innerHTML = '<strong>المرجع:</strong> ' + q.ref;
+        } else {
+          rationaleBox.classList.remove('is-visible', 'is-wrong-state');
+        }
+      }
+
+      if (btnPrev) btnPrev.disabled = (idx <= 0);
+      if (btnNext) btnNext.disabled = (idx >= visible.length - 1);
+      if (btnNextUnans) btnNextUnans.style.display = (appState.mode === 'exam' && appState.examSubmitted) ? 'none' : 'inline-flex';
+      if (btnSubmitExam) {
+        btnSubmitExam.style.display = (appState.mode === 'exam' && !appState.examSubmitted) ? 'inline-flex' : 'none';
+      }
+    }
+
+    function renderSidebar() {
+      const axisContainer = document.getElementById('axis-breakdown');
+      if (axisContainer) {
+        axisContainer.innerHTML = '';
+        AXES.forEach(function(axis) {
+          const qs = QUESTIONS.filter(function(q) { return q.domain === axis.id; });
+          let answered = 0;
+          let correct = 0;
+          qs.forEach(function(q) {
+            const a = appState.answers[q.id];
+            if (a !== undefined) {
+              answered += 1;
+              if (a === q.correct) correct += 1;
+            }
+          });
+          const pct = Math.round((answered / qs.length) * 100);
+          const acc = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'axis-item-btn' + (appState.mode === 'practice' && appState.axisFilter === axis.id ? ' is-active' : '');
+          btn.onclick = function() { filterByAxisFromSidebar(axis.id); };
+          btn.innerHTML =
+            '<div class="axis-item-head">' +
+              '<span>' + axis.short + '</span>' +
+              '<span class="axis-item-nums">' + answered + '/' + qs.length + (answered > 0 ? ' (' + acc + '%)' : '') + '</span>' +
+            '</div>' +
+            '<div class="mini-progress-track" aria-hidden="true">' +
+              '<div class="mini-progress-fill" style="width: ' + pct + '%;"></div>' +
+            '</div>';
+          axisContainer.appendChild(btn);
+        });
+      }
+
+      const mapGrid = document.getElementById('q-map-grid');
+      if (mapGrid) {
+        mapGrid.innerHTML = '';
+        const visible = getVisibleQuestions();
+        const ansMap = appState.mode === 'exam' ? appState.examAnswers : appState.answers;
+        const showCorrection = appState.mode === 'practice' || appState.examSubmitted;
+
+        visible.forEach(function(q, index) {
+          const cell = document.createElement('button');
+          cell.type = 'button';
+          cell.className = 'q-map-cell';
+          cell.textContent = String(index + 1);
+          cell.title = 'السؤال ' + q.id;
+          cell.onclick = function() { jumpToQuestion(q.id); };
+
+          const choice = ansMap[q.id];
+          if (q.id === appState.currentQuestionId) {
+            cell.classList.add('is-current');
+          } else if (choice !== undefined) {
+            if (showCorrection) {
+              cell.classList.add(choice === q.correct ? 'is-correct' : 'is-wrong');
+            } else {
+              cell.classList.add('is-selected');
+            }
+          }
+          if (appState.bookmarks[q.id]) {
+            cell.classList.add('is-bookmarked');
+          }
+          mapGrid.appendChild(cell);
+        });
+      }
+    }
+
+    function renderAll() {
+      renderStats();
+      renderModeAndExamSummary();
+      renderQuestionCard();
+      renderSidebar();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const activeTag = document.activeElement ? document.activeElement.tagName : '';
+      if (activeTag === 'INPUT' || activeTag === 'SELECT' || activeTag === 'TEXTAREA') return;
+
+      if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4') {
+        selectOption(Number(e.key) - 1);
+      } else if (e.key === 'ArrowLeft') {
+        // In RTL, left arrow advances forward
+        goNext();
+      } else if (e.key === 'ArrowRight') {
+        goPrev();
+      }
+    });
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            appState = Object.assign({}, appState, saved);
+          }
+        } catch (e) {
+          // Proceed with fresh default state
+        }
+      }
+      isPersistReady = true;
+      syncControlsFromState();
+      renderAll();
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
