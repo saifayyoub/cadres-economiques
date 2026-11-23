@@ -28,7 +28,8 @@ information pages above.
 The eleven exam files are copies of the originals with a responsive AdSense unit injected
 just before </body>. The root hub also carries the same unit after the exam cards.
 Every HTML page also loads Google Tag Manager container GTM-KT5RD54L in <head> and its
-noscript fallback immediately after <body>.
+noscript fallback immediately after <body>. The AdSense loader for client ca-pub-1310762551546330
+is injected once into the <head> of every page; the ad units themselves only push the slot.
 The examen-global-120 page uses the same template/UI as the original exams and was
 generated from the two supplied PDFs (examen_qcm_cadres_economiques_part1.pdf and
 examen_qcm_cadres_economiques_part2.pdf).
