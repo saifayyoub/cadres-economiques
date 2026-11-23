@@ -48,6 +48,7 @@ matching the current icon used on edumaroc.org. Exam pages keep their original
 template/UI and inherit the favicon via the automatic /favicon.ico request.
 /googlefbf44b29c2eeccb4.html is the Google Search Console HTML verification file.
 /sitemap.xml lists all public pages and /robots.txt points crawlers to it.
+/ads.txt declares the AdSense publisher pub-1310762551546330 to ad buyers.
 When adding an exam folder, add its URL to sitemap.xml as well.
 
 ## Adding another exam
