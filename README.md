@@ -46,6 +46,7 @@ No build step is required.
 The edumaroc favicon is served from the site root (/favicon.ico plus PNG variants),
 matching the current icon used on edumaroc.org. Exam pages keep their original
 template/UI and inherit the favicon via the automatic /favicon.ico request.
+/googlefbf44b29c2eeccb4.html is the Google Search Console HTML verification file.
 
 ## Adding another exam
 
