@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ce.edumaroc.org/sitemap.xml
